@@ -1,0 +1,88 @@
+\documentclass[12pt]{Sciences}
+\UnivYear{2016-2017}
+
+‰\usepackage[T1]{fontenc}
+‰\usepackage{amsmath}
+‰\usepackage[frenchb]{babel}
+
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{color}
+\usepackage{graphicx,amsmath,enumerate}
+\graphicspath{{figs/}}
+
+\newcommand{\NP}{{\em NP\,}}
+\pagestyle{empty}
+
+
+%%%%%%%%%% Start TeXmacs macros
+%\usepackage[french]{babel}
+\newcommand{\tmstrong}[1]{\textbf{#1}}
+\newenvironment{enumeratenumeric}{\begin{enumerate}[1.] }{\end{enumerate}}
+%\newtheorem{definition}{D\'efinition}
+%{\theorembodyfont{\rmfamily\small}\newtheorem{exercise}{Exercice}}
+%%%%%%%%%% End TeXmacs macros
+
+
+
+\title{PIR : Cryptographie multi-utilisateurs} % 
+\auteur{Duong Hieu PHAN}
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+
+
+\begin{itemize}
+\item Dur�e 1h30.
+\item Manuscrits sont autoris�s. Les documents du voisin ne sont pas des documents autoris�s. 
+\item La consultation d'un terminal  mobile (notamment d'un t�l�phone) est formellement interdite, quelle qu'en soit la raison.
+\item Le bar�me est indicatif.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exo}{{\bf Machine � registres} [6 points]} 
+\begin{enumerate}
+\item La fonction $x \mapsto x^2 +1$ est-elle calculable par une machine � registres~? Si oui, construire une machine � registres calculant cette fonction. 
+
+\item Construire une machine {\`a} registres calculant le pgcd (plus grand commun diviseur) de $m$
+et $n$, lorsque $m>n$ sont deux entiers positifs.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}{{\bf Machine de Turing} [5 points]} Soit $A=\{a,b,c\}$ un alphabet et ${\cal L}=\{(ab)^{n}\cdot (bc)^{n} \mid n\in \N\}$ le langage des mots form�s d'un nombre $n$ de ``$ab$'' suivis d'un nombre $n$ de ``$bc$''. Donner la table de transitions d'une machine de Turing � une bande qui termine dans un �tat acceptant si le mot d'entr�e est dans $\cal L$ et dans un �tat rejetant sinon (on dit que cette machine {\em d�cide} le langage $\cal L$). La t�te sera initialement positionn�e sur le symbole le plus � gauche du mot si le mot est non vide et sur le symbole $\square$ si le mot est vide (cas $n=0$). On s'autorise � modifier le mot d'entr�e.
+\end{exo}
+
+\begin{exo} {{\bf Probl�me de coloriage d'un graphe} [9 points]\\} 
+Dans ce probl�me, on d�signe par ``graphe'' un graphe non orient�, c'est-�-dire un couple
+$G = (V;A)$, o� $V$ est un ensemble fini de sommets, et $A$ est un ensemble de paires $\{u,v\}$
+de sommets appel�s ar�tes. Si $\{u,v\}\in A$, on dit que $u$ et $v$ sont adjacents, et qu'ils
+sont les extr�mit�s de l'ar�te $\{u,v\}$.
+
+Pour tout entier $k \in \N$, un {\em $k$-coloriage} de $G$ est une application $c$ de $V$ vers $[1, k]$ telle
+que $c(u) \neq c(v)$ pour tous sommets adjacents $u,v$. De fa�on imag�e, on appelle $c(v)$ la
+{\em  couleur} du sommet $v$ de $G$. Si $G$ admet un $k$-coloriage, on dit que $G$ est {\em  $k$-colorable}. 
+
+Le probl�me du $k$-coloriage est le suivant :\\
+
+\begin{tabular}{|ll|}
+\hline 
+Entr�e : & \\
+& Etant donn� un graphe non-orient� $G = (V;A)$ et un entier positif $k$\\
+\hline 
+ Question :& \\
+& D�cider si G est $k$-colorable.\\
+\hline 
+\end{tabular}
+
+\begin{enumerate}
+\item D�terminer si le probl�me du $2$-coloriage est dans P. [5 points]
+\item Pour chaque $k\in\N^*$, le probl�me du $k$-coloriage est-il dans NP~? [4 points]
+\end{enumerate}
+
+
+\end{exo} 
+\end{document}

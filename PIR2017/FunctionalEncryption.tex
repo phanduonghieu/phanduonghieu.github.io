@@ -1,0 +1,53 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage[applemac]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+%\usepackage[francais]{babel} 
+
+\usepackage[utf8]{inputenc}
+
+\pagestyle{empty}
+
+\usepackage{makeidx}               % include an index at the end
+\makeindex
+\usepackage{color}
+\usepackage{graphicx}              % for \includegraphics
+\usepackage{hyperref}              % for HyperTeX links
+\everymath{\displaystyle}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathpple}
+\usepackage[notcite]{showkeys}
+
+\def\dvilink#1#2{\mbox{\href{dvi:#1}{\verb{#2}}}}
+
+
+\newcommand{\RR}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+
+\def\titre#1{\noindent{$\star$ \bf #1} \\ }
+\def\auteur#1{\noindent{\large{ \em #1}}  }
+\newcommand{\resume}{\noindent{\textbf{Résumé~: }}  }
+\newcommand{\prerequis}{\noindent{\textbf{Prérequis~: }}  }
+\newcommand{\reference}{\noindent{\textbf{Références~: }}  }
+
+\begin{document}
+
+\auteur{Duong Hieu PHAN}
+\titre{Functional Encryption }
+\resume 
+Functional Encryption ( is a new paradigm for encryption which extends the traditional ``all-or-nothing'' requirement of Public-Key Encryption in a much more flexible way. FE allows users to learn specific functions of the encrypted data: for any function $f$ from a class $F$, a functional decryption key $dk_f$ can be computed such that, given any ciphertext $c$ with underlying plaintext $x$, using $dk_f$, a user can efficiently compute $f(x)$, but does not get any additional information about $x$.
+This is the most general form of encryption as it encompasses identity-based encryption, attribute-based encryption, broadcast encryption. 
+The objective of this project is to study the state of the art of functional encryption and its applications. 
+\prerequis aucun.
+\\ 
+\reference 
+\begin{itemize}
+\item Functional encryption: Definitions and challenges.\\
+Boneh, D., Sahai, A., Waters
+\url{https://eprint.iacr.org/2010/543.pdf}
+\item Efficient Public Trace and Revoke from Inner-Product Functional Encryption \\
+Shweta Agrawal, Sanjay Bhattacherjee, Duong Hieu Phan, Damien Stehlé and Shota Yamada.
+\url{https://eprint.iacr.org/2017/650.pdf}
+\end{itemize}
+	
+\end{document}

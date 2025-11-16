@@ -1,0 +1,49 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage[applemac]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+%\usepackage[francais]{babel} 
+
+\usepackage[utf8]{inputenc}
+
+\pagestyle{empty}
+
+\usepackage{makeidx}               % include an index at the end
+\makeindex
+\usepackage{color}
+\usepackage{graphicx}              % for \includegraphics
+\usepackage{hyperref}              % for HyperTeX links
+\everymath{\displaystyle}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathpple}
+\usepackage[notcite]{showkeys}
+
+\def\dvilink#1#2{\mbox{\href{dvi:#1}{\verb{#2}}}}
+
+
+\newcommand{\RR}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+
+\def\titre#1{\noindent{$\star$ \bf #1} \\ }
+\def\auteur#1{\noindent{\large{ \em #1}}  }
+\newcommand{\resume}{\noindent{\textbf{Résumé~: }}  }
+\newcommand{\prerequis}{\noindent{\textbf{Prérequis~: }}  }
+\newcommand{\reference}{\noindent{\textbf{Références~: }}  }
+
+\begin{document}
+
+\auteur{Olivier Blazy}
+\titre{Designated Verifier Signature}
+\resume 
+ \\Les signatures permettent d'authentifier un message (mail) pour que le
+destinataire soit convaincu de sa provenance. Cependant dans certains
+cas, on veut pouvoir faire en sorte que le destinataire ne puisse pas
+convaincre quelqu'un d'autre que le message vient bien de nous.
+
+Le sujet consiste à regarder les diverses solutions théoriques
+proposées, et essayer de les catégoriser pour dégager les grands
+mécanismes cryptographique utilisés pour y arriver.
+%\prerequis aucun.
+\\ 
+%\reference 
+\end{document}

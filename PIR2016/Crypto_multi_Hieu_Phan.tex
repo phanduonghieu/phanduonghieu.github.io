@@ -1,0 +1,47 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage[applemac]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+%\usepackage[francais]{babel} 
+
+\usepackage[utf8]{inputenc}
+
+\pagestyle{empty}
+
+\usepackage{makeidx}               % include an index at the end
+\makeindex
+\usepackage{color}
+\usepackage{graphicx}              % for \includegraphics
+\usepackage{hyperref}              % for HyperTeX links
+\everymath{\displaystyle}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathpple}
+\usepackage[notcite]{showkeys}
+
+\def\dvilink#1#2{\mbox{\href{dvi:#1}{\verb{#2}}}}
+
+
+\newcommand{\RR}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+
+\def\titre#1{\noindent{$\star$ \bf #1} \\ }
+\def\auteur#1{\noindent{\large{ \em #1}}  }
+\newcommand{\resume}{\noindent{\textbf{Résumé~: }}  }
+\newcommand{\prerequis}{\noindent{\textbf{Prérequis~: }}  }
+\newcommand{\reference}{\noindent{\textbf{Références~: }}  }
+
+\begin{document}
+
+\auteur{Duong Hieu PHAN}
+\titre{Cryptographie multi-utilisateurs}
+\resume 
+ \\ Malgré un nombre important “one-to-one”, dans le cas des communications multi-utilisateurs (“one-
+to-many”, “many-to- many”), la plupart des solutions existantes ne sont pas satisfaisantes en pratique. Or, nous
+sommes dans une ère de développement très rapide des technologies où de nouvelles applications apparaissent régulièrement pour traiter des données de taille de plus en plus massive, liés au développement du cloud. Le cloud permet de stocker des données de taille très importante sur les serveurs et la question essentielle est de savoir comment on peut exploiter ces données de façon sécurisée. Afin d’atteindre cette sécurité, les fonctionnalités cryptographiques qu’il faut obtenir sont à titre d’exemple : la sécurité des calculs sur les données (au sens le plus fort, les calculs sur les données chiffrées), l’anonymat et le contrôle de l’accès aux données. Les primitives cryptographiques classiques “one-to-one” ne sont pas bien adaptées à ces nouveaux usages ; il est donc naturel de considérer des nouvelles primitives dans des communications multi-utilisateurs où les notions de corruptions, collusions, révocation et traçabilités jouent un rôle aussi important que les notions classiques de la confidentialité, de l’authentification et de l’intégrité.
+
+\prerequis aucun.
+\\ 
+\reference 
+
+	
+\end{document}

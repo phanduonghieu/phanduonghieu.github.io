@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duong Hieu Phan's HomePage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f3f4; 
+            color: #333;
+        }
+        header {
+            background-color: #fff;
+            color: #990000;
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center;
+            background-color: #5c5c5c; 
+            padding: 0.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0.5rem;
+        }
+        section {
+            max-width: 900px;
+            margin: 1rem auto;
+            padding: 1rem; /* Reduced padding for mobile */
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #fff;
+            color: #990000;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ddd;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            padding: 0.5rem 2rem;
+            background-color: #5c5c5c;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #4b4b4b;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
+        }
+        h2, h3 {
+            color: #990000;
+        }
+        p {
+            line-height: 1.4;
+        }
+        /* Media queries for mobile responsiveness */
+        @media (max-width: 600px) {
+            section {
+                padding: 1rem;
+            }
+            nav a {
+                margin: 0.3rem;
+            }
+        }
+        ul, ol {
+            margin: 1em 0;
+            padding-left: 1.6em;
+        }
+        li {
+            margin: 0.25em 0;
+            margin-bottom: 1em;
+        }
+        .content h2 {
+            color: #990000;
+        }
+        .abstract {
+            display: none;
+            margin-top: 0.5em;
+        }
+        .show {
+            cursor: pointer;
+            color: #990000;
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+        function toggleAbstract(id) {
+            var abstract = document.getElementById(id);
+            if (abstract.style.display === "none") {
+                abstract.style.display = "block";
+            } else {
+                abstract.style.display = "none";
+            }
+        }
+    </script>
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Duong Hieu Phan</h1>
+    <p><h3><i>Phan Dương Hiệu</i></h3></p>
+    <p>Professor at Telecom Paris, Institut Polytechnique de Paris</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.di.ens.fr/users/phan/TiengViet.htm">Tiếng Việt</a>
+</nav>
+
+
+<section>
+    <div class="content">
+        <ul>
+            <li style="font-size: 1.4em;"><a href="#publications">Publications</a></li>
+            <li style="font-size: 1.4em;"><a href="#students">Students</a></li>
+            <li style="font-size: 1.4em;"><a href="#thesis">Thesis</a></li>
+        </ul>
+</section>
+<section>        
+        <h2 id="publications">Publications</h2>
+        <h3> <i> (Click on paper title to view the abstract.) </i></h3>
+        <hr>
+        <ul>
+         <li>
+                <span class="show" onclick="toggleAbstract('abstract64')"><b>Relations Among New CCA Security Notions for Approximate FHE</b></span><br>
+                <i>with Chris Brzuska (Aalto University),  Sébastien Canard (Télécom Paris, IPP), Caroline Fontaine (ENS Paris-Saclay), David Pointcheval (Cosmian), Marc Renard (CEA LIST) and Renaud Sirdey (CEA LIST) </i><br>
+                Accepted to  <a href="https://cic.iacr.org/" target="_blank"> IACR CIC Journal</a>, Issue 2, Volume 1, 2025.<br>
+                     [<a href="https://eprint.iacr.org/2024/812.pdf">Paper in pdf</a>]             
+                                                         <div id="abstract64" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    
+<p>In a recent Eurocrypt'24 paper, Manulis and Nguyen have proposed a new CCA security notion, vCCA, and associated construction blueprints to leverage both CPA-secure and correct FHE beyond the CCA1 security barrier. However, because their approach is only valid under the correctness assumption, it leaves a large part of the FHE spectrum uncovered, as many FHE schemes used in practice turn out to be approximate and, as such, do not satisfy the correctness assumption.</p>
+        <p>In this paper, we improve their work by defining and investigating a variant of their security notion which is suitable for a more general case where approximate FHE are included. As the passive security of approximate FHE schemes is more appropriately captured by <strong>CPA<sup>D</sup></strong> rather than CPA security, we start from the former notion to define our <strong>vCCA<sup>D</sup></strong> new security notion. Although we show that vCCA and vCCA<sup>D</sup> are equivalent when the correctness assumption holds, we establish that vCCA<sup>D</sup> security is strictly stronger than vCCA security in the general case.</p>
+        <p>In doing so, we interestingly establish several new separation results between variants of CPA<sup>D</sup> security of increasing strength. This allows us to clarify the relationship between vCCA security and CPA<sup>D</sup> security, and to reveal that the security notions landscape is much simpler for correct FHE than when approximate ones are included — in which case, for example, we establish that multiple challenges security notions are strictly stronger than single-challenge ones for both CPA<sup>D</sup> and vCCA<sup>D</sup> security.</p>
+        <p>Lastly, we also give concrete construction blueprints, showing how to leverage some of the blueprints proposed by Manulis and Nguyen to achieve vCCA<sup>D</sup> security. As a result, vCCA<sup>D</sup> security is the strongest CCA security notion known so far to be achievable by both correct and approximate FHE schemes.</p>
+   
+         <li>
+                <span class="show" onclick="toggleAbstract('abstract62')"><b>Anamorphism Beyond One-To-One Messaging:
+Public-Key with Anamorphic Broadcast Mode</b></span><br>
+                <i>with Xuan Thanh Do (Institute of Cryptography Science and Technology,Vietnam) and Giuseppe Persiano (Univ. of Salerno and Google) and Moti Yung (Google and Columbia Univ.)</i><br>
+                Accepted to Advances in Cryptology - <a href="https://eurocrypt.iacr.org/2025/" target="_blank">IACR EUROCRYPT 2025</a>.<br>
+                       
+                        <div id="abstract62" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+    <p>
+    <p>
+        To date, Anamorphic Cryptography [EC22] has been developed to support adding hidden messages within a ciphertext of an allowed cryptosystem on a channel from the sender to the receiver, 
+        even hidden from a strong adversary that possesses the receiver's key and/or determines the sent primary message.
+        We expand this one-to-one encrypted anamorphic communication to one-to-many anamorphism, naturally assuming communication over a broadcast channel.
+    </p>
+
+    <p>
+        What we show is that using a previously designed public key system, two things can happen:
+    </p>
+
+    <ul>
+        <li>First, the receiver of an added hidden message may be a party different from the actual receiver (i.e., a shadow party) who has initially collaborated with the sender.</li>
+        <li>Secondly, and perhaps more surprisingly, the receiving party need not be a singleton; it can consist of multiple different shadow (i.e., anonymous) groups, each receiving a different message anamorphically. 
+            All these messages are extracted from a single receiver ciphertext.</li>
+    </ul>
+
+    <p>
+        The idea of having multiple hidden channels for different shadow groups is highly useful. 
+        For example, if the anamorphic messages are warnings with operational instructions sent to groups, 
+        then a group will still receive the message even if the adversary is able to temporarily cut off all but one member of a channel.
+    </p>
+
+    More specifically, we do the following:
+
+    <ul>
+        <li>
+            First, we motivate and formalize the notion of <em>Public-Key Encryption with an Anamorphic Broadcast Mode</em>.
+        </li>
+        <li>
+            We then present, as an initial result of independent interest, the first lattice-based construction of 
+            <em>Anonymous Multi-Channel Broadcast Encryption</em>.
+            It is important to note that all Multi-Channel Broadcast schemes to date are in the pairing-based setting 
+            (and are, thus, insecure against quantum adversaries).
+        </li>
+        <li>
+            Finally, we show how to transform a strong form of anonymity (where the ciphertext also hides the number of channels)
+            into a system with anamorphism in the multi-channel broadcast setting for the well-known 
+            <em>Dual Regev Public-Key Encryption</em> scheme.
+            Specifically, we show that, given the public key <code>pk</code> for the Dual Regev encryption scheme, and a sequence of <code>ℓ</code> messages for 
+            the <code>ℓ</code> channels of the broadcast scheme, it is possible to create a ciphertext that will carry the <code>ℓ</code> messages
+            and is also a legitimate ciphertext for <code>pk</code>.
+        </li>
+    </ul>
+
+    </p>
+
+          </li>
+          
+          
+          
+         <li>
+                <span class="show" onclick="toggleAbstract('abstract63')"><b>Multi-Client Functional Encryption with Public Inputs and
+  Strong Security</b></span><br>
+                <i>with Ky Nguyen (ENS) and David Pointcheval (Cosmian) </i><br>
+                Accepted to  <a href="https://pkc.iacr.org/2025/" target="_blank">IACR PKC 2025</a>.<br>
+                     [<a href=" https://eprint.iacr.org/2024/740.pdf">Paper in pdf</a>]             
+                        <div id="abstract63" class="abstract">
+                    <p><b>Abstract:</b></p>
+ <p>Recent years have witnessed a significant development for functional encryption (FE) in the multi-user setting, particularly with multi-client functional encryption (MCFE). The challenge becomes more important when combined with access control, such as attribute-based encryption (ABE), which was actually not covered syntactically by the public-key FE nor semantically by the secret-key MCFE frameworks. On the other hand, as for complex primitives, many works have studied the admissibility of adversaries to ensure that the security model encompasses all real threats of attacks.</p>
+    
+    <ul>
+        <li>At a conceptual level, by adding a public input to FE/MCFE, we cover many previous primitives, notably attribute-based function classes. Furthermore, with the strongest admissibility for inner-product functionality, our framework is quite versatile, as it encrypts multiple sub-vectors, allows repetitions and corruptions, and eventually also encompasses public-key FE and classical ABE, bridging the setting of MCFE with the setting of FE and ABE.</li>
+        
+        <li>Finally, we propose an MCFE with public inputs with the class of functions that combines inner-products (on private inputs) and attribute-based access-control (on public inputs) for LSSS policies. We achieve the first AB-MCFE for inner products with strong admissibility (from Nguyen et al., ACNS'23) and with adaptive security.</li>
+    </ul>
+    
+    <p>In the end, our concrete MCFE leads to MIFE for inner products, public-key single-input inner-product FE with LSSS key-policy, and KP-ABE for LSSS, with adaptive security. Previous AB-MCFE constructions are either restricted in terms of weaker admissibility (Nguyen et al., ASIACRYPT'22) or considers a slightly larger functionality of attribute-weighted sum but with only selective security (Agrawal et al., CRYPTO'23).</p>
+
+          </li>
+
+          
+         <li>
+                <span class="show" onclick="toggleAbstract('abstract59')"><b>(Book's Editors) Security and Cryptography for Networks</b></span><br>
+                <i>with Clemente Galdi (Universita' di Salerno)</i><br>
+                 Lecture Notes in Computer Science (<a href="https://link.springer.com/book/10.1007/978-3-031-71070-4" target="_blank">PART 1: volume 14974</a> and  <a href="https://link.springer.com/book/10.1007/978-3-031-71073-5" target="_blank">PART 2: volume 14975</a>, 2024.) <br>
+                <div id="abstract59" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+The two-volume set LNCS 14973 and 14974 constitutes the proceedings of the 14th International Conference on Security and Cryptography for Networks,  <a href="https://scn.unisa.it/scn24/" target="_blank"> SCN 2024 </a> , which took place in Amalfai, Italy, during September 11-13, 2024. <br>
+
+The 33 full papers included in the proceedings were organized in topical sections as follows:<br>
+
+Part I: Zero Knowledge; foundations; protocols; voting systems; <br>
+
+Part II: Homomorphic encryption; symmetric key encryption; cryptanalysis; key management; blockchains.<br>
+
+                                        </p>
+                </div>
+            </li>
+
+
+         <li>
+                <span class="show" onclick="toggleAbstract('abstract61')"><b>Zero-Knowledge Proofs of Quantumness</b></span><br>
+                <i>with Weiqiang Wen (Telecom Paris, IPP), Xingyu Yan (Beijing University of Posts and Telecommunications) and Jinwei Zheng (Telecom Paris, IPP)</i><br>
+                In - <a href="https://cic.iacr.org/" target="_blank"> IACR CIC Journal</a>, Issue 1, Volume 4, 2024.<br>
+        		[<a href="https://cic.iacr.org/p/1/4/24/pdf">Paper in pdf</a>]      
+                        <div id="abstract61" class="abstract">
+                    <p><b>Abstract:</b></p>
+ 
+    <p>
+        With the rapid development of quantum computers, proofs of quantumness have recently become an interesting and intriguing research direction. 
+        However, in all current schemes for proofs of quantumness, quantum provers almost invariably face the risk of being maliciously exploited by classical verifiers. 
+        In fact, through malicious strategies in interaction with quantum provers, classical verifiers could solve some instances of hard problems that arise from the specific scheme in use. 
+        In other words, malicious verifiers can break some schemes (that quantum provers are not aware of) through interaction with quantum provers. 
+        All this is due to the lack of formalization that prevents malicious verifiers from extracting useful information in proofs of quantumness.
+    </p>
+
+    <p>
+        To address this issue, we formalize <strong>zero-knowledge proofs of quantumness</strong>. 
+        Intuitively, the zero-knowledge property necessitates that the information gained by the classical verifier from interactions with the quantum prover 
+        should not surpass what can be simulated using a simulated classical prover interacting with the same verifier. 
+        As a result, the new zero-knowledge notion can prevent any malicious verifier from exploiting quantum advantage. 
+        Interestingly, we find that the classical zero-knowledge proof is sufficient to compile some existing proofs of quantumness schemes into zero-knowledge proofs of quantumness schemes.
+    </p>
+
+    <p>
+        Due to some technical reasons, it appears to be more general to require zero-knowledge proof on the verifier side instead of the prover side. 
+        Intuitively, this helps to regulate the verifier’s behavior from malicious to honest-but-curious. 
+        As a result, both parties will play not only one role in the proofs of quantumness but also a dual role in the classical zero-knowledge proof.
+    </p>
+
+    <p>
+        Specifically, the two principal proofs of quantumness schemes—Shor’s factoring-based scheme and the learning with errors-based scheme in 
+        [Brakerski et al, FOCS, 2018]—can be transformed into zero-knowledge proofs of quantumness by requiring an extractable non-interactive zero-knowledge argument on the verifier side. 
+        Notably, the zero-knowledge proofs of quantumness can be viewed as an enhanced security notion for proofs of quantumness. 
+        To prevent malicious verifiers from exploiting the quantum device’s capabilities or knowledge, it is advisable to transition existing proofs of quantumness schemes to this framework whenever feasible.
+    </p>
+
+                </div>
+            </li>
+
+
+        
+         <li>
+                <span class="show" onclick="toggleAbstract('abstract60')"><b>Adaptive Hardcore Bit and Quantum Key Leasing over Classical Channel from LWE with Polynomial Modulus</b></span><br>
+                <i>with Weiqiang Wen (Telecom Paris, IPP), Xingyu Yan (Beijing University of Posts and Telecommunications) and Jinwei Zheng (Telecom Paris, IPP)</i><br>
+                In Advances in Cryptology - <a href="https://asiacrypt.iacr.org/2024/" target="_blank">IACR ASIACRYPT 2024</a>.<br>
+                     [<a href="https://eprint.iacr.org/2025/099.pdf">Paper in pdf</a>]             
+                        <div id="abstract60" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+        Quantum key leasing, also known as public key encryption with secure key leasing (PKE-SKL),
+        allows a user to lease a (quantum) secret key to a server for decryption purposes, with the capability of revoking the key afterwards.
+    </p>
+    <p>
+        In the pioneering work by Chardouvelis et al. (<a href="https://arxiv.org/abs/2310.14328" target="_blank">arXiv:2310.14328</a>), 
+        a PKE-SKL scheme utilizing classical channels was successfully built upon the noisy trapdoor claw-free (NTCF) family. 
+        This approach, however, relies on the superpolynomial hardness of the learning with errors (LWE) problem, which could affect both the efficiency and security of the scheme.
+    </p>
+
+    <p>
+        In our work, we demonstrate that the reliance on superpolynomial hardness is unnecessary, and that LWE with polynomial-size modulus is sufficient to achieve the same goal. 
+        Our approach enhances both efficiency and security, thereby improving the practical feasibility of the scheme on near-term quantum devices.
+    </p>
+
+    <p>
+        To accomplish this, we first construct a <i>noticeable</i> NTCF (NNTCF) family with the adaptive hardcore bit property, based on LWE with polynomial-size modulus. 
+        To the best of our knowledge, this is the first demonstration of the adaptive hardcore bit property based on LWE with polynomial-size modulus, which may be of independent interest.
+    </p>
+
+    <p>
+        Building on this foundation, we address additional challenges in prior work to construct the first PKE-SKL scheme satisfying the following properties:
+    </p>
+
+    <ul>
+        <li><i>(i)</i> The entire protocol utilizes only classical communication and can also be extended to support homomorphism.</li>
+        <li><i>(ii)</i> The security is solely based on the LWE assumption with polynomial-size modulus.</li>
+    </ul>
+
+    <p>
+        As a demonstration of the versatility of our noticeable NTCF, we show that an efficient proof of quantumness protocol can be built upon it. 
+        Specifically, our protocol enables a classical verifier to test quantumness while relying exclusively on the LWE assumption with polynomial-size modulus.
+    </p>
+                </div>
+            </li>
+
+
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract1')"><b>Public-Key Anamorphism in (CCA-secure) Public-Key Encryption and Beyond</b></span><br>
+                <i>with Giuseppe Persiano (Univ. of Salerno and Google) and Moti Yung (Google and Columbia Univ.)</i><br>
+                In Advances in Cryptology - <a href="https://crypto.iacr.org/2024/" target="_blank">IACR CRYPTO 2024</a>.<br>
+                       [<a href="https://eprint.iacr.org/2024/1327.pdf">Paper in pdf</a>]
+                <div id="abstract1" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    The notion of (Receiver-) Anamorphic Encryption was put forth recently to show 
+                    that a dictator (i.e., an overreaching government), which demands to get the receiver's private key and even dictates messages to the sender, cannot prevent the receiver from getting an additional covert 
+                    anamorphic message from a sender.
+                    The model required an initial private  
+                    collaboration to share some secret. 
+                    There may be settings though where 
+                    an initial collaboration may be impossible or
+                    performance-wise prohibitive, or cases when we need
+                    an immediate message to be sent without private key
+                    generation (e.g., by any casual sender in need). 
+                    This situation, to date, somewhat limits the applicability of anamorphic encryption.
+                    To overcome this, in this work, we put forth the new notion of
+                    <em>public-key anamorphic encryption</em>, where, without any initialization, any sender
+                    that has not coordinated in any shape or form with the receiver, can
+                    nevertheless, under the dictator control of the receiver's private key,
+                    send the receiver an additional anamorphic secret message hidden from the dictator.
+                    We define the new notion with its unique new properties, 
+                    and then prove that, quite interestingly, the known CCA-secure Koppula-Waters (KW) system is, in fact, public-key anamorphic. <br>
+                    
+                    
+                    We then describe how a public-key anamorphic scheme can support a 
+                    new <em>hybrid anamorphic</em> encapsulation mode (KDEM) where the public-key
+                    anamorphic part serves a bootstrapping mechanism to activate regular 
+                    anamorphic messages in the same ciphertext, thus together increasing the anamorphic channel capacity. <br>
+                    
+                    
+                    Looking at the state of research thus far, we observe
+                    that the initial system (Eurocrypt'22)
+                    that was shown to have regular anamorphic properties is the CCA-secure 
+                    Naor-Yung (and other related schemes).
+                    Here we identify that the KW CCA-secure scheme also provides a new type of anamorphism.
+                    Thus, this situation 
+                    is hinting that  
+                    there may be a connection between some types of CCA-secure schemes and some type of anamorphic schemes (in spite of the fact that the goals of the two
+                    primitives are fundamentally different); this question is foundational in nature.
+                    Given this, 
+                    we identify a sufficient condition for a ``CCA-secure scheme which is black-box reduced from a CPA secure scheme'' to directly give rise to ``anamorphic
+                    encryption scheme!''
+                    Furthermore, we identify one extra property of the reduction, that yields
+                    a public-key anamorphic scheme as defined here. 
+                    </p>
+                </div>
+            </li>
+
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract58')"><b>Computational Differential Privacy for Encrypted Databases Supporting Linear Queries</b></span><br>
+                <i>with Ferran Alborch Escobar (Orange Innovation), Sébastien Canard (Télécom Paris) and Fabien Laguillaumie (Université de Montpellier)</i><br>
+                In Proceedings on Privacy Enhancing Technologies - <a href="https://petsymposium.org/">PoPETs 2024</a>, Bristol, UK, 2024.<br>
+                                [<a href="https://eprint.iacr.org/2024/048.pdf">Paper in pdf</a>] <br>
+                                  [<a href="https://github.com/FerranAlborch/RIPFEDP/tree/e74ba9efda74a4f7810902bc31482d33c724d323">Artifact</a>]
+                                
+
+                <div id="abstract58" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+Differential privacy is a fundamental concept for protecting individual privacy in databases while enabling data analysis. Conceptually, it is assumed that the adversary has no direct access to the database, and therefore, encryption is not necessary. However, with the emergence of cloud computing and the « on-cloud » storage of vast databases potentially contributed by multiple parties, it is becoming increasingly necessary to consider the possibility of the adversary having (at least partial) access to sensitive databases. A consequence is that, to protect the on-line database, it is now necessary to employ encryption. At PoPETs'19, it was the first time that the notion of differential privacy was considered for encrypted databases, but only for a limited type of query, namely histograms. Subsequently, a new type of query, summation, was considered at CODASPY'22. These works achieve statistical differential privacy, by still assuming that the adversary has no access to the encrypted database. <br>
+
+In this paper, we argue that it is essential to assume that the adversary may eventually access the encrypted data, rendering statistical differential privacy inadequate. Therefore, the appropriate privacy notion for encrypted databases that we use is computational differential privacy, which was introduced by Beimel et al. at CRYPTO '08. In our work, we focus on the case of functional encryption, which is an extensively studied primitive permitting some authorized computation over encrypted data. Technically, we show that any randomized functional encryption scheme that satisfies simulation-based security and differential privacy of the output can achieve computational differential privacy for multiple queries to one database. Our work also extends the summation query to a much broader range of queries, specifically linear queries, by utilizing inner-product functional encryption. Hence, we provide an instantiation for inner-product functionalities by proving its simulation soundness and present a concrete randomized inner-product functional encryption with computational differential privacy against multiple queries. In term of efficiency, our protocol is almost as practical as the underlying inner product functional encryption scheme. As evidence, we provide a full benchmark, based on our concrete implementation for databases with up to 1 000 000 entries. Our work can be considered as a step towards achieving privacy-preserving encrypted databases for a wide range of query types and considering the involvement of multiple database owners.
+                    </p>
+                </div>
+            </li>
+            
+           
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract2')"><b>Fully Dynamic Attribute-Based Signatures for Circuits from Codes</b></span><br>
+                <i>with San Ling (NTU), Khoa Nguyen (Univ. of Wollongong), Khai Hanh Tang (NTU), Huaxiong Wang (NTU) and Yanhong Xu (Shanghai Jiao Tong Univ.)</i><br>
+                In <a href="https://pkc.iacr.org/2024/" target="_blank">IACR PKC 2024</a>, Sydney, 2024.<br>
+                [<a href="https://eprint.iacr.org/2024/022.pdf">Paper in pdf</a>]
+                <div id="abstract2" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Attribute-Based Signature (ABS), introduced by Maji et al.
+(CT-RSA’11), is an advanced privacy-preserving signature primitive that
+has gained a lot of attention. Research on ABS can be categorized into
+three main themes: expanding the expressiveness of signing policies, enabling new functionalities, and providing more diversity in terms of computational assumptions. We contribute to the development of ABS in all
+three dimensions, by providing a fully dynamic ABS scheme for arbitrary
+circuits from codes. The scheme is the first ABS from code-based assumptions and also the first ABS system offering the full dynamicity functionality (i.e., attributes can be enrolled and revoked simultaneously).
+Moreover, the scheme features much shorter signature size than a latticebased counterpart proposed by El Kaafarani and Katsumata (PKC’18).
+In the construction process, we put forward a new theoretical abstraction of Stern-like zero-knowledge (ZK) protocols, which are the major
+tools for privacy-preserving cryptography from codes. Our main insight
+here actually lies in the questions we ask about the fundamental principles of Stern-like protocols that have remained unchallenged since their
+conception by Stern at CRYPTO’93. We demonstrate that these longestablished principles are not essential, and then provide a refined framework generalizing existing Stern-like techniques and enabling enhanced
+construction
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract3')"><b>Verifiable Decentralized Multi-Client Functional Encryption for Inner Product</b></span><br>
+                <i>with Dinh Duy Nguyen (Telecom Paris, IPP) and David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="https://crypto.iacr.org/2023/" target="_blank">IACR ASIACRYPT 2023</a>.<br>
+                [<a href="https://eprint.iacr.org/2023/268.pdf">Paper in pdf</a>]
+                <div id="abstract3" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    <p>
+    Joint computation on encrypted data is becoming increasingly crucial with the
+    rise of cloud computing. In recent years, the development of multi-client functional encryption
+    (MCFE) has made it possible to perform joint computation on private inputs, without any
+    interaction. Well-settled solutions for linear functions have become efficient and secure, but
+    there is still a shortcoming: if one user inputs incorrect data, the output of the function might
+    become meaningless for all other users (while still useful for the malicious user). To address this
+    issue, the concept of verifiable functional encryption was introduced by Badrinarayanan et al.
+    at Asiacrypt ’16 (BGJS). However, their solution was impractical because of strong statistical
+    requirements. More recently, Bell et al. introduced a related concept for secure aggregation,
+    with their ACORN solution, but it requires multiple rounds of interactions between users. In
+    this paper,
+</p>
+<ul>
+    <li>we first propose a computational definition of verifiability for MCFE. Our notion covers
+        the computational version of BGJS and extends it to handle any valid inputs defined by
+        predicates. The BGJS notion corresponds to the particular case of a fixed predicate in our
+        setting;</li>
+    <li>we then introduce a new technique called Combine-then-Descend, which relies on the class
+        group. It allows us to construct One-time Decentralized Sum (ODSUM) on verifiable private inputs. ODSUM is the building block for our final protocol of a verifiable decentralized
+        MCFE for inner-product, where the inputs are within a range. Our approach notably enables the efficient identification of malicious users, thereby addressing an unsolved problem
+        in ACORN.</li>
+</ul>
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract4')"><b>Anamorphic Signatures: Secrecy From a Dictator Who Only Permits Authentication!</b></span><br>
+                <i>with Mirek Kutylowski (Wroclaw University of Science and Technology), Giuseppe Persiano (Università di Salerno and Google), Moti Yung (Google and Columbia University) and Marcin Zawada (Wroclaw University of Science and Technology)</i><br>
+                In Advances in Cryptology - <a href="https://crypto.iacr.org/2023/" target="_blank">IACR CRYPTO 2023</a>.<br>
+                [<a href="https://eprint.iacr.org/2023/356.pdf">Paper in pdf</a>]
+                <div id="abstract4" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    <p>The goal of this research is to raise technical doubts regarding the usefulness of the repeated
+        attempts by governments to curb Cryptography (aka the “Crypto Wars”), and argue that they,
+        in fact, cause more damage than adding effective control. The notion of Anamorphic Encryption
+        was presented in Eurocrypt’22 for a similar aim. There, despite the presence of a Dictator who
+        possesses all keys and knows all messages, parties can arrange a hidden “anamorphic” message
+        in an otherwise indistinguishable from regular ciphertexts (wrt the Dictator).</p>
+        <p>In this work, we postulate a stronger cryptographic control setting where encryption does not
+        exist (or is neutralized) since all communication is passed through the Dictator in, essentially,
+        cleartext mode (or otherwise, when secure channels to and from the Dictator are the only
+        confidentiality mechanism). Messages are only authenticated to assure recipients of the identity
+        of the sender. We ask whether security against the Dictator still exists, even under such a strict
+        regime which allows only authentication (i.e., authenticated/ signed messages) to pass end-to-end,
+        and where received messages are determined by/ known to the Dictator, and the Dictator also
+        eventually gets all keys to verify compliance of past signing. To frustrate the Dictator,
+        this authenticated message setting gives rise to the possible notion of anamorphic channels
+        inside signature and authentication schemes, where parties attempt to send undetectable secure
+        messages (or other values) using signature tags which are indistinguishable from regular tags.</p>
+        <p>We define and present implementation of schemes for anamorphic signature and authentication;
+        these are applicable to existing and standardized signature and authentication schemes which
+        were designed independently of the notion of anamorphic messages. Further, some cornerstone
+        constructions of the foundations of signatures, in fact, introduce anamorphism.</p>
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract5')"><b>The Self-Anti-Censorship Nature of Encryption: On the Prevalence of Anamorphic Cryptography</b></span><br>
+                <i>with Mirek Kutylowski (Wroclaw University of Science and Technology), Giuseppe Persiano (Università di Salerno and Google), Moti Yung (Google and Columbia University) and Marcin Zawada (Wroclaw University of Science and Technology)</i><br>
+                In Proceedings on Privacy Enhancing Technologies  - <a href="https://petsymposium.org/" target="_blank">PoPETs 2023</a>.<br>
+                [<a href="https://eprint.iacr.org/2023/434.pdf">Paper in pdf</a>]
+                <div id="abstract5" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>As part of the responses to the ongoing “crypto wars,” the notion of Anamorphic Encryption
+        was put forth [Persiano-Phan-Yung Eurocrypt ’22]. The notion allows private communication in
+        spite of a dictator who (in violation of the usual normative conditions under which Cryptography
+        is developed) is engaged in an extreme form of surveillance and/or censorship, where it asks for
+        all private keys and knows and may even dictate all messages. The original work pointed out
+        efficient ways to use two known schemes in the anamorphic mode, bypassing the draconian
+        censorship and hiding information from the all-powerful dictator. A question left open was
+        whether these examples are outlier results or whether anamorphic mode is pervasive in existing
+        systems. Here we answer the above question: we develop new techniques, expand the notion,
+        and show that the notion of Anamorphic Cryptography is, in fact, very much prevalent.</p>
+    <p>We first refine the notion of Anamorphic Encryption with respect to the nature of covert communication. Specifically, we distinguish Single-Receiver Anamorphic Encryption for many to one
+        communication and Multiple-Receiver Anamorphic Encryption for many to many communication within the group of conspiring (against the dictator) users. We then show that Anamorphic
+        Encryption can be embedded in the randomness used in the encryption, and we give families
+        of constructions that can be applied to numerous ciphers. In total the families cover classical encryption schemes, some of which in actual use (RSA-OAEP, Pailler, Goldwasser-Micali,
+        ElGamal schemes, Cramer-Shoup, and Smooth Projective Hash based systems). Among our
+        examples is an anamorphic channel with much higher capacity than the regular channel.</p>
+    <p>In sum, the work shows the very large extent of the potential futility of control and censorship
+        over the use of strong encryption by the dictator (typical for and even stronger than governments
+        engaging in the ongoing “crypto-wars”): While such limitations obviously hurt utility which
+        encryption typically brings to safety in computing systems, they essentially, are not helping the
+        dictator. While the actual implications of what we show here and what it means in practice
+        require further policy and legal analyses and perspectives, the technical aspects regarding the
+        issues are clearly showing the futility of the war against Cryptography.</p>                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract6')"><b>Optimal Security Notion for Decentralized Multi-Client Functional Encryption</b></span><br>
+                <i>with Ky Nguyen (ENS) and David Pointcheval (ENS)</i><br>
+                In Applied Cryptography and Network Security - <a href="https://sulab-sever.u-aizu.ac.jp/ACNS2023/" target="_blank">ACNS 2023</a>.<br>
+                [<a href="https://eprint.iacr.org/2023/435.pdf">Paper in pdf</a>]
+                <div id="abstract6" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+        Research on (Decentralized) Multi-Client Functional Encryption (or (D)MCFE) is
+        very active, with interesting constructions, especially for the class of inner products. However, the
+        security notions have been evolving over the time. While the target of the adversary in distinguishing
+        ciphertexts is clear, legitimate scenarios that do not consist of trivial attacks on the functionality
+        are less obvious. In this paper, we wonder whether only trivial attacks are excluded from previous
+        security games. And, unfortunately, this was not the case.
+    </p>
+    <p>
+        We then propose a stronger security notion, with a large definition of admissible attacks, and
+        prove it is optimal: any extension of the set of admissible attacks is actually a trivial attack on
+        the functionality, and not against the specific scheme. In addition, we show that all the previous
+        constructions are insecure w.r.t. this new security notion. Eventually, we propose new DMCFE
+        schemes for the class of inner products that provide the new features and achieve this stronger
+        security notion.
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract7')"><b>Privacy-Preserving Digital Vaccine Passport</b></span><br>
+                <i>with Thai Duong (Google), Jiahui Gao (Arizona State University) and Ni Trieu (Arizona State University)</i><br>
+                In International Conference on Cryptology and Network Security - <a href="https://www.augusta.edu/ccs/conferences/cans2023/" target="_blank">CANS 2023</a>.<br>
+                [<a href="https://eprint.iacr.org/2023/1656">Paper in pdf</a>]
+                <div id="abstract7" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    The global lockdown imposed during the Covid-19 pandemic has resulted in significant social and economic challenges. In an effort to reopen economies and simultaneously control the spread of the disease, the implementation of contact tracing and digital vaccine passport technologies has been introduced. While contact tracing methods have been extensively studied and scrutinized for security concerns through numerous publications, vaccine passports have not received the same level of attention in terms of defining the problems they address, establishing security requirements, or developing efficient systems. Many of the existing methods employed currently suffer from privacy issues.</p>
+                    <p>
+This work introduces PPass, an advanced digital vaccine passport system that prioritizes user privacy. We begin by outlining the essential security requirements for an ideal vaccine passport system. To address these requirements, we present two efficient constructions that enable PPass to function effectively across various environments while upholding user privacy. By estimating its performance, we demonstrate the practical feasibility of PPass. Our findings suggest that PPass can efficiently verify a passenger’s vaccine passport in just 7 milliseconds, with a modest bandwidth requirement of 480KB.                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract8')"><b>Multi-Client Functional Encryption with Fine-Grained Access Control</b></span><br>
+                <i>with Ky Nguyen (ENS) and David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="https://asiacrypt.iacr.org/2022/" target="_blank">IACR ASIACRYPT 2022</a>.<br>
+                [<a href="https://eprint.iacr.org/2022/215.pdf">Paper in pdf</a>]
+                <div id="abstract8" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Multi-Client Functional Encryption ($\mathsf{MCFE}$) and Multi-Input Functional Encryption ($\mathsf{MIFE}$) are very interesting extensions of Functional Encryption for practical purpose. They allow to compute joint function over data from multiple parties. Both primitives are aimed at applications in multi-user settings where decryption can be correctly output for users with appropriate functional decryption keys only. While the definitions for a single user or multiple users were quite general and can be realized for general classes of functions as expressive as Turing machines or all circuits, efficient schemes have been proposed so far for concrete classes of functions: either only for access control, $\mathit{i.e.}$ the identity function under some conditions, or linear/quadratic functions under no condition. 
+                         </p><p>
+                    In this paper, we target classes of functions that explicitly combine some evaluation functions independent of the decrypting user under the condition of some access control. More precisely, we introduce a framework for $\mathsf{MCFE}$ with fine-grained access control and propose constructions for both single-client and multi-client settings, for inner-product evaluation and access control via Linear Secret Sharing Schemes ($\mathsf{LSSS}$), with selective and adaptive security. The only known work that combines functional encryption in multi-user setting with access control was proposed by Abdalla $\mathit{et~al.}$ (Asiacrypt '20), which relies on a generic transformation from the single-client schemes to obtain $\mathsf{MIFE}$ schemes that suffer a quadratic factor of $n$ (where $n$ denotes the number of clients) in the ciphertext size. We follow a different path, via $\mathsf{MCFE}$: we present a $\mathit{duplicate\text{-}and\text{-}compress}$ technique to transform the single-client scheme and obtain a $\mathsf{MCFE}$ with fine-grained access control scheme with only a linear factor of $n$ in the ciphertext size. Our final scheme thus outperforms the Abdalla $\mathit{et~al.}$'s scheme by a factor $n$, as one can obtain $\mathsf{MIFE}$ from $\mathsf{MCFE}$ by making all the labels in $\mathsf{MCFE}$ a fixed public constant. The concrete constructions are secure under the $\mathsf{SXDH}$ assumption, in the random oracle model for the $\mathsf{MCFE}$ scheme, but in the standard model for the $\mathsf{MIFE}$ improvement.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract9')"><b>Anamorphic Encryption: Private Communication against a Dictator</b></span><br>
+                <i>with Giuseppe Persiano (Univ. of Salerno) and Moti Yung (Google and Columbia Univ.)</i><br>
+                In Advances in Cryptology - <a href="https://eurocrypt.iacr.org/2022/" target="_blank">IACR EUROCRYPT 2022</a>.<br>
+                [<a href="https://eprint.iacr.org/2022/639.pdf">Paper in pdf</a>]
+                <div id="abstract9" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>Cryptosystems have been developed over the years under the typical prevalent setting which assumes that the receiver’s key is kept secure from the adversary, and that the choice of the message to be sent is freely performed by the sender and is kept secure from the adversary as well. Under these fundamental and basic operational assumptions, modern Cryptography has flourished over the last half a century or so, with amazing achievements: New systems (including public-key Cryptography), beautiful and useful models (including security definitions such as semantic security), and new primitives (such as zero-knowledge proofs) have been developed. Furthermore, these fundamental achievements have been translated into actual working systems, and span many of the daily human activities over the Internet. 
+                   </p> <p>
+                    However, in recent years, there is an overgrowing pressure from many governments to allow the government itself access to keys and messages of encryption systems (under various names: escrow encryption, emergency access, communication decency acts, etc.). Numerous non-direct arguments against such policies have been raised, such as "the bad guys can utilize other encryption system" so all other cryptosystems have to be declared illegal, or that "allowing the government access is an ill-advised policy since it creates a natural weak systems security point, which may attract others (to masquerade as the government)." It has remained a fundamental open issue, though, to show directly that the above mentioned efforts by a government (called here “a dictator” for brevity) which mandate breaking of the basic operational assumption (and disallowing other cryptosystems), is, in fact, a futile exercise. This is a direct technical point which needs to be made and has not been made to date. 
+                     </p> <p>
+                    In this work, as a technical demonstration of the futility of the dictator’s demands, we invent the notion of “Anamorphic Encryption” which shows that even if the dictator gets the keys and the messages used in the system (before anything is sent) and no other system is allowed, there is a covert way within the context of well established public-key cryptosystems for an entity to immediately (with no latency) send piggybacked secure messages which are, in spite of the stringent dictator conditions, hidden from the dictator itself! We feel that this may be an important direct technical argument against the nature of governments’ attempts to police the use of strong cryptographic systems, and we hope to stimulate further works in this direction.</p>                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract10')"><b>Privacy in Advanced Cryptographic Protocols: Prototypical Examples</b></span><br>
+                <i>with Moti Yung (Google and Columbia Univ.)</i><br>
+                In <a href="https://vjs.ac.vn/index.php/jcc/article/view/16104" target="_blank">Journal of Computer Science and Cybernetics, Vietnamese Academy of Science and Technology, Vietnam</a>, 2021, 37 (4), pp.429-451.<br>
+                [<a href="https://vjs.ac.vn/index.php/jcc/article/view/16104">Paper in pdf</a>]
+                <div id="abstract10" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>Cryptography is the fundamental cornerstone of cybersecurity employed for achieving data confidentiality, integrity, and authenticity. However, when cryptographic protocols are deployed for emerging applications such as cloud services or big data, the demand for security grows beyond these basic requirements. Data nowadays are being extensively stored in the cloud, users also need to trust the cloud servers/authorities that run powerful applications. Collecting user data, combined with powerful machine learning tools, can come with a huge risk of mass surveillance or undesirable data-driven strategies for making profits rather than for serving the user. Privacy, therefore, becomes more and more important, and new techniques should be developed to protect personal information and to reduce trust requirements on the authorities or the Big Tech providers.</p>
+    <p>In a general sense, privacy is "the right to be left alone" and privacy protection allows individuals to have control over how their personal information is collected and used. In this survey, we discuss the privacy protection methods of various cryptographic protocols, in particular we review:</p>
+    <ul>
+        <li>Privacy in electronic voting systems. This may be, perhaps, the most important real-world application where privacy plays a fundamental role.</li>
+        <li>Private computation. This may be the widest domain in the new era of modern technologies with cloud computing and big data, where users delegate the storage of their data and the computation to the cloud. In such a situation, "how can we preserve privacy?" is one of the most important questions in cryptography nowadays.</li>
+        <li>Privacy in contact tracing. This is a typical example of a concrete study on a contemporary scenario where one should deal with the unexpected social problem but needs not pay the cost of weakening the privacy of users.</li>
+    </ul>
+    <p>Finally, we will discuss some notions which aim at reinforcing privacy by masking the type of protocol that we execute, we call it the covert cryptographic primitives and protocols.</p>
+
+                </div>
+            </li>
+
+
+
+         <li>
+                <span class="show" onclick="toggleAbstract('abstract_chap_BETT')"><b>(Book's Chapter) Broadcast Encryption and Traitor Tracing</b></span><br>
+
+                 In Asymmetric Cryptography: Primitives and Protocols (<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/9781394188369.ch6" target="_blank"> Chapter 6:  Broadcast Encryption and Traitor Tracing) </a>  <br>
+                 <a href="https://www.istegroup.com/fr/produit/cryptographie-asymetrique/?/55171" target="_blank"> French version.</a>  <br>
+                                  <div id="abstract_chap_BETT" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+               This chapter presents recent advancements about Broadcast Encryption and Traitor Tracing.
+                    
+                                        </p>
+                </div>
+            </li>
+
+
+
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract11')"><b>Zero-Knowledge Proofs for Committed Symmetric Boolean Functions</b></span><br>
+                <i>with San Ling (NTU), Khoa Nguyen (NTU), Hanh Tang (NTU) and Huaxiong Wang (NTU)</i><br>
+                In <a href="http://pqcrypto2021.kr/" target="_blank">Post-Quantum Cryptography 2021</a>.<br>
+                    [<a href="https://link.springer.com/content/pdf/10.1007/978-3-030-81293-5_18.pdf">Paper in pdf</a>]
+                <div id="abstract11" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Zero-knowledge proofs (ZKP) are a fundamental notion in modern cryptography and an essential building block for countless privacy-preserving constructions. Recent years have witnessed a rapid development in the designs of ZKP for general statements, in which, for a publicly given Boolean function <span class="mathjax-tex">\(f: \{0,1\}^n \rightarrow \{0,1\}\)</span>, one’s goal is to prove knowledge of a secret input <span class="mathjax-tex">\(\mathbf {x} \in \{0,1\}^n\)</span> satisfying <span class="mathjax-tex">\(f(\mathbf {x}) = b\)</span>, for a given bit <i>b</i>. Nevertheless, in many interesting application scenarios, not only the input <span class="mathjax-tex">\(\mathbf {x}\)</span> but also the underlying function <i>f</i> should be kept private. The problem of designing ZKP for the setting where both <span class="mathjax-tex">\(\mathbf {x}\)</span> and <i>f</i> are hidden, however, has not received much attention.</p><p>This work addresses the above-mentioned problem for the class of <i>symmetric Boolean functions</i>, namely, Boolean functions <i>f</i> whose output value is determined solely by the Hamming weight of the <i>n</i>-bit input <span class="mathjax-tex">\(\mathbf {x}\)</span>. Although this class might sound restrictive, it has exponential cardinality <span class="mathjax-tex">\(2^{n+1}\)</span> and captures a number of well-known Boolean functions, such as threshold, sorting and counting functions. Specifically, with respect to a commitment scheme secure under the Learning-Parity-with-Noise (LPN) assumption, we show how to prove in zero-knowledge that <span class="mathjax-tex">\(f(\mathbf {x}) = b\)</span>, for a committed symmetric function <i>f</i>, a committed input <span class="mathjax-tex">\(\mathbf {x}\)</span> and a bit <i>b</i>. The security of our protocol relies on that of an auxiliary commitment scheme which can be instantiated under quantum-resistant assumptions (including LPN). The protocol also achieves reasonable communication cost: the variant with soundness error <span class="mathjax-tex">\(2^{-\lambda }\)</span> has proof size <span class="mathjax-tex">\(c\cdot \lambda \cdot n\)</span>, where <i>c</i> is a relatively small constant. The protocol can potentially find appealing privacy-preserving applications in the area of post-quantum cryptography, and particularly in code-based cryptography.
+
+                
+
+                                    </p>
+                </div>
+                
+                
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract12')"><b>An Anonymous Trace-and-Revoke Broadcast Encryption Scheme</b></span><br>
+                <i>with Olivier Blazy (Ecole Polytechnique), Sayantan Mukherjee (Limoges Univ.), Huyen Nguyen (ENS Lyon) and Damien Stehlé (ENS Lyon)</i><br>
+                In <a href="https://data61dsslab.github.io/acisp2021/" target="_blank">ACISP 2021</a>.<br>
+                
+   [<a href="https://eprint.iacr.org/2022/307.pdf">Paper in pdf</a>]               
+                <div id="abstract12" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                   Broadcast Encryption is a fundamental cryptographic primitive, that gives the ability to send a secure message to any chosen target set among registered users.
+In this work, we investigate broadcast encryption with anonymous revocation,  in which ciphertexts
+do not reveal any information on which users have been revoked.
+We provide a scheme whose ciphertext size grows linearly with the number of revoked users.  Moreover, our system also achieves traceability in the black-box confirmation model.
+
+Technically, our contribution is threefold. First, we develop a generic transformation of linear functional encryption toward trace-and-revoke systems for 1-bit message space. It is inspired from the transformation by Agrawal {et al} (CCS&#39;17)  with the novelty of achieving anonymity.
+Our second contribution is to instantiate the underlying linear functional encryptions from standard assumptions.  We propose a $\mathsf{DDH}$-based construction which does no longer require discrete logarithm evaluation during the decryption and thus significantly improves the performance compared to the $\mathsf{DDH}$-based construction of Agrawal {et al}.
+In the LWE-based setting, we tried to instantiate our construction by relying on the scheme from Wang {et al} (PKC&#39;19) only to find an attack on this scheme.
+Our third contribution is to extend the 1-bit encryption from the generic transformation to $n$-bit encryption. By introducing matrix multiplication functional encryption, which essentially performs a fixed number of parallel calls on functional encryptions with the same randomness, we can prove the security of the final scheme with a tight reduction that does not depend on $n$, in contrast to employing the hybrid argument." />
+
+  </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract13')"><b>Catalic: Delegated PSI Cardinality with Applications to Contact Tracing</b></span><br>
+                <i>with Thai Duong (Google) and Ni Trieu (Arizona State University)</i><br>
+                In Advances in Cryptology - <a href="https://asiacrypt.iacr.org/2020/" target="_blank">IACR ASIACRYPT 2020</a>.<br>
+                [<a href="https://eprint.iacr.org/2020/1105.pdf">Paper in pdf</a>]
+                <div id="abstract13" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+Private Set Intersection Cardinality (PSI-CA) allows two parties, each holding a set of items, to learn the size of the intersection of those sets without revealing any additional information. To the best of our knowledge, this work presents the first protocol that allows one of the parties to delegate PSI-CA computation to untrusted servers. At the heart of our delegated PSI-CA protocol is a new  oblivious distributed key PRF (Odk-PRF) abstraction, which may be of independent interest.
+</p>
+                    <p>
+
+We explore in detail how to use our delegated PSI-CA protocol to perform privacy-preserving contact tracing. It has been estimated that a significant percentage of a given population would need to use a contact tracing app to stop a disease’s spread. Prior privacy-preserving contact tracing systems, however, impose heavy bandwidth or computational demands on client devices. These demands present an economic disincentive to participate for end users who may be billed per MB by their mobile data plan or for users who want to save battery life. We propose Catalic (ContAct TrAcing for LIghtweight Clients), a new contact tracing system that minimizes bandwidth cost and computation workload on client devices. By applying our new delegated PSI-CA protocol, Catalic shifts most of the client-side computation of contact tracing to untrusted servers, and potentially saves each user hundreds of megabytes of mobile data per day while preserving privacy." />
+                   </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract14')"><b>Dynamic Decentralized Functional Encryption</b></span><br>
+                <i>with Jérémy Chotard (Limoges Univ.), Edouard Dufour-Sans (CMU), Romain Gay (Cornell Tech), and David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="https://crypto.iacr.org/2020/" target="_blank">IACR CRYPTO 2020</a>.<br>
+                [<a href="https://eprint.iacr.org/2020/197.pdf">Paper in pdf</a>]
+                <div id="abstract14" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+We introduce Dynamic Decentralized Functional Encryption (DDFE), a generalization of Functional Encryption which allows multiple users to join the system dynamically, without relying on a trusted third party or on expensive and interactive Multi-Party Computation protocols.</p>
+                    <p>
+
+This notion subsumes existing multi-user extensions of Functional Encryption, such as Multi-Input, Multi-Client, and Ad Hoc Multi-Input Functional Encryption.
+We define and construct schemes for various functionalities which serve as building-blocks for latter primitives and may be useful in their own right, such as a scheme for dynamically computing sums in any Abelian group. These constructions build upon simple primitives in a modular way, and have instantiations from well-studied assumptions, such as DDH or LWE.</p>
+                    <p>
+
+Our constructions culminate in an Inner-Product scheme for computing weighted sums on aggregated encrypted data, from standard assumptions in prime-order groups in the Random Oracle Model.</p>
+                      </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract15')"><b>A Concise Bounded Anonymous Broadcast Yielding Combinatorial Trace-and-Revoke Schemes</b></span><br>
+                <i>with Xuan Thanh Do (VNU, Vietnam and Limoges Univ.) and Moti Yung (Google and Columbia Univ.)</i><br>
+                In <a href="https://sites.google.com/di.uniroma1.it/acns2020/" target="_blank">ACNS 2020</a>, Roma, 2020.<br>
+                [<a href="https://eprint.iacr.org/2020/826.pdf">Paper in pdf</a>]
+                <div id="abstract15" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Broadcast Encryption is  a fundamental  primitive supporting  sending a secure message to any chosen target set of $N$ users.
+While many  efficient constructions are known, understanding the efficiency possible for  an ``Anonymous Broadcast Encryption&#39;&#39; (ANOBE), i.e., one which can hide the target set itself, is quite open.  The best solutions by Barth, Boneh, and Waters (&#39;06) and  Libert, Paterson, and Quaglia (&#39;12) are built on public key encryption (PKE) and their ciphertext sizes are, in fact,  $N$ times that of the underlying PKE (rate=$N$). Kiayias and Samary (&#39;12), in turn, showed a lower bound showing that such rate is the best possible if $N$ is an independent unbounded parameter. However, when considering certain user set size bounded by a  system parameter (e.g., the security parameter), the problem remains interesting. We consider the problem of comparing ANOBE with PKE under the same assumption. We call such schemes  Anonymous Broadcast Encryption for Bounded Universe -- AnoBEB.</p>
+                    <p>
+
+
+We first present  an AnoBEB construction  for up to  $k$ users from LWE assumption, where $k$ is bounded by the scheme security parameter. The scheme does not grow with the parameter and beat the PKE method. Actually, our scheme is as efficient as the underlying LWE public-key encryption; namely, the rate is, in
+fact,  $1$ and thus optimal. The scheme is achieved easily by an observation about an earlier scheme with a different purpose.</p>
+                    <p>
+
+
+More interestingly, we move on to employ the new AnoBEB in other multimedia broadcasting methods and, as a second contribution, we introduce a new approach to construct an efficient ``Trace and Revoke scheme&#39;&#39; which combines the functionalites of revocation and of tracing people (called traitors) who in a broadcasting schemes share their keys with the adversary which, in turn,  generates a pirate receiver. Note that, as was put forth by Kiayias and Yung (EUROCRYPT &#39;02),  combinatorial traitor tracing schemes can be  constructed by combining a system for small universe, integrated via an outer traceability codes (collusion-secure code or identifying parent property (IPP) code). There were many efficient traitor tracing schemes from traceability codes, but no known scheme supports revocation as well. Our new approach integrates our  AnoBEB system with a Robust IPP code, introduced  by Barg and Kabatiansky (IEEE IT &#39;13). This shows an interesting use for robust IPP in cryptography.
+The robust IPP codes were only implicitly shown by an existence proof. In order to make our technique concrete,  we propose two explicit instantiations of  robust IPP codes. Our final construction gives the most efficient  trace and revoke scheme in the bounded collusion model.
+
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract16')"><b>Linearly-Homomorphic Signatures and Scalable Mix-Nets</b></span><br>
+                <i>with Chloé Hebant (ENS) and David Pointcheval (ENS)</i><br>
+                In <a href="https://pkc.iacr.org/2020/" target="_blank">IACR PKC 2020</a>, Edinburgh, 2020.<br>
+                [<a href="https://eprint.iacr.org/2019/547.pdf">Paper in pdf</a>]
+                <div id="abstract16" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Anonymity is a primary ingredient for our digital life. Several tools have been designed to address it such as, for authentication, blind signatures, group signatures or anonymous credentials and, for confidentiality, randomizable encryption or mix-nets. When it comes to complex electronic voting schemes, random shuffling of ciphertexts with mix-nets is the only known tool. However, it requires huge and complex zero-knowledge proofs to guarantee the actual permutation of the initial ciphertexts.
+</p>
+                    <p>
+
+In this paper, we propose a new approach for proving correct shuffling: the mix-servers can simply randomize individual ballots, which means the ciphertexts, the signatures, and the verification keys, with an additional global proof of constant size, and the output will be publicly verifiable. The computational complexity for the mix-servers is linear in the number of ciphertexts. Verification is also linear in the number of ciphertexts, independently of the number of rounds of mixing. This leads to the most efficient technique, that is highly scalable. Our constructions make use of linearly-homomorphic signatures, with new features, that are of independent interest.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract17')"><b>Traceable Inner Product Functional Encryption</b></span><br>
+                <i>with Xuan Thanh Do (VNU, Vietnam and Limoges Univ.) and David Pointcheval (ENS)</i><br>
+                In <a href="https://www.rsaconference.com/usa/agenda/public-key-cryptography-applications-part-1" target="_blank">CT-RSA 2020</a>, San Francisco, 2020.<br>
+                [<a href="https://eprint.iacr.org/2019/1358.pdf">Paper in pdf</a>]
+                <div id="abstract17" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Functional Encryption (FE) has been widely studied in the last decade, as it provides a very useful tool for restricted access to sensitive data: from a ciphertext, it allows specific users to learn a function of the underlying plaintext. In practice, many users may be interested in the same function on the data, say the mean value of the inputs, for example. The conventional definition of FE associates each function to a secret decryption functional key and therefore all the users get the same secret key for the same function. This induces an important problem: if one of these users (called a traitor) leaks or sells the decryption functional key to be included in a pirate decryption tool, then there is no way to trace back its identity. Our objective is to solve this issue by introducing a new primitive, called Traceable Functional Encryption: the functional decryption key will not only be specific to a function, but to a user too, in such a way that if some users collude to produce a pirate decoder that successfully evaluates a function on the plaintext, from the ciphertext only, one can trace back at least one of them.
+</p>
+                    <p>
+
+We propose a concrete solution for Inner Product Functional Encryption (IPFE). We first remark that the ElGamal-based IPFE from Abdalla et. al. in PKC '15 shares many similarities with the Boneh-Franklin traitor tracing from CRYPTO '99. Then, we can combine these two schemes in a very efficient way, with the help of pairings, to obtain a Traceable IPFE with black-box confirmation.                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract18')"><b>Advances in Security Research in the Asiacrypt Region</b></span><br>
+                <i>Article edited with the members of the <a href="https://www.iacr.org/meetings/asiacrypt/sc.html" target="_blank">Asiacrypt Steering Committee</a></i><br>
+                In <a href="https://cacm.acm.org/" target="_blank">Communications of the ACM</a>, 2020.<br>
+                [<a href="https://dl.acm.org/doi/pdf/10.1145/3378428" target="_blank">Paper in pdf</a>]
+                <div id="abstract18" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    This article, edited with the members of the Asiacrypt Steering Committee, provides an overview of the advances in security research in the Asiacrypt region. We discuss recent developments, emerging trends, and future directions in the field of cryptography and information security.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract19')"><b>Downgradable Identity-Based Encryption and Applications</b></span><br>
+                <i>with Olivier Blazy (Limoges Univ.), Paul Germouty (Limoges Univ.)</i><br>
+                In <a href="https://www.rsaconference.com/events/us19/speakers/cryptographers-track" target="_blank">CT-RSA '19</a>, San Francisco, 2019.<br>
+                [<a href="https://eprint.iacr.org/2018/1176.pdf">Paper in pdf</a>]
+                <div id="abstract19" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+ 
+    <p style="white-space: pre-wrap;">In Identity-based cryptography, in order to generalize one receiver encryption to multi-receiver encryption, wildcards were introduced: WIBE enables wildcard in receivers&#39; pattern  and Wicked-IBE allows one to generate a key for  identities with wildcard. However, the use of wildcard makes the construction of WIBE, Wicked-IBE more complicated and significantly less efficient than the underlying IBE. The main reason is that the conventional identity&#39;s binary alphabet is extended to a ternary alphabet $\{0,1,*\}$ and the wildcard $*$ is always treated in a convoluted way in encryption or in key generation. In this paper, we show that when dealing with multi-receiver setting, wildcard is not necessary.  We introduce a new downgradable property for IBE scheme and show that any IBE with this property, called DIBE, can be efficiently transformed into WIBE or Wicked-IBE.
+
+While WIBE and Wicked-IBE have been used to construct Broadcast encryption, we go a step further by employing DIBE to construct Attribute-based Encryption of which the access policy is expressed as a boolean formula in the disjunctive normal form.</p>
+  
+
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract20')"><b>Anonymous IBE with Traceable Identities</b></span><br>
+                <i>with Olivier Blazy (Limoges Univ.), and Laura Brouilhet (Limoges Univ.)</i><br>
+                In <a href="https://www.ares-conference.eu/" target="_blank">14th International Conference on Availability, Reliability and Security (ARES 2019)</a>, Canterbury, United Kingdom, 2019.<br>
+             [<a href="https://eprint.iacr.org/2018/1176.pdf">https://dl.acm.org/doi/abs/10.1145/3339252.3339271</a>]          
+                
+                
+                <div id="abstract20" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We introduce Anonymous Identity Based Encryption with Traceable Identities, in which we provide a new feature to anonymous identity-based encryption schemes: lifting the anonymity of some specific recipients in necessary situations (such as when they are suspected as criminals). Our primitive allows a tracer, given a tracing key associated to an identity, to filter all the ciphertexts that are sent to this specific identity (and only those). As it is primordial to preserve the privacy of the law-abiding users, the security takes into account the collusion of tracers and corrupted users. </p>
+                    <p>
+We first start with the Boyen Waters IBE and then proceed further to the class of IBKEM based on Hash Proof Systems proposed by Blazy et.al. By reinforcing the notion of affine MAC, we show that these IBE schemes can be transformed to AIBET. Interestingly, our transformation does not weaken the original schemes: even though the adversary is allowed to get access to some additional oracles as we add a new functionality, the security relies on the same underlying security assumptions and the efficiency is almost unchanged, only some extra keys are added but the encapsulation / decapsulation process remain the same.                   </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract21')"><b>Decentralized Evaluation of Quadratic Polynomials on Encrypted Data</b></span><br>
+                <i>with Chloé Hebant (ENS) and David Pointcheval (ENS)</i><br>
+                In <a href="https://isc2019.cs.stonybrook.edu/program/" target="_blank">22th Information Security Conference</a>, New York, United States, 2019.<br>
+                [<a href="https://eprint.iacr.org/2018/1019.pdf">Paper in pdf</a>]
+                <div id="abstract21" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p style="white-space: pre-wrap;">Since the seminal paper on Fully Homomorphic Encryption (FHE) by Gentry in 2009, a lot of work and improvements have been proposed, with an amazing number of possible applications. It allows outsourcing any kind of computations on encrypted data, and thus without leaking any information to the provider who performs the computations. This is quite useful for many sensitive data (finance, medical, etc.).
+
+Unfortunately, FHE fails at providing some computation on private inputs to a third party, in cleartext: the user that can decrypt the result is able to decrypt the inputs. A classical approach to allow limited decryption power is distributed decryption. But none of the actual FHE schemes allows distributed decryption, at least with an efficient protocol.
+
+In this paper, we revisit the Boneh-Goh-Nissim (BGN) cryptosystem, and the Freeman&#39;s variant, that allow evaluation of quadratic polynomials, or any 2-DNF formula. Whereas the BGN scheme relies on integer factoring for the trapdoor in the composite-order group, and thus possesses one public/secret key only, the Freeman&#39;s scheme can handle multiple users with one general setup that just needs to define a pairing-based algebraic structure.
+We show that it can be efficiently decentralized, with an efficient distributed key generation algorithm, without any trusted dealer, but also efficient distributed decryption and distributed re-encryption, in a threshold setting.
+We then provide some applications of computations on encrypted data, without central authority.</p>
+                  </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract22')"><b>Decentralized Multi-Client Functional Encryption for Inner Product</b></span><br>
+                <i>with Jérémy Chotard (Limoges Univ.), Edouard Dufour Sans (ENS), Romain Gay (ENS) and David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="https://asiacrypt.iacr.org/2018/" target="_blank">IACR ASIACRYPT '18</a>, Springer, 2018.<br>
+                [<a href="https://eprint.iacr.org/2017/989.pdf">Paper in pdf</a>]
+                <div id="abstract22" class="abstract">
+                    <p><b>Abstract:</b></p>
+    <p style="white-space: pre-wrap;">We consider a situation where multiple parties, owning data that have to be frequently updated, agree to share weighted sums of these data with some aggregator, but where they do not wish to reveal their individual data, and do not trust each other.
+We combine techniques from Private Stream Aggregation (PSA) and Functional Encryption (FE), to introduce a primitive we call Decentralized Multi-Client Functional Encryption (DMCFE), for which we give a practical instantiation for Inner Product functionalities.
+This primitive allows various senders to non-interactively generate ciphertexts which support inner-product evaluation, with functional decryption keys that can also be generated non-interactively, in a distributed way, among the senders.
+Interactions are required during the setup phase only. We prove adaptive security of our constructions, while allowing corruptions of the clients, in the random oracle model.</p>
+  
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract23')"><b>A New Technique for Compacting Ciphertext in Multi-Channel Broadcast Encryption and Attribute-Based Encryption</b></span><br>
+                <i>with Sébastien Canard (Oranges Lab), David Pointcheval (ENS) and Viet Cuong Trinh (Hong Duc Univ., Vietnam)</i><br>
+                In <a href="https://doi.org/10.1016/j.tcs.2018.02.036" target="_blank">Theoretical Computer Science, Vol 723, pages 51-72</a>, 2018.<br>
+                <div id="abstract23" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p id="sp0040">Standard Broadcast Encryption (BE) and Attribute-Based Encryption (ABE) aim at sending a content to a large arbitrary group of users at once. Regarding Broadcast Encryption, currently, the most efficient schemes provide constant-size headers, that encapsulate ephemeral session keys under which the payload is encrypted. However, in practice, and namely for pay-TV, providers have to send various contents to different groups of users. Headers are thus specific to each group, one for each channel: as a consequence, the global overhead is linear in the number of channels. Furthermore, when one wants to zap to and watch another channel, one has to get the new header and decrypt it to learn the new session key: either the headers are sent quite frequently or one has to store all the headers, even if one watches one channel only. Otherwise, the zapping time becomes unacceptably long. We consider the encapsulation of several ephemeral keys, for various groups and thus various channels, in one header only, and we call this new primitive <em>Multi-Channel Broadcast Encryption</em> or <span class="sans-serif">MCBE</span>: one can hope for a much shorter global overhead and a much shorter zapping time since the decoder already has the information to decrypt any available channel at once. Regarding Attribute-Based Encryption, a scheme with constant-size ciphertext is still a challenging task.</p><p id="sp0050">In this paper, we introduce a new technique of optimizing the ciphertext-size for both <span class="sans-serif">MCBE</span> and <span class="sans-serif">ABE</span> schemes.</p>
+                    
+                                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract24')"><b>An Attribute-based Broadcast Encryption Scheme For Lightweight Devices</b></span><br>
+                <i>with Sébastien Canard (Oranges Lab) and Viet Cuong Trinh (Hong Duc Univ., Vietnam)</i><br>
+                In <a href="http://digital-library.theiet.org/content/journals/10.1049/iet-ifs.2017.0157" target="_blank">IET Information Security</a>, Vol. 12, Issue 1, 2018.<br>
+                <div id="abstract24" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Lightweight devices, such as a smartcard associated with a top-box decoder in pay-TV or a SIM card coupled with a powerful (but not totally trusted) smartphone, play an important role in modern applications. The essential requirements for a cryptographic scheme to be truly implemented in lightweight devices are that it should have compact secret key size and support fast decryption. Attribute-based broadcast encryption (ABBE) combines the functionalities of both broadcast encryption and attribute-based encryption in an efficient way, ABBE is therefore a promising cryptographic scheme to be used in practical applications such as mobile pay-TV, satellite transmission, or Internet of Things. Designing an ABBE scheme which can be truly implemented in lightweight devices is still an open question. In this study, the authors solve it by proposing an efficient constant-size private key ciphertext-policy ABBE scheme for disjunctive normal form supporting fast decryption and achieving standard security levels of an ABBE scheme. They concretely show that the authors’ scheme can be truly implemented in a prototype for a smartphone-based cloud storage use case. In particular, they show how to alleviate some parts of their scheme so as to obtain a very practical system, and they give some concrete benchmarks.
+                               </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract25')"><b>Efficient Public Trace and Revoke from Standard Assumptions</b></span><br>
+                <i>with Shweta Agrawal (IIT Madras, India), Sanjay Bhattacherjee (Turing Lab, ISI Kolkata, India), and Damien Stehlé (ENS Lyon) and Shota Yamada AIST, Japan)</i><br>
+                In <a href="https://www.sigsac.org/ccs/CCS2017/" target="_blank">ACM CCS 2017</a>.<br>
+                [<a href="https://eprint.iacr.org/2017/650.pdf">Paper in pdf</a>]
+                <div id="abstract25" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We provide efficient constructions for trace-and-revoke systems with public
+traceability in the black-box confirmation model. Our constructions achieve adaptive
+security, are based on standard assumptions and achieve significant efficiency gains
+compared to previous constructions.
+Our constructions rely on a generic transformation from inner product functional encryption (IPFE) schemes to trace-and-revoke systems. Our transformation requires the
+underlying IPFE scheme to only satisfy a very weak notion of security -- the attacker
+may only request a bounded number of random keys -- in contrast to the standard notion of security where she may request an unbounded number of arbitrarily chosen keys.
+We exploit the much weaker security model to provide a new construction for bounded
+collusion and random key IPFE from the learning with errors assumption (LWE), which
+enjoys improved efficiency compared to the scheme of Agrawal et al. [CRYPTO'16].
+Together with IPFE schemes from Agrawal et al., we obtain trace and revoke from
+LWE, Decision Diffie Hellman and Decision Quadratic Residuosity.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract26')"><b>Identity-based Encryption from Codes with Rank Metric</b></span><br>
+                <i>with Philippe Gaborit (Limoges Univ.), Adrien Hauteville (Limoges Univ.) and Jean-Pierre Tillich (INRIA)</i><br>
+                In Advances in Cryptology - <a href="https://www.iacr.org/conferences/crypto2017/" target="_blank">IACR CRYPTO 2017</a>.<br>
+                [<a href="http://eprint.iacr.org/2017/514.pdf">Paper in pdf</a>]
+                <div id="abstract26" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Code-based cryptography has a long history, almost as long
+as the history of public-key encryption (PKE). While we can construct
+almost all primitives from codes such as PKE, signature, group signature
+etc, it is a long standing open problem to construct an identity-based
+encryption from codes. We solve this problem by relying on codes with
+rank metric.
+</p>
+                    <p>
+The concept of identity-based encryption (IBE), introduced by Shamir in
+1984, allows the use of users’ identifier information such as email as public
+key for encryption. There are two problems that makes the design of IBE
+extremely hard: the requirement that the public key can be an arbitrary
+string and the possibility to extract decryption keys from the public
+keys. In fact, it took nearly twenty years for the problem of designing an
+efficient method to implement an IBE to be solved. The known methods
+of designing IBE are based on different tools: from elliptic curve pairings
+by Sakai, Ohgishi and Kasahara and by Boneh and Franklin in 2000 and
+2001 respectively; from the quadratic residue problem by Cocks in 2001;
+and finally from the Learning-with-Error problem by Gentry, Peikert,
+and Vaikuntanathan in 2008.</p>
+                    <p>
+Among all candidates for post-quantum cryptography, there only exist
+thus lattice-based IBE. In this paper, we propose a new method, based on
+the hardness of learning problems with rank metric, to design the first
+code-based IBE scheme. In order to overcome the two above problems
+in designing an IBE scheme, we first construct a rank-based PKE, called
+RankPKE, where the public key space is dense and thus can be obtained
+from a hash of any identity. We then extract a decryption key from any
+public key by constructing an trapdoor function which relies on RankSign
+- a signature scheme from PQCrypto 2014.
+</p>
+                    <p>
+In order to prove the security of our schemes, we introduced a new prob-
+lem for rank metric: the Rank Support Learning problem (RSL). A high
+technical contribution of the paper is devoted to study in details the
+hardness of the RSL problem.            </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract28')"><b>Homomorphic-Policy Attribute-Based Key Encapsulation Mechanisms</b></span><br>
+                <i>with Jérémy Chotard (Limoges Univ.) and David Pointcheval (ENS)</i><br>
+                In <a href="http://isc2017.vgu.edu.vn" target="_blank">ISC 2017</a>.<br>
+                [<a href="https://eprint.iacr.org/2016/1089.pdf">Paper in pdf</a>]
+                <div id="abstract28" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Attribute-Based Encryption (ABE) allows to target the recipients of a message according to a policy expressed as a predicate among some attributes. Ciphertext-policy ABE schemes can choose the policy at the encryption time.
+</p>
+                    <p>
+
+In this paper, we define a new property for ABE: homomorphic-policy. A combiner is able to (publicly) combine ciphertexts under different policies into a ciphertext under a combined policy (AND or OR). More precisely, using linear secret sharing schemes, we design Attribute-Based Key Encapsulation Mechanisms (ABKEM) with the Homomorphic-Policy property: given several encapsulations of the same keys under various policies, anyone can derive an encapsulation of the same key under any combination of the policies.
+</p>
+                    <p>
+
+As an application, in Pay-TV, this allows to separate the content providers that can generate the encapsulations of a session key under every attributes, this key being used to encrypt the payload, and the service providers that build the decryption policies according to the subscriptions. The advantage is that the aggregation of the encapsulations by the service providers does not contain any secret information.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract29')"><b>Cryptography During the French and American Wars in Vietnam</b></span><br>
+                <i>with Neal Koblitz (Univ. of Washington)</i><br>
+                In <a href="http://dx.doi.org/10.1080/01611194.2017.1292825" target="_blank">Cryptologia</a>, 2017.<br>
+                [<a href="https://eprint.iacr.org/2016/1136.pdf">Paper in pdf</a>]
+                <div id="abstract29" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    After Vietnam's Declaration of Independence on 2 September 1945, the country had to suffer through two long, brutal wars, first against the French and then against the Americans, before finally in 1975 becoming a unified country free of colonial domination.  Our purpose is to examine the role of cryptography in those two wars.  Despite the far greater technological resources of their opponents, the communications
+intelligence specialists of the Viet Minh, the National Liberation Front, and the Democratic Republic of Vietnam had considerable
+success in both protecting Vietnamese communications and acquiring tactical and strategic secrets from the enemy.  Perhaps surprisingly,
+in both wars there was a balance between the sides.  Generally speaking, cryptographic knowledge and protocol design were at a high level
+at the central commands, but deployment for tactical communications in the field was difficult, and there were many failures on all sides.</p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract30')"><b>A New Technique for Compacting Secret Key in Attribute-Based Broadcast Encryption</b></span><br>
+                <i>with Sébastien Canard (Oranges Lab) and Viet Cuong Trinh (Hong Duc Univ., Vietnam)</i><br>
+                In <a href="http://cans2016.di.unimi.it/" target="_blank">CANS 2016</a>.<br>
+                            [<a href="https://link.springer.com/chapter/10.1007/978-3-319-48965-0_38">Paper in pdf</a>]
+                <div id="abstract30" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                   Public-key encryption has been generalized to adapt to more and more practical applications. Broadcast encryption, introduced by Fiat and Naor in 1993, aims for applications in pay-TV or satellite transmission and allows a sender to securely send private messages to any subset of users, the target set. Sahai and Waters introduced Attribute-based Encryption (ABE) to define the target set in a more structural way via access policies on attributes. Attribute-based Broadcast Encryption (ABBE) combines the functionalities of both in an efficient way. In the relevant applications such as pay-TV, the users are given a relatively small device with very limited secure memory in a smartcard. Therefore, it is of high interest to construct schemes with compact secret key of users. Even though extensively studied in the recent years, it is still an open question of constructing an efficient ABBE with constant-size private keys for general forms of access policy such as CNF or DNF forms. This question was partially solved at ESORICS ’15 where Phuong et al. introduced a constant secret-key size ABBE. But they manage restrictive access policies only supporting AND-gates and wildcards. In this paper, we solve this open question and propose an efficient constant-size private key ciphertext-policy attribute-based broadcast encryption scheme for DNF form. In particular, we also present the optimization in implementing our proposed scheme.                </p>
+                </div>
+            </li>
+
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract27')"><b>Hardness of k-LWE and Applications in Traitor Tracing</b></span><br>
+                <i>with San Ling (NTU), Damien Stehlé (ENS Lyon) and Ron Steinfeld (Monash University)</i><br>
+                In Advances in Cryptology - <a href="https://www.iacr.org/conferences/crypto2014/" target="_blank">IACR CRYPTO 2014</a>.<br>
+                Also invited paper for <a href="https://link.springer.com/article/10.1007/s00453-016-0251-7" target="_blank">Algorithmica</a>, December 2017, Volume 79, Issue 4, pp 1318–1352.<br>
+                [<a href="2016_LBTTlong.pdf">Paper in pdf</a>]
+                <div id="abstract27" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                  We introduce the k-LWE problem, a Learning With Errors variant of the
+k-SIS problem. The Boneh-Freeman reduction from SIS to k-SIS suffers from an exponential loss in k. We improve and extend it to an LWE to k-LWE reduction with a polynomial loss in k, by relying on a new technique involving trapdoors for random integer kernel lattices. Based on this hardness result, we present the first algebraic construction of a traitor tracing scheme whose security relies on the worst-case hardness of standard lattice problems. The proposed LWE traitor tracing is almost as efficient as the LWE encryption. Further, it achieves public traceability, i.e., allows the authority to delegate the tracing capability to "untrusted" parties. To this aim, we introduce the notion of projective sampling family in which each sampling function is keyed and, with a projection of the key on a well chosen space, one can simulate the sampling function in a computationally indistinguishable way. The construction of a projective sampling family from k-LWE allows us to achieve public traceability, by publishing the projected keys of the users. We believe that the new lattice tools and the projective sampling
+family are quite general that they may have applications in other areas.             </p>
+                </div>
+            </li>
+
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract32')"><b>Black-box Trace&Revoke Codes</b></span><br>
+                <i>with Hung Q. Ngo (State Univ. of New York at Buffalo) and David Pointcheval (ENS)</i><br>
+                In <a href="https://www.springer.com/journal/453" target="_blank">Algorithmica</a>, Springer, vol. 67, no. 3, Pages 418-448, 2013.<br>
+                [<a href="2013_algorithmica.pdf">Paper in pdf</a>]
+                <div id="abstract32" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                              We address the problem of designing an efficient broadcast encryption scheme which is also capable of tracing traitors. We introduce a code framework to formalize the problem. Then, we give a probabilistic construction of a code which supports both traceability and revocation. Given N users with at most r revoked users and at most t traitors, our code construction gives rise to a Trace&Revoke system with private keys of size O((r+t)logN) (which can also be reduced to constant size based on an additional computational assumption), ciphertexts of size O((r+t)logN), and O(1) decryption time. Our scheme can deal with certain classes of pirate decoders, which we believe are sufficiently powerful to capture practical pirate strategies. In particular, our code construction is based on a combinatorial object called (r,s)-disjunct matrix, which is designed to capture both the classic traceability notion of disjunct matrix and the new requirement of revocation capability. We then probabilistically construct (r,s)-disjunct matrices which help design efficient Black-Box Trace&Revoke systems. For dealing with "smart" pirates, we introduce a tracing technique called "shadow group testing" that uses (close to) legitimate broadcast signals for tracing. Along the way, we also proved several bounds on the number of queries needed for black-box tracing under different assumptions about the pirate's strategies.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract33')"><b>Multi-Channel Broadcast Encryption</b></span><br>
+                <i>with David Pointcheval (ENS) and Viet Cuong Trinh (Paris 8 Univ.)</i><br>
+                In <a href="http://hise.hznu.edu.cn/asiaccs/Conference.html" target="_blank">ASIACCS 2013</a>, ACM Symposium on Information, Computer and Communications Security, ACM Press, Pages 277-286, 2013.<br>
+                [<a href="https://eprint.iacr.org/2012/307.pdf">Paper in pdf</a>]
+                <div id="abstract33" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Broadcast encryption aims at sending a content to a large arbitrary group of users at once. Currently, the most efficient schemes provide constant-size headers, that encapsulate ephemeral session keys under which the payload is encrypted. However, in practice, and namely for pay-TV, providers have to send various contents to different groups of users. Headers are thus specific to each group, one for each channel: as a consequence, the global overhead is linear in the number of channels. Furthermore, when one wants to zap to and watch another channel, one has to get the new header and decrypt it to learn the new session key: either the headers are sent quite frequently or one has to store all the headers, even if one watches one channel only. Otherwise, the zapping time becomes unacceptably long.</p>
+                    <p>
+In this paper, we consider encapsulation of several ephemeral keys, for various groups and thus various channels, in one header only, and we call this new primitive Multi-Channel Broadcast Encryption: one can hope for a much shorter global overhead and a short zapping time since the decoder already has the information to decrypt any available channel at once. Our candidates are private variants of the Boneh-Gentry-Waters scheme, with a constant-size global header, independently of the number of channels. In order to prove the CCA security of the scheme, we introduce a new dummy-helper technique and implement it in the random oracle model.                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract34')"><b>Optimal Public Key Traitor Tracing Scheme in Non-Black Box Model</b></span><br>
+                <i>with Philippe Guillot (Paris 8 Univ.), Abdelkrim Nimour (NAGRA) and Viet Cuong Trinh (Paris 8 Univ.)</i><br>
+                In <a href="http://egyptscience.net/Africacrypt2013/" target="_blank">AFRICACRYPT 2013</a>, LNCS 7918, pages 140-155, Springer-Verlag, 2013.<br>
+                [<a href="2013_africa_2.pdf">Paper in pdf</a>]
+                <div id="abstract34" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    In the context of secure content distribution, the content is encrypted and then broadcasted in a public channel, each legitimate user is provided a decoder and a secret key for decrypting the received signals. One of the main threat for such a system is that the decoder can be cloned and then sold out with the pirate secret keys. Traitor tracing allows the authority to identify the malicious users (are then called traitors) who successfully collude to build pirate decoders and pirate secret keys. This primitive is introduced by Chor, Fiat and Naor in ’94 and a breakthrough in construction is given by Boneh and Franklin at Crypto ’99 in which they consider three models of traitor tracing: non-black-box tracing model, single-key black box tracing model, and general black box tracing model.</p>
+                    <p>
+Beside the most important open problem of obtimizing the black-box tracing, Boneh-Franklin also left an open problem concerning non-black-box tracing, by mentioning: “it seems reasonable to believe that there exists an efficient public key traitor tracing scheme that is completely collusion resistant. In such a scheme, any number of private keys cannot be combined to form a new key. Similarly, the complexity of encryption and decryption is independent of the size of the coalition under the pirate’s control. An efficient construction for such a scheme will provide a useful solution to the public key traitor tracing problem”.</p>
+                    <p>
+As far as we know, this problem is still open. In this paper, we resolve this question in the affirmative way, by constructing a very efficient scheme with all parameters are of constant size and in which the full collusion of traitors cannot produce a new key. Our proposed scheme is moreover dynamic.            </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract35')"><b>Key-Leakage Resilient Revoke Scheme Resisting Pirates 2.0 in Bounded Leakage Model</b></span><br>
+                <i>with Viet Cuong Trinh (Paris 8 Univ.)</i><br>
+                In <a href="http://egyptscience.net/Africacrypt2013/" target="_blank">AFRICACRYPT 2013</a>, LNCS 7918, pages 342-358, Springer-Verlag, 2013.<br>
+                [<a href="2013_africa_1.pdf">Paper in pdf</a>]
+                <div id="abstract35" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Trace and revoke schemes have been widely studied in theory and implemented in practice. In the first part of the paper, we construct a fully secure key-leakage resilient identity-based revoke scheme. In order to achieve this goal, we first employ the dual system encryption technique to directly prove the security of a variant of the BBG − WIBE scheme under known assumptions (and thus avoid a loss of an exponential factor in hierarchical depth in the classical method of reducing the adaptive security of WIBE to the adaptive security of the underlying HIBE). We then modify this scheme to achieve a fully secure key-leakage resilient WIBE scheme. Finally, by using a transformation from a WIBE scheme to a revoke scheme, we propose the first fully secure key-leakage resilient identity-based revoke scheme.
+</p>
+                    <p>
+In the classical model of traitor tracing, one assumes that a traitor contributes its entire secret key to build a pirate decoder. However, new practical scenarios of pirate has been considered, namely Pirate Evolution Attacks at Crypto 2007 and Pirates 2.0 at Eurocrypt 2009, in which pirate decoders could be built from sub-keys of users. The key notion in Pirates 2.0 is the anonymity level of traitors: they can rest assured to remain anonymous when each of them only contributes a very small fraction of its secret key by using a public extraction function. This scenario encourages dishonest users to participate in collusion and the size of collusion could become very large, possibly beyond the considered threshold in the classical model. In the second part of the paper, we show that our key-leakage resilient identity-based revoke scheme is immune to Pirates 2.0 in some special forms in bounded leakage model. It thus gives an interesting and rather surprised connection between the rich domain of key-leakage resilient cryptography and Pirates 2.0.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract36')"><b>Generalized Key Delegation for Wildcarded Identity-Based and Inner-Product Encryption</b></span><br>
+                <i>with Michel Abdalla (ENS), Angelo De Caro (ENS)</i><br>
+                In <a href="http://www.signalprocessingsociety.org/publications/periodicals/forensics/" target="_blank">IEEE-TIFS</a>, IEEE Transactions on Information Forensics & Security, Volume 7 , Issue: 6, Pages 1695 - 1706.<br>
+                [<a href="https://ieeexplore.ieee.org/document/6272345" target="_blank">Paper in pdf</a>]
+                <div id="abstract36" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                 
+                    Inspired by the fact that many e-mail addresses correspond to groups of users, Abdalla introduced the notion of identity-based encryption with wildcards (WIBE), which allows a sender to simultaneously encrypt messages to a group of users matching a certain pattern, defined as a sequence of identity strings and wildcards. This notion was later generalized by Abdalla, Kiltz, and Neven, who considered more general delegation patterns during the key derivation process. Despite its many applications, current constructions have two significant limitations: 1) they are only known to be fully secure when the maximum hierarchy depth is a constant; and 2) they do not hide the pattern associated with the ciphertext. To overcome these, this paper offers two new constructions. First, we show how to convert a WIBE scheme of Abdalla into a (nonanonymous) WIBE scheme with generalized key delegation (WW-IBE) that is fully secure even for polynomially many levels. Then, to achieve anonymity, we initially consider hierarchical predicate encryption (HPE) schemes with more generalized forms of key delegation and use them to construct an anonymous WW-IBE scheme. Finally, to instantiate the former, we modify the HPE scheme of Lewko to allow for more general key delegation patterns. Our proofs are in the standard model and use existing complexity assumptions.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract31')"><b>Adaptive CCA Broadcast Encryption with Constant-Size Secret Keys and Ciphertexts</b></span><br>
+                <i>with David Pointcheval (ENS), Siamak F Shahandashti (ENS) and Mario Strefler (ENS)</i><br>
+                In <a href="https://ssl.informatics.uow.edu.au/acisp2012/" target="_blank">ACISP' 2012</a>, LNCS 7372, pages 308-321, Springer-Verlag, 2012.<br>
+                [<a href="https://eprint.iacr.org/2012/216.pdf">Paper in pdf</a>]
+                <div id="abstract31" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We consider designing broadcast encryption schemes with constant-size secret keys and ciphertexts, achieving chosen-ciphertext security. We first argue that known CPA-to-CCA transforms currently do not yield such schemes. We then propose a scheme, modifying a previous selective CPA secure proposal by Boneh, Gentry, and Waters. Our proposed scheme has constant-size secret keys and ciphertexts and we prove that it is selective chosen-ciphertext secure based on standard assumptions. Our scheme has ciphertexts that are shorter than those of the previous CCA secure proposals. Then we propose a second scheme that provides the functionality of both broadcast encryption and revocation schemes simultaneously using the same set of parameters. Finally we show that it is possible to prove our first scheme adaptive chosen-ciphertext secure under reasonable extensions of the bilinear Diffie-Hellman exponent and the knowledge of exponent assumptions. We prove both of these extended assumptions in the generic group model. Hence, our scheme becomes the first to achieve constant-size secret keys and ciphertexts (both asymptotically optimal) and adaptive chosen-ciphertext security at the same time.           </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract37')"><b>Message Tracing with Optimal Ciphertext Rate</b></span><br>
+                <i>with David Pointcheval (ENS) and Mario Strefler (ENS)</i><br>
+                In <a href="http://2012.latincrypt.org/" target="_blank">LatinCrypt' 2012</a>, LNCS 7533, pages 56-77, Springer-Verlag, 2012.<br>
+                [<a href="2012_latin.pdf">Paper in pdf</a>]
+                <div id="abstract37" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Traitor tracing is an important tool to discourage defrauders from illegally broadcasting multimedia content. However, the main techniques consist in tracing the traitors from the pirate decoders they built from the secret keys of dishonest registered users: with either a black-box or a white-box tracing procedure on the pirate decoder, one hopes to trace back one of the traitors who registered in the system. But new techniques for pirates consist either in sending the ephemeral decryption keys to the decoders for real-time decryption, or in making the full content available on the web for later viewing. This way, the pirate does not send any personal information. In order to be able to trace the traitors, one should embed some information, or watermarks, in the multimedia content itself to make it specific to the registered users.
+</p>
+                    <p>
+This paper addresses this problem of tracing traitors from the decoded multimedia content or rebroadcasted keys, without increasing too much the bandwidth requirements. More precisely, we construct a message-traceable encryption scheme that has an optimal ciphertext rate, i.e. the ratio of global ciphertext length over message length is arbitrarily close to one.                   </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract38')"><b>Decentralized Dynamic Broadcast Encryption</b></span><br>
+                <i>with David Pointcheval (ENS) and Mario Strefler (ENS)</i><br>
+                In <a href="http://scn.dia.unisa.it/index.shtml" target="_blank">SCN' 2012</a>, LNCS 7485, Springer-Verlag, 2012.<br>
+                [<a href="https://eprint.iacr.org/2011/463.pdf">Paper in pdf</a>]
+                <div id="abstract38" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    A broadcast encryption system generally involves three kinds of entities: the group manager that deals with the membership, the encryptor that encrypts the data to the registered users according to a specific policy (the target set), and the users that decrypt the data if they are authorized by the policy. Public-key broadcast encryption can be seen as removing this special role of encryptor, by allowing anybody to send encrypted data. In this paper, we go a step further in the decentralization process, by removing the group manager: the initial setup of the group, as well as the addition of further members to the system, do not require any central authority.</p>
+                    <p>
+Our construction makes black-box use of well-known primitives and can be considered as an extension to the subset-cover framework. It allows for efficient concrete instantiations, with parameter sizes that match those of the subset-cover constructions, while at the same time achieving the highest security level in the standard model under
+the DDH assumption.                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract39')"><b>Security Notions for Broadcast Encryption</b></span><br>
+                <i>with David Pointcheval (ENS) and Mario Strefler (ENS)</i><br>
+                In <a href="http://www.nics.uma.es/acns2011/" target="_blank">ACNS' 2011</a>, LNCS 6715, pages 377-394, Springer-Verlag, 2011.<br>
+                [<a href="2011_acns.pdf">Paper in pdf</a>]
+                <div id="abstract39" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    This paper clarifies the relationships between security notions for broadcast encryption. In the past, each new scheme came with its own definition of security, which makes them hard to compare. We thus define a set of notions, as done for signature and encryption, for which we prove implications and separations, and relate the existing notions to the ones in our framework. We find some interesting relationships between the various notions, especially in the way they define the receiver set of the challenge message. In addition, we define a security notion that is stronger than all previous ones, and give an example of a scheme that fulfills this notion.             </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract40')"><b>Identity-Based Trace and Revoke Schemes</b></span><br>
+                <i>with Viet-Cuong Trinh (Paris 8 Univ.)</i><br>
+                In <a href="http://ste.xidian.edu.cn/provsec2011/" target="_blank">ProvSec' 2011</a>, LNCS 6980, pages 204-221, Springer-Verlag, 2011.<br>
+                [<a href="2011_provsec.pdf">Paper in pdf</a>]
+                <div id="abstract40" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+        Trace and revoke systems allow for the secure distribution of digital content in such a way that malicious users, who collude to produce pirate decoders, can be traced back and revoked from the system. In this paper, we consider such schemes in the identity-based setting, by extending the model of identity-based traitor tracing scheme by Abdalla et al. to support revocation.</p><p>The proposed constructions rely on the subset cover framework. We first propose a generic construction which transforms an identity-based encryption with wildcard <span class="u-sans-serif">(WIBE)</span> of depth log(<i>N</i>) (<i>N</i> being the number of users) into an identity-based trace and revoke scheme by relying on the complete subtree framework (of depth log(<i>N</i>)). This leads, however, to a scheme with log(<i>N</i>) private key size (as in a complete subtree scheme). We improve this scheme by introducing generalized <span class="u-sans-serif">WIBE (GWIBE)</span> and propose a second construction based on <span class="u-sans-serif">GWIBE</span> of two levels. The latter scheme provides the nice feature of having constant private key size (3 group elements).</p><p>In our schemes, we also deal with advanced attacks in the subset cover framework, namely pirate evolution attacks <span class="u-sans-serif">(PEvoA)</span> and pirates 2.0. The only known strategy to protect schemes in the subset cover framework against pirate evolution attacks was proposed by Jin and Lotspiech but decreases seriously the efficiency of the original schemes: each subset is expanded to many others subsets; the total number of subsets to be used in the encryption could thus be <i>O</i>(<i>N</i>
+                <sup>1/<i>b</i></sup>) to prevent a traitor from creating more than b generations. Our <span class="u-sans-serif">GWIBE</span> based scheme, resisting <span class="u-sans-serif">PEvoA</span> better than the Jin and Lotspiech’s method. Moreover, our method does not need to change the partitioning procedure in the original complete subtree scheme and therefore, the resulted schemes are very competitive compared to the original scheme, with <i>r</i> log(<i>N</i>/<i>r</i>) log<i>N</i> –size ciphertext and constant size private key.                
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract41')"><b>Traitors Collaborating in Public: Pirates 2.0</b></span><br>
+                <i>with Olivier Billet (Oranges Lab)</i><br>
+                In Advances in Cryptology - <a href="http://www.iacr.org/conferences/eurocrypt2009/" target="_blank">IACR EUROCRYPT '09</a>, LNCS 5479, pages 189-205, Springer-Verlag, 2009.<br>
+                [<a href="2009_eurocrypt.pdf">Paper in pdf</a>]
+                <div id="abstract41" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+               This work introduces a new concept of attack against traitor tracing schemes. We call attacks of this type Pirates 2.0 attacks as they result from traitors collaborating together in a public way. In other words, traitors do not secretly collude but display part of their secret keys in a public place; pirate decoders are then built from this public information. The distinguishing property of Pirates 2.0 attacks is that traitors only contribute partial information about their secret key material which suffices to produce (possibly imperfect) pirate decoders while allowing them to remain anonymous. The side-effect is that traitors can publish their contributed information without the risk of being traced; giving such strong incentives to some of the legitimate users to become traitors allows coalitions to attain very large sizes that were deemed unrealistic in some previously considered models of coalitions.</p>
+                    <p>
+This paper proposes a generic model for this new threat, that we use to assess the security of some of the most famous traitor tracing schemes. We exhibit several Pirates 2.0 attacks against these schemes, providing new theoretical insights with respect to their security. We also describe practical attacks against various instances of these schemes. Eventually, we discuss possible variations on the Pirates 2.0 theme.                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract42')"><b>Efficient Traitor Tracing from Collusion Secure Codes</b></span><br>
+                <i>with Olivier Billet (Oranges Lab)</i><br>
+                In Proceeding of <a href="http://www.iqis.org/events/icits2008/" target="_blank">ICITS '08</a> -The 3rd International Conference on Information Theoretic Security, Pages 171-182, LNCS 5155, Springer-Verlag, 2008.<br>
+                [<a href="2008_icits.pdf">Paper in pdf</a>] [<a href="2007_icits.ps.gz">ps</a>] [<a href="2007_icits-US.pdf">pdf USletter</a>]
+                <div id="abstract42" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    In this paper, we describe a new traitor tracing scheme which relies on Tardos’ collusion secure codes to achieve constant size ciphertexts. Our scheme is also equipped with a black-box tracing procedure against pirates that are allowed to decrypt with some (possibly high) error rate while keeping the decoders of the lowest possible size when using collusion secure codes, namely of size proportional to the length of Tardos’ code.                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract43')"><b>A CCA Secure Hybrid Damgaard's ElGamal Encryption</b></span><br>
+                <i>with Yvo Desmedt (University College London)</i><br>
+                In Proceeding of <a href="http://cis.sjtu.edu.cn/ProvSec2008/" target="_blank">ProvSec '08</a>, Lecture Notes in Computer Science Vol. 5324, pages 68-92, Springer-Verlag, 2008.<br>
+                [<a href="2008_provsec.pdf">Paper in pdf</a>] [<a href="2007_provsec.ps.gz">ps</a>] [<a href="2007_provsec-US.pdf">pdf USletter</a>]
+                <div id="abstract43" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                   ElGamal encryption, by its efficiency, is one of the most used schemes in cryptographic applications. However, the original ElGamal scheme is only provably secure against passive attacks. Damgård proposed a slight modification of ElGamal encryption scheme (named Damgård’s ElGamal scheme) that provides security against non-adaptive chosen ciphertext attacks under a knowledge-of-exponent assumption. Recently, the CCA1-security of Damgård’s ElGamal scheme has been proven under more standard assumptions.</p>
+                    <p>
+In this paper, we study the open problem of CCA2-security of Damgård’s ElGamal. By employing a data encapsulation mechanism, we prove that the resulted hybrid Damgård’s ElGamal Encryption is secure against adaptive chosen ciphertext attacks. The down side is that the proof of security is based on a knowledge-of-exponent assumption. In terms of efficiency, this scheme is more efficient (e.g. one exponentiation less in encryption) than Kurosawa-Desmedt scheme, the most efficient scheme in the standard model so far.                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract44')"><b>Hybrid Damgård Is CCA1-Secure under the DDH Assumption</b></span><br>
+                <i>with Yvo Desmedt (University College London), Helger Lipmaa (University College London)</i><br>
+                In Proceeding of <a href="http://www.cs.hku.hk/cans2008/" target="_blank">CANS '08</a> -The 7th International Conference on Cryptology and Network Security, Pages 18-30, LNCS 5339, Springer-Verlag, 2008.<br>
+                [<a href="2008_cans.pdf">Paper in pdf</a>] [<a href="2007_cans.ps.gz">ps</a>] [<a href="2007_cans-US.pdf">pdf USletter</a>]
+                <div id="abstract44" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    In 1991, Damgård proposed a simple public-key cryptosystem that he proved CCA1-secure under the Diffie-Hellman Knowledge assumption. Only in 2006, Gjøsteen proved its CCA1-security under a more standard but still new and strong assumption. The known CCA2-secure public-key cryptosystems are considerably more complicated. We propose a hybrid variant of Damgård’s public-key cryptosystem and show that it is CCA1-secure if the used symmetric cryptosystem is CPA-secure, the used MAC is unforgeable, the used key-derivation function is secure, and the underlying group is a DDH group. The new cryptosystem is the most efficient known CCA1-secure hybrid cryptosystem based on standard assumptions.           </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract45')"><b>Traitor Tracing with Optimal Transmission Rate</b></span><br>
+                <i>with Nelly Fazio (IBM Research), Antonio Nicolosi (New York University and Stanford University)</i><br>
+                In Proceeding of <a href="http://www.isc07.cl/" target="_blank">ISC '07</a> - 10th International Conference on Information Security, Pages 71-88, LNCS 4779, Springer-Verlag, 2007.<br>
+                [<a href="2007_isc.pdf">Paper in pdf</a>] [<a href="2007_isc.ps.gz">ps</a>] [<a href="2007_isc-US.pdf">pdf USletter</a>]
+                <div id="abstract45" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We present the first traitor tracing scheme with efficient black-box traitor tracing in which the ratio of the ciphertext and plaintext lengths (the transmission rate) is asymptotically 1, which is optimal. Previous constructions in this setting either obtained constant (but not optimal) transmission rate [16], or did not support black-box tracing [10]. Our treatment improves the standard modeling of black-box tracing by additionally accounting for pirate strategies that attempt to escape tracing by purposedly rendering the transmitted content at lower quality.
+</p>
+                    <p>
+Our construction relies on the decisional bilinear Diffie-Hellman assumption, and attains the same features of public traceability as (a repaired variant of) [10], which is less efficient and requires non-standard assumptions for bilinear groups.       </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract46')"><b>Identity-Based Traitor Tracing</b></span><br>
+                <i>with Michel Abdalla (ENS), Alex Dent (Royal Holloway), John Malone-Lee (Univ. of Bristol), Gregory Neven (Katholieke Universiteit Leuven) and Nigel Smart (Univ. of Bristol)</i><br>
+                In <a href="http://pkc07.cs.tsinghua.edu.cn/" target="_blank">IACR PKC '07</a>, Pages 361-376, LNCS 4450, Springer-Verlag, IACR, 2007.<br>
+                [<a href="https://iacr.org/archive/pkc2007/44500361/44500361.pdf">Paper in pdf</a>] [<a href="2007_pkc.ps.gz">ps</a>] [<a href="2007_pkc-US.pdf">pdf USletter</a>]
+                <div id="abstract46" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We present the first identity-based traitor tracing scheme.
+The scheme is shown to be secure in the standard model, assuming the
+bilinear decision Diffie-Hellman (DBDH) is hard in the asymmetric bilinear pairing setting, and that the DDH assumption holds in the group
+defining the first coordinate of the asymmetric pairing. Our traitor tracing system allows adaptive pirates to be traced. The scheme makes use
+of a two level identity-based encryption scheme with wildcards (WIBE)
+based on Waters’ identity-based encryption scheme.</p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract47')"><b>Traitor Tracing for Stateful Pirate Decoders with Constant Ciphertext Rate</b></span><br>
+                In Proceeding of <a href="http://www.vietcrypt.org/" target="_blank">Vietcrypt '06</a>, P. Nguyen Ed. Pages 354-365, LNCS 4341, Springer-Verlag, 2006.<br>
+                [<a href="2006_vietcrypt.pdf">Paper in pdf</a>] [<a href="2006_vietcrypt.ps.gz">ps</a>] [<a href="2006_vietcrypt-US.pdf">pdf USletter</a>]
+                <div id="abstract47" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Stateful pirate decoders are history recording and abrupt pirate decoders. These decoders can keep states between decryptions to detect whether they are being traced and are then able to take some counter-actions against the tracing process, such as “shutting down” or erasing all internal information. We propose the first constant ciphertext rate scheme which copes with such pirate decoders. Our scheme moreover supports black-box public traceability.
+
+
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract48')"><b>Generic Construction of Hybrid Public Key Traitor Tracing with Full-Public-Traceability</b></span><br>
+                <i>with Rei Safavi-Naini (Wollongong Univ.) and Dongvu Tonien (Wollongong Univ.)</i><br>
+                In Proceeding of <a href="http://icalp06.dsi.unive.it/index.html" target="_blank">ICALP '06</a> - 33rd International Colloquium on Automata, Languages and Programming, Pages 264-275, LNCS 4052, Springer-Verlag, 2006.<br>
+                [<a href="2006_icalp.pdf">Paper in pdf</a>] [<a href="2006_icalp.ps.gz">ps</a>] [<a href="2006_icalp-US.pdf">pdf USletter</a>]
+                <div id="abstract48" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>In Eurocrypt 2005, Chabanne, Phan and Pointcheval introduced an interesting property for traitor tracing schemes called <i>public traceability</i>, which makes tracing a black-box public operation. However, their proposed scheme only worked for two users and an open question proposed by authors was to provide this property for multi-user systems.</p><p>In this paper, we give a comprehensive solution to this problem by giving a <i>generic construction for a hybrid traitor tracing scheme that provides full-public-traceability</i>. We follow the Tag KEM/DEM paradigm of hybrid encryption systems and extend it to multi-receiver scenario. We define Tag-Broadcast KEM/DEM and construct a secure Tag-BroadcastKEM from a CCA secure PKE and target-collision resistant hash function. We will then use this Tag-Broadcast KEM together with a semantically secure DEM to give a generic construction for Hybrid Public Key Broadcast Encryption. The scheme has a black box tracing algorithm that <i>always</i> correctly identifies a traitor. The hybrid structure makes the system very efficient, both in terms of computation and communication cost. Finally we show a method of reducing the communication cost by using codes with identifiable parent property.                </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract49')"><b>Public Traceability in Traitor Tracing Schemes</b></span><br>
+                <i>with Hervé Chabanne (SAGEM) and David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="http://www.brics.dk/eurocrypt05/index.html" target="_blank">IACR EUROCRYPT '05</a>, R.Cramer Ed. Pages 542-558, LNCS 3494, Springer-Verlag, IACR, 2005.<br>
+                [<a href="https://iacr.org/archive/eurocrypt2005/34940544/34940544.pdf">Paper in pdf</a>] [<a href="2005_eurocrypt.ps.gz">ps</a>] [<a href="2005_eurocrypt-US.pdf">pdf USletter</a>]
+                <div id="abstract49" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                   Traitor tracing schemes are of major importance for secure distribution of digital content. They indeed aim at protecting content providers from colluding users to build pirate decoders. If such a collusion happens, at least one member of the latter collusion will be detected. Several solutions have already been proposed in the literature, but the most important problem to solve remains having a very good ciphertext/plaintext rate. At Eurocrypt ’02, Kiayias and Yung proposed the first scheme with such a constant rate, but still not optimal. In this paper, granted bilinear maps, we manage to improve it, and get an “almost” optimal scheme, since this rate is asymptotically 1. Furthermore, we introduce a new feature, the “public traceability”, which means that the center can delegate the tracing capability to any “untrusted” person. This is not the first use of bilinear maps for traitor tracing applications, but among the previous proposals, only one has remained unbroken: we present an attack by producing an anonymous pirate decoder. We furthermore explain the flaw in their security analysis. For our scheme, we provide a complete proof, based on new computational assumptions, related to the bilinear Diffie-Hellman ones, in the standard model.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract50')"><b>Optimal Asymmetric Encryption and Signature Paddings</b></span><br>
+                <i>with Benoît Chevallier-Mames (Gemplus) and David Pointcheval (ENS)</i><br>
+                In Proceeding of <a href="http://acns2005.cs.columbia.edu/" target="_blank">ACNS '05</a>, pages 254-268, LNCS 3531, Springer-Verlag, 2005.<br>
+                [<a href="2005_acns.pdf">Paper in pdf</a>] [<a href="2005_acns.ps.gz">ps</a>] [<a href="2004_acns-US.pdf">pdf USletter</a>]
+                <div id="abstract50" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    Strong security notions often introduce strong constraints on the construction of cryptographic schemes: semantic security implies probabilistic encryption, while the resistance to existential forgeries requires redundancy in signature schemes. Some paddings have thus been designed in order to provide these minimal requirements to each of them, in order to achieve secure primitives.</p>
+                    <p>
+A few years ago, Coron et al. suggested the design of a common construction, a universal padding, which one could apply for both encryption and signature. As a consequence, such a padding has to introduce both randomness and redundancy, which does not lead to an optimal encryption nor an optimal signature.
+</p>
+                    <p>
+In this paper, we refine this notion of universal padding, in which a part can be either a random string in order to introduce randomness or a zero-constant string in order to introduce some redundancy. This helps us to build, with a unique padding, optimal encryption and optimal signature: first, in the random-permutation model, and then in the random-oracle model. In both cases, we study the concrete sizes of the parameters, for a specific security level: The former achieves an optimal bandwidth.                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract51')"><b>OAEP 3-Round: A Generic and Secure Asymmetric Encryption Padding</b></span><br>
+                <i>with David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="http://www.iris.re.kr/ac04/" target="_blank">IACR ASIACRYPT '04</a>, P.J. Lee Ed. Pages 63-77, LNCS 3329, Springer-Verlag, IACR, 2004.<br>
+                [<a href="2004_asiacrypt.pdf">Paper in pdf</a>] [<a href="2004_asiacrypt.ps.gz">ps</a>] [<a href="2004_asiacrypt-US.pdf">pdf USletter</a>]
+                <div id="abstract51" class="abstract">
+                    <p><b>Abstract:</b></p>
+  <p>The OAEP construction is already 10 years old and well-established in many practical applications. But after some doubts about its actual security level, four years ago, the first efficient and provably <span class="u-sans-serif">IND</span>-<span class="u-sans-serif">CCA1</span> secure encryption padding was formally and fully proven to achieve the expected <span class="u-sans-serif">IND</span>-<span class="u-sans-serif">CCA2</span> security level, when used with any trapdoor permutation. Even if it requires the partial-domain one-wayness of the permutation, for the main application (with the RSA permutation family) this intractability assumption is equivalent to the classical (full-domain) one-wayness, but at the cost of an extra quadratic-time reduction. The security proof which was already not very tight to the RSA problem is thus much worse.</p><p>However, the practical optimality of the OAEP construction is two-fold, hence its attractivity: from the efficiency point of view because of two extra hashings only, and from the length point of view since the ciphertext has a minimal bit-length (the encoding of an image by the permutation.) But the bandwidth (or the ratio ciphertext/plaintext) is not optimal because of the randomness (required by the semantic security) and the redundancy (required by the plaintext-awareness, the sole way known to provide efficient <span class="u-sans-serif">CCA2</span> schemes.)</p><p>At last Asiacrypt ’03, the latter intuition had been broken by exhibiting the first <span class="u-sans-serif">IND</span>-<span class="u-sans-serif">CCA2</span> secure encryption schemes without redundancy, and namely without achieving plaintext-awareness, while in the random-oracle model: the OAEP 3-round construction. But this result achieved only similar practical properties as the original OAEP construction: the security relies on the partial-domain one-wayness, and needs a trapdoor permutation, which limits the application to RSA, with still a quite bad reduction.</p><p>This paper improves this result: first we show the OAEP 3-round actually relies on the (full-domain) one-wayness of the permutation (which improves the reduction), then we extend the application to a larger class of encryption primitives (including ElGamal, Paillier, etc.) The extended security result is still in the random-oracle model, and in a relaxed <span class="u-sans-serif">CCA2</span> model (which lies between the original one and the replayable <span class="u-sans-serif">CCA</span> scenario.)</p>
+              </li>
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract52')"><b>On the Security Notions for Public-Key Encryption Schemes</b></span><br>
+                <i>with David Pointcheval (ENS)</i><br>
+                In Proceeding of SCN'04, C. Blundo Ed. Pages 33-47, LNCS 3352, Springer-Verlag, 2004.<br>
+                [<a href="2004_scn.pdf">Paper in pdf</a>] [<a href="2004_scn.ps.gz">ps</a>] [<a href="2004_scn-US.pdf">pdf USletter</a>]
+                <div id="abstract52" class="abstract">
+                    <p><b>Abstract:</b></p>
+                  <p>In this paper, we revisit the security notions for public-key encryption, and namely indistinguishability. We indeed achieve the surprising result that no decryption query before receiving the challenge ciphertext can be replaced by queries (whatever the number is) after having received the challenge, and vice-versa. This remark leads to a stricter and more complex hierarchy for security notions in the public-key setting: the (<i>i</i>,<i>j</i>)-<span class="u-sans-serif">IND</span> level, in which an adversary can ask at most <i>i</i> (<i>j</i> resp.) queries before (after resp.) receiving the challenge. Excepted the trivial implications, all the other relations are strict gaps, with no polynomial reduction (under the assumption that <span class="u-sans-serif">IND</span>-<span class="u-sans-serif">CCA2</span> secure encryption schemes exist.) Similarly, we define different levels for non-malleability (denoted (<i>i</i>,<i>j</i>)-<span class="u-sans-serif">NM</span>.)
+                
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract53')"><b>About the Security of Ciphers (Semantic Security and Pseudo-Random Permutations)</b></span><br>
+                <i>with David Pointcheval (ENS)</i><br>
+                In Proceeding of SAC'04, H. Handschuh and A. Hasan Eds. Pages 185-200, LNCS 3357, Springer-Verlag, 2004.<br>
+                [<a href="2004_sac_A4.pdf">Paper in pdf</a>] [<a href="2004_sac_A4.ps.gz">ps</a>] [<a href="2004_sac-US.pdf">pdf USletter</a>]
+                <div id="abstract53" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                   Probabilistic symmetric encryption have already been widely studied, from a theoretical point of view. Nevertheless, many applications require length-preserving encryption, to be patched at a minimal cost to include privacy without modifying the format (e.g. encrypted filesystems). In this paper, we thus consider the security notions for length-preserving, deterministic and symmetric encryption schemes, also termed ciphers: semantic security under lunchtime and challenge-adaptive adversaries. We furthermore provide some relations for this notion between different models of adversaries, and the more classical security notions for ciphers: pseudo-random permutations (PRP) and super pseudo-random permutations (SPRP).
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract54')"><b>Chosen-Ciphertext Security without Redundancy</b></span><br>
+                <i>with David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="http://conf.ncku.edu.tw/ac03/" target="_blank">IACR ASIACRYPT '03</a>, C.L. Laih Ed. Pages 1-18, LNCS 2894, Springer-Verlag, IACR, 2005.<br>
+                [<a href="2003_asiacrypt.pdf">Paper in pdf</a>] [<a href="2003_asiacrypt.ps.gz">ps</a>] [<a href="2003_asiacrypt-US.pdf">pdf USletter</a>]
+                <div id="abstract54" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+            We propose asymmetric encryption schemes for which all ciphertexts are valid (which means here “reachable”: the encryption function is not only a probabilistic injection, but also a surjection). We thus introduce the Full-Domain Permutation encryption scheme which uses a random permutation. This is the first IND-CCA cryptosystem based on any trapdoor one-way permutation without redundancy, and more interestingly, the bandwidth is optimal: the ciphertext is over <i>k</i> more bits only than the plaintext, where 2<sup> −  k</sup> is the expected security level. Thereafter, we apply it into the random oracle model by instantiating the random permutation with a Feistel network construction, and thus using OAEP. Unfortunately, the usual 2-round OAEP does not seem to be provably secure, but a 3-round can be proved IND-CCA even without the usual redundancy <span class="mathjax-tex">\(m || 0^{k_1}\)</span>, under the partial-domain one-wayness of any trapdoor permutation. Although the bandwidth is not as good as in the random permutation model, absence of redundancy is quite new and interesting: many implementation risks are ruled out.</p>
+               </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract55')"><b>A Comparison between two Methods of Security Proof</b></span><br>
+                <i>with David Pointcheval (ENS)</i><br>
+                In Proceeding of RIVF. Pages 105-110, Hanoï -- February 2003 (in French).<br>
+                [<a href="2003_rivf.ps.gz">ps</a>] [<a href="2003_rivf-US.pdf">pdf USletter</a>]
+                <div id="abstract55" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                 In this paper, we compare two methods for security proofs - a formal method, and the method by reduction from the complexity theory. A modification of the Otway-Rees protocol is proposed to show out a difference between the two methods : the exchanged key is provably secure in the sense of the BAN logic but it is not when we analyze it by reduction. The difference is due to a limitation of BAN logic, which has not been noticed before, that it does not consider the relation between different ciphertexts. Note that in the original Otway-Rees protocol, under the hypothesis of semantic security of the symmetric encryption scheme, we prove the semantic security of the exchanged key which is a similar result to the one obtained with BAN logic.            </p>
+                </div>
+            </li>
+       
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract56')"><b>Some Preliminary Results on the Stableness of Extended F-rule Systems</b></span><br>
+                <i>with Thanh Thuy Nguyen (Hanoi Univ. of Science and Technology) and Yamanoi Takahiro (Hokkaido University, Japan)</i><br>
+                Journal of Advanced Computational Intelligence. Pages 252-259, Vol.7 No.3, 2003.
+                <div id="abstract56" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                   In this paper we shall investigate an extended version of F-rule systems, in which each F-rule can include an arbitrary combination of disjunctions and conjunctions of atoms in the premise. The first main result here is a way to determine values assigned to these extended facts, based on two basic operators ⊕ and x;, which are shown to be equivalent to external probabilistic reasoning by resolving linear programming problem. Based on this, a definition on mixed inference operator for extended F-rule systems is discussed. We have shown that an extended F-rule system with the defined reasoning operator is stable iff its corresponding F-rule system is stable. This proposition allows us to apply all our available research results on F-rule systems to extended F-rule systems.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract57')"><b>Interval-valued Probabilistic Reasoning Agents</b></span><br>
+                <i>with Thanh Thuy Nguyen (Hanoi Univ. of Science and Technology)</i><br>
+                In Proceeding of the 3rd International Conference on Artificial Intelligence/ Internet Computing, USA, 2002.
+                <div id="abstract57" class="abstract">
+                    
+                </div>
+            </li>
+        </ul>
+
+        <h2>Patents</h2>
+        <hr>
+        <ul>
+            <li><b><a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2009053605" target="_blank">Traceable System for Encrypting/Decrypting Broadcast Digital Data</a></b></li>
+            <li><b><a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2008152302" target="_blank">Obtaining Derived Values Depending on a Secret Master Value</a></b></li>
+        </ul>
+        
+        <h2 id="students">Current & Past PhD Students</h2>
+        <hr>
+        <ul>
+            <li><b>Antoine Sidem</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Qingju Wang and Bart Preneel)</li>
+            <li><b>Jinwei Zheng</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Weiqiang Wen)</li>
+            <li><b>Nathan Papon</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Sébastien Canard)</li>
+            <li><b>Duy Nguyen</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with David Pointcheval)</li>
+            <li><b>Orel Cosseron</b> (ENS Lyon, co-supervision with Damien Stehlé)</li>
+            <li><b>Ferran Alborch Escobar</b> (Orange + Telecom Paris, co-supervision with Sébastien Canard and Fabien Laguillaumie)</li>
+            <li><b>Ky Nguyen</b> (ENS, co-supervision with David Pointcheval, defended 12/2024)</li>
+            <li><b>Antoine Urban</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Matthieu Rambaud, defended 01/2025)</li>
+            <li><b>Chloé Hebant</b> (ENS, co-supervision with David Pointcheval, defended 05/2021)</li>
+            <li><b>Xuan Thanh Do</b> (XLIM-Limoges and Vietnam National University, co-supervision with Le Minh Ha, defended 03/2021)</li>
+            <li><b>Laura Brouilhet</b> (XLIM-Limoges, co-supervision with Olivier Blazy, defended 12/2020)</li>
+            <li><b>Jérémy Chotard</b> (XLIM-Limoges and ENS, co-supervision with David Pointcheval, defended 12/2019)</li>
+            <li><b>Paul Germouty</b> (XLIM-Limoges, co-supervision with Olivier Blazy, defended 09/2018)</li>
+            <li><b>Trinh Viet Cuong</b> (LAGA-Paris 8, co-supervision with Claude Carlet, defended 12/2013)</li>
+        </ul>
+
+        <h2 id="thesis">Habilitation Thesis</h2> 
+        <hr>
+        <ul>
+            <li><b><a href="These/habi.html" target="_blank">Some Advances in Broadcast Encryption and Traitor Tracing</a></b><br>
+                [<a href="These/hdr-thesis.pdf" target="_blank">Thesis in pdf</a>]
+            </li>
+        </ul>
+
+        <h2>PhD Thesis</h2>
+        <hr>
+        <ul>
+            <li><b><a href="These/index.html" target="_blank">Sécurité et efficacité de schémas cryptographiques</a></b><br>
+                [<a href="These/These.pdf" target="_blank">Thesis in pdf</a>] [<a href="These/Presentation.pdf" target="_blank">Presentation in pdf</a>]
+            </li>
+        </ul>
+
+        <h2>Master Report</h2>
+        <hr>
+        <ul>
+            <li><b>Une comparaison des preuves de sécurité (méthode formelle vs. méthode calculatoire)</b><br>
+                [<a href="These/Rapport_DEA.pdf" target="_blank">Master thesis in pdf</a>]
+            </li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Duong Hieu Phan.</p>
+</footer>
+
+<!-- StatCounter Code -->
+<script type="text/javascript">
+var sc_project=421291; 
+var sc_partition=2; 
+var sc_invisible=1; 
+</script>
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><a href="http://www.statcounter.com/free_hit_counter.html" target="_blank"><img src="http://c3.statcounter.com/counter.php?sc_project=421291&amp;java=0" alt="free hit counter" border="0"></a></noscript>
+<!-- End of StatCounter Code -->
+
+
+<!-- JavaScript to toggle abstracts -->
+<script>
+function toggleAbstract(id) {
+    var abstract = document.getElementById(id);
+    if (abstract.style.display === "none" || abstract.style.display === "") {
+        abstract.style.display = "block";
+        MathJax.typesetPromise();
+    } else {
+        abstract.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

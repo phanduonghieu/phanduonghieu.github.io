@@ -1,0 +1,69 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+\usepackage[francais]{babel} 
+\pagestyle{empty}
+
+\usepackage{makeidx}               % include an index at the end
+\makeindex
+\usepackage{color}
+\usepackage{graphicx}              % for \includegraphics
+\usepackage{hyperref}              % for HyperTeX links
+\everymath{\displaystyle}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathpple}
+\usepackage[notcite]{showkeys}
+
+%\def\dvilink#1#2{\mbox{\href{dvi:#1}{\verb{#2}}}}
+%
+%
+%\newcommand{\RR}{\mathbb R}
+%\newcommand{\F}{\mathbb F}
+%
+%\def\titre#1{\noindent{$\star$ \bf #1} \\ }
+%\def\auteur#1{\noindent{\large{ \em #1}}  }
+%\newcommand{\resume}{\noindent{\textbf{Résumé~: }}  }
+%\newcommand{\prerequis}{\noindent{\textbf{Prérequis~: }}  }
+%\newcommand{\reference}{\noindent{\textbf{Références~: }}  }
+
+\begin{document}
+
+
+\noindent{$\star$ \textbf{Algèbre linéaire : inversion et précision}
+\\
+\noindent \textbf{Prérequis~: } (algèbre linéaire) 
+
+Effectuer efficacement les opérations 
+de l'algèbre linéaire est un problème crucial : il y a peu d'applications mathématiques
+effectives qui ne reposent pas à un moment ou à un autre sur de l'algèbre linéaire !
+Nous allons nous intéresser ici au problème, particulièrement fondamental, de l'inversion d'une matrice. 
+ \\
+\noindent \textbf{Résumé~: }  Il existe beaucoup de méthodes et d'algorithmes pour 
+calculer l'inverse d'une matrice : algorithme de Gauss, méthodes sans division, méthodes numériques ou de calcul formel $\dots$
+Nous souhaitons comparer trois de ces méthodes pour le calcul de l'inverse d'une matrice à coefficients rationnels :
+\begin{enumerate}
+\item utiliser un algorithme de Gauss en faisant du calcul formel ;
+\item utiliser une méthode de type symbolique-numérique en passant par les flottants ;
+\item utiliser une méthode de type symbolique-numérique $p$-adique.
+\end{enumerate}
+Dans chaque cas, on s'intéressera à l'estimation du temps de calcul et à la gestion de la précision.
+Nous aimerions répondre aux questions suivantes : 
+\begin{itemize}
+\item Comment comparer ces méthodes ?
+\item Quelle méthode pour quelles matrices ?
+\end{itemize}
+\par
+
+\noindent \textbf{Références~: }  
+
+Gene H. GOLUB, Charles F. VAN LOAN.
+	{\em{Matrix Computations}};
+	
+Joachim von zur GATHEN, Jürgen GERHARD.  
+	{\em{Modern Computer Algebra}};
+	
+Tristan VACCON.
+	{\em{Précision $p$-adique}};
+	
+\end{document}

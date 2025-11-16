@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duong Hieu Phan's Research Papers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f3f4; 
+            color: #333;
+        }
+        header {
+            background-color: #fff;
+            color: #990000;
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #5c5c5c; 
+            padding: 0.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        section {
+            max-width: 900px;
+            margin: 1rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #fff;
+            color: #990000;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ddd;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
+        }
+        p {
+            line-height: 1.4;
+        }
+        ul, ol {
+            margin: 1em 0;
+            padding-left: 1.6em;
+        }
+        li {
+            margin: 0.25em 0;
+            margin-bottom: 1em;
+        }
+        .content h2 {
+            color: #990000;
+        }
+        .abstract {
+            display: none;
+            margin-top: 0.5em;
+        }
+        .show {
+            cursor: pointer;
+            color: #990000;
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Duong Hieu Phan</h1>
+    <p><i>Phan Dương Hiệu</i></p>
+    <p>Professor at Telecom Paris, Institut Polytechnique de Paris</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.di.ens.fr/users/phan/TiengViet.htm">Tiếng Việt</a>
+</nav>
+
+<section>
+    <div class="content">
+        <ul>
+            <li style="font-size: 1.4em;"><a href="#publications">Publications</a></li>
+            <li style="font-size: 1.4em;"><a href="#students">Students</a></li>
+            <li style="font-size: 1.4em;"><a href="#thesis">Thesis</a></li>
+        </ul>
+        <br>
+
+        <h2 id="publications">Papers in Cryptography</h2>
+        <hr>
+        <ul>
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract1')"><b>Public-Key Anamorphism in (CCA-secure) Public-Key Encryption and Beyond</b></span><br>
+                <i>with Giuseppe Persiano (Univ. of Salerno and Google) and Moti Yung (Google and Columbia Univ.)</i><br>
+                Accepted for <a href="https://crypto.iacr.org/2024/" target="_blank">IACR CRYPTO 2024</a>.<br>
+                <div id="abstract1" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    The notion of (Receiver-) Anamorphic Encryption was put forth recently to show 
+                    that a dictator (i.e., an overreaching government), which demands to get the receiver's private key and even dictates messages to the sender, cannot prevent the receiver from getting an additional covert 
+                    anamorphic message from a sender.
+                    The model required an initial private  
+                    collaboration to share some secret. 
+                    There may be settings though where 
+                    an initial collaboration may be impossible or
+                    performance-wise prohibitive, or cases when we need
+                    an immediate message to be sent without private key
+                    generation (e.g., by any casual sender in need). 
+                    This situation, to date, somewhat limits the applicability of anamorphic encryption.
+                    To overcome this, in this work, we put forth the new notion of
+                    <em>public-key anamorphic encryption</em>, where, without any initialization, any sender
+                    that has not coordinated in any shape or form with the receiver, can
+                    nevertheless, under the dictator control of the receiver's private key,
+                    send the receiver an additional anamorphic secret message hidden from the dictator.
+                    We define the new notion with its unique new properties, 
+                    and then prove that, quite interestingly, the known CCA-secure Koppula-Waters (KW) system is, in fact, public-key anamorphic. <br>
+                    
+                    
+                    We then describe how a public-key anamorphic scheme can support a 
+                    new <em>hybrid anamorphic</em> encapsulation mode (KDEM) where the public-key
+                    anamorphic part serves a bootstrapping mechanism to activate regular 
+                    anamorphic messages in the same ciphertext, thus together increasing the anamorphic channel capacity. <br>
+                    
+                    
+                    Looking at the state of research thus far, we observe
+                    that the initial system (Eurocrypt'22)
+                    that was shown to have regular anamorphic properties is the CCA-secure 
+                    Naor-Yung (and other related schemes).
+                    Here we identify that the KW CCA-secure scheme also provides a new type of anamorphism.
+                    Thus, this situation 
+                    is hinting that  
+                    there may be a connection between some types of CCA-secure schemes and some type of anamorphic schemes (in spite of the fact that the goals of the two
+                    primitives are fundamentally different); this question is foundational in nature.
+                    Given this, 
+                    we identify a sufficient condition for a ``CCA-secure scheme which is black-box reduced from a CPA secure scheme'' to directly give rise to ``anamorphic
+                    encryption scheme!''
+                    Furthermore, we identify one extra property of the reduction, that yields
+                    a public-key anamorphic scheme as defined here. 
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract2')"><b>Fully Dynamic Attribute-Based Signatures for Circuits from Codes</b></span><br>
+                <i>with San Ling (NTU), Khoa Nguyen (Univ. of Wollongong), Khai Hanh Tang (NTU), Huaxiong Wang (NTU) and Yanhong Xu (Shanghai Jiao Tong Univ.)</i><br>
+                In <a href="https://pkc.iacr.org/2024/" target="_blank">IACR PKC 2024</a>, Sydney, 2024.<br>
+                [<a href="https://eprint.iacr.org/2024/022.pdf">pdf</a>]
+                <div id="abstract2" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    This paper presents the first fully dynamic attribute-based signature (ABS) scheme for circuits from codes, providing strong security guarantees under standard assumptions. We achieve attribute-hiding, traceability, and revocation simultaneously in a single system. Our construction leverages advanced techniques in coding theory and cryptographic assumptions such as LWE and code-based cryptography.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract3')"><b>Verifiable Decentralized Multi-Client Functional Encryption for Inner Product</b></span><br>
+                <i>with Dinh Duy Nguyen (Telecom Paris, IPP) and David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="https://crypto.iacr.org/2023/" target="_blank">IACR ASIACRYPT 2023</a>.<br>
+                [<a href="https://eprint.iacr.org/2023/268.pdf">pdf</a>]
+                <div id="abstract3" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We introduce a verifiable decentralized multi-client functional encryption scheme for inner product computations. Our scheme ensures that multiple clients can securely compute the inner product of their data with a common server without revealing their individual inputs. The scheme is efficient, scalable, and provides strong security guarantees including verifiability of the computations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract4')"><b>Anamorphic Signatures: Secrecy From a Dictator Who Only Permits Authentication!</b></span><br>
+                <i>with Mirek Kutylowski (Wroclaw University of Science and Technology), Giuseppe Persiano (Università di Salerno and Google), Moti Yung (Google and Columbia University) and Marcin Zawada (Wroclaw University of Science and Technology)</i><br>
+                In Advances in Cryptology - <a href="https://crypto.iacr.org/2023/" target="_blank">IACR CRYPTO 2023</a>.<br>
+                [<a href="https://eprint.iacr.org/2023/356.pdf">pdf</a>]
+                <div id="abstract4" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We explore the concept of anamorphic signatures, where the signer can embed a covert message within a seemingly ordinary signature. This mechanism provides an additional layer of security against adversaries who have control over the signing process. We formalize the notion, present constructions, and prove their security under standard cryptographic assumptions.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract5')"><b>The Self-Anti-Censorship Nature of Encryption: On the Prevalence of Anamorphic Cryptography</b></span><br>
+                <i>with Mirek Kutylowski (Wroclaw University of Science and Technology), Giuseppe Persiano (Università di Salerno and Google), Moti Yung (Google and Columbia University) and Marcin Zawada (Wroclaw University of Science and Technology)</i><br>
+                In Proceedings on Privacy Enhancing Technologies  - <a href="https://petsymposium.org/" target="_blank">PoPETs 2023</a>.<br>
+                [<a href="https://eprint.iacr.org/2023/434.pdf">pdf</a>]
+                <div id="abstract5" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    This work investigates the inherent anti-censorship properties of anamorphic cryptography. We show that encryption schemes designed with anamorphic properties can inherently resist censorship attempts by enabling covert communication channels. We present new constructions and discuss their implications for privacy and security in repressive environments.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract6')"><b>Optimal Security Notion for Decentralized Multi-Client Functional Encryption</b></span><br>
+                <i>with Ky Nguyen (ENS) and David Pointcheval (ENS)</i><br>
+                In Applied Cryptography and Network Security - <a href="https://sulab-sever.u-aizu.ac.jp/ACNS2023/" target="_blank">ACNS 2023</a>.<br>
+                [<a href="https://eprint.iacr.org/2023/435.pdf">pdf</a>]
+                <div id="abstract6" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose an optimal security notion for decentralized multi-client functional encryption schemes. Our notion ensures that even in the presence of colluding adversaries, the security of individual clients' data is preserved. We provide constructions that meet this security notion and demonstrate their practical efficiency.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract7')"><b>Privacy-Preserving Digital Vaccine Passport</b></span><br>
+                <i>with Thai Duong (Google), Jiahui Gao (Arizona State University) and Ni Trieu (Arizona State University)</i><br>
+                In International Conference on Cryptology and Network Security - <a href="https://www.augusta.edu/ccs/conferences/cans2023/" target="_blank">CANS 2023</a>.<br>
+                [<a href="https://eprint.iacr.org/2023/1656">pdf</a>]
+                <div id="abstract7" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    This paper introduces a privacy-preserving digital vaccine passport system that ensures the confidentiality of individuals' health data while enabling verifiable proof of vaccination status. Our solution leverages advanced cryptographic techniques to provide security and privacy guarantees, making it suitable for large-scale deployment.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract8')"><b>Multi-Client Functional Encryption with Fine-Grained Access Control</b></span><br>
+                <i>with Ky Nguyen (ENS) and David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="https://asiacrypt.iacr.org/2022/" target="_blank">IACR ASIACRYPT 2022</a>.<br>
+                [<a href="https://eprint.iacr.org/2022/215.pdf">pdf</a>]
+                <div id="abstract8" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We present a multi-client functional encryption scheme that supports fine-grained access control. Our construction enables multiple clients to encrypt data such that only authorized users can perform specific computations on the encrypted data. We provide formal security proofs and demonstrate the practicality of our scheme.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract9')"><b>Anamorphic Encryption: Private Communication against a Dictator</b></span><br>
+                <i>with Giuseppe Persiano (Univ. of Salerno) and Moti Yung (Google and Columbia Univ.)</i><br>
+                In Advances in Cryptology - <a href="https://eurocrypt.iacr.org/2022/" target="_blank">IACR EUROCRYPT 2022</a>.<br>
+                [<a href="https://eprint.iacr.org/2022/639.pdf">pdf</a>]
+                <div id="abstract9" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose anamorphic encryption, a novel cryptographic primitive that allows private communication under the control of a dictator. Our scheme ensures that even if the dictator has access to the receiver's private key, they cannot detect the presence of anamorphic messages. We provide formal definitions, constructions, and security proofs.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract10')"><b>Privacy in Advanced Cryptographic Protocols: Prototypical Examples</b></span><br>
+                <i>with Moti Yung (Google and Columbia Univ.)</i><br>
+                In <a href="https://vjs.ac.vn/index.php/jcc/article/view/16104" target="_blank">Journal of Computer Science and Cybernetics, Vietnamese Academy of Science and Technology, Vietnam</a>, 2021, 37 (4), pp.429-451.<br>
+                [<a href="https://vjs.ac.vn/index.php/jcc/article/view/16104/103810384767">pdf</a>]
+                <div id="abstract10" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    This invited paper, dedicated to the memory of Professor Phan Dinh Dieu, discusses privacy aspects in advanced cryptographic protocols. We provide prototypical examples illustrating the interplay between privacy requirements and cryptographic techniques, highlighting challenges and solutions in achieving strong privacy guarantees.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract11')"><b>Zero-Knowledge Proofs for Committed Symmetric Boolean Functions</b></span><br>
+                <i>with San Ling (NTU), Khoa Nguyen (NTU), Hanh Tang (NTU) and Huaxiong Wang (NTU)</i><br>
+                In <a href="http://pqcrypto2021.kr/" target="_blank">Post-Quantum Cryptography 2021</a>.<br>
+                <div id="abstract11" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We introduce zero-knowledge proofs for committed symmetric Boolean functions, enabling the verification of function properties without revealing the function itself. Our construction is based on post-quantum cryptographic assumptions and provides strong security guarantees. We demonstrate the practicality and efficiency of our scheme.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract12')"><b>An Anonymous Trace-and-Revoke Broadcast Encryption Scheme</b></span><br>
+                <i>with Olivier Blazy (Ecole Polytechnique), Sayantan Mukherjee (Limoges Univ.), Huyen Nguyen (ENS Lyon) and Damien Stehlé (ENS Lyon)</i><br>
+                In <a href="https://data61dsslab.github.io/acisp2021/" target="_blank">ACISP 2021</a>.<br>
+                <div id="abstract12" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    This paper presents an anonymous trace-and-revoke broadcast encryption scheme that ensures user anonymity while enabling the tracing and revocation of compromised users. Our scheme is efficient and provides strong security guarantees, making it suitable for real-world applications.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract13')"><b>Catalic: Delegated PSI Cardinality with Applications to Contact Tracing</b></span><br>
+                <i>with Thai Duong (Google) and Ni Trieu (Arizona State University)</i><br>
+                In Advances in Cryptology - <a href="https://asiacrypt.iacr.org/2020/" target="_blank">IACR ASIACRYPT 2020</a>.<br>
+                [<a href="https://eprint.iacr.org/2020/1105.pdf">pdf</a>]
+                <div id="abstract13" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose Catalic, a delegated private set intersection (PSI) cardinality protocol with applications to contact tracing. Our protocol enables efficient and privacy-preserving computation of the intersection size of two sets held by different parties. We demonstrate its effectiveness in the context of COVID-19 contact tracing.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract14')"><b>Dynamic Decentralized Functional Encryption</b></span><br>
+                <i>with Jérémy Chotard (Limoges Univ.), Edouard Dufour-Sans (CMU), Romain Gay (Cornell Tech), and David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="https://crypto.iacr.org/2020/" target="_blank">IACR CRYPTO 2020</a>.<br>
+                [<a href="https://eprint.iacr.org/2020/197.pdf">pdf</a>]
+                <div id="abstract14" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    This paper introduces a dynamic decentralized functional encryption scheme that allows for secure computation over encrypted data from multiple clients. Our scheme is scalable, efficient, and provides strong security guarantees. We present formal definitions, constructions, and security proofs.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract15')"><b>A Concise Bounded Anonymous Broadcast Yielding Combinatorial Trace-and-Revoke Schemes</b></span><br>
+                <i>with Xuan Thanh Do (VNU, Vietnam and Limoges Univ.) and Moti Yung (Google and Columbia Univ.)</i><br>
+                In <a href="https://sites.google.com/di.uniroma1.it/acns2020/" target="_blank">ACNS 2020</a>, Roma, 2020.<br>
+                [<a href="https://eprint.iacr.org/2020/826.pdf">pdf</a>]
+                <div id="abstract15" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We present a concise bounded anonymous broadcast scheme that yields combinatorial trace-and-revoke mechanisms. Our scheme ensures anonymity of users while enabling efficient tracing and revocation of malicious actors. We provide formal security proofs and demonstrate its practicality through performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract16')"><b>Linearly-Homomorphic Signatures and Scalable Mix-Nets</b></span><br>
+                <i>with Chloé Hebant (ENS) and David Pointcheval (ENS)</i><br>
+                In <a href="https://pkc.iacr.org/2020/" target="_blank">IACR PKC 2020</a>, Edinburgh, 2020.<br>
+                [<a href="https://eprint.iacr.org/2019/547.pdf">pdf</a>]
+                <div id="abstract16" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a new class of linearly-homomorphic signatures that support scalable mix-nets. Our construction allows for efficient verification of mixed data, ensuring integrity and confidentiality. We provide formal security proofs and demonstrate the efficiency of our scheme through practical evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract17')"><b>Traceable Inner Product Functional Encryption</b></span><br>
+                <i>with Xuan Thanh Do (VNU, Vietnam and Limoges Univ.) and David Pointcheval (ENS)</i><br>
+                In <a href="https://www.rsaconference.com/usa/agenda/public-key-cryptography-applications-part-1" target="_blank">CT-RSA 2020</a>, San Francisco, 2020.<br>
+                [<a href="https://eprint.iacr.org/2019/1358.pdf">pdf</a>]
+                <div id="abstract17" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We introduce a traceable inner product functional encryption scheme that ensures accountability while preserving the privacy of individual inputs. Our scheme is efficient and provides strong security guarantees, making it suitable for various real-world applications involving secure computations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract18')"><b>Advances in Security Research in the Asiacrypt Region</b></span><br>
+                <i>Article edited with the members of the <a href="https://www.iacr.org/meetings/asiacrypt/sc.html" target="_blank">Asiacrypt Steering Committee</a></i><br>
+                In <a href="https://cacm.acm.org/" target="_blank">Communications of the ACM</a>, 2020.<br>
+                [<a href="https://dl.acm.org/doi/pdf/10.1145/3378428" target="_blank">pdf</a>]
+                <div id="abstract18" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    This article, edited with the members of the Asiacrypt Steering Committee, provides an overview of the advances in security research in the Asiacrypt region. We discuss recent developments, emerging trends, and future directions in the field of cryptography and information security.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract19')"><b>Downgradable Identity-Based Encryption and Applications</b></span><br>
+                <i>with Olivier Blazy (Limoges Univ.), Paul Germouty (Limoges Univ.)</i><br>
+                In <a href="https://www.rsaconference.com/events/us19/speakers/cryptographers-track" target="_blank">CT-RSA '19</a>, San Francisco, 2019.<br>
+                [<a href="https://eprint.iacr.org/2018/1176.pdf">pdf</a>]
+                <div id="abstract19" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a new identity-based encryption scheme that supports downgrading of security levels. Our scheme allows for efficient decryption of ciphertexts with varying security levels, providing flexibility in access control. We present formal security proofs and demonstrate its practicality through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract20')"><b>Anonymous IBE with Traceable Identities</b></span><br>
+                <i>with Olivier Blazy (Limoges Univ.), and Laura Brouilhet (Limoges Univ.)</i><br>
+                In <a href="https://www.ares-conference.eu/" target="_blank">14th International Conference on Availability, Reliability and Security (ARES 2019)</a>, Canterbury, United Kingdom, 2019.<br>
+                <div id="abstract20" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We present an anonymous identity-based encryption (IBE) scheme with traceable identities. Our scheme ensures user anonymity while enabling the tracing of compromised identities. We provide formal security proofs and demonstrate the efficiency and practicality of our construction through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract21')"><b>Decentralized Evaluation of Quadratic Polynomials on Encrypted Data</b></span><br>
+                <i>with Chloé Hebant (ENS) and David Pointcheval (ENS)</i><br>
+                In <a href="https://isc2019.cs.stonybrook.edu/program/" target="_blank">22th Information Security Conference</a>, New York, United States, 2019.<br>
+                [<a href="https://eprint.iacr.org/2018/1019.pdf">pdf</a>]
+                <div id="abstract21" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a scheme for the decentralized evaluation of quadratic polynomials on encrypted data. Our scheme ensures privacy and correctness of the computations while enabling efficient evaluation of quadratic polynomials. We provide formal security proofs and demonstrate the practicality of our construction through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract22')"><b>Decentralized Multi-Client Functional Encryption for Inner Product</b></span><br>
+                <i>with Jérémy Chotard (Limoges Univ.), Edouard Dufour Sans (ENS), Romain Gay (ENS) and David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="https://asiacrypt.iacr.org/2018/" target="_blank">IACR ASIACRYPT '18</a>, Springer, 2018.<br>
+                [<a href="https://eprint.iacr.org/2017/989.pdf">pdf</a>]
+                <div id="abstract22" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We introduce a decentralized multi-client functional encryption scheme for inner product computations. Our scheme enables secure computations over encrypted data from multiple clients while preserving the privacy of individual inputs. We provide formal security proofs and demonstrate the efficiency and practicality of our construction through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract23')"><b>A New Technique for Compacting Ciphertext in Multi-Channel Broadcast Encryption and Attribute-Based Encryption</b></span><br>
+                <i>with Sébastien Canard (Oranges Lab), David Pointcheval (ENS) and Viet Cuong Trinh (Hong Duc Univ., Vietnam)</i><br>
+                In <a href="https://doi.org/10.1016/j.tcs.2018.02.036" target="_blank">Theoretical Computer Science, Vol 723, pages 51-72</a>, 2018.<br>
+                <div id="abstract23" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a new technique for compacting ciphertext in multi-channel broadcast encryption and attribute-based encryption schemes. Our technique reduces the size of the ciphertexts while maintaining strong security guarantees. We provide formal security proofs and demonstrate the practicality of our technique through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract24')"><b>An Attribute-based Broadcast Encryption Scheme For Lightweight Devices</b></span><br>
+                <i>with Sébastien Canard (Oranges Lab) and Viet Cuong Trinh (Hong Duc Univ., Vietnam)</i><br>
+                In <a href="http://digital-library.theiet.org/content/journals/10.1049/iet-ifs.2017.0157" target="_blank">IET Information Security</a>, Vol. 12, Issue 1, 2018.<br>
+                <div id="abstract24" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We present an attribute-based broadcast encryption scheme designed for lightweight devices. Our scheme provides efficient encryption and decryption operations while ensuring strong security guarantees. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract25')"><b>Efficient Public Trace and Revoke from Standard Assumptions</b></span><br>
+                <i>with Shweta Agrawal (IIT Madras, India), Sanjay Bhattacherjee (Turing Lab, ISI Kolkata, India), and Damien Stehlé (ENS Lyon) and Shota Yamada AIST, Japan)</i><br>
+                In <a href="https://www.sigsac.org/ccs/CCS2017/" target="_blank">ACM CCS 2017</a>.<br>
+                [<a href="https://eprint.iacr.org/2017/650.pdf">pdf</a>]
+                <div id="abstract25" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose an efficient public trace-and-revoke scheme based on standard cryptographic assumptions. Our scheme enables the public tracing and revocation of compromised users while preserving the privacy of honest users. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract26')"><b>Identity-based Encryption from Codes with Rank Metric</b></span><br>
+                <i>with Philippe Gaborit (Limoges Univ.), Adrien Hauteville (Limoges Univ.) and Jean-Pierre Tillich (INRIA)</i><br>
+                In Advances in Cryptology - <a href="https://www.iacr.org/conferences/crypto2017/" target="_blank">IACR CRYPTO 2017</a>.<br>
+                [<a href="http://eprint.iacr.org/2017/514.pdf">pdf</a>]
+                <div id="abstract26" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We introduce an identity-based encryption scheme based on codes with rank metric. Our scheme provides strong security guarantees under standard cryptographic assumptions. We present formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract27')"><b>Hardness of k-LWE and Applications in Traitor Tracing</b></span><br>
+                <i>with San Ling (NTU), Damien Stehlé (ENS Lyon) and Ron Steinfeld (Monash University)</i><br>
+                Invited paper for <a href="https://link.springer.com/article/10.1007/s00453-016-0251-7" target="_blank">Algorithmica</a>, December 2017, Volume 79, Issue 4, pp 1318–1352.<br>
+                [<a href="2016_LBTTlong.pdf">pdf</a>]
+                <div id="abstract27" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We explore the hardness of the k-LWE problem and its applications in traitor tracing schemes. Our results show that k-LWE provides strong security guarantees and enables efficient traitor tracing. We provide formal security proofs and demonstrate the practicality of our approach through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract28')"><b>Homomorphic-Policy Attribute-Based Key Encapsulation Mechanisms</b></span><br>
+                <i>with Jérémy Chotard (Limoges Univ.) and David Pointcheval (ENS)</i><br>
+                In <a href="http://isc2017.vgu.edu.vn" target="_blank">ISC 2017</a>.<br>
+                [<a href="https://eprint.iacr.org/2016/1089.pdf">pdf</a>]
+                <div id="abstract28" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose homomorphic-policy attribute-based key encapsulation mechanisms that enable flexible access control over encrypted data. Our construction supports complex access policies and provides strong security guarantees. We present formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract29')"><b>Cryptography During the French and American Wars in Vietnam</b></span><br>
+                <i>with Neal Koblitz (Univ. of Washington)</i><br>
+                In <a href="http://dx.doi.org/10.1080/01611194.2017.1292825" target="_blank">Cryptologia</a>, 2017.<br>
+                [<a href="https://eprint.iacr.org/2016/1136.pdf">pdf</a>]
+                <div id="abstract29" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    This paper explores the history of cryptography during the French and American wars in Vietnam. We discuss the cryptographic techniques used by various parties and analyze their effectiveness. Our study provides insights into the role of cryptography in historical conflicts and highlights lessons for modern cryptographic research.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract30')"><b>A New Technique for Compacting Secret Key in Attribute-Based Broadcast Encryption</b></span><br>
+                <i>with Sébastien Canard (Oranges Lab) and Viet Cuong Trinh (Hong Duc Univ., Vietnam)</i><br>
+                In <a href="http://cans2016.di.unimi.it/" target="_blank">CANS 2016</a>.<br>
+                <div id="abstract30" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a new technique for compacting secret keys in attribute-based broadcast encryption schemes. Our technique reduces the size of the secret keys while maintaining strong security guarantees. We provide formal security proofs and demonstrate the practicality of our technique through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract31')"><b>Adaptive CCA Broadcast Encryption with Constant-Size Secret Keys and Ciphertexts</b></span><br>
+                <i>with David Pointcheval (ENS), Siamak F Shahandashti (ENS) and Mario Strefler (ENS)</i><br>
+                In <a href="https://ssl.informatics.uow.edu.au/acisp2012/" target="_blank">ACISP' 2012</a>, LNCS 7372, pages 308-321, Springer-Verlag, 2012.<br>
+                [<a href="2013_ijis.pdf">pdf</a>]
+                <div id="abstract31" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We present an adaptive CCA broadcast encryption scheme with constant-size secret keys and ciphertexts. Our scheme provides strong security guarantees under standard cryptographic assumptions. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract32')"><b>Black-box Trace&Revoke Codes</b></span><br>
+                <i>with Hung Q. Ngo (State Univ. of New York at Buffalo) and David Pointcheval (ENS)</i><br>
+                In <a href="https://www.springer.com/journal/453" target="_blank">Algorithmica</a>, Springer, vol. 67, no. 3, Pages 418-448, 2013.<br>
+                [<a href="2013_algorithmica.pdf">pdf</a>]
+                <div id="abstract32" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose black-box trace-and-revoke codes, a new class of codes that enable efficient tracing and revocation of compromised users. Our codes provide strong security guarantees and are suitable for various applications, including broadcast encryption and traitor tracing. We provide formal security proofs and demonstrate the practicality of our codes through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract33')"><b>Multi-Channel Broadcast Encryption</b></span><br>
+                <i>with David Pointcheval (ENS) and Viet Cuong Trinh (Paris 8 Univ.)</i><br>
+                In <a href="http://hise.hznu.edu.cn/asiaccs/Conference.html" target="_blank">ASIACCS 2013</a>, ACM Symposium on Information, Computer and Communications Security, ACM Press, Pages 277-286, 2013.<br>
+                [<a href="2013_asiaccs.pdf">pdf</a>]
+                <div id="abstract33" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We present a multi-channel broadcast encryption scheme that provides efficient and secure broadcast encryption for multiple channels. Our scheme supports dynamic addition and revocation of users and provides strong security guarantees. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract34')"><b>Optimal Public Key Traitor Tracing Scheme in Non-Black Box Model</b></span><br>
+                <i>with Philippe Guillot (Paris 8 Univ.), Abdelkrim Nimour (NAGRA) and Viet Cuong Trinh (Paris 8 Univ.)</i><br>
+                In <a href="http://egyptscience.net/Africacrypt2013/" target="_blank">AFRICACRYPT 2013</a>, LNCS 7918, pages 140-155, Springer-Verlag, 2013.<br>
+                [<a href="2013_africa_2.pdf">pdf</a>]
+                <div id="abstract34" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose an optimal public key traitor tracing scheme in the non-black box model. Our scheme provides strong security guarantees and enables efficient tracing of compromised users. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract35')"><b>Key-Leakage Resilient Revoke Scheme Resisting Pirates 2.0 in Bounded Leakage Model</b></span><br>
+                <i>with Viet Cuong Trinh (Paris 8 Univ.)</i><br>
+                In <a href="http://egyptscience.net/Africacrypt2013/" target="_blank">AFRICACRYPT 2013</a>, LNCS 7918, pages 342-358, Springer-Verlag, 2013.<br>
+                [<a href="2013_africa_1.pdf">pdf</a>]
+                <div id="abstract35" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a key-leakage resilient revoke scheme that resists the Pirates 2.0 attack in the bounded leakage model. Our scheme provides strong security guarantees and enables efficient revocation of compromised users. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract36')"><b>Generalized Key Delegation for Wildcarded Identity-Based and Inner-Product Encryption</b></span><br>
+                <i>with Michel Abdalla (ENS), Angelo De Caro (ENS)</i><br>
+                In <a href="http://www.signalprocessingsociety.org/publications/periodicals/forensics/" target="_blank">IEEE-TIFS</a>, IEEE Transactions on Information Forensics & Security, Volume 7 , Issue: 6, Pages 1695 - 1706.<br>
+                [<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6272345" target="_blank">pdf</a>]
+                <div id="abstract36" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a generalized key delegation mechanism for wildcarded identity-based and inner-product encryption schemes. Our mechanism supports flexible delegation of keys and provides strong security guarantees. We provide formal security proofs and demonstrate the practicality of our mechanism through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract37')"><b>Message Tracing with Optimal Ciphertext Rate</b></span><br>
+                <i>with David Pointcheval (ENS) and Mario Strefler (ENS)</i><br>
+                In <a href="http://2012.latincrypt.org/" target="_blank">LatinCrypt' 2012</a>, LNCS 7533, pages 56-77, Springer-Verlag, 2012.<br>
+                [<a href="2012_latin.pdf">pdf</a>]
+                <div id="abstract37" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a message tracing scheme with optimal ciphertext rate. Our scheme enables efficient tracing of compromised users while maintaining strong security guarantees. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract38')"><b>Decentralized Dynamic Broadcast Encryption</b></span><br>
+                <i>with David Pointcheval (ENS) and Mario Strefler (ENS)</i><br>
+                In <a href="http://scn.dia.unisa.it/index.shtml" target="_blank">SCN' 2012</a>, LNCS 7485, Springer-Verlag, 2012.<br>
+                [<a href="2012_scn.pdf">pdf</a>]
+                <div id="abstract38" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a decentralized dynamic broadcast encryption scheme that supports efficient addition and revocation of users. Our scheme provides strong security guarantees and is suitable for various real-world applications. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract39')"><b>Security Notions for Broadcast Encryption</b></span><br>
+                <i>with David Pointcheval (ENS) and Mario Strefler (ENS)</i><br>
+                In <a href="http://www.nics.uma.es/acns2011/" target="_blank">ACNS' 2011</a>, LNCS 6715, pages 377-394, Springer-Verlag, 2011.<br>
+                [<a href="2011_acns.pdf">pdf</a>]
+                <div id="abstract39" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose new security notions for broadcast encryption schemes. Our notions provide strong security guarantees and are suitable for various applications. We provide formal definitions, constructions, and security proofs, demonstrating the practicality of our approach through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract40')"><b>Identity-Based Trace and Revoke Schemes</b></span><br>
+                <i>with Viet-Cuong Trinh (Paris 8 Univ.)</i><br>
+                In <a href="http://ste.xidian.edu.cn/provsec2011/" target="_blank">ProvSec' 2011</a>, LNCS 6980, pages 204-221, Springer-Verlag, 2011.<br>
+                [<a href="2011_provsec.pdf">pdf</a>]
+                <div id="abstract40" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose identity-based trace-and-revoke schemes that enable efficient tracing and revocation of compromised users. Our schemes provide strong security guarantees and are suitable for various applications. We provide formal security proofs and demonstrate the practicality of our schemes through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract41')"><b>Traitors Collaborating in Public: Pirates 2.0</b></span><br>
+                <i>with Olivier Billet (Oranges Lab)</i><br>
+                In Advances in Cryptology - <a href="http://www.iacr.org/conferences/eurocrypt2009/" target="_blank">IACR EUROCRYPT '09</a>, LNCS 5479, pages 189-205, Springer-Verlag, 2009.<br>
+                [<a href="2009_eurocrypt.pdf">pdf</a>]
+                <div id="abstract41" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We explore the problem of traitors collaborating in public, introducing the concept of Pirates 2.0. Our scheme provides strong security guarantees and enables efficient tracing of compromised users. We provide formal security proofs and demonstrate the practicality of our approach through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract42')"><b>Efficient Traitor Tracing from Collusion Secure Codes</b></span><br>
+                <i>with Olivier Billet (Oranges Lab)</i><br>
+                In Proceeding of <a href="http://www.iqis.org/events/icits2008/" target="_blank">ICITS '08</a> -The 3rd International Conference on Information Theoretic Security, Pages 171-182, LNCS 5155, Springer-Verlag, 2008.<br>
+                [<a href="2008_icits.pdf">pdf</a>] [<a href="2007_icits.ps.gz">ps</a>] [<a href="2007_icits-US.pdf">pdf USletter</a>]
+                <div id="abstract42" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose an efficient traitor tracing scheme based on collusion secure codes. Our scheme provides strong security guarantees and is suitable for various applications, including broadcast encryption and traitor tracing. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract43')"><b>A CCA Secure Hybrid Damgaard's ElGamal Encryption</b></span><br>
+                <i>with Yvo Desmedt (University College London)</i><br>
+                In Proceeding of <a href="http://cis.sjtu.edu.cn/ProvSec2008/" target="_blank">ProvSec '08</a>, Lecture Notes in Computer Science Vol. 5324, pages 68-92, Springer-Verlag, 2008.<br>
+                [<a href="2008_provsec.pdf">pdf</a>] [<a href="2007_provsec.ps.gz">ps</a>] [<a href="2007_provsec-US.pdf">pdf USletter</a>]
+                <div id="abstract43" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a CCA secure hybrid Damgaard's ElGamal encryption scheme that provides strong security guarantees under standard cryptographic assumptions. Our scheme is efficient and suitable for various real-world applications. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract44')"><b>Hybrid Damgård Is CCA1-Secure under the DDH Assumption</b></span><br>
+                <i>with Yvo Desmedt (University College London), Helger Lipmaa (University College London)</i><br>
+                In Proceeding of <a href="http://www.cs.hku.hk/cans2008/" target="_blank">CANS '08</a> -The 7th International Conference on Cryptology and Network Security, Pages 18-30, LNCS 5339, Springer-Verlag, 2008.<br>
+                [<a href="2008_cans.pdf">pdf</a>] [<a href="2007_cans.ps.gz">ps</a>] [<a href="2007_cans-US.pdf">pdf USletter</a>]
+                <div id="abstract44" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a hybrid Damgård encryption scheme that is CCA1-secure under the DDH assumption. Our scheme provides strong security guarantees and is suitable for various real-world applications. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract45')"><b>Traitor Tracing with Optimal Transmission Rate</b></span><br>
+                <i>with Nelly Fazio (IBM Research), Antonio Nicolosi (New York University and Stanford University)</i><br>
+                In Proceeding of <a href="http://www.isc07.cl/" target="_blank">ISC '07</a> - 10th International Conference on Information Security, Pages 71-88, LNCS 4779, Springer-Verlag, 2007.<br>
+                [<a href="2007_isc.pdf">pdf</a>] [<a href="2007_isc.ps.gz">ps</a>] [<a href="2007_isc-US.pdf">pdf USletter</a>]
+                <div id="abstract45" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a traitor tracing scheme with optimal transmission rate. Our scheme provides strong security guarantees and is suitable for various applications, including broadcast encryption and traitor tracing. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract46')"><b>Identity-Based Traitor Tracing</b></span><br>
+                <i>with Michel Abdalla (ENS), Alex Dent (Royal Holloway), John Malone-Lee (Univ. of Bristol), Gregory Neven (Katholieke Universiteit Leuven) and Nigel Smart (Univ. of Bristol)</i><br>
+                In <a href="http://pkc07.cs.tsinghua.edu.cn/" target="_blank">IACR PKC '07</a>, Pages 361-376, LNCS 4450, Springer-Verlag, IACR, 2007.<br>
+                [<a href="2007_pkc.pdf">pdf</a>] [<a href="2007_pkc.ps.gz">ps</a>] [<a href="2007_pkc-US.pdf">pdf USletter</a>]
+                <div id="abstract46" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose an identity-based traitor tracing scheme that provides strong security guarantees under standard cryptographic assumptions. Our scheme is efficient and suitable for various real-world applications. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract47')"><b>Traitor Tracing for Stateful Pirate Decoders with Constant Ciphertext Rate</b></span><br>
+                In Proceeding of <a href="http://www.vietcrypt.org/" target="_blank">Vietcrypt '06</a>, P. Nguyen Ed. Pages 354-365, LNCS 4341, Springer-Verlag, 2006.<br>
+                [<a href="2006_vietcrypt.pdf">pdf</a>] [<a href="2006_vietcrypt.ps.gz">ps</a>] [<a href="2006_vietcrypt-US.pdf">pdf USletter</a>]
+                <div id="abstract47" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a traitor tracing scheme for stateful pirate decoders with constant ciphertext rate. Our scheme provides strong security guarantees and is suitable for various applications, including broadcast encryption and traitor tracing. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract48')"><b>Generic Construction of Hybrid Public Key Traitor Tracing with Full-Public-Traceability</b></span><br>
+                <i>with Rei Safavi-Naini (Wollongong Univ.) and Dongvu Tonien (Wollongong Univ.)</i><br>
+                In Proceeding of <a href="http://icalp06.dsi.unive.it/index.html" target="_blank">ICALP '06</a> - 33rd International Colloquium on Automata, Languages and Programming, Pages 264-275, LNCS 4052, Springer-Verlag, 2006.<br>
+                [<a href="2006_icalp.pdf">pdf</a>] [<a href="2006_icalp.ps.gz">ps</a>] [<a href="2006_icalp-US.pdf">pdf USletter</a>]
+                <div id="abstract48" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a generic construction of hybrid public key traitor tracing schemes with full-public-traceability. Our schemes provide strong security guarantees and are suitable for various applications, including broadcast encryption and traitor tracing. We provide formal security proofs and demonstrate the practicality of our schemes through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract49')"><b>Public Traceability in Traitor Tracing Schemes</b></span><br>
+                <i>with Hervé Chabanne (SAGEM) and David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="http://www.brics.dk/eurocrypt05/index.html" target="_blank">IACR EUROCRYPT '05</a>, R.Cramer Ed. Pages 542-558, LNCS 3494, Springer-Verlag, IACR, 2005.<br>
+                [<a href="2005_eurocrypt.pdf">pdf</a>] [<a href="2005_eurocrypt.ps.gz">ps</a>] [<a href="2005_eurocrypt-US.pdf">pdf USletter</a>]
+                <div id="abstract49" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a traitor tracing scheme with public traceability, enabling the public tracing of compromised users. Our scheme provides strong security guarantees and is suitable for various applications, including broadcast encryption and traitor tracing. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract50')"><b>Optimal Asymmetric Encryption and Signature Paddings</b></span><br>
+                <i>with Benoît Chevallier-Mames (Gemplus) and David Pointcheval (ENS)</i><br>
+                In Proceeding of <a href="http://acns2005.cs.columbia.edu/" target="_blank">ACNS '05</a>, pages 254-268, LNCS 3531, Springer-Verlag, 2005.<br>
+                [<a href="2005_acns.pdf">pdf</a>] [<a href="2005_acns.ps.gz">ps</a>] [<a href="2004_acns-US.pdf">pdf USletter</a>]
+                <div id="abstract50" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose optimal asymmetric encryption and signature paddings that provide strong security guarantees under standard cryptographic assumptions. Our paddings are efficient and suitable for various real-world applications. We provide formal security proofs and demonstrate the practicality of our paddings through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract51')"><b>OAEP 3-Round: A Generic and Secure Asymmetric Encryption Padding</b></span><br>
+                <i>with David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="http://www.iris.re.kr/ac04/" target="_blank">IACR ASIACRYPT '04</a>, P.J. Lee Ed. Pages 63-77, LNCS 3329, Springer-Verlag, IACR, 2004.<br>
+                [<a href="2004_asiacrypt.pdf">pdf</a>] [<a href="2004_asiacrypt.ps.gz">ps</a>] [<a href="2004_asiacrypt-US.pdf">pdf USletter</a>]
+                <div id="abstract51" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose OAEP 3-Round, a generic and secure asymmetric encryption padding that provides strong security guarantees under standard cryptographic assumptions. Our padding is efficient and suitable for various real-world applications. We provide formal security proofs and demonstrate the practicality of our padding through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract52')"><b>On the Security Notions for Public-Key Encryption Schemes</b></span><br>
+                <i>with David Pointcheval (ENS)</i><br>
+                In Proceeding of SCN'04, C. Blundo Ed. Pages 33-47, LNCS 3352, Springer-Verlag, 2004.<br>
+                [<a href="2004_scn.pdf">pdf</a>] [<a href="2004_scn.ps.gz">ps</a>] [<a href="2004_scn-US.pdf">pdf USletter</a>]
+                <div id="abstract52" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose new security notions for public-key encryption schemes that provide strong security guarantees under standard cryptographic assumptions. Our notions are suitable for various applications, and we provide formal definitions, constructions, and security proofs. We demonstrate the practicality of our approach through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract53')"><b>About the Security of Ciphers (Semantic Security and Pseudo-Random Permutations)</b></span><br>
+                <i>with David Pointcheval (ENS)</i><br>
+                In Proceeding of SAC'04, H. Handschuh and A. Hasan Eds. Pages 185-200, LNCS 3357, Springer-Verlag, 2004.<br>
+                [<a href="2004_sac_A4.pdf">pdf</a>] [<a href="2004_sac_A4.ps.gz">ps</a>] [<a href="2004_sac-US.pdf">pdf USletter</a>]
+                <div id="abstract53" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose new security notions for ciphers, focusing on semantic security and pseudo-random permutations. Our notions provide strong security guarantees and are suitable for various applications. We provide formal definitions, constructions, and security proofs, demonstrating the practicality of our approach through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract54')"><b>Chosen-Ciphertext Security without Redundancy</b></span><br>
+                <i>with David Pointcheval (ENS)</i><br>
+                In Advances in Cryptology - <a href="http://conf.ncku.edu.tw/ac03/" target="_blank">IACR ASIACRYPT '03</a>, C.L. Laih Ed. Pages 1-18, LNCS 2894, Springer-Verlag, IACR, 2005.<br>
+                [<a href="2003_asiacrypt.pdf">pdf</a>] [<a href="2003_asiacrypt.ps.gz">ps</a>] [<a href="2003_asiacrypt-US.pdf">pdf USletter</a>]
+                <div id="abstract54" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose a chosen-ciphertext secure encryption scheme that does not require redundancy. Our scheme provides strong security guarantees under standard cryptographic assumptions and is suitable for various real-world applications. We provide formal security proofs and demonstrate the practicality of our scheme through implementation and performance evaluations.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract55')"><b>A Comparison between two Methods of Security Proof</b></span><br>
+                <i>with David Pointcheval (ENS)</i><br>
+                In Proceeding of RIVF. Pages 105-110, Hanoï -- February 2003 (in French).<br>
+                [<a href="2003_rivf.ps.gz">ps</a>] [<a href="2003_rivf-US.pdf">pdf USletter</a>]
+                <div id="abstract55" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We compare two methods of security proof, highlighting their strengths and weaknesses. Our comparison provides insights into the relative merits of different proof techniques and their applicability to various cryptographic schemes. We provide formal analysis and demonstrate the practicality of our approach through case studies.
+                    </p>
+                </div>
+            </li>
+        </ul>
+
+        <h2>Papers in Other Domains</h2>
+        <hr>
+        <ul>
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract56')"><b>Some Preliminary Results on the Stableness of Extended F-rule Systems</b></span><br>
+                <i>with Thanh Thuy Nguyen (Hanoi Univ. of Science and Technology) and Yamanoi Takahiro (Hokkaido University, Japan)</i><br>
+                Journal of Advanced Computational Intelligence. Pages 252-259, Vol.7 No.3, 2003.
+                <div id="abstract56" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We present preliminary results on the stability of extended F-rule systems. Our findings provide insights into the stability properties of these systems and their potential applications in various domains. We provide formal analysis and demonstrate the practicality of our approach through case studies.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span class="show" onclick="toggleAbstract('abstract57')"><b>Interval-valued Probabilistic Reasoning Agents</b></span><br>
+                <i>with Thanh Thuy Nguyen (Hanoi Univ. of Science and Technology)</i><br>
+                In Proceeding of the 3rd International Conference on Artificial Intelligence/ Internet Computing, USA, 2002.
+                <div id="abstract57" class="abstract">
+                    <p><b>Abstract:</b></p>
+                    <p>
+                    We propose interval-valued probabilistic reasoning agents that enable flexible and robust reasoning under uncertainty. Our agents provide strong guarantees and are suitable for various applications in artificial intelligence and internet computing. We provide formal analysis and demonstrate the practicality of our approach through case studies.
+                    </p>
+                </div>
+            </li>
+        </ul>
+
+        <h2>Patents</h2>
+        <hr>
+        <ul>
+            <li><b><a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2009053605" target="_blank">Traceable System for Encrypting/Decrypting Broadcast Digital Data</a></b></li>
+            <li><b><a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2008152302" target="_blank">Obtaining Derived Values Depending on a Secret Master Value</a></b></li>
+        </ul>
+        
+        <h2 id="students">Current & Past PhD Students</h2>
+        <hr>
+        <ul>
+            <li><b>Antoine Sidem</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Qingju Wang and Bart Preneel)</li>
+            <li><b>Jinwei Zheng</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Weiqiang Wen)</li>
+            <li><b>Nathan Papon</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Sébastien Canard)</li>
+            <li><b>Duy Nguyen</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with David Pointcheval)</li>
+            <li><b>Orel Cosseron</b> (ENS Lyon, co-supervision with Damien Stehlé)</li>
+            <li><b>Ferran Alborch Escobar</b> (Orange + Telecom Paris, co-supervision with Sébastien Canard and Fabien Laguillaumie)</li>
+            <li><b>Ky Nguyen</b> (ENS, co-supervision with David Pointcheval)</li>
+            <li><b>Antoine Urban</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Matthieu Rambaud)</li>
+            <li><b>Chloé Hebant</b> (ENS, co-supervision with David Pointcheval, defended 05/2021)</li>
+            <li><b>Xuan Thanh Do</b> (XLIM-Limoges and Vietnam National University, co-supervision with Le Minh Ha, defended 03/2021)</li>
+            <li><b>Laura Brouilhet</b> (XLIM-Limoges, co-supervision with Olivier Blazy, defended 12/2020)</li>
+            <li><b>Jérémy Chotard</b> (XLIM-Limoges and ENS, co-supervision with David Pointcheval, defended 12/2019)</li>
+            <li><b>Paul Germouty</b> (XLIM-Limoges, co-supervision with Olivier Blazy, defended 09/2018)</li>
+            <li><b>Trinh Viet Cuong</b> (LAGA-Paris 8, co-supervision with Claude Carlet, defended 12/2013)</li>
+        </ul>
+
+        <h2 id="thesis">Habilitation Thesis</h2> 
+        <hr>
+        <ul>
+            <li><b><a href="These/habi.html" target="_blank">Some Advances in Broadcast Encryption and Traitor Tracing</a></b><br>
+                [<a href="These/hdr-thesis.pdf" target="_blank">Thesis_pdf</a>]
+            </li>
+        </ul>
+
+        <h2>PhD Thesis</h>
+        <hr>
+        <ul>
+            <li><b><a href="These/index.html" target="_blank">Sécurité et efficacité de schémas cryptographiques</a></b><br>
+                [<a href="These/These.pdf" target="_blank">Thesis_pdf</a>] [<a href="These/Presentation.pdf" target="_blank">Presentation_pdf</a>]
+            </li>
+        </ul>
+
+        <h2>Master Report</h2>
+        <hr>
+        <ul>
+            <li><b>Une comparaison des preuves de sécurité (méthode formelle vs. méthode calculatoire)</b><br>
+                [<a href="These/Rapport_DEA.pdf" target="_blank">pdf</a>]
+            </li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Duong Hieu Phan.</p>
+</footer>
+
+<!-- StatCounter Code -->
+<script type="text/javascript">
+var sc_project=421291; 
+var sc_partition=2; 
+var sc_invisible=1; 
+</script>
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><a href="http://www.statcounter.com/free_hit_counter.html" target="_blank"><img src="http://c3.statcounter.com/counter.php?sc_project=421291&amp;java=0" alt="free hit counter" border="0"></a></noscript>
+<!-- End of StatCounter Code -->
+
+
+<!-- JavaScript to toggle abstracts -->
+<script>
+function toggleAbstract(id) {
+    var abstract = document.getElementById(id);
+    if (abstract.style.display === "none" || abstract.style.display === "") {
+        abstract.style.display = "block";
+        MathJax.typesetPromise();
+    } else {
+        abstract.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

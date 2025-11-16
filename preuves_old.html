@@ -1,0 +1,452 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+  <title>Duong Hieu Phan </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style type="text/css">
+  #g_title p, #g_footer p, #g_description p {
+    margin: 0;
+  }
+  /*
+
+  	-- -- -- -- -- -- --
+  	Browser Fixes
+  	-- -- -- -- -- -- --
+  	
+  	This file uses CSS filtering methods to fix various
+  	layout bugs.
+
+  	Each of the following three imported files is a 
+  	separate, browser-specific CSS file that keeps all 
+  	hacks out of the main style sheet.
+  	
+  	Over time, as supporting these browsers no longer
+  	remains a priority, cleaning up the hacks is as
+  	easy as deleting the @import statement below, or
+  	simply no longer linking this file from the HTML.
+  	
+  */
+
+  /* 
+    fix ie6 "peekaboo bug" using the "holly hack". 
+    Note, this style only gets applied to ie6
+  */
+  * html .wrapper {
+    height: 0.1%;
+  }
+
+  /* 
+   * IE5 mac - overrides the IE/Win hack 
+   */
+
+  /*\*//*/
+
+  * html #threecolumn div {
+  	height: auto;
+  }
+
+  /**/
+
+
+  /* 
+   * IE5/Win-specific CSS -ensures #container wraps all content on window resize
+   */
+
+  @media tty {
+   i{content:"\";/*" "*/}} * html #container { height: 1%; } /*";}
+  }/* */
+  /* Styling for editable elements. Eventually, this will be part of the style. */
+  .editable {
+    border: 1px dashed blue;
+  }
+  
+  #footer {
+    clear: both;
+  }
+  
+  /* Extra divs hidden by default. The custom CSS can override this though */
+  #extraDiv1, #extraDiv2, #extraDiv3, #extraDiv4, #extraDiv5, #extraDiv6 {
+    display: none;
+  }
+  
+  a img,:link img,:visited img {border: none;}
+
+
+  body {
+    text-align: center;
+  }
+  #container {
+    width: 718px;
+    text-align: left;
+    margin: 0 auto;
+  }
+  /** BEGIN CUSTOM SKIN **/
+  /*
+
+  	-- -- -- -- -- -- --
+  	Base CSS
+  	-- -- -- -- -- -- --
+  	
+  	This file simply removes default styling on most HTML elements in 
+  	order to reduce the need to later override them.
+  	
+  */
+
+  h1,h2,h3,h4,h5,h6,pre,code,p {font-size: 1em;}
+  dl,li,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input {margin: 0; padding: 0;}
+  a img,:link img,:visited img {border: none;}
+  address {font-style: normal;}html {background:#eee;}
+  body {background:#eee;font-family:'Verdana','Helvetica', 'Arial', sans-serif;font-size:0.85em;}
+  a {color:#00c;text-decoration:underline !important;}
+  a:visited {color:#551a8b;}
+  b, strong {font-weight:bold;}
+  blockquote {border-left:1px solid #ccc;margin:1em 3em;padding-left:1em;font-size:0.9em;}
+  blockquote p {line-height:1.45em;}
+  em {font-style:italic;}
+  h1, h2, h3, h4, h5, h6 {font-weight:normal;margin:1.5em 0 0.5em 0;}
+  h1 {font-size:2.25em;color:#666;margin:0;}
+  h2 {font-size:1.5em;color:#333;}
+  h3 {font-size:1.3em;}
+  h4 {font-size:1.15em;}
+  h5 {font-size:1em;}
+  h6 {font-size:0.8em;}
+  p, li {color:#000;line-height:1.75em;margin:0 0 1.5em 0;}
+  blockquote p, table p, dd p, li p, #header p {margin-bottom:0.5em;}
+  ul, ol {margin:1em 0; padding-left: 1.6em;}
+  li {margin:0.25em 0;}
+  ul li {list-style-type:disc;}
+  ol li {list-style-type:decimal;}
+  table {border:1px solid #ccc;border-width:1px 1px 0 1px;}
+  table caption {display:block;font-style:italic;white-space:nowrap;margin:0.5em 1em;}
+  table td, table th {padding:0.5em 1em;text-align:left;vertical-align:top;}
+  table th {font-weight:bold;border-bottom:1px solid #999;}
+  table td {border-bottom:1px solid #ddd;}
+
+  dl {margin:1em;line-height:1.5em;list-style-type:disc;}
+  dt {font-weight:bold;margin-top:0.5em;}
+  dd {margin-left:2em;}
+
+  #adsense {text-align:center;}
+  #container {
+  	padding: 25px 40px 10px 40px; 
+  	border: 1px solid #ccc;
+  	background:#fff;
+  	margin:1em auto;
+  }
+  #footer {border-top:1px solid #ccc;margin-top:2em;}
+  #header {border-bottom:1px solid #ccc;margin-bottom:2em;}
+  #sidebar {font-size:1.0em;}
+  #sidebar :first-child {margin-top:0;}
+  #sidebar-alternate {font-size:1.0em;}
+  #sidebar-alternate :first-child {margin-top:0;}
+  #main-content {background:#fff;}
+  #main-content h2:first-child {margin-top:0;}	
+
+  @media print {
+    html {background:#fff !important;}
+    #container {border-width:0px !important;padding:0 !important;}
+  }
+
+  /* Tweaks for Three-column layout
+  ----------------------------------------------- */
+  #threecolumn #main-content .wrapper {padding:0 25px;}
+
+  /* Tweaks for Two-column Left layout
+  ----------------------------------------------- */
+  #twocolumn-left #main-content .wrapper {padding-left:25px;}
+
+  /* Tweaks for Two-column Right layout
+  ----------------------------------------------- */
+  #twocolumn-right #main-content .wrapper {padding-right:25px;}
+
+  /* Tweaks for Two-column Liquid layout
+  ----------------------------------------------- */
+  #twocolumn-liquid-right #container {margin:1em 1em;}
+  #twocolumn-liquid-right #main-content .wrapper {padding-right:25px;}
+  #twocolumn-liquid-left #container {margin:1em 1em;}
+  #twocolumn-liquid-left #main-content .wrapper {padding-left:25px;}
+
+  /* Tweaks for One-column Liquid layout
+  ----------------------------------------------- */
+
+  /* Tweaks for One-column layout
+  ----------------------------------------------- */
+  #onecolumn #main-content .wrapper {padding-left:0;}
+
+  /* ie5win */
+  @media tty { i{content:"\";/*" "*/}} * html #container { padding: 25px 0px 10px 10px; } /*";}
+  }/* */
+
+  /** END CUSTOM SKIN **/
+  </style>
+
+  <!-- Hack to avoid flash of unstyled content in IE -->
+  <script> </script>
+
+</head>
+
+<body id="onecolumn">
+  <div id="container">
+    <div class="wrapper">
+      <div id="header">
+        <div class="wrapper">
+          <h1 id="page-title"><div id='g_title'> <h2 style="text-align: left;"><span style="color: rgb(153, 0, 0);">Duong Hieu Phan</span> <span style="background-color: rgb(255, 255, 153);"></span></h2></div></h1>
+          <div style="clear: both;"></div>
+
+          <p class="description"><div id='g_description'><p style="background-color: rgb(204, 204, 204); color: rgb(204, 0, 0);"><font size="4"><a href="index.html">Home</a>  &nbsp; &nbsp;  &nbsp;       <a href="publications.html">Publications</a>  &nbsp; &nbsp;  &nbsp;           <a href="teaching.html">Teaching	</a>        &nbsp; &nbsp;  &nbsp;    <a href="contact.html">Contact </a></font></p></div></p>
+          <div style="clear: both"></div>
+        </div>
+      </div>
+      <!-- /editable --><!-- /wrapper --><!-- /header -->
+      <div id="main-content">
+
+        
+        <div class="wrapper">
+          <div class="content-item "><div id='g_body'><p class="separator" style="clear: both; text-align: center;"></p>
+<p></p>
+
+
+
+<BODY BGCOLOR="WHITE">
+
+
+<font face="Verdana">
+<center> <h2> <FONT COLOR="RED">PREUVES DE S&Eacute;CURIT&Eacute; EN CRYPTOGRAPHIE</font></h1></center>
+
+</font>
+
+
+<br>
+
+<font face="Verdana">
+<font face="Verdana">
+
+<h3>Cours 9-10 : Chiffrements CCA s&ucirc;rs</h3></font>
+
+<UL>
+
+<LI> <b> Les articles &agrave; retenir :</A> </b><br> 
+<UL>
+
+- Dans le modèle standard : Chiffrement Cramer-Shoup (<A HREF="http://www.shoup.net/papers/cs.pdf"> Crypto98 </A> ; <A HREF="http://www.shoup.net/papers/uhp.pdf"> Eurocrypt02 </A> ; <A HREF="http://www.shoup.net/papers/cca2.pdf"> Siam03 </A> ) <br>
+- Dans le modèle d'oracle al&eacute;atoire : OAEP (<A HREF="http://www-cse.ucsd.edu/~mihir/papers/oae.pdf"> Bellare-Rogaway94 </A> ; <A HREF="http://www.shoup.net/papers/oaep.pdf"> Shoup's attack </A> ; <A HREF="http://eprint.iacr.org/2000/061.pdf"> RSA-OAEP </A> ; <A HREF="http://ufr6.univ-paris8.fr/maths/phan/2004_asiacrypt.pdf"> OAEP-3R </A> ) <br>
+</UL>
+
+<LI> <b> Exercices de lecture : </A> </b><br> 
+<UL>
+- <A HREF="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=8A23A2C805D23A5F04B6C58272304B4B?doi=10.1.1.26.5883&rep=rep1&type=pdf
+"> Public-Key Cryptosystems Provably Secure against Chosen Ciphertext Attacks </A> (Naor, Yung - 1999) <br>
+- <A HREF="http://dsns.csie.nctu.edu.tw/research/crypto/HTML/PDF/C91/433.PDF"> Non-interactive zero-knowledge proof of knowledge and chosen ciphertext attack </A>  (Rackooff, Simon - 1992)<br>
+- <A HREF="www.wisdom.weizmann.ac.il/~naor/PAPERS/nmc.ps">Non-Malleable Cryptography </A>  (Dolev,Dwork,Naor - 2000)<br>
+- <A HREF="ftp://ftp.di.ens.fr/pub/users/pointche//Papers/1998_crypto.pdf">Relations Among Notions of Security for Public-Key Encryption Schemes </A>  (Bellare, Desai, Pointcheval, Rogaway - 1998) <br>
+- <A HREF="http://www-cse.ucsd.edu/~mihir/papers/sym-enc.pdf">Concrete Security Treatment of Symmetric Encryption </A>  (Bellare, Desai, Jokipii, Rogaway _ 1997) <br>
+</UL>
+
+<LI> <b> Pour aller plus loin : </A> </b><br> 
+<UL>
+- <A HREF="http://eprint.iacr.org/2002/161.pdf
+"> Practical Verifiable Encryption and Decryption of Discrete Logarithms </A> (Camenisch, Shoup - 2003) <br>
+- <A HREF="http://eprint.iacr.org/2003/032.pdf"> A Framework for Password-Based Authenticated Key Exchange </A> (Gennaro,Lindell - 2003) <br>
+- <A HREF="http://crypto.stanford.edu/~dabo/abstracts/ccaibejour.html"> Chosen-Ciphertext Security from Identity-Based Encryption </A> ((Boneh,) Canetti, Halevi, Katz -2006) <br>
+
+</UL>
+
+</UL>
+<hr>
+
+
+<h3>Cours 6-7 : S&eacute;curit&eacute; des chiffrements</h3></font>
+
+<UL>
+
+<LI> <b> <A HREF="http://ufr6.univ-paris8.fr/maths/phan/secuproofs/ProvSec6.pdf"> Transparents du cours.</A> </b><br>
+
+<LI> <b> Les articles &agrave; retenir :</A> </b><br> 
+<UL>
+
+- <A HREF="http://groups.csail.mit.edu/cis/pubs/shafi/1984-jcss.pdf"> Probabilistic Encryption </A> (Goldwasser, S. and Micali, S. - 1984) <br>
+
+- <A HREF="http://dsns.csie.nctu.edu.tw/research/crypto/HTML/PDF/C86/381.PDF"> The Notion of Security for Probabilistic Cryptosystems </A> (Silvio Micalit, Charles Rackoff and Bob Sloan - 1986) <br>
+
+</UL>
+</UL>
+<hr>
+
+
+<h3>Cours 5 : Familles de permutations pseudo-al&eacute;atoires et introduction au chiffrement</h3></font>
+
+<UL>
+
+<LI> <b> <A HREF="http://ufr6.univ-paris8.fr/maths/phan/secuproofs/ProvSec5.pdf"> Transparents du cours.</A> </b><br>
+
+<LI> <b> Les articles &agrave; retenir :</A> </b><br> 
+<UL>
+- Construction Luby-Rackoof &agrave; partir des PRFs : <A HREF="http://portal.acm.org/citation.cfm?id=45485"> How to construct pseudorandom permutations from pseudorandom functions </A> (M. Luby and C. Rackoff - 1988) <br>
+
+
+</UL>
+</UL>
+<hr>
+
+
+<h3>Cours 4 : Familles de fonctions pseudo-al&eacute;atoires</h3></font>
+
+<UL>
+
+<LI> <b> <A HREF="http://ufr6.univ-paris8.fr/maths/phan/secuproofs/ProvSec4.pdf"> Transparents du cours.</A> </b><br>
+
+<LI> <b> Les articles &agrave; retenir :</A> </b><br> 
+<UL>
+- Construction Goldreich, Goldwasser, Micali des PRFs &agrave; partir des PRGs : <A HREF="http://groups.csail.mit.edu/cis/pubs/shafi/1986-jacm.pdf"> How to construct random functions</A> (Goldreich, Goldwasser and Micali - 1983) <br>
+- <A HREF="http://groups.csail.mit.edu/cis/pubs/shafi/1985-lncs.pdf"> On the Cryptographic Applications of Random Function</A> (Goldreich, Goldwasser and Micali - 1984) <br>
+</UL>
+</UL>
+<hr>
+
+<h3>Cours 3 : G&eacute;n&eacute;rateurs pseudo-al&eacute;atoires</h3></font>
+
+<UL>
+
+<LI> <b> <A HREF="http://ufr6.univ-paris8.fr/maths/phan/secuproofs/ProvSec3.pdf"> Transparents du cours.</A> </b><br>
+
+<LI> <b> Les articles &agrave; retenir :</A> </b><br> 
+<UL>
+- Introduction de la notion d'indistinguabilit&eacute; calculatoire : <A HREF="http://groups.csail.mit.edu/cis/pubs/shafi/1984-jcss.pdf"> Probabilistic Encryption </A> (Goldwasser, S. and Micali, S. - 1984) <br>
+- Introduction de la notion de g&eacute;n&eacute;rateur pseudo-al&eacute;atoires : <A HREF="http://people.csail.mit.edu/silvio/SelectedScientific%20Papers/PseudoRandomness/how%20to%20generatecrypto.pdf"> How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits </A> (Manuel Blum and Silvio Micali - 1984) <br>
+- Notion de commitment et une construction utilisant une permutation &agrave; sens unique : <A HREF="http://dsns.csie.nctu.edu.tw/research/crypto/HTML/PDF/C81/11.PDF"> Coin flipping by phone </A> (
+Manuel Blum - 1981) <br>
+
+</UL>
+
+<LI> <b> Exercices de lecture : </A> </b><br> 
+<UL>
+
+- <A HREF="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.36.6283&rep=rep1&type=pdf
+"> A pseudorandom generator from any one-way function </A> (Johan Hastad, Russell Impagliazzo, Leonid A. Levin, Michael Luby  - 1999) <br>
+
+- <A HREF="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=3E714D478C7D6B3A2F6DA3151A6381CF?doi=10.1.1.28.1029&rep=rep1&type=pdf"> Bit commitment using pseudorandom generators </A> (Moni Noar  - 1991) <br>
+
+
+</UL>
+</UL>
+
+
+</UL>
+<hr>
+
+
+<h3>Cours 2 : Hard-core bit predicate - th&eacute;or&egrave;me Goldreich-Levin </h3></font>
+
+<UL>
+
+<LI> <b> <A HREF="http://ufr6.univ-paris8.fr/maths/phan/secuproofs/ProvSec2.pdf"> Transparents du cours.</A> </b><br> 
+
+<LI> <b> Les articles &agrave; retenir :</A> </b><br> 
+<UL>
+- Th&eacute;or&egrave;me de Goldreich-Levin : <A HREF="http://www.wisdom.weizmann.ac.il/~oded/X/gl.pdf"> A Hard-Core Predicate for all One-way Functions </A> (Oded Goldreich and Leonid A.Levin - 1989) <br>
+- Une pr&eacute;sentation tr&egrave;s claire de Bellare <A HREF="http://www-cse.ucsd.edu/users/mihir/papers/gl.pdf"> The Goldreich-Levin theorem </A>
+
+</UL>
+
+<LI> <b> Exercices de lecture : La s&eacute;curit&eacute; des bits des fonctions RSA et logarithme discret</A> </b><br> 
+<UL>
+
+- <A HREF="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.29.6321&rep=rep1&type=pdf
+"> The security of all RSA and Discrete Log bits  </A> (Johan Hastad, Mats Naslund - 1998) <br>
+
+- <A HREF="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.42.5492&rep=rep1&type=pdf"> The Discrete Logarithm Modulo a Composite Hides O(n) Bits </A> (J. Hastad, A. W. Schrift, A. Shamir - 1993) <br>
+
+
+</UL>
+</UL>
+<hr>
+ 
+<h3>Cours 1 : Introduction aux preuves de s&eacute;curit&eacute; </h3></font>
+
+<UL>
+
+<LI> <b> <A HREF="http://ufr6.univ-paris8.fr/maths/phan/secuproofs/ProvSec1.pdf"> Transparents du cours.</A> </b><br> 
+<LI> <b> Les articles &agrave; retenir :</A> </b><br> 
+<UL>
+- La naissance de la cryptographie moderne : <A HREF="http://www.cs.berkeley.edu/~christos/classics/diffiehellman.pdf"> New Directions in Cryptography </A> (Whitfield Diffie and Martin E. Hellman - 1976) <br>
+
+- Le chiffrement RSA : <A HREF="http://people.csail.mit.edu/rivest/Rsapaper.pdf"> A Method for Obtaining Digital
+Signatures and Public-Key Cryptosystems </A> (R.L. Rivest, A. Shamir, and L. Adleman - 1978) (<A HREF="http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-bool.html&r=1&f=G&l=50&co1=AND&d=PTXT&s1=4,405,829.PN.&OS=PN/4,405,829&RS=PN/4,405,829"> brevet </A>)<br>
+
+- ``Premi&egrave;re'' preuve de s&eacute;curit&eacute : <A HREF="http://www.lcs.mit.edu/publications/pubs/pdf/MIT-LCS-TR-212.pdf"> Digital signatures and public-key functions as intractable as factorization </A> (Michael O. Rabin - 1979) <br>
+
+-   <A HREF="secuproofs/yao82.pdf"> Theory and Application of Trapdoor Functions</A> (Andrew C Yao - 1982) <br>
+</UL>
+
+<LI> <b> D'autres articles mentionn&eacute;s dans le cours :</A> </b><br> 
+<UL>
+- <A HREF="http://groups.csail.mit.edu/cis/pubs/shafi/1986-stoc-gk.pdf"> Almost All Primes Can be Quickly Certified</A> (Shafi Goldwasser and Joe Kilian - 1986) <br>
+
+- <A HREF="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.54.1146&rep=rep1&type=pdf"> Elliptic curves and primality proving </A> (A. O. L. Atkin and F. Morain - 1993) <br>
+
+- <A HREF="https://eprints.kfupm.edu.sa/33096/1/33096.pdf
+"> Cryptanalysis of the Chor-Rivest Cryptosystem </A> (Serge Vaudenay - 1998) <br>
+
+
+</UL>
+
+
+</UL>
+<hr>
+
+<h3>Documentation :</h3></font>
+<UL>
+<LI> <b> <A HREF="http://www.wisdom.weizmann.ac.il/~oded/frag.html"> The Foundations of Cryptography </A>, Oded Goldreich. </b><br> 
+
+<LI> <b> <A HREF="http://www-cse.ucsd.edu/users/mihir/papers/gb.html"> Lecture Notes on Cryptography at the MIT</A>, S.
+   Goldwasser and M. Bellare. </b><br> 
+
+<LI> <b> <A HREF="http://www-cse.ucsd.edu/users/mihir/cse207/classnotes.html"> Introduction to Modern Cryptography</A>, Mihir Bellare and Phillip Rogaway. </b><br> 
+
+
+<LI> <b> <A HREF="http://shoup.net/ntb/"> A Computational Introduction to Number Theory and Algebra</A>, Victor Shoup. </b><br>
+
+<LI> <b> <A HREF="http://www.cacr.math.uwaterloo.ca/hac/">Handbook of Applied Cryptography</A>, Alfred J. Menezes, Paul C. van Oorschot and Scott A. Vanstone. </b><br>
+
+</UL>
+
+
+<br><br>
+
+
+
+</p>
+<p><br></p></div></div>
+          <div style="clear: both"></div>
+        </div>
+      </div>
+      <!-- /wrapper --><!-- /main-content -->
+      <div id="footer"><div class="wrapper">
+
+
+<hr />
+        <p><div id='g_footer'> </div></p>
+        <div style="clear: both"></div>
+      </div></div>
+      <!-- /wrapper --><!-- /footer -->
+    </div>
+  </div>
+<!-- /wrapper --><!-- /container -->
+<div id="extraDiv1"><span></span></div><div id="extraDiv2"><span></span></div>
+<div id="extraDiv3"><span></span></div><div id="extraDiv4"><span></span></div>
+<div id="extraDiv5"><span></span></div><div id="extraDiv6"><span></span></div>
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript" language="javascript">
+var sc_project=421291; 
+var sc_partition=2; 
+var sc_invisible =1;
+</script>
+ 
+ 
+          
+<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><a href="http://www.statcounter.com/free_hit_counter.html" target="_blank"><img  src="http://c3.statcounter.com/counter.php?sc_project=421291&amp;java=0" alt="free hit counter" border="0"></a> </noscript>
+<!-- End of StatCounter Code -->
+</body>
+</html>

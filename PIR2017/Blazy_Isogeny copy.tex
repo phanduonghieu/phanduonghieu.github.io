@@ -1,0 +1,51 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage[applemac]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+%\usepackage[francais]{babel} 
+
+\usepackage[utf8]{inputenc}
+
+\pagestyle{empty}
+
+\usepackage{makeidx}               % include an index at the end
+\makeindex
+\usepackage{color}
+\usepackage{graphicx}              % for \includegraphics
+\usepackage{hyperref}              % for HyperTeX links
+\everymath{\displaystyle}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathpple}
+\usepackage[notcite]{showkeys}
+
+\def\dvilink#1#2{\mbox{\href{dvi:#1}{\verb{#2}}}}
+
+
+\newcommand{\RR}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+
+\def\titre#1{\noindent{$\star$ \bf #1} \\ }
+\def\auteur#1{\noindent{\large{ \em #1}}  }
+\newcommand{\resume}{\noindent{\textbf{Résumé~: }}  }
+\newcommand{\prerequis}{\noindent{\textbf{Prérequis~: }}  }
+\newcommand{\reference}{\noindent{\textbf{Références~: }}  }
+
+\begin{document}
+
+\auteur{Olivier Blazy}
+\titre{Supersingular Isogenies}
+\resume 
+ \\ Les isognénies supersingulières sont un sujet actif de recherche en
+cryptographie post-quantique. Un échange de clé sécurisé ainsi qu'un
+schéma de chiffremenet efficaces ont déjà vu le jour.
+Le but de ce projet est de comprendre et maitriser les notions autour de
+ce concept, en expliquer les enjeux, les difficultés.
+%\prerequis aucun.
+\\ 
+%\reference 
+
+\paragraph{Référence}
+\begin{itemize}
+\item \url{https://arxiv.org/pdf/1711.04062.pdf}
+\end{itemize}
+\end{document}

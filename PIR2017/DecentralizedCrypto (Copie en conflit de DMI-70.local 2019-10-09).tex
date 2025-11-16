@@ -1,0 +1,53 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage[applemac]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+%\usepackage[francais]{babel} 
+
+\usepackage[utf8]{inputenc}
+
+\pagestyle{empty}
+
+\usepackage{makeidx}               % include an index at the end
+\makeindex
+\usepackage{color}
+\usepackage{graphicx}              % for \includegraphics
+\usepackage{hyperref}              % for HyperTeX links
+\everymath{\displaystyle}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathpple}
+\usepackage[notcite]{showkeys}
+
+\def\dvilink#1#2{\mbox{\href{dvi:#1}{\verb{#2}}}}
+
+
+\newcommand{\RR}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+
+\def\titre#1{\noindent{$\star$ \bf #1} \\ }
+\def\auteur#1{\noindent{\large{ \em #1}}  }
+\newcommand{\resume}{\noindent{\textbf{Résumé~: }}  }
+\newcommand{\prerequis}{\noindent{\textbf{Prérequis~: }}  }
+\newcommand{\reference}{\noindent{\textbf{Références~: }}  }
+
+\begin{document}
+
+\auteur{Duong Hieu PHAN}
+\titre{La cryptographie décentralisée}
+\resume 
+Un axe de recherche très actif en ce moment est d'étudier la décentralization des schémas cryptographiques où aucune confiance en autorités n'est demandé et chaque utilisateur contribue à la génération des parametrès du système. Blockchain est une méthode intéressante pour décentralizer la validation des transactions mais cette technique ne peut pas être appliquée à des objectif plus avancés, à nommer les calculs distribués. L'objectif de ce projet est d'étudier l'avantage et désavantage des méthodes de décentralization dans la validation (comme la cryptomonnaie Libra) et dans le calcul.
+\prerequis aucun.
+
+\end{document}
+\\ 
+\reference 
+\begin{itemize}
+\item Decentralized Dynamic Broadcast Encryption\\
+Duong Hieu Phan, David Pointcheval and Mario Strefler
+\url{https://www.di.ens.fr/users/phan/2012_scn.pdf}
+\item Decentralized Multi-Client Functional Encryption for Inner Product \\
+Jérémy Chotard, Edouard Dufour Sans, Romain Gay, Duong Hieu Phan and David Pointcheval.
+\url{https://eprint.iacr.org/2017/989.pdf}
+\end{itemize}
+	
+\end{document}

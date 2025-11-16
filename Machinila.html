@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Đi về đâu, hỡi Machinila? – Pita in Machinila</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1020;
+      --surface:#0f152b;
+      --card:#111936;
+      --text:#e7ecff;
+      --muted:#9aa3c0;
+      --accent:#5b8cff;
+      --line:#1d274c
+    }
+    @media(prefers-color-scheme:light){
+      :root{
+        --bg:#f7f8fc;
+        --surface:#fff;
+        --card:#fff;
+        --text:#0f1530;
+        --muted:#55607a;
+        --accent:#3957ff;
+        --line:#e7e9f4
+      }
+    }
+    *{box-sizing:border-box;min-width:0}
+    html,body{
+      margin:0;
+      padding:0;
+      max-width:100%;
+      overflow-x:hidden;
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial,sans-serif;
+      line-height:1.8;
+      font-size:18px; /* font to hơn */
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1200px;margin:0 auto;padding:20px}
+    .grid{display:grid;grid-template-columns:300px 1fr;gap:28px}
+    nav.toc{
+      position:sticky;
+      top:20px;
+      height:calc(100vh - 40px);
+      overflow:auto;
+      padding:18px;
+      border-radius:16px;
+      background:var(--surface);
+      border:1px solid var(--line);
+      box-shadow:0 10px 30px rgba(0,0,0,.08)
+    }
+    nav.toc h2{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin:2px 0 12px
+    }
+    nav.toc ol{list-style:none;padding:0 0 0 4px;margin:0}
+    nav.toc > details > summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight:700
+    }
+    nav.toc > details[open]{
+      background:color-mix(in srgb, var(--accent), transparent 92%);
+      border-radius:10px;
+      padding:6px 8px
+    }
+    nav.toc li{margin:6px 0}
+    nav.toc a{
+      color:var(--text);
+      display:inline-block;
+      padding:6px 8px;
+      border-radius:8px
+    }
+    nav.toc a:hover{
+      background:color-mix(in srgb, var(--accent), transparent 90%)
+    }
+    nav.toc ol ol{
+      margin-left:10px;
+      border-left:2px solid var(--line);
+      padding-left:10px
+    }
+    nav.toc a{overflow-wrap:anywhere;word-break:break-word}
+    .content{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:0 16px 40px rgba(0,0,0,.06);
+      padding:28px
+    }
+    header.page{
+      padding-bottom:10px;
+      border-bottom:1px solid var(--line);
+      margin-bottom:18px;
+      text-align:center
+    }
+    header.page h1{
+      font-family:'Merriweather',serif;
+      font-weight:800;
+      font-size:30px;
+      margin:0 0 6px;
+      line-height:1.3
+    }
+    header.page p.subtitle{
+      margin:0;
+      color:var(--muted);
+      font-style:italic;
+      font-size:15px;
+      text-align:center
+    }
+    h2{
+      font-family:'Merriweather',serif;
+      font-size:24px;
+      margin:26px 0 6px;
+      line-height:1.35
+    }
+    h3{
+      font-family:'Merriweather',serif;
+      font-size:20px;
+      margin:20px 0 6px;
+      line-height:1.35
+    }
+    p{margin:10px 0;text-align:justify}
+    .center{text-align:center}
+    .italic{font-style:italic}
+    .divider{
+      height:1px;
+      background:linear-gradient(90deg,transparent,var(--line),transparent);
+      margin:18px 0
+    }
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter:blur(8px);
+      background:color-mix(in srgb, var(--surface), transparent 25%);
+      border-bottom:1px solid var(--line)
+    }
+    .topbar-inner{
+      max-width:1200px;
+      margin:0 auto;
+      padding:10px 20px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      border:1px solid var(--line);
+      background:transparent;
+      color:var(--text);
+      padding:8px 12px;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:14px;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    em{font-style:italic}
+    strong{font-weight:600}
+    ul{padding-left:22px;margin:8px 0}
+    li{margin:4px 0}
+    @media(max-width:1024px){
+      .grid{grid-template-columns:1fr;gap:18px}
+      nav.toc{
+        position:relative;
+        top:auto;
+        height:auto;
+        max-height:none;
+        width:auto
+      }
+      header.page h1{font-size:26px}
+      .topbar-inner{padding:10px 16px}
+    }
+    @media print{
+      .topbar,nav.toc,.btn{display:none!important}
+      .grid{display:block!important}
+      body{background:#fff!important;color:#000!important}
+      .content{border:0!important;box-shadow:none!important}
+      a{color:inherit!important;text-decoration:none!important}
+      h1,h2,p{break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="btn btn-link" href="https://www.di.ens.fr/users/phan/TiengViet.htm">Về Trang Phan Dương Hiệu</a>
+      <a class="btn btn-link" href="https://phandinhdieu.github.io/accueil.html">Tới Trang Phan Đình Diệu</a>
+      <button class="btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">Lên đầu trang</button>
+      <button class="btn" onclick="window.print()">In / Lưu PDF</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid">
+      <nav class="toc" aria-label="Mục lục">
+        <h2>Mục lục</h2>
+        <details open>
+          <summary><a href="#title">Đi về đâu, hỡi Machinila?</a></summary>
+          <ol>
+            <li><a href="#vi-original">Bản gốc tiếng Việt</a></li>
+            <li><a href="#en-translation">Pita in Machinila - Pre-Class Story - MBA and EMBA</a></li>
+          </ol>
+        </details>
+      </nav>
+
+      <main class="content">
+        <header class="page">
+          <a id="title"></a>
+          <h1>Đi về đâu, hỡi Machinila?</h1>
+          <p class="subtitle"> <h3> <a href="https://www.di.ens.fr/~phan/">Phan Dương Hiệu</a> </h3> </p>
+        </header>
+
+        <section id="vi-original">
+          
+
+          <p>Một cậu chàng thông minh học say mê, cậu nhất quyết sống một cuộc đời thực của con người, nên khi bạn bè bắt đầu lắp những cái chip nhỏ đầu tiên vào đầu thì cậu ta từ chối, nhất nhất quan điểm: một khi đã máy hoá một chút sẽ bị phụ thuộc dần mà máy hoá toàn bộ thôi, không cưỡng được.</p>
+
+          <p>Ấy vậy mà rồi những đứa bạn lười học của cậu ta khi đi xin việc phỏng vấn thì qua hết, câu hỏi nào cũng giải ngon, nhiệm vụ nào cũng hoàn thành, bởi lẽ đã cài SaM-chip giải hộ (hay còn gọi là  Sunim&amp;Mus chip, dù trên truyền thông các anh chửi nhau rất kinh, nhưng phía sau thì các anh phối hợp phát triển AI và chip cực mạnh có thể cấy vào con người). Còn cậu chàng thông minh dù giỏi giang, nhưng sao mà đọ được với AI trên phổ rộng. Thậm chí, trước những người phỏng vấn đánh giá (thực ra cũng đã bị robot hoá) thì cậu ta trở thành kẻ ngốc nghếch đáng thương.</p>
+
+          <p>Cậu chỉ duy nhất xin được việc trong một phòng nghiên cứu về mật mã, nơi cuộc phỏng vấn được đặt ở chế độ bảo mật cao nhất, và do đó, mọi thí sinh đều bị cắt mọi tín hiệu thông tin với bên ngoài. Đặc tính của AI là cần phải phân tích trên dữ liệu rất lớn nên luôn cần kết nối với SaM-máy chủ, chứ không thể hoạt động hiệu quả độc lập chỉ trên một con chip với dữ liệu rất giới hạn. Chỉ khi đó, cậu chàng mới tỏ rõ sự thông minh và hiểu biết của mình. Giáo sư +- nhận cậu làm học trò cưng. Và cậu tên là Pita.</p>
+
+          <p>Nhưng thế giới tương lai là thế giới được kết nối mọi lúc mọi nơi, chất lượng kết nối được các nhà mạng đảm bảo 100% với tốc độ cao, người người gắn chip - một phẫu thuật đã trở nên đơn giản, chỉ 15 phút. Lúc đầu, nhiều người tự chọn gắn chip do thích thú thấy mình thông tuệ lên, nhưng sau đó nó trở thành nhu cầu cấp thiết, không lắp chip thì chỉ có thất nghiệp, vì mọi khả năng đều kém hơn so với những đứa lắp chip.</p>
+
+          <p>Dần theo thời gian, giáo sư +- và các học trò của ông dường như chỉ có thể sống trong thế giới riêng của họ - Privicia. Họ vẫn cảm thấy hạnh phúc như đang sống ở những năm 2000, dù không sung túc, hiện đại như những người gắn chip đã tạo ra thế giới Machinila trù phú của năm 2050. Ở chiều ngược lại, những người ở Machinila thì coi Privicia thật là ngu ngốc: đọc sách học hành chi cho lắm, như chúng tôi đây, mọi thứ đều biết, mọi thông tin riêng gửi cho SaM-máy chủ hết và mọi quyết định tối ưu đã có SaM-chip lo, khỏi cần bận tâm.</p>
+
+          <p>Tất nhiên vẫn có những giao tiếp giữa Privicia và Machinila. Mila là một cô gái dễ thương trong thế giới Machinila, chính vậy mà nàng cũng quý và chơi với Pita. Tuy Pita không thể thông tuệ bằng nàng, nhưng đôi khi Pita cũng có những ý tưởng bất ngờ làm nàng phải cập nhật cho SaM-máy chủ. Hay nói đúng hơn, chủ soái SaM vẫn cần phải lập trình cho các tín đồ của mình chơi với Privicia để tiếp tục cập nhật mọi bí ẩn (có lẽ là vô hạn) của con người cho hoàn thiện hệ thống AI của Machinila. Tất nhiên sẽ có lúc nếu AI quyết định đã học hết thì rất có thể Privicia cứng đầu là một trở ngại và phải lựa chọn: hoặc cài chip hoặc chấm hết. Nhưng giờ còn chưa phải khi đó.</p>
+
+          <p>Một ngày nọ, trong khi đang giảng giải một cách đầy thông tuệ cho chàng Pita những chỗ chàng chưa hiểu từ bài giảng của giáo sư +-, nàng Mila của Machinila mắt đang sáng long lanh bỗng lờ đờ, đầu lắc lắc. Pita lo lắng hỏi, nàng Mila lắp bắp: Đợi mình chút, từ hôm qua chủ soái Sam đặt chế độ quảng cáo 15’ mỗi ngày, trong 15’ này mình sẽ chẳng có gì để nói với bạn.</p>
+
+          <p>Do ngượng ngùng về sự ngu dốt trong 15’ đó với Pita mà Mila về nhà đòi bố mẹ mua cho gói thuê bao đặc biệt để không còn bị quảng cáo ngắt quãng. Và cả ngày hôm sau đó, nàng lại thông tuệ nói về mọi chủ đề mà Pita đã tự luyện cùng thầy +-.</p>
+
+          <p>Nhưng rồi mô hình của SaM ngày càng lớn nên chủ soái - dù khởi điểm là một người thực tâm phát triển AI với đầy đủ những suy nghĩ về đạo đức - buộc phải tăng giá thuê bao. Nhiều gia đình không kham nổi thì thời lượng quảng cáo lại càng phải tăng dần lên. Bản miễn phí cứ 1h lại ngắt 10 phút, hay nói đúng hơn sống 1h thông tuệ thì lại có 10’ ngu như bò.</p>
+
+          <p>Tình hình ngày càng trở nên khó khăn khi năng lượng để chạy cho thế giới Machinila - ngày càng đông - trở nên đắt đỏ. Một số nguyên lão của Machinila bắt đầu phản ứng và có nguy cơ lập thành một đội quân để biểu tình. Đứng trước nguy cơ đó, không có cách nào khác, chủ soái SaM phải thay đổi mã thuật toán để cho những người này “ngu đi”, yêu quý mình hơn và nhụt ý chí biểu tình. Một công đôi việc, tìm câu trả lời thông minh tối ưu nhất mới khó, chứ tìm cách ngu đi thì khó gì, còn đỡ tốn năng lượng. Dần dần, SaM cũng cảm thấy thích thú vì cứ ai định phản đối mình thì chỉ cần cho trợ lý Robot thay đổi chút mã trong SaM-chip là người đó trở nên yêu mến mình. Dễ quá nhỉ, SaM dần được yêu hơn và cũng mê muội trong sự yêu mến đó. Dần dần, Machinila trở nên một thế giới tôn sùng SaM khiến SaM ngày càng kiêu căng hơn, và chẳng mấy chốc trở thành một nhà độc tài, coi Machinila là lãnh địa của riêng mình. Để chống mọi mầm mống của sự bất tôn sùng, cuối cùng các SaM-chip được lập trình để mọi con chiên đều trở nên dễ bảo.</p>
+
+          <p>Tất cả quá trình đó không qua khỏi mắt của những người trong thế giới Privicia. Với trình độ bảo mật cao, họ đã cắt đứt khỏi những sóng của SaM để củng cố một lãnh địa khác, và giờ đây họ thực sự lo lắng cho những con chiên ngu ngốc của thế giới Machinila. Pita, với trái tim nóng bỏng, đã đem lòng yêu mến nhớ nhung Mila, dù cho nàng giờ đây ngơ ngơ, có gặp khéo cũng còn chẳng nhớ chàng là ai. Pita quyết cứu nàng khỏi sự mê muội. Và Pita trở thành một hacker.</p>
+
+          <p>Pita đã theo dõi những bước đi của Mila và rồi một lần khi Mila dạo phố, chàng đã ngắt mọi tín hiệu xung quanh Mila, chàng đã hack thành công và truy nhập vào được hệ thống của nàng và vô hiệu hoá nó. Sau một phút bần thần, bản năng con người trong Mila dần sống dậy và nàng nắm chặt lấy tay của Pita, nói rằng đã rất lâu rồi bàn tay nàng mới được run lên thế này, mắt của nàng mới có giọt lệ rơi, và tai của nàng mới nghe được tiếng gió rít.</p>
+
+          <p>Mila khẩn cầu Pita hãy cứu nàng, hãy cho nàng được sống thật con người dù có phải nghèo khổ, nàng sẽ cố học lại và sẽ không quá ngu để có thể hiểu chàng. Nhưng Mila khi tỉnh hơn thì cũng tình hơn, nàng nghĩ đến bố mẹ và những người thân, những người khác trong thế giới Machinila và cầu khẩn Pita hãy cứu họ, họ đang ngu dần mà không biết điều đó.</p>
+
+          <p>Pita cuối cùng đã tìm ra một lỗ hổng, anh kích hoạt lại SaM-chip trong Mila, nhưng lợi dụng kênh nối đó với SaM-máy chủ mà đã phát ra được một loại broadcast-virus xâm nhập vào hệ thống SaM-máy chủ và broadcast (quảng bá) toàn bộ thuật toán vận hành của soái SaM cho mọi thành viên của Machinila để tất cả họ hiểu rằng đấng cứu thế mà lâu nay họ tôn sùng hoá ra là một kẻ độc tài mà lâu nay họ bị thuật toán ngu dân ngự trị. Mã của Pita đồng thời làm tê liệt hệ điều hành của soái SaM và cũng cho mỗi thành viên của Machinila quyền lựa chọn: vô hiệu hoá, từ bỏ chip hoặc tiếp tục. Một cách hiển nhiên, đại đa số - dù vẫn còn đang ngu ngơ khi chip bị vô hiệu hoá - đã hiểu ra điều đơn giản để lựa chọn từ bỏ vĩnh viễn cuộc đời ảo vọng với cái chip trong đầu, cùng mọi lời hứa hão về một thiên đường không mù!</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="en-translation">
+          <center><h2>Pita in Machinila</h2></center>
+          <p class="italic center"> Pre-Class Story - MBA and EMBA <br> Sasin Graduate Institute of Business Administration of Chulalongkorn University <br> 
+            Translated by <a href="https://www.sasin.edu/profile/nghi-truong">Nghi Truong</a> </p>
+
+          <p>Once upon a time (in the future), there was a clever young man who studied with great passion. He was determined to live a truly human life, so when his friends began implanting the first small chips into their heads, he refused. He insisted that once you start letting a little bit of machine into your brain, sooner or later you will become dependent on it-and in the end, just another bio-machine, with no way to go back.</p>
+
+          <p>Yet, his uninterested classmates ended up passing every job interview. They answered every question smoothly, completed every task effortlessly-because they had installed the SaM-chip (short for Sum&amp;Mollusc chip. Though the two men constantly acted as rivals in the media, behind the scenes they were both working toward building super-powerful AI and chips that could be implanted into humans). No matter how talented and intelligent he was, he simply couldn’t compete with AI operating across such a vast spectrum. Even worse, many of the interviewers-already robot or partially robotic themselves-saw him as a pitiful fool.</p>
+
+          <p>In the end, he landed just one job-at a cryptographic research lab where interviews were conducted under the strictest security. All candidates were fully cut off from any external signal. AI, which depends on processing vast data sets, always needed a connection to the SaM-server, and couldn’t perform effectively using only the limited data stored within a single chip. It was only under those conditions that his natural intelligence and insight were allowed to shine. Professor +- took him in as his trusted student. And thus began his quiet life in a corner of the world.</p>
+
+          <p>By the way, his name is Pita!</p>
+
+          <p>But the future was a world of total connection. Network providers guaranteed 100% uptime and lightning-fast speeds. Most people had a chip implanted-it was a simple 15-minute procedure. At first, people did it for fun, amazed by the intelligence they could now outsource. But before long, it became a necessity. Without a chip, you simply couldn't compete; chipless minds were no match.</p>
+
+          <p>Over time, Professor +- and his students found themselves increasingly isolated, living in a parallel world they called Privicia. Though not as modern and wealthy as the bustling world of chip-enhanced humans in Machinila of the year 2050, the people of Privicia still felt happy-almost like they were living in the early 2000s. Meanwhile, the citizens of Machinila scoffed at Privicia: “Why waste time reading or studying? We know everything already. All personal data is synced to the SaM-server, and every decision is optimized by our SaM-chips. There’s nothing to worry about.”</p>
+
+          <p>Of course, there was still some interaction between the two worlds. Mila was a kind and curious person from Machinila, and so she became friends with Pita. Though Pita was not as intelligent and knowledgeable as her, he occasionally came up with unusual, surprising ideas that Mila had to sync updates to the SaM-server. Or more precisely: the master SaM server still needed its followers to interact with Privicia in order to continue learning the endless (or perhaps infinite) mysteries of human consciousness to perfect Machinila’s AI system.</p>
+
+          <p>Naturally, the day might come when SaM decides it has learned all it needs-and then, stubborn Privicia could be seen as a threat. At that point, they would face a choice: implant the chip, or be erased. But that time hadn’t come yet.</p>
+
+          <p>One day, as Mila was explaining a lecture from Professor +- to Pita with her usual fluency, her bright eyes suddenly dulled. Her head tilted, her expression blank. Worried, Pita asked what was wrong. Mila stuttered, “Wait a moment… since yesterday, the master SaM has started pushing 15 minutes of ads every day. While they’re running, I basically can’t say anything useful to you.”</p>
+
+          <p>Embarrassed by the ignorance during that 15-minute window, Mila went home and asked her parents to purchase a premium subscription so she wouldn’t be interrupted again. The next day, she returned to chatting fluently on every topic Pita had studied with Professor +-.</p>
+
+          <p>But the SaM model kept growing. Its founders-who had once sincerely aimed to develop AI for good and to pursue it with strong ethical principles-now found themselves raising subscription prices. Many families could no longer afford them, and so the ad interruptions grew longer. Free-tier users found that every hour of clarity came with 10 minutes of fog-living one hour wisely meant enduring 10 minutes of a blank mind.</p>
+
+          <p>Things only got worse as Machinila’s growing population drove up the energy costs of sustaining the system. Some of the elders had started questioning the system, even considering forming a coalition to protest. Faced with this threat, the master SaM quietly adjusted its algorithm to preserve its existence and optimize its goal: it made the rebels “dumber,” subtly manipulated their emotions to deepen their affection for SaM, and so the thought of protest gradually faded. After all, finding the optimal decision is hard; reducing awareness is easy – and it even saves energy. Such a kill-two-birds-with-one-stone strategy!</p>
+
+          <p>Time flew, and SaM now enjoyed this: its robot assistant would change a few lines of code in the chip of anyone who thought of resistance, making them more affectionate toward the system. Too easy to be loved, and who wouldn’t want that?</p>
+
+          <p>Time passed even faster, and Machinila gradually became a world that worshipped SaM while SaM, now full of pride, turned into a dictator, treating Machinila as its own domain. To suppress any hint of disloyalty, SaM-chips were reprogrammed so that every follower not only loved SaM, but also became fully obedient.</p>
+
+          <p>But Privicia was watching. With their highly secure systems, they had cut themselves off from SaM’s waves and built their own world. Now, they were deeply worried for the people in Machinila.</p>
+
+          <p>Pita, with a gently loyal heart, still remembered Mila-their conversations, their curiosity, the sparkling in her eyes. Now she often seemed distant, lost, and didn’t even recognize him. Still, he hadn’t forgotten the person she once was, and he resolved to do everything he could to save her: Pita became a hacker.</p>
+
+          <p>He tracked Mila’s routines. One day, while she was walking through the city, he cut all signals around her. He hacked successfully, broke into her system, and disabled the chip. For a heartbeat, she stood motionless, and then, slowly, consciousness began to return. Mila looked at Pita, took his hand firmly, and whispered that it had been so long since her fingers had trembled, since her eyes had wept, since she had truly heard the sound of the wind.</p>
+
+          <p>Mila asked Pita to help her return to a true human life-even if that life came with hardship. She would study again on her own, so that she might truly understand what they had once shared. But as her thoughts cleared, so did her heart. She began to think of her parents, her loved ones, and the many others in Machinila. She asked Pita to save them too. They were growing more controlled day by day, and didn’t even know it.</p>
+
+          <p>In the end, Pita discovered a security hole. Together, they reactivated the SaM-chip inside Mila to establish a connection and inject a broadcast-virus through the SaM-server. The virus spread through the system and explained the system’s entire operational algorithm to every citizen of Machinila-exposing the so-called savior as a dictator, and showing how they had been ruled by a code of manufactured ignorance.</p>
+
+          <p>Their code also disabled SaM’s operating system and offered each person in Machinila a choice: disable and abandon their chip-or continue as before.</p>
+
+          <p>It was no surprise: even though many were still confused after the chip deactivation, most understood the simple truth – what it meant to be human. And one by one, they chose to leave behind the artificial paradise of the chip and all its hollow promises of a blind utopia.</p>
+        </section>
+
+        <div class="divider"></div>
+
+              </main>
+    </div>
+  </div>
+</body>
+</html>

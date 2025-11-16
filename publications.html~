@@ -1,0 +1,467 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+  <title>Duong Hieu Phan's Research Papers </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style type="text/css">
+  #g_title p, #g_footer p, #g_description p {
+    margin: 0;
+  }
+  /*
+
+  	-- -- -- -- -- -- --
+  	Browser Fixes
+  	-- -- -- -- -- -- --
+  	
+  	This file uses CSS filtering methods to fix various
+  	layout bugs.
+
+  	Each of the following three imported files is a 
+  	separate, browser-specific CSS file that keeps all 
+  	hacks out of the main style sheet.
+  	
+  	Over time, as supporting these browsers no longer
+  	remains a priority, cleaning up the hacks is as
+  	easy as deleting the @import statement below, or
+  	simply no longer linking this file from the HTML.
+  	
+  */
+
+  /* 
+    fix ie6 "peekaboo bug" using the "holly hack". 
+    Note, this style only gets applied to ie6
+  */
+  * html .wrapper {
+    height: 0.1%;
+  }
+
+  /* 
+   * IE5 mac - overrides the IE/Win hack 
+   */
+
+  /*\*//*/
+
+  * html #threecolumn div {
+  	height: auto;
+  }
+
+  /**/
+
+
+  /* 
+   * IE5/Win-specific CSS -ensures #container wraps all content on window resize
+   */
+
+  @media tty {
+   i{content:"\";/*" "*/}} * html #container { height: 1%; } /*";}
+  }/* */
+  /* Styling for editable elements. Eventually, this will be part of the style. */
+  .editable {
+    border: 1px dashed blue;
+  }
+  
+  #footer {
+    clear: both;
+  }
+  
+  /* Extra divs hidden by default. The custom CSS can override this though */
+  #extraDiv1, #extraDiv2, #extraDiv3, #extraDiv4, #extraDiv5, #extraDiv6 {
+    display: none;
+  }
+  
+  a img,:link img,:visited img {border: none;}
+
+
+  body {
+    text-align: center;
+  }
+  #container {
+    width: 718px;
+    text-align: left;
+    margin: 0 auto;
+  }
+  /** BEGIN CUSTOM SKIN **/
+  /*
+
+  	-- -- -- -- -- -- --
+  	Base CSS
+  	-- -- -- -- -- -- --
+  	
+  	This file simply removes default styling on most HTML elements in 
+  	order to reduce the need to later override them.
+  	
+  */
+
+  h1,h2,h3,h4,h5,h6,pre,code,p {font-size: 1em;}
+  dl,li,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input {margin: 0; padding: 0;}
+  a img,:link img,:visited img {border: none;}
+  address {font-style: normal;}html {background:#eee;}
+  body {background:#eee;font-family:'Verdana','Helvetica', 'Arial', sans-serif;font-size:0.85em;}
+  a {color:#00c;text-decoration:underline !important;}
+  a:visited {color:#551a8b;}
+  b, strong {font-weight:bold;}
+  blockquote {border-left:1px solid #ccc;margin:1em 3em;padding-left:1em;font-size:0.9em;}
+  blockquote p {line-height:1.45em;}
+  em {font-style:italic;}
+  h1, h2, h3, h4, h5, h6 {font-weight:normal;margin:1.5em 0 0.5em 0;}
+  h1 {font-size:2.25em;color:#666;margin:0;}
+  h2 {font-size:1.5em;color:#333;}
+  h3 {font-size:1.3em;}
+  h4 {font-size:1.15em;}
+  h5 {font-size:1em;}
+  h6 {font-size:0.8em;}
+  p, li {color:#000;line-height:1.75em;margin:0 0 1.5em 0;}
+  blockquote p, table p, dd p, li p, #header p {margin-bottom:0.5em;}
+  ul, ol {margin:1em 0; padding-left: 1.6em;}
+  li {margin:0.25em 0;}
+  ul li {list-style-type:disc;}
+  ol li {list-style-type:decimal;}
+  table {border:1px solid #ccc;border-width:1px 1px 0 1px;}
+  table caption {display:block;font-style:italic;white-space:nowrap;margin:0.5em 1em;}
+  table td, table th {padding:0.5em 1em;text-align:left;vertical-align:top;}
+  table th {font-weight:bold;border-bottom:1px solid #999;}
+  table td {border-bottom:1px solid #ddd;}
+
+  dl {margin:1em;line-height:1.5em;list-style-type:disc;}
+  dt {font-weight:bold;margin-top:0.5em;}
+  dd {margin-left:2em;}
+
+  #adsense {text-align:center;}
+  #container {
+  	padding: 25px 40px 10px 40px; 
+  	border: 1px solid #ccc;
+  	background:#fff;
+  	margin:1em auto;
+  }
+  #footer {border-top:1px solid #ccc;margin-top:2em;}
+  #header {border-bottom:1px solid #ccc;margin-bottom:2em;}
+  #sidebar {font-size:1.0em;}
+  #sidebar :first-child {margin-top:0;}
+  #sidebar-alternate {font-size:1.0em;}
+  #sidebar-alternate :first-child {margin-top:0;}
+  #main-content {background:#fff;}
+  #main-content h2:first-child {margin-top:0;}	
+
+  @media print {
+    html {background:#fff !important;}
+    #container {border-width:0px !important;padding:0 !important;}
+  }
+
+  /* Tweaks for Three-column layout
+  ----------------------------------------------- */
+  #threecolumn #main-content .wrapper {padding:0 25px;}
+
+  /* Tweaks for Two-column Left layout
+  ----------------------------------------------- */
+  #twocolumn-left #main-content .wrapper {padding-left:25px;}
+
+  /* Tweaks for Two-column Right layout
+  ----------------------------------------------- */
+  #twocolumn-right #main-content .wrapper {padding-right:25px;}
+
+  /* Tweaks for Two-column Liquid layout
+  ----------------------------------------------- */
+  #twocolumn-liquid-right #container {margin:1em 1em;}
+  #twocolumn-liquid-right #main-content .wrapper {padding-right:25px;}
+  #twocolumn-liquid-left #container {margin:1em 1em;}
+  #twocolumn-liquid-left #main-content .wrapper {padding-left:25px;}
+
+  /* Tweaks for One-column Liquid layout
+  ----------------------------------------------- */
+
+  /* Tweaks for One-column layout
+  ----------------------------------------------- */
+  #onecolumn #main-content .wrapper {padding-left:0;}
+
+  /* ie5win */
+  @media tty { i{content:"\";/*" "*/}} * html #container { padding: 25px 0px 10px 10px; } /*";}
+  }/* */
+
+  /** END CUSTOM SKIN **/
+  </style>
+
+  <!-- Hack to avoid flash of unstyled content in IE -->
+  <script> </script>
+
+</head>
+
+<body id="onecolumn">
+  <div id="container">
+    <div class="wrapper">
+      <div id="header">
+        <div class="wrapper">
+          <h1 id="page-title"><div id='g_title'> <h2 style="text-align: left;"><span style="color: rgb(153, 0, 0);"> Phan Dương Hiệu </span> <span style="background-color: rgb(255, 255, 153);"></span></h2></div></h1>
+          <div style="clear: both;"></div>
+
+          <p class="description"><div id='g_description'><p style="background-color: rgb(204, 204, 204); color: rgb(204, 0, 0);"><font size="4"><a href="http://www.di.ens.fr/users/phan/index.html">Home</a>  &nbsp; &nbsp;  &nbsp; <a href="http://www.di.ens.fr/users/phan/publications.html">Publications</a>  &nbsp; &nbsp;  &nbsp;    <a href="http://www.di.ens.fr/users/phan/teaching.html">Teaching	</a>        &nbsp; &nbsp;  &nbsp;    <a href="contact.html">Contact </a></font></p></div></p>
+          <div style="clear: both"></div>
+        </div>
+      </div>
+      <!-- /editable --><!-- /wrapper --><!-- /header -->
+      <div id="main-content">
+
+        
+        <div class="wrapper">
+          <div class="content-item "><div id='g_body'><p class="separator" style="clear: both; text-align: center;"></p>
+<p></p>
+
+
+
+<BODY BGCOLOR="WHITE">
+
+
+<p>
+<H2> <FONT COLOR="RED"> Papers in cryptography  </FONT> </H2>
+
+<P><hr><P>
+
+<UL>
+
+<LI> <b> Duong Hieu Phan, David Pointcheval, Siamak F Shahandashti and Mario Strefler</b><br> 
+<A HREF=" ">Adaptive CCA Broadcast Encryption with Constant-Size Secret Keys and Ciphertexts</A><br>
+ To appear in IJIS - International Journal of Information Security <P>
+(A short version of this pape is published in  <a href="https://ssl.informatics.uow.edu.au/acisp2012/">ACISP' 2012</a>, LNCS 7372, pages 308-321, Springer-Verlag, 2012.) 
+[<a href="2013_ijis.pdf">pdf</a>] 
+<P>
+
+
+<LI> <b>Duong Hieu Phan, David Pointcheval and Viet Cuong Trinh</b><br> 
+<A HREF=" ">Multi-Channel Broadcast Encryption</A><br>
+Accepted for  <a href="http://hise.hznu.edu.cn/asiaccs/Conference.html">ASIACCS 2013</a>, ACM Symposium on Information, Computer and Communications Security.  
+ <P>
+[<a href="2013_asiaccs.pdf">pdf</a>]
+
+<LI> <b>Hung Q. Ngo, Duong Hieu Phan and David Pointcheval</b><br> 
+<A HREF=" ">Black-box Trace&Revoke Codes</A><br>
+To appear in  <a href=" ">Algorithmica</a> 
+ <P>
+[<a href="2013_algorithmica.pdf">pdf</a>] 
+<P>
+
+
+<LI> <b>Michel Abdalla, Angelo De Caro and Duong Hieu Phan</b><br> 
+<A HREF=" ">Generalized Key Delegation for Wildcarded Identity-Based and Inner-Product Encryption</A><br>
+In  <a href="http://www.signalprocessingsociety.org/publications/periodicals/forensics/">IEEE-TIFS</a>, IEEE Transactions on Information Forensics & Security, Volume 7 , Issue: 6, Pages 1695 - 1706  <P>
+[<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6272345">pdf</a>] 
+<P>
+
+
+<LI> <b> Duong Hieu Phan, David Pointcheval and Mario Strefler</b><br> 
+<A HREF=" "> Message Tracing with Optimal Ciphertext Rate.</A><br>
+In  <a href="http://2012.latincrypt.org/">LatinCrypt' 2012</a>, LNCS 7533, pages 56-77, Springer-Verlag, 2012. <P>
+[<a href="2012_latin.pdf">pdf</a>] 
+<P>
+
+
+<LI> <b> Duong Hieu Phan, David Pointcheval and Mario Strefler</b><br> 
+<A HREF=" "> Decentralized Dynamic Broadcast Encryption</A><br>
+In  <a href="http://scn.dia.unisa.it/index.shtml">SCN' 2012</a>, LNCS 7485, Springer-Verlag, 2012. <P>
+[<a href="2012_scn.pdf">pdf</a>] 
+<P>
+
+
+
+<LI> <b> Duong Hieu Phan, David Pointcheval and Mario Strefler</b><br> 
+<A HREF="http://crypto.di.ens.fr/_media/projects:best:acns2011.pdf"> Security Notions for Broadcast Encryption.</A><br>
+In  <a href="http://www.nics.uma.es/acns2011/">ACNS' 2011</a>, LNCS 6715, pages 377-394, Springer-Verlag, 2011. <P>
+<FONT COLOR="RED">(Best Student Paper Award for Mario)</FONT><br>
+[<a href="2011_acns.pdf">pdf</a>] 
+<P>
+
+
+<LI> <b> Duong Hieu Phan and Viet-Cuong Trinh. </b><br> 
+<A HREF="http://crypto.di.ens.fr/_media/projects:best:provsec2011.pdf"> Identity-Based Trace and Revoke Schemes.</A><br>
+In <a href="http://ste.xidian.edu.cn/provsec2011/">ProvSec' 2011</a>, LNCS 6980, pages 204-221, Springer-Verlag, 2011. <P>
+[<a href="2011_provsec.pdf"> pdf</a>] 
+<P>
+
+
+<LI> <b> Olivier Billet and Duong Hieu Phan. </b><br> 
+<A HREF="papers/2009_eurocrypt.html"> Traitors Collaborating in Public: Pirates 2.0.</A><br> 
+In Advances in Cryptology - Proceedings of <a href="http://www.iacr.org/conferences/eurocrypt2009/">EUROCRYPT &#39;09</a>, LNCS 5479, pages 189-205, Springer-Verlag, 2009. <P>
+[<a href="2009_eurocrypt.pdf"> pdf</a>]
+<P>
+
+
+<LI> <b> Olivier Billet and Duong Hieu Phan. </b><br> 
+<A HREF="papers/2008_icits.html"> Efficient Traitor Tracing from Collusion Secure Codes.</A><br> 
+In Proceeding of <a href="http://www.iqis.org/events/icits2008/">ICITS &#39;08</a> -The 3rd International Conference on Information Theoretic Security, Pages 171-182, LNCS 5155, Springer-Verlag, 2008. <P>
+[<a href="2008_icits.pdf"> pdf</a>] [<a href="2007_icits.ps.gz"> ps</a>] [<a href="2007_icits-US.pdf"> pdf USletter</a>]
+<P>
+
+
+<LI> <b> Yvo Desmedt and Duong Hieu Phan. </b><br> 
+<A HREF="papers/2008_provsec.html"> A CCA Secure Hybrid Damgaard's ElGamal Encryption.</A><br> 
+In Proceeding of <a href="http://cis.sjtu.edu.cn/ProvSec2008/">ProvSec &#39;08</a>, Lecture Notes in Computer Science Vol.  5324, pages 68-92, Springer-Verlag, 2008.<P>
+[<a href="2008_provsec.pdf"> pdf</a>] [<a href="2007_provsec.ps.gz"> ps</a>] [<a href="2007_provsec-US.pdf"> pdf USletter</a>]
+<P>
+
+
+
+<LI> <b> Yvo Desmedt, Helger Lipmaa and Duong Hieu Phan. </b><br> 
+<A HREF="papers/2008_cans.html"> Hybrid Damg&aring;rd Is CCA1-Secure under the DDH Assumption.</A><br> 
+In Proceeding of <a href="http://www.cs.hku.hk/cans2008/">CANS &#39;08</a> -The 7th International Conference on Cryptology and Network Security, Pages 18-30, LNCS 5339, Springer-Verlag, 2008. <P>
+[<a href="2008_cans.pdf"> pdf</a>] [<a href="2007_cans.ps.gz"> ps</a>] [<a href="2007_cans-US.pdf"> pdf USletter</a>]
+<P>
+
+
+<LI> <b> Nelly Fazio, Antonio Nicolosi and Duong Hieu Phan. </b><br> 
+<A HREF="papers/2007_isc.html"> Traitor Tracing with Optimal Transmission Rate.</A><br> 
+In Proceeding of <a href="http://www.isc07.cl/">ISC &#39;07</a> - 10th International Conference on Information Security, Pages 71-88, LNCS 4779, Springer-Verlag, 2007. <P>
+[<a href="2007_isc.pdf"> pdf</a>] [<a href="2007_isc.ps.gz"> ps</a>] [<a href="2007_isc-US.pdf"> pdf USletter</a>]
+<P>
+
+<LI> <b> Michel Abdalla, Alex Dent, John Malone-Lee, Gregory Neven, Duong Hieu Phan and Nigel Smart. </b><br> 
+<A HREF="papers/2007_pkc.html"> Identity-Based Traitor Tracing.</A><br> 
+In Proceeding of <a href="http://pkc07.cs.tsinghua.edu.cn/">PKC &#39;07</a> - The International Conference on Theory and Practice of Public-Key Cryptography 2007, Pages 361-376, LNCS 4450, Springer-Verlag, <a href="http://www.iacr.org/">&#64;IACR</a>, 2007. <P>
+[<a href="2007_pkc.pdf"> pdf</a>] [<a href="2007_pkc.ps.gz"> ps</a>] [<a href="2007_pkc-US.pdf"> pdf USletter</a>]
+<P>
+
+
+<LI> <b> Duong Hieu Phan. </b><br> 
+<A HREF="papers/2006_vietcrypt.html"> Traitor Tracing for Stateful Pirate Decoders with Constant Ciphertext Rate.</A><br> 
+In Proceeding of <a href="http://www.vietcrypt.org/">Vietcrypt &#39;06</a>, P. Nguyen Ed. Pages 354-365, LNCS 4341, Springer-Verlag, 2006. <P>
+[<a href="2006_vietcrypt.pdf"> pdf</a>] [<a href="2006_vietcrypt.ps.gz"> ps</a>] [<a href="2006_vietcrypt-US.pdf"> pdf USletter</a>]
+<P>
+
+<LI> <b> Duong Hieu Phan, Rei Safavi-Naini and Dongvu Tonien. </b><br> 
+<A HREF="papers/2006_icalp.html"> Generic Construction of Hybrid Public Key Traitor Tracing with Full-Public-Traceability.</A><br> 
+In Proceeding of <a href="http://icalp06.dsi.unive.it/index.html">ICALP &#39;06</a> - 33rd International Colloquium on Automata, Languages and Programming, Pages 264-275, LNCS 4052, Springer-Verlag, 2006. <P>
+[<a href="2006_icalp.pdf"> pdf</a>] [<a href="2006_icalp.ps.gz"> ps</a>] [<a href="2006_icalp-US.pdf"> pdf USletter</a>]
+<P>
+
+<LI> <b> Herv&eacute; Chabanne and Duong Hieu Phan and David Pointcheval. </b><br> 
+<A HREF="papers/2005_eurocrypt.html"> Public Traceability in Traitor Tracing Schemes.</A><br> 
+In Advances in Cryptology-Proceeding of <a href="http://www.brics.dk/eurocrypt05/index.html">Eurocrypt &#39;05</a>, R.Cramer Ed. Pages 542-558, LNCS 3494, <a href="http://www.springer.de/comp/lncs">Springer-Verlag</a>, <a href="http://www.iacr.org/">&#64;IACR</a>, 2005. <P>
+[<a href="2005_eurocrypt.pdf"> pdf</a>] [<a href="2005_eurocrypt.ps.gz"> ps</a>] [<a href="2005_eurocrypt-US.pdf"> pdf USletter</a>]
+<P>
+
+<LI> <b> Beno&icirc;t Chevallier-Mames and Duong Hieu Phan and David Pointcheval. </b><br> 
+<A HREF="papers/2005_acns.html"> Optimal Asymmetric Encryption and Signature Paddings.</A><br> 
+In Proceeding of <a href="http://acns2005.cs.columbia.edu/">ACNS &#39;05</a>, pages 254-268, LNCS 3531, <a href="http://www.springer.de/comp/lncs">Springer-Verlag</a>, 2005. <P>
+[<a href="2005_acns.pdf"> pdf</a>] [<a href="2005_acns.ps.gz"> ps</a>] [<a href="2004_acns-US.pdf"> pdf USletter</a>]
+<P>
+
+<LI> <b> Duong Hieu Phan and David Pointcheval. </b><br> 
+<A HREF="papers/2004_asiacrypt.html"> OAEP 3-Round: A Generic and Secure Asymmetric Encryption Padding.</A><br> 
+In Advances in Cryptology-Proceeding of <a href="http://www.iris.re.kr/ac04/">Asiacrypt &#39;04</a>, P.J. Lee Ed. Pages 63-77, LNCS 3329, <a href="http://www.springer.de/comp/lncs">Springer-Verlag</a>, <a href="http://www.iacr.org/">&#64;IACR</a>, 2004. <P>
+[<a href="2004_asiacrypt.pdf"> pdf</a>] [<a href="2004_asiacrypt.ps.gz"> ps</a>] [<a href="2004_asiacrypt-US.pdf"> pdf USletter</a>]
+<P>
+
+<LI> <b> Duong Hieu Phan and David Pointcheval. </b><br> 
+<A HREF="papers/2004_scn.html"> On the Security Notions for Public-Key Encryption Schemes.</A><br> 
+In Proceeding of SCN&#39;04, C. Blundo Ed. Pages 33--47, LNCS 3352, <a href="http://www.springer.de/comp/lncs">Springer-Verlag</a>, 2004. <P>
+[<a href="2004_scn.pdf"> pdf</a>] [<a href="2004_scn.ps.gz"> ps</a>] [<a href="2004_scn-US.pdf"> pdf USletter</a>]
+<P>
+
+<LI> <b> Duong Hieu Phan and David Pointcheval. </b><br> 
+<A HREF="papers/2004_sac.html"> About the Security of Ciphers (Semantic Security and Pseudo-Random Permutations).</A><br> 
+In Proceeding of SAC&#39;04, H. Handschuh and A. Hasan Eds. Pages 185--200, LNCS 3357, <a href="http://www.springer.de/comp/lncs">Springer-Verlag</a>, 2004. <P>
+[<a href="2004_sac_A4.pdf"> pdf</a>] [<a href="2004_sac_A4.ps.gz"> ps</a>] [<a href="2004_sac-US.pdf"> pdf USletter</a>]
+<P>
+
+<LI> <b> Duong Hieu Phan and David Pointcheval. </b><br> 
+<A HREF="papers/2003_asiacrypt.html"> Chosen-Ciphertext Security without Redundancy.</A><br> 
+In Advances in Cryptology-Proceeding of <a href="http://conf.ncku.edu.tw/ac03/">Asiacrypt &#39;03</a>, C.~L.~Laih Ed. Pages 1-18, LNCS 2894, <a href="http://www.springer.de/comp/lncs">Springer-Verlag</a>, <a href="http://www.iacr.org/">&#64;IACR</a>, 2005. <P>
+[<a href="2003_asiacrypt.pdf"> pdf</a>] [<a href="2003_asiacrypt.ps.gz"> ps</a>] [<a href="2003_asiacrypt-US.pdf"> pdf USletter</a>]
+<P>
+
+<LI> <b> Duong Hieu Phan and David Pointcheval. </b><br> 
+<A HREF="papers/2003_rivf.html"> A Comparison between two Methods of Security Proof.</A><br> 
+In Proceeding of RIVF. Pages 105-110, Hano&iuml;  -- February 2003 (in french). <P>
+[<a href="2003_rivf.ps.gz"> ps</a>] [<a href="2003_rivf-US.pdf"> pdf USletter</a>]
+<P>
+
+</UL>
+
+<p>
+<H2> <FONT COLOR="RED"> Papers in other domains</FONT> </H2>
+
+<P><hr><P>
+
+<UL>
+
+<LI> <b> Thanh Thuy Nguyen, Duong Hieu Phan and Yamanoi Takahiro. </b><br> 
+Some Preliminary Results on the Stableness of Extended F-rule Systems.</A><br> 
+Journal of Advanced Computational Intelligence. Pages 252-259, Vol.7 No.3, 2003. <P>
+<P>
+
+<LI> <b> Thanh Thuy Nguyen, Duong Hieu Phan. </b><br> 
+Interval-valued Probabilistic Reasoning Agents.</A><br> 
+In Proceeding of the 3rd International Conference on Artificial Intelligence/ Internet Computing, USA, 2002. <P>
+<P>
+
+<LI> <b> Thanh Thuy Nguyen, Duong Hieu Phan. </b><br> 
+Decomposing Knowledge Systems of F-rules. <P>
+Journal of Science and Technology, NCSR Vietnam, 40(2), 2002 (in vietnamese).
+<P>
+
+<LI> <b> Thanh Thuy Nguyen, Duong Hieu Phan. </b><br> 
+Reasoning in Knowledge Systems of F-rules. <P>
+Journal of Computer science and Cybernetics, 17(1), 2001 (in vietnamese).
+<P>
+
+
+</UL>
+
+<p>
+<H2> <FONT COLOR="RED"> Patents</FONT> </H2>
+<P><hr><P>
+
+<UL>
+<LI> <b> <A HREF="http://www.wipo.int/pctdb/en/fetch2.jsp?LANG=ENG&DBSELECT=PCT&SERVER_TYPE=19-10+&SORT=11283304-KEY&TYPE_FIELD=256&IDB=0&IDOC=-1&C=10&ELEMENT_SET=FILENAME,IMAGEROOT-ENG&RESULT=2&TOTAL=9&FORM=SEP-0/B&START=1&DISP=25&QUERY=FT%2ftra%26%23xE7%3bable&SEARCH_IA=FR2008051811&REDIR=1"> Traceable System for Encrypting/Decrypting Broadcast Digital Data.</A></b>
+<P>
+<LI> <b> <A HREF="http://www.wipo.int/pctdb/en/fetch.jsp?SEARCH_IA=FR2008050930&DBSELECT=PCT&C=10&TOTAL=1&IDB=0&TYPE_FIELD=256&SERVER_TYPE=19-10&SORT=11282433-KEY&QUERY=(FT%2FObtention+AND+FT%2Fde+AND+FT%2Fvaleurs+AND+FT%2Fd%26%23xE9%3Briv%26%23xE9%3Bes+AND+FT%2Fd%26%23xE9%3Bpendant+AND+FT%2Fd%27une+AND+FT%2Fvaleur+AND+FT%2Fma%26%23xEE%3Btresse+AND+FT%2Fsecr%26%23xE8%3Bte)+&START=1&ELEMENT_SET=B&RESULT=1&DISP=25&FORM=SEP-0%2FHITNUM%2CB-ENG%2CDP%2CMC%2CAN%2CPA%2CABSUM-ENG&IDOC=476531&IA=FR2008050930&LANG=ENG&DISPLAY=STATUS"> Obtaining Derived Values Depending on a Secret Master Value.</A> </b>
+
+</UL>
+
+
+
+<p>
+<H2> <FONT COLOR="RED"> PhD Thesis</FONT> </H2>
+<P><hr><P>
+
+<UL>
+<LI> <b> <A HREF="These/index.html"> S&eacute;curit&eacute; et efficacit&eacute; de sch&eacute;mas cryptographiques.</A></b><br> 
+[<a href="These/These.pdf"> Thesis_pdf </a>] [<a href="These/Presentation.pdf"> Presentation_pdf </a>]
+<P>
+
+</UL>
+
+
+</p>
+<p><br></p></div></div>
+          <div style="clear: both"></div>
+        </div>
+      </div>
+      <!-- /wrapper --><!-- /main-content -->
+      <div id="footer"><div class="wrapper">
+
+
+<hr />
+        <p><div id='g_footer'> </div></p>
+        <div style="clear: both"></div>
+      </div></div>
+      <!-- /wrapper --><!-- /footer -->
+    </div>
+  </div>
+<!-- /wrapper --><!-- /container -->
+<div id="extraDiv1"><span></span></div><div id="extraDiv2"><span></span></div>
+<div id="extraDiv3"><span></span></div><div id="extraDiv4"><span></span></div>
+<div id="extraDiv5"><span></span></div><div id="extraDiv6"><span></span></div>
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript" language="javascript">
+var sc_project=421291; 
+var sc_partition=2; 
+var sc_invisible =1;
+</script>
+ 
+ 
+          
+<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><a href="http://www.statcounter.com/free_hit_counter.html" target="_blank"><img  src="http://c3.statcounter.com/counter.php?sc_project=421291&amp;java=0" alt="free hit counter" border="0"></a> </noscript>
+<!-- End of StatCounter Code -->
+
+</body>
+</html>

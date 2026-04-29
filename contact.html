@@ -1,58 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Duong Hieu Phan's Contact</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .contact-container {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-        }
-        .contact-container h1 {
-            color: #990000;
-            font-size: 1.5em;
-            margin-bottom: 1rem;
-        }
-        .contact-container p {
-            margin: 0.5rem 0;
-            line-height: 1.5;
-        }
-        .contact-container a {
-            color: #00f;
-            text-decoration: none;
-        }
-        .contact-container a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact information for Duong Hieu Phan – Professor of Cryptography at Telecom Paris." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <title>Duong Hieu Phan – Contact</title>
+  <style>
+    :root {
+      --accent:    #8f1d2c;
+      --accent-dk: #6f1414;
+      --accent-2:  #c97746;
+      --text:      #1f2937;
+      --muted:     #5f6b7a;
+      --card:      rgba(255,255,255,0.92);
+      --shadow-lg: 0 20px 50px rgba(36,49,66,0.10);
+      --radius:    20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-padding-top: 80px; }
+
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      margin: 0; padding: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left,  rgba(201,119,70,0.14), transparent 30%),
+        radial-gradient(circle at top right, rgba(143,29,44,0.09),  transparent 26%),
+        linear-gradient(180deg, #f8fbff 0%, #eef3f8 55%, #edf2f7 100%);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Photo header ────────────────────────────────────────── */
+    #page-header {
+      background-image:
+        linear-gradient(rgba(12,28,44,0.28), rgba(12,28,44,0.28)),
+        url('AnhNen.jpeg');
+      background-size: cover;
+      background-position: center center;
+      min-height: 300px;
+      padding: 3.2rem 1.5rem 2.8rem;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+    }
+    #page-header h1 {
+      font-size: clamp(2rem, 3.4vw, 3.1rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      margin: 0 0 0.3rem; color: #fff;
+      text-shadow: 0 1px 0 rgba(0,0,0,.45), 0 2px 16px rgba(0,0,0,.55), 0 4px 40px rgba(0,0,0,.40);
+    }
+    #page-header h3 {
+      font-size: clamp(1.3rem, 2vw, 1.55rem);
+      font-weight: 500; font-style: italic;
+      color: #ffd9d9; margin: 0 0 0.55rem;
+      text-shadow: 0 1px 6px rgba(0,0,0,.55), 0 2px 16px rgba(0,0,0,.40);
+    }
+    #page-header p {
+      display: inline-block;
+      max-width: min(480px, 90vw);
+      color: rgba(255,255,255,.96);
+      font-size: clamp(0.88rem, 1.15vw, 0.98rem);
+      line-height: 1.5; margin: 0;
+      padding: 0.35rem 1.1rem;
+      background: rgba(0,0,0,0.28);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── Site nav (sticky on scroll) ────────────────────────── */
+    #site-nav {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(143,29,44,0.10);
+    }
+    #site-nav.is-fixed {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 2000;
+      box-shadow: 0 4px 20px rgba(26,33,44,0.09);
+    }
+
+    nav {
+      display: flex; flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem 0.5rem;
+      padding: 0.7rem 1rem;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600; font-size: 1.05rem;
+      padding: 0.45rem 1.15rem;
+      border-radius: 999px;
+      transition: background 0.18s, color 0.18s;
+    }
+    nav a:hover { background: rgba(143,29,44,0.09); color: var(--accent); }
+    nav a.active { background: var(--accent); color: #fff; font-weight: 700; }
+    nav a.active:hover { background: var(--accent-dk); color: #fff; }
+
+    main { padding-top: 0; }
+
+    /* ── Contact card ────────────────────────────────────────── */
+    .contact-wrap {
+      max-width: min(680px, calc(100vw - 44px));
+      margin: 2rem auto 3rem;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.55);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      position: relative; overflow: hidden;
+      padding: 2rem 2.2rem;
+    }
+    .contact-card::before {
+      content: "";
+      position: absolute; inset: 0 0 auto 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .contact-card h2 {
+      font-size: clamp(1.35rem, 2vw, 1.75rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      margin: 0 0 0.3rem;
+      color: var(--accent);
+    }
+    .contact-card h2::after {
+      content: "";
+      display: block; width: 50px; height: 3px;
+      margin-top: 0.45rem; border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      margin-top: 1.4rem;
+    }
+    .contact-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+      margin-top: 0.1rem;
+      flex-shrink: 0;
+    }
+    .contact-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .contact-value {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    .contact-value a {
+      color: var(--accent);
+      text-decoration: none;
+      text-underline-offset: 2px;
+    }
+    .contact-value a:hover { color: var(--accent-dk); text-decoration: underline; }
+
+    /* ── Footer ──────────────────────────────────────────────── */
+    footer {
+      background: #fff; color: var(--muted);
+      text-align: center; padding: 1.2rem 0;
+      border-top: 1px solid #e5e7eb;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 700px) {
+      #page-header { min-height: 200px; padding: 2rem 1.2rem 1.8rem; }
+      #page-header h1 { font-size: 1.9rem; }
+      nav a { font-size: 0.95rem; padding: 0.4rem 0.85rem; }
+      .contact-wrap { max-width: calc(100vw - 28px); }
+      .contact-card { padding: 1.4rem 1.2rem; border-radius: 14px; }
+    }
+    @media print {
+      #site-nav { position: static !important; box-shadow: none; }
+      #page-header { min-height: auto; padding: 1rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="contact-container">
-        <h1>Contact Information</h1>
-        <p><a href="index.html">Duong Hieu Phan</a></p>
-        <p>Email: <a href="mailto:hieu.phan@telecom-paris.fr">hieu.phan@telecom-paris.fr</a> and <a href="mailto:phan@di.ens.fr">phan@di.ens.fr</a></p>
-        <p><b>Address:</b></p>
-        <p>Office: 4C57</p>
-        <p>INFRES Department</p>
-        <p>LTCI, Telecom Paris, Institut Polytechnique de Paris</p>
-        <p>13 Avenue de la Vauve</p>
-        <p>91120 Palaiseau</p>
-        <p>France</p>
+
+<header id="page-header">
+  <h1>Duong Hieu Phan</h1>
+  <h3>Phan Dương Hiệu</h3>
+  <p>Professor at Telecom Paris, Institut Polytechnique de Paris</p>
+</header>
+
+<div id="site-nav">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="https://www.di.ens.fr/users/phan/TiengViet.htm">Tiếng Việt</a>
+  </nav>
+</div>
+
+<main>
+<div class="contact-wrap">
+  <div class="contact-card">
+    <h2>Contact</h2>
+
+    <div class="contact-row">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">
+          <a href="mailto:hieu.phan@telecom-paris.fr">hieu.phan@telecom-paris.fr</a><br>
+          <a href="mailto:phan@di.ens.fr">phan@di.ens.fr</a>
+        </div>
+      </div>
     </div>
+
+    <div class="contact-row">
+      <div class="contact-icon">🏢</div>
+      <div>
+        <div class="contact-label">Office</div>
+        <div class="contact-value">4C57</div>
+      </div>
+    </div>
+
+    <div class="contact-row">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-label">Address</div>
+        <div class="contact-value">
+          INFRES Department<br>
+          LTCI, Telecom Paris, Institut Polytechnique de Paris<br>
+          13 Avenue de la Vauve<br>
+          91120 Palaiseau, France
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Duong Hieu Phan.</p>
+</footer>
+
+<!-- StatCounter -->
+<script type="text/javascript">var sc_project=421291;var sc_partition=2;var sc_invisible=1;</script>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
+<!-- End StatCounter -->
+
+<script>
+(function () {
+  var header  = document.getElementById('page-header');
+  var siteNav = document.getElementById('site-nav');
+  var spacer  = document.createElement('div');
+  siteNav.insertAdjacentElement('afterend', spacer);
+
+  function update() {
+    var navH = siteNav.offsetHeight;
+    if (window.scrollY > header.offsetHeight) {
+      spacer.style.height = navH + 'px';
+      siteNav.classList.add('is-fixed');
+      document.documentElement.style.scrollPaddingTop = navH + 'px';
+    } else {
+      siteNav.classList.remove('is-fixed');
+      spacer.style.height = '0';
+      document.documentElement.style.scrollPaddingTop = '0';
+    }
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

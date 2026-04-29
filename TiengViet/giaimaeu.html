@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Giải mã khởi nguyên châu Âu theo lịch vua Hùng">
+<meta property="og:description" content="Từ đảo Crète đến Gortyn – lần theo dấu vết thần Dớt và nàng Europe qua lịch sử nền văn minh Minos, kể theo lịch các vua Hùng.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/giaimaeu.html">
+<title>Giải mã khởi nguyên châu Âu theo lịch vua Hùng - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.92;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main { max-width: 900px; margin: 0 auto; }
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+
+.art-note {
+  font-size: 0.9rem;
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.scene-sep {
+  text-align: center;
+  color: #ccc;
+  letter-spacing: .4em;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+}
+
+.art-section { margin-top: 0; }
+
+.art-subsection {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 2rem 0 1rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+  background: #faf8f6;
+  border: 1px solid #ede8e4;
+  border-radius: 8px;
+  padding: 1.2rem;
+}
+.photo-grid figure { margin: 0; }
+.photo-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+  display: block;
+}
+.photo-grid figcaption {
+  font-size: 0.82rem;
+  color: #888;
+  margin-top: 0.55rem;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.art-figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.art-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+}
+.art-figure figcaption {
+  font-size: 0.82rem;
+  color: #aaa;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+p { margin: 0 0 1.1em; }
+p:last-child { margin-bottom: 0; }
+
+em, i { font-style: italic; }
+
+/* Navigation */
+.art-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.88rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0ebe7;
+  flex-wrap: wrap;
+}
+.art-nav a {
+  color: #8f1d2c;
+  text-decoration: none;
+  font-weight: 500;
+}
+.art-nav a:hover { text-decoration: underline; }
+.art-nav .nav-home { text-align: center; color: #aaa; font-size: 0.82rem; }
+.art-nav .nav-home a { color: #aaa; }
+.art-nav .nav-home a:hover { color: #8f1d2c; }
+.art-nav-bottom { border-top: 1px solid #f0ebe7; margin-top: 3rem; border-bottom: none; margin-bottom: 0; padding-top: 1.5rem; padding-bottom: 0; }
+
+@media(max-width:640px){
+  body { font-size: 1.05rem; padding: 1.5rem 0.75rem 5rem; }
+  .page-content { padding: 2rem 1.25rem; }
+  .art-title { font-size: 1.45rem; }
+  .art-nav { font-size: 0.82rem; }
+}
+@media(max-width:400px){
+  .page-content { padding: 1.5rem 1rem; }
+  body { font-size: 1rem; }
+}
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="page-main">
+<div class="page-content">
+
+  <div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+    <a href="RuaBacKvaPi.html">← Rùa, Bác K và Pi</a>
+    <span class="nav-home"><a href="../Matma.html">↑ Mật mã học</a></span>
+    <a href="chuco.html">Chữ cổ →</a>
+  </nav>
+
+  <h1 class="art-title">Giải mã khởi nguyên châu Âu theo lịch vua Hùng</h1>
+  <div class="art-meta">
+    <span class="art-author"><a href="https://www.di.ens.fr/users/phan/">Phan Dương Hiệu</a></span>
+  </div>
+  <div class="art-source">
+    <a href="https://www.facebook.com/photo.php?fbid=10203033445893890&amp;set=a.1151913154820&amp;type=3" target="_blank">Facebook (phần 1)</a>
+    · <a href="https://www.facebook.com/photo.php?fbid=10203041283129816&amp;set=a.1151913154820&amp;type=3&amp;permPage=1" target="_blank">Facebook (phần 2)</a>
+  </div>
+  <p class="art-note">(Chú ý: các dữ kiện lịch sử là chính xác, chỉ có lời diễn đạt là tưởng tượng)</p>
+
+  <div class="art-section">
+
+    <p>Đảo Crète - nơi chuyển giao giữa thế giới thánh thần và nền văn minh đầu tiên của châu Âu. Tại đây, thần Dớt bắt trộm nàng Europe rồi sinh ra vua Minos để khởi đầu cho nền văn minh Minos (Minoan civilization).</p>
+
+    <p>Chuyện kể rằng, vào thời vua Hùng Vương thứ 2, tức khoảng thế kỷ 27 trước khi chúa Jesus ra đời, nước Văn Lang yên bình, vua Hùng đưa công chúa cưỡi rồng dạo chơi khắp thế gian. Đang bay đi đâu không biết thì vua Hùng gặp thần Dớt. Thần Dớt thấy công chúa xinh liền mân mê hỏi chuyện vua Hùng. Vua Hùng kể rằng, từ khi nước Văn Lang ra đời, ở xứ ta cây cối xanh tươi, nước non hiền hoà, con người hạnh phúc, chàng trai nào cũng đẹp, cô gái nào cũng xinh. Nói đoạn ông mời thần Dớt bay tới nhìn xuống nước Văn Lang yên bình.</p>
+
+    <p>Thần Dớt mê lắm, ông quyết cũng phải tạo nên một nền văn minh rực rỡ cho con người ở thế giới Hy Lạp, nơi mới chỉ có thế giới thánh thần là được tổ chức tốt, do có ông lãnh đạo.</p>
+
+    <p>Và thế là sau đó, chuyện gì xảy ra mọi người đều đã biết, thần Dớt lang thang đến bãi biển ngắm các tiên nữ và liền say đắm nàng Europe. Do bí ý tưởng nên ông biến thành một chú bò đến cuỗm nàng bay đi vào một hang của đảo Crète. Không biết chuyện gì xảy ra nhưng họ sinh được 3 người con, một trong số đó là vua Minos đầu tiên.</p>
+
+    <p>Tuy khởi đầu sau các vua Hùng, nhưng nền văn minh trị vì bởi các vua Minos phát triển nhanh chóng. Trong lúc vua Hùng Vương thứ 6 phải nhờ cậy Thánh Gióng đánh giặc Ân thì ở cùng thời điểm đó, các vị vua Minos đã từ bỏ các vị thánh thần mà xây được những lâu đài bề thế ở vùng Heraklion trên đảo Crète. Những di sản đó vẫn còn! Nếu đến thăm lâu đài của các vua Minos, bạn sẽ choáng ngợp trước các di sản còn để lại tới ngày nay, những di tích còn nhiều dấu ấn từ những năm 1900 đến 1450 trước công nguyên, tức tới cả nghìn rưỡi đến gần hai ngàn năm trước những di tích của đế chế La mã tại Roma.</p>
+
+    <p>Những vua Minos còn tạo ra nhiều hệ thống chữ viết, điển hình là hệ chữ Linear A và B trong đó hệ Linear A đến nay vẫn còn chưa giải mã được. Đi thăm bảo tàng ở Heraklion ta sẽ thấy còn nguyên những nét chữ Linear A, B trên các phiến đá. Hy vọng một ngày không xa hệ thống Linear A sẽ được giải mã và có thể ta sẽ hiểu thêm nhiều điều kỳ bí về thời kỳ đầu của các vua Minos, chẳng hạn biết đâu Thánh Gióng lại chẳng là một hoàng tử xứ Crete được châu Âu gửi sang kết hợp với vua Hùng chống giặc Ân phương Bắc, như một sự đáp lễ việc vua Hùng đã bày cho thần Dớt ý tưởng tạo ra Âu châu.</p>
+
+    <p class="scene-sep">— — —</p>
+
+    <p><em>Gốc cây Gortyn - nơi chứng kiến lễ cưới giữa thần Dớt và nàng Europe.</em></p>
+
+    <p>Lần theo dấu vết của thần Dớt và nàng Europe: đến hang Matala trên bờ Địa Trung Hải nơi nàng Europe tỉnh giấc; đến dự tiệc cưới của thần Dớt và nàng Europe ở gốc cây Gortyn.</p>
+
+    <p>Truyện kể tiếp rằng, sau khi biến thành bò húc bắt nàng Europe trên bãi biển, thần Dớt đưa nàng về vùng Gortyn. Ngẫm lại, thần Dớt thấy mình to đầu mà dại, ai đi bắt người đẹp mà mình lại biến thành bò, làm nàng Europe kinh sợ và ngất đi. Nghĩ vậy, thần Dớt quyết đưa nàng về nơi thật đẹp, hiền hoà, và tự biến thành một chàng trai phượng hoàng trẻ đẹp. Cũng may nàng đã ngất, đến khi tỉnh giấc nàng thấy một chàng trai cường tráng và dễ mến. Sau khi biến thành chàng trai đẹp, thần Dớt bỗng thông minh đột xuất, không ngu như bò nữa, chàng bảo nàng Europe vẫn đang còn kinh sợ: "Nàng có biết chăng, một cơn gió thần đến cuỗm nàng đi trên biển, nhưng may quá ta đã mang nàng vào hang Matela đây, ta mệt quá cũng thiếp đi, trong giấc mơ hoảng hốt, ta thấy nàng là một con bò cái xấu xí hung dữ làm sao, sau khi được ta cứu thì nàng bắt cóc ta mang lên tận bắc cực, may mà đó chỉ là giấc mơ". Nàng Europe bất chợt hiểu những gì mới trải qua chỉ là một giấc mơ và mỉm cười thấy sao hai người có cùng một giấc mơ giống nhau đến kỳ lạ, nơi nàng bị một con bò khủng khiếp bắt đi.</p>
+
+    <p>Vì sự đồng cảm mơ mơ thực thực mà họ nhanh chóng hoà hợp và thần Dớt tiến tới đề nghị làm một lễ cưới giản dị, dưới chính gốc cây ở Gortyn. Đối với thánh thần, triệu năm cũng chỉ như trăm ngày, nên thần Dớt đề nghị tổ chức lễ cưới kéo dài vạn năm dưới trần, cũng chỉ như 1 ngày thánh thần, để các vị thần trên đỉnh Olympia còn tới dự. Lễ cưới được khai màn vào thế kỷ 27 trước công nguyên.</p>
+
+    <p>Hôm nay chúng ta vẫn sống trong lễ cưới đó - 4700 năm sau giờ khai cuộc, tuy lỡ mất món khai vị nhưng vừa kịp món chính :-) Vua Hùng Vương đời thứ 2 là người đến chia vui đầu tiên và đã ra về. Sau đó đến thời La mã, năm 68 trước công nguyên (tức đời Hùng Vương thứ 18 + 140 năm, hay Hai Bà Trưng - 75 năm) Quintus Caecilius Metellus Creticus đưa quân từ Roma đến đám cưới và chiếm luôn vùng Gortyn này làm kinh đô La Mã ở đảo Crete, di tích vẫn còn lại ngay đây (Quintus Caecilius Metellus Creticus mất năm 50 trước công nguyên - ngay trước thời hoàng kim của Julius Caesar, nghe đâu không dám đến dự đám cưới vì sợ siêu lòng trước nàng Europe mà làm thần Dớt nổi giận mất cả cơ đồ).</p>
+
+    <p>Theo các nhà tiên tri, khi lễ cưới kết thúc, tức 5000 năm nữa - vào năm 7014, cũng là lúc mã Linear A bị phá và nàng Europe đọc lại được lịch sử thủa ban đầu - khi nàng bị thần Dớt đến bắt đi. Nàng hiểu rằng, việc thần Dớt chính là con bò húc đến quắp nàng đi là sự thật chứ không phải là giấc mơ như nàng bị Dớt lừa. Trớ trêu thay, cũng nhờ giải mã Linear A, thần Dớt đọc lại được lịch sử và hiểu ra rằng, nàng Europe chính là một cô bò cái xấu xí nhưng đã biến thành công chúa Europe xinh đẹp để lừa vị thần quyền uy nhất thế giới thánh thần. Hiểu ra sự thật, cả hai đều vô cùng thán phục trí óc thông minh của nhau hơn, họ sống hạnh phúc thêm 1 tỉ năm nữa, không lừa nhau thêm mà chỉ cố lừa người kể chuyện…</p>
+
+    <div class="photo-grid">
+      <figure>
+        <img src="../webpictures/europe.jpg" alt="Bãi biển nơi thần Dớt bắt nàng Europe, đảo Crete">
+        <figcaption>Chính trên bãi biển này mà thần Dớt đã bắt nàng Europe (theo dân làng đồn thổi). Các hốc đá xa xa kia là nơi các nàng để đồ và nhảy xuống. Tại vị trí ảnh đây là nơi thần Dớt đứng quan sát rồi bất thình lình bay qua cắp nàng Europe bay đi. Mình đến muộn hơn bốn ngàn rưỡi năm nên chẳng còn ai...</figcaption>
+      </figure>
+      <figure>
+        <img src="../webpictures/GocCayGortyn.jpg" alt="Gốc cây Gortyn, nơi tổ chức tiệc cưới của thần Dớt và nàng Europe">
+        <figcaption>Gốc cây Gortyn, nơi tổ chức tiệc cưới của thần Dớt và nàng Europe</figcaption>
+      </figure>
+    </div>
+
+    <p class="scene-sep">— — —</p>
+
+    <h2 class="art-subsection">Hòn suýt đảo và Hồ tưởng không đáy!</h2>
+
+    <figure class="art-figure">
+      <img src="../webpictures/honsuytdao.jpg" alt="Hòn suýt đảo ở Crete">
+    </figure>
+
+    <p>Ét xì tăng chuyện yêu đương giữa thần Dớt và nàng Europe (sợ viết nhiều nàng Europe lại chẳng yêu Dớt nữa thì căng) để nói chuyện khoa học nghiêm chỉnh (chỉ cho lứa tuổi dưới 5).</p>
+
+    <p>Trong khoa học, có những khi ta có những phương pháp đạt gần tới tối ưu, xấp xỉ tối ưu bao nhiêu cũng được, nhưng không tối ưu hẳn được. Và chính cái suýt soát tối ưu đôi khi lại tạo nên cái đẹp.</p>
+
+    <p>Ấy trong thực tế thì sao? "Hòn suýt đảo" ở Crete gần như là một hòn đảo, ấy mà không phải là hòn đảo. Nó trông như một cánh diều bay ra biển khơi nhưng vẫn còn một chiếc đuôi rất mỏng nối với đất liền. Chính chiếc đuôi mỏng đó làm nó không đủ điều kiện trở thành một hòn đảo, và chính cái sự xấp xỉ đảo ấy làm nó nổi tiếng, chứ đảo hẳn thì thiếu gì?</p>
+
+    <p>Và hôm nay nhà mình đi thăm hòn suýt đảo ở Crete 🙂</p>
+
+    <p>Cũng trong khoa học, có những thứ người ta tin mà không chứng minh được, rồi bí quá thì cho nó là giả thuyết và sau rồi có người chứng minh là sai. Ở phía đông đảo Crete có một cái hồ như vậy. Cái hồ này sâu lắm, già trẻ nhảy xuống lặn ngụp mãi không thấy đáy nên bảo nó là cái hồ không đáy, nhiều đời không ai lặn tới đáy nên nghĩ và gọi nó là hồ không đáy. Thực tế cái hồ này chỉ sâu có 64m, tuy rất sâu so với kích cỡ của hồ nhưng so với vô cùng thì còn nhỏ nhoi lắm. Thế nhưng thế cũng đỡ tệ hơn là ông Fermat nổi tiếng lẫy lừng, ông giả thuyết rằng các số 2 mũ 2 mũ n cộng 1 đều là số nguyên tố với mọi n mà đến n=5 đã sai béng.</p>
+
+    <p>Hôm nay mình cũng đi thăm cả cái "hồ không đáy" này, và "suýt" dám lặn.</p>
+
+  </div>
+
+  <nav class="art-nav art-nav-bottom">
+    <a href="RuaBacKvaPi.html">← Rùa, Bác K và Pi</a>
+    <span class="nav-home"><a href="../Matma.html">↑ Mật mã học</a></span>
+    <a href="chuco.html">Chữ cổ →</a>
+  </nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

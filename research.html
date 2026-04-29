@@ -1,164 +1,272 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Duong Hieu Phan's HomePage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f2f3f4; 
-            color: #333;
-        }
-        header {
-            background-color: #fff;
-            color: #990000;
-            padding: 1rem 0;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-        nav {
-            display: flex;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            justify-content: center;
-            background-color: #5c5c5c; 
-            padding: 0.5rem;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0.5rem;
-        }
-        section {
-            max-width: 900px;
-            margin: 1rem auto;
-            padding: 1rem; /* Reduced padding for mobile */
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background-color: #fff;
-            color: #990000;
-            text-align: center;
-            padding: 1rem 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            border-top: 1px solid #ddd;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 0.5rem;
-            margin: 0.5rem 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .contact-form button {
-            padding: 0.5rem 2rem;
-            background-color: #5c5c5c;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .contact-form button:hover {
-            background-color: #4b4b4b;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            color: #333;
-        }
-        h2, h3 {
-            color: #990000;
-        }
-        p {
-            line-height: 1.4;
-        }
-        /* Media queries for mobile responsiveness */
-        @media (max-width: 600px) {
-            section {
-                padding: 1rem;
-            }
-            nav a {
-                margin: 0.3rem;
-            }
-        }
-        ul, ol {
-            margin: 1em 0;
-            padding-left: 1.6em;
-        }
-        li {
-            margin: 0.25em 0;
-            margin-bottom: 1em;
-        }
-        .content h2 {
-            color: #990000;
-        }
-        .abstract {
-            display: none;
-            margin-top: 0.5em;
-        }
-        .show {
-            cursor: pointer;
-            color: #990000;
-        }
-    </style>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-        function toggleAbstract(id) {
-            var abstract = document.getElementById(id);
-            if (abstract.style.display === "none") {
-                abstract.style.display = "block";
-            } else {
-                abstract.style.display = "none";
-            }
-        }
-    </script>
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Research page of Duong Hieu Phan – Professor of Cryptography at Telecom Paris." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <title>Duong Hieu Phan – Research</title>
+  <style>
+    /* ── Tokens ──────────────────────────────────────────────── */
+    :root {
+      --accent:    #8f1d2c;
+      --accent-dk: #6f1414;
+      --accent-2:  #c97746;
+      --text:      #1f2937;
+      --muted:     #5f6b7a;
+      --card:      rgba(255,255,255,0.92);
+      --shadow-lg: 0 20px 50px rgba(36,49,66,0.10);
+      --shadow-md: 0 10px 28px rgba(36,49,66,0.08);
+      --radius:    20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-padding-top: 80px; /* compact nav height, updated by JS */ }
+
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      margin: 0; padding: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left,  rgba(201,119,70,0.14), transparent 30%),
+        radial-gradient(circle at top right, rgba(143,29,44,0.09),  transparent 26%),
+        linear-gradient(180deg, #f8fbff 0%, #eef3f8 55%, #edf2f7 100%);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Photo header (normal page flow) ────────────────────── */
+    #page-header {
+      background-image:
+        linear-gradient(rgba(12,28,44,0.28), rgba(12,28,44,0.28)),
+        url('AnhNen.jpeg');
+      background-size: cover;
+      background-position: center center;
+      min-height: 300px;
+      padding: 3.2rem 1.5rem 2.8rem;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+    }
+    #page-header h1 {
+      font-size: clamp(2rem, 3.4vw, 3.1rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      margin: 0 0 0.3rem; color: #fff;
+      text-shadow: 0 1px 0 rgba(0,0,0,.45), 0 2px 16px rgba(0,0,0,.55), 0 4px 40px rgba(0,0,0,.40);
+    }
+    #page-header h3 {
+      font-size: clamp(1.3rem, 2vw, 1.55rem);
+      font-weight: 500; font-style: italic;
+      color: #ffd9d9; margin: 0 0 0.55rem;
+      text-shadow: 0 1px 6px rgba(0,0,0,.55), 0 2px 16px rgba(0,0,0,.40);
+    }
+    #page-header p {
+      display: inline-block;
+      max-width: min(480px, 90vw);
+      color: rgba(255,255,255,.96);
+      font-size: clamp(0.88rem, 1.15vw, 0.98rem);
+      line-height: 1.5; margin: 0;
+      padding: 0.35rem 1.1rem;
+      background: rgba(0,0,0,0.28);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── Site nav (sticky on scroll) ────────────────────────── */
+    #site-nav {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(143,29,44,0.10);
+    }
+    #site-nav.is-fixed {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 2000;
+      box-shadow: 0 4px 20px rgba(26,33,44,0.09);
+    }
+
+    /* ── Navigation ──────────────────────────────────────────── */
+    nav {
+      display: flex; flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem 0.5rem;
+      padding: 0.7rem 1rem;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600; font-size: 1.05rem;
+      padding: 0.45rem 1.15rem;
+      border-radius: 999px;
+      transition: background 0.18s, color 0.18s;
+    }
+    nav a:hover { background: rgba(143,29,44,0.09); color: var(--accent); }
+    nav a.active { background: var(--accent); color: #fff; font-weight: 700; }
+    nav a.active:hover { background: var(--accent-dk); color: #fff; }
+
+    main { padding-top: 0; }
+
+    /* ── Topic tabs (static, in main – shown at top of page) ─── */
+    .topic-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 1rem 1rem 1.1rem;
+      max-width: min(960px, calc(100vw - 44px));
+      margin: 0 auto;
+    }
+    .topic-tabs a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--accent);
+      background: var(--card);
+      border: 1.5px solid rgba(143,29,44,0.18);
+      border-radius: 999px;
+      padding: 0.52rem 1.4rem;
+      box-shadow: 0 3px 10px rgba(36,49,66,0.08);
+      transition: background 0.18s, box-shadow 0.18s, transform 0.15s;
+    }
+    .topic-tabs a:hover {
+      background: rgba(143,29,44,0.07);
+      box-shadow: 0 6px 18px rgba(36,49,66,0.13);
+      transform: translateY(-1px);
+    }
+    .topic-tabs a .tab-icon { font-size: 1.05rem; line-height: 1; }
+
+    /* ── Sections ────────────────────────────────────────────── */
+    section {
+      max-width: min(960px, calc(100vw - 44px));
+      margin: 1.4rem auto;
+      padding: 1.6rem 1.8rem;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.55);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      position: relative; overflow: hidden;
+    }
+    section::before {
+      content: "";
+      position: absolute; inset: 0 0 auto 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+    section:last-of-type { margin-bottom: 2rem; }
+
+    /* ── Headings ────────────────────────────────────────────── */
+    h1,h2,h3,h4,h5,h6 { color: var(--text); }
+
+    section h2 {
+      font-size: clamp(1.35rem, 2vw, 1.75rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      margin: 0 0 0.3rem;
+      color: var(--accent);
+    }
+    section h2::after {
+      content: "";
+      display: block; width: 50px; height: 3px;
+      margin-top: 0.45rem; border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+    section h3 { color: var(--muted); font-size: 0.95rem; font-style: italic; font-weight: 400; margin: 0.1rem 0 0.8rem; }
+
+    /* ── Body text ───────────────────────────────────────────── */
+    p { line-height: 1.65; margin: 0 0 0.85em; }
+    a { color: var(--accent); text-underline-offset: 2px; }
+    a:hover { color: var(--accent-dk); }
+    hr { border: none; border-top: 1px solid #e5e7eb; margin: 1rem 0 1.2rem; }
+
+    /* ── Publications list ───────────────────────────────────── */
+    ul, ol { margin: 0.5em 0; padding-left: 1.5rem; }
+    li { margin-bottom: 0.9em; line-height: 1.65; }
+
+    .show {
+      cursor: pointer;
+      color: var(--accent);
+      font-weight: 600;
+      transition: color 0.15s;
+    }
+    .show:hover { color: var(--accent-dk); text-decoration: underline; }
+
+    .abstract {
+      display: none;
+      margin-top: 0.7em;
+      padding: 0.9em 1.1em;
+      background: #fafafa;
+      border-left: 3px solid rgba(143,29,44,0.25);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ── Footer ──────────────────────────────────────────────── */
+    footer {
+      background: #fff; color: var(--muted);
+      text-align: center; padding: 1.2rem 0;
+      border-top: 1px solid #e5e7eb;
+      font-size: 0.875rem;
+    }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      #page-header { min-height: 200px; padding: 2rem 1.2rem 1.8rem; }
+      #page-header h1 { font-size: 1.9rem; }
+      #page-header p  { font-size: 0.88rem; max-width: 88vw; }
+      nav a { font-size: 0.95rem; padding: 0.4rem 0.85rem; }
+      section { max-width: calc(100vw - 28px); padding: 1.2rem 1.1rem; border-radius: 14px; }
+      .topic-tabs { gap: 0.45rem; padding: 0.8rem; }
+      .topic-tabs a { font-size: 0.9rem; padding: 0.45rem 1.1rem; }
+    }
+    @media print {
+      #site-nav { position: static !important; box-shadow: none; }
+      #page-header { min-height: auto; padding: 1rem; }
+    }
+  </style>
+
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
 
-<header>
-    <h1>Duong Hieu Phan</h1>
-    <p><h3><i>Phan Dương Hiệu</i></h3></p>
-    <p>Professor at Telecom Paris, Institut Polytechnique de Paris</p>
+<header id="page-header">
+  <h1>Duong Hieu Phan</h1>
+  <h3>Phan Dương Hiệu</h3>
+  <p>Professor at Telecom Paris, Institut Polytechnique de Paris</p>
 </header>
 
-<nav>
+<div id="site-nav">
+  <nav>
     <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
+    <a href="research.html" class="active">Research</a>
     <a href="teaching.html">Teaching</a>
     <a href="contact.html">Contact</a>
     <a href="https://www.di.ens.fr/users/phan/TiengViet.htm">Tiếng Việt</a>
+  </nav>
+</div>
+
+
+<main>
+<nav class="topic-tabs" aria-label="Jump to section">
+  <a href="#publications"><span class="tab-icon">📄</span> Publications</a>
+  <a href="#students"><span class="tab-icon">🎓</span> Students</a>
+  <a href="#thesis"><span class="tab-icon">📚</span> Thesis</a>
 </nav>
-
-
-<section>
-    <div class="content">
-        <ul>
-            <li style="font-size: 1.4em;"><a href="#publications">Publications</a></li>
-            <li style="font-size: 1.4em;"><a href="#students">Students</a></li>
-            <li style="font-size: 1.4em;"><a href="#thesis">Thesis</a></li>
-        </ul>
-</section>
-<section>        
-        <h2 id="publications">Publications</h2>
+<section id="publications">
+        <h2>Publications</h2>
         <h3> <i> (Click on paper title to view the abstract.) </i></h3>
         <hr>
         <ul>
@@ -1407,18 +1515,23 @@ In this paper, we refine this notion of universal padding, in which a part can b
             <li><b><a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2009053605" target="_blank">Traceable System for Encrypting/Decrypting Broadcast Digital Data</a></b></li>
             <li><b><a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2008152302" target="_blank">Obtaining Derived Values Depending on a Secret Master Value</a></b></li>
         </ul>
-        
-        <h2 id="students">Current & Past PhD Students</h2>
+</section>
+
+<section id="students">
+        <h2>PhD Students</h2>
         <hr>
         <ul>
+            <li><b>Jean Vacher</b> (CEA, co-supervision with Renaud Sirdey)</li>
+            <li><b>Nguyen Ho Pham</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Weiqiang Wen)</li>
+            <li><b>Thai Hung Le </b> (Telecom Paris, Institut Polytechnique de Paris and ENS, co-supervision with Brice Minaud)</li>
             <li><b>Antoine Sidem</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Qingju Wang and Bart Preneel)</li>
             <li><b>Jinwei Zheng</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Weiqiang Wen)</li>
             <li><b>Nathan Papon</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Sébastien Canard)</li>
             <li><b>Duy Nguyen</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with David Pointcheval)</li>
-            <li><b>Orel Cosseron</b> (ENS Lyon, co-supervision with Damien Stehlé)</li>
-            <li><b>Ferran Alborch Escobar</b> (Orange + Telecom Paris, co-supervision with Sébastien Canard and Fabien Laguillaumie)</li>
+            <li><b>Ferran Alborch Escobar</b> (Orange + Telecom Paris, co-supervision with Sébastien Canard and Fabien Laguillaumie, defended 02/2025)</li>
             <li><b>Ky Nguyen</b> (ENS, co-supervision with David Pointcheval, defended 12/2024)</li>
             <li><b>Antoine Urban</b> (Telecom Paris, Institut Polytechnique de Paris, co-supervision with Matthieu Rambaud, defended 01/2025)</li>
+            <li><b>Dang Truong Mac</b> (XLIM-Limoges and Vietnam National University, co-supervision with Philippe Gaborit, defended 11/2021)</li>
             <li><b>Chloé Hebant</b> (ENS, co-supervision with David Pointcheval, defended 05/2021)</li>
             <li><b>Xuan Thanh Do</b> (XLIM-Limoges and Vietnam National University, co-supervision with Le Minh Ha, defended 03/2021)</li>
             <li><b>Laura Brouilhet</b> (XLIM-Limoges, co-supervision with Olivier Blazy, defended 12/2020)</li>
@@ -1426,8 +1539,10 @@ In this paper, we refine this notion of universal padding, in which a part can b
             <li><b>Paul Germouty</b> (XLIM-Limoges, co-supervision with Olivier Blazy, defended 09/2018)</li>
             <li><b>Trinh Viet Cuong</b> (LAGA-Paris 8, co-supervision with Claude Carlet, defended 12/2013)</li>
         </ul>
+</section>
 
-        <h2 id="thesis">Habilitation Thesis</h2> 
+<section id="thesis">
+        <h2>Habilitation Thesis</h2> 
         <hr>
         <ul>
             <li><b><a href="These/habi.html" target="_blank">Some Advances in Broadcast Encryption and Traitor Tracing</a></b><br>
@@ -1450,36 +1565,59 @@ In this paper, we refine this notion of universal padding, in which a part can b
                 [<a href="These/Rapport_DEA.pdf" target="_blank">Master thesis in pdf</a>]
             </li>
         </ul>
-    </div>
 </section>
 
+</main>
+
 <footer>
-    <p>&copy; 2024 Duong Hieu Phan.</p>
+  <p>&copy; 2025 Duong Hieu Phan.</p>
 </footer>
 
-<!-- StatCounter Code -->
-<script type="text/javascript">
-var sc_project=421291; 
-var sc_partition=2; 
-var sc_invisible=1; 
-</script>
-<script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
-<noscript><a href="http://www.statcounter.com/free_hit_counter.html" target="_blank"><img src="http://c3.statcounter.com/counter.php?sc_project=421291&amp;java=0" alt="free hit counter" border="0"></a></noscript>
-<!-- End of StatCounter Code -->
+<!-- StatCounter -->
+<script type="text/javascript">var sc_project=421291;var sc_partition=2;var sc_invisible=1;</script>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
+<!-- End StatCounter -->
 
-
-<!-- JavaScript to toggle abstracts -->
 <script>
+/* ── Toggle abstract ─────────────────────────────────────────── */
 function toggleAbstract(id) {
-    var abstract = document.getElementById(id);
-    if (abstract.style.display === "none" || abstract.style.display === "") {
-        abstract.style.display = "block";
-        MathJax.typesetPromise();
-    } else {
-        abstract.style.display = "none";
-    }
+  var el = document.getElementById(id);
+  if (!el) return;
+  if (el.style.display === "none" || el.style.display === "") {
+    el.style.display = "block";
+    if (window.MathJax) MathJax.typesetPromise([el]);
+  } else {
+    el.style.display = "none";
+  }
 }
+
+/* ── Sticky nav on scroll ────────────────────────────────────── */
+(function () {
+  var header  = document.getElementById('page-header');
+  var siteNav = document.getElementById('site-nav');
+  var spacer  = document.createElement('div');
+  siteNav.insertAdjacentElement('afterend', spacer);
+
+  function update() {
+    var navH = siteNav.offsetHeight;
+    if (window.scrollY > header.offsetHeight) {
+      spacer.style.height = navH + 'px';
+      siteNav.classList.add('is-fixed');
+      document.documentElement.style.scrollPaddingTop = navH + 'px';
+    } else {
+      siteNav.classList.remove('is-fixed');
+      spacer.style.height = '0';
+      document.documentElement.style.scrollPaddingTop = '0';
+    }
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
 </script>
 
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

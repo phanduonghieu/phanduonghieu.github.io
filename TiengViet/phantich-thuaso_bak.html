@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Phân tích ra thừa số trong trường hữu hạn">
+<meta property="og:description" content="Tại sao phân tích một đa thức ra thừa số trong trường hữu hạn lại có thể thực hiện trong thời gian đa thức – không giống như phân tích số nguyên? Bài viết giải thích thuật toán Berlekamp qua ý tưởng cơ bản về căn bậc hai của phần tử đơn vị và đại số tuyến tính.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/phantich-thuaso.html">
+<title>Phân tích ra thừa số trong trường hữu hạn - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<!-- MathJax -->
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'ams'
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 2.5rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; }
+p { margin: 0 0 1.2em; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+blockquote {
+  border-left: 4px solid #c9a0a7;
+  background: #faf7f5;
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+blockquote p { margin: 0; }
+.math-display {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  padding: 0.5rem 0;
+}
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+.back-to-index { text-align: center; margin-top: 2rem; font-size: 0.9rem; }
+.back-to-index a { color: #8f1d2c; text-decoration: none; }
+.back-to-index a:hover { text-decoration: underline; }
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.4rem; }
+  h2.sec-title { font-size: 1.05rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Phân tích ra thừa số trong trường hữu hạn</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">27/04/2011</span>
+</div>
+<div class="art-source">Blog KHMT</div>
+<div class="back-to-index" style="margin: 0.2rem 0 0.8rem;"><a href="../Matma.html">← Về trang Mật Mã</a></div>
+
+<p>Bài toán phân tích một số nguyên ra thừa số nguyên tố là một bài toán khó, thuật toán tốt nhất để giải nó có độ phức tạp dưới mũ. Hiện chưa có thuật toán trong thời gian đa thức nào để giải nó. Và nếu có một thuật toán như vậy, hệ mật mã RSA đang dùng khắp nơi sẽ sụp đổ.</p>
+
+<p>Điều đó làm ta có đôi chút bất ngờ khi xem xét bài toán phân tích trong trường hữu hạn. Bởi ta có thể hình dung, trong trường hữu hạn, các đa thức bất khả quy có thể xem như các số nguyên tố và việc phân tích một đa thức thành các tích các đa thức bất khả quy cũng na ná như phân tích một số nguyên thành thừa số nguyên tố. Vậy nhưng, bài toán phân tích trong trường hữu hạn lại có thể giải được trong thời gian đa thức. Bài này ta tìm hiểu tại sao phân tích trong trường hữu hạn lại dễ thế.</p>
+
+<h2 class="sec-title">I. Khởi động: các đa thức bất khả quy</h2>
+
+<p>Vai trò của đa thức bất khả quy là phần tử cơ bản đối với việc xây dựng một trường hữu hạn mở rộng. Với mỗi số nguyên tố \(p\), ta có trường cơ bản \(F_p\). Để mở rộng được một trường \(F_q\) có \(q = p^n\) phần tử, ta cần có một đa thức bất khả quy bậc \(n\) với hệ số trong \(F_p\), rồi để mở rộng tiếp từ \(F_q\) lên \(F_{q^r}\) ta cần một đa thức bất khả quy bậc \(r\) với hệ số trong \(F_q\).</p>
+
+<p>Vậy ta lấy những đa thức bất khả quy từ đâu ra? Cũng như câu hỏi: kiếm đâu ra các số nguyên tố? Và cũng như việc sinh các số nguyên tố, cách thường làm là ta sinh ra một số bất kỳ rồi kiểm tra xem nó có là số nguyên tố hay không, đối với trường hữu hạn, ta sẽ sinh một đa thức bất kỳ rồi kiểm tra xem nó có là bất khả quy hay không. Sự khác biệt đầu tiên ta có thể thấy: việc kiểm tra tính nguyên tố của một số nguyên là tương đối khó, đến tận năm 2002 mới có thuật toán tất định thực hiện điều đó, nhưng việc kiểm tra một đa thức trong một trường hữu hạn có bất khả quy hay không thì lại tương đối dễ.</p>
+
+<p>Ta biết rằng trên một trường hữu hạn \(F\) có \(q\) phần tử, tập tất cả các nghiệm của đa thức \(X^q - X\) chính là tập các phần tử của \(F\) (dễ thấy vì hiển nhiên mọi phần tử của \(F\) đều là nghiệm của nó, và đa thức bậc \(q\) nên không thể có quá \(q\) nghiệm). Diễn đạt một cách khác thì \(X^q - X\) chính là tích của tất cả các đa thức bậc một (do vậy, bất khả quy) \((X - a)\) với \(a \in F\). Tổng quát hóa lên, không khó khăn lắm để thấy được \(X^{q^2} - X\) là tích của tất cả các đa thức bất khả quy bậc hai trở xuống, và tổng quát hơn, \(X^{q^d} - X\) là tích của tất cả các đa thức bất khả quy bậc \(r\) với \(r \mid d\).</p>
+
+<p>Đến đây thì việc kiểm tra xem một đa thức \(f\) bậc \(r\) có bất khả quy hay không dễ như trở bàn tay: dùng thuật toán Euclid tính ước chung lớn nhất giữa \(f\) và \(X^q - X\), nếu là \(1\) thì thử tiếp ước chung lớn nhất giữa \(f\) và \(X^{q^2} - X\), …, cho tới ước chung lớn nhất giữa \(f\) và \(X^{q^r} - X\); nếu tất cả kết quả đều là \(1\) (mất có \(r\) bước) thì ta có kết luận \(f\) là bất khả quy. Sở dĩ ta có thuật toán hiệu quả kiểm tra một đa thức bất khả quy hay không (so với kiểm tra một số tự nhiên nguyên tố hay không) là bởi ta gộp được các đa thức bất khả quy.</p>
+
+<p>Cũng từ việc \(X^{q^d} - X\) là tích của tất cả các đa thức bất khả quy bậc \(r\) với \(r \mid d\), ta có thể dễ dàng ước lượng phân bố các đa thức bất khả quy. Ký hiệu \(\Pi(r)\) là số các đa thức bất khả quy bậc \(r\), thì số lượng các hệ số của tích trên cho ta đẳng thức</p>
+
+<div class="math-display">\[ q^d = \sum_{r \mid d} r \cdot \Pi(r). \]</div>
+
+<p>Từ đó dễ thấy bằng quy nạp rằng \(\dfrac{q^d}{2} < d \cdot \Pi(d) < q^d\). Nói cách khác, trong tổng số \(q^d\) đa thức bậc \(d\) thì có \(O\!\left(\dfrac{q^d}{d}\right)\) đa thức bất khả quy. Đặt \(N = q^d\) thì ta có ước lượng số các đa thức bất khả quy là \(O\!\left(\dfrac{N}{\log_q N}\right)\), và điều thú vị là đó cũng chính là ước lượng số các số nguyên tố nhỏ hơn \(N\) (định lý số nguyên tố: \(\pi(N) \sim N / \ln N\)).</p>
+
+<h2 class="sec-title">II. Thuật toán Berlekamp cho bài toán phân tích</h2>
+
+<p>Ý tưởng chính của cả bài toán phân tích số \(N\) lẫn phân tích đa thức \(f\) đều xuất phát từ một điểm cơ bản: <strong>tìm một căn bậc hai ngẫu nhiên của phần tử đơn vị!</strong></p>
+
+<p>Với số tự nhiên \(N\), giả sử \(N = p_1^{e_1} \times \cdots \times p_k^{e_k}\). Khi đó ta đã biết có đẳng cấu vành</p>
+
+<div class="math-display">\[ \mathbb{Z}/N\mathbb{Z} \;\cong\; \mathbb{Z}/p_1^{e_1}\mathbb{Z} \;\times\; \cdots \;\times\; \mathbb{Z}/p_k^{e_k}\mathbb{Z}. \]</div>
+
+<p>Phần tử \(1\) tương ứng với bộ \((1, \ldots, 1)\), và các căn bậc hai của \(1\) tương ứng với các bộ \((\pm 1, \ldots, \pm 1)\) (chọn độc lập dấu \(\pm\) ở mỗi vị trí).</p>
+
+<p>Nếu ta có một căn bậc hai \(V\) ngẫu nhiên của \(1\), với xác suất đáng kể thì sẽ có bộ có cả dấu cộng lẫn dấu trừ. Do vậy \(V - 1\) sẽ có ít nhất một tọa độ là \(0\) và ít nhất một tọa độ khác \(0\). Chỉ cần tính \(\gcd(V - 1,\, N)\) là ta tìm được một nhân tử không tầm thường của \(N\).</p>
+
+<p>Vấn đề khó ở đây là tìm được một căn bậc hai ngẫu nhiên của phần tử đơn vị trong \(\mathbb{Z}/N\mathbb{Z}\). Vấn đề này khá hóc búa đối với số tự nhiên, và đến nay chỉ có thuật toán dưới mũ để giải nó.</p>
+
+<p>Rất may là trong trường hữu hạn, ta có thể thực hiện điều đó khá dễ dàng trong thời gian đa thức.</p>
+
+<p>Cho đa thức \(f\) với hệ số trên trường \(F\) có \(q\) phần tử. Tương tự như với số nguyên, nếu \(f = f_1 \times \cdots \times f_r\) (các \(f_i\) bất khả quy, phân biệt), thì \(E = F[X]/f\) là một vành mở rộng và ta có đẳng cấu</p>
+
+<div class="math-display">\[ E = F[X]/f \;\cong\; F[X]/f_1 \;\times\; F[X]/f_2 \;\times\; \cdots \;\times\; F[X]/f_r. \tag{$*$} \]</div>
+
+<p>Từ một căn bậc hai ngẫu nhiên của phần tử đơn vị trong \(E\), ta có thể tìm được một nhân tử của \(f\) hoàn toàn tương tự như cách làm với số tự nhiên. (Ở đây ta bỏ qua một số trường hợp đặc biệt cần xét riêng như trường đặc số \(2\) hay khi \(f\) có nhân tử kép \(f_i^2\).)</p>
+
+<p>Bây giờ là nguyên nhân cơ bản để ta có thể tìm một căn bậc hai ngẫu nhiên của phần tử đơn vị trong \(E\).</p>
+
+<p>Xét tập</p>
+
+<div class="math-display">\[ B = \{x \in E \mid x^q = x\}. \]</div>
+
+<p>Tập \(B\) có vai trò vô cùng quan trọng, vì nếu ta bắt được một phần tử ngẫu nhiên \(u \in B\) thì coi như xong: khi đó \(u^{(q-1)/2}\) là một căn bậc hai ngẫu nhiên của phần tử đơn vị trong \(E\).</p>
+
+<p>Ta hãy xem cấu trúc của \(B\). Khi \(f\) là bất khả quy, tập \(B\) bao gồm các phần tử bất biến qua phép ánh xạ Frobenius, và \(B\) đích thị là trường \(F\) — không có gì thêm để nói. Tuy nhiên khi \(f = f_1 \times \cdots \times f_r\) như trên, tập \(B\) sẽ là <strong>không gian vectơ \(r\) chiều trên \(F\)</strong>. Thực vậy, mỗi thành phần \(F[X]/f_i\) là một mở rộng trường, và tập các \(x \in F[X]/f_i\) thỏa mãn \(x^q = x\) chính là \(F\) (bất biến qua Frobenius). Do vậy, theo đẳng cấu \((*)\), tập \(B\) tương ứng với tập tất cả các bộ \((c_1, \ldots, c_r)\) với \(c_i \in F\) — tức \(B\) là không gian vectơ \(r\) chiều trên \(F\).</p>
+
+<p>Ta biết cấu trúc của \(B\) như vậy, nhưng làm sao để tóm được một phần tử ngẫu nhiên của nó? Vì \(B\) là không gian vectơ, chỉ cần tóm được một hệ cơ sở của \(B\) thì ta sẽ sinh ra được các phần tử của \(B\). Vậy vấn đề chuyển thành <em>tìm một hệ cơ sở của \(B\)</em>. Nhưng khi không biết \(f_1, \ldots, f_r\) thì ta cũng không biết \(B\), nên tóm được hệ cơ sở nghe chừng không dễ.</p>
+
+<p>Nhưng thực ra thì lại rất dễ! Quay trở lại vành \(E\) mà ta sở hữu, và xét ánh xạ</p>
+
+<div class="math-display">\[ \mu \colon E \to E, \qquad \mu(x) = x^q - x. \]</div>
+
+<p>Ánh xạ \(\mu\) là một <strong>ánh xạ tuyến tính</strong> trên \(F\), và tập \(B\) chính là <strong>hạt nhân (kernel)</strong> của \(\mu\):</p>
+
+<div class="math-display">\[ B = \ker(\mu). \]</div>
+
+<p>Đến đây, việc xây dựng cơ sở cho \(B\) là dễ dàng thực hiện được qua đại số tuyến tính cơ bản, vì ta hoàn toàn kiểm soát được ánh xạ \(\mu\): ta xây dựng ma trận \(M\) ứng với ánh xạ \(\mu\) (kích thước \(\deg f \times \deg f\), với hệ số trong \(F\)), sau đó dùng phép khử Gauss-Jordan trên \(M\) để tìm hệ cơ sở cho \(\ker(M)\), tức chính là cho \(B\).</p>
+
+<p>Có được hệ cơ sở của \(B\), ta sinh ra một phần tử ngẫu nhiên \(u \in B\), tính \(u^{(q-1)/2}\) — một căn bậc hai ngẫu nhiên của đơn vị — và từ đó dùng \(\gcd\) để tách nhân tử của \(f\). Đây chính là nội dung cốt lõi của thuật toán Berlekamp.</p>
+
+<div class="art-end">27/04/2011 — Blog KHMT</div>
+<div class="back-to-index"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">← Về trang chủ</a></div>
+
+<nav class="art-nav">
+  <a href="ghep-than.html" class="art-nav-prev">← Ứng dụng mật mã làm tăng hiệu quả việc Ghép Thận</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="turing2023.html" class="art-nav-next">Giải Turing 2023 - hành trình ngẫu nhiên →</a>
+</nav>
+
+</div>
+</div>
+</body>
+</html>

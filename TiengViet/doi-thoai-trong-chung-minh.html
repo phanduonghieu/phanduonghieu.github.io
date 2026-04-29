@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Đối thoại trong chứng minh (Interactive Proofs)">
+<meta property="og:description" content="Chứng minh toán học thường là một dãy lập luận logic tường minh. Liệu yếu tố đối thoại có mang đến điều mới mẻ? Câu chuyện về Thượng đế, đồng cấu đồ thị, và chứng minh không để lộ tri thức.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/doi-thoai-trong-chung-minh.html">
+<title>Đối thoại trong chứng minh (Interactive Proofs) - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    packages: {'[+]': ['ams']}
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.92;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main { max-width: 900px; margin: 0 auto; }
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+
+#toc {
+  background: #faf7f5;
+  border: 1px solid #e5dbd6;
+  border-left: 4px solid #8f1d2c;
+  border-radius: 7px;
+  padding: 1.4rem 1.75rem 1.25rem;
+  margin: 0 0 3rem;
+}
+#toc .toc-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.85rem;
+}
+#toc ol { list-style: none; padding: 0; margin: 0; }
+#toc li { margin-bottom: 0.35rem; line-height: 1.4; }
+#toc li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.97rem;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+#toc li a:hover { color: #8f1d2c; }
+
+.art-section { margin-top: 3rem; }
+
+h2.sec-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+
+.side-block {
+  background: #faf7f5;
+  border-left: 4px solid #c8a0a8;
+  border-radius: 0 7px 7px 0;
+  padding: 0.9rem 1.3rem 0.7rem;
+  margin: 1.4rem 0;
+  font-size: 0.97rem;
+  color: #444;
+}
+.side-block .side-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #9a5060;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 0.6rem;
+}
+.side-block p { margin: 0.3em 0; }
+.side-block ol { margin: 0.5em 0 0.4em 1.3em; padding: 0; }
+.side-block li { margin-bottom: 0.8em; }
+
+.protocol-box {
+  background: #f8f6f3;
+  border: 1px solid #ddd5ce;
+  border-radius: 8px;
+  padding: 1.1rem 1.5rem;
+  margin: 1.6rem 0;
+  font-style: italic;
+  color: #333;
+  font-size: 0.98rem;
+}
+.protocol-box .protocol-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: #8f1d2c;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 0.8rem;
+}
+.protocol-box p { margin: 0.4em 0; }
+.protocol-box .role {
+  font-weight: 600;
+  font-style: normal;
+  color: #5a1520;
+  min-width: 5.5rem;
+  display: inline-block;
+}
+.protocol-step { margin: 0.35em 0; }
+
+.poem {
+  font-style: italic;
+  margin: 1.5rem 0 1.5rem 1.8rem;
+  color: #333;
+  border-left: 3px solid #e0d0d3;
+  padding: 0.4rem 1.1rem;
+}
+.poem p { margin: 0; line-height: 1.75; }
+
+.art-sep-rule { border: none; border-top: 1px solid #e8e0dc; margin: 3rem 0 2.5rem; }
+
+.math-display {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  -webkit-overflow-scrolling: touch;
+  text-align: center;
+}
+
+.art-end {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.05rem; line-height: 1.82; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  .art-title { font-size: 1.45rem; }
+  h2.sec-title { font-size: 1.12rem; }
+  mjx-container[display="true"] { overflow-x: auto; max-width: 100%; }
+}
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+<article>
+
+<h1 class="art-title">Đối thoại trong chứng minh<br><span style="font-size:0.65em;font-weight:500;color:#b84454;letter-spacing:0;display:block;margin-top:0.2rem;">Interactive Proofs</span></h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">29/10/2010</span>
+</div>
+<div class="art-source">Đăng trên Blog Khoa Học Máy Tính</div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html#bip" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<nav id="toc"></nav>
+
+<p>Chứng minh toán học thường là một dãy các lập luận logic có thể trình bày tường minh bằng giấy trắng mực đen. Liệu chăng yếu tố đối thoại có mang đến điều mới mẻ?</p>
+
+<p>Trong cuộc sống thì đối thoại tất nhiên là không thể thiếu, khi một anh chàng cưa đổ một cô nàng tức là công cuộc tán tỉnh (thực chất là chuỗi các cuộc đối thoại trường kỳ) của anh ta đã thành công. Trong một phiên toà, quyết định cuối cùng của chánh án được đưa ra dựa trên một chuỗi đối thoại giữa thẩm phán, nguyên đơn, bị can cùng các luật sư. Bên muốn thuyết phục quan toà rằng ta vô tội, người muốn bị can bị trừng phạt đúng tội... Rõ ràng, một chứng minh trong cuộc sống nhiều khi cần có đối thoại! Ta không khỏi băn khoăn, phải chăng khoa học cũng cần có đối thoại trong chứng minh?</p>
+
+<!-- ── Phần 1 ── -->
+<section class="art-section" id="sec-1">
+<h2 class="sec-title">Phần 1: Thượng đế muốn gây lòng tin, nhất thiết cần đối thoại</h2>
+
+<p>Thượng đế có sức mạnh vạn năng, cái gì cũng biết. Nhưng biết một mình thì vô cùng chán, một ngày ông ta xuống trần giúp người giải quyết các khúc mắc. Dân tình thấy vậy ai có khúc mắc gì đều mang đến cho Thượng đế giải quyết hết. Thượng đế vạn năng nên mỗi câu hỏi đều trả lời trong tích tắc.</p>
+
+<p>Rồi đến một hôm, có anh học trò nọ vác đến cho Thượng đế hai cái đồ thị 100 đỉnh, anh ta thấy chúng giống nhau lắm mà không tài nào biết được chúng có đồng cấu với nhau không (tức là liệu đồ thị này có thể nhận được từ đồ thị kia qua một phép hoán vị các đỉnh hay không). Nếu thử mọi hoán vị có thể thì làm tới \(100!\) trường hợp, sống lâu ngàn tuổi cũng không xong. Thượng đế vạn năng nhìn phát biết ngay chúng không đồng cấu! Ấy nhưng anh học trò khăng khăng không chịu. Thượng đế làm sao để thuyết phục anh ta đây? Liệt kê \(100!\) hoán vị chăng? Thế thì anh học trò cũng tự làm được và nếu sống lâu như Thượng đế thì cũng có ngày tự giải đáp được thắc mắc, đâu cần đến Thượng đế!</p>
+
+<p>Và Thượng đế cũng cần đối thoại để chứng minh, để thuyết phục anh học trò. Rất đơn giản thôi, anh học trò bí mật chọn 1 trong hai đồ thị rồi hoán vị ngẫu nhiên các đỉnh của đồ thị đó. Anh ta đưa đồ thị kết quả cho Thượng đế. Nếu Thượng đế đoán đúng là anh ta ban đầu chọn đồ thị nào trong 2 đồ thị thì anh học trò gật gù tiếp tục làm phép đố Thượng đế. Nếu cả 100 lần Thượng đế trả lời đúng thì anh ta xoa tay chấp nhận "đúng quá, quả là hai đồ thị không đồng cấu", còn nếu chỉ một lần Thượng đế trả lời sai thì anh học trò bĩu môi bỏ đi mà lẩm bẩm "đời này làm gì có Thượng đế!".</p>
+
+<p>Tính đúng đắn trong phép chứng minh của Thượng đế và việc kiểm tra của anh học trò là dễ thấy: nếu hai đồ thị là đồng cấu thì hai tập tất cả các hoán vị của hai đồ thị là trùng khớp nhau nên nếu chọn một trong hai đồ thị, hoán vị ngẫu nhiên các đỉnh của nó rồi đưa cho Thượng đế thì dù có sức mạnh vô hạn cũng đố ông ta mà đoán chính xác là ta đã chọn đồ thị nào! (xác suất Thượng đế hay một chú bé biết đếm chưa biết đi đoán trúng đều là \(\frac{1}{2}\), không hơn không kém). Do đó, nếu hai đồ thị đồng cấu mà Thượng đế muốn bịp anh học trò là chúng không đồng cấu thì dù có sức mạnh vô biên cũng chỉ có xác suất \(\frac{1}{2^{100}}\) bịp được mà thôi! Ngược lại, nếu hai đồ thị quả không đồng cấu thì tập các hoán vị của chúng rời nhau và Thượng đế với sức mạnh vạn năng có thể biết đồ thị kết quả là hoán vị của đồ thị nào và trả lời chính xác 100%. Do đó, mỗi câu trả lời đúng của Thượng đế sẽ làm tăng một chút lòng tin trong anh học trò; 100 lần Thượng đế trả lời chính xác thì anh học trò có thể tin (với xác suất \(1 - \frac{1}{2^{100}}\)) là hai đồ thị không đồng cấu!</p>
+
+<p>Vậy là đối thoại trong chứng minh cũng có ý nghĩa đấy chứ. Nhưng chú ý là trong cuộc nói chuyện trên cần phải có yếu tố ngẫu nhiên (anh học trò phải có khả năng sinh một hoán vị ngẫu nhiên đến Thượng đế cũng không đoán trước được)! Ta có thể dễ chứng minh là "nếu Thượng đế không cho chơi trò xúc sắc thì đối thoại cũng chẳng để làm gì". Tức là nếu không có yếu tố ngẫu nhiên thì đối thoại không đem thêm sức mạnh, lý do là không có ngẫu nhiên thì mọi thứ đều đơn định đoán trước được. Điều này kể cũng hợp lý thôi, khi ta đối thoại với ai là ta mong những điều bất ngờ từ họ, nếu họ đối thoại đơn định theo một định hướng dễ đoán trước thì đối thoại phỏng có ích gì.</p>
+
+<p>Câu chuyện về Thượng đế cho ta thấy sức mạnh của đối thoại: Thượng đế muốn chỉ ra chân lý cho người trần thì áp đặt nhiều khi không thuyết phục, nhưng nếu cùng đối thoại thì có thể khuất phục được những ai khó tính nhất!</p>
+
+<p><em>Lời kết kỳ 1, mở màn kỳ 2 — "Đối thoại giữa người trần":</em> Ta nhớ rằng trên kia người chứng minh là Thượng đế có sức mạnh vô hạn, tính toán nhanh hơn điện, bộ nhớ vô biên, cái gì cũng biết. Thượng đế có thể lưu một chứng minh dài bao nhiêu cũng được, mỗi khi được hỏi có thể trả lời ngay tắc lự mà người thường phải mất hàng nghìn năm tính toán. Còn ở đây, người chứng minh chỉ là người trần, sức mạnh bị hạn chế, bộ óc không thể lưu trữ vô hạn. Hai bên đối thoại đều là người trần nên có thể coi có trình độ và khả năng tương đương. Do đó, người chứng minh buộc phải lưu chứng minh trong một bộ nhớ có độ dài hữu hạn. Nhưng với điều kiện này thì cần gì phải đối thoại, người chứng minh đưa quách cái chứng minh này cho người kiểm tra để thuyết phục anh này là xong, đâu phải cần đối thoại?</p>
+
+<p>Câu trả lời sẽ tới trong phần 2: đối thoại trong chứng minh giữa người với nhau sẽ đem đến những đặc tính cực kỳ thú vị và rất quan trọng mà một chứng minh không có đối thoại sẽ không thể có.</p>
+
+<div class="side-block">
+<div class="side-label">Bàn thêm — Phần 1</div>
+<p>Đối thoại trong chứng minh, hay <em>chứng minh tương tác</em>, là giữa hai máy Turing: một <strong>Prover</strong> có sức mạnh tuyệt đối và một <strong>Verifier</strong> có sức mạnh hạn chế chạy trong thời gian thực tế (thường được xem là máy Turing chạy trong thời gian đa thức theo độ dài đầu vào). Tập các bài toán chứng minh được một cách tương tác là \(\mathsf{IP}\).</p>
+<p>Một kết quả chấn động chỉ ra \(\mathsf{IP} = \mathsf{PSPACE}\), tức là mọi bài toán giải được trong không gian đa thức đều có thể giải được qua tương tác trong thời gian đa thức. Kết quả này được chứng minh hoàn chỉnh bởi Shamir nhưng người ta thường kể thêm Lund, Fortnow, Karloff, Nisan — một câu chuyện khá lý thú. Phương pháp chứng minh \(\mathsf{IP} = \mathsf{PSPACE}\) dựa trên việc xem xét các công thức logic dưới góc nhìn đại số, biểu diễn các công thức dưới dạng đa thức (\(x \wedge y \mapsto x \cdot y\); \(\neg x \mapsto 1-x\)). Nisan ban đầu đưa ra kỹ thuật này để chứng minh \(\#\mathsf{SAT} \in \mathsf{MIP}\), rồi gửi email thông báo kết quả cho các cao thủ trong ngành rồi đi nghỉ Giáng sinh. Cảm hứng bởi kỹ thuật số hóa (Arithmetization) của Nisan, Lund, Fortnow và Karloff chứng minh được \(\#\mathsf{SAT} \in \mathsf{IP}\), và ngay sau đó khoảng 2 tuần, vẫn bằng kỹ thuật này, Shamir hoàn tất chứng minh \(\mathsf{IP} = \mathsf{PSPACE}\) bằng cách chứng minh bài toán \(\mathsf{TQBF}\) thuộc \(\mathsf{IP}\).</p>
+<p>Nếu mở rộng khái niệm chứng minh tương tác giữa một người kiểm tra và nhiều người chứng minh độc lập (multi-prover) thì có thể chứng minh \(\mathsf{MIP} = \mathsf{NEXP}\) (\(\mathsf{NEXP}\) là lớp các bài toán giải được trong thời gian hàm mũ trên máy Turing không đơn định — một lớp khổng lồ). Mô hình nhiều người chứng minh (multi-prover) mô phỏng hoạt động điều tra của cảnh sát hình sự: bắt một băng nhóm rồi nhốt từng thành viên vào các phòng riêng biệt để thẩm tra.</p>
+</div>
+
+</section>
+
+<!-- ── Phần 2 ── -->
+<section class="art-section" id="sec-2">
+<h2 class="sec-title">Phần 2: Bỏ qua sự hiện diện của Thượng đế — đối thoại giữa hai người</h2>
+
+<p>Bản thân tôi rất quý Thượng đế, rất muốn ông là một người bạn tốt trong các chuyến chu du của trí tưởng tượng. Nhưng ngược lại, trong cuộc sống thì lại rất muốn độc lập với ông. Cho nên muốn biết: bỏ qua sự hiện diện của Thượng đế, đối thoại trong chứng minh có còn ý nghĩa?</p>
+
+<p>Thoạt đầu, có vẻ như là không. Nếu tôi muốn chứng tỏ cho anh là định lý T đúng, thì có nghĩa tôi đã phải có chứng minh cho định lý đó. Khác với Thượng đế có sức nhớ vô hạn, bản chứng minh của tôi chỉ là hữu hạn để mà tôi còn nhớ được. Vậy thì cần gì đối thoại, tôi đưa béng cái bản chứng minh đó cho anh là thuyết phục được anh, cần gì đối thoại?</p>
+
+<p>Ấy thế mà tưởng vậy mà có khi lại không phải chỉ có vậy.</p>
+
+<p>Một ví dụ đơn giản thôi. Nhà tôi trồng cà phê, tôi làm ra đến 100 loại đánh số Chồn 1 đến Chồn 100. Anh đến mua bảo tôi: "tôi đảm bảo rằng chả có sự khác biệt nào giữa Chồn 99 và Chồn 100". Sao tôi có thể chứng minh cho anh là có sự khác biệt? Đơn giản là tôi ra ngoài, cho anh pha 2 loại vào 2 cốc giống hệt nhau rồi đưa tôi uống, tôi sẽ nói cho anh đâu là Chồn 99 đâu là Chồn 100. Để cẩn thận cho anh test 100 lần, nếu tôi phân biệt đúng cả 100 thì có lẽ nào anh chẳng tin tôi?</p>
+
+<p>Bạn có thể cho rằng đấy là trong cuộc sống, đấy là cái chứng minh về khả năng của con người, cái khả năng không thể sáng tỏ trên giấy bút.</p>
+
+<p>Thế nhưng trong toán học nó lại còn thú vị hơn! Nó đánh dấu sự ra đời cho một khái niệm rất quan trọng: chứng minh mà không để lộ tý thông tin nào về lời giải! Ngắn gọn hơn: <em>chứng minh không để lộ tri thức</em>, tiếng Anh là <em>zero-knowledge proof</em>.</p>
+
+<p>Chứng minh không để lộ tri thức là làm sao tôi thuyết phục được anh là định lý đó đúng mà sau khi công nhận, anh chẳng biết tý thông tin gì về cái bản chứng minh của tôi cả. Khi khái niệm này ra đời, nó đã vấp phải một sự lo lắng từ phía chính quyền Mỹ: bọn khủng bố có thể chứng minh kế hoạch cho nhau mà không để lộ tý thông tin nào ra ngoài.</p>
+
+<p>Câu trả lời một lần nữa sẽ lại là có, và câu chuyện chẳng phải đâu xa — đó là câu chuyện đối ngẫu với câu chuyện trên kia của Thượng đế: câu chuyện chứng minh hai đồ thị <em>đồng cấu</em>.</p>
+
+<p>Chuyện này có gì đáng kể? Hai đồ thị đồng cấu thì tồn tại hoán vị biến cái này thành cái kia, đưa ra cái hoán vị kiểm tra phát là xong, có gì phức tạp? Ấy thế mà cái sự phức tạp nó lại nằm trong đặc tính của con người: tôi muốn chứng minh cho anh nhưng tôi không muốn cho anh xem lời giải! Nói giản dị hơn, tôi là người duy nhất biết câu thần chú để mở cửa hang, tôi muốn có thể chứng minh cho anh thấy khả năng của mình nhưng không muốn hé lộ câu thần chú — vậy tôi sẽ chứng minh cho anh nhưng anh hãy đứng xa ra đừng có nghe lỏm.</p>
+
+<p>Nào, ta thử xem làm cách nào ta có thể chứng minh hai đồ thị \(G_1\), \(G_2\) đồng cấu qua hoán vị \(S\) với \(S(G_1) = G_2\), mà không hé lộ thông tin gì về hoán vị bí mật \(S\)?</p>
+
+<div class="protocol-box">
+<div class="protocol-title">Giao thức zero-knowledge cho đẳng cấu đồ thị</div>
+<p class="protocol-step"><span class="role">Người chứng minh:</span> Chọn ngẫu nhiên một hoán vị \(R\) và một trong hai đồ thị, giả sử \(G_2\). Tính \(G = R(G_2)\) và gửi \(G\) cho người kiểm tra.</p>
+<p class="protocol-step"><span class="role">Người kiểm tra:</span> Chọn ngẫu nhiên một trong hai yêu cầu: "chứng minh \(G \cong G_1\)" hoặc "chứng minh \(G \cong G_2\)".</p>
+<p class="protocol-step"><span class="role">Người chứng minh:</span> Nếu yêu cầu \(G \cong G_1\): đưa ra \(R \circ S\) (vì \(G = R(S(G_1))\)). Nếu yêu cầu \(G \cong G_2\): đưa ra \(R\) (vì \(G = R(G_2)\)).</p>
+<p style="margin-top:0.8rem;font-style:normal;font-size:0.93rem;color:#555;">Lặp lại 100 lần. Nếu \(G_1 \not\cong G_2\) mà người chứng minh muốn lừa thì chỉ có thể trả lời được một trong hai yêu cầu, xác suất qua mỗi vòng là \(\frac{1}{2}\), và xác suất lừa được cả 100 vòng chỉ là \(\frac{1}{2^{100}}\) — vô cùng bé.</p>
+</div>
+
+<p>Như vậy nếu tôi trả lời anh đúng 100 lần thì anh sẽ hoàn toàn bị thuyết phục mà anh không biết gì về bí mật \(S\)! Mấu chốt là ở chỗ, mỗi lần đối thoại anh sẽ chỉ biết hoặc \(R\) hoặc \(R \circ S\), mà \(R\) được tôi chọn ngẫu nhiên nên thông tin này chẳng đem lại tý thông tin gì về \(S\) cả!</p>
+
+<p>Nói cách khác, thông tin anh biết sau khi đối thoại với tôi là một loạt các cặp \((G, G_1)\) hoặc \((G, G_2)\) đồng cấu với nhau. Thật ra các loại thông tin này anh chẳng cần đối thoại với tôi cũng tự sinh ra được — cứ lấy một trong hai đồ thị rồi hoán vị ngẫu nhiên nó là ra được một cặp.</p>
+
+<p>Chứng minh không để lộ tri thức thực ra đã ra đời từ rất lâu rồi, và Tagore hình như là một chuyên gia trong lĩnh vực này:</p>
+<div class="poem">
+<p><em>Anh không giấu em một điều gì,</em></p>
+<p><em>ấy chính vì thế mà em không biết gì tất cả về anh.</em></p>
+</div>
+
+<p>Chứng minh trên cho phép ta có một ứng dụng trực tiếp vào việc chứng minh danh tính. Chẳng hạn các thành viên của một hội kín chia sẻ nhau hoán vị bí mật của hai đồ thị đồng cấu. Để vào họp thì khi đến cổng, các thành viên cần phải chứng minh mình biết bí mật cho người giữ cổng. Bất cứ kẻ nào nghe lỏm cuộc đối thoại giữa người gác cổng và thành viên của hội cũng chẳng có thông tin gì về bí mật, và thậm chí người gác cổng cũng chẳng biết tý gì về bí mật nhưng vẫn hoàn thành nhiệm vụ kiểm tra xem anh có đúng là thành viên của hội hay không.</p>
+
+<div class="side-block">
+<div class="side-label">Bàn thêm — Phần 2</div>
+<p>Như ta đã biết, tập \(\mathsf{NP}\) có thể hiểu là tập tất cả các bài toán có chứng minh kiểm tra được trong thời gian đa thức. Một kết quả rất đẹp cho ta thấy tất cả các bài toán trong lớp \(\mathsf{NP}\) đều có zero-knowledge proofs, dựa trên giả thuyết tồn tại các hàm một chiều (nôm na, tính xuôi dễ nhưng tính ngược khó). Tức là mọi thứ trên đời nếu ta có thể chứng minh được thì ta cũng có thể chứng minh được mà không để lộ lời giải!</p>
+<p>Nếu ta xét đến chứng minh gồm nhiều người chứng minh và một người kiểm tra (multi-prover) thì ta có thể chứng minh được tất cả các bài toán trong lớp \(\mathsf{NP}\) đều có zero-knowledge proofs, <em>không cần dựa trên giả thuyết nào cả!</em> Mô hình multi-prover mô phỏng một người điều tra nghi ngờ một nhóm là tội phạm, đưa các nghi phạm vào các phòng khác nhau và tra hỏi từng người riêng biệt. Nhóm nghi phạm có thể bàn bạc chiến thuật trả lời trước, nhưng một khi bị tra hỏi thì không được trao đổi với nhau nữa.</p>
+<p>Ta thấy nhiệm vụ của người kiểm tra rất đơn giản: chỉ cần chọn ngẫu nhiên một trong hai câu hỏi để hỏi rồi kiểm tra bằng một thao tác rất đơn giản. Điều đó gợi ra một câu hỏi: ta có thể loại bỏ hoàn toàn người kiểm tra và thay bằng một hàm băm \(H\) hay không? Với tính chất đầu ra khó đoán của hàm băm, đầu vào là một đồ thị \(G\) thì khó đoán được \(H(G) \in \{0,1\}\) mà không cần tính. Thay người kiểm tra bằng hàm băm như vậy chính là biến một chứng minh tương tác thành một chứng minh phi tương tác — một ý tưởng rất quan trọng trong mật mã hiện đại.</p>
+</div>
+
+</section>
+
+<!-- ── Kết ── -->
+<hr class="art-sep-rule">
+
+<p>Einstein cuối đời lật lại vấn đề "Liệu Chúa có chơi trò xúc sắc", nay một câu hỏi khác được đặt ra: "Liệu Thượng đế có cần đối thoại?" Từng câu hỏi thật khó trả lời cho rõ ràng. Nhưng có một điều con người có thể chứng minh, đó là "Nếu Chúa không chơi trò xúc sắc thì Thượng đế không cần đối thoại". Điều này kể cũng hợp lý thôi, khi ta đối thoại với ai là ta mong những điều bất ngờ từ họ, nếu họ đối thoại đơn định dễ đoán thì đối thoại chẳng mang lại ích gì.</p>
+
+<p style="color:#777;font-size:0.95rem;font-style:italic;">(Và câu hỏi còn mở là liệu có cách nào chứng minh tính không đồng cấu của hai đồ thị trong thời gian tương đối ngắn — một đa thức theo số đỉnh của đồ thị.)</p>
+
+<div class="art-end">
+Blog Khoa Học Máy Tính
+</div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="matma-dophuctap.html" class="art-nav-prev">← Mật mã dưới góc nhìn độ phức tạp tính toán</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="vedepbatdinh.html" class="art-nav-next">Vẻ đẹp bất định trong mật mã hiện đại →</a>
+</nav>
+
+</article>
+</div>
+</div>
+
+<script>
+(function buildToc() {
+  var headings = Array.from(document.querySelectorAll(
+    '.art-section > h2.sec-title'
+  ));
+  if (!headings.length) return;
+  var toc = document.getElementById('toc');
+  if (!toc) return;
+  var tocHead = document.createElement('p');
+  tocHead.className = 'toc-heading';
+  tocHead.textContent = 'Mục lục';
+  toc.appendChild(tocHead);
+  var ol = document.createElement('ol');
+  headings.forEach(function(h) {
+    var container = h.closest('[id]');
+    if (!container) return;
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = '#' + container.id;
+    a.textContent = h.textContent.replace(/\s+/g, ' ').trim();
+    li.appendChild(a);
+    ol.appendChild(li);
+  });
+  toc.appendChild(ol);
+})();
+</script>
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

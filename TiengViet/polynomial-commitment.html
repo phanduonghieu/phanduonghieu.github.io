@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Chống thông tin giả bằng Mật mã (Polynomial Commitment)">
+<meta property="og:description" content="Polynomial Commitment - công cụ mật mã giúp chống thông tin giả bằng cách cho phép kiểm chứng dữ liệu mà không tiết lộ toàn bộ nội dung. Ứng dụng từ blockchain đến báo chí.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/polynomial-commitment.html">
+<title>Chống thông tin giả bằng Mật mã (Polynomial Commitment) - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script>
+MathJax = { options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] },
+  tex: { inlineMath: [['\\(','\\)'], ['$','$']], displayMath: [['\\[','\\]'], ['$$','$$']] } };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.art-subtitle { text-align: center; font-size: 1rem; color: #777; font-style: italic; margin: 0 0 0.9rem; }
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 2.5rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; }
+p { margin: 0 0 1.2em; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+.key-steps {
+  background: #faf7f5;
+  border-left: 4px solid #c9a0a7;
+  border-radius: 0 8px 8px 0;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.key-steps li { margin-bottom: 0.7rem; line-height: 1.75; }
+.note-box {
+  background: #f0f7f0;
+  border-left: 4px solid #5a9e6f;
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.4rem;
+  margin: 1.5rem 0;
+  font-size: 0.97rem;
+}
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+.ref-list { font-size: 0.9rem; color: #555; }
+.ref-list li { margin-bottom: 0.4rem; }
+.back-to-index { text-align: center; margin-top: 2rem; font-size: 0.9rem; }
+.back-to-index a { color: #8f1d2c; text-decoration: none; }
+.back-to-index a:hover { text-decoration: underline; }
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.35rem; }
+  h2.sec-title { font-size: 1.05rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Chống thông tin giả bằng Mật mã</h1>
+<p class="art-subtitle">(Hay phương pháp "Minh bạch hoá các hoạt động trong hộp đen")</p>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">01/05/2024</span>
+</div>
+<div class="art-source">
+  <a href="https://www.facebook.com/rongchoi/posts/pfbid0UEviexxvCn7SCTDeMEK9WWg79t2ZiWrTuDYfpxuwLRrJ8uhCmbAeiP7m8gZazwndl" target="_blank">Bài gốc trên Facebook</a>
+</div>
+<div class="back-to-index" style="margin: 0.2rem 0 0.8rem;"><a href="../Matma.html">← Về trang Mật Mã</a></div>
+
+<p>Nghĩ đến Mật mã (Cryptography) nếu chúng ta chỉ nghĩ rằng nó là mã hoá khoá công khai, chữ ký điện tử thì chúng ta đang sống ở những năm 80s, lạc hậu gần nửa thế kỷ. Mật mã ngày nay giúp làm những điều mà những năm 80s không thể hình dung.</p>
+
+<p>Chẳng hạn chống thông tin giả, fake news.</p>
+
+<p>Một hình ảnh bằng ngàn lời nói. Những cuộc chiến vừa rồi cho thấy, chúng ta đôi khi bị tác động rất mạnh khi một hình ảnh, một video sốc được đưa ra, để rồi vài ngày sau ngã ngửa rằng đó là hình ảnh, video giả, không đúng vị trí hay thời điểm thực (hoặc được tạo bởi AI).</p>
+
+<h2 class="sec-title">Chứng thực nguồn gốc hình ảnh và vấn đề resize</h2>
+
+<p>Có cách nào chống hình ảnh, video giả? Các máy ảnh đã được trang bị chữ ký số, điển hình là hệ thống chứng thực <a href="https://c2pa.org/specifications/specifications/1.1/specs/C2PA_Specification.html" target="_blank">C2PA</a>. Khi phóng viên chụp 1 bức ảnh thì máy ảnh tự động ký lên hình ảnh đó và các metadata như vị trí, thời gian v.v. Hình ảnh đó là thật khi chữ ký số được kiểm thử là chính xác (khoá để ký được gắn vào từ khi sản xuất trong phần bộ nhớ không thay đổi, không trích xuất được). Khổ nỗi các hình ảnh trên media, trên MXH lại không bao giờ là hình ảnh gốc vì quá nặng, thường nó được resize, crop hay biến đổi. Cũng hầu hết phóng viên muốn giữ duy nhất hình ảnh gốc và chỉ cho media hình ảnh đã được làm nhỏ lại. Đó chính là vấn đề, vì sự an toàn của chữ ký số đảm bảo rằng chỉ cần hình ảnh bị biến đổi 1 bít thông tin thì chữ ký sẽ không còn đúng. Do vậy hầu hết các hình ảnh xuất hiện không có khả năng được chứng thực về nguồn gốc, và cũng vì thế mà ảnh, video giả lộng hành.</p>
+
+<p>Vậy phải làm sao để việc chứng thực gốc gác được thực hiện và thực hiện một cách hiệu quả, tự động mà không muốn phải tin tưởng các phần mềm edit?</p>
+
+<h2 class="sec-title">Zero-Knowledge Proof (ZKP) và SNARK</h2>
+
+<p>Đó là khi zero-knowledge proof (ZKP) vào cuộc. ZKP cho phép chứng minh là tôi sở hữu hình ảnh gốc X, chữ ký gốc và đã thực hiện các phép biến đổi cho phép (resize, crop v.v), để cuối cùng cho ra hình ảnh nhỏ tương ứng với chữ ký chính xác trên metadata. Ấy nhưng mà có mâu thuẫn ở đây. ZKP cổ điển thì phép chứng minh trên X rất lớn thì độ dài của chứng minh cũng phải cỡ ngang ngửa X, chứ không mất thông tin? Vậy thì chẳng hoá thay vì công bố X quá to lại công bố cái chứng minh cũng lớn ngang ngửa?</p>
+
+<p>Và một nhánh nghiên cứu gần đây, vẫn đang sôi động, cho phép thực hiện các chứng minh cực ngắn, gọn là SNARK (với S là Succinct - ngắn gọn), nếu có thêm tính chất zero-knowledge proof bảo vệ hình ảnh gốc X thì gọi là zk-SNARK. Chống hình ảnh giả chỉ là 1 ứng dụng, các chứng minh loại này được ứng dụng rộng khắp, nhất là trên blockchain.</p>
+
+<h2 class="sec-title">Polynomial Commitment: kỹ thuật then chốt</h2>
+
+<p>Quay trở lại vấn đề chính, làm sao có thể chứng minh về X rất lớn mà chỉ với 1 chứng minh rất nhỏ? Mật mã luôn thực hiện được những việc phản trực quan như thế. Mọi thứ đều có thể đưa về đa thức, nên một cách nôm na chúng ta có thể nhúng X và các phép biến đổi vào một đa thức \(P\) có bậc \(d\) rất lớn. Bài toán sau đó có thể quy dẫn (thông qua một công cụ IOP - Interactive Oracle Proof, một phiên bản tương tác của PCP) về các phép gọi tính toán trên \(P\).</p>
+
+<p>Gốc gác đơn giản sẽ trở về 1 bài toán cụ thể: cho 1 đa thức \(P\) bậc rất lớn và người chứng minh không cần đưa ra \(P\) (có thể muốn giấu luôn \(P\)) nhưng có thể chứng minh một cách rất ngắn rằng hai giá trị \(u\) và \(v\) thoả mãn \(P(u) = v\).</p>
+
+<p>Bài toán này vẫn phản trực quan, làm sao chứng minh rất ngắn cho một đa thức \(P\) rất lớn! Nó không khác gì đặt \(P\) trong 1 chiếc hộp đen, nhưng vẫn có thể chứng minh được tính đúng đắn của nó: nếu đầu vào là \(u\) thì đầu ra là \(v\). Người chứng minh nhất thiết cần phải không ăn gian, giữ \(P\) cố định trong hộp đen, không thay đổi. Và đó chính là <strong>Polynomial Commitment</strong> (một trường hợp riêng nhưng quan trọng nhất của Functional Commitment).</p>
+
+<p>Polynomial Commitment cho phép cam kết giữ nguyên \(P\) với 1 cam kết ngắn để rồi có thể tính toán trên đó và thuyết phục \(v\) là giá trị của \(P(u)\). Các bạn có thể dừng 5 phút hoặc 1 ngày, 1 tháng để tự xây dựng trước khi đọc tiếp.</p>
+
+<p>Mấu chốt kỹ thuật rất đơn giản như sau:</p>
+
+<div class="key-steps">
+<ol>
+<li>Nếu \(P(u) = v\) thì \(P(u) - v = 0\) và do đó \(u\) là nghiệm của đa thức \(P(x) - v\). Hay nói cách khác sẽ có đa thức \(Q(x)\) sao cho \[P(x) - v = (x - u)\,Q(x). \tag{*}\]</li>
+<li>Do vậy để chứng minh \(P(u) = v\) thì chỉ cần chứng minh \(P, Q\) thoả mãn \((*)\). Mà chứng minh \((*)\) thì thế giới ngẫu nhiên vào cuộc: một đa thức bậc \(d\) trên trường \(\mathbb{F}_p\) rất lớn thì nếu ta lấy ngẫu nhiên 1 điểm \(\tau\), đa thức có giá trị \(= 0\) tại \(\tau\) thì với xác suất gần như tuyệt đối \((1 - d/p)\), đa thức đó đồng nhất bằng 0.</li>
+<li>Tóm lại, chỉ cần kiểm tra \((*)\) tại duy nhất 1 điểm ngẫu nhiên \(\tau\) là xong. Chứng minh chính là phép kiểm tra \((*)\) tại 1 điểm ngẫu nhiên \(\tau\) và có thể làm rất ngắn.</li>
+</ol>
+</div>
+
+<p>Vấn đề cuối cùng chỉ là làm sao commit và nén \(P, Q\) rất to vào 1 hộp rất bé và kiểm tra được \((*)\) tại 1 điểm ngẫu nhiên \(\tau\).</p>
+
+<p>Cho đa thức \(P(x) = a_d x^d + \cdots + a_1 x + a_0\). Cách thông thường nhét \(P\) vào hộp là nhét \(a_0, \ldots, a_d\). Hoặc nếu ta ở trong 1 nhóm xoắn \(G\) sinh bởi \(g\) có bậc nguyên tố thì có thể nhét \(g^{a_0}, \ldots, g^{a_d}\) vào hộp để che đa thức \(P\). Bài toán logarit rời rạc đảm bảo việc tính lại \(a_0, \ldots, a_d\) là khó và do đó khó tìm lại \(P\). Cách này cũng ổn thôi nhưng mà nó không đạt mục tiêu chính là cái commitment phải cực ngắn.</p>
+
+<p>Và <strong>Pedersen's commitment</strong> tới, chỉ cần thay đổi một chút: thay vì chỉ có \(g\) thì sinh ra \(d+1\) phần tử sinh của nhóm \(G\) là \(g_0, g_1, \ldots, g_d\) rồi thì gộp tích tất cả lại \[C_P = g_0^{a_0} g_1^{a_1} \cdots g_d^{a_d}\] là thành 1 commitment siêu ngắn - chỉ là 1 phần tử nhóm - và có thể commit được toàn bộ đa thức \(P\) nếu như người chứng minh không biết logarit rời rạc của \(g_i\) (\(i = 1, \ldots, d\)) theo cơ sở \(g_0\). Khi đó, thay đổi \(P\) cũng khó như là giải bài toán logarit rời rạc vậy!</p>
+
+<p>Đến đây đã giải quyết được việc commit, hay là nén cả đa thức lớn \(P\) vào 1 phần tử \(C_P\). Nhưng còn vấn đề là làm sao có thể kiểm tra được \((*)\). Thuật toán <strong>KZG</strong> (Kate–Zaverucha–Goldberg) làm việc đó: nhúng luôn điểm ngẫu nhiên \(\tau\) vào \(g_0, g_1, \ldots, g_d\) bằng cách sinh \(g_i = g^{\tau^i}\).</p>
+
+<p>Khi đó \(C_P\) chính bằng \(g^{P(\tau)}\). Commit \(Q\) tương tự sẽ cho \(C_Q = g^{Q(\tau)}\).</p>
+
+<p>Và cuối cùng, vì các giá trị đa thức \(P, Q\) nằm trên số mũ không thể đưa xuống, nên để check \((*)\) tại điểm ngẫu nhiên \(\tau\) sẽ cần check trên số mũ và cần thêm cấu trúc <strong>Pairing song tuyến tính</strong> (có thể dùng Weil Pairing trên đường cong elliptic) để so sánh đơn giản là: \(e(C_P / g^v, g)\) có bằng \(e(C_Q, g^{\tau - u})\) không? (với \(g^{\tau - u} = g_1 / g^u\) có thể tính được).</p>
+
+<div class="note-box">
+<strong>Tóm lại:</strong> phép chứng minh \(P(u) = v\) chỉ gồm có mỗi hai phần tử nhóm \(C_P, C_Q\) dù đa thức \(P, Q\) có bậc rất lớn (vài chục nghìn). Sự hoạt động của hệ thống \(P\) khổng lồ được nén vào 1 hộp đen nhưng tính toán vẫn được minh bạch bằng chứng minh kết quả đúng!
+</div>
+
+<p>Và như thế, quay trở lại bài toán chống thông tin giả, chúng ta có thể biến đổi 1 hình ảnh rất lớn về 1 hình ảnh nhỏ để có thể đăng trên media thông qua các phép biến đổi được cho phép (crop, resize, grayscale v.v) và vẫn có chứng minh là ảnh đăng được chứng thực từ một ảnh gốc tại một địa điểm, thời gian gốc. Khi ta mở trình duyệt, nó sẽ tự động kiểm tra chữ ký và Proof rất ngắn kèm theo và chứng thực cho ta nguồn gốc ảnh là thực, bằng không nó sẽ báo hiệu "ảnh giả".</p>
+
+<h2 class="sec-title">Ứng dụng trong bầu cử: loại bỏ ZKP nhờ Chữ ký đẳng cấu tuyến tính</h2>
+
+<p>Mật mã luôn có những bất ngờ thú vị. Và như thường lệ, những điều hay ho thường hay ngẫu nhiên xuất hiện một cách… cố định ở cuối bài.</p>
+
+<p>ZKP được dùng như 1 công cụ vô cùng hiệu quả như trên. Nhưng đôi khi nó cũng có thể gây phiền toái và biết đâu loại bỏ nó lại hay hơn. Và đây là một ví dụ: bầu cử.</p>
+
+<p>Trong các hệ thống bầu cử, khi nhận phiếu bầu từ cử tri, sẽ có các hệ thống tráo phiếu bầu để đảm bảo tính privacy: những phiếu cuối cùng được kiểm là hoán vị những phiếu gốc nhưng mất sợi dây liên lạc để không biết ai bầu cho ai. Để đảm bảo tính đúng đắn thì việc tráo phiếu thực chất là một chứng minh ZKP: các phiếu đầu ra được ngẫu nhiên hoá nhưng nội dung chính là hoán vị của các phiếu đầu vào. Khác với trường hợp ảnh phía trên, đầu vào N phiếu thì đầu ra cũng N phiếu chứ không thể rút gọn như ảnh to - ảnh nhỏ. Ấy thế là ZKP phải rất cồng kềnh: là hoán vị của hàng triệu chục triệu phiếu bầu. Shuffling trong tất cả các hệ bầu cử Mix-Net đều phải như vậy.</p>
+
+<p>Năm 2020, mình cùng cô học trò Chloé và ông thầy David đã challenge ý tưởng này: hay dẹp bỏ béng ZKP đi cho rồi, chứ chứng minh trên cả mấy triệu phiếu thì quá không thực tế. Và từ đó đưa ra ý tưởng sử dụng chữ ký đẳng cấu tuyến tính (Linear Homomorphic Signature) để bên cạnh ngẫu nhiên hoá mã phiếu bầu (không thay đổi nội dung phiếu, tất nhiên) và đồng thời ngẫu nhiên hoá luôn sự chứng thực hợp lệ của phiếu bầu. Khi đó chỉ cần làm trên từng phiếu đơn lẻ mà vẫn chứng minh được phiếu đầu ra hợp lệ khi và chỉ khi phiếu đầu vào hợp lệ. <a href="https://eprint.iacr.org/2019/547.pdf" target="_blank">Bài báo đó ở đây</a> cho các bạn quan tâm.</p>
+
+<p>Và điều rất thú vị nhưng chưa thể chia sẻ kỹ hơn là, theo mình được biết, một start-up cực xịn sẽ được ra đời vào tháng 6 này để xây dựng một hệ bầu cử mới với kỹ thuật lõi chính là kỹ thuật trong bài báo trên của bọn mình, mà một số cải tiến của nó đã được đăng ký xong bằng sáng chế. Mục tiêu của start-up là chinh phục chính phủ Pháp sử dụng các hệ bầu cử mới tiên tiến này cho các cuộc bầu cử năm 2026 (hệ bầu cử trong Bộ giáo dục Pháp đã sử dụng một hệ cũ với ZKP của ENS)! Để đây và hẹn 2026 nhìn lại.</p>
+
+<h2 class="sec-title">Chú thích và tài liệu đọc thêm</h2>
+<ul class="ref-list">
+  <li>Hệ thống chứng thực C2PA: <a href="https://c2pa.org/specifications/specifications/1.1/specs/C2PA_Specification.html" target="_blank">c2pa.org</a></li>
+  <li>Bài báo 2016 về việc dùng ZKP cho xử lý chứng thực ảnh: <a href="https://cs-people.bu.edu/tromer/papers/photoproof-oakland16.pdf" target="_blank">photoproof-oakland16.pdf</a></li>
+  <li>Blog post của Trisha Datta và Dan Boneh - "Using ZK Proofs to Fight Disinformation": <a href="https://medium.com/@boneh/using-zk-proofs-to-fight-disinformation-17e7d57fe52f" target="_blank">medium.com</a></li>
+</ul>
+
+<div class="art-end">01/05/2024 - <a href="https://www.facebook.com/rongchoi/posts/pfbid0UEviexxvCn7SCTDeMEK9WWg79t2ZiWrTuDYfpxuwLRrJ8uhCmbAeiP7m8gZazwndl" target="_blank">Facebook</a></div>
+<div class="back-to-index"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">← Về trang chủ</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="rabin.html" class="art-nav-prev">← Michael O. Rabin: một huyền thoại vừa ra đi</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="ghep-than.html" class="art-nav-next">Ứng dụng mật mã làm tăng hiệu quả việc ghép thận →</a>
+</nav>
+
+</div>
+</div>
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

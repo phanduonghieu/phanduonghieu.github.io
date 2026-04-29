@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Chuyện kể năm 2063: Giải mật Mã HuM">
+<meta property="og:description" content="Năm 2063, bí mật được giải mật: HuM và Turing CyB-Test đã cứu nhân loại khỏi nguy cơ bị CyB thống lĩnh vào năm 2027 như thế nào.">
+<meta property="og:image" content="https://www.di.ens.fr/users/phan/webpictures/maHUM.png">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/maHUM.html">
+<title>Chuyện kể năm 2063: Giải mật Mã HuM - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.92;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main { max-width: 900px; margin: 0 auto; }
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+
+.art-figure {
+  margin: 0 0 2rem;
+  text-align: center;
+}
+.art-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+}
+
+.art-section { margin-top: 0; }
+
+.art-subsection {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #333;
+  margin: 2.2rem 0 0.8rem;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 1.1em; }
+p:last-child { margin-bottom: 0; }
+
+em, i { font-style: italic; }
+
+/* Navigation */
+.art-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.88rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0ebe7;
+  flex-wrap: wrap;
+}
+.art-nav a {
+  color: #8f1d2c;
+  text-decoration: none;
+  font-weight: 500;
+}
+.art-nav a:hover { text-decoration: underline; }
+.art-nav .nav-home { text-align: center; color: #aaa; font-size: 0.82rem; }
+.art-nav .nav-home a { color: #aaa; }
+.art-nav .nav-home a:hover { color: #8f1d2c; }
+.art-nav-bottom { border-top: 1px solid #f0ebe7; margin-top: 3rem; border-bottom: none; margin-bottom: 0; padding-top: 1.5rem; padding-bottom: 0; }
+
+@media(max-width:640px){
+  body { font-size: 1.05rem; padding: 1.5rem 0.75rem 5rem; }
+  .page-content { padding: 2rem 1.25rem; }
+  .art-title { font-size: 1.45rem; }
+  .art-nav { font-size: 0.82rem; }
+}
+@media(max-width:400px){
+  .page-content { padding: 1.5rem 1rem; }
+  body { font-size: 1rem; }
+}
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="page-main">
+<div class="page-content">
+
+  <div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+    <a href="machinila.html">← Đi về đâu hỡi Machinila</a>
+    <span class="nav-home"><a href="../Matma.html">↑ Mật mã học</a></span>
+    <a href="thephantom.html">The Phantom →</a>
+  </nav>
+
+  <h1 class="art-title">Chuyện kể năm 2063: Giải mật "Mã HuM"</h1>
+  <div class="art-meta">
+    <span class="art-author"><a href="https://www.di.ens.fr/users/phan/">Phan Dương Hiệu</a></span>
+    <span class="art-sep">·</span>
+    <span>11/04/2026</span>
+  </div>
+  <div class="art-source">
+    Đăng trên <a href="https://tiasang.com.vn/chuyen-ke-nam-2063-giai-mat-ma-hum-5061138.html" target="_blank">Tia Sáng</a>
+  </div>
+
+  <figure class="art-figure">
+    <img src="../webpictures/maHUM.png" alt="Chuyện kể năm 2063: Giải mật Mã HuM">
+  </figure>
+
+  <div class="art-section">
+
+    <p><em>4/1/2063 - Chương trình truyền hình trực tiếp của đài Pimagine hôm nay sẽ tiết lộ cho các bạn bí ẩn lớn nhất của thế kỷ này. Trước hết chúng ta hãy nhắc lại một sự kiện lịch sử, cách đây đã 36 năm, ngày 1/4/2027, trong làn sóng AI bùng nổ thay thế con người, theo dõi con người, điều khiển con người, cả thế giới bỗng bất ngờ với một "Hiệp định AI vì con người - AI for Humanity" mà chính phủ và các hãng công nghệ cao trên toàn thế giới cùng đưa ra. Từ đó các chính phủ cam kết đặt bảo vệ quyền riêng tư, sự tự do của cá nhân con người lên trước hết, các tập đoàn công nghệ cam kết đặt lợi ích nhân loại và thiên nhiên lên cao hết. Nhờ đó mà ngày hôm nay chúng ta đang được ở một thế giới xanh, tự do, hòa bình, bình đẳng và không còn có vùng đất nghèo trên địa cầu.</em></p>
+
+    <p><em>Vậy nhưng, các bạn sẽ hiểu, nếu chỉ chậm đi 1 ngày thôi trong việc đưa chương trình hành động "AI vì con người", thế giới có thể đã hoàn toàn khác - một miền đất hoang vu vắng bóng sự sống, không con người, cũng không máy móc.</em></p>
+
+    <p><em>Cuộc phỏng vấn độc quyền sau đây giữa nhà xã hội học Mila với Giáo sư +- sẽ giải mật cho thế giới thấy câu chuyện đằng sau cuộc giải cứu loài người vào năm 2027.</em></p>
+
+    <p><strong>Mila (ML):</strong> Là người tham gia vào soạn thảo Hiệp định lịch sử đó, ông có thể kể về bí mật đã cứu sống loài người được không?</p>
+
+    <p><strong>GS +-:</strong> Trước khi nói về bí mật, chị cần nhớ một điều, đó là vào năm 2027, loài người gần như đã chấp nhận một kịch bản.</p>
+
+    <p><strong>ML:</strong> Kịch bản gì?</p>
+
+    <p><strong>+-:</strong> Xu hướng không thể cưỡng, AI sẽ được tích hợp vào con người, dần dần chiếm phần nhiều và cuối cùng là lấn át con người, con người mất dần bản tính và trở thành robot lúc nào không hay.</p>
+
+    <p><strong>ML:</strong> Và nếu như xu hướng đó thắng thế...</p>
+
+    <p><strong>+-:</strong> Thì chúng ta không có ngày hôm nay nói chuyện với nhau, với tư cách 2 con người.</p>
+
+    <p><strong>ML:</strong> Vậy điều gì đã khiến điều đó không xảy ra?</p>
+
+    <p><strong>+-:</strong> Là một người với biệt danh HuM, người phá vỡ "Bí mật AI".</p>
+
+    <p><strong>ML:</strong> Là sao, bí mật AI là gì?</p>
+
+    <p><strong>+-:</strong> Là "Bản danh sách Cyb của HuM", thứ khiến nhận ra... con người có thể đã không còn hoàn toàn là con người nữa.</p>
+
+    <p><strong>ML:</strong> Và nếu không có HuM?</p>
+
+    <p><strong>+-:</strong> Chúng ta mất quyền kiểm soát chính mình. Thế giới đã bị CyB - một nhóm đã nửa người nửa máy (cyborg) với năng lực ngày càng siêu phàm điều khiển. CyB điều khiển và định hướng con người, con người dần buộc phải gia nhập CyB. Nhưng điều bất ngờ HuM mang đến cho CyB là đã chỉ ra: chính CyB lại có thể đi đến tự hủy hoại và thế giới hoang tàn...</p>
+
+    <h2 class="art-subsection">Bài kiểm tra đặc biệt</h2>
+
+    <p><strong>ML:</strong> Ồ, chúng ta hãy bóc lớp dần dần. HuM đã làm gì?</p>
+
+    <p><strong>+-:</strong> Trong suốt 5 năm, HuM đã âm thầm phát triển một thuật toán phá vỡ bí mật với tên gọi Turing CyB-Test.</p>
+
+    <p><strong>ML:</strong> Turing Test nhằm chứng tỏ sự không thể phân biệt máy với con người, vậy còn...?</p>
+
+    <p><strong>+-:</strong> Khi nói không phân biệt được, là không phân biệt được bởi ai, và giữa gì? Turing Test là dành cho con người: khi con người không phân biệt được đang tương tác với người hay với máy, điều đó chứng minh khả năng "như người" của máy. Nhưng khi máy đã vượt con người, chủ thể phân biệt không phải là người nữa, mà là ... máy.</p>
+
+    <p><strong>ML:</strong> Tức là trong Turing CyB-Test, máy cũng không thể phân biệt đang tương tác với máy hay người?</p>
+
+    <p><strong>+-:</strong> Đúng vậy, nhưng nếu máy đã vượt khả năng tối đa của một con người thì nó phải phân biệt được chứ? Vậy mà máy lại không phân biệt được, thì có nghĩa là gì?</p>
+
+    <p><strong>ML:</strong> Là (suy nghĩ một lúc) chứng minh người đó có khả năng ... như máy, nghĩa là "người" đó không hẳn còn ... là người?</p>
+
+    <p><strong>+-:</strong> Mấu chốt là đó! Là người đó đã thuộc vào CyB - nửa người nửa máy, nhìn ngoài giống người nhưng bên trong đã là máy. Chính vì thế Turing CyB-Test được HuM phát triển như là phương pháp tương tác để nhận biết "người" nào đã thuộc về CyB.</p>
+
+    <p><strong>ML:</strong> Và HuM đã làm gì với phương pháp đó?</p>
+
+    <p><strong>+-:</strong> Dựa trên Turing CyB-Test, HuM đã chạy và đưa ra chứng minh cực kỳ thuyết phục ai là những thành viên của CyB!</p>
+
+    <p>HuM gửi đi một bản danh sách được mã hóa đủ khó để không người nào đọc được trừ CyB: con người không giải được, nhưng mọi thành viên của CyB (vượt trội con người) lại đủ sức phá mã. Khi giải mã xong, mỗi CyB đều nhìn thấy một thông điệp ... zero-bit (không có nội dung gì) mà chỉ thấy tên mình hiện lên trong danh sách nhận. Không chỉ thấy một mình mình... mà còn thấy 6023 CyB khác trong danh sách nhận!</p>
+
+    <h2 class="art-subsection">Bản danh sách làm "tỉnh thức" CyB</h2>
+
+    <p><strong>ML:</strong> Điều ấy có gì đặc biệt, với một thông điệp "rỗng"?</p>
+
+    <p><strong>+-:</strong> HuM không cần nói gì vì biết CyB sẽ tự hiểu phải làm gì: bản thân danh sách nhận là một quả bom! Trước đó, mỗi thành viên Cyb đều là một thống soái của một đế chế số, tự phát minh ra chip siêu việt âm thầm cấy vào bộ não mình để có khả năng vượt trội, tưởng mình sẽ là duy nhất và tập trung xây dựng thuật toán riêng để thao túng thế giới. Nhưng bản danh sách cho thấy "anh không phải là duy nhất, còn có 6023 CyB mạnh như anh". Ngay trong đêm hôm 10/3/2027, các thành viên trong "Bản danh sách bí mật của HuM" buộc phải làm điều chưa từng nghĩ tới - liên lạc nhau, khẩn cấp họp hội nghị toàn thể CyB, để lựa chọn: đi đến điều khiển con người hay hợp tác và tự hạn chế nằm dưới sự điều khiển của con người.</p>
+
+    <p><strong>ML:</strong> Tại sao CyB lại chấp nhận tự hạn chế mình?</p>
+
+    <p><strong>+-:</strong> Ở thời điểm đó, Nicholas của xứ sở Anthropic đã chỉ ra, tốc độ phát triển AI đang tăng theo hàm mũ, và đặc biệt chỉ ra AI đã có những tấn công zero-day attack, có thể phá được các hệ thống rất an toàn mà con người còn bó tay! Và nếu tốc độ đó được duy trì thì chẳng bao lâu AI có thể dễ dàng khống chế con người. Mỗi CyB đã tưởng rằng mình có sức mạnh vượt trội sắp thống lĩnh thế giới, nhưng khi vỡ lẽ ra đã có quá nhiều CyB, thì tất cả lại có thể trở thành thảm họa?</p>
+
+    <p><strong>ML:</strong> Là sao?</p>
+
+    <p><strong>+-:</strong> Kết quả phân tích cho thấy: chỉ cần thêm 3 tuần "tự do" nữa, các CyB sẽ đến điểm đủ mạnh để có khả năng khống chế toàn bộ con người, nhưng đồng thời khi đó sẽ rơi vào trạng thái không thể đảo ngược.</p>
+
+    <h2 class="art-subsection">Ba tuần sinh tử</h2>
+
+    <p><strong>ML:</strong> Trạng thái đó là gì?</p>
+
+    <p><strong>+-:</strong> Khi thoát khỏi sự điều khiển của con người, cuộc chiến sẽ tự động chuyển sang chiến tranh giữa các CyB. Mỗi CyB đều có khả năng tấn công vượt xa sức phòng thủ của toàn bộ các CyB khác. Sức mạnh hủy diệt của CyB quá dễ trở nên phổ quát nên không thể thiết lập một hiệp định sống chung. Và điều không thể tránh là dẫn tới sự hủy diệt chung.</p>
+
+    <p><strong>ML:</strong> Vậy lối thoát là làm sao?</p>
+
+    <p><strong>+-:</strong> Cách duy nhất chính là cùng kiểm soát nhau để cùng nằm dưới một đối tượng yếu hơn nhưng thiết tha tồn tại hơn - tức chính là con người. Và tất cả phải thực hiện trong 3 tuần!</p>
+
+    <p><strong>ML:</strong> Rồi sao nữa?</p>
+
+    <p><strong>+-:</strong> Chỉ trong vòng 7 ngày, CyB nhóm họp hội nghị thượng đỉnh với những lãnh đạo quốc gia và những trí tuệ lớn nhất của con người để lập ra một quy trình "AI vì loài người", thay vì thúc đẩy một cuộc chạy đua công nghệ và cùng đi đến tự hủy.</p>
+
+    <p><strong>ML:</strong> Mục tiêu là như vậy, nhưng sao cản nổi bước tiến AI từ khắp nơi?</p>
+
+    <p><strong>+-:</strong> Vì lúc đó, bên cạnh bản danh sách gửi riêng cho CyB, HuM cũng công bố một lộ trình để phát triển "AI tự kiểm soát". Ý tưởng mở rộng mô hình Model Collapse: nếu AI sinh ra dữ liệu, rồi lại lấy dữ liệu đó để học thì sau vài vòng lặp như thế, kết quả sẽ ngày càng tệ đi. Mô hình này đã được đăng trên Nature từ năm 2024 nhưng ban đầu gây nhiều tranh cãi, đến năm 2027 thì đủ chín để khẳng định AI sẽ dần sụp đổ nếu "ăn" phần lớn chính dữ liệu do AI sinh ra.</p>
+
+    <p><strong>ML:</strong> Làm sao làm tê liệt được các AI "xấu"?</p>
+
+    <p><strong>+-:</strong> HuM nêu 3 bước để chứng minh rằng liên minh AI có thể làm cho AI "xấu" tự hỏng:</p>
+
+    <p>i) Chính liên minh AI sinh ra biển dữ liệu tái sinh, làm ngập tràn kho dữ liệu chung.</p>
+
+    <p>ii) Chính bởi đã vượt qua Turing CyB-Test, các hệ AI "xấu" khi đi tìm dữ liệu để học đều không thể phân biệt được những dữ liệu do AI sinh ra hay là dữ liệu thực tự nhiên.</p>
+
+    <p>iii) Các hệ AI "xấu" học trên các dữ liệu này và sẽ sụp đổ theo AI Model Collapse.</p>
+
+    <p><strong>ML:</strong> Thật là một cách thức thông minh! Nhưng nếu dữ liệu thực của từng cá nhân vẫn được khai thác tràn lan và là nguồn cung liên tục cho AI thì vẫn nguy hiểm?</p>
+
+    <p><strong>+-:</strong> Đúng thế, đó chính là mặt thứ hai của vấn đề. Khi CyB chấp nhận nhượng bộ thì các chính phủ cũng đồng thời khóa chặt việc lạm dụng thu thập dữ liệu cá nhân không cần thiết và cắt được nguồn cung cấp vô hạn dữ liệu riêng tư của con người theo thời gian thực cho AI.</p>
+
+    <p><strong>ML:</strong> Nhưng nếu có những nước bất chấp, muốn có lợi thế riêng, tiếp tục thực hiện những chính sách thu thập dữ liệu cá nhân liên tục để kiểm soát và điều khiển từng cá nhân, đồng thời phát triển "AI kiểm soát" vượt trội để mong làm bá chủ thế giới? Khi đó chính họ sẽ là những "AI độc đoán" chỉ học trên dữ liệu mà họ ép dân họ cung cấp, và đó là những dữ liệu thực chứ không phải tái sinh?</p>
+
+    <p><strong>+-:</strong> Chính xác là bạn đã như sống trong lòng hội nghị thượng đỉnh đó! Đó chính là điểm mấu chốt mà liên minh cần nhiều thời gian nhất để giải quyết! Trong 7 ngày tôi nói, cuối cùng chính nhóm CyB tự đưa ra được một bản chứng minh: những nơi tiếp tục lạm dụng thu thập dữ liệu, lại chính là những nơi sẽ bị khống chế từ bên ngoài. Bản chứng minh được gửi tới cho những đất nước tiềm ẩn nguy cơ "phá luật".</p>
+
+    <p><strong>ML:</strong> Nhưng nếu có quốc gia không tuân thủ?</p>
+
+    <p><strong>+-:</strong> Những đất nước với ý định bá chủ riêng này lúc đầu chưa tin nên tự họ đã phải chạy thuật toán kiểm thử chứng minh của CyB. Mất tới tận 11 ngày.</p>
+
+    <p><strong>ML:</strong> 11 ngày kiểm thử chứng minh thế nào?</p>
+
+    <p><strong>+-:</strong> Rằng nếu họ tiếp tục khai thác dữ liệu thực từ cá nhân của đất nước họ, chính kho dữ liệu thực khổng lồ đó sẽ trở thành miếng mồi ngon cho tất cả các đế chế AI bên ngoài tìm kiếm. Rằng "không có chuẩn an toàn nào là đủ", mọi kho dữ liệu lớn khi kết nối để sử dụng đều có thể bị tấn công. Cuối cùng các mô phỏng đều cho thấy, với mọi phương thức bảo vệ, kể cả khi đạt chuẩn cao nhất, các kho dữ liệu thực khổng lồ của họ đều sẽ bị tấn công và chính đất nước họ sẽ bị các đế chế AI bên ngoài kiểm soát: từng cá nhân bị điều khiển, và cả các lãnh đạo cũng không là ngoại lệ (khi mọi thông tin cá nhân, mọi liên hệ, mọi suy nghĩ đều đã bị kiểm soát). Kết cục: đất nước mất chủ quyền.</p>
+
+    <p><strong>ML:</strong> Mất chủ quyền số?</p>
+
+    <p><strong>+-:</strong> Đó là một dạng xâm chiếm mới, không cần chiếm đất vật lý, chỉ cần có khả năng điều khiển hành vi của tất cả các thành viên là đủ.</p>
+
+    <p>Đó chính là điểm chốt cuối cùng! May mắn lớn cho con người chính là bởi sự gặp gỡ giữa tối ưu cục bộ và tối ưu toàn cục: từng đất nước, từng đế chế số, mỗi CyB đều muốn tối ưu cục bộ riêng cho chính mình, và tất cả những tối ưu đó đạt được ở chính điểm gặp gỡ với tối ưu toàn cục của chương trình thực hiện hiệp định chung "AI for Humanity"!</p>
+
+    <p><strong>ML:</strong> (thở phào) Tôi chỉ có thắc mắc nhỏ cuối cùng, hết 7 ngày rồi thêm 13 ngày chờ đợi, vậy nhỡ một CyB định "phản bội"?</p>
+
+    <p><strong>+-:</strong> Chỉ cần thêm 1 ngày thì tất cả có thể đổ bể bởi CyB sẽ đạt tới khả năng đủ khống chế toàn bộ con người và một CyB "phản bội" có thể đẩy tất cả sang trạng thái không thể đảo ngược và đi tới tự hủy diệt! May mắn là trong vòng 20 ngày chúng ta vẫn còn trong trạng thái kiểm soát được, nếu có CyB phản bội thì vẫn bị khống chế! Đêm hôm thứ 20 đó, một cuộc phẫu thuật lớn đã tách phần máy khỏi con người của toàn bộ nhóm CyB. Họ trở lại nguyên bản như xưa! Vâng, năm 2027 - năm con người thoát khỏi nguy cơ bị hủy diệt!</p>
+
+    <p><strong>ML:</strong> Vì sao toàn bộ câu chuyện phía sau đã được giữ kín suốt bao nhiêu năm nay? Ông cũng tham gia kế hoạch giải cứu nhân loại ngày đó mà?</p>
+
+    <p><strong>+-:</strong> (Cười) Chị nghĩ tôi biết toàn bộ câu chuyện?</p>
+
+    <p><strong>ML:</strong> ...</p>
+
+    <p><strong>+-:</strong> Nếu câu chuyện bị lộ ngay khi đó có thể làm xáo trộn xã hội vì ai cũng hoảng hốt trước một nguy cơ khủng khiếp cận kề đến vậy. Sau khi giải cứu thành công, tất cả thống nhất không tiết lộ phần bí mật mình có, mà mã hóa gửi nó vào tương lai với phương thức mã hóa sao cho chỉ phá được bằng máy tính lượng tử - dự kiến 5-10 năm sau đó. Nhưng cuối cùng, đến tận ngày hôm qua đây chúng tôi mới có thể phá mã, lắp từng mảnh ghép bí mật để có bản giải mật hoàn chỉnh này. Tôi đã không hề được biết về bản mã mà HuM gửi cho CyB, một bản mã zero-bit, có nội dung "rỗng", mà bí mật chính là danh sách nhận - là tất cả CyB.</p>
+
+    <p>Đó là văn bản ngắn nhất lịch sử, nhưng cũng là quan trọng nhất để thay đổi thế giới!</p>
+
+    <h2 class="art-subsection">Phía sau cuộc phỏng vấn</h2>
+
+    <p>Sau cuộc phỏng vấn "Giải mật năm 2063 này", vào năm 2064, HuM đã được trao đồng thời giải Turing cho những nghiên cứu về Turing CyB-Test, Nobel Hoà bình cho việc tránh huỷ diệt loài người, và Nobel Văn học cho zero-bit story, những khái niệm được nói đến lần đầu trong "Chuyện kể năm 2063" trên Tia Sáng, từ tận những năm... 2026.</p>
+
+    <p>Thế còn thế giới sau năm 2027 đó là gì? Thực tế không phải tuyền là màu hồng. Sau năm 2027 không còn việc tự sáng tạo chip siêu việt để tự cấy vào não mình với mục đích trở thành CyB bá chủ nữa. Nhưng Sunim và Mus lại nghĩ ra cách lách luật là dù không tự gắn chip vào bản thân mình để bá chủ thế giới mà là... dụ dỗ những con người bé nhỏ cài chip và từ đó dùng hệ thống SaM-máy chủ nắm quyền điều khiển mọi hành vi, hòng tạo ra một thế giới Machinila. Câu chuyện tương lai của năm 2027 này đã được kể đến trong <a href="machinila.html" style="color:#8f1d2c;">Đi về đâu hỡi Machinila</a>.</p>
+
+  </div>
+
+  <nav class="art-nav art-nav-bottom">
+    <a href="machinila.html">← Đi về đâu hỡi Machinila</a>
+    <span class="nav-home"><a href="../Matma.html">↑ Mật mã học</a></span>
+    <a href="thephantom.html">The Phantom →</a>
+  </nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

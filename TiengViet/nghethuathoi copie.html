@@ -1,0 +1,725 @@
+<!DOCTYPE html><html lang="vi">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Nghệ thuật hỏi một lần - Tản mạn về phát súng lượng tử và tính đối ngẫu của nhận thức</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script>
+MathJax = { options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] } };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.92;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ltx_page_main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ltx_page_content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+/* Title */
+h1.ltx_title_document {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+h1.ltx_title_document .ltx_text {
+  font-size: 0.77em !important;
+  font-weight: 500;
+  display: block;
+  margin-top: 0.35rem;
+  color: #b84454;
+  letter-spacing: 0;
+}
+
+/* Authors & dates */
+.ltx_authors {
+  text-align: center;
+  margin: 0.6rem 0 0.25rem;
+  font-size: 1rem;
+}
+.ltx_dates {
+  text-align: center;
+  color: #999;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.art-pdf-link {
+  text-align: center;
+  margin: 0.25rem 0 0.75rem;
+}
+.art-pdf-link a {
+  font-size: 1rem;
+  color: #8f1d2c;
+  text-decoration: none;
+  border-bottom: 1px solid #c9a0a7;
+}
+.art-pdf-link a:hover {
+  border-bottom-color: #8f1d2c;
+}
+
+/* Table of contents */
+#toc {
+  background: #faf7f5;
+  border: 1px solid #e5dbd6;
+  border-left: 4px solid #8f1d2c;
+  border-radius: 7px;
+  padding: 1.4rem 1.75rem 1.25rem;
+  margin: 2rem 0 3rem;
+}
+#toc .toc-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.85rem;
+}
+#toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#toc li {
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+}
+#toc li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.97rem;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+#toc li a:hover { color: #8f1d2c; }
+#toc li.toc-sub {
+  padding-left: 1.4rem;
+  margin-bottom: 0.2rem;
+}
+#toc li.toc-sub a {
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: #666;
+}
+#toc li.toc-sub a:hover { color: #8f1d2c; }
+
+/* Sections */
+.ltx_section {
+  margin-top: 3rem;
+}
+
+h2.ltx_title_section {
+  font-size: 1.3rem !important;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+
+h3.ltx_title_paragraph {
+  font-size: 1.1rem !important;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin: 2rem 0 0.6rem;
+}
+
+/* Paragraphs */
+.ltx_para {
+  margin-bottom: 1em;
+}
+
+/* Equations */
+.ltx_equation {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+.ltx_eqn_table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+.ltx_eqn_center_padleft,
+.ltx_eqn_center_padright {
+  display: none;
+}
+.ltx_eqn_cell.ltx_align_center {
+  text-align: center;
+  padding: 0.45rem 0;
+}
+
+/* Footnotes inline */
+.ltx_note.ltx_role_footnote {
+  display: inline;
+}
+.ltx_note_mark {
+  font-size: 0.72em;
+  vertical-align: super;
+  color: #8f1d2c;
+  font-weight: 700;
+  line-height: 0;
+}
+.ltx_note_outer {
+  display: none;
+}
+
+/* Footnotes section (built by JS) */
+#notes-section {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1.5px solid #e5e0db;
+}
+.notes-title {
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  color: #aaa !important;
+  margin-bottom: 1rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none !important;
+  padding: 0 !important;
+}
+#notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#notes-list li {
+  font-size: 0.9rem;
+  line-height: 1.72;
+  color: #555;
+  margin-bottom: 0.7rem;
+  padding-left: 1.9rem;
+  position: relative;
+}
+#notes-list li::before {
+  content: attr(data-mark);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  font-weight: 700;
+  color: #8f1d2c;
+  font-size: 0.78em;
+}
+.fn-ref { display: inline; }
+.fn-ref a {
+  color: #8f1d2c;
+  text-decoration: none;
+  font-size: 0.75em;
+  vertical-align: super;
+  font-weight: 700;
+  line-height: 0;
+}
+.fn-ref a:hover { text-decoration: underline; }
+.fn-back {
+  color: #ccc;
+  text-decoration: none;
+  font-style: normal;
+  margin-right: 0.35em;
+}
+.fn-back:hover { color: #8f1d2c; }
+
+/* Emphasis / styling */
+.ltx_emph, em, .ltx_font_italic { font-style: italic; }
+.ltx_font_bold { font-weight: 700; }
+.ltx_font_smallcaps { font-variant: small-caps; }
+
+/* LaTeXML generated footer - hide */
+.ltx_page_footer { display: none; }
+
+/* Tablet */
+@media (max-width: 860px) {
+  .ltx_page_content { padding: 3rem 2rem; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.05rem; line-height: 1.82; background: #fff; }
+  .ltx_page_content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.ltx_title_document { font-size: 1.45rem; }
+  h2.ltx_title_section { font-size: 1.15rem !important; }
+  h3.ltx_title_paragraph { font-size: 1.05rem !important; }
+  .ltx_equation {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
+  .ltx_eqn_table { width: auto; min-width: 0; }
+  mjx-container[display="true"] { overflow-x: auto; max-width: 100%; }
+  #toc { padding: 1.1rem 1.2rem; }
+}
+
+.poem {
+  font-style: italic;
+  margin: 0.4rem 0 0.4rem 1.8rem;
+}
+.poem p { margin: 0; line-height: 1.7; }
+</style>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_font_bold ltx_title_document">Nghệ thuật hỏi một lần
+<br class="ltx_break"><span class="ltx_text" style="font-size:120%;">Tản mạn về tính toán lượng tử và cái nhìn toàn cục</span>
+</h1>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">⟨<a href="https://www.mathematik.uni-muenchen.de/~nam/" target="_blank" style="font-style:italic;font-size:1.15em;">Fan</a>|<a href="https://www.di.ens.fr/users/phan/TiengViet.htm" target="_blank" style="font-style:italic;font-size:1.15em;">Fan</a>⟩<span id="footnote1" class="ltx_note ltx_role_footnote"><span class="ltx_note_mark" style="display:inline-block;vertical-align:-0.55em;font-size:1.05em;line-height:1;">*</span><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">*</sup><span class="ltx_tag ltx_tag_note">*</span> Phan Dương Hiệu &amp; Phan Thành Nam </span></span></span>
+</span></span>
+</div>
+<div class="ltx_dates">(Tháng 4, 2026)</div>
+<div class="art-pdf-link"><a href="Quantum_NgheThuatHoiMotLan.pdf" target="_blank">Bản PDF</a></div>
+
+<section id="S1" class="ltx_section">
+<h2 class="ltx_title ltx_font_bold ltx_title_section" style="font-size:120%;">1   Thế giới một phát súng</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">Thế giới cổ điển dung dưỡng một niềm tin ít khi bị nghi ngờ: niềm tin vào đặc quyền quan sát vô hạn. Trong đời sống thường ngày, ta có thể nghiền ngẫm một trang sách bao nhiêu lần tùy ý, hay ngắm đi ngắm lại một bức tranh để tìm ẩn ý của tác giả mà không làm mòn tác phẩm. Khoa học thực nghiệm cũng được xây dựng trên sự kiên nhẫn lặp lại thí nghiệm, còn thống kê thì đặt niềm tin mạnh mẽ vào luật số lớn. Thậm chí, ngay cả khi con người muốn giấu giếm thông tin, các hệ mật mã cổ điển không cấm đối thủ hỏi nhiều lần, mà sự an toàn được xây dựng trên sự khan hiếm thời gian: không ai có đủ thời gian để thử hết không gian đáp án trước khi dữ liệu hết giá trị. Tóm lại, dù là tìm kiếm chân lý hay che giấu thông tin, thế giới cổ điển đều đồng ý một luật chơi: sự lặp lại là hợp lệ.</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<p class="ltx_p">Rồi cánh cửa lượng tử mở ra, với một luật chơi hoàn toàn mới. Vũ trụ vi mô tước đi quyền được hỏi nhiều lần. Trong thế giới này, sự đo lường là một hành vi không thể đảo ngược: trước khi đo, một trạng thái lượng tử tồn tại như một chồng chập của nhiều khả năng, như một bản nhạc mà mọi nốt đều có thể vang lên; nhưng ngay khoảnh khắc ta đo, hàm sóng sụp đổ, bản giao hưởng biến mất, chỉ để lại một nốt nhạc duy nhất còn rung động. Hơn nữa, ta không thể lách luật bằng cách sao chép một trạng thái ra nhiều bản để đo nhiều lần, vì Định lý cấm sao chép (No-cloning Theorem) của Wootters, Zurek và Dieks (1982) khẳng định rằng chúng ta không thể nhân bản hoàn hảo một trạng thái lượng tử bất kỳ. Mỗi trạng thái vi mô chưa biết là một độc bản; mỗi lần truy vấn đều làm thay đổi chính bản gốc.</p>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p class="ltx_p">Để nắm bắt luật chơi lượng tử, hãy hình dung có một chiếc hộp Magic, một công cụ ”ảo thuật” có thể thao tác trên các khả thể chồng chập và giao thoa mà máy tính cổ điển không chạm tới được. Chừng nào ta chưa nhìn vào hộp, mọi phép màu lượng tử vẫn còn đó. Nhưng khoảnh khắc ta ”mở hộp” thì phép màu tan biến: hộp trả lại đúng một kết quả duy nhất trước khi mất hết quyền năng. Muốn hỏi lại, ta phải chuẩn bị một hộp mới từ đầu.</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p class="ltx_p">Do đó, câu hỏi ở thế giới lượng tử mang một sức nặng hoàn toàn khác. Mỗi lần mở hộp là một phát súng duy nhất. Khi đó, một câu hỏi tự nhiên là: ta có thể làm được gì với chỉ một lần hỏi?
+Liệu hiểu biết thu được có đủ để giải quyết một vấn đề lớn, hay mãi mãi chỉ là một mẩu dữ liệu vô dụng? Và nghịch lý hơn: làm sao một công cụ chỉ được hỏi một lần lại có thể mạnh hơn máy tính cổ điển được hỏi nhiều lần?</p>
+</div>
+<div id="S1.p5" class="ltx_para">
+<p class="ltx_p">Để trả lời câu hỏi này, chúng ta cần chuyển dịch từ trực giác cổ điển sang trực giác lượng tử: hỏi đúng quan trọng hơn hỏi nhiều. Vì chỉ được hỏi một lần, một câu hỏi tối ưu phải bỏ qua những ”tiểu tiết” mà tập trung vào ”đại cục”. Về mặt triết học, mối quan hệ giữa ”cục bộ” và ”toàn cục” gợi nhớ đến Nguyên lý Bổ sung của Bohr: có những đối tượng mang trong mình nhiều mô tả đồng thời đúng, nhưng các mô tả này không thể được truy cập đầy đủ cùng lúc, vì hễ ta truy vấn tới cùng một mặt thì mặt kia sẽ ẩn đi. Đây là giới hạn của nhận thức ở thế giới vi mô: chân lý mang trong mình nhiều khuôn mặt, ta có thể biết tất cả chúng, nhưng không thể ép chúng cùng hiện diện trong cùng một cái chớp mắt.</p>
+</div>
+<div id="S1.p6" class="ltx_para">
+<p class="ltx_p">Nghệ thuật hỏi một lần, vì thế, là nghệ thuật chọn đúng mặt để hỏi. Một ví dụ kinh điển cho tư duy này là thuật toán Shor (1994): bằng cách buông bỏ nhiều mô tả cục bộ để đổi lấy một thông tin toàn cục, một số hữu hạn các hộp Magic có thể phá sập thành trì RSA, hệ mật mã đang bảo vệ phần lớn các giao dịch ngân hàng trên thế giới.</p>
+</div>
+</section>
+<section id="S2" class="ltx_section">
+<h2 class="ltx_title ltx_font_bold ltx_title_section" style="font-size:120%;">2   Tính toán lượng tử qua hộp Magic</h2>
+
+<section id="S2.SS0.SSS0.Px1" class="ltx_paragraph">
+<h3 class="ltx_title ltx_title_paragraph">Nguyên lý nhìn một lần.</h3>
+
+<div id="S2.SS0.SSS0.Px1.p1" class="ltx_para">
+<p class="ltx_p">Để hình dung chính xác luật chơi trong tính toán lượng tử, ta có thể đóng vai một người chơi cổ điển sống trong thế giới Hạt, nơi có thể làm các thao tác thông thường như quan sát và sao chép, với sự trợ giúp của một chiếc hộp ảo thuật, gọi là hộp sóng Magic, nơi có các khả thể chồng chập và giao thoa. Nói cách khác, thế giới bên ngoài hộp Magic là Hạt (cổ điển), thế giới bên trong là Sóng (lượng tử). Khi ta rải các hạt vào hộp, chúng lập tức mang tính chất sóng, có khả năng chồng chập và giao thoa. Đến khi ta yêu cầu lấy lại hạt nào thì hộp Magic đo hạt đó và trả về giá trị cho ta, đồng thời hạt này mất chức năng sóng và chính thức quay lại thế giới Hạt.</p>
+</div>
+<div id="S2.SS0.SSS0.Px1.p2" class="ltx_para">
+<p class="ltx_p">Do đó, luật chơi rất khắc nghiệt: không được nhìn quá một lần, vì chỉ một ánh mắt tò mò của người chơi sẽ lập tức làm sụp đổ hàm sóng trong hộp và phép màu lượng tử biến mất. Do đó, người chơi trước hết phải đưa ra một chuỗi chỉ dẫn các thao tác ”hợp lệ”, còn gọi là các thao tác lượng tử, sao cho hộp Magic có thể làm mà không phá vỡ tính chất sóng, rồi cuối cùng mới đặt ánh nhìn vào hộp. Tại khoảnh khắc đó, Sóng lập tức đông cứng thành Hạt, và hộp Magic trả lại một giá trị quan sát tối hậu cho người chơi. Đó là nghệ thuật hỏi một lần.</p>
+</div>
+<div id="S2.SS0.SSS0.Px1.p3" class="ltx_para">
+<p class="ltx_p">Cụ thể hơn, hộp Magic có thể làm gì? Về mặt nguyên tắc, mỗi thao tác ”hợp lệ” trên một hệ lượng tử kín sẽ tương ứng với một phép biến đổi tuyến tính unitary trên một không gian Hilbert phức (không gian các trạng thái lượng tử) phụ thuộc vào số qubit. Tính tuyến tính là giả thuyết tối giản cho phép các khả thể lượng tử tự do đan xen và chồng chập lên nhau như những gợn sóng mà không phá vỡ cấu trúc của nhau. Trong khi đó, tính unitary là một chiếc ”vòng kim cô” của toán học, đảm bảo mọi sự biến đổi dù lắt léo đến đâu cũng phải bảo toàn tổng xác suất bằng 1.
+Sau một số thao tác ”hợp lệ”, người chơi có thể yêu cầu Magic đo một số qubit trong hộp. Hộp Magic sẽ trả về kết quả đo là các bít cổ điển, và các qubit bị đo coi như biến mất (nguyên lý nhìn một lần). Các qubit chưa bị đo vẫn tồn tại, và người chơi có thể tiếp tục yêu cầu hộp Magic làm các biến đổi ”hợp lệ” trước khi quyết định đo chúng.</p>
+</div>
+</section>
+<section id="S2.SS0.SSS0.Px2" class="ltx_paragraph">
+<h3 class="ltx_title ltx_title_paragraph">Mô hình toán học của luật chơi.</h3>
+
+<div id="S2.SS0.SSS0.Px2.p1" class="ltx_para">
+<p class="ltx_p">Người chơi vốn có khả năng giới hạn như mô hình tính toán thông thường (tức là dùng một máy Turing cổ điển trong thời gian đa thức). Làm sao người chơi tăng cường sức mạnh cho mình với chiếc hộp Magic?</p>
+</div>
+<div id="S2.SS0.SSS0.Px2.p2" class="ltx_para">
+<p class="ltx_p">Về mặt toán học, một trạng thái của <math id="S2.SS0.SSS0.Px2.p2.m1" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> qubit trong hộp Magic có thể được mô tả như một vector đơn vị <math id="S2.SS0.SSS0.Px2.p2.m2" class="ltx_Math" alttext="(\alpha_{x})_{x\in\{0,1\}^{n}}" display="inline"><msub><mrow><mo stretchy="false">(</mo><msub><mi>α</mi><mi>x</mi></msub><mo stretchy="false">)</mo></mrow><mrow><mi>x</mi><mo>∈</mo><msup><mrow><mo stretchy="false">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><mi>n</mi></msup></mrow></msub></math> trong không gian Hilbert phức <math id="S2.SS0.SSS0.Px2.p2.m3" class="ltx_Math" alttext="2^{n}" display="inline"><msup><mn>2</mn><mi>n</mi></msup></math> chiều:</p>
+<table id="S2.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex1.m1" class="ltx_Math" alttext="|\psi\rangle=\sum_{x\in\{0,1\}^{n}}\alpha_{x}|x\rangle,\qquad\sum_{x}|\alpha_{%
+x}|^{2}=1,\qquad\alpha_{x}\in\mathbb{C}," display="block"><mrow><mrow><mrow><mrow><mo stretchy="false">|</mo><mi>ψ</mi><mo stretchy="false">⟩</mo></mrow><mo rspace="0.111em">=</mo><mrow><munder><mo movablelimits="false">∑</mo><mrow><mi>x</mi><mo>∈</mo><msup><mrow><mo stretchy="false">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><mi>n</mi></msup></mrow></munder><mrow><msub><mi>α</mi><mi>x</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mi>x</mi><mo stretchy="false">⟩</mo></mrow></mrow></mrow></mrow><mo rspace="2.000em">,</mo><mrow><mrow><mrow><munder><mo movablelimits="false" rspace="0em">∑</mo><mi>x</mi></munder><msup><mrow><mo stretchy="false">|</mo><msub><mi>α</mi><mi>x</mi></msub><mo stretchy="false">|</mo></mrow><mn>2</mn></msup></mrow><mo>=</mo><mn>1</mn></mrow><mo rspace="2.167em">,</mo><mrow><msub><mi>α</mi><mi>x</mi></msub><mo>∈</mo><mi>ℂ</mi></mrow></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">trong đó <math id="S2.SS0.SSS0.Px2.p2.m4" class="ltx_Math" alttext="|\alpha_{x}|^{2}" display="inline"><msup><mrow><mo stretchy="false">|</mo><msub><mi>α</mi><mi>x</mi></msub><mo stretchy="false">|</mo></mrow><mn>2</mn></msup></math> chính là xác suất thu được một chuối <math id="S2.SS0.SSS0.Px2.p2.m5" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> bít <math id="S2.SS0.SSS0.Px2.p2.m6" class="ltx_Math" alttext="x\in\{0,1\}^{n}" display="inline"><mrow><mi>x</mi><mo>∈</mo><msup><mrow><mo stretchy="false">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><mi>n</mi></msup></mrow></math> khi đo toàn bộ <math id="S2.SS0.SSS0.Px2.p2.m7" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> qubit.</p>
+</div>
+<div id="S2.SS0.SSS0.Px2.p3" class="ltx_para">
+<p class="ltx_p">Điểm quan trọng là người chơi cổ điển (với giới hạn sức mạnh đa thức) không thể lưu trữ một trạng thái tùy ý với <math id="S2.SS0.SSS0.Px2.p3.m1" class="ltx_Math" alttext="2^{n}" display="inline"><msup><mn>2</mn><mi>n</mi></msup></math> hệ số phức. Thông thường, người chơi sẽ bắt đầu từ trạng thái tầm thường
+<math id="S2.SS0.SSS0.Px2.p3.m2" class="ltx_Math" alttext="|0^{n}\rangle," display="inline"><mrow><mrow><mo stretchy="false">|</mo><msup><mn>0</mn><mi>n</mi></msup><mo stretchy="false">⟩</mo></mrow><mo>,</mo></mrow></math>
+tức là cả <math id="S2.SS0.SSS0.Px2.p3.m3" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> qubit đều ở trạng thái tĩnh <math id="S2.SS0.SSS0.Px2.p3.m4" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math>, tương ứng với vector hệ số <math id="S2.SS0.SSS0.Px2.p3.m5" class="ltx_Math" alttext="(\alpha_{x})_{x\in\{0,1\}^{n}}=(1,0,\dots,0)" display="inline"><mrow><msub><mrow><mo stretchy="false">(</mo><msub><mi>α</mi><mi>x</mi></msub><mo stretchy="false">)</mo></mrow><mrow><mi>x</mi><mo>∈</mo><msup><mrow><mo stretchy="false">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><mi>n</mi></msup></mrow></msub><mo>=</mo><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></mrow></math>.
+Sau đó, người chơi đưa nó vào hộp và yêu cầu Magic áp dụng một dãy đa thức các thao tác lượng tử, tức là các biến đổi tuyến tính unitary trên vector <math id="S2.SS0.SSS0.Px2.p3.m6" class="ltx_Math" alttext="(\alpha_{x})" display="inline"><mrow><mo stretchy="false">(</mo><msub><mi>α</mi><mi>x</mi></msub><mo stretchy="false">)</mo></mrow></math>.
+Đây là chính là điểm tăng cường sức mạnh vì vector có độ dài <math id="S2.SS0.SSS0.Px2.p3.m7" class="ltx_Math" alttext="2^{n}" display="inline"><msup><mn>2</mn><mi>n</mi></msup></math> vượt quá khả năng thao tác đa thức của người chơi cổ điển.
+Chừng nào còn các qubit chưa được nhìn/bị đo, thì người chơi vẫn có thể tiếp tục yêu cầu hộp Magic thực hiện các biến đổi unitary. Và cuối cùng khi người chơi yêu cầu hộp Magic thực hiện phép đo trên một số qubit (hoặc cả <math id="S2.SS0.SSS0.Px2.p3.m8" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> qubit) thì sẽ nhận lại một chuỗi bit cổ điển với độ dài tối đa <math id="S2.SS0.SSS0.Px2.p3.m9" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>, đồng thời các qubit tương ứng bị ”bốc hơi”.</p>
+</div>
+</section>
+<section id="S2.SS0.SSS0.Px3" class="ltx_paragraph">
+<h3 class="ltx_title ltx_title_paragraph">Sức mạnh và hạn chế của chiếc hộp Magic.</h3>
+
+<div id="S2.SS0.SSS0.Px3.p1" class="ltx_para">
+<p class="ltx_p">Qua một vài ví dụ, ta sẽ thấy sức mạnh của chiếc hộp Magic và cả những hạn chế của nó. Đầu tiên, chỉ từ hai qubit ban đầu <math id="S2.SS0.SSS0.Px3.p1.m1" class="ltx_Math" alttext="|00\rangle" display="inline"><mrow><mo stretchy="false">|</mo><mn>00</mn><mo stretchy="false">⟩</mo></mrow></math>, nếu Magic được yêu cầu áp dụng hai biến đổi unitary (tương ứng biến đổi Hadamard <math id="S2.SS0.SSS0.Px3.p1.m2" class="ltx_Math" alttext="H" display="inline"><mi>H</mi></math> lên qubit thứ nhất, rồi áp dụng CNOT<span id="footnote2" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">1</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">1</sup><span class="ltx_tag ltx_tag_note">1</span>Hadamard tạo chồng chập trên một qubit: <math id="footnote2.m1" class="ltx_Math" alttext="H|0\rangle=\frac{1}{\sqrt{2}}(|0\rangle+|1\rangle)" display="inline"><mrow><mrow><mi>H</mi><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mn>0</mn><mo stretchy="false">⟩</mo></mrow></mrow><mo>=</mo><mrow><mfrac><mn>1</mn><msqrt><mn>2</mn></msqrt></mfrac><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">|</mo><mn>0</mn><mo stretchy="false">⟩</mo></mrow><mo>+</mo><mrow><mo stretchy="false">|</mo><mn>1</mn><mo stretchy="false">⟩</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math>, <math id="footnote2.m2" class="ltx_Math" alttext="H|1\rangle=\frac{1}{\sqrt{2}}(|0\rangle-|1\rangle)" display="inline"><mrow><mrow><mi>H</mi><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mn>1</mn><mo stretchy="false">⟩</mo></mrow></mrow><mo>=</mo><mrow><mfrac><mn>1</mn><msqrt><mn>2</mn></msqrt></mfrac><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">|</mo><mn>0</mn><mo stretchy="false">⟩</mo></mrow><mo>−</mo><mrow><mo stretchy="false">|</mo><mn>1</mn><mo stretchy="false">⟩</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math>. CNOT là cổng hai qubit: <math id="footnote2.m3" class="ltx_Math" alttext="|a\rangle|b\rangle\mapsto|a\rangle|b\oplus a\rangle" display="inline"><mrow><mrow><mrow><mo stretchy="false">|</mo><mi>a</mi><mo stretchy="false">⟩</mo></mrow><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mi>b</mi><mo stretchy="false">⟩</mo></mrow></mrow><mo stretchy="false">↦</mo><mrow><mrow><mo stretchy="false">|</mo><mi>a</mi><mo stretchy="false">⟩</mo></mrow><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mrow><mi>b</mi><mo>⊕</mo><mi>a</mi></mrow><mo stretchy="false">⟩</mo></mrow></mrow></mrow></math>, tức là lật qubit thứ hai khi qubit thứ nhất bằng <math id="footnote2.m4" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math>.</span></span></span>), ta sẽ thu được trạng thái Bell:</p>
+<table id="S2.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex2.m1" class="ltx_Math" alttext="|00\rangle\mapsto\frac{1}{\sqrt{2}}(|00\rangle+|10\rangle)\mapsto\frac{1}{%
+\sqrt{2}}(|00\rangle+|11\rangle)." display="block"><mrow><mrow><mrow><mo stretchy="false">|</mo><mn>00</mn><mo stretchy="false">⟩</mo></mrow><mo stretchy="false">↦</mo><mrow><mfrac><mn>1</mn><msqrt><mn>2</mn></msqrt></mfrac><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">|</mo><mn>00</mn><mo stretchy="false">⟩</mo></mrow><mo>+</mo><mrow><mo stretchy="false">|</mo><mn>10</mn><mo stretchy="false">⟩</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">↦</mo><mrow><mfrac><mn>1</mn><msqrt><mn>2</mn></msqrt></mfrac><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">|</mo><mn>00</mn><mo stretchy="false">⟩</mo></mrow><mo>+</mo><mrow><mo stretchy="false">|</mo><mn>11</mn><mo stretchy="false">⟩</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">Đây là ví dụ đơn giản nhất của vướng víu lượng tử: hai qubit được gắn với nhau thành một trạng thái chung không thể tách thành hai trạng thái riêng biệt. Cụ thể hơn, nếu ta đo qubit thứ nhất và nhận được <math id="S2.SS0.SSS0.Px3.p1.m3" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math>, thì trạng thái còn lại sụp xuống <math id="S2.SS0.SSS0.Px3.p1.m4" class="ltx_Math" alttext="|11\rangle" display="inline"><mrow><mo stretchy="false">|</mo><mn>11</mn><mo stretchy="false">⟩</mo></mrow></math>, do đó qubit thứ hai chắc chắn cũng cho kết quả <math id="S2.SS0.SSS0.Px3.p1.m5" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math> (tương tự nếu đo được <math id="S2.SS0.SSS0.Px3.p1.m6" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math>, thì qubit thứ hai chắc chắn cũng cho kết quả <math id="S2.SS0.SSS0.Px3.p1.m7" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math>). Đây là một trong những trực giác nền tảng đằng sau trao đổi khoá lượng tử: hai bên có thể chia sẻ các hệ lượng tử có tương quan đặc biệt, rồi đo chúng để tạo ra các bít chung.</p>
+</div>
+<div id="S2.SS0.SSS0.Px3.p2" class="ltx_para">
+<p class="ltx_p">Người chơi cổ điển cũng có thể yêu cầu Magic đo một số qubit ở giữa quá trình tính toán.
+Chẳng hạn xét một hàm tính được <math id="S2.SS0.SSS0.Px3.p2.m1" class="ltx_Math" alttext="f:[Q]\to[Q]" display="inline"><mrow><mi>f</mi><mo lspace="0.278em" rspace="0.278em">:</mo><mrow><mrow><mo stretchy="false">[</mo><mi>Q</mi><mo stretchy="false">]</mo></mrow><mo stretchy="false">→</mo><mrow><mo stretchy="false">[</mo><mi>Q</mi><mo stretchy="false">]</mo></mrow></mrow></mrow></math> với <math id="S2.SS0.SSS0.Px3.p2.m2" class="ltx_Math" alttext="[Q]=\{0,1,\ldots,Q-1\}" display="inline"><mrow><mrow><mo stretchy="false">[</mo><mi>Q</mi><mo stretchy="false">]</mo></mrow><mo>=</mo><mrow><mo stretchy="false">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mrow><mi>Q</mi><mo>−</mo><mn>1</mn></mrow><mo stretchy="false">}</mo></mrow></mrow></math> và <math id="S2.SS0.SSS0.Px3.p2.m3" class="ltx_Math" alttext="Q=2^{m}" display="inline"><mrow><mi>Q</mi><mo>=</mo><msup><mn>2</mn><mi>m</mi></msup></mrow></math>. ' đây, <math id="S2.SS0.SSS0.Px3.p2.m4" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> là một hàm tính được có nghĩa là có một mạch tính toán cổ điển hiệu quả tính nó, và điều này cho phép xây dựng phép biến đổi tuyến tính unitary <math id="S2.SS0.SSS0.Px3.p2.m5" class="ltx_Math" alttext="U_{f}" display="inline"><msub><mi>U</mi><mi>f</mi></msub></math>:</p>
+<table id="S2.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex3.m1" class="ltx_Math" alttext="U_{f}:|x\rangle\otimes|y\rangle\longmapsto|x\rangle\otimes|y\oplus f(x)\rangle." display="block"><mrow><mrow><msub><mi>U</mi><mi>f</mi></msub><mo lspace="0.278em" rspace="0.278em">:</mo><mrow><mrow><mrow><mo stretchy="false">|</mo><mi>x</mi><mo rspace="0.055em" stretchy="false">⟩</mo></mrow><mo rspace="0.222em">⊗</mo><mrow><mo stretchy="false">|</mo><mi>y</mi><mo stretchy="false">⟩</mo></mrow></mrow><mo stretchy="false">⟼</mo><mrow><mrow><mo stretchy="false">|</mo><mi>x</mi><mo rspace="0.055em" stretchy="false">⟩</mo></mrow><mo rspace="0.222em">⊗</mo><mrow><mo stretchy="false">|</mo><mrow><mi>y</mi><mo>⊕</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">⟩</mo></mrow></mrow></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+</div>
+<div id="S2.SS0.SSS0.Px3.p3" class="ltx_para">
+<p class="ltx_p">Ta dùng hai thanh ghi <math id="S2.SS0.SSS0.Px3.p3.m1" class="ltx_Math" alttext="m" display="inline"><mi>m</mi></math> qubit để đưa vào hộp Magic, với trạng thái tầm thường ban đầu:
+<math id="S2.SS0.SSS0.Px3.p3.m2" class="ltx_Math" alttext="|0^{m}\rangle\otimes|0^{m}\rangle." display="inline"><mrow><mrow><mrow><mo stretchy="false">|</mo><msup><mn>0</mn><mi>m</mi></msup><mo rspace="0.055em" stretchy="false">⟩</mo></mrow><mo rspace="0.222em">⊗</mo><mrow><mo stretchy="false">|</mo><msup><mn>0</mn><mi>m</mi></msup><mo stretchy="false">⟩</mo></mrow></mrow><mo lspace="0em">.</mo></mrow></math>
+Sau đó, ta áp dụng Hadamard lên từng qubit của thanh ghi thứ nhất, rồi yêu cầu Magic áp dụng biến đổi <math id="S2.SS0.SSS0.Px3.p3.m3" class="ltx_Math" alttext="U_{f}" display="inline"><msub><mi>U</mi><mi>f</mi></msub></math> để thu được:</p>
+<table id="S2.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex4.m1" class="ltx_Math" alttext="|0^{m}\rangle\otimes|0^{m}\rangle\longmapsto\frac{1}{\sqrt{Q}}\sum_{x=0}^{Q-1}%
+|x\rangle\otimes|0^{m}\rangle\longmapsto\frac{1}{\sqrt{Q}}\sum_{x=0}^{Q-1}|x%
+\rangle\otimes|f(x)\rangle." display="block"><mrow><mrow><mrow><mrow><mo stretchy="false">|</mo><msup><mn>0</mn><mi>m</mi></msup><mo rspace="0.055em" stretchy="false">⟩</mo></mrow><mo rspace="0.222em">⊗</mo><mrow><mo stretchy="false">|</mo><msup><mn>0</mn><mi>m</mi></msup><mo stretchy="false">⟩</mo></mrow></mrow><mo stretchy="false">⟼</mo><mrow><mfrac><mn>1</mn><msqrt><mi>Q</mi></msqrt></mfrac><mo>⁢</mo><mrow><munderover><mo movablelimits="false" rspace="0em">∑</mo><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>Q</mi><mo>−</mo><mn>1</mn></mrow></munderover><mrow><mrow><mo stretchy="false">|</mo><mi>x</mi><mo rspace="0.055em" stretchy="false">⟩</mo></mrow><mo rspace="0.222em">⊗</mo><mrow><mo stretchy="false">|</mo><msup><mn>0</mn><mi>m</mi></msup><mo stretchy="false">⟩</mo></mrow></mrow></mrow></mrow><mo stretchy="false">⟼</mo><mrow><mfrac><mn>1</mn><msqrt><mi>Q</mi></msqrt></mfrac><mo>⁢</mo><mrow><munderover><mo movablelimits="false" rspace="0em">∑</mo><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>Q</mi><mo>−</mo><mn>1</mn></mrow></munderover><mrow><mrow><mo stretchy="false">|</mo><mi>x</mi><mo rspace="0.055em" stretchy="false">⟩</mo></mrow><mo rspace="0.222em">⊗</mo><mrow><mo stretchy="false">|</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">⟩</mo></mrow></mrow></mrow></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+</div>
+<div id="S2.SS0.SSS0.Px3.p4" class="ltx_para">
+<p class="ltx_p">Đến đây, chúng ta có thể thấy sự liên hệ mật thiết giữa hai thanh ghi: nếu thanh ghi thứ nhất là <math id="S2.SS0.SSS0.Px3.p4.m1" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> thì bắt buộc thanh ghi thứ hai là <math id="S2.SS0.SSS0.Px3.p4.m2" class="ltx_Math" alttext="f(x)" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math>. Từ đó, nếu người chơi yêu cầu hộp Magic đo thanh ghi thứ hai và thu được giá trị <math id="S2.SS0.SSS0.Px3.p4.m3" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math>, thì thanh ghi thứ nhất sụp xuống chồng chập đều trên các giá trị <math id="S2.SS0.SSS0.Px3.p4.m4" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> thỏa mãn <math id="S2.SS0.SSS0.Px3.p4.m5" class="ltx_Math" alttext="f(x)=y" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mi>y</mi></mrow></math>:</p>
+<table id="S2.Ex5" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex5.m1" class="ltx_Math" alttext="\frac{1}{\sqrt{N_{y}}}\sum_{\begin{subarray}{c}0\leq x&lt;Q\\
+f(x)=y\end{subarray}}|x\rangle,\quad N_{y}=\#\{x:0\leq x&lt;Q,\ f(x)=y\}." display="block"><mrow><mrow><mrow><mrow><mfrac><mn>1</mn><msqrt><msub><mi>N</mi><mi>y</mi></msub></msqrt></mfrac><mo>⁢</mo><mrow><munder><mo movablelimits="false" rspace="0em">∑</mo><mtable rowspacing="0pt"><mtr><mtd><mrow><mn>0</mn><mo>≤</mo><mi>x</mi><mo>&lt;</mo><mi>Q</mi></mrow></mtd></mtr><mtr><mtd><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mi>y</mi></mrow></mtd></mtr></mtable></munder><mrow><mo stretchy="false">|</mo><mi>x</mi><mo stretchy="false">⟩</mo></mrow></mrow></mrow><mo rspace="1.167em">,</mo><msub><mi>N</mi><mi>y</mi></msub></mrow><mo>=</mo><mrow><mi mathvariant="normal">#</mi><mo>⁢</mo><mrow><mo stretchy="false">{</mo><mi>x</mi><mo lspace="0.278em" rspace="0.278em">:</mo><mrow><mrow><mn>0</mn><mo>≤</mo><mi>x</mi><mo>&lt;</mo><mi>Q</mi></mrow><mo rspace="0.667em">,</mo><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mi>y</mi></mrow></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">Đây là một mẫu rất phổ biến trong các thuật toán lượng tử: dùng một biến đổi unitary để tạo tương quan giữa hai thanh ghi, rồi đo một thanh ghi và để lại trên thanh ghi kia một chồng chập có cấu trúc. Đây là cách để nghiên cứu các tính chất ẩn của một hàm <math id="S2.SS0.SSS0.Px3.p4.m6" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math>.</p>
+</div>
+<div id="S2.SS0.SSS0.Px3.p5" class="ltx_para">
+<p class="ltx_p">Đặc biệt trong trường hợp rất phổ dụng là <math id="S2.SS0.SSS0.Px3.p5.m1" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> có tính chất đồng cấu nhóm thì thanh ghi thứ nhất bên trên cho ta trạng thái chồng chập trên một coset của nhân (Kernel) của <math id="S2.SS0.SSS0.Px3.p5.m2" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math>. Đó là thông tin rất quan trọng đứng sau nhiều bài toán. Sau khi đưa về chồng chập của các trạng thái có tính chất “tuần hoàn”, với Kernel của <math id="S2.SS0.SSS0.Px3.p5.m3" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> đóng vai trò như “‘chu kỳ”, ta có thể áp dụng biến đổi Fourier (cũng là một phép biến đổi unitary) trước khi quan sát. Vì đây là biến đổi Fourier rời rạc áp dụng lên vector biên độ phức <math id="S2.SS0.SSS0.Px3.p5.m4" class="ltx_Math" alttext="(\alpha_{x})_{x\in\{0,1\}^{n}}\in\mathbb{C}^{2^{n}}" display="inline"><mrow><msub><mrow><mo stretchy="false">(</mo><msub><mi>α</mi><mi>x</mi></msub><mo stretchy="false">)</mo></mrow><mrow><mi>x</mi><mo>∈</mo><msup><mrow><mo stretchy="false">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><mi>n</mi></msup></mrow></msub><mo>∈</mo><msup><mi>ℂ</mi><msup><mn>2</mn><mi>n</mi></msup></msup></mrow></math> của trạng thái lượng tử, nên thường được gọi là biến đổi Fourier lượng tử (QFT). Với hộp Magic lượng tử chúng ta có thể thực hiện phép biến đổi này thông qua một mạch lượng tử trên <math id="S2.SS0.SSS0.Px3.p5.m5" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> qubit, trong khi để mô phỏng nó trên máy thông thường thì cần phép biến đổi trong không gian hàm mũ với <math id="S2.SS0.SSS0.Px3.p5.m6" class="ltx_Math" alttext="2^{n}" display="inline"><msup><mn>2</mn><mi>n</mi></msup></math> số phức. Sức mạnh lượng tử nằm ở khả năng điều khiển các biên độ bằng các phép biến đổi unitary, làm cho các biên độ giao thoa với nhau: các khả năng “sai” có thể bị triệt tiêu, còn các khả năng “đúng” có thể được khuếch đại. Ta sẽ minh họa ý tưởng này trong trường hợp RSA và một số bài toán khác.</p>
+</div>
+<div id="S2.SS0.SSS0.Px3.p6" class="ltx_para">
+<p class="ltx_p">Tuy chiếc hộp Magic cho ta sức mạnh thao tác trong không gian Hilbert với số chiều hàm mũ, tính toán lượng tử không phải là công cụ vạn năng cho ta tăng tốc độ hàm mũ cho mọi bài toán. Mặt hạn chế là Magic chỉ tuân theo yêu cầu thực hiện các phép biến đổi tuyến tính unitary và chỉ cho ta nhìn kết quả một lần qua các phép đo lượng tử mang tính xác suất. Do đó, chúng ta phải đánh đổi giữa thông tin cục bộ và toàn cục, đúng như Nguyên lý Bổ sung của Bohr. Có những mục tiêu tưởng như đơn giản, chẳng hạn sao chép một trạng thái lượng tử tùy ý, mà nó cũng không thể làm được (Định lý cấm sao chép).
+Hay với các bài toán trong lớp NP-đầy đủ, hiện nay chưa có thuật toán lượng tử có sức mạnh vượt trội đáng kể (tăng tốc siêu đa thức) so với máy cổ điển; lợi thế đã biết chủ yếu là tăng tốc bậc hai với thuật toán Grover, nên nhìn chung chưa có bước đột phá tương tự Shor.</p>
+</div>
+</section>
+</section>
+<section id="S3" class="ltx_section">
+<h2 class="ltx_title ltx_font_bold ltx_title_section" style="font-size:120%;">3   Từ cấm sao chép tới Thuật toán Shor</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">Quay lại Định lý cấm sao chép lượng tử, về mặt toán học, để sao chép trạng thái <math id="S3.p1.m1" class="ltx_Math" alttext="|\psi\rangle" display="inline"><mrow><mo stretchy="false">|</mo><mi>ψ</mi><mo stretchy="false">⟩</mo></mrow></math>, ta cần ghép nó với một “tờ giấy trắng” <math id="S3.p1.m2" class="ltx_Math" alttext="|0\rangle" display="inline"><mrow><mo stretchy="false">|</mo><mn>0</mn><mo stretchy="false">⟩</mo></mrow></math> độc lập để “hứng lấy” bản copy thông qua tích tensor <math id="S3.p1.m3" class="ltx_Math" alttext="|\psi\rangle\otimes|0\rangle" display="inline"><mrow><mrow><mo stretchy="false">|</mo><mi>ψ</mi><mo rspace="0.055em" stretchy="false">⟩</mo></mrow><mo rspace="0.222em">⊗</mo><mrow><mo stretchy="false">|</mo><mn>0</mn><mo stretchy="false">⟩</mo></mrow></mrow></math>. Sự sao chép xảy ra nếu ta tìm được một toán tử tuyến tính unitary biến <math id="S3.p1.m4" class="ltx_Math" alttext="|\psi\rangle\otimes|0\rangle" display="inline"><mrow><mrow><mo stretchy="false">|</mo><mi>ψ</mi><mo rspace="0.055em" stretchy="false">⟩</mo></mrow><mo rspace="0.222em">⊗</mo><mrow><mo stretchy="false">|</mo><mn>0</mn><mo stretchy="false">⟩</mo></mrow></mrow></math> thành <math id="S3.p1.m5" class="ltx_Math" alttext="|\psi\rangle\otimes|\psi\rangle" display="inline"><mrow><mrow><mo stretchy="false">|</mo><mi>ψ</mi><mo rspace="0.055em" stretchy="false">⟩</mo></mrow><mo rspace="0.222em">⊗</mo><mrow><mo stretchy="false">|</mo><mi>ψ</mi><mo stretchy="false">⟩</mo></mrow></mrow></math> Trong điều kiện lý tưởng, toán tử này không phụ thuộc vào trạng thái <math id="S3.p1.m6" class="ltx_Math" alttext="|\psi\rangle" display="inline"><mrow><mo stretchy="false">|</mo><mi>ψ</mi><mo stretchy="false">⟩</mo></mrow></math>, tức là nó cũng biến <math id="S3.p1.m7" class="ltx_Math" alttext="|\phi\rangle\otimes|0\rangle" display="inline"><mrow><mrow><mo stretchy="false">|</mo><mi>ϕ</mi><mo rspace="0.055em" stretchy="false">⟩</mo></mrow><mo rspace="0.222em">⊗</mo><mrow><mo stretchy="false">|</mo><mn>0</mn><mo stretchy="false">⟩</mo></mrow></mrow></math> thành <math id="S3.p1.m8" class="ltx_Math" alttext="|\phi\rangle\otimes|\phi\rangle" display="inline"><mrow><mrow><mo stretchy="false">|</mo><mi>ϕ</mi><mo rspace="0.055em" stretchy="false">⟩</mo></mrow><mo rspace="0.222em">⊗</mo><mrow><mo stretchy="false">|</mo><mi>ϕ</mi><mo stretchy="false">⟩</mo></mrow></mrow></math> với mọi <math id="S3.p1.m9" class="ltx_Math" alttext="|\phi\rangle" display="inline"><mrow><mo stretchy="false">|</mo><mi>ϕ</mi><mo stretchy="false">⟩</mo></mrow></math>. Lấy tích vô hướng hai biến đổi kiểu này, ta thu được <math id="S3.p1.m10" class="ltx_Math" alttext="\langle\psi|\phi\rangle=(\langle\psi|\phi\rangle)^{2}" display="inline"><mrow><mrow><mo stretchy="false">⟨</mo><mi>ψ</mi><mo lspace="0em" rspace="0em">|</mo><mi>ϕ</mi><mo stretchy="false">⟩</mo></mrow><mo>=</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mo stretchy="false">⟨</mo><mi>ψ</mi><mo lspace="0em" rspace="0em">|</mo><mi>ϕ</mi><mo stretchy="false">⟩</mo></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup></mrow></math>, tức là <math id="S3.p1.m11" class="ltx_Math" alttext="\langle\psi|\phi\rangle\in\{0,1\}" display="inline"><mrow><mrow><mo stretchy="false">⟨</mo><mi>ψ</mi><mo lspace="0em" rspace="0em">|</mo><mi>ϕ</mi><mo stretchy="false">⟩</mo></mrow><mo>∈</mo><mrow><mo stretchy="false">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow></mrow></math>. Điều này chỉ xảy ra khi hai trạng thái hoặc trùng nhau hoàn toàn, hoặc trực giao. Do đó, một cách tổng quát chúng ta không thể nào nhân bản một trạng thái lượng tử bất kỳ.</p>
+</div>
+<div id="S3.p2" class="ltx_para">
+<p class="ltx_p">Nhìn từ góc độ đại số, định lý cấm sao chép là hệ quả của một sự bất đối xứng: phép sao chép về bản chất là một phép biến đổi phi tuyến bậc hai, vì nó nhân <math id="S3.p2.m1" class="ltx_Math" alttext="|\psi\rangle" display="inline"><mrow><mo stretchy="false">|</mo><mi>ψ</mi><mo stretchy="false">⟩</mo></mrow></math> với chính nó, nhưng một phép toán bậc hai không thể thực hiện được bằng một biến đổi tuyến tính. Nói cách khác, việc cấm nhân bản có thể hiểu như là hệ quả trực tiếp của tính tuyến tính của cơ học lượng tử.</p>
+</div>
+<div id="S3.p3" class="ltx_para">
+<p class="ltx_p">Tương tự, trong bài toán phân tích thừa số nguyên tố, nền tảng cốt lõi của thuật toán RSA, khi ta viết <math id="S3.p3.m1" class="ltx_Math" alttext="N=p\times q" display="inline"><mrow><mi>N</mi><mo>=</mo><mrow><mi>p</mi><mo lspace="0.222em" rspace="0.222em">×</mo><mi>q</mi></mrow></mrow></math> như là tích của hai số nguyên tố rất lớn, thì đẳng thức này đã giấu một sự bất đối xứng rất sâu về độ phức tạp trong tính toán: đi từ thông tin cục bộ <math id="S3.p3.m2" class="ltx_Math" alttext="(p,q)" display="inline"><mrow><mo stretchy="false">(</mo><mi>p</mi><mo>,</mo><mi>q</mi><mo stretchy="false">)</mo></mrow></math> tới thông tin toàn cục <math id="S3.p3.m3" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math> là một thao tác thuận chiều, dễ làm, nhưng từ <math id="S3.p3.m4" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math> muốn tách ngược về <math id="S3.p3.m5" class="ltx_Math" alttext="(p,q)" display="inline"><mrow><mo stretchy="false">(</mo><mi>p</mi><mo>,</mo><mi>q</mi><mo stretchy="false">)</mo></mrow></math> là cực khó. Giống như trong truyện cổ tích Tấm Cám, trộn thóc và gạo thì mất 1 giây, nhưng nhặt thóc ra thóc, gạo ra gạo, thì mất cả ngày. Đây cũng là ý tưởng trong xây dựng các hàm một chiều (one-way function) ở đó tính xuôi dễ còn tính ngược khó. Các hàm một chiều là nền tảng cơ bản trong lý thuyết mật mã.</p>
+</div>
+<div id="S3.p4" class="ltx_para">
+<p class="ltx_p">Về mặt triết học, Định lý cấm sao chép là một rào cản kỹ thuật cần thiết để bảo vệ Nguyên lý bổ sung Bohr ở cấp độ vi mô. Nếu phép sao chép được phép, ta có thể tạo ra nhiều phiên bản của một trạng thái lượng tử và truy vấn từng mô tả khác nhau trên từng bản riêng biệt, qua đó phá vỡ tinh thần đối ngẫu-bổ sung mà Bohr đã xác lập. Trong mối quan hệ giữa thông tin cục bộ và toàn cục, sự “bất khả sao chép” này buộc chúng ta phải chọn: nếu muốn nhìn rõ từng nốt nhạc cục bộ, thì bản giao hưởng toàn cục sẽ không bao giờ xuất hiện; và ngược lại, khi kiên nhẫn ngồi đợi một sự thật toàn cục hiển lộ, ta phải nhắm mắt làm ngơ trước mọi tiểu tiết địa phương. Và đây cũng chính là ý tưởng mấu chốt để bẻ gãy RSA bằng thuật toán lượng tử.</p>
+</div>
+<div id="S3.p5" class="ltx_para">
+<p class="ltx_p">Máy tính lượng tử không bẻ gãy RSA bằng cách tính nhanh hơn theo nghĩa cổ điển, mà cú đột phá của Shor (1994) nằm ở chỗ ông đổi hẳn cách hỏi. Khi đứng trước số <math id="S3.p5.m1" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math>, thay vì cứ mãi ám ảnh về câu hỏi trực diện “<math id="S3.p5.m2" class="ltx_Math" alttext="p" display="inline"><mi>p</mi></math> và <math id="S3.p5.m3" class="ltx_Math" alttext="q" display="inline"><mi>q</mi></math> là gì?”, Shor tìm cách nhúng mô tả cục bộ của bài toán trong một cấu trúc toàn cục. Lấy một số <math id="S3.p5.m4" class="ltx_Math" alttext="a" display="inline"><mi>a</mi></math> nguyên tố cùng nhau với <math id="S3.p5.m5" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math>, thì hàm <math id="S3.p5.m6" class="ltx_Math" alttext="f(x)=a^{x}\pmod{N}" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msup><mi>a</mi><mi>x</mi></msup><mspace width="0.949em"></mspace><mrow><mo stretchy="false">(</mo><mrow><mo lspace="0em" rspace="0.167em">mod</mo><mi>N</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math> chắc chắn là một hàm tuần hoàn do Định lý Euler. Tuy nhiên câu hỏi mấu chốt của Shor là hàm số này có chu kỳ bao nhiêu, tức là làm sao tìm ra số nguyên dương nhỏ nhất <math id="S3.p5.m7" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> sao cho <math id="S3.p5.m8" class="ltx_Math" alttext="a^{r}\equiv 1\pmod{N}" display="inline"><mrow><msup><mi>a</mi><mi>r</mi></msup><mo>≡</mo><mrow><mn>1</mn><mspace width="0.949em"></mspace><mrow><mo stretchy="false">(</mo><mrow><mo lspace="0em" rspace="0.167em">mod</mo><mi>N</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math>. Biết được chu kỳ <math id="S3.p5.m9" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>, ta có thể quay ngược trở lại để tìm các ước của <math id="S3.p5.m10" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math> bằng vài bước tính toán cổ điển tương đối đơn giản. Chẳng hạn, nếu <math id="S3.p5.m11" class="ltx_Math" alttext="r=2s" display="inline"><mrow><mi>r</mi><mo>=</mo><mrow><mn>2</mn><mo>⁢</mo><mi>s</mi></mrow></mrow></math> là số chẵn và <math id="S3.p5.m12" class="ltx_Math" alttext="a^{s}\not\equiv-1\pmod{N}" display="inline"><mrow><msup><mi>a</mi><mi>s</mi></msup><mo>≢</mo><mrow><mrow><mo>−</mo><mn>1</mn></mrow><mspace width="0.949em"></mspace><mrow><mo stretchy="false">(</mo><mrow><mo lspace="0em" rspace="0.167em">mod</mo><mi>N</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math>, thì <math id="S3.p5.m13" class="ltx_Math" alttext="a^{r}-1=(a^{s}-1)(a^{s}+1)" display="inline"><mrow><mrow><msup><mi>a</mi><mi>r</mi></msup><mo>−</mo><mn>1</mn></mrow><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><msup><mi>a</mi><mi>s</mi></msup><mo>−</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msup><mi>a</mi><mi>s</mi></msup><mo>+</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math> sẽ chứa các nhân tử của <math id="S3.p5.m14" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math>, và các ước nguyên tố <math id="S3.p5.m15" class="ltx_Math" alttext="p,q" display="inline"><mrow><mi>p</mi><mo>,</mo><mi>q</mi></mrow></math> có thể tính được dễ dàng từ thuật toán Euclid cho ước chung lớn nhất. (Trong thực tế, nếu ta chọn <math id="S3.p5.m16" class="ltx_Math" alttext="a" display="inline"><mi>a</mi></math> ngẫu nhiên thì xác suất tìm ra <math id="S3.p5.m17" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> chẵn và <math id="S3.p5.m18" class="ltx_Math" alttext="a^{s}\not\equiv-1\pmod{N}" display="inline"><mrow><msup><mi>a</mi><mi>s</mi></msup><mo>≢</mo><mrow><mrow><mo>−</mo><mn>1</mn></mrow><mspace width="0.949em"></mspace><mrow><mo stretchy="false">(</mo><mrow><mo lspace="0em" rspace="0.167em">mod</mo><mi>N</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math> ít nhất là 50%.) Nhìn dưới quan hệ đối ngẫu giữa cục bộ và toàn cục, chu kỳ của <math id="S3.p5.m19" class="ltx_Math" alttext="a^{x}\pmod{N}" display="inline"><mrow><msup><mi>a</mi><mi>x</mi></msup><mspace width="0.949em"></mspace><mrow><mo stretchy="false">(</mo><mrow><mo lspace="0em" rspace="0.167em">mod</mo><mi>N</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></math> không phải một con số từ trên trời rơi xuống, mà nó được tạo nên từ các chu kỳ cục bộ của <math id="S3.p5.m20" class="ltx_Math" alttext="a^{x}" display="inline"><msup><mi>a</mi><mi>x</mi></msup></math> khi nhìn modulo <math id="S3.p5.m21" class="ltx_Math" alttext="p" display="inline"><mi>p</mi></math> và modulo <math id="S3.p5.m22" class="ltx_Math" alttext="q" display="inline"><mi>q</mi></math>, rồi được khâu lại thành một nhịp toàn cục ở mức modulo <math id="S3.p5.m23" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math>.</p>
+</div>
+<div id="S3.p6" class="ltx_para">
+<p class="ltx_p">Máy tính cổ điển bị giam trong mô tả cục bộ: nó có thể đọc rất rõ giá trị của <math id="S3.p6.m1" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math>, nhưng không có cách nào “nghe” được nhịp tuần hoàn toàn cục ẩn bên trong ngoài việc mò mẫm thử sai trong một không gian nghiệm khổng lồ. Chính khoảng cách giữa cái thấy được ở bề mặt và cái ẩn đi trong cấu trúc là nơi RSA dựng nên thành trì kiên cố của mình. Câu hỏi mấu chốt bây giờ là: liệu có thể dùng đúng một phát súng lượng tử để chạm thẳng vào phần cấu trúc toàn cục ấy hay không?</p>
+</div>
+<div id="S3.p7" class="ltx_para">
+<p class="ltx_p">Để tận dụng sức mạnh của tính toán lượng tử, ý tưởng của Shor như sau: Ta dùng hai thanh ghi lượng tử có dung lượng trạng thái <math id="S3.p7.m1" class="ltx_Math" alttext="Q=2^{L}" display="inline"><mrow><mi>Q</mi><mo>=</mo><msup><mn>2</mn><mi>L</mi></msup></mrow></math>, trong đó <math id="S3.p7.m2" class="ltx_Math" alttext="L" display="inline"><mi>L</mi></math> là số qubit. Thanh ghi thứ nhất chạy qua mọi giá trị <math id="S3.p7.m3" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> từ <math id="S3.p7.m4" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math> đến <math id="S3.p7.m5" class="ltx_Math" alttext="Q-1" display="inline"><mrow><mi>Q</mi><mo>−</mo><mn>1</mn></mrow></math>, còn thanh ghi thứ hai lưu giá trị tương ứng <math id="S3.p7.m6" class="ltx_Math" alttext="f(x)=a^{x}\pmod{N}" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msup><mi>a</mi><mi>x</mi></msup><mspace width="0.949em"></mspace><mrow><mo stretchy="false">(</mo><mrow><mo lspace="0em" rspace="0.167em">mod</mo><mi>N</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math>. Sau khi đưa toàn hệ vào trạng thái chồng chập</p>
+<table id="S3.Ex6" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex6.m1" class="ltx_Math" alttext="Q^{-1/2}\sum_{x=0}^{Q-1}|x\rangle\otimes|f(x)\rangle" display="block"><mrow><msup><mi>Q</mi><mrow><mo>−</mo><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></mrow></msup><mo>⁢</mo><mrow><munderover><mo movablelimits="false" rspace="0em">∑</mo><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>Q</mi><mo>−</mo><mn>1</mn></mrow></munderover><mrow><mrow><mo stretchy="false">|</mo><mi>x</mi><mo rspace="0.055em" stretchy="false">⟩</mo></mrow><mo rspace="0.222em">⊗</mo><mrow><mo stretchy="false">|</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">⟩</mo></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">rồi đo thanh ghi thứ hai, ta sẽ khiến thanh ghi thứ nhất sụp đổ về các giá trị <math id="S3.p7.m7" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> cho cùng một giá trị <math id="S3.p7.m8" class="ltx_Math" alttext="f(x)" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math>. Vì <math id="S3.p7.m9" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> là hàm tuần hoàn chu kỳ <math id="S3.p7.m10" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>, nên <math id="S3.p7.m11" class="ltx_Math" alttext="|x\rangle" display="inline"><mrow><mo stretchy="false">|</mo><mi>x</mi><mo stretchy="false">⟩</mo></mrow></math> sẽ là một trạng thái chồng chập của các giá trị <math id="S3.p7.m12" class="ltx_Math" alttext="|z\rangle,|z+r\rangle,|z+2r\rangle,..." display="inline"><mrow><mrow><mo stretchy="false">|</mo><mi>z</mi><mo stretchy="false">⟩</mo></mrow><mo>,</mo><mrow><mo stretchy="false">|</mo><mrow><mi>z</mi><mo>+</mo><mi>r</mi></mrow><mo stretchy="false">⟩</mo></mrow><mo>,</mo><mrow><mo stretchy="false">|</mo><mrow><mi>z</mi><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>r</mi></mrow></mrow><mo stretchy="false">⟩</mo></mrow><mo>,</mo><mi mathvariant="normal">…</mi></mrow></math> với một độ dịch chuyển ngẫu nhiên <math id="S3.p7.m13" class="ltx_Math" alttext="z" display="inline"><mi>z</mi></math>.</p>
+</div>
+<div id="S3.p8" class="ltx_para">
+<p class="ltx_p">Đến đây, ta đứng trước một thời khắc rất mong manh. Chu kỳ <math id="S3.p8.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> đã thực sự có mặt trong cấu trúc của trạng thái <math id="S3.p8.m2" class="ltx_Math" alttext="|x\rangle" display="inline"><mrow><mo stretchy="false">|</mo><mi>x</mi><mo stretchy="false">⟩</mo></mrow></math>, nhưng nó còn bị phủ bởi điểm mù <math id="S3.p8.m3" class="ltx_Math" alttext="z" display="inline"><mi>z</mi></math>. Nếu ta bóp cò phép đo ngay lúc này, viên đạn duy nhất của ta sẽ chỉ có thể găm vào một giá trị cục bộ có dạng <math id="S3.p8.m4" class="ltx_Math" alttext="z+jr" display="inline"><mrow><mi>z</mi><mo>+</mo><mrow><mi>j</mi><mo>⁢</mo><mi>r</mi></mrow></mrow></math>, và ta vĩnh viễn không tìm ra chu kỳ <math id="S3.p8.m5" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> ẩn bên trong cấu trúc vì điểm mù <math id="S3.p8.m6" class="ltx_Math" alttext="z" display="inline"><mi>z</mi></math> đã che khuất nó.</p>
+</div>
+<div id="S3.p9" class="ltx_para">
+<p class="ltx_p">Để xoá nhiễu do điểm mù <math id="S3.p9.m1" class="ltx_Math" alttext="z" display="inline"><mi>z</mi></math> gây ra, ta bắt buộc phải buông bỏ việc truy vấn thông tin địa phương để hướng về một mô tả toàn cục về cấu trúc tuần hoàn của <math id="S3.p9.m2" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math>. Chính ở đây, biến đổi Fourier bước vào như cây cầu toán học nối liền hai bờ của nguyên lý bổ sung. Trong truyền thống Heisenberg–Bohr, biến đổi Fourier từ lâu đã là ngôn ngữ tự nhiên để chuyển hoá quan hệ đối ngẫu giữa vị trí và động lượng: một bên là mô tả cục bộ của hàm sóng trong không gian vị trí, bên kia là mô tả cục bộ trong không gian tần số nhưng đồng thời là mô tả toàn cục trong không gian vị trí. Nói một cách hình tượng, nếu hình dung giá trị <math id="S3.p9.m3" class="ltx_Math" alttext="f(x)" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> tại mỗi điểm <math id="S3.p9.m4" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> là một nốt nhạc riêng lẻ, thì biến đổi Fourier cho phép ta nghe cả bản nhạc cùng một lúc dưới dạng phổ tần số, trong đó trọng số tại mỗi tần số <math id="S3.p9.m5" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math> tương ứng với một sóng phẳng (plane wave) có dạng <math id="S3.p9.m6" class="ltx_Math" alttext="e^{2\pi ixy/Q}" display="inline"><msup><mi>e</mi><mrow><mrow><mn>2</mn><mo>⁢</mo><mi>π</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow><mo>/</mo><mi>Q</mi></mrow></msup></math>.</p>
+</div>
+<div id="S3.p10" class="ltx_para">
+<p class="ltx_p">Về mặt giải tích, một tính chất then chốt của biến đổi Fourier là nó biến phép tịnh tiến trong không gian vị trí thành một hệ số pha trong không gian tần số: biến đổi Fourier của <math id="S3.p10.m1" class="ltx_Math" alttext="f(x-z)" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>−</mo><mi>z</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></math> chính là <math id="S3.p10.m2" class="ltx_Math" alttext="e^{-2\pi izy/Q}\hat{f}(y)" display="inline"><mrow><msup><mi>e</mi><mrow><mo>−</mo><mrow><mrow><mn>2</mn><mo>⁢</mo><mi>π</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>z</mi><mo>⁢</mo><mi>y</mi></mrow><mo>/</mo><mi>Q</mi></mrow></mrow></msup><mo>⁢</mo><mover accent="true"><mi>f</mi><mo>^</mo></mover><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow></math>. Đây cũng là lý do biến đổi Fourier cho phép chéo hóa toán tử đạo hàm trên <math id="S3.p10.m3" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> thành toán tử nhân trên <math id="S3.p10.m4" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math>, qua đó biến các bài toán vi phân thành phương trình đại số, và chứng minh Nguyên lý bất định Heisenberg từ đẳng thức giao hoán tử <math id="S3.p10.m5" class="ltx_Math" alttext="[\partial_{x},x]=1" display="inline"><mrow><mrow><mo stretchy="false">[</mo><msub><mo lspace="0em" rspace="0em">∂</mo><mi>x</mi></msub><mo>,</mo><mi>x</mi><mo stretchy="false">]</mo></mrow><mo>=</mo><mn>1</mn></mrow></math>.</p>
+</div>
+<div id="S3.p11" class="ltx_para">
+<p class="ltx_p">Thuật toán Shor vận dụng đúng tinh thần ấy: thay vì tiếp tục đứng trong không gian vị trí, nơi mọi giá trị <math id="S3.p11.m1" class="ltx_Math" alttext="\{z+jr\}" display="inline"><mrow><mo stretchy="false">{</mo><mrow><mi>z</mi><mo>+</mo><mrow><mi>j</mi><mo>⁢</mo><mi>r</mi></mrow></mrow><mo stretchy="false">}</mo></mrow></math> đều có thể hiện ra nhưng không có ý nghĩa thông tin vì bị nhiễu hoá, ta chuyển toàn bộ trạng thái sang không gian tần số để buộc cấu trúc tuần hoàn phải tự khai báo danh tính. Cụ thể hơn, bằng cách áp dụng biến đổi Fourier lượng tử lên thanh ghi thứ nhất, ta có thể biểu diễn được từng trạng thái <math id="S3.p11.m2" class="ltx_Math" alttext="|x\rangle" display="inline"><mrow><mo stretchy="false">|</mo><mi>x</mi><mo stretchy="false">⟩</mo></mrow></math> như là chồng chập của các trạng thái <math id="S3.p11.m3" class="ltx_Math" alttext="e^{2\pi ixy/Q}|y\rangle" display="inline"><mrow><msup><mi>e</mi><mrow><mrow><mn>2</mn><mo>⁢</mo><mi>π</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>x</mi><mo>⁢</mo><mi>y</mi></mrow><mo>/</mo><mi>Q</mi></mrow></msup><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mi>y</mi><mo stretchy="false">⟩</mo></mrow></mrow></math> với <math id="S3.p11.m4" class="ltx_Math" alttext="y=0,1,...,Q-1" display="inline"><mrow><mi>y</mi><mo>=</mo><mrow><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mrow><mi>Q</mi><mo>−</mo><mn>1</mn></mrow></mrow></mrow></math>. Khi áp dụng lên trạng thái chồng chập của <math id="S3.p11.m5" class="ltx_Math" alttext="|z\rangle,|z+r\rangle,|z+2r\rangle,..." display="inline"><mrow><mrow><mo stretchy="false">|</mo><mi>z</mi><mo stretchy="false">⟩</mo></mrow><mo>,</mo><mrow><mo stretchy="false">|</mo><mrow><mi>z</mi><mo>+</mo><mi>r</mi></mrow><mo stretchy="false">⟩</mo></mrow><mo>,</mo><mrow><mo stretchy="false">|</mo><mrow><mi>z</mi><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>r</mi></mrow></mrow><mo stretchy="false">⟩</mo></mrow><mo>,</mo><mi mathvariant="normal">…</mi></mrow></math>, độ dịch <math id="S3.p11.m6" class="ltx_Math" alttext="z" display="inline"><mi>z</mi></math> sẽ sinh ra một nhân tử pha có dạng <math id="S3.p11.m7" class="ltx_Math" alttext="e^{2\pi izy/Q}" display="inline"><msup><mi>e</mi><mrow><mrow><mn>2</mn><mo>⁢</mo><mi>π</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>z</mi><mo>⁢</mo><mi>y</mi></mrow><mo>/</mo><mi>Q</mi></mrow></msup></math>. Như vậy, điểm mù <math id="S3.p11.m8" class="ltx_Math" alttext="z" display="inline"><mi>z</mi></math> chưa biến mất hoàn toàn, nhưng nó chỉ còn sống sót dưới dạng một nhân tử pha có module bằng <math id="S3.p11.m9" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math>. Khi lấy bình phương module, toàn bộ dấu vết của <math id="S3.p11.m10" class="ltx_Math" alttext="z" display="inline"><mi>z</mi></math> bị bốc hơi, và ta thu được xác suất để tần số <math id="S3.p11.m11" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math> xuất hiện đúng bằng</p>
+<table id="S3.Ex7" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex7.m1" class="ltx_Math" alttext="P(y)=(mQ)^{-1}\left|\sum_{j=0}^{m-1}e^{2\pi ijry/Q}\right|^{2}," display="block"><mrow><mrow><mrow><mi>P</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><mi>m</mi><mo>⁢</mo><mi>Q</mi></mrow><mo stretchy="false">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo>⁢</mo><msup><mrow><mo>|</mo><mrow><munderover><mo lspace="0em" movablelimits="false">∑</mo><mrow><mi>j</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></munderover><msup><mi>e</mi><mrow><mrow><mn>2</mn><mo>⁢</mo><mi>π</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>j</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>y</mi></mrow><mo>/</mo><mi>Q</mi></mrow></msup></mrow><mo>|</mo></mrow><mn>2</mn></msup></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">trong đó <math id="S3.p11.m12" class="ltx_Math" alttext="m" display="inline"><mi>m</mi></math> chính là số lần chu kỳ <math id="S3.p11.m13" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> lặp lại trọn vẹn bên trong thanh ghi lượng tử thứ nhất.</p>
+</div>
+<div id="S3.p12" class="ltx_para">
+<p class="ltx_p">Bây giờ là khoảnh khắc quyết định. Trong công thức <math id="S3.p12.m1" class="ltx_Math" alttext="P(y)" display="inline"><mrow><mi>P</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow></math>, những giá trị <math id="S3.p12.m2" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math> không ăn khớp với chu kỳ <math id="S3.p12.m3" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> sẽ sinh ra các vector pha quay lệch nhau dẫn tới giao thoa triệt tiêu, còn những giá trị <math id="S3.p12.m4" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math> làm cho <math id="S3.p12.m5" class="ltx_Math" alttext="ry/Q" display="inline"><mrow><mrow><mi>r</mi><mo>⁢</mo><mi>y</mi></mrow><mo>/</mo><mi>Q</mi></mrow></math> xấp xỉ một số nguyên <math id="S3.p12.m6" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math> sẽ cộng hưởng thành những đỉnh xác suất rất cao. Như vậy, biến đổi Fourier không trực tiếp trả lời câu hỏi “<math id="S3.p12.m7" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> là bao nhiêu”, mà nó dọn sạch nhiễu cục bộ để cấu trúc toàn cục của hàm số <math id="S3.p12.m8" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> tự hiện ra trong xác suất đo. Trước Fourier, phép đo chỉ có thể găm vào một điểm cục bộ vô nghĩa, nhưng sau Fourier, cùng một phép đo ấy lại có thể chạm đúng vào nhịp tuần hoàn của toàn bộ cấu trúc. Nói cách khác, nó tạo ra cơ chế để các sai lầm tự triệt tiêu lẫn nhau, còn chân lý thì nắm tay nhau lớn lên. Đó chính là nghệ thuật của Shor: không hỏi trực diện vào thứ mình cần, mà đặt lại câu hỏi trong hệ quy chiếu mới để bài toán tự khai ra câu trả lời.</p>
+</div>
+<div id="S3.p13" class="ltx_para">
+<p class="ltx_p">Cuối cùng, phát súng lượng tử quyết định sẽ được bắn ra sau khi phép biến đổi Fourier đã hoàn tất. Phép đo duy nhất trả về cho ta một giá trị <math id="S3.p13.m1" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math>. Đến đây, thuật toán lượng tử hoàn tất nhiệm vụ. Phần còn lại được xử lý bởi thuật toán liên phân số cổ điển: Định lý Legendre khẳng định rằng nếu phép xấp xỉ <math id="S3.p13.m2" class="ltx_Math" alttext="y/Q\approx k/r" display="inline"><mrow><mrow><mi>y</mi><mo>/</mo><mi>Q</mi></mrow><mo>≈</mo><mrow><mi>k</mi><mo>/</mo><mi>r</mi></mrow></mrow></math> có sai số nhỏ hơn <math id="S3.p13.m3" class="ltx_Math" alttext="1/(2r^{2})" display="inline"><mrow><mn>1</mn><mo>/</mo><mrow><mo stretchy="false">(</mo><mrow><mn>2</mn><mo>⁢</mo><msup><mi>r</mi><mn>2</mn></msup></mrow><mo stretchy="false">)</mo></mrow></mrow></math>, thì <math id="S3.p13.m4" class="ltx_Math" alttext="k/r" display="inline"><mrow><mi>k</mi><mo>/</mo><mi>r</mi></mrow></math> là phân số duy nhất có mẫu số nhỏ hơn <math id="S3.p13.m5" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math> thoả mãn điều kiện đó. Đây là ranh giới cứng giữa sự nhiễu loạn và độ chính xác, cho phép chúng ta khoá mục tiêu chu kỳ <math id="S3.p13.m6" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>. Trong thực tế, giá trị đo được của <math id="S3.p13.m7" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math> hiếm khi rơi chính xác vào một đỉnh cộng hưởng <math id="S3.p13.m8" class="ltx_Math" alttext="kQ/r" display="inline"><mrow><mrow><mi>k</mi><mo>⁢</mo><mi>Q</mi></mrow><mo>/</mo><mi>r</mi></mrow></math>, mà ta chỉ có thể hi vọng <math id="S3.p13.m9" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math> là số nguyên gần nhất, tức <math id="S3.p13.m10" class="ltx_Math" alttext="\left|y-kQ/r\right|\leq 1/2" display="inline"><mrow><mrow><mo>|</mo><mrow><mi>y</mi><mo>−</mo><mrow><mrow><mi>k</mi><mo>⁢</mo><mi>Q</mi></mrow><mo>/</mo><mi>r</mi></mrow></mrow><mo>|</mo></mrow><mo>≤</mo><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></mrow></math>. Do đó, thuật toán lượng tử đảm bảo phép xấp xỉ <math id="S3.p13.m11" class="ltx_Math" alttext="y/Q\approx k/r" display="inline"><mrow><mrow><mi>y</mi><mo>/</mo><mi>Q</mi></mrow><mo>≈</mo><mrow><mi>k</mi><mo>/</mo><mi>r</mi></mrow></mrow></math> có sai số không quá <math id="S3.p13.m12" class="ltx_Math" alttext="1/(2Q)" display="inline"><mrow><mn>1</mn><mo>/</mo><mrow><mo stretchy="false">(</mo><mrow><mn>2</mn><mo>⁢</mo><mi>Q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></math>. Đây là giới hạn độ phân giải của thanh ghi lượng tử. Để thuật toán Shor thành công, ta phải đảm bảo sai số lượng tử nằm trong phạm vi an toàn của Định lý Legendre, tức là <math id="S3.p13.m13" class="ltx_Math" alttext="Q&gt;r^{2}" display="inline"><mrow><mi>Q</mi><mo>&gt;</mo><msup><mi>r</mi><mn>2</mn></msup></mrow></math>. Nếu ta chỉ biết <math id="S3.p13.m14" class="ltx_Math" alttext="r\leq N" display="inline"><mrow><mi>r</mi><mo>≤</mo><mi>N</mi></mrow></math> và không có thông tin gì khác, thì yêu cầu <math id="S3.p13.m15" class="ltx_Math" alttext="Q&gt;N^{2}" display="inline"><mrow><mi>Q</mi><mo>&gt;</mo><msup><mi>N</mi><mn>2</mn></msup></mrow></math> là cần và đủ để đảm bảo thuật toán Shor vận hành. Nói cách khác, số qubit tối thiểu cho mỗi thanh ghi là <math id="S3.p13.m16" class="ltx_Math" alttext="L=\log_{2}Q&gt;2\log_{2}N" display="inline"><mrow><mi>L</mi><mo>=</mo><mrow><msub><mi>log</mi><mn>2</mn></msub><mo lspace="0.167em">⁡</mo><mi>Q</mi></mrow><mo>&gt;</mo><mrow><mn>2</mn><mo lspace="0.167em">⁢</mo><mrow><msub><mi>log</mi><mn>2</mn></msub><mo lspace="0.167em">⁡</mo><mi>N</mi></mrow></mrow></mrow></math>.</p>
+</div>
+<section id="S3.SS0.SSS0.Px1" class="ltx_paragraph">
+<h3 class="ltx_title ltx_title_paragraph">Mở rộng thuật toán Shor cho HSP.</h3>
+
+<div id="S3.SS0.SSS0.Px1.p1" class="ltx_para">
+<p class="ltx_p">Các hệ mật mã khoá công khai đang được sử dụng trong thực tế hiện nay hầu hết dựa trên độ khó của hai bài toán nền tảng: bài toán phân tích thừa số nguyên tố (cơ sở của hệ mã RSA), và bài toán tính logarit rời rạc (cơ sở của hệ mã ElGamal và nhiều hệ thống chữ ký số). Điểm thú vị là, dù khác biệt về bản chất, cả hai bài toán này đều che giấu một cấu trúc mang tính lặp (tương tự chu kỳ <math id="S3.SS0.SSS0.Px1.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> nói trên), và ý tưởng của Shor có thể được mở rộng để áp dụng cho lớp các bài toán như thế. Ta sẽ giải thích ngắn gọn cấu trúc của lớp bài toán này và cấu trúc “chu kỳ” của nó.</p>
+</div>
+<div id="S3.SS0.SSS0.Px1.p2" class="ltx_para">
+<p class="ltx_p">Giả sử <math id="S3.SS0.SSS0.Px1.p2.m1" class="ltx_Math" alttext="G=\langle g\rangle" display="inline"><mrow><mi>G</mi><mo>=</mo><mrow><mo stretchy="false">⟨</mo><mi>g</mi><mo stretchy="false">⟩</mo></mrow></mrow></math> là một nhóm cyclic bậc <math id="S3.SS0.SSS0.Px1.p2.m2" class="ltx_Math" alttext="q" display="inline"><mi>q</mi></math> sinh bởi <math id="S3.SS0.SSS0.Px1.p2.m3" class="ltx_Math" alttext="g" display="inline"><mi>g</mi></math>, và ta được cho một phần tử <math id="S3.SS0.SSS0.Px1.p2.m4" class="ltx_Math" alttext="h\in G" display="inline"><mrow><mi>h</mi><mo>∈</mo><mi>G</mi></mrow></math>. Khi đó <math id="S3.SS0.SSS0.Px1.p2.m5" class="ltx_Math" alttext="h" display="inline"><mi>h</mi></math> có thể được biểu diễn dưới dạng <math id="S3.SS0.SSS0.Px1.p2.m6" class="ltx_Math" alttext="h=g^{x}" display="inline"><mrow><mi>h</mi><mo>=</mo><msup><mi>g</mi><mi>x</mi></msup></mrow></math>, trong đó <math id="S3.SS0.SSS0.Px1.p2.m7" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> là số bí mật cần tìm. Bài toán logarit rời rạc chính là khôi phục <math id="S3.SS0.SSS0.Px1.p2.m8" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> từ <math id="S3.SS0.SSS0.Px1.p2.m9" class="ltx_Math" alttext="g" display="inline"><mi>g</mi></math> và <math id="S3.SS0.SSS0.Px1.p2.m10" class="ltx_Math" alttext="h" display="inline"><mi>h</mi></math>.</p>
+</div>
+<div id="S3.SS0.SSS0.Px1.p3" class="ltx_para">
+<p class="ltx_p">Thoạt nhìn, bài toán này không có dạng tìm chu kỳ của một hàm một biến như <math id="S3.SS0.SSS0.Px1.p3.m1" class="ltx_Math" alttext="f(r)=a^{r}\bmod N" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msup><mi>a</mi><mi>r</mi></msup><mo>mod</mo><mi>N</mi></mrow></mrow></math> trong bài toán phân tích số. Tuy nhiên, ta có thể biến nó thành một bài toán tìm cấu trúc ẩn trong một hàm hai biến. Xét ánh xạ <math id="S3.SS0.SSS0.Px1.p3.m2" class="ltx_Math" alttext="f:\mathbb{Z}_{q}^{2}\rightarrow G" display="inline"><mrow><mi>f</mi><mo lspace="0.278em" rspace="0.278em">:</mo><mrow><msubsup><mi>ℤ</mi><mi>q</mi><mn>2</mn></msubsup><mo stretchy="false">→</mo><mi>G</mi></mrow></mrow></math> cho bởi <math id="S3.SS0.SSS0.Px1.p3.m3" class="ltx_Math" alttext="f(a,b)=g^{a}h^{b}" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msup><mi>g</mi><mi>a</mi></msup><mo>⁢</mo><msup><mi>h</mi><mi>b</mi></msup></mrow></mrow></math>. Vì <math id="S3.SS0.SSS0.Px1.p3.m4" class="ltx_Math" alttext="h=g^{x}" display="inline"><mrow><mi>h</mi><mo>=</mo><msup><mi>g</mi><mi>x</mi></msup></mrow></math>, ta có <math id="S3.SS0.SSS0.Px1.p3.m5" class="ltx_Math" alttext="f(a,b)=g^{a}(g^{x})^{b}=g^{a+bx}" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msup><mi>g</mi><mi>a</mi></msup><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><msup><mi>g</mi><mi>x</mi></msup><mo stretchy="false">)</mo></mrow><mi>b</mi></msup></mrow><mo>=</mo><msup><mi>g</mi><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>x</mi></mrow></mrow></msup></mrow></math>. Khi đó</p>
+<table id="S3.Ex8" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex8.m1" class="ltx_Math" alttext="\ker f=\{(a,b)\in\mathbb{Z}_{q}^{2}:\;a+bx\equiv 0\pmod{q}\}=\langle(x,-1)\rangle." display="block"><mrow><mrow><mrow><mi>ker</mi><mo lspace="0.167em">⁡</mo><mi>f</mi></mrow><mo>=</mo><mrow><mo stretchy="false">{</mo><mrow><mrow><mo stretchy="false">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mo>∈</mo><msubsup><mi>ℤ</mi><mi>q</mi><mn>2</mn></msubsup></mrow><mo lspace="0.278em" rspace="0.558em">:</mo><mrow><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>x</mi></mrow></mrow><mo>≡</mo><mrow><mn>0</mn><mspace width="0.949em"></mspace><mrow><mo stretchy="false">(</mo><mrow><mo lspace="0em" movablelimits="false" rspace="0.167em">mod</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">}</mo></mrow><mo>=</mo><mrow><mo stretchy="false">⟨</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mrow><mo>−</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow><mo stretchy="false">⟩</mo></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+</div>
+<div id="S3.SS0.SSS0.Px1.p4" class="ltx_para">
+<p class="ltx_p">Nói cách khác, hàm <math id="S3.SS0.SSS0.Px1.p4.m1" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> không phân biệt được các điểm nằm trên cùng một lớp song song với véc-tơ <math id="S3.SS0.SSS0.Px1.p4.m2" class="ltx_Math" alttext="(x,-1)" display="inline"><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mrow><mo>−</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></math>: <math id="S3.SS0.SSS0.Px1.p4.m3" class="ltx_Math" alttext="f((a,b)+k(x,-1))=f(a,b)" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mi>k</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mrow><mo>−</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math>. Vì vậy, vector <math id="S3.SS0.SSS0.Px1.p4.m4" class="ltx_Math" alttext="(x,-1)" display="inline"><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mrow><mo>−</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></math> đóng vai trò giống như một “chu kỳ” của hàm <math id="S3.SS0.SSS0.Px1.p4.m5" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math>, giống như chu kỳ <math id="S3.SS0.SSS0.Px1.p4.m6" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> trong bài toán phân tích số. Thuật toán lượng tử khai thác cấu trúc này theo cùng tinh thần như trong bài toán phân tích thừa số.</p>
+</div>
+<div id="S3.SS0.SSS0.Px1.p5" class="ltx_para">
+<p class="ltx_p">Nhìn rộng hơn nữa, <math id="S3.SS0.SSS0.Px1.p5.m1" class="ltx_Math" alttext="H=\langle(x,-1)\rangle" display="inline"><mrow><mi>H</mi><mo>=</mo><mrow><mo stretchy="false">⟨</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mrow><mo>−</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow><mo stretchy="false">⟩</mo></mrow></mrow></math> là một nhóm con ẩn của <math id="S3.SS0.SSS0.Px1.p5.m2" class="ltx_Math" alttext="\mathbb{Z}_{q}^{2}" display="inline"><msubsup><mi>ℤ</mi><mi>q</mi><mn>2</mn></msubsup></math>, và hàm <math id="S3.SS0.SSS0.Px1.p5.m3" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> là bất biến trên các coset của <math id="S3.SS0.SSS0.Px1.p5.m4" class="ltx_Math" alttext="H" display="inline"><mi>H</mi></math>. Do đó nhiệm vụ tìm <math id="S3.SS0.SSS0.Px1.p5.m5" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> của ta chính là tìm cấu trúc của <math id="S3.SS0.SSS0.Px1.p5.m6" class="ltx_Math" alttext="H" display="inline"><mi>H</mi></math>. Từ đó bài toán tìm chu kỳ được tổng quát hoá thành bài toán tìm cấu trúc nhóm con ẩn của một nhóm giao hoán, gọi là <em class="ltx_emph ltx_font_italic">Hidden Subgroup Problem</em> (HSP). Các bạn quan tâm có thể tìm đọc thêm các nghiên cứu mở rộng theo hướng rất thú vị này.</p>
+</div>
+</section>
+</section>
+<section id="S4" class="ltx_section">
+<h2 class="ltx_title ltx_font_bold ltx_title_section" style="font-size:120%;">4   Khoảng cách giữa lý thuyết và thực tế</h2>
+
+<div id="S4.p1" class="ltx_para">
+<p class="ltx_p">Trong điều kiện lý tưởng, để phá một khoá của hệ mã RSA, chúng ta cần hàng ngàn qubit logic, tức phải là qubit ”sạch” chứ không phải chỉ là qubit vật lý ”đầy nhiễu”.</p>
+</div>
+<div id="S4.p2" class="ltx_para">
+<p class="ltx_p">Cụ thể hơn, trái tim của thuật toán Shor chính là các hệ số pha giữa các thành phần chồng chập, là thứ sinh ra lực cộng hưởng toàn cục mà phép biến đổi Fourier lượng tử khai thác. Để việc tính toán có ý nghĩa, ta cần giữ hệ lượng tử ổn định trong một thời gian đủ lâu. Tuy nhiên, trong thực tế, không có hệ lượng tử nào bị cô lập hoàn toàn, và chỉ một tác động cực nhỏ của môi trường xung quanh cũng có thể làm hỏng điều kiện thuần khiết mà thuật toán Shor dựa vào. Về mặt toán học, hiện tượng bất ổn định do môi trường bên ngoài này gọi là mất kết hợp (decoherence). Khi hệ lượng tử tương tác với môi trường, thông tin về pha bị mã hóa ra các bậc tự do của môi trường mà ta không thể theo dõi. Do đó, khi truy xuất thông tin, ta buộc phải lấy vết riêng phần qua môi trường (partial trace, giống như khái niệm marginal trong lý thuyết xác suất thống kê). Vấn đề là phép lấy vết này tự động xóa đi thông tin pha, là thứ làm nên tính lượng tử, và do đó sau một thời gian rất ngắn, hệ lượng tử trở thành một hệ cổ điển tầm thường.</p>
+</div>
+<div id="S4.p3" class="ltx_para">
+<p class="ltx_p">Đây là thách thức kỹ thuật cực lớn mà mọi cấu trúc máy tính lượng tử đều phải đối mặt. Toán học đã chỉ ra viên đạn hoàn hảo, nhưng vật lý phải rèn một nòng súng đủ mạnh để giữ cho viên đạn còn nguyên vẹn trước khi được bắn ra. Nói cách khác, không có gì là hoàn hảo, kể cả chiếc hộp Magic. Hộp Magic tuân theo lệnh của ta để làm các phép biến đổi unitary, nhưng nó thỉnh thoảng cũng có quyền gặp lỗi. Mà vì tất cả các thao tác nằm trong chiếc hộp Magic đều rất ”bí ẩn” (ta không biết gì trước khi nhìn mỗi qubit một lần duy nhất), nên ta phải nghĩ ra cách thức để hộp Magic tự có khả năng sửa lỗi nội tại của mình! Liệu có thể dùng độ dư thừa thông tin (như sửa lỗi cổ điển) để làm chiệc hộp Magic vận hành trơn tru, và cái giá phải trả là bao nhiêu?</p>
+</div>
+  <section id="S4.SS0.SSS0.Px1" class="ltx_paragraph">
+<h3 class="ltx_title ltx_title_paragraph">Thuật toán tự sửa lỗi lượng tử.</h3>
+<div id="S4.p4" class="ltx_para">
+<p class="ltx_p">Một lần nữa, Shor đã đưa ra một bước tiến lớn. Để bảo vệ tính chính xác của hộp Magic, thuật toán Sửa lỗi lượng tử (Quantum Error Correction – QEC) hiện nay dựa trên ý tưởng “tàng hình thông tin” như sau: thay vì lưu một qubit logic vào một hạt lượng tử, ta phân mảnh nó vào các mối tương quan vướng víu giữa <math id="S4.p4.m1" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> hạt. Lúc này dữ liệu không nằm ở từng hạt riêng lẻ, mà nằm ở cấu trúc tương quan tập thể, và ở đó các nhiễu cục bộ không còn đủ sức chạm tới được.</p>
+</div>
+<div id="S4.p5" class="ltx_para">
+<p class="ltx_p">Đây chính là mặt đối ngẫu của thuật toán Shor. Trong khi Shor dùng toàn cục để ép chân lý hiện ra, thì QEC dùng toàn cục để giấu đi chân lý. Cả hai đều có thể đọc dưới lăng kính bổ sung của Bohr, cùng một sự dịch chuyển từ cục bộ sang toàn cục, nhưng theo hai chiều ngược nhau: một chiều là phát hiện, chiều kia là bảo vệ. Nhưng dưới chiều nào thì bài học vẫn như nhau: tri thức quan trọng rất khó sống sót ở cấp cục bộ.</p>
+</div>
+<div id="S4.p6" class="ltx_para">
+<p class="ltx_p">Về mặt toán học, kỹ thuật ”tàng hình thông tin” trong QEC chính là nghệ thuật nhúng không gian lượng tử của một dữ liệu nhỏ vào một không gian Hilbert có số chiều lớn hơn theo cấp số nhân (<math id="S4.p6.m1" class="ltx_Math" alttext="2^{n}" display="inline"><msup><mn>2</mn><mi>n</mi></msup></math> chiều). Nhờ khoảng không gian thừa thãi này, thông tin cốt lõi được giấu an toàn vào một không gian con (subspace) cực nhỏ.
+Để minh hoạ cho kỹ thuật này, chúng ta hãy xét một ví dụ kinh điển được chính Shor phát minh (1995). Để bảo vệ một trạng thái chồng chập của một hạt <math id="S4.p6.m2" class="ltx_Math" alttext="|\psi\rangle=\alpha|0\rangle+\beta|1\rangle" display="inline"><mrow><mrow><mo stretchy="false">|</mo><mi>ψ</mi><mo stretchy="false">⟩</mo></mrow><mo>=</mo><mrow><mrow><mi>α</mi><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mn>0</mn><mo stretchy="false">⟩</mo></mrow></mrow><mo>+</mo><mrow><mi>β</mi><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mn>1</mn><mo stretchy="false">⟩</mo></mrow></mrow></mrow></mrow></math> với điều kiện chuẩn hoá <math id="S4.p6.m3" class="ltx_Math" alttext="|\alpha|^{2}+|\beta|^{2}=1" display="inline"><mrow><mrow><msup><mrow><mo stretchy="false">|</mo><mi>α</mi><mo stretchy="false">|</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo stretchy="false">|</mo><mi>β</mi><mo stretchy="false">|</mo></mrow><mn>2</mn></msup></mrow><mo>=</mo><mn>1</mn></mrow></math>, ông nhúng nó vào một trạng thái chồng chập của 9 hạt <math id="S4.p6.m4" class="ltx_Math" alttext="|\psi_{L}\rangle=\alpha|0_{L}\rangle+\beta|1_{L}\rangle" display="inline"><mrow><mrow><mo stretchy="false">|</mo><msub><mi>ψ</mi><mi>L</mi></msub><mo stretchy="false">⟩</mo></mrow><mo>=</mo><mrow><mrow><mi>α</mi><mo>⁢</mo><mrow><mo stretchy="false">|</mo><msub><mn>0</mn><mi>L</mi></msub><mo stretchy="false">⟩</mo></mrow></mrow><mo>+</mo><mrow><mi>β</mi><mo>⁢</mo><mrow><mo stretchy="false">|</mo><msub><mn>1</mn><mi>L</mi></msub><mo stretchy="false">⟩</mo></mrow></mrow></mrow></mrow></math>, trong đó hai trạng thái cơ sở</p>
+<table id="S4.Ex9" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S4.Ex9.m1" class="ltx_Math" alttext="|0_{L}\rangle=\frac{1}{2\sqrt{2}}(|000\rangle+|111\rangle)^{\otimes 3},\quad|1%
+_{L}\rangle=\frac{1}{2\sqrt{2}}(|000\rangle-|111\rangle)^{\otimes 3}" display="block"><mrow><mrow><mrow><mo stretchy="false">|</mo><msub><mn>0</mn><mi>L</mi></msub><mo stretchy="false">⟩</mo></mrow><mo>=</mo><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mfrac><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">|</mo><mn>000</mn><mo stretchy="false">⟩</mo></mrow><mo>+</mo><mrow><mo stretchy="false">|</mo><mn>111</mn><mo stretchy="false">⟩</mo></mrow></mrow><mo stretchy="false">)</mo></mrow><mrow><mi></mi><mo lspace="0.222em" rspace="0.222em">⊗</mo><mn>3</mn></mrow></msup></mrow></mrow><mo rspace="1.167em">,</mo><mrow><mrow><mo stretchy="false">|</mo><msub><mn>1</mn><mi>L</mi></msub><mo stretchy="false">⟩</mo></mrow><mo>=</mo><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mfrac><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">|</mo><mn>000</mn><mo stretchy="false">⟩</mo></mrow><mo>−</mo><mrow><mo stretchy="false">|</mo><mn>111</mn><mo stretchy="false">⟩</mo></mrow></mrow><mo stretchy="false">)</mo></mrow><mrow><mi></mi><mo lspace="0.222em" rspace="0.222em">⊗</mo><mn>3</mn></mrow></msup></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">đã được thiết kế tinh vi để hệ thống có tính vướng víu tối đa. Cụ thể hơn, nếu môi trường tò mò muốn ”nhìn trộm” một cách cục bộ bằng cách tập trung tương tác với hạt số 1, thì về mặt toán học, điều này tương đương với việc lấy vết riêng phần (partial trace) qua 8 hạt còn lại. Kết quả trả về cho ma trận mật độ của riêng hạt số 1 luôn luôn là:</p>
+<table id="S4.Ex10" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S4.Ex10.m1" class="ltx_Math" alttext="\rho_{1}=\text{Tr}_{2\dots 9}(|\psi_{L}\rangle\langle\psi_{L}|)=\frac{1}{2}%
+\begin{pmatrix}1&amp;0\\
+0&amp;1\end{pmatrix}." display="block"><mrow><mrow><msub><mi>ρ</mi><mn>1</mn></msub><mo>=</mo><mrow><msub><mtext>Tr</mtext><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">…</mi><mo>⁢</mo><mn>9</mn></mrow></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">|</mo><msub><mi>ψ</mi><mi>L</mi></msub><mo stretchy="false">⟩</mo></mrow><mo>⁢</mo><mrow><mo stretchy="false">⟨</mo><msub><mi>ψ</mi><mi>L</mi></msub><mo stretchy="false">|</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><mrow><mo>(</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable><mo>)</mo></mrow></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">Đây chính xác là một trạng thái nhiễu trắng, với mọi thông tin về <math id="S4.p6.m5" class="ltx_Math" alttext="\alpha,\beta" display="inline"><mrow><mi>α</mi><mo>,</mo><mi>β</mi></mrow></math> đã bị triệt tiêu hoàn toàn. Vì môi trường không thu được bất kỳ thông tin gì về dữ liệu gốc, sự tương tác cục bộ này không đủ sức làm sụp đổ hàm sóng toàn cục, và <math id="S4.p6.m6" class="ltx_Math" alttext="\alpha,\beta" display="inline"><mrow><mi>α</mi><mo>,</mo><mi>β</mi></mrow></math> có thể an tâm ”ngủ yên” trong không gian vướng víu toàn cục mà không hề bị đánh thức.</p>
+</div>
+<div id="S4.p7" class="ltx_para">
+<p class="ltx_p">Tuy nhiên, để bảo vệ dữ liệu, thuật toán lượng tử còn phải đối mặt với một nghịch lý: ta bắt buộc phải ”tàng hình dữ liệu” để môi trường không làm sụp đổ hàm sóng, nhưng đồng thời ta lại bắt buộc phải có khả năng ”tự sửa lỗi” liên tục để cấu trúc không bị phân rã theo thời gian. Chúng là hai mảnh bổ sung của một vòng lặp ổn định. Câu hỏi là khi máy tính lượng tử không được phép đo <math id="S4.p7.m1" class="ltx_Math" alttext="\alpha,\beta" display="inline"><mrow><mi>α</mi><mo>,</mo><mi>β</mi></mrow></math>, làm sao nó biết khi nào có nhiễu xảy ra để tự sửa lỗi?</p>
+</div>
+<div id="S4.p8" class="ltx_para">
+<p class="ltx_p">Câu trả lời cũng nằm ngay trong thiết kế mã Shor 9-qubit phía trên, khi ngoài cơ chế phòng thủ bị động là ”tàng hình dữ liệu”, nó còn có cơ chế phòng thủ chủ động ”Tự sửa lỗi”. Về mặt cấu trúc, mã Shor 9-qubit sở hữu một lớp khiên kép lồng ghép tinh vi: lớp khiên bên trong bảo vệ sự đồng bộ của từng cụm hạt khỏi lỗi lật Bit (từ <math id="S4.p8.m1" class="ltx_Math" alttext="0\rightarrow 1" display="inline"><mrow><mn>0</mn><mo stretchy="false">→</mo><mn>1</mn></mrow></math>), và lớp khiên bên ngoài bảo vệ sự đồng bộ về dấu giữa các cụm khỏi lỗi lật Pha (từ <math id="S4.p8.m2" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math> sang <math id="S4.p8.m3" class="ltx_Math" alttext="-" display="inline"><mo>−</mo></math>). Chẳng hạn, nếu hạt số 1 bị tiếng ồn làm lật bit, khiến cụm đầu tiên từ <math id="S4.p8.m4" class="ltx_Math" alttext="(|000\rangle\pm|111\rangle)" display="inline"><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">|</mo><mn>000</mn><mo stretchy="false">⟩</mo></mrow><mo>±</mo><mrow><mo stretchy="false">|</mo><mn>111</mn><mo stretchy="false">⟩</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></math> biến thành <math id="S4.p8.m5" class="ltx_Math" alttext="(|100\rangle\pm|011\rangle)" display="inline"><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">|</mo><mn>100</mn><mo stretchy="false">⟩</mo></mrow><mo>±</mo><mrow><mo stretchy="false">|</mo><mn>011</mn><mo stretchy="false">⟩</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></math>, thì thay vì đo từng hạt xem nó mang giá trị <math id="S4.p8.m6" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math> hay <math id="S4.p8.m7" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math>, hệ thống chỉ đo tính chẵn lẻ cục bộ của các cặp hạt lân cận bằng các toán tử ổn định. Nó so sánh hạt 1 với hạt 2 (thấy khác nhau), rồi so sánh hạt 2 với hạt 3 (thấy giống nhau)<span id="footnote3" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">2</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">2</sup><span class="ltx_tag ltx_tag_note">2</span>Để so sánh hai hạt, ta có thể dùng thêm một qubit phụ trợ, khởi tạo ở trạng thái <math id="footnote3.m1" class="ltx_Math" alttext="|0\rangle" display="inline"><mrow><mo stretchy="false">|</mo><mn>0</mn><mo stretchy="false">⟩</mo></mrow></math>, rồi thực hiện phép biến đổi unitary
+<math id="footnote3.m2" class="ltx_Math" alttext="|x_{1}x_{2}\rangle\,|0\rangle_{a}\;\mapsto\;|x_{1}x_{2}\rangle\,|x_{1}\oplus x%
+_{2}\rangle_{a}," display="inline"><mrow><mrow><mrow><mrow><mo stretchy="false">|</mo><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><mo stretchy="false">⟩</mo></mrow><mo lspace="0.170em">⁢</mo><msub><mrow><mo stretchy="false">|</mo><mn>0</mn><mo stretchy="false">⟩</mo></mrow><mi>a</mi></msub></mrow><mo rspace="0.558em" stretchy="false">↦</mo><mrow><mrow><mo stretchy="false">|</mo><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><mo stretchy="false">⟩</mo></mrow><mo lspace="0.170em">⁢</mo><msub><mrow><mo stretchy="false">|</mo><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>⊕</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><mo stretchy="false">⟩</mo></mrow><mi>a</mi></msub></mrow></mrow><mo>,</mo></mrow></math>
+sau đó đo qubit phụ trợ này.
+</span></span></span>
+Kết quả trả về một thông điệp báo động: <span class="ltx_text ltx_font_italic">”Hạt số 1 đang bị ngược bit”</span>, và ngay lập tức một thao tác can thiệp địa phương được thực hiện để lật hạt số 1 lại. Tương tự với lỗi lật Pha, nếu dấu <math id="S4.p8.m8" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math> bị biến thành dấu <math id="S4.p8.m9" class="ltx_Math" alttext="-" display="inline"><mo>−</mo></math>, ta có thể dùng một phép đo chẵn lẻ toàn cục để bắt lỗi này. Một lần nữa, sự kết hợp hai phép đo địa phương và toàn cục là mấu chốt, cho phép chúng ta hoàn tất bộ khiên kép của thuật toán ”Tự sửa lỗi”.</p>
+</div>
+<div id="S4.p9" class="ltx_para">
+<p class="ltx_p">Dù lý thuyết QEC đẹp đẽ như thế, nhưng cái giá phải trả cũng rất đắt. Mã 9-qubit của Shor thực chất chỉ là một chiếc áo giáp mỏng manh: nó bảo vệ hệ thống xuất sắc nếu chỉ có một phát đạn từ môi trường, nhưng sẽ sụp đổ nếu môi trường vô tình bắn trúng 2 hạt cùng lúc. Để gia tăng sự lì lợm của hệ thống khi nhiều lỗi xảy ra đồng thời, ta buộc phải mở rộng cấu trúc sang các không gian <math id="S4.p9.m1" class="ltx_Math" alttext="2^{n}" display="inline"><msup><mn>2</mn><mi>n</mi></msup></math> chiều lớn hơn rất nhiều. Trong các cỗ máy hiện nay, tỷ lệ lỗi vật lý rơi vào khoảng <math id="S4.p9.m2" class="ltx_Math" alttext="10^{-3}" display="inline"><msup><mn>10</mn><mrow><mo>−</mo><mn>3</mn></mrow></msup></math> (1000 phép tính sai 1 lần). Tuy nhiên, để thuật toán Shor chạy trơn tru hàng tỷ phép toán nhằm bẻ khóa RSA, tỷ lệ lỗi logic phải bị ép xuống mức <math id="S4.p9.m3" class="ltx_Math" alttext="10^{-15}" display="inline"><msup><mn>10</mn><mrow><mo>−</mo><mn>15</mn></mrow></msup></math>, và điều này yêu cầu ta phải huy động hàng ngàn qubit vật lý làm “lá chắn” chỉ để bảo vệ một qubit logic duy nhất. Trong những ước tính gần đây của Gidney và Ekerå (2021) và Gidney (2025), để bảo vệ <math id="S4.p9.m4" class="ltx_Math" alttext="6000" display="inline"><mn>6000</mn></math> qubit sạch, tức là để bẻ gãy RSA thật sự, chúng ta cần hàng triệu qubit vật lý, vượt xa giới hạn công nghệ hiện tại.</p>
+</div>
+<div id="S4.p10" class="ltx_para">
+<p class="ltx_p">Tuy vậy, bóng ma lượng tử vẫn phủ lên thế giới thông tin với chiến lược đe doạ “Thu thập hôm nay, giải mã ngày mai”: những thông tin tối mật quan trọng có thể được lưu trữ để 10, 20 hay 30 năm sau có thể bị phá mã trên máy tính lượng tử. Do đó, một mặt, chúng tôi cho rằng chúng ta không nên đổ nguồn kinh phí khổng lồ vào cuộc chạy đua để phát triển các máy tính lượng tử, vừa cực kỳ tốn kém (cả xây dựng và duy trì trong những điều kiện phải cực kỳ lý tưởng)<span id="footnote4" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">3</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">3</sup><span class="ltx_tag ltx_tag_note">3</span>Bài này chỉ giới hạn bàn về máy tính lượng tử (Quantum Computer) chứ không bàn tới các công nghệ lượng tử khác như Quantum Simulation (QSim), Quantum Communication (QComm), và Quantum Sensing (QS).</span></span></span>. vừa hầu như chỉ giải quyết được một lớp bài toán có dạng ”tìm chu kỳ” như đã mô tả. Nhưng mặt khác, nghiên cứu và nắm bắt nền tảng lý thuyết cơ bản để từ đó thiết lập các phương pháp bảo vệ an toàn các hệ thống trước những tấn công lượng tử lại là điều cần thiết và khả thi ngay: dựa trên các bài toán ngoài lớp có thể giải tốt bởi máy lượng tử để xây dựng các hệ thống an toàn. Đó chính là hướng phát triển mật mã ”Hậu lượng tử”, có thể chạy rất nhanh trên các máy tính thông thường hiện nay, nhưng đồng thời vẫn có thể đứng vững trước các đòn tấn công từ máy tính lượng tử.</p>
+</div>
+</section>
+</section>
+<section id="S5" class="ltx_section">
+<h2 class="ltx_title ltx_font_bold ltx_title_section" style="font-size:120%;">5   Cục bộ và toàn cục</h2>
+
+<div id="S5.p1" class="ltx_para">
+<p class="ltx_p">Tối ưu hóa sự biết trong một lần hỏi là nghệ thuật chọn đúng cặp đối ngẫu-bổ sung. Nghệ thuật của Shor là không hỏi trực diện vào thứ mình cần, mà đặt lại câu hỏi trong một hệ quy chiếu mới để bài toán tự khai ra cấu trúc ẩn của nó. Trong khi máy tính cổ điển đứng quá gần bài toán và chỉ có thể mò mẫm cục bộ trong một không gian nghiệm bao la, thì tính toán lượng tử đổi sang cách nhìn toàn cục để chạm đúng vào nhịp tuần hoàn ẩn bên dưới. Trong cuộc đời cũng vậy, nếu ta không có quyền thử sai vô hạn hay quay ngược thời gian để vá víu những gì đã sụp đổ, thì đôi khi ta cần dũng cảm thực hiện một phép biến đổi Fourier trong tâm thức: buông bỏ những tiểu tiết để lùi ra đúng khoảng cách, nơi những nhiễu động cục bộ tự triệt tiêu và hình thế lớn hơn của sự thật dần lộ diện. Để tìm thấy chân lý, vấn đề không nằm ở việc ta thu thập được bao nhiêu mảnh dữ liệu rời rạc, mà ở việc ta có dám từ bỏ hệ quy chiếu địa phương để lắng nghe bản giao hưởng vĩ mô của tương quan hay không.</p>
+</div>
+<div id="S5.p2" class="ltx_para">
+<p class="ltx_p">Trong toán học cũng như trong cuộc đời, đôi khi ta phải sống rất sâu trong một vấn đề để thấu hiểu bản chất từng khó khăn, để biết tường tận nguồn cội từng chi tiết, nhưng đồng thời cũng phải biết bước ra ngoài nó, biết lùi lại đủ xa để có cái nhìn toàn cục, như câu thơ của Phan Đình Diệu:</p>
+</div>
+<div class="poem">
+<p>Ta hiểu tình ta từ nửa vòng trái đất</p>
+<p>Hiểu cái lắng sâu của cuộc sống bình thường</p>
+<p>Bởi tự rất xa nhìn cái gần mới thật</p>
+<p>Mới rõ tình người từ muôn dặm trùng dương</p>
+</div>
+<div id="S5.p7" class="ltx_para">
+<p class="ltx_p">Cái hiểu về tình ta thường bắt đầu từ bên trong, từ những gì rất gần gũi và tưởng như bình thường. Nhưng khi lắng đủ sâu, ta mới nhận ra ở đó cái riêng chưa bao giờ tách khỏi cái chung. Khi từ xa quan sát, ta mới thấy cái thật nhất của cái gần, và khi đó cái điều riêng trong mỗi người không còn khép kín nơi mình, mà mở sang tình người chung và bóng hình đất nước.</p>
+</div>
+<div id="S5.p8" class="ltx_para">
+<p class="ltx_p">Trực giác ấy cũng giống như tâm sự của Tô Đông Pha từ ngàn năm trước khi ngắm vẻ hùng vĩ của núi Lư Sơn:</p>
+</div>
+<div class="poem">
+<p>Hoành khan thành lĩnh trắc thành phong</p>
+<p>Viễn cận cao đê các bất đồng</p>
+<p>Bất thức Lư Sơn chân diện mục</p>
+<p>Chỉ duyên thân tại thử sơn trung</p>
+</div>
+<div id="S5.p13" class="ltx_para ltx_noindent">
+<p class="ltx_p">Phóng dịch:</p>
+</div>
+<div class="poem">
+<p>Nhìn ngang như lụa, chếch như mâu</p>
+<p>Xa gần cao thấp thảy khác nhau</p>
+<p>Mặt thật Lư Sơn nào thấy hết</p>
+<p>Khi thân còn đứng giữa non sâu</p>
+</div>
+<div id="S5.p19" class="ltx_para">
+<p class="ltx_p">Câu thơ đầu của Tô Đông Pha, cùng một ngọn núi nhưng nhìn ngang thành dãy, nhìn nghiêng thành đỉnh, gợi đúng tinh thần của biến đổi Fourier: cùng một thực tại, nếu đứng trong không gian vị trí thì ta chỉ thấy những giá trị cục bộ, còn khi đổi sang không gian tần số thì cấu trúc tuần hoàn ẩn sâu bên dưới mới hiện ra. Đứng trước bí ẩn của vũ trụ, điều giới hạn ta nhiều khi không phải bóng tối, mà chính là khoảng cách quá gần với nguồn sáng mà mình đang bám giữ. Giá trị của một lần được gõ cửa không nằm ở việc ta gõ mạnh hay nhẹ, mà ở việc ta đã biết cách lùi lại nửa bước để nhìn ra đâu mới là cánh cửa dẫn tới ”Lư Sơn chân diện” hay chưa.</p>
+</div>
+</section>
+</article>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ── Table of contents ── */
+  (function buildToc () {
+    var headings = Array.from(document.querySelectorAll(
+      '.ltx_section > h2.ltx_title_section, .ltx_paragraph > h3.ltx_title_paragraph'
+    ));
+    if (!headings.length) return;
+
+    var toc = document.createElement('nav');
+    toc.id = 'toc';
+
+    var tocHead = document.createElement('p');
+    tocHead.className = 'toc-heading';
+    tocHead.textContent = 'Mục lục';
+    toc.appendChild(tocHead);
+
+    var ol = document.createElement('ol');
+    headings.forEach(function (h) {
+      var container = h.closest('[id]');
+      if (!container) return;
+
+      var li = document.createElement('li');
+      if (h.tagName === 'H3') li.className = 'toc-sub';
+
+      var a = document.createElement('a');
+      a.href = '#' + container.id;
+      a.textContent = h.textContent.replace(/\s+/g, ' ').trim();
+      li.appendChild(a);
+      ol.appendChild(li);
+    });
+    toc.appendChild(ol);
+
+    var anchor = document.querySelector('.art-pdf-link') || document.querySelector('.ltx_dates');
+    if (anchor) anchor.insertAdjacentElement('afterend', toc);
+  })();
+
+  /* ── Footnotes ── */
+  var notes = Array.from(document.querySelectorAll('.ltx_role_footnote'));
+  if (!notes.length) return;
+
+  var section = document.createElement('section');
+  section.id = 'notes-section';
+
+  var title = document.createElement('h2');
+  title.className = 'notes-title';
+  title.textContent = 'Chú thích';
+  section.appendChild(title);
+
+  var list = document.createElement('ul');
+  list.id = 'notes-list';
+  section.appendChild(list);
+
+  notes.forEach(function (note) {
+    var id = note.id || ('fn' + Math.random().toString(36).slice(2, 7));
+    var firstMark = note.querySelector('.ltx_note_mark');
+    var markText = firstMark ? firstMark.textContent.trim() : '?';
+    var content = note.querySelector('.ltx_note_content');
+    if (!content) return;
+
+    var clone = content.cloneNode(true);
+    clone.querySelectorAll('.ltx_note_mark, .ltx_tag').forEach(function (el) { el.remove(); });
+
+    var sup = document.createElement('sup');
+    sup.className = 'fn-ref';
+    var a = document.createElement('a');
+    a.href = '#' + id + '-fn';
+    a.id = id + '-ref';
+    a.textContent = markText;
+    sup.appendChild(a);
+    note.parentNode.replaceChild(sup, note);
+
+    var li = document.createElement('li');
+    li.id = id + '-fn';
+    li.setAttribute('data-mark', markText);
+
+    var back = document.createElement('a');
+    back.href = '#' + id + '-ref';
+    back.className = 'fn-back';
+    back.title = 'Quay lại';
+    back.textContent = '↑';
+    li.appendChild(back);
+    li.appendChild(document.createTextNode('\u00a0'));
+
+    Array.from(clone.childNodes).forEach(function (child) {
+      li.appendChild(child.cloneNode(true));
+    });
+
+    list.appendChild(li);
+  });
+
+  var article = document.querySelector('article');
+  if (article) article.appendChild(section);
+});
+</script>
+</body>
+</html>

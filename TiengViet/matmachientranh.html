@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Mật mã trong các cuộc chiến tranh chống Pháp và Mỹ ở Việt Nam">
+<meta property="og:description" content="Mật mã học đã đóng vai trò gì trong hai cuộc chiến tranh chống Pháp và Mỹ? Mặc dù đối phương vượt trội về công nghệ, các chuyên gia mật mã Việt Nam đã đạt được sự cân bằng đáng ngạc nhiên về SIGINT và COMSEC.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/matmachientranh.html">
+<title>Mật mã trong các cuộc chiến tranh chống Pháp và Mỹ ở Việt Nam - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-translator { text-align: center; font-size: 0.92rem; color: #888; margin-bottom: 0.3rem; font-style: italic; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 2.5rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; }
+p { margin: 0 0 1.2em; }
+a { color: #8f1d2c; }
+a:hover { text-decoration: underline; }
+h2.sec-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+h3.subsec-title {
+  font-size: 1.07rem;
+  font-weight: 700;
+  color: #5a1020;
+  margin: 2rem 0 0.8rem;
+}
+h4.subsubsec-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  margin: 1.5rem 0 0.7rem;
+  font-style: italic;
+}
+.abstract-box {
+  background: #faf7f5;
+  border-left: 4px solid #c9a0a7;
+  border-radius: 0 8px 8px 0;
+  padding: 1.1rem 1.5rem;
+  margin: 1.5rem 0 2rem;
+  font-style: italic;
+  color: #444;
+  font-size: 0.98rem;
+}
+blockquote {
+  border-left: 4px solid #c9a0a7;
+  background: #faf7f5;
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+blockquote p { margin: 0 0 0.5em; }
+blockquote p:last-child { margin: 0; }
+.opening-quote {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin: 0 0 2.5rem;
+  padding: 0.8rem 1.5rem;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+figure {
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 600px;
+}
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+figcaption {
+  font-size: 0.88rem;
+  color: #777;
+  font-style: italic;
+  margin-top: 0.6rem;
+  line-height: 1.5;
+}
+sup { font-size: 0.75em; }
+sup a { color: #8f1d2c; text-decoration: none; }
+sup a:hover { text-decoration: underline; }
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.87rem;
+  color: #555;
+  line-height: 1.65;
+}
+.footnotes h3 { font-size: 0.95rem; font-weight: 700; color: #444; margin-bottom: 0.8rem; }
+.footnotes ol { padding-left: 1.5rem; }
+.footnotes li { margin-bottom: 0.5rem; }
+.bibliography {
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+}
+.bibliography h3 { font-size: 1rem; font-weight: 700; color: #8f1d2c; margin-bottom: 1rem; }
+.bibliography ul { list-style: none; padding: 0; }
+.bibliography li { margin-bottom: 0.6rem; font-size: 0.89rem; color: #444; padding-left: 1.5rem; text-indent: -1.5rem; }
+.about-authors {
+  background: #faf7f5;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  margin: 2rem 0;
+  font-size: 0.96rem;
+}
+.about-authors h3 { font-size: 1rem; font-weight: 700; color: #8f1d2c; margin-bottom: 0.8rem; }
+.keywords {
+  font-size: 0.88rem;
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+.back-to-index { text-align: center; margin-top: 2rem; font-size: 0.9rem; }
+.back-to-index a { color: #8f1d2c; text-decoration: none; }
+.back-to-index a:hover { text-decoration: underline; }
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.35rem; }
+  h2.sec-title { font-size: 1.05rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Mật mã trong các cuộc chiến tranh chống Pháp và Mỹ ở Việt Nam</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-author">Neal Koblitz</span>
+</div>
+<div class="art-translator">Dịch bởi: Đinh Thị Diệu Linh</div>
+<div class="art-source">Tạp chí Pi, số 7 &amp; 8 (2017) · <em>Cryptologia</em> · <a href="https://eprint.iacr.org/2016/1136.pdf" target="_blank">Bản tiếng Anh →</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="keywords"><strong>Từ khóa:</strong> Chiến tranh ở Việt Nam, tình báo tín hiệu, bảo mật thông tin</div>
+
+<div class="abstract-box">
+<strong>Tóm tắt:</strong> Từ khi Việt Nam tuyên bố Độc Lập vào ngày 2/9/1945, đến khi thoát khỏi chế độ thuộc địa và thật sự trở thành một quốc gia độc lập thống nhất vào ngày 30/4/1975, đất nước đã trải qua hai cuộc chiến tranh chống Pháp và Mỹ trường kỳ và khốc liệt. Mục đích của bài viết này là để xem xét vai trò của mật mã học trong hai thời kỳ chiến tranh đó. Mặc dù đối phương được trang bị những công nghệ tối tân vượt trội, nhưng những chuyên gia về tình báo thông tin liên lạc của Mặt trận Việt Minh, Mặt trận Dân tộc Giải phóng miền Nam Việt Nam và Chính phủ Việt Nam Dân chủ Cộng hòa đã có những thành công đáng kể không chỉ trong việc bảo vệ thông tin liên lạc của Việt Nam, mà còn thu và đọc được những tin bí mật mang tính chiến thuật và chiến lược của đối phương. Trong những cuộc chiến này, có một sự cân bằng đáng ngạc nhiên giữa các bên — mật mã học và thiết kế giao thức đạt mức độ an toàn cao cho những nhiệm vụ ở mức trung ương, nhưng việc áp dụng cho thông tin liên lạc chiến thuật trên chiến trường lại không hề dễ dàng, và đã xảy ra nhiều sai lầm từ tất cả các bên.
+</div>
+
+<div class="opening-quote">
+"Bạn bè của chúng ta ... ngưỡng mộ về sự quyết đoán và hy sinh của một đất nước, dân tộc nhỏ nhưng dám đứng lên chiến đấu với một đế quốc thuộc địa ... Trận chiến của chúng ta tựa như câu chuyện David chống lại Goliath trong Kinh thánh."<br>
+— Nguyễn Thị Bình (nguyên Phó Chủ tịch nước, 2013)
+</div>
+
+<h2 class="sec-title">1. Mở đầu</h2>
+
+<p>Liệu mật mã học trong thời kỳ chiến tranh chống Pháp và Mỹ ở Việt Nam<sup><a href="#fn1" id="ref1">1</a></sup> có liên quan gì đến mối quan tâm của những người làm trong ngành bảo mật thông tin ở thế kỷ XXI hiện nay? Mật mã học cơ bản, thuật toán tiêu chuẩn mã hóa dữ liệu DES của Mỹ và đặc biệt mạng Internet đều xuất hiện sau giai đoạn 1945–1975. Vì thế, có rất nhiều lý do để kể lại câu chuyện này vào thời của chúng ta.</p>
+
+<p>Đầu tiên là, những chiến thắng của một dân tộc lạc hậu về công nghệ đối với hai cường quốc lớn mạnh với nền công nghiệp tiên tiến là những sự kiện nổi bật và đặc trưng của thế kỷ XX. Sự thất bại của Pháp trong chiến dịch Điện Biên Phủ vào mùa xuân năm 1954 đã đánh dấu sự khởi đầu trong việc chấm dứt chủ nghĩa thực dân Pháp. Đó cũng là một động lực đối với các dân tộc khác, đặc biệt ở Bắc Phi, khi họ đang chịu ách thống trị của thực dân Pháp và cuối cùng cũng giành được độc lập chỉ sau một vài năm. Cũng giống như vậy, việc quân Mỹ phải rút ra khỏi miền Nam Việt Nam vào ngày 30 tháng 4 năm 1975 — đó là lần đầu tiên mà Mỹ hoàn toàn bị thất bại trong một cuộc chiến — đã khuyến khích những dân tộc khác trên thế giới, đặc biệt là khu vực Mỹ La tinh đang đấu tranh chống lại quyền bá chủ của Mỹ.</p>
+
+<p>Một giải thích đơn giản cho chiến thắng của Việt Nam chính là dân tộc Việt Nam có truyền thống gần 2000 năm lịch sử về chống giặc ngoại xâm và xâm lược, từ cuộc nổi dậy chống lại sự thống trị của Trung Quốc do Hai Bà Trưng khởi nghĩa vào năm 40 sau Công nguyên. Tinh thần sẵn sàng hy sinh tất cả vì độc lập cùng tư tưởng mang tính chiến lược kiên định của những người lãnh đạo như Hồ Chí Minh và Võ Nguyên Giáp đã đưa Việt Nam vượt qua những cỗ máy quân sự tân tiến với sức công phá khủng khiếp.</p>
+
+<p>Đưa ra phân tích như trên, mọi người có lẽ nghĩ rằng nếu chúng ta nhìn về mặt công nghệ của cuộc chiến — và đặc biệt là về tình báo thông tin liên lạc — Pháp và Mỹ phải có chuyên gia và thiết bị tân tiến vượt trội so với Mặt trận Việt Minh, Mặt trận Dân tộc Giải phóng miền Nam Việt Nam, và Chính phủ Việt Nam Dân chủ Cộng hòa. Tuy nhiên, bản chất của vấn đề này còn phức tạp hơn rất nhiều. Trong cả hai cuộc chiến tranh, có một sự đối xứng bất ngờ giữa các bên, cả về tình báo thông tin tín hiệu (SIGINT) lẫn bảo mật thông tin liên lạc (COMSEC). Đã có nhiều thành công và thất bại của tất cả các bên.</p>
+
+<p>Có lẽ bài học rút ra được từ SIGINT và COMSEC trong các cuộc chiến tranh chống chế độ thuộc địa ở Đông Dương thì <em>con người là yếu tố mang tính chất quyết định</em>, còn công nghệ kỹ thuật chỉ là yếu tố thứ yếu. Liệu điều đó vẫn còn đúng với thực tiễn hiện nay của mật mã học? Thật vậy, nếu chúng ta có thể trích dẫn một đoạn từ quyển sách cổ điển nghìn trang <em>Security Engineering</em> của Ross Anderson, ta thấy rằng nhân tố con người vẫn là trung tâm đối với an ninh mạng trong thời đại Internet.</p>
+
+<p>Lý do thứ hai mang tính chất lịch sử hơn: chiến thắng này ẩn chứa bài học về đức tính khiêm tốn. Từ thời kỳ cổ đại, sự cần thiết của phẩm chất này đã được hiểu là cần thiết để có thể phát triển về mặt trí tuệ và khoa học. Trong Chương 13, Hồi 8–12 của cuốn kinh <em>Bhagavad Gita</em>, một trong những phẩm chất đạo đức cần thiết cho việc học hỏi thì đầu tiên chính là <em>Amaanitvam</em> — trong tiếng Phạn nghĩa là tính khiêm tốn. Những nhà mật mã học sẽ thất bại nếu họ đánh giá quá cao sự thông minh của mình mà quên đi bài học của lịch sử.</p>
+
+<p>Lý do ý nghĩa thứ ba là câu chuyện của mật mã học ở Việt Nam trong thời kỳ chiến tranh còn ảnh hưởng tới chúng ta hiện nay. Một trong những động lực để những nhà nghiên cứu trong lĩnh vực này chính là niềm tin rằng mật mã học có một tiềm năng rất lớn bảo vệ bên yếu thế — những con người bình thường — trước những tổ chức quyền lực của chính phủ và các tập đoàn khổng lồ. Đây chắc chắn là quan điểm của những nhà tiên phong về mật mã học hiện đại như Whit Diffie và David Chaum, và chúng ta cũng có thể nhìn thấy điều đó ở Phil Zimmerman (nhà sáng tạo phần mềm Pretty Good Privacy) và John Gilmore (người sáng lập tổ chức Electronic Frontier Foundation). Từ cách nhìn lạc quan này, ta thấy mật mã học như một cú bắn súng cao su mà cậu bé David đã dùng để hạ gục gã khổng lồ Goliath.</p>
+
+<figure>
+  <img src="matmachientranh/hinh1.png" alt="Bà Nguyễn Thị Bình tại Hội nghị Paris về Hòa bình năm 1969" loading="lazy">
+  <figcaption>Bà Nguyễn Thị Bình tại Hội nghị Paris về Hòa bình năm 1969.</figcaption>
+</figure>
+
+<p>Cuối cùng, lý do thứ tư có liên quan đến câu chuyện này là mật mã học hiện đại bị Hoa Kỳ áp đảo, và rất nhiều nước trên thế giới chỉ việc đi theo Hoa Kỳ và lấy mật mã từ họ về áp dụng. Điều này thật là đáng tiếc! Các tài liệu của Edward Snowden chỉ ra nguy cơ trong hành động này, và điều cần thiết là phải có những chuyên gia riêng và sự phát triển thương mại về mật mã học ở các quốc gia khác trên thế giới. Vì vậy, việc nghiên cứu lịch sử mật mã học từ thời kỳ sơ khai, tồn tại ở các vùng khác nhau trên thế giới, như Châu Á, là rất cần thiết. Nhận thức được yếu tố lịch sử có thể giúp cho con người ở các quốc gia đang phát triển ngày nay có thêm sự tự tin cần thiết để thoát khỏi sự phụ thuộc vào những tri thức và sản phẩm của nước ngoài.</p>
+
+<h2 class="sec-title">2. Chiến tranh chống Pháp (1945–1954) và thời kỳ 1954–1960</h2>
+
+<h3 class="subsec-title">2.1. Những năm đầu</h3>
+
+<p>Từ những ngày đầu tiên, sự lãnh đạo ở Hà Nội đã gắn liền với tầm quan trọng to lớn của tình báo thông tin liên lạc. Theo lịch sử của Chính phủ Việt Nam được dịch bởi Cơ quan An ninh Quốc gia Mỹ (NSA), tổ chức mật mã đầu tiên thuộc Bộ Tổng tham mưu Quân đội Nhân dân Việt Nam được thành lập vào ngày 12/9/1945, chỉ mười ngày sau Tuyên ngôn độc lập khai sinh nước Việt Nam Dân chủ Cộng hòa.</p>
+
+<p>Tại thời điểm đó, trình độ mật mã ở Việt Nam còn hạn chế. Theo lịch sử Ban Cơ Yếu, hệ thống mật mã mà Việt Nam sử dụng cuối năm 1945 và đầu năm 1946 không hơn gì đáng kể mật mã Caesar. Cụ thể là, họ sẽ xét văn bản tiếng Việt tương ứng với những chữ cái trong một bảng chữ cái Latin, bỏ đi các dấu và gộp nhiều chữ cái lại thành một như a, â, ă (đây là những chữ cái riêng biệt trong tiếng Việt). Sau đó, họ sẽ đánh số các chữ cái và dịch đi theo một đại lượng cố định (khoá Caesar là 10). Dãy các số thập phân sẽ là bản mã.</p>
+
+<p>Sau đó, vào ngày 10/4/1946, các cục trưởng được lệnh sử dụng một hệ thống mã hóa kép tốt hơn, mặc dù vẫn còn thô sơ. Đầu tiên, họ sẽ thay những chữ cái và dấu khác nhau bằng tổ hợp các chữ cái La tinh; ví dụ, từ "Lê Thái" sẽ trở thành <em>LEETHAIS</em>. Sau đó, họ sẽ chuyển cụm từ đó sang các số sử dụng một hoán vị ngẫu nhiên cố định của các số từ 0 đến 22 (trong đó có 3 chữ cái của bảng chữ cái La tinh không được sử dụng). Cuối cùng, họ sẽ mã hóa những chữ số thập phân với một khóa Vigenère có độ dài là 5. Các chữ số thể hiện thông điệp được chia thành các khối có độ dài 5 và khóa sẽ được cộng vào theo từng chữ số với modulo 10.</p>
+
+<p>Đây là hệ thống mã rất yếu so với trình độ mật mã thế giới năm 1946. Tầng thứ hai của hệ mã có thể dễ dàng bị gỡ, và còn yếu hơn cả khi so sánh với mã hóa Vigenère thông dụng với khóa 5 ký tự. Trước hết, có sự mập mờ trong việc giải mã: sau bước chuyển ngược phương thức mã hóa Vigenère, thì các ký tự 211 có thể bị đọc hiểu thành "2 11" hoặc "21 1". Nghiêm trọng hơn, phép phân tích tần số đối với hệ mã này còn dễ hơn là đối với mã hóa Vigenère tiêu chuẩn.</p>
+
+<p>Một kết luận có thể rút ra từ bản chất nghiệp dư của mật mã Việt Nam năm 1946: trong một khoảng thời gian ngắn liên minh với Mỹ, Việt Minh đã không nhận được sự viện trợ đáng kể nào về lĩnh vực mật mã từ phía Mỹ. Đầu năm 1945, Cơ quan Tình báo Chiến lược (OSS) của Hoa Kỳ đã cử một nhóm, dẫn đầu bởi Đại tá Archimedes Patti, đến làm việc với mặt trận Việt Minh, giúp đỡ Việt Minh thiết lập một hệ thống tình báo để báo cáo lại những động thái của phát xít Nhật. Đại tá Patti đã gặp Hồ Chí Minh và Võ Nguyên Giáp, và đạt được sự hợp tác toàn diện. Mỹ nhanh chóng có được một lượng lớn thông tin chiến thuật. Nhưng người Mỹ đã giúp Việt Minh ít hơn rất nhiều so với những gì Việt Minh giúp Mỹ.</p>
+
+<p>Từ cuộc phỏng vấn với Đại tá Patti năm 1981, chúng ta có thể nhận ra những lý do về địa chính trị đã khiến người Mỹ không sẵn sàng giúp Việt Minh về mật mã. Về phía Mỹ, họ chỉ muốn một quan hệ đồng minh tạm thời cho tới khi phát xít Nhật bị tiêu diệt. Nhưng họ đã rất ngạc nhiên khi Patti cho biết Việt Minh rất sẵn lòng giúp đỡ quân đội Mỹ mà không cần trả tiền. Về phía Việt Nam, Chủ tịch Hồ Chí Minh muốn thiết lập một quan hệ đồng minh lâu dài với người Mỹ để chống lại thực dân Pháp. Về cơ bản Việt Minh đã giúp Mỹ rất nhiều với mong muốn rằng Mỹ sẽ hỗ trợ Việt Nam trong việc giải phóng và độc lập dân tộc. Tuy nhiên, sau đó Mỹ đã không những không giúp đỡ Việt Minh mà còn quay lại ủng hộ Pháp; vào cuối cuộc chiến tranh chống Pháp năm 1954, CIA đã bay tới tiếp tế cho lực lượng Pháp tại Điện Biên Phủ.</p>
+
+<p>Trong những ngày đầu của thời kỳ này, sự yếu kém về mật mã của Việt Minh đã dẫn đến việc lộ một lượng thông tin bí mật vào tay người Pháp. Trong Hội nghị Pháp–Việt diễn ra tại Fontainebleau từ tháng 7 đến tháng 8 năm 1946 (khi hai bên không đạt được hiệp ước hoà bình), phía Pháp đã đọc được một số thông điệp ngoại giao dưới mã hóa yếu của Việt Nam. Theo Christopher Goscha, một chuyên gia nổi tiếng về thời kỳ chiến tranh chống Pháp:</p>
+
+<blockquote>
+<p>Sử dụng liên lạc bằng sóng radio thường chứa nhiều rủi ro tiềm ẩn. Người Pháp đã cử một số chuyên gia về phá mã giỏi nhất đến Đông Dương nhằm phá mã và thu thập thông tin nội bộ của đối phương, rồi báo cáo với lãnh đạo của phía thực dân tại thuộc địa và ở Pháp. Trong khi đó những nỗ lực của Việt Nam trong ngoại giao lại bị cản trở trên mặt trận công nghệ, do thiếu các kỹ thuật, thiết bị và đào tạo cần thiết cho việc mã hóa. Điều này đặc biệt đúng trong khoảng thời gian đầu của cuộc chiến tranh, khi phương pháp và bảng mã hóa của Việt Nam vẫn còn thô sơ, những người điều khiển sóng còn thiếu kinh nghiệm, thường hay nóng vội và chọn cách đơn giản truyền thẳng thông tin chưa được mã hóa. Chính vì thế, người Pháp đã có thể đọc được rất nhiều thông tin của Chính phủ Việt Nam trong hội nghị tại Đà Lạt, và trong cả hội nghị Fontainebleau.
+</p>
+</blockquote>
+
+<p>Tuy nhiên, Việt Nam đã cố gắng tăng cường kiến thức về mật mã. Đặc biệt, họ đã nghiên cứu quyển sách <em>Éléments de cryptographie</em> viết bởi Đại úy Roger Baudouin, một quyển sách giáo khoa toàn diện được xuất bản ở Paris năm 1939. Năm 1948, Việt Minh đã xuất bản sách hướng dẫn mật mã học, để đào tạo những nhân viên mật mã, được sử dụng rộng rãi trong thời kỳ chiến tranh chống Pháp. Quyển sách mang tên <strong>Mật mã đại cương</strong> và được soạn bởi Hoàng Thành. Hiện cuốn sách đang được trưng bày trong Bảo tàng Mật mã học ở Hà Nội.</p>
+
+<p>Một số bằng chứng cho thấy sự phát triển vững về mật mã ở mức trung ương Việt Minh đã không thực sự được áp dụng rộng rãi cho tất cả các cán bộ trong lĩnh vực này. Một cuộc triển lãm đặc biệt ở Bảo tàng Công An Hà Nội đã miêu tả cảnh những chiến sĩ của Việt Minh đã làm nổ tung con tàu Amyot d'Inville của Pháp vào ngày 27 tháng 9 năm 1950, từ đó đã ngăn chặn một cuộc tấn công quan trọng của Pháp vào vùng Thanh Hóa – Nghệ An – Hà Tĩnh, vùng giải phóng ở miền Trung của Việt Nam. Phần triển lãm còn bao gồm những tài liệu chỉ dẫn gốc miêu tả cách mã hoá mà họ đã dùng: mã khóa Vigenère với khóa 5 ký tự. Từ khóa <strong>TINHA</strong> được hiển thị ở trên cùng, với những chữ cái đã được chuyển dịch ở bên dưới. Nhưng kinh ngạc thay! Cụm từ đầu tiên trong đoạn mã hóa truyền tin lại chính là từ khóa TINHA dùng để mã hoá. Và thậm chí mọi cụm từ đều được cách đều cẩn thận, vì thế độ dài của từ khóa được khẳng định không chút nghi ngờ.</p>
+
+<figure>
+  <img src="matmachientranh/hinh2.png" alt="Từ khóa TINHA là cụm từ đầu tiên trong mã hóa" loading="lazy">
+  <figcaption>Từ khóa TINHA là cụm từ đầu tiên trong mã hóa.</figcaption>
+</figure>
+
+<p>Trước khi chúng ta có thể cười vào việc vi phạm nguyên tắc Kerckhoffs của Việt Minh, chúng ta phải thừa nhận là cuộc tấn công vào con tàu của Pháp là một trong những thành công tuyệt vời của tác chiến du kích bí mật. Tại sao mặc dù Việt Minh sử dụng những phương pháp mật mã lạc hậu nhưng lại vẫn không bị phát hiện và bị phá? Có thể là do người Pháp thậm chí còn không bắt được thông tin liên lạc của Việt Minh. Hoặc có thể người Pháp bắt được thông tin liên lạc nhưng cũng quá yếu trong việc phá mã Vigenère, ngay cả khi có khoá. Có điều dường như chắc chắn là ở tầng dưới, cả quân Việt Nam và Pháp đều khá bị cô lập và do đó không tiếp cận được những kiến thức mật mã như ở các cơ quan đầu não.</p>
+
+<h3 class="subsec-title">2.2. Vai trò của Liên Xô và Trung Quốc</h3>
+
+<p>Trong bất kỳ trường hợp nào, theo lịch sử (NSA 2014), chỉ một vài tháng sau đó, vào tháng 11 năm 1950, Việt Nam đã cử những chuyên gia mật mã sang Trung Quốc tập huấn trong sáu tháng, nhờ đó trình độ kỹ thuật của họ được nâng lên đáng kể. Đối với Việt Nam tại thời điểm đó, kinh nghiệm của Trung Quốc là một hình mẫu tốt.</p>
+
+<p>Tuy nhiên, trong thông tin liên lạc còn có một điểm khác biệt quan trọng. Người Trung Quốc phải trước tiên dịch hoặc chuyển sang một bảng chữ cái tiêu chuẩn trước khi mã hóa. Nhưng tiếng Việt được chuyển thể từ bảng chữ cái La tinh, do đó có thể mã hóa được trực tiếp, với điều kiện là đã có một số thay đổi thích hợp. Theo như miêu tả trong "Vietnam: A SIGINT Paradox" (NSA 2007):</p>
+
+<blockquote>
+<p>Tiếng Việt không thể truyền đi bằng cách sử dụng mã khóa Morse chuẩn thông dụng được bởi những chữ cái âm tiết đặc biệt và hệ thống dấu của nó. Những nhà nghiên cứu về ngôn ngữ mật mã [NSA] đã phải tìm hiểu hệ thống được tạo ra bởi người Việt để chuyển tải những tính chất này sang mã Morse trước khi xử lý một bản dịch cụ thể. Ví dụ, nguyên âm <em>u</em> và <em>o</em> xuất hiện như những chữ cái bình thường hoặc với móc hoặc mũ. Để hiểu được chữ <em>u</em> có móc, thì người truyền tin đã gửi những chữ cái <em>uw</em>. Chữ <em>w</em> không xuất hiện trong bảng chữ cái tiếng Việt, vì thế chữ cái đó có một vai trò đặc biệt.</p>
+</blockquote>
+
+<p>Bài báo này tiếp tục đề cập: bởi sự xuất hiện của <em>ươ</em> khá thường xuyên, những người chỉnh sửa mã Morse tiếng Việt thường rút gọn <em>uwow</em> thành <em>wow</em>.</p>
+
+<p>Trong thập niên 1950, viện trợ nước ngoài về bảo mật thông tin liên lạc của Việt Nam phần lớn là từ phía Trung Quốc. Cuối thập niên 50, Liên Xô bắt đầu thay thế Trung Quốc trở thành nguồn cung cấp tư vấn về mật mã, dù Trung Quốc tiếp tục hỗ trợ Việt Nam trên những mặt khác, đặc biệt là phòng không. Theo ước tính của tình báo Mỹ (Hanyok 2002), từ năm 1965 đến năm 1973 có hơn 5000 cố vấn Trung Quốc bị giết hoặc bị thương bởi các cuộc không kích của không quân Mỹ ở miền Bắc Việt Nam.</p>
+
+<p>Merle Pribbenow, chuyên gia đã nghỉ hưu của CIA về ngôn ngữ tiếng Việt, đã miêu tả về lịch sử sự viện trợ của Liên Xô đối với Việt Nam về tình báo. Đáp lại yêu cầu từ Hà Nội, trong hai năm 1959–1961, Ủy ban An ninh Quốc gia Liên Xô (KGB) đã viện trợ tiền, thiết bị và đào tạo về tình báo qua sóng radio và các thông tin liên lạc bảo mật cho phía Việt Nam. Đề án đầy triển vọng và thành công này được gọi là "Vostok" theo tiếng Nga và là "Phương Đông" theo tiếng Việt. Theo ông Pribbenow, KGB đã cung cấp "thiết bị và hỗ trợ kỹ thuật cho Bộ Công An để thành lập một mạng lưới thông tin liên lạc an toàn rộng lớn trên toàn miền Bắc Việt Nam, và từ đó mở rộng xuống miền Nam Việt Nam để hỗ trợ cho cuộc chiến tranh ở đó."</p>
+
+<p>Chính căng thẳng và nghi ngờ trong quan hệ đồng minh giữa Việt Nam với Liên Xô và giữa Việt Nam với Trung Quốc đã khiến cho Việt Nam tránh sự phụ thuộc vào cả Trung Quốc và Liên Xô, mà tự mình phát triển những ý tưởng và tài liệu mật mã. Chính điều này đã làm cho công việc phá mã của Pháp và Mỹ trở nên khó khăn hơn. Cho tới nửa cuối của cuộc chiến tranh chống Pháp, trình độ thông tin tình báo và mật mã Việt Nam đã ở một trình độ mới, phát triển nhanh một cách đáng ngạc nhiên đối với một lực lượng đấu tranh du kích ở một đất nước vẫn còn nghèo khó. Theo Goscha:</p>
+
+<blockquote>
+<p>Một điều rõ ràng là Việt Nam Dân chủ Cộng hòa không chỉ áp đảo Pháp với những khẩu súng lớn và những làn sóng người tấn công; một lý do chính cho thắng lợi [tại Điện Biên Phủ] chính là thành công trong việc tổ chức và thực hiện một cuộc chiến tranh toàn diện, phối hợp các lực lượng, lần lượt dựa vào khả năng khống chế không gian và thời gian thông qua sóng liên lạc của họ. Trong lịch sử thế kỷ XX, chưa từng có một chiến tranh giải phóng thuộc địa nào mà có một sự áp dụng công nghệ như một trận chiến hiện đại như vậy.</p>
+<p>Từ những thành tựu về công nghệ, chúng ta thấy rằng cho tới cuối của cuộc chiến tranh, Việt Nam Dân chủ Cộng hòa, ít nhất là ở miền Bắc, không còn là một đội quân du kích nghèo với kiểu tiêm kích rồi bỏ chạy nữa. Thực dân Pháp đã từng nhiều lần phá khóa của Việt Nam và bắt giữ hàng nghìn người cộng sản, tuy nhiên Pháp không thể ngăn chặn được Việt Nam truyền tin liên lạc bằng mọi cách.</p>
+</blockquote>
+
+<p>Cho tới thời kỳ đầu của cuộc chiến tranh chống Mỹ, những nhà mật mã học người Mỹ cũng đã đánh giá cao về trình độ mật mã học của Việt Nam. Theo lịch sử được công bố (NSA 2007): "Vào năm 1961, những nhà phân tích trong NSA đã biết rằng những đối thủ của họ rất giỏi trao đổi mật mã và họ ngạc nhiên đối với sự tiến bộ về trình độ mật mã của miền Bắc Việt Nam."</p>
+
+<h3 class="subsec-title">2.3. Mật mã của Pháp ở Việt Nam (1945–1954)</h3>
+
+<p>Dựa trên các tài liệu trong kho lưu trữ của quân đội Pháp, chúng tôi đánh giá hiệu quả sử dụng mật mã trong thời kỳ này của Pháp và Việt Minh có nhiều điểm tương đồng. Mặc dù Pháp đã sử dụng một số thiết bị tương đối hiện đại, như M-209 được phát triển bởi Hoa Kỳ trong Thế Chiến thứ II, nhưng trên thực tế họ nói chung cũng không hơn gì Việt Minh; cả hai bên đều lo lắng về vấn đề đào tạo kém chất lượng và sử dụng nhầm lẫn trong các hệ thống.</p>
+
+<p>Giống như mật mã của Việt Minh, các hệ thống của Pháp về cơ bản là các biến thể của mật mã Vigenère. Điều khôi hài là Blaise de Vigenère là người Pháp ở thế kỷ XVI, được biết đến là người sáng tạo ra nhiều bước đột phá lớn về mật mã. Vậy mà tưởng chừng như người Pháp không hề có bất kỳ một tiến bộ nào trong lĩnh vực này sau 400 năm. Nhưng trên thực tế, vấn đề chính là họ đã không áp dụng được kiến thức lý thuyết vào thực tiễn, ít nhất là ở Việt Nam, với ba lý do.</p>
+
+<p>Lý do đầu tiên là, trong khoảng giữa thế kỷ XX, Việt Nam là một thuộc địa tiền đồn phía xa của đế quốc Pháp; Hà Nội nằm ở rất xa so với Paris theo mọi nghĩa. Hơn nữa, mặc dù trong thời gian đầu của cuộc chiến tranh, Pháp đã cử một số nhà mật mã được đào tạo bài bản sang Việt Nam nhằm phá khóa những thông tin liên lạc về ngoại giao, nhưng phần lớn thời gian những người được cử đi sang ở Việt Nam đều không phải là những người Pháp giỏi nhất.</p>
+
+<p>Lý do thứ hai là, trong những năm đó, quá trình vận hành một hệ mã hóa mạnh còn mất nhiều thời gian. Một tài liệu của quân đội Pháp ghi ngày 7/12/1953 — chỉ 3 tháng trước chiến dịch Điện Biên Phủ — đã cho kết quả một thử nghiệm so sánh thời gian cần thiết để mã hóa một bản tin trong đó sử dụng sáu quy trình mã hóa khác nhau. Thời gian lâu nhất để mã hóa là 44 phút, và nhanh nhất là 17 phút. Từ đó, họ kết luận quy trình mã hóa nhanh nhất nên được áp dụng. Chú ý rằng kết luận này chỉ dựa trên sự so sánh về <em>tốc độ</em> mã hóa, mà không hề dựa trên so sánh về <em>tính bảo mật</em> của mã hóa.</p>
+
+<p>Lý do thứ ba là, lỗi của con người và việc họ khiên cưỡng tuân theo các quy định đã tạo ra nhiều rắc rối cho các nhà chức trách Pháp. Một tài liệu ngày 11 tháng 12 năm 1953 đã phàn nàn về sự khinh suất và những sai lầm nghiêm trọng đi ngược lại với những quy tắc bảo mật đã góp phần dẫn đến một cuộc tấn công bất ngờ của Việt Minh.</p>
+
+<p>Những cán bộ chỉ huy quân sự của Pháp nhận thức và thừa nhận rằng, hầu hết những gì họ hy vọng chỉ là sĩ quan của họ có thể sử dụng một loại mật mã rất yếu. Họ thậm chí còn tạo ra một thuật ngữ cho điều đó, <em>camouflé</em> ("ngụy trang"), nghĩa là nó không phải là một văn bản thường nhưng cũng chưa phải là văn bản được mã hóa. Mã hóa thực sự chỉ được sử dụng cho những tài liệu ngắn, hoặc tài liệu bí mật tối cao.</p>
+
+<h2 class="sec-title">3. Chiến tranh chống Mỹ (1961–1975)</h2>
+
+<p>Trong khi nghiên cứu về lịch sử của mật mã học thời chiến tranh, chúng ta cần phải phân biệt rõ những loại câu hỏi khác nhau:</p>
+
+<ul style="margin:0.5rem 0 1.2rem;padding-left:1.5rem;line-height:1.8;">
+  <li><strong>Tấn công (SIGINT).</strong> Trình độ tình báo thông tin tín hiệu ở hai bên như thế nào? Đối thủ có khả năng chặn và đọc tín hiệu của đối phương hay không?</li>
+  <li><strong>Phòng thủ (COMSEC).</strong> Trình độ lý thuyết và thực hành về mật mã học của cả hai bên?</li>
+  <li><strong>Thông tin liên lạc <em>chiến lược</em></strong>, thường diễn ra giữa các trung tâm chỉ huy và các căn cứ trọng yếu — những thông tin cần mức bảo mật rất cao và thường không quá quan trọng về độ trễ thời gian.</li>
+  <li><strong>Thông tin liên lạc <em>chiến thuật</em></strong>, bao gồm thông tin liên lạc trong thời gian thực trong khi chiến dịch xảy ra — yếu tố thời gian là quan trọng.</li>
+</ul>
+
+<h3 class="subsec-title">3.1. COMSEC của Mỹ và SIGINT của Việt Nam</h3>
+
+<p>Brian Snow bắt đầu làm việc ở NSA từ năm 1972, và cuối cùng trở thành Giám đốc Kỹ thuật về mảng Phòng thủ Bảo mật thông tin liên lạc (sau đó được gọi là Cục An ninh Thông tin, IAD). Khi trả lời các câu hỏi về quy định ở NSA về bảo mật thông tin liên lạc (COMSEC) trong chiến tranh ở Việt Nam, ông đã nhấn mạnh rằng IAD luôn phân tích và làm theo những phương án xấu nhất, không phải những tình huống giả định. Họ có lẽ đã không gặp sai lầm là đánh giá thấp những kỹ năng phá mã của Việt Nam. Trong suốt cuộc chiến tranh Việt Nam, NSA luôn xác định dùng công nghệ mật mã cao cấp nhất, bất kể trình độ mật mã của Việt Nam đang đạt đến trình độ nào. Do đó, khả năng Việt Nam có thể phá được lớp bảo mật thông tin chiến lược của Mỹ là rất ít.</p>
+
+<figure>
+  <img src="matmachientranh/hinh3.png" alt="Thiết bị mã hóa NESTOR của NSA" loading="lazy">
+  <figcaption>Thiết bị mã hóa NESTOR của NSA.</figcaption>
+</figure>
+
+<h4 class="subsubsec-title">Sự khó khăn trong việc sử dụng bảo mật cho thông tin liên lạc chiến thuật</h4>
+
+<p>Trong khoảng năm 1965, Mỹ đã bắt đầu tận dụng một thiết bị mã hóa — <strong>NESTOR</strong> — được phát triển bởi NSA cho mục đích sử dụng trên chiến trường. Tuy nhiên, NESTOR hoạt động không tốt trong thời tiết nóng ẩm ở miền Nam Việt Nam. Thực tế, hầu hết các thông tin liên lạc trong chiến trường của Mỹ không được mã hóa hoặc được "mã hóa" bằng cách dùng những biệt ngữ, thuật ngữ, tiếng lóng hoặc các từ ngữ thay thế. Mặc dù nhiều sĩ quan và quân lính trong quân đội Mỹ đều tin rằng người Việt Nam sẽ không bao giờ có thể hiểu được những trao đổi chứa biệt ngữ của Mỹ, nhưng trên thực tế, Mặt trận Dân tộc Giải phóng miền Nam Việt Nam (NLF) đã thường khai thác được một số thông tin liên lạc chiến thuật có tính bảo mật thấp từ phía quân đội Mỹ.</p>
+
+<p>Trong một quyển sách năm 1982 viết bởi Charles R. Myer, Tướng chỉ huy quân đội Mỹ (những mục về mật mã được in lại trong <em>Cryptologia</em>), ông đã kể lại một cuộc đột kích vào một căn cứ của NLF ngày 20 tháng 12 năm 1969 dẫn đến việc bắt giữ 12 lính du kích, thu được một lượng lớn tài liệu và thiết bị thông tin liên lạc. Sau khi kiểm tra thiết bị và "thẩm vấn" những tù binh, chính phủ Mỹ nhận thấy rằng cùng với sự giúp đỡ của "các nhà ngôn ngữ học về Tiếng Anh — [đã từng là] những phần tử quan trọng trong Việt Cộng và các đơn vị ở miền Bắc Việt Nam", họ có thể "theo dõi và khai thác hầu hết tất cả những thông tin liên lạc bằng giọng nói không được bảo mật của người Mỹ hoặc được mã hóa thủ công bằng mã Morse." Còn những tài liệu thu thập được có chứa "nhiều hướng dẫn về những phương thức đánh chặn thông tin và những bản đánh giá chi tiết về các phương thức giao tiếp và những lỗ hổng bảo mật có thể lợi dụng của phía quân đội Mỹ và các đồng minh."</p>
+
+<p>Khi Đại tướng Creighton Abrams, Tổng tư lệnh quân đội Mỹ ở Việt Nam được báo cáo về vấn đề này, ông đã nói rằng: "Điều này thật sự quá kinh ngạc, về sự chi tiết, sự chính xác tuyệt đối và sự chuyên nghiệp tuyệt vời của nó. Những người này đang đọc thư của chúng tôi." Dù vậy, quân đội Mỹ trên chiến trường tỏ ra miễn cưỡng trong việc sử dụng các biện pháp bảo mật mạnh, một phần là bởi vì những khó khăn lớn mà họ gặp phải với những thiết bị mã hóa NESTOR KY-8, KY-28 và KY-38. Myer kết luận rằng:</p>
+
+<blockquote>
+<p>Bảo mật tín hiệu, đặc biệt là trong phát thanh và truyền sóng radio, cũng là một vấn đề chính trong suốt thời kỳ chiến tranh ở Việt Nam... Tất cả những người dùng các phương tiện liên lạc đều ít hay nhiều cảnh giác được về điểm yếu của họ đối với việc đánh chặn, phân tích và giải mã của đối phương, và sự cần thiết của việc mã hóa và xác thực. Khoảng cách giữa việc biết và việc ứng dụng là rất lớn, và ở Việt Nam, nhiều lúc khoảng cách này dường như là một vấn đề nan giải.
+</p>
+</blockquote>
+
+<p>Về vấn đề xác thực, Myer giải thích rằng có rất nhiều "tình huống được ghi chép lại" về những bức điện giả mà NLF gửi đi. "Trong một trường hợp, NLF đã thâm nhập được đường dây điện thoại nội bộ của một căn cứ phòng thủ và chuyển hướng lực lượng dự bị ra khỏi vùng mà họ sắp tấn công."</p>
+
+<p>Myer cũng kể về một trường hợp khi mà một điện tín viên của Mỹ tháo nắp bên ngoài của máy NESTOR KY-8 để thông gió và làm mát (vì thiết bị này thường quá nóng). "Điều này đã làm tăng khả năng hoạt động của máy KY-8 nhưng đã vi phạm bảo mật an ninh, làm lộ thiết bị và tạo cơ hội cho đối phương thu chặn những tín hiệu tình báo." Việc gợi mở rằng NLF chắc hẳn đã tận dụng lợi thế của một <em>kênh bên (side channel)</em> trong NESTOR thật đáng "ngạc nhiên", theo lời của đại tướng Abrams. Thử tưởng tượng xem một nửa thế kỷ trước, trong một cuộc bao vây du kích ẩn sâu trong những khu rừng nhiệt đới nóng ẩm ở miền Nam Việt Nam, một đơn vị SIGINT của Mặt trận Dân tộc Giải phóng miền Nam Việt Nam đã có thể bắt được thông tin từ một kênh bên của thiết bị mã hóa NSA!</p>
+
+<h4 class="subsubsec-title">Người tình báo</h4>
+
+<p>Như đã đề cập ở trên, người Việt Nam không thể phá mã những mật mã mạnh mà Mỹ hay Việt Nam Cộng hòa sử dụng cho những thông tin liên lạc chiến lược. Thay vì thế, người Việt đã khắc phục tất cả mọi vấn đề bằng cách xây dựng một mạng lưới rộng lớn với những tình báo viên tinh nhuệ bí mật có quyền truy cập vào nguồn thông tin chiến lược, chiến thuật của quân đội Việt Nam Cộng hoà và các hệ thống bảo mật, thậm chí cả hệ thống tình báo của Mỹ, đặc biệt là tổ chức CIA.</p>
+
+<h4 class="subsubsec-title">Phạm Xuân Ẩn (1927–2006)</h4>
+
+<p>Sau Thế Chiến thứ II, Hoa Kỳ trở thành một đối thủ hùng cường không chỉ với Liên Xô, mà còn đối với các lực lượng giải phóng cánh tả trên toàn thế giới. Đặc biệt, đầu những năm 50, Hoa Kỳ đã tham gia rất nhiều vào việc hỗ trợ người Pháp tiền và thiết bị tại Việt Nam. Những người lãnh đạo ở Hà Nội đã dự đoán rằng một khi họ đánh bại người Pháp, họ có lẽ sẽ phải thương thuyết với người Mỹ. Hiệp định Geneva năm 1954 đã quy định về cuộc tổng tuyển cử trên toàn quốc sẽ được tổ chức vào năm 1956. Tuy nhiên, tình báo Hoa Kỳ đã dự đoán Hồ Chí Minh sẽ thắng với 80% tổng số phiếu bầu. Cuộc bầu cử đó đã không bao giờ được tổ chức.</p>
+
+<p>Mặc dù vào năm 1946, Hồ Chí Minh đã kêu gọi Tổng thống Mỹ Truman giúp đỡ cho nền độc lập của Việt Nam, đầu những năm 1950, nhà lãnh đạo Việt Nam đã không ngây thơ để tin rằng người Mỹ sẽ để họ thống nhất đất nước thông qua cuộc tổng cử. Họ xác định điều rất quan trọng là phải có được một nguồn thông tin chính xác về tư duy chiến lược và chiến thuật của Mỹ. Họ đã chọn một người trẻ luôn ủng hộ Việt Minh — <strong>Phạm Xuân Ẩn</strong> — cho nhiệm vụ này. Phạm Xuân Ẩn từ đó trở thành một điệp viên tình báo nổi tiếng nhất trong lịch sử Việt Nam.</p>
+
+<p>Năm 1953, Phạm Xuân Ẩn được kết nạp vào Đảng Cộng Sản Việt Nam dưới sự chủ tọa của Lê Đức Thọ (người được trao giải Nobel Hòa Bình 20 năm sau đó cùng với Henry Kissinger vì đàm phán thỏa thuận hòa bình Paris; nhưng ông đã từ chối giải thưởng này). Phạm Xuân Ẩn được rút khỏi bất cứ hoạt động nào có thể làm tiết lộ về sự có cảm tình với cộng sản. Vào năm 1957, ông được đưa tới Hoa Kỳ để học chuyên ngành báo chí. Sau đó, ông quay trở lại Sài Gòn với tư cách là một nhân vật quan trọng cho truyền thông Hoa Kỳ. Đặc biệt là trong những năm quan trọng của chiến tranh, khi mà ông làm việc cho tạp chí <em>Time</em>, ông đã lấy được lòng tin của những nhân vật cao cấp của CIA cũng như những nhân vật cao cấp trong chính phủ miền Nam Việt Nam.</p>
+
+<p>Công việc của ông với vai trò là một tình báo bí mật làm việc cho Cơ quan tình báo của Mặt trận Dân tộc Giải phóng miền Nam Việt Nam và Chính phủ Việt Nam Dân chủ Cộng hòa kéo dài 15 năm, từ năm 1960 đến năm 1975. Trong khoảng thời gian bí mật này, ông đã được nhận 16 huy chương cho những hoạt động xuất sắc, phi thường. Trong một lần, sau khi nhận được báo cáo của Phạm Xuân Ẩn, Đại tướng Võ Nguyên Giáp và Chủ tịch Hồ Chí Minh đã nói: "Bây giờ chúng ta đang đứng trong phòng tác chiến của quân đội Mỹ". Sau chiến tranh, vào năm 1976, Phạm Xuân Ẩn được phong tặng danh hiệu "Anh hùng Lực lượng vũ trang nhân dân Việt Nam". Sau đó, ông được trao hàm Thiếu tướng, và khi ông mất năm 2006, tang lễ của ông được tổ chức theo nghi lễ của anh hùng chiến tranh.</p>
+
+<figure>
+  <img src="matmachientranh/hinh4.png" alt="Phạm Xuân Ẩn cùng Đại tướng Võ Nguyên Giáp; Nguyễn Đình Ngọc" loading="lazy">
+  <figcaption>Ảnh bên trái: Phạm Xuân Ẩn (bên phải) cùng Đại tướng Võ Nguyên Giáp; Ảnh bên phải: Nguyễn Đình Ngọc.</figcaption>
+</figure>
+
+<h4 class="subsubsec-title">Nguyễn Đình Ngọc (1932–2006)</h4>
+
+<p>Nguyễn Đình Ngọc là một nhà toán học hoạt động bí mật ở Sài Gòn và được trao hàm Thiếu Tướng (trong Công An, không phải trong Quân đội). Ông có rất nhiều bằng toán học và kỹ sư (tất cả đều từ Pháp). Vào những năm 80, ông đã giúp tổ chức một số buổi tọa đàm về Đại số, Topology và nhiều mảng khoa học khác.</p>
+
+<p>Trong suốt thời kỳ chiến tranh chống Mỹ, Nguyễn Đình Ngọc là người thông thạo tiếng Anh và tiếng Pháp (năm 1983, ông là phiên dịch viên cho buổi nói chuyện đại chúng đầu tiên bằng tiếng Anh mà Neal Koblitz tổ chức ở Việt Nam), được biết đến rộng rãi trong cộng đồng người nước ngoài ở Sài Gòn và từ đó thu thập được những thông tin tình báo quý giá từ họ. Một người em trai của ông cũng có quân hàm cao trong Quân đội của Việt Nam Cộng hòa. Chúng ta không biết liệu rằng có phải Nguyễn Đình Ngọc đã sử dụng kiến thức về toán học và kỹ sư của ông để làm vững mạnh mật mã học của người Việt. Và chúng ta thậm chí cũng không rõ là liệu ông đã tự mã hóa những báo cáo của riêng ông. Theo một nguồn tin, ông có thể đã có một liên lạc cá nhân ở Sài Gòn (một tình báo khác) mà ông thường gửi những báo cáo của ông qua giọng nói, và rồi người đó sẽ chịu trách nhiệm truyền những thông điệp đó về Hà Nội.</p>
+
+<p>Có rất rất nhiều tình báo tài giỏi khác hoạt động và làm việc cho Mặt trận Dân tộc Giải phóng miền Nam Việt Nam và Chính phủ Việt Nam Dân chủ cộng hòa. Đối với người Việt Nam, phương thức chính để thu thập những thông tin tình báo chiến lược chính là thông qua mạng lưới dày đặc các tình báo bí mật, không phải là thông qua bất kỳ phân tích phá mã nào của những mật mã trình độ cao mà người Mỹ sử dụng cho những thông tin liên lạc chiến lược.</p>
+
+<h3 class="subsec-title">3.2. COMSEC của Việt Nam và SIGINT của Hoa Kỳ</h3>
+
+<h4 class="subsubsec-title">Mã hóa của Việt Nam</h4>
+
+<p>Merle Pribbenow, người đã từng viết bản báo cáo như đã đề cập ở trên, nghỉ hưu năm 1995 sau 27 năm làm việc cho cơ quan CIA với tư cách là một chuyên gia về ngôn ngữ tiếng Việt. Trong một thư điện tử, ông đã tóm tắt về tình trạng mã hóa của Việt Nam trong suốt thời kỳ chiến tranh chống Mỹ như sau:</p>
+
+<blockquote>
+<p>Miền Bắc Việt Nam đã cử nhiều chuyên gia mật mã và điện tín viên ... trong những năm đầu 60 ... để nâng cấp bảo mật thông tin liên lạc của họ ở miền Nam. Người Việt đã sử dụng nhiều hệ thống khác nhau trong suốt thời gian chiến tranh, và đã nâng cấp hệ thống mã hóa của họ nhiều lần. Cho tới cuối cuộc chiến, ít nhất họ đã sử dụng một hệ thống mã hóa kép, bao gồm việc sử dụng một số mã hóa thay thế từ trong một quyển sách mã hóa và sau đó tiếp tục chuyển đổi thông điệp đã được mã hóa thông qua việc sử dụng <em>mã đệm một lần</em> (one-time pad).
+</p>
+</blockquote>
+
+<p>Trong một cuộc điện thoại sau đó, ông có nói thêm: "Người Việt Nam đã sử dụng cả mã Morse và giọng nói cho những đoạn mã hóa, đọc các từ tiếng Việt qua sóng radio để diễn đạt các chữ cái, giống như cách sử dụng của quân đội Mỹ cho Alpha, Bravo, Charlie, cho A, B, C, ..."</p>
+
+<p>Tại Bảo tàng Mật mã ở Hà Nội đã cho chúng ta thấy một số chi tiết. Người Việt Nam đã sử dụng ba kỹ thuật chung trong suốt ba thập kỷ của chiến tranh, ký hiệu là <strong>KTA</strong>, <strong>KTB</strong> và <strong>KTC</strong> (trong đó KT được viết tắt cho Kỹ Thuật). KTA là một chu trình mã hóa tiện lợi dựa trên giao hoán và thay thế, trong khi những biến thể khác của KTB và KTC sử dụng một số loại mã hóa kép. Những năm đầu chiến tranh chống Mỹ, KTC được sử dụng; cho tới cuối cuộc chiến, người Việt sử dụng <strong>KTC-5</strong>, số 5 để chỉ độ dài của từng đoạn mã.</p>
+
+<p>Trong bước đầu tiên của KTC-5, một từ sẽ được mã hóa sử dụng một quyển từ điển tra cứu; bản sao của một quyển từ điển dạng đó đang được trưng bày ở Bảo tàng. Quyển từ điển có thể được gửi tới nhiều người cùng sử dụng, và nếu quân đội Mỹ phát hiện được, nó lập tức được thay thế bằng phiên bản khác. Trong bước thứ hai, đoạn thông điệp cần mã hóa sẽ được mã hóa sử dụng mã đệm một lần (one-time pad). Mã đệm được ghi như một quyển sách, chỉ được chia sẻ giữa hai người sử dụng, được in chữ rất nhỏ, và đòi hỏi người dùng sử dụng kính lúp để đọc. Quyển sách rất nhỏ đó có thể dễ dàng tiêu hủy trong trường hợp nguy hiểm. Để in những quyển sách như thế này đã vượt quá khả năng của các nhà in của Việt Nam, và vì thế Liên Xô đã in chúng.</p>
+
+<p>Phương thức dùng từ điển tra cứu đặc biệt phù hợp cho người Việt Nam, bởi vì trong tiếng Việt, tất cả các từ đều được cấu tạo tự nhiên từ các tiếng. Ví dụ, một từ tiếng Anh là "attack" nhưng trong tiếng Việt là "<em>tấn công</em>". Bước một là, sử dụng từ điển như được trưng bày tại Bảo tàng Mật mã, để chuyển từ "<em>tấn</em>" thành cụm <strong>afhbv</strong> và "<em>công</em>" thành cụm <strong>wxess</strong>, dẫn đến một mã hóa 10 ký tự — rồi sau đó tiếp tục chuyển đổi đoạn mã hóa sử dụng đệm một lần trong bước thứ 2.</p>
+
+<p>Từ những nguồn tin của chúng tôi, rõ ràng là quân đội Mỹ không bao giờ có thể đọc được các mã hóa theo chu trình KTC.<sup><a href="#fn2" id="ref2">2</a></sup></p>
+
+<h4 class="subsubsec-title">Mực vô hình và một số câu hỏi</h4>
+
+<p>Trong những năm 1960–1975, khi Phạm Xuân Ẩn gửi những thông tin bí mật từ các nguồn cao cấp của Hoa Kỳ và Việt Nam Cộng hòa, trong tổng số 45 liên lạc viên hoạt động chuyển tin cho ông, 27 người đã bị bắt và giết — và có lẽ bị tra tấn trước khi họ bị giết. Tuy nhiên kẻ thù chưa bao giờ tìm ra được nguồn của những thông tin đó ở đâu. Mọi người có lẽ sẽ nghĩ rằng điều này có nghĩa là tất cả những thông tin của ông đều được mã hóa rất mạnh. Tuy nhiên, chúng ta được biết rằng, việc mã hóa mạnh ở Việt Nam là một quá trình rất lâu và chậm, nên điều này là không thể.</p>
+
+<p>Theo những nguồn tin của chúng tôi, thực tế diễn ra như sau. Phạm Xuân Ẩn đã sử dụng mực vô hình làm từ bột gạo để viết những báo cáo của ông lên giấy, rồi ông cuốn tờ giấy đó xung quanh các cuộn trứng. Trong chợ, ông sẽ đưa trứng cuộn đó cho người liên lạc thứ nhất, một phụ nữ ẩn danh dưới tên Nguyễn Thị Ba, người cũng đã sống sót qua cuộc chiến tranh và vào năm 1976, bà được phong danh hiệu "Anh hùng lực lượng vũ trang nhân dân Việt Nam". Những liên lạc viên khác sẽ lấy và chuyển những tin nhắn tới căn cứ của NLF ở địa đạo Củ Chi, không xa Sài Gòn. Ở đó tình báo NLF sẽ áp dụng phương pháp dùng cồn rượu iốt để làm cho mực nổi lên, và rồi viết lại thành hai phần. Một phần là một báo cáo tương đối ngắn gọn và cần được gửi đi gấp; phần còn lại bao gồm những báo cáo dài hơn và ít khẩn cấp hơn. Đoạn đầu tiên sẽ được đưa tới một đài phát thanh và được gửi đi bằng đường sóng radio đã được mã hóa mạnh tới trung tâm chỉ huy của Mặt trận ở Campuchia. Phần thứ hai sẽ được chuyển tới những nhà lãnh đạo ở Hà Nội bằng đường bộ.</p>
+
+<p>Điều này cũng đặt ra một câu hỏi thú vị: tại sao tình báo của Hoa Kỳ và Việt Nam Cộng hòa đều không thể tìm ra nguồn của những bản báo cáo chưa được mã hóa từ những liên lạc viên bị bắt giữ? Phải chăng họ không nghĩ tới rằng NLF đang gửi tin bằng mực vô hình? Ngược lại, theo Pribbenow: "CIA và miền Nam Việt Nam biết rất rõ những người cộng sản Việt Nam gửi những mẩu tin cho liên lạc viên đều được viết bởi mực vô hình và các đoạn tin đó thường không được mã hóa. Điều này, người Pháp cũng biết rõ thời kỳ đầu của cuộc chiến tranh đối đầu với Mặt trận Việt Minh."</p>
+
+<p>Một câu trả lời cho điều kỳ bí này: những người liên lạc có thể dễ dàng hủy đi những thông tin bằng nhiều cách khi họ có nguy cơ bị bắt. Đây chỉ là một phần của lời giải thích. Tuy nhiên, thời gian, địa điểm, và tình huống của việc bắt giữ những liên lạc viên thường khác nhau, và điều này thật khó để tin rằng trong tất cả 27 trường hợp, họ đều có thể hủy đi tất cả những thông tin. Một lời giải thích khác là phần thông tin đặc biệt nhạy cảm có lẽ chưa bao giờ bị lọt ra ngoài — đó là phần thông tin đã được gửi đi bằng đường bộ từ Củ Chi tới những căn cứ ở gần. Phần thứ hai là những thông tin khá quan trọng theo lẽ tự nhiên, thường ít chỉ đích danh một nguồn cụ thể nào đó.</p>
+
+<h4 class="subsubsec-title">Thế lưỡng nan trong việc mã hoá thông tin chiến thuật</h4>
+
+<p>Theo Pribbenow, NSA của Mỹ và các chi nhánh mật mã của Lục Quân, Hải Quân và Không Quân chưa bao giờ phá được bất kỳ mã khóa trình độ cao nào mà người Việt sử dụng cho thông tin liên lạc chiến lược. Tuy vậy, những thông tin liên lạc chiến thuật của Việt Nam đều hoặc chưa được mã hóa hoặc được mã hóa yếu thì rất dễ dàng cho NSA nắm bắt và đọc.</p>
+
+<p>Vấn đề của Việt Nam chính là quá trình mã hóa còn rất chậm, vì thế nó không thể được sử dụng trong trường hợp (1) một lượng cực lớn thông tin cần được gửi đi, ví dụ như trong năm 1967–1968, khi mà nguồn nhân lực và vũ khí được vận chuyển vào phía miền Nam chuẩn bị cho chiến dịch Tết Mậu Thân; hoặc (2) thông tin cần được gửi đi rất nhanh, trong điều kiện bị đối phương không kích. Theo lịch sử của NSA Mỹ (Hanyok 2002), báo cáo chỉ ra hai lĩnh vực chính mà người Mỹ có ưu thế về chiến thuật từ việc phân tích và giải mã thông tin từ phía Việt Nam. Đầu tiên, bắt đầu từ năm 1967, họ đã có thể dự đoán chính xác số lượng và địa điểm của lực lượng giải phóng di chuyển vào miền Nam trên tuyến đường Hồ Chí Minh. Cùng thời điểm đó, qua phân tích tình báo thông tin tín hiệu, Mỹ nắm được lợi thế chiến thuật trước Chiến dịch Tết Mậu Thân, đặc biệt là trận đánh tại Đắk Tô đã kéo dài trong suốt tháng 11 năm 1967.</p>
+
+<p>Thứ hai là, trong chiến dịch không kích, những người điều khiển, ngăn chặn tín hiệu có thể cảnh báo máy bay thả bom của Mỹ về các mối đe dọa từ lực lượng phòng không của miền Bắc Việt Nam. Cho tới cuối những năm 60, phòng thủ trên không là một mạng lưới dày đặc, rộng lớn gồm các trạm theo dõi và cảnh báo trên không, pháo phòng không (AAA) và các tổ hợp tên lửa đất đối không (SAM) và MiG. Như đã giải thích trong lịch sử NSA: "hầu hết các thông tin chuyển qua hệ thống thông tin liên lạc đều sử dụng hệ thống mã hóa hoặc mã hóa cấp thấp hoặc bằng ngôn ngữ đơn giản. Gửi trực tiếp thông tin liên lạc thông qua hệ thống phòng không là do nhu cầu cần nhận thông tin nhanh, gấp." Mặc dù Việt Nam đã cố gắng để bắn hạ nhiều máy bay ném bom của Hoa Kỳ, nhưng họ có thể sẽ bắn rơi nhiều hơn nữa nếu như họ mã hóa được những thông tin liên lạc trên không của họ. Thật đáng tiếc, điều này là không thể.</p>
+
+<p>Trong suốt chiến dịch Tết Mậu Thân năm 1968 và trong cuộc chiến tranh trên không, SIGINT của Mỹ đã giúp Hoa Kỳ giảm nhiều tổn thất hơn, nhưng tất nhiên điều này không làm thay đổi kết quả của cuộc chiến.</p>
+
+<h3 class="subsec-title">3.3. Kết luận: Một sự tương xứng ngạc nhiên</h3>
+
+<p>Như trong phần mở đầu chúng ta đã bàn luận về một quan điểm chung: mặc dù có ưu thế vượt trội về công nghệ, nhưng người Mỹ vẫn thua trong cuộc chiến này bởi vì "trái tim và ý chí" nằm ở phía đối phương. Trước quan điểm về sự yếu kém về công nghệ của Việt Nam, có một điều đáng ngạc nhiên chính là trong một lĩnh vực quan trọng của công nghệ quân sự — bảo mật thông tin liên lạc và tình báo thông tin tín hiệu — cả hai bên đều khá tương xứng. Ở cả hai bên, COMSEC hoạt động tốt cho những thông tin liên lạc chiến lược, nhưng lại không đủ khả năng cho những thông tin liên lạc chiến thuật. Nhìn chung, người Việt Nam có những thành công và thất bại tương tự như người Mỹ.</p>
+
+<p>Các thiết bị mã hóa NESTOR của người Mỹ được chế tạo tốt và hoạt động ổn định khi được thử nghiệm tại Fort Meade. Tuy nhiên, chính các thiết bị này lại làm việc kém hiệu quả trong khí hậu thời tiết nóng, ẩm ở miền Nam Việt Nam. Hệ thống mã hóa kép của Việt Nam được thiết lập tốt và dường như chưa bao giờ bị phá. Tuy vậy, hệ thống mã hóa quá phức tạp, đòi hỏi thời gian mã hóa dài, trong khi đó những thông tin liên lạc chiến thuật cần được mã hóa và giải mã nhanh — tức thời, do đó những thông tin chiến thuật thường không được mã hóa.</p>
+
+<p>Hơn thế nữa, chúng ta nhận thấy yếu tố con người luôn đóng vai trò cực kỳ quan trọng: sự tự mãn và chủ quan của các chỉ huy người Mỹ ở Việt Nam đã luôn nghĩ rằng các nhà ngôn ngữ học của NLF sẽ không bao giờ có thể hiểu được những trao đổi chứa nhiều thuật ngữ quân sự; sự thiếu sót của Việt Minh khi chuyển tin đã đính kèm từ khóa quan trọng nhất vào trong cụm đầu tiên của bản mã. Nhìn lại, độ chênh lệch lớn giữa trình độ hiểu biết về mật mã tại các trung tâm căn cứ chỉ huy và thực tế triển khai chiến thuật trên chiến trường không hề làm chúng ta ngạc nhiên, bởi chúng ta nhận ra được sự chênh lệch giống nhau trong thế giới hiện đại của an ninh mạng.</p>
+
+<p>Có một lý do cơ bản tại sao mật mã đôi khi thường được dùng để tăng độ khó. Mật mã học, giống như là toán học thuần túy, là trung tâm đầu não — không cần đầu tư lớn về tài chính vào đây. Để có mật mã tốt, bạn không cần phải giàu, bạn chỉ cần thông minh. Trong toán học, hay ngay cả trong những điều kiện khó khăn đến không thể tưởng tượng được trong các cuộc chiến chống Pháp và Mỹ, Việt Nam đã có một truyền thống lâu dài, tiêu biểu là các nhà toán học nổi tiếng như Lê Văn Thiêm, Hoàng Tụy và Ngô Bảo Châu với Giải thưởng Fields. Với giá trị cao mà văn hóa Việt Nam đặt vào tư tưởng thuần túy, không có gì đáng ngạc nhiên khi họ có thể tạo ra những bản mã mà NSA không thể phá.</p>
+
+<figure>
+  <img src="matmachientranh/hinh5.png" alt="Lê Văn Thiêm, Hoàng Tụy, Ngô Bảo Châu" loading="lazy">
+  <figcaption>Lê Văn Thiêm (ảnh bên trái), Hoàng Tụy (ở giữa), và Ngô Bảo Châu (bên phải ngoài cùng).</figcaption>
+</figure>
+
+<h2 class="sec-title">4. Một câu chuyện lạ về đạo đức giữa những người Mỹ điều khiển SIGINT</h2>
+
+<p>Trong một chú thích trong cuốn sách của ông về Nixon và Kissinger (<em>The Price of Power</em>, 1983), nhà báo người Mỹ Seymour Hersh kể về một câu chuyện đáng chú ý mà ông ghi được từ các cuộc phỏng vấn với các phi công Mỹ trước đây. Câu chuyện lại một lần nữa được kể lại trong một phần của báo cáo NSA được công bố (Hanyok 2002, tr. 418).</p>
+
+<p>Trong khi Lực lượng Không quân Hoa Kỳ (USAF) rải bom đêm Giáng sinh ở Hà Nội năm 1972, có hai trạm đơn vị tình báo lớn của quân đội Hoa Kỳ — một ở Udon, Thái Lan và trạm còn lại ở Okinawa, Nhật Bản — đã tiến hành một cuộc biểu tình "nil heard" trong suốt 36 tiếng đồng hồ. "Nil heard" theo thuật ngữ của USAF được hiểu là "I hear nothing" (tôi không nghe thấy gì hết), nghĩa là "những người chuyển tin sẽ tuyên bố rằng họ không hề nghe thấy một truyền phát từ trạm mà họ được chỉ định để sao chép".</p>
+
+<p>Theo Hersh giải thích, từ điểm mấu chốt của tình báo Mỹ, họ biết rằng, sau tuyên bố của Kissinger vào tháng 10 năm 1972 "Hòa bình đã nằm trong tay", Hà Nội bắt đầu rút lực lượng không quân (cả máy bay MiG), và thành phố đang chuẩn bị cho lễ kỉ niệm lớn về hòa bình. Tuy nhiên, trong tình thế đó, Nixon và Kissinger đã quyết định quay trở lại không kích — có lẽ là để ép Việt Nam thực hiện một số nhượng bộ vào phút chót trong thỏa thuận hòa bình — điều này đã khiến những sĩ quan SIGINT cực kỳ tức giận. Họ rất phẫn nộ trước vụ đánh bom của Hoa Kỳ vào người dân, vì thế họ từ chối thông báo tín hiệu của các trạm này cho lực lượng Không Quân của Mỹ. Như đã đề cập trước đó, SIGINT lúc đó của USAF là một chiến lược quan trọng để ngăn chặn lực lượng phòng không của Việt Nam trong việc bắn hạ các máy bay thả bom của Mỹ. Hành động này của họ đã giúp các trạm AAA và SAM bảo vệ Hà Nội.</p>
+
+<p>Theo nguồn tin của Hersh, một thời gian sau đó có phiên tòa bí mật xét xử những người biểu tình đã được tiến hành tại Đài Loan (nhưng USAF cho đến ngày nay vẫn từ chối xác nhận và giữ thông tin về vụ việc này).</p>
+
+<figure>
+  <img src="matmachientranh/hinh6.png" alt="Phố Khâm Thiên sau vụ đánh bom đêm Giáng sinh" loading="lazy">
+  <figcaption>Phố Khâm Thiên ngay sau vụ đánh bom đêm Giáng sinh của Không quân Hoa Kỳ. Chúng ta đã hiểu Đại tướng Curtis LeMay khi nói "đánh bom cho chúng quay trở lại Thời kỳ Đồ đá."</figcaption>
+</figure>
+
+<p>Neal Koblitz gợi nhớ về chuyến thăm đầu tiên của ông đến Việt Nam vào năm 1978, chỉ ba năm sau khi kết thúc chiến tranh chống Mỹ. Ông và vợ Ann đã rung động và buồn cảm trước tình cảnh mà họ chứng kiến ở khu phố Khâm Thiên — một sự đổ nát, sụp đổ hoàn toàn của các căn nhà bởi bom Mỹ rải xuống vào đêm Giáng sinh năm đó. Vào ngày 26 tháng 12 năm 1972, 283 người dân đã chết trên con phố Khâm Thiên. Đó là một trong nhiều hành động tàn ác khủng khiếp của USAF.</p>
+
+<p>Hành động phản kháng của những sĩ quan điệp báo của USAF đã phần nào giúp cho số người thiệt mạng trong các cuộc ném bom của Không Quân Mỹ giảm đi rất nhiều. Những người làm việc SIGINT đó đã phải đối mặt với một lựa chọn khó khăn: cứu giúp các phi công USAF ra khỏi pháo phòng không và các tên lửa đất đối không, hoặc giúp bảo vệ người dân Hà Nội vô tội khỏi bom mìn. Và cuối cùng, họ đã chọn quyết định thứ hai.</p>
+
+<p>Có rất nhiều sự quan tâm trong những năm gần đây — đặc biệt từ những tiết lộ của Edward Snowden — về các vấn đề đạo đức và luân lý liên quan đến tình báo thông tin liên lạc. Bản thân Snowden thường được nhìn nhận như là một ví dụ hiếm hoi về lòng can đảm của một người làm việc ngay trong "lòng địch". Từ đó, chúng ta biết rằng trước đây đã có nhiều tiền lệ của những người dám đưa ra những quyết định táo bạo với nguy cơ rủi ro rất lớn. Gần một nửa thế kỷ sau vụ đánh bom đêm Giáng sinh ở Hà Nội, chúng ta nên tạm dừng một chút để cảm ơn chân thành đến một số người làm SIGINT, những người đã dám thể hiện lòng nhân đạo và sự can đảm tại một thời điểm khi sự tàn bạo khủng khiếp đang được thực thi để chống lại những con người vô tội.</p>
+
+<div class="about-authors">
+<h3>Về các tác giả</h3>
+<p><strong>Phan Dương Hiệu</strong> nhận học vị Tiến sĩ về Mật mã học tại Đại học Sư Phạm Paris (École Normale Supérieure) vào năm 2005. Hiện nay, ông đang là giáo sư tại Viện nghiên cứu XLIM, Đại học Limoges, Pháp. Nghiên cứu của ông tập trung vào việc thiết lập các sơ đồ mã hóa. Từ năm 2013, ông là thành viên Hội đồng định hướng của Asiacrypt. Ông đã tham gia các ủy ban chương trình của nhiều hội nghị quốc tế, trong đó có Eurocrypt, Asiacrypt, và PKC.</p>
+<p><strong>Neal Koblitz</strong> nhận học vị Tiến sĩ về Toán học tại Đại học Princeton vào năm 1974, và từ năm 1979, ông làm việc tại Đại học Washington. Ông là người phát minh ra Mật mã đường cong Hyperelliptic và là người đồng phát minh ra Mật mã đường cong elliptic. Trong những năm gần đây, nghiên cứu của ông (cùng với Alfred Menezes) chủ yếu tập trung vào các bài phê bình về sự áp dụng sai toán học trong mật mã học. Neal Koblitz và vợ ông Ann đã hợp tác với Viện Toán học Hà Nội và Hội Phụ nữ Việt Nam trong hơn 30 năm qua.</p>
+</div>
+
+<figure>
+  <img src="../webpictures/KoblitzHieu.jpg" alt="Neal Koblitz và Phan Dương Hiệu tại Asiacrypt 2016 - Hà Nội" loading="lazy">
+  <figcaption>Neal Koblitz và Phan Dương Hiệu tại Asiacrypt 2016 - Hà Nội.</figcaption>
+</figure>
+
+<p><strong>Lời cảm ơn:</strong> Chúng tôi chân thành cảm ơn Thomas Bass, Larry Berman, Christopher Goscha, Trần Kim Phượng, Merle Pribbenow và Brian Snow về những nghiên cứu và thông tin hữu ích, và Ann Hibner Koblitz và Alfred Menezes đã cùng hỗ trợ biên tập. Tất nhiên, các quan điểm được nêu ra và bất kỳ lỗi nào đều là trách nhiệm của các tác giả.</p>
+
+<div class="footnotes">
+<h3>Chú thích</h3>
+<ol>
+  <li id="fn1">Bài viết này là bản mở rộng hơn rất nhiều của bài phát biểu mời của Neal Koblitz tại Hội nghị quốc tế thường niên về Lý thuyết và Ứng dụng của Mật mã học và Bảo mật thông tin năm 2016 (Asiacrypt 2016) diễn ra tại Hà Nội. <a href="#ref1">↩</a></li>
+  <li id="fn2">Pribbenow (2016a) đã nói điều này một cách trực tiếp; các nguồn khác nhau của NSA (Johnson 1995, Hanyok 2002, NSA 2007, Borrmann et al. 2013), trong khi miêu tả những thành công của tình báo Mỹ từ phân tích lưu lượng, định hướng thông tin, và đánh chặn những thông tin liên lạc không được mã hóa hoặc mã hóa yếu, không đề cập gì đến việc phá được mật mã cao cấp mà phía Việt Nam sử dụng cho những thông tin chiến lược. <a href="#ref2">↩</a></li>
+</ol>
+</div>
+
+<div class="bibliography">
+<h3>Tài liệu tham khảo chính</h3>
+<ul>
+  <li>Anderson, R. J. 2008. <em>Security Engineering: A Guide to Building Dependable Distributed Systems</em>, 2nd ed., Wiley.</li>
+  <li>Ban Cơ Yếu. n.d. <em>Cơ Yếu Công An Nhân Dân Biên Niên Sự Kiện (1945–1985)</em> (Lịch sử Ban Mật mã Công An Nhân Dân, 1945–1985).</li>
+  <li>Bass, T. A. 2009. <em>The Spy Who Loved Us: The Vietnam War and Phạm Xuân Ẩn's Dangerous Game</em>, Public Affairs.</li>
+  <li>Berman, L. 2007. <em>Perfect Spy: The Incredible Double Life of Phạm Xuân Ẩn</em>, Smithsonian.</li>
+  <li>Bình, N. T. 2013. <em>Family, Friends, and Country</em>, translated by L. Borton, Tri Thức Pub. House.</li>
+  <li>Borrmann, D. A. et al. 2013. <em>The History of Traffic Analysis: World War I – Vietnam</em>, Trung tâm Lịch sử Mật mã, NSA.</li>
+  <li>Goscha, C. 2012. Wiring decolonization: Turning technology against the colonizer during the Indochina War, 1945–1954, <em>Comparative Studies in Society and History</em>, 54 (4): 798–831.</li>
+  <li>Hanyok, R. J. 2002. <em>Spartans in Darkness: American SIGINT and the Indochina War, 1945–1975</em>, NSA. Có tại fas.org/irp/nsa/spartans/</li>
+  <li>Hersh, S. 1983. <em>The Price of Power: Kissinger in the Nixon White House</em>, Summit Books.</li>
+  <li>Johnson, T. R. 1995. <em>American Cryptology during the Cold War, 1945–1989; Book II</em>, NSA.</li>
+  <li>Koblitz, N. 1979. A mathematical visit to Hanoi, <em>The Mathematical Intelligencer</em>, 2 (1): 38–42.</li>
+  <li>Myer, C. R. 1989. Viet Cong SIGINT and U.S. Army COMSEC in Vietnam, <em>Cryptologia</em>, 13 (2): 143–150.</li>
+  <li>NSA và Trung tâm Lịch sử Mật Mã. 2014. <em>Essential Matters: History of the Cryptographic Branch of the People's Army of Vietnam 1945–1975</em>. Dịch từ bản của chính phủ Việt Nam năm 1990.</li>
+  <li>National Security Agency. 2007. Vietnam: A SIGINT paradox (Part I). Được giải mật và công bố ngày 27/02/2007.</li>
+  <li>Pribbenow, M. L. 2014. <em>The Soviet-Vietnamese Intelligence Relationship during the Vietnam War: Cooperation and Conflict</em>, Woodrow Wilson International Center for Scholars, Cold War International History Project Working Paper #73.</li>
+</ul>
+</div>
+
+<div class="art-end">Tạp chí Pi, số 7 &amp; 8 (2017) · <em>Cryptologia</em> · Bản dịch: Đinh Thị Diệu Linh</div>
+<div class="back-to-index"><a href="../Matma.html">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="huongnghiencuu2024.html" class="art-nav-prev">← Hướng nghiên cứu cá nhân – Anamorphic Crypto, Voting System, Mật mã hậu lượng tử và Privacy trước AI</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="truonghematma2022.html" class="art-nav-next">Trường hè Mật Mã IACR-VIASM 2022 →</a>
+</nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

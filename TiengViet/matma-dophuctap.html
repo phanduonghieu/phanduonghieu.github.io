@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Mật mã dưới góc nhìn độ phức tạp tính toán">
+<meta property="og:description" content="Bảo mật nghĩa là gì? Bài viết khám phá nền tảng lý thuyết của mật mã qua lăng kính độ phức tạp tính toán: hàm một chiều, NP và sự kết nối sâu sắc giữa toán học và bảo mật thông tin.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/matma-dophuctap.html">
+<title>Mật mã dưới góc nhìn độ phức tạp tính toán - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    packages: {'[+]': ['ams']}
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.92;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+/* Title */
+.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+
+/* Abstract */
+.abstract {
+  font-style: italic;
+  color: #555;
+  border-left: 3px solid #e0d0d3;
+  padding: 0.6rem 1.1rem;
+  margin: 1.5rem 0 2rem;
+  background: #faf8f7;
+  border-radius: 0 6px 6px 0;
+  font-size: 1rem;
+}
+
+/* Table of contents */
+#toc {
+  background: #faf7f5;
+  border: 1px solid #e5dbd6;
+  border-left: 4px solid #8f1d2c;
+  border-radius: 7px;
+  padding: 1.4rem 1.75rem 1.25rem;
+  margin: 0 0 3rem;
+}
+#toc .toc-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.85rem;
+}
+#toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#toc li { margin-bottom: 0.35rem; line-height: 1.4; }
+#toc li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.97rem;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+#toc li a:hover { color: #8f1d2c; }
+#toc li.toc-sub { padding-left: 1.4rem; margin-bottom: 0.2rem; }
+#toc li.toc-sub a { font-size: 0.88rem; font-weight: 400; color: #666; }
+#toc li.toc-sub a:hover { color: #8f1d2c; }
+
+/* Sections */
+.art-section { margin-top: 3rem; }
+
+h2.sec-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+
+h3.subsec-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin: 2rem 0 0.7rem;
+}
+
+/* Definition / theorem / remark blocks */
+.def-block, .thm-block, .remark-block {
+  background: #faf7f5;
+  border-left: 4px solid #8f1d2c;
+  border-radius: 0 7px 7px 0;
+  padding: 1rem 1.25rem 0.85rem;
+  margin: 1.5rem 0;
+}
+.thm-block {
+  background: #fdf5f6;
+  border-left-color: #8f1d2c;
+}
+.remark-block {
+  background: #f7f9fa;
+  border-left: 4px solid #7aa;
+}
+
+.block-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 0.5rem;
+}
+.remark-block .block-label { color: #4a7a7a; }
+
+.def-block p, .thm-block p, .remark-block p {
+  margin: 0.4em 0;
+}
+.def-block ul, .def-block ol {
+  margin: 0.4em 0 0.4em 1.4em;
+  padding: 0;
+}
+.def-block li { margin-bottom: 0.3em; }
+
+/* Proof */
+.proof {
+  margin: 0.5rem 0 1.5rem;
+  padding-left: 0.2rem;
+  color: #333;
+}
+.proof-label {
+  font-style: italic;
+  font-weight: 600;
+  color: #555;
+}
+.qed {
+  float: right;
+  font-size: 1.1em;
+  color: #8f1d2c;
+  line-height: 1;
+}
+
+/* Conclusion block */
+.concl-block {
+  background: #fdf5f6;
+  border: 1px solid #ebd5d8;
+  border-radius: 8px;
+  padding: 1.1rem 1.4rem;
+  margin: 1.8rem 0;
+  font-size: 1rem;
+}
+.concl-block ul {
+  margin: 0.4em 0 0 1.3em;
+  padding: 0;
+}
+.concl-block li { margin-bottom: 0.4em; }
+.concl-block p { margin: 0.35em 0; }
+
+/* Display math */
+.math-display {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  -webkit-overflow-scrolling: touch;
+  text-align: center;
+}
+
+/* Inline code / keywords */
+.kw { font-weight: 600; }
+
+/* Separator */
+.art-end {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Tablet */
+@media (max-width: 860px) {
+  .page-content { padding: 3rem 2rem; }
+}
+/* Mobile */
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.05rem; line-height: 1.82; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  .art-title { font-size: 1.45rem; }
+  h2.sec-title { font-size: 1.12rem; }
+  h3.subsec-title { font-size: 1rem; }
+  .math-display { overflow-x: auto; }
+  #toc { padding: 1.1rem 1.2rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+<article>
+
+<h1 class="art-title">Mật mã dưới góc nhìn độ phức tạp tính toán</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">20/09/2009</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://www.dropbox.com/s/o3gbqgwdy0kwb09/KHMT_M%25E1%25BA%25ADt%2520m%25C3%25A3%2520d%25C6%25B0%25E1%25BB%259Di%2520g%25C3%25B3c%2520nh%25C3%25ACn%2520%25C4%2591%25E1%25BB%2599%2520ph%25E1%25BB%25A9c%2520t%25E1%25BA%25A1p%2520t%25C3%25ADnh%2520to%25C3%25A1n.pdf?dl=0" target="_blank">Blog Khoa Học Máy Tính</a> (PDF)</div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<nav id="toc"></nav>
+
+<p class="abstract">Bài này thảo luận mối liên hệ mật thiết giữa lý thuyết mật mã và lý thuyết độ phức tạp tính toán.</p>
+
+<figure style="margin:1.5rem 0 2rem;text-align:center;">
+  <img src="../webpictures/KHMT_dophuctap.png" alt="Mật mã dưới góc nhìn độ phức tạp tính toán" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+</figure>
+
+<!-- ============================================================ -->
+<section class="art-section" id="sec-I">
+<h2 class="sec-title">I. Khởi động: Bài toán quyết định và bài toán tìm kiếm</h2>
+
+<p>Trong thực tế, khi có một bài toán, ta thường quan tâm tới việc tìm ra lời giải cho bài toán đó hơn là xem xét liệu bài toán đó có tồn tại lời giải hay không. Tuy nhiên, trong lý thuyết độ phức tạp tính toán, ta lại toàn bắt gặp các <em>bài toán quyết định</em> (chẳng hạn như với \(\mathsf{SAT}\) là xem một công thức có thỏa được hay không) mà ít chú ý đến việc tìm kiếm lời giải (tìm một phép gán giá trị cho các biến để công thức là thỏa được). Các lớp phổ biến \(\mathsf{P}\), \(\mathsf{NP}\), \(\mathsf{EXP}\),&hellip; đều là các lớp các bài toán quyết định. Điều đó hẳn làm chúng ta băn khoăn tự hỏi, lý do nào mà ta thường ít nói tới các bài toán tìm kiếm? Một số lý do cơ bản (tất nhiên có thể có nhiều lý do khác) là như sau:</p>
+
+<p>– Nếu lý thuyết thuật toán là đưa ra cận trên (upper bound) của sự phức tạp để giải quyết một bài toán (thực vậy, khi ta thiết kế một thuật toán để giải một bài toán, thì đồng thời độ phức tạp của thuật toán đó cho ta một cận trên để giải bài toán) thì lý thuyết độ phức tạp nghiên cứu chủ yếu cận dưới (lower bound) hay độ khó tối thiểu để giải một bài toán. Bài toán quyết định hiển nhiên không thể khó hơn bài toán tìm kiếm, nên nếu ta chứng minh được bài toán quyết định là khó thì nghiễm nhiên bài toán tìm kiếm cũng khó theo. Do vậy, dù gì cũng nên nghiên cứu độ khó của bài toán quyết định trước.</p>
+
+<p>– Trong nhiều bài toán ta có sự "tương đương" giữa bài toán quyết định và bài toán tìm kiếm nên chỉ cần nghiên cứu bài toán quyết định. Thực tế, tất cả các bài toán trong lớp \(\mathsf{NP}\)-đầy đủ đều có tính chất này. Kỹ thuật quy dẫn một bài toán tìm kiếm về bài toán quyết định thường là dùng phương pháp tìm kiếm nhị phân. Chẳng hạn đối với \(\mathsf{SAT}\), giả sử ta giải được bài toán quyết định xác định một công thức thỏa được hay không, khi đó ta cũng có thể tìm một phép gán giá trị các biến để công thức thỏa được như sau: cho biến đầu tiên giá trị đúng; nếu công thức giản lược là thỏa được thì ta tiếp tục tìm phép gán cho biến thứ hai, nếu không ta cho biến đầu giá trị sai và tiếp tục với công thức giản lược cho trường hợp này; chỉ sau \(n\) bước như vậy (\(n\) = số biến) là ta có được phép gán giá trị cho tất cả các biến.</p>
+
+<p>– Ta tạm gọi (sẽ định nghĩa chính xác dưới đây) lớp bài toán tìm kiếm tương ứng với các lớp bài toán quyết định \(\mathsf{P}\) và \(\mathsf{NP}\) là \(\mathsf{FP}\) và \(\mathsf{FNP}\) (viết tắt của <em>Function</em> \(\mathsf{P}\), <em>Function</em> \(\mathsf{NP}\)). Khi đó ta có thể chứng minh được \(\mathsf{P} = \mathsf{NP}\) khi và chỉ khi \(\mathsf{FP} = \mathsf{FNP}\). Như vậy tình trạng đối với các bài toán tìm kiếm cũng tương tự như các bài toán quyết định: tìm kiếm lời giải cho một bài toán \(\mathsf{FNP}\) thực hiện được trong thời gian đa thức khi và chỉ khi bài toán quyết định cũng thực hiện được trong thời gian đa thức. Do vậy nghiên cứu vấn đề nổi cộm "\(\mathsf{P}\) vs. \(\mathsf{NP}\)" là bao quát được vấn đề chung.</p>
+
+<p>Tuy vậy, những lý do trên chưa đủ thuyết phục để ta hoàn toàn quên đi các bài toán tìm kiếm. Vẫn có nhiều bài toán tìm kiếm có vẻ thực sự khó hơn là quyết định (chẳng hạn Bellare và Goldwasser chứng minh rằng, dưới giả thiết khá hợp lý (\(\mathsf{EE} \neq \mathsf{NEE}\)), có những ngôn ngữ \(L \in \mathsf{NP}\) mà ở đó bài toán tìm kiếm không thể quy dẫn về bài toán quyết định). Một số ví dụ khác liên quan đến mật mã nơi chủ yếu dựa trên các bài toán không phải \(\mathsf{NP}\)-đầy đủ (phân tích thành thừa số nguyên tố chẳng hạn) và do vậy, bài toán tìm kiếm có thể rất khác bài toán quyết định.</p>
+
+<p>Trong bài này, chúng ta sẽ xem xét lớp các bài toán tìm kiếm \(\mathsf{FNP}\) và sự liên quan tới mật mã. Sự liên hệ giữa các lớp bài toán \(\mathsf{P}\) và \(\mathsf{FP}\) cuối cùng giúp chúng ta có một liên hệ giữa sự tồn tại của mật mã với câu hỏi trọng tâm của lý thuyết độ phức tạp - "\(\mathsf{P} \neq \mathsf{NP}\)".</p>
+
+<!-- ---- I.1 ---- -->
+<section id="sec-I1">
+<h3 class="subsec-title">I.1 Lớp bài toán \(\mathsf{FNP}\) và \(\mathsf{FP}\)</h3>
+
+<p>Một cách nôm na, cho một ngôn ngữ (lớp \(\mathsf{SAT}\) chẳng hạn) và một đầu vào (một công thức lô-gíc chẳng hạn), bài toán quyết định là xác định xem liệu đầu vào có thuộc ngôn ngữ (công thức lô-gíc đầu vào liệu có thỏa được) còn bài toán tìm kiếm là bài toán chỉ ra, khi đầu vào thuộc ngôn ngữ (công thức đã cho là thỏa được), một lời giải chứng tỏ điều đó (một phép gán giá trị cho các biến để công thức đã cho là thỏa được).</p>
+
+<p>Mọi việc tưởng chừng đơn giản trừ việc ta chưa nói cho chính xác thế nào là một lời giải để chứng tỏ đầu vào thuộc ngôn ngữ. Một bài toán có thể có nhiều cách chứng minh chứ không phải chỉ có một. Và như vậy, để định nghĩa chính xác bài toán tìm kiếm, ta cần đưa ra quan hệ giữa đầu vào và lời giải cho nó một cách thích hợp.</p>
+
+<p>Ta hãy xem xét một cách viết lại định nghĩa của ngôn ngữ dựa trên các quan hệ hai ngôi.</p>
+
+<div class="def-block">
+  <div class="block-label">Định nghĩa: NP-relation</div>
+  <p>Một quan hệ hai ngôi \(R \subseteq \Sigma^* \times \Sigma^*\) (với \(\Sigma\) là bảng ký hiệu dùng trong một ngôn ngữ) được gọi là <strong>NP-relation</strong> nếu nó thỏa mãn các điều kiện sau:</p>
+  <ul>
+    <li><strong>Kiểm tra được trong thời gian đa thức:</strong> Với các đầu vào \((x, y)\), ta có thể xác định liệu \(x\) có quan hệ với \(y\) (ký hiệu \(R(x,y)\)) hay không trong thời gian đa thức tính trên \(|x|\) (độ dài của \(x\)).</li>
+    <li><strong>Cân bằng đa thức (polynomially balanced):</strong> Tồn tại một đa thức \(p\) để, nếu \(R(x,y)\) thì \(|y| \leq p(|x|)\). Đó là một yêu cầu tự nhiên: lời giải không thể quá dài so với đầu vào (nếu không thì riêng việc viết ra lời giải đã không thể thực hiện trong thời gian đa thức).</li>
+  </ul>
+</div>
+
+<p>(Ta hãy cứ hình dung: cho \(x\) là một bài toán, \(R\) là định nghĩa của "lời giải", thì \(y\) là lời giải của \(x\) nếu \(R(x,y)\).)</p>
+
+<p>Nhìn lại định nghĩa về lớp \(\mathsf{NP}\): một ngôn ngữ \(L\) thuộc \(\mathsf{NP}\) nếu tồn tại một poly-time verifier \(V\):</p>
+<ul style="margin-left:1.5em;">
+  <li>Verifier nhận inputs \((x, w)\), và trả lời CÓ/KHÔNG. Nhiệm vụ là xác định xem \(x\) là YES-instance hay NO-instance của \(L\).</li>
+  <li>Nếu \(x\) là YES-instance thì tồn tại "chứng minh" \(w\) sao cho \(V(x,w) = \text{CÓ}\).</li>
+  <li>Nếu \(x\) là NO-instance thì với bất kỳ "chứng minh" \(w\) nào ta cũng có \(V(x,w) = \text{KHÔNG}\).</li>
+</ul>
+
+<p>Một verifier \(V\) như vậy thực chất chính là một NP-relation \(R_V\) và ngôn ngữ \(L_{R_V} = L\). Ngược lại, với mỗi NP-relation \(R\), ta cũng có thể định nghĩa một ngôn ngữ \(L_R = \{x \mid \exists\, y : R(x,y)\}\) và ngôn ngữ \(L_R\) hiển nhiên là thuộc \(\mathsf{NP}\) (bằng cách đặt verifier \(V\) chính là \(R\)).</p>
+
+<p>Như vậy thực chất \(\mathsf{NP}\) là tập hợp tất cả các ngôn ngữ \(L_R\) với \(R\) là NP-relation. Điểm hay là quan hệ \(R\) giúp ta có thể định nghĩa được bài toán tìm kiếm một cách tường minh.</p>
+
+<div class="def-block">
+  <div class="block-label">Định nghĩa: Bài toán tìm kiếm</div>
+  <p>Với quan hệ \(R\), ta định nghĩa <strong>bài toán tìm kiếm</strong> \(S_R\) như sau:</p>
+  <ul>
+    <li><strong>Đầu vào:</strong> Cho một \(x\).</li>
+    <li><strong>Trả lời:</strong> Tìm một \(y\) sao cho \(R(x,y)\), nếu tồn tại một \(y\) như vậy; hoặc trả lời "KHÔNG" nếu không tồn tại \(y\).</li>
+  </ul>
+  <p>Như vậy, ta đã định nghĩa được bài toán tìm kiếm \(S_R\) tương ứng cho bài toán quyết định \(L_R\): nếu \(x \notin L_R\) thì câu trả lời là KHÔNG, còn nếu \(x \in L_R\) thì phải chỉ ra lời giải \(y\) chứng tỏ điều đó (\(y\) thỏa mãn \(R(x,y)\)).</p>
+</div>
+
+<div class="def-block">
+  <div class="block-label">Định nghĩa: Các lớp FNP và FP</div>
+  <ul>
+    <li>\(\mathsf{FNP}\) là tập hợp tất cả các bài toán \(S_R\) với \(R\) là NP-relation.</li>
+    <li>\(\mathsf{FP}\) là tập con của \(\mathsf{FNP}\) bao gồm các bài toán \(S_R\) ở đó câu "Trả lời" được thực hiện trong thời gian đa thức.</li>
+  </ul>
+</div>
+
+<p>Để ý rằng, cho trước một ngôn ngữ \(L\), ta chưa có ngay bài toán tìm kiếm tương ứng với nó. Ta phải định nghĩa thế nào là một lời giải chứng tỏ \(x \in L\), đó chính là việc định nghĩa quan hệ \(R\) thỏa mãn \(L_R = L\). Chỉ khi đã định nghĩa được \(R\) thì tương ứng với nó ta mới định nghĩa được bài toán tìm kiếm \(S_R\).</p>
+
+<p>Do vậy, với một bài toán quyết định, có thể cho tương ứng nhiều bài toán tìm kiếm. Chẳng hạn, nếu ta tìm được hai quan hệ \(R\) và \(R'\) sao cho \(L_R = L_{R'}\) thì tương ứng với \(L\) có hai bài toán tìm kiếm \(S_R\) và \(S_{R'}\). Điều này phù hợp với thực tế: một phát biểu có thể đúng hoặc sai, nhưng chứng minh nó là đúng hay sai thì có thể có nhiều cách khác nhau.</p>
+
+<p>Có những bài toán mà tương ứng với nó có hai bài toán tìm kiếm, một thì có thể dễ mà một thì lại có vẻ khó. Ta sẽ xem xét một ví dụ thú vị liên quan đến bài toán phân tích thành thừa số nguyên tố. Nhưng trước hết ta hãy chứng minh định lý quan trọng sau:</p>
+
+<div class="thm-block">
+  <div class="block-label">Định lý</div>
+  <p>\(\mathsf{P} = \mathsf{NP}\) khi và chỉ khi \(\mathsf{FP} = \mathsf{FNP}\).</p>
+</div>
+
+<div class="proof">
+  <p><span class="proof-label">Chứng minh.</span> <span class="qed">□</span></p>
+  <p>– <em>Chiều thuận</em>: nếu \(\mathsf{FP} = \mathsf{FNP}\) thì \(\mathsf{P} = \mathsf{NP}\). Điều này hiển nhiên: tìm được lời giải nhanh (trong thời gian đa thức) thì cũng sẽ quyết định được nhanh là có lời giải hay không.</p>
+  <p>– <em>Chiều ngược</em>: nếu \(\mathsf{P} = \mathsf{NP}\) thì \(\mathsf{FP} = \mathsf{FNP}\). Ý tưởng là sử dụng tìm kiếm nhị phân. Cho một NP-relation bất kỳ \(R\), ta cần chứng minh \(S_R \in \mathsf{FP}\), tức là với mọi \(x\), cần tìm trong thời gian đa thức \(y\) để \(R(x,y)\) (nếu có), hoặc trả lời KHÔNG nếu không có \(y\) nào thỏa mãn.</p>
+  <p>Do \(\mathsf{P} = \mathsf{NP}\), nên việc quyết định có tồn tại \(y\) hay không được thực hiện trong thời gian đa thức. Nếu không có \(y\) thì trả lời KHÔNG là xong. Trường hợp tồn tại \(y\), ta tìm như sau:</p>
+  <p>Với mỗi \(x\) và \(z \in \Sigma^*\), định nghĩa quan hệ \(R_z(x,y) \iff R(x,y)\) và \(y \geq z\) (theo thứ tự từ điển trên \(\Sigma^*\)). Do \(R\) là NP-relation, \(R_z\) cũng là NP-relation, nên bài toán quyết định \(L_{R_z}\) thực hiện được trong thời gian đa thức. Lấy \(z\) là điểm giữa trong không gian tìm kiếm: nếu \(x \in L_{R_z}\) thì tồn tại lời giải phía sau \(z\), ngược lại tồn tại lời giải phía trước \(z\). Như vậy ta giới hạn miền tìm kiếm xuống còn một nửa. Tiếp tục tương tự ta tìm được chính xác \(y\) trong thời gian đa thức.</p>
+</div>
+</section>
+
+<!-- ---- I.2 ---- -->
+<section id="sec-I2">
+<h3 class="subsec-title">I.2 Có những bài toán quyết định dễ, còn tìm kiếm lại khó</h3>
+
+<p>Phía trên ta nhắc đến kết quả của Bellare và Goldwasser chứng minh rằng, dưới giả thiết khá hợp lý (\(\mathsf{EE} \neq \mathsf{NEE}\)), có những ngôn ngữ \(L \in \mathsf{NP}\) mà ở đó bài toán tìm kiếm không thể quy dẫn về bài toán quyết định. Ở đây ta xét một ví dụ đơn giản hơn và kết quả tuy không mạnh bằng nhưng khá lý thú.</p>
+
+<p>Ta xét một số \(n\) và một dãy cặp \(\{(p_1, e_1), \ldots, (p_k, e_k)\}\) với \(p_i\) là các số nguyên tố và \(e_i\) là các số tự nhiên. Ta định nghĩa:</p>
+
+<div class="math-display">\[
+R_{\mathrm{FACTOR}}\!\bigl(n,\,\{(p_1,e_1),\ldots,(p_k,e_k)\}\bigr)
+\;\iff\;
+n = p_1^{e_1} \cdots p_k^{e_k},\quad p_i \text{ nguyên tố phân biệt.}
+\]</div>
+
+<p>Với quan hệ định nghĩa như vậy, ngôn ngữ \(L_{R_{\mathrm{FACTOR}}}\) chính là toàn bộ các số tự nhiên, vì mọi số tự nhiên đều có một cách phân tích thành thừa số nguyên tố. Bài toán quyết định \(L_{R_{\mathrm{FACTOR}}}\) do đó là tầm thường.</p>
+
+<p>Trong khi đó, bài toán tìm kiếm \(S_{R_{\mathrm{FACTOR}}}\) chính là việc cho số \(n\), phân tích \(n\) ra thừa số nguyên tố. Bài toán này được tin là khó.</p>
+</section>
+
+<!-- ---- I.3 ---- -->
+<section id="sec-I3">
+<h3 class="subsec-title">I.3 Sự khéo léo trong việc định nghĩa bài toán tìm kiếm</h3>
+
+<p>Bây giờ ta hãy xem một ví dụ cho thấy, cùng một bài toán quyết định, có thể có hai bài toán tìm kiếm khá xa nhau. Hơn nhau là việc định nghĩa bài toán tìm kiếm sao cho hợp lý để có thể giải nó một cách hiệu quả nhất.</p>
+
+<p>Xét ngôn ngữ COMPOSITE gồm các số tự nhiên \(n\) là hợp số.</p>
+
+<p><strong>Bài toán tìm kiếm 1</strong> tương ứng với COMPOSITE: Ta định nghĩa một quan hệ giữa một số tự nhiên và một chứng minh (một số tự nhiên) như sau:</p>
+
+<div class="math-display">\[R_1(n, d) \;\iff\; 1 < d < n \;\text{ và }\; d \mid n.\]</div>
+
+<p>Đây là cách định nghĩa tự nhiên nhất để chứng minh một số là hợp số: đưa ra một ước số không tầm thường của nó. Bài toán tìm kiếm \(S_{R_1}\) tương ứng là: cho \(n\), nếu \(n\) là hợp số thì tìm một ước số không tầm thường của nó. Rõ ràng bài toán tìm kiếm này tương đương bài toán phân tích một số thành thừa số nguyên tố, do vậy nó được tin là khó.</p>
+
+<p><strong>Bài toán tìm kiếm 2</strong> tương ứng với COMPOSITE: Ta định nghĩa một quan hệ giữa một số tự nhiên \(n\) và một số \(a\) như sau:</p>
+
+<div class="math-display">\[R_2(n, a) \;\iff\; \gcd(a, n) = 1 \;\text{ và }\; a^{(n-1)/2} \not\equiv \left(\frac{a}{n}\right) \pmod{n},\]</div>
+
+<p>với \(\left(\frac{a}{n}\right)\) là ký hiệu Jacobi (một mở rộng tự nhiên của ký hiệu Legendre cho trường hợp các số tự nhiên thay vì chỉ cho các số nguyên tố).</p>
+
+<p>Ta đã biết:</p>
+<ul style="margin-left:1.5em;">
+  <li>Nếu \(n\) là số nguyên tố thì, với mọi \(a\) nguyên tố cùng nhau với \(n\), theo tiêu chuẩn Euler ta đều có \(a^{(n-1)/2} \equiv \left(\frac{a}{n}\right) \pmod{n}\), tức là \((n, a) \notin R_2\).</li>
+  <li>Ngược lại, nếu \(n\) là hợp số thì, ít nhất một nửa các số nguyên tố cùng nhau với \(n\) thỏa mãn \(a^{(n-1)/2} \not\equiv \left(\frac{a}{n}\right) \pmod{n}\). (Chứng minh điều này không khó, bởi tập các \(a\) để \(a^{(n-1)/2} \equiv \left(\frac{a}{n}\right) \pmod{n}\) tạo thành một nhóm, và ta có thể chứng minh khi \(n\) là hợp số thì tồn tại ít nhất một phần tử \(a\) vi phạm điều đó. Điều đó dẫn đến tập các \(a\) thỏa mãn đẳng thức tạo thành một nhóm con thực sự của \((\mathbb{Z}/n\mathbb{Z})^*\), và do đó số phần tử của nó nhiều nhất bằng nửa số phần tử của \((\mathbb{Z}/n\mathbb{Z})^*\).)</li>
+</ul>
+
+<p>Từ đó ta thấy ngôn ngữ \(L_{R_2}\) chính là COMPOSITE. Tuy vậy, bài toán tìm kiếm \(S_{R_2}\) ở đây khá là dễ dàng. Thực vậy, nếu \(n\) là hợp số, ta chỉ cần lấy ngẫu nhiên một số \(a\) nguyên tố cùng nhau với \(n\) là đã có khả năng chí ít là 50% để có \(R_2(n,a)\).</p>
+
+<p>Vấn đề còn lại là tính \(a^{(n-1)/2} \bmod n\) có dễ không? Tính \(a^{(n-1)/2} \bmod n\) là dễ (bằng bình phương nhanh), nhưng còn ký hiệu Jacobi \(\left(\frac{a}{n}\right)\)? Định nghĩa của \(\left(\frac{a}{n}\right)\) dựa trên việc phân tích thành thừa số nguyên tố của \(n\). Nhưng nếu ta biết phân tích thành thừa số nguyên tố của \(n\) thì đã xác định được \(n\) là hợp số hay không rồi! Rất may, ta có thể tính \(\left(\frac{a}{n}\right)\) dựa trên <em>luật tương hỗ toàn phương</em> một cách rất nhanh chóng mà không cần thông qua phân tích thành thừa số nguyên tố của \(n\).</p>
+
+<div class="remark-block">
+  <div class="block-label">Bình luận về luật tương hỗ toàn phương</div>
+  <p>Luật tương hỗ toàn phương nguyên thủy dành cho số nguyên tố thật đẹp. Chỉ muốn nói thêm là trong suốt một thời gian dài, người ta đã tưởng các số nguyên tố là rất kỳ bí và có tính độc lập nhau - hai kẻ khác nhau trong bọn chúng là chả có quan hệ dây mơ rễ má chi cả. Nhưng luật tương hỗ cho thấy không hẳn là thế, nó cho ta quan hệ họ hàng giữa hai số nguyên tố bất kỳ: nếu anh là thặng dư bậc hai của tôi thì tôi cũng xác định được ngay mình có phải là thặng dư bậc hai trong thế giới của anh hay không!</p>
+  <p>Luật tương hỗ toàn phương áp dụng cho số không nguyên tố dĩ nhiên làm mất cái vẻ đẹp nguyên tố trên. Ấy vậy mà nó lại đem đến một ứng dụng bất ngờ trong việc tìm ra các số nguyên tố lớn phục vụ các ứng dụng mật mã trong thực tế. Nó giúp ta có một thuật toán kiểm tra xem một số bất kỳ có là nguyên tố hay không: lấy bất kỳ số \(a\) nguyên tố cùng nhau với \(n\), nếu \(a^{(n-1)/2} \not\equiv \left(\frac{a}{n}\right) \pmod{n}\) thì chắc chắn \(n\) là hợp số, nếu không thì ít nhất 50% khả năng \(n\) là số nguyên tố. Thực hiện thao tác này 100 lần mà đều không có \(a\) nào thỏa mãn thì có nghĩa là \(n\) nguyên tố với sai số chỉ là \(2^{-100}\)! Gần đây (2002) đã có một kết quả lý thuyết đẹp đưa ra thuật toán đơn định để kiểm tra tính nguyên tố trong thời gian đa thức (thuật toán AKS, thú vị là chứng minh khá sơ cấp), nhưng trong thực tế người ta vẫn dùng các thuật toán xác suất vì hiệu quả hơn rất nhiều.</p>
+</div>
+</section>
+</section>
+
+<!-- ============================================================ -->
+<section class="art-section" id="sec-II">
+<h2 class="sec-title">II. Điều kiện cần cho sự tồn tại của mã hóa</h2>
+
+<p>Ta sẽ nhìn mật mã bằng con mắt của lý thuyết độ phức tạp tính toán và giới hạn việc bàn luận cho mã hóa (Encryption) - mục tiêu trọng tâm của mật mã.</p>
+
+<p>Mục đích của mã hóa là gì nhỉ? Thật đơn giản, tôi có thể mã hóa một bản rõ dễ dàng để: nếu anh có khóa thích hợp thì anh có thể mở được nó và kẻ địch (không có khóa) thì không thể giải được mã. Tạm gác chuyện chiếc chìa khóa thần kỳ trong mã hóa và bỏ qua luôn việc anh có giải được mã hay không, ta có thể rút gọn câu trên: tôi có thể mã hóa một bản rõ dễ dàng để kẻ địch (tay không, không có ngoại lực trợ giúp) không thể giải được mã.</p>
+
+<p>Ta giản lược yêu cầu như trên nhằm đưa ra một điều kiện cần để mã hóa tồn tại. Đó là phải có các "hàm xuôi dễ ngược khó", tức là các hàm \(f\) để, với một đầu vào \(x\) (có thể coi là bản rõ - <em>plaintext</em>), thì tính \(y = f(x)\) (có thể coi là bản mã - <em>ciphertext</em>) là dễ, nhưng cho \(y\) thì việc tính ngược một \(x\) (có thể có nhiều \(x\)) để \(f(x) = y\) là khó.</p>
+
+<p>Vậy câu hỏi đặt ra là: Các hàm xuôi dễ ngược khó có liên quan gì tới bài toán trọng tâm "\(\mathsf{P}\) vs. \(\mathsf{NP}\)" của lý thuyết độ phức tạp?</p>
+
+<p>Ta giả thiết rằng tồn tại một hàm xuôi dễ ngược khó \(f\). Theo định nghĩa "dễ, khó" trong độ phức tạp thì \(f\) tính được trong thời gian đa thức và việc tính \(f^{-1}\) là không thực hiện được trong thời gian đa thức. Khi đó ta định nghĩa một quan hệ \(R_f\) như sau:</p>
+
+<div class="math-display">\[R_f(y, x) \;\iff\; f(x) = y.\]</div>
+
+<p>Dễ thấy \(R_f\) là một NP-relation (kiểm tra \(f(x) = y\) trong thời gian đa thức; nếu \(f\) tính được trong thời gian đa thức trên \(|x|\) và \(|x| \leq p(|y|)\) thì \(R_f\) cân bằng đa thức). Như vậy, bài toán tìm kiếm \(S_{R_f}\) thuộc lớp \(\mathsf{FNP}\). Mà bài toán \(S_{R_f}\) chính là việc tính ngược hàm \(f\). Theo giả thiết, việc tính \(f^{-1}\) là không thực hiện được trong thời gian đa thức. Từ đó ta có \(S_{R_f} \notin \mathsf{FP}\), và suy ra \(\mathsf{FP} \neq \mathsf{FNP}\). Theo định lý phía trên, điều đó kéo theo \(\mathsf{P} \neq \mathsf{NP}\).</p>
+
+<div class="concl-block">
+  <p><strong>Kết luận:</strong> Yêu cầu tối thiểu không thể ít hơn để ngành lý thuyết mã hóa tồn tại, đó là "<strong>\(\mathsf{P} \neq \mathsf{NP}\)</strong>". Nói cách khác, nếu ta chứng minh được "\(\mathsf{P} = \mathsf{NP}\)" thì ngành lý thuyết mã hóa sụp đổ!</p>
+</div>
+
+<p>Kết luận này có nghĩa ta không thể hy vọng vào việc xây dựng mã hóa dựa trên các lớp có độ phức tạp cao hơn như \(\mathsf{EXP}\) để phòng trường hợp \(\mathsf{P} = \mathsf{NP}\). Bản chất sự tồn tại của mã hóa bắt buộc phải dựa trên giả thiết \(\mathsf{P} \neq \mathsf{NP}\). Tất nhiên sự sụp đổ chỉ là trong lý thuyết độ phức tạp; còn trong thực tế thì dù phá mã có thể trong thời gian đa thức nhưng bậc đa thức là 100 hay 1000 thì các hệ mã vẫn còn vững lắm.</p>
+</section>
+
+<!-- ============================================================ -->
+<section class="art-section" id="sec-III">
+<h2 class="sec-title">III. Một cái nhìn thoáng qua về điều kiện đủ cho sự tồn tại của mã hóa</h2>
+
+<p>Ta đã thấy lý thuyết mã hóa (đặt trong lý thuyết độ phức tạp) chỉ có nghĩa khi \(\mathsf{P} \neq \mathsf{NP}\). Câu hỏi ngược lại là liệu nếu \(\mathsf{P} \neq \mathsf{NP}\) thì ta có xây dựng được các sơ đồ mật mã hay không? Câu trả lời là… không biết (hay nói cách khác, đó là một câu hỏi mở). Điều đó tuy vậy không làm ta nhụt chí đi tìm kiếm các điều kiện đủ để xây dựng mã hóa.</p>
+
+<p>Trước tiên ta thấy hàm "xuôi dễ ngược khó" chủ yếu nói về trường hợp tệ nhất (worst-case): nó chỉ yêu cầu tồn tại những \(y\) mà ta không tính ngược được \(f^{-1}(y)\). Điều đó có thể hiểu như: có những bản mã mà ta không giải được. Tuy nhiên điều này không phản ánh được yêu cầu của mã hóa, nơi ta cần kẻ địch không thể giải mã được một bản mã <em>bất kỳ</em>. Với yêu cầu tối thiểu này của mã hóa, ta có điều kiện cần là sự tồn tại của các <strong>hàm một chiều</strong> (one-way function), đó là các hàm \(f\) thỏa mãn:</p>
+
+<div class="def-block">
+  <div class="block-label">Định nghĩa: Hàm một chiều (One-Way Function)</div>
+  <p>Một hàm \(f : \{0,1\}^* \to \{0,1\}^*\) được gọi là <strong>hàm một chiều</strong> nếu:</p>
+  <ul>
+    <li><strong>Dễ tính:</strong> \(f\) tính được trong thời gian đa thức.</li>
+    <li><strong>Khó đảo:</strong> Cho \(y = f(x)\) với \(x\) được lấy ngẫu nhiên đều, xác suất để bất kỳ thuật toán đa thức nào tính được \(x'\) sao cho \(f(x') = y\) là rất nhỏ (nhỏ hơn bất kỳ đa thức nghịch đảo nào theo độ dài đầu vào).</li>
+  </ul>
+</div>
+
+<p>Câu hỏi trọng tâm của mã hóa là sự tồn tại của các hàm một chiều có là đủ để xây dựng các sơ đồ mã hóa?</p>
+
+<p>Một cách tóm tắt, từ các hàm một chiều ta có thể xây dựng được các phép sinh dãy giả ngẫu nhiên (pseudorandom generators) rồi từ đó xây dựng được các sơ đồ mã hóa khóa bí mật (symmetric encryption). Đối với các sơ đồ mã hóa khóa công khai (public-key encryption), ta sẽ phải dựa trên các hàm mạnh hơn các hàm một chiều - đó là <strong>hoán vị cửa lật một chiều</strong> (trapdoor one-way permutation): bản chất như hàm một chiều nhưng có thêm một "cửa lật" (trapdoor), bình thường tính ngược khó nhưng nếu có cửa lật sẽ giúp ta tính hàm ngược dễ dàng.</p>
+
+<div class="concl-block">
+  <p><strong>Kết luận:</strong></p>
+  <ul>
+    <li>Các hàm một chiều là <em>cần và đủ</em> để xây dựng mã hóa khóa bí mật.</li>
+    <li>Các hàm một chiều là <em>cần</em> và các hoán vị cửa lật một chiều là <em>đủ</em> để xây dựng mã hóa khóa công khai. Quan hệ thân thiết giữa các hàm một chiều và các hoán vị cửa lật một chiều hiện vẫn còn đang trong quá trình tìm hiểu.</li>
+  </ul>
+</div>
+
+<p>Quan hệ giữa các hàm một chiều và lý thuyết độ phức tạp ra sao? Sự tồn tại hàm một chiều dẫn đến chuỗi kéo theo:</p>
+
+<div class="math-display">\[
+\text{OWF tồn tại}
+\;\Rightarrow\;
+\mathsf{NP}\text{-khó trung bình}
+\;\Rightarrow\;
+\mathsf{NP}\text{-khó (worst-case)}
+\;\Rightarrow\;
+\mathsf{P} \neq \mathsf{NP}.
+\]</div>
+
+<p>Chiều ngược lại vẫn còn là câu hỏi mở. Do đó dù \(\mathsf{P} \neq \mathsf{NP}\) vẫn chưa chắc đã tồn tại các bài toán \(\mathsf{NP}\) khó tính theo độ phức tạp trung bình (average-case complexity); và dù tồn tại các bài toán \(\mathsf{NP}\) khó theo trung bình vẫn chưa chắc đã tồn tại các hàm một chiều!</p>
+
+<p>Hy vọng khi có thời gian sẽ tiếp tục được trao đổi chi tiết hơn các kết quả trên cùng các bạn.</p>
+
+<p><em>Chúc mọi người một năm học, năm dạy mới đầy lý thú!</em></p>
+</section>
+
+<div class="art-end">
+  Blog Khoa Học Máy Tính &mdash; <a href="https://www.dropbox.com/s/o3gbqgwdy0kwb09/KHMT_M%25E1%25BA%25ADt%2520m%25C3%25A3%2520d%25C6%25B0%25E1%25BB%259Di%2520g%25C3%25B3c%2520nh%25C3%25ACn%2520%25C4%2591%25E1%25BB%2599%2520ph%25E1%25BB%25A9c%2520t%25E1%25BA%25A1p%2520t%25C3%25ADnh%2520to%25C3%25A1n.pdf?dl=0" target="_blank">PDF</a>
+</div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="hanhtrinh35nam.html" class="art-nav-prev">← Mật mã khóa công khai: Hành trình 35 năm</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="doi-thoai-trong-chung-minh.html" class="art-nav-next">Đối thoại trong chứng minh (Interactive Proofs) →</a>
+</nav>
+</article>
+</div>
+</div>
+
+<script>
+(function buildToc() {
+  var headings = Array.from(document.querySelectorAll(
+    '.art-section > h2.sec-title, .art-section section > h3.subsec-title'
+  ));
+  if (!headings.length) return;
+  var toc = document.getElementById('toc');
+  if (!toc) return;
+  var tocHead = document.createElement('p');
+  tocHead.className = 'toc-heading';
+  tocHead.textContent = 'Mục lục';
+  toc.appendChild(tocHead);
+  var ol = document.createElement('ol');
+  headings.forEach(function(h) {
+    var container = h.closest('[id]');
+    if (!container) return;
+    var li = document.createElement('li');
+    if (h.tagName === 'H3') li.className = 'toc-sub';
+    var a = document.createElement('a');
+    a.href = '#' + container.id;
+    // Strip MathJax placeholders from text content
+    a.textContent = h.textContent.replace(/\s+/g, ' ').trim();
+    li.appendChild(a);
+    ol.appendChild(li);
+  });
+  toc.appendChild(ol);
+})();
+</script>
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

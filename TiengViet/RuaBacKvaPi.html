@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Rùa, Bác K và Pi">
+<meta property="og:description" content="Câu chuyện toán học về chú thần Rùa hồ Hoàn Kiếm, bác K và tờ tạp chí Pi số đầu tiên.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/RuaBacKvaPi.html">
+<title>Rùa, Bác K và Pi - Tạp chí Pi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.92;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main { max-width: 900px; margin: 0 auto; }
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+
+.art-section { margin-top: 2rem; }
+
+p { margin: 0 0 1.1em; }
+p:last-child { margin-bottom: 0; }
+
+em, i { font-style: italic; }
+
+sup a {
+  color: #8f1d2c;
+  text-decoration: none;
+  font-size: 0.78em;
+}
+sup a:hover { text-decoration: underline; }
+
+.footnotes {
+  margin-top: 2.5rem;
+  padding: 1rem 1.4rem;
+  background: #faf8f6;
+  border-left: 3px solid #ddd;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+}
+.footnotes .fn-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #aaa;
+  margin: 0 0 0.7rem;
+}
+.footnotes ol { margin: 0; padding-left: 1.3rem; }
+.footnotes li { margin-bottom: 0.35rem; color: #666; line-height: 1.55; }
+
+/* Navigation */
+.art-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.88rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0ebe7;
+  flex-wrap: wrap;
+}
+.art-nav a {
+  color: #8f1d2c;
+  text-decoration: none;
+  font-weight: 500;
+}
+.art-nav a:hover { text-decoration: underline; }
+.art-nav .nav-home { text-align: center; color: #aaa; font-size: 0.82rem; }
+.art-nav .nav-home a { color: #aaa; }
+.art-nav .nav-home a:hover { color: #8f1d2c; }
+.art-nav-bottom { border-top: 1px solid #f0ebe7; margin-top: 3rem; border-bottom: none; margin-bottom: 0; padding-top: 1.5rem; padding-bottom: 0; }
+
+@media(max-width:640px){
+  body { font-size: 1.05rem; padding: 1.5rem 0.75rem 5rem; }
+  .page-content { padding: 2rem 1.25rem; }
+  .art-title { font-size: 1.45rem; }
+  .art-nav { font-size: 0.82rem; }
+}
+@media(max-width:400px){
+  .page-content { padding: 1.5rem 1rem; }
+  body { font-size: 1rem; }
+}
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="page-main">
+<div class="page-content">
+
+  <div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+    <a href="IntermezzoCipher.html">← Intermezzo Cipher</a>
+    <span class="nav-home"><a href="../Matma.html">↑ Mật mã học</a></span>
+    <a href="giaimaeu.html">Giải mã khởi nguyên châu Âu →</a>
+  </nav>
+
+  <h1 class="art-title">Rùa, Bác K và Pi</h1>
+  <div class="art-meta">
+    <span class="art-author"><a href="https://www.facebook.com/hahuy.khoai" target="_blank">Ha Huy Khoai</a></span>
+    <span class="art-sep">·</span>
+    <span>2017</span>
+  </div>
+  <div class="art-source">Đăng trên <a href="https://www.facebook.com/hahuy.khoai/posts/1614829055198930" target="_blank">Tạp chí Pi, số 1</a></div>
+
+  <div class="art-section">
+
+    <p>Nghe nói hồ Hoàn Kiếm có hình tròn xoe bán kính R mét, vì ở đó có một chú thần Rùa.</p>
+
+    <p>Bác K nghe đâu đang gấp rút cho ra tờ báo Toán, nhưng vốn lười nên muốn dùng trí khôn để gỡ gạc thời gian. Rõ là chỉ có thần Rùa là hợp với phần bù của mình hơn cả, nên ngày cuối năm bác K đến thỉnh giáo Rùa: có cách nào làm nhanh được không?</p>
+
+    <p>Rùa bảo: Bác K không cần làm gì đâu, chỉ cần tập chạy cho khoẻ, nếu chạy 1 ngày mà hết vòng hồ Hoàn Kiếm thì tự khắc tờ báo sẽ hiện ra.</p>
+
+    <p>Bác K bảo: tôi đại lãn, nhưng kể ra cố tập chạy thì cũng đỡ hơn là cặm cụi ngày đêm. Nhưng hôm nay tất niên tôi đã thử rồi, chạy cả ngày chỉ được có R mét thôi. Sức thế, sao chạy được cả vòng hồ? Rùa chơi khó quá.</p>
+
+    <p>Rùa chỉ đợi có thế liền rút ngay ra thanh bảo kiếm trao cho bác K rồi nói: bác cầm thanh kiếm này, từ mai sang năm 2017 rồi, mỗi hôm bác sẽ chạy nhanh thêm 20.17% so với hôm trước. Bác cứ cố tập, khi nào thành chánh quả ra đời Pi thì hoàn lại kiếm cho tôi.</p>
+
+    <p>Bác K nghe nói rất thích, cảm ơn Rùa. Đúng ngày Tết đầu năm, bác rủ vợ lững thững đi bộ, y như rằng đi được 1.2017R mét.</p>
+
+    <p>Bác K khôn lắm, nghĩ: đằng nào mỗi ngày mình cũng được thần cho chạy nhanh lên 20.17%, tội gì tập luyện, nghỉ ngơi cho khoẻ.</p>
+
+    <p>Y như rằng đến ngày thứ X <sup><a href="#fn-1">[1]</a></sup>, bác rủ vợ đi dạo, hai vợ chồng bác dắt nhau đi lững thững, đến 23h59 giờ đêm vẫn chưa đi hết vòng hồ, bác K lo lắng lắm. Nhưng bác tin vào tài tính nhẩm của mình nên cũng chẳng thèm tăng tốc, quả không ngờ, đến đúng giây thứ 59 thì hai vợ chồng bác bước tròn đúng 1 vòng hồ <sup><a href="#fn-2">[2]</a></sup>! Bỗng đúng lúc, tờ báo Pi nóng hổi rơi xuống tay hai bác từ trên Dream Tree (chắc do Dream Team gì đó trồng trộm).</p>
+
+    <p>Rùa hiện lên đón chào hoan hô, hai bác trả lại thanh bảo kiếm và khuyến mại thêm cho Rùa tờ báo Pi để tăng thêm trí khôn.</p>
+
+    <div class="footnotes">
+      <p class="fn-label">Chú thích</p>
+      <ol>
+        <li id="fn-1">Tất nhiên X là 10, tức ngày 10/1/2017 vì như câu châm ngôn mới có <em>"Phải học con rùa, đi chậm nhưng luôn đúng hẹn."</em> (dù Rùa không biết bác K hẹn hôm nào ra báo)</li>
+        <li id="fn-2">Bác K (tên tắt của bác Ha Huy Khoai) rất là hên, vì Rùa thích làm tròn, cắt đuôi Pi còn 3.14 nên 1.2017<sup>10</sup> bằng đúng 2 lần Pi. Không tin bác tính thử mà xem.</li>
+      </ol>
+    </div>
+
+  </div>
+
+  <nav class="art-nav art-nav-bottom">
+    <a href="IntermezzoCipher.html">← Intermezzo Cipher</a>
+    <span class="nav-home"><a href="../Matma.html">↑ Mật mã học</a></span>
+    <a href="giaimaeu.html">Giải mã khởi nguyên châu Âu →</a>
+  </nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

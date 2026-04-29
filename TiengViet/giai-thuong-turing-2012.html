@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Mật mã xác suất - Giải thưởng Turing 2012">
+<meta property="og:description" content="Giải Turing 2012 trao cho Shafi Goldwasser và Silvio Micali cho mật mã xác suất và zero-knowledge proof - những khái niệm nền tảng của mật mã hiện đại.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/giai-thuong-turing-2012.html">
+<title>Giải thưởng Turing 2012 - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    packages: {'[+]': ['ams']}
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.92;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+/* Title */
+.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+
+/* Table of contents */
+#toc {
+  background: #faf7f5;
+  border: 1px solid #e5dbd6;
+  border-left: 4px solid #8f1d2c;
+  border-radius: 7px;
+  padding: 1.4rem 1.75rem 1.25rem;
+  margin: 0 0 3rem;
+}
+#toc .toc-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.85rem;
+}
+#toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#toc li { margin-bottom: 0.35rem; line-height: 1.4; }
+#toc li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.97rem;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+#toc li a:hover { color: #8f1d2c; }
+#toc li.toc-sub { padding-left: 1.4rem; margin-bottom: 0.2rem; }
+#toc li.toc-sub a { font-size: 0.88rem; font-weight: 400; color: #666; }
+#toc li.toc-sub a:hover { color: #8f1d2c; }
+
+/* Sections */
+.art-section { margin-top: 3rem; }
+
+h2.sec-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+
+h3.subsec-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin: 2rem 0 0.7rem;
+}
+
+/* Side note blocks */
+.side-block {
+  background: #faf7f5;
+  border-left: 4px solid #c8a0a8;
+  border-radius: 0 7px 7px 0;
+  padding: 0.9rem 1.3rem 0.7rem;
+  margin: 1.4rem 0;
+  font-size: 0.97rem;
+  color: #444;
+}
+.side-block .side-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #9a5060;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 0.6rem;
+}
+.side-block p { margin: 0.3em 0; }
+.side-block ol { margin: 0.5em 0 0.4em 1.3em; padding: 0; }
+.side-block li { margin-bottom: 0.8em; }
+
+/* Separator */
+.art-sep-rule {
+  border: none;
+  border-top: 1px solid #e8e0dc;
+  margin: 3rem 0 2.5rem;
+}
+
+/* End */
+.art-end {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Tablet */
+@media (max-width: 860px) {
+  .page-content { padding: 3rem 2rem; }
+}
+/* Mobile */
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.05rem; line-height: 1.82; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  .art-title { font-size: 1.45rem; }
+  h2.sec-title { font-size: 1.12rem; }
+  h3.subsec-title { font-size: 1rem; }
+  #toc { padding: 1.1rem 1.2rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+<article>
+
+<h1 class="art-title">Giải thưởng Turing 2012</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">21/03/2013</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://www.dropbox.com/s/uvqgpcmnuivdipk/KHMT_Gi%25E1%25BA%25A3i%2520th%25C6%25B0%25E1%25BB%259Fng%2520Turing%25202012.pdf?dl=0" target="_blank">Blog Khoa Học Máy Tính</a> (PDF)</div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<nav id="toc"></nav>
+
+<p>Giải thưởng Turing (được ví như giải Nobel của ngành Khoa học máy tính) lần này sẽ được trao cho Shafi Goldwasser và Silvio Micali. Hai đóng góp nổi bật của Goldwasser và Micali là về <em>mật mã xác suất</em> và <em>chứng minh tương tác / chứng minh không để lộ tri thức</em>.</p>
+
+<p>Dưới đây mình sẽ bàn về bài báo <em>Mật mã xác suất</em> (Probabilistic Encryption). Bài báo này cùng lúc đưa vào: một cách nhìn mới về việc mã hoá; những khái niệm nền tảng về an toàn; và một phương pháp chứng minh tính an toàn của các hệ mã.</p>
+
+<!-- ============================================================ -->
+<section class="art-section" id="sec-1">
+<h2 class="sec-title">1. Mật mã xác suất</h2>
+
+<p>Xác suất thường được dùng nhằm để giúp tìm kiếm lời giải cho các bài toán một cách nhanh hơn là các thuật toán đơn định. Chẳng hạn, hiện nay tuy vẫn chưa có thuật toán tìm số nguyên tố một cách đơn định trong thời gian đa thức, nhưng đã có thuật toán xác suất rất hiệu quả với thời gian kỳ vọng là đa thức. Những thuật toán xác suất này được sử dụng trong thực tế để thiết lập các sơ đồ mã hoá.</p>
+
+<p>Vậy nhưng <em>Probabilistic Encryption</em> lại mang đến một ý nghĩa khác cho việc sử dụng xác suất: giá trị ngẫu nhiên không phải được dùng để tìm kiếm nhanh hơn mà được sử dụng để <em>xây dựng tốt hơn</em>. Trước đó, hàm mã hóa được thiết lập duy nhất dựa trên khóa thì nay ta chủ động đưa thêm vào một giá trị ngẫu nhiên. Do vậy, tương ứng với một bản rõ là một không gian rất lớn các bản mã, nhưng tất nhiên mỗi bản mã vẫn luôn tương ứng duy nhất với một bản rõ.</p>
+
+<p>Ta có thể đặt câu hỏi một cách tự nhiên: hà cớ gì phải phức tạp hoá vấn đề? Câu trả lời ngắn gọn là việc ngẫu nhiên hóa hàm mã giúp nâng lên rất cao độ an toàn cho hệ mã. Và ta sẽ thấy, tất cả các hệ mã muốn đạt được một mức độ an toàn chấp nhận được đều nhất thiết phải là mã hóa xác suất.</p>
+</section>
+
+<!-- ============================================================ -->
+<section class="art-section" id="sec-2">
+<h2 class="sec-title">2. Khái niệm an toàn và nền móng cho các phương pháp chứng minh tính bảo mật</h2>
+
+<p>Goldwasser và Micali đưa ra những khái niệm an toàn làm nền tảng cho việc chứng minh tính bảo mật của các sơ đồ mã hóa.</p>
+
+<p>Cách làm truyền thống là anh nào xây thì bảo hệ mã của tôi an toàn, đố ai phá được đấy. Lâu ngày không ai phá được thì dân làng tin là sơ đồ đó tốt. Nhưng cũng có khi đến lúc người ta tưởng là hệ mã an toàn thì lại có anh phá được, vậy là lại phải tìm tòi hệ mới. Xây xây phá phá xây xây tạo thành vòng luẩn quẩn khó thoát ra được. Goldwasser và Micali khởi đầu cho cách làm khoa học hơn: anh nào xây thì đồng thời phải chứng minh là hệ của mình an toàn!</p>
+
+<p>Khi phá thì chỉ cần đưa ra một tấn công trong khi chứng minh an toàn thì phải loại bỏ được mọi cách tấn công. Nhưng trước khi nói tới việc loại bỏ tấn công thì phải hiểu tường minh thế nào là an toàn. Đóng góp lớn của Goldwasser và Micali là việc hình thức hóa chặt chẽ khái niệm an toàn, từ đó vạch đường cho các chứng minh: hình thức hóa khái niệm an toàn; mô hình hóa sức mạnh của kẻ tấn công; và cuối cùng là chứng minh hệ của tôi đạt được mức độ an toàn yêu cầu trước tất cả những tấn công thực tế đã được mô hình hóa.</p>
+
+<p>Khái niệm an toàn mà Goldwasser và Micali đưa ra rất mạnh: kẻ tấn công, từ bản mã, không thể tìm được dù chỉ một bít thông tin về bản rõ. Khái niệm này được gọi là <em>an toàn ngữ nghĩa</em> (semantic security), là một phiên bản của khái niệm an toàn tuyệt đối nhưng giới hạn cho kẻ tấn công là các giải thuật trong thời gian đa thức. Sau đó, Goldwasser và Micali chứng minh là an toàn ngữ nghĩa tương đương với <em>tính không phân biệt được</em> (IND-indistinguishability) của hai bản mã: kẻ tấn công chọn hai bản rõ khác nhau \(m_0\) và \(m_1\) và nhận một bản mã \(c\) của một trong hai bản rõ này, nó không thể phân biệt được là bản mã \(c\) tương ứng với bản rõ \(m_0\) hay \(m_1\).</p>
+
+<p>Nhìn từ yêu cầu đạt tính không phân biệt được, thật rất tự nhiên để thấy một hệ mã hóa khóa công khai bắt buộc phải là một hệ mã xác suất. Thật vậy, nếu hệ mã là đơn định, tương ứng với mỗi bản rõ chỉ có duy nhất một bản mã. Hơn nữa, nếu là hệ mã hóa khóa công khai, kẻ tấn công có thể tự mã hóa bản rõ với khóa công khai, và nó sẽ tự tính được bản mã của \(m_0\) và \(m_1\) và chỉ cần so sánh với \(c\) là phá được tính IND. Do vậy, một cách cần thiết, hệ mã phải là hệ mã xác suất mới mong đạt IND. Khi đó, tương ứng một bản rõ là một không gian rất lớn các bản mã và phép so sánh trên không còn hiệu quả.</p>
+
+<p>Một cách nhìn khác, khái niệm IND ngầm định rằng hai phân bố ngẫu nhiên trên hai không gian bản mã của \(m_0\) và \(m_1\) là không phân biệt được đối với kẻ tấn công. Đứng trên quan điểm thông tin, do hai không gian này là rời nhau (nếu không sẽ có bản mã được giải ra các bản rõ khác nhau) nên khoảng cách thống kê (statistical distance) của hai phân bố là cực đại và tất nhiên chúng hoàn toàn phân biệt. Cái thú vị là khi giới hạn cho kẻ tấn công là một thuật toán thì ta có thể chuyển khoảng cách thống kê sang khoảng cách tính toán: <em>computational distance</em> định nghĩa khả năng phân biệt hai phân bố xác suất đối với các thuật toán. Tính IND yêu cầu computational distance của hai phân bố là vô cùng nhỏ đối với mọi thuật toán trong thời gian đa thức! Sau này, từ khái niệm computational distance sẽ dẫn tới khái niệm <em>computational entropy</em> được dùng phổ biến trong mật mã. Đối với mã hóa khóa công khai, cái hay là mọi thứ đều xác định vì khóa công khai xác định duy nhất khóa bí mật (do đó theo quan điểm thông tin, Shannon entropy bằng 0), nhưng lại rất khó tính - tức khó giải mã (và do vậy cần thiết rằng computational entropy là rất lớn). Shannon entropy = 0 nhưng đồng thời computational entropy phải lớn, đó là nguyên tắc cần đạt trong các hệ mã.</p>
+</section>
+
+<!-- ============================================================ -->
+<section class="art-section" id="sec-3">
+<h2 class="sec-title">3. Sự khởi đầu cho các phương pháp chứng minh tính an toàn</h2>
+
+<p>Chúng ta biết rằng điều kiện tối thiểu để xây dựng các sơ đồ mật mã là sự tồn tại các hàm một chiều. Và khi \(\mathsf{P} = \mathsf{NP}\) thì cũng dẫn tới không tồn tại các hàm một chiều và các hệ mã sẽ đều bị phá vỡ. Do vậy khi bài toán \(\mathsf{P}\) vs. \(\mathsf{NP}\) còn chưa có lời kết, sự an toàn của các sơ đồ mật mã đều phải dựa trên một giả thuyết nào đó như giả thuyết về sự tồn tại các hàm một chiều (giả thiết tối thiểu với mã đối xứng) hay các hàm một chiều có cửa lật (giả thiết tối thiểu với mã hoá khoá công khai), hay các giả thuyết cụ thể về độ khó của các bài toán phân tích số hay lô ga rít rời rạc. Dù là giả thuyết kiểu gì thì đó cũng là một bài toán "tĩnh", tức có đầu vào cụ thể và mục đích là giải bài toán đó.</p>
+
+<p>Trong khi đó tính an toàn của một hệ mã lại liên quan đến bài toán tương tác (<em>interactive problem</em>) giữa kẻ tấn công và hệ thống. Trong lúc tấn công, kẻ phá mã có thể truy cập hệ thống và có thêm thông tin cho việc tấn công. Đối với hệ mã hoá khoá công khai, các kẻ tấn công được mô hình hoá theo nghĩa rất mạnh: kẻ tấn công có quyền truy cập máy giải mã (truy cập theo kiểu Oracle - hỏi đáp) trên mọi bản mã trừ duy nhất bản mã \(c\) nó cần giải mã. Khái niệm này được gọi là Chosen Ciphertext Security hay CCA security hay IND-CCA (IND against Chosen Ciphertext Attacks). Việc chứng minh tính an toàn của một hệ mã có thể nói ngắn gọn là việc quy dẫn một tấn công tương tác cho hệ mã về một tấn công tĩnh cho một bài toán được giả thiết là khó.</p>
+
+<p>Khái niệm an toàn IND được Goldwasser và Micali hình thức hóa như trên là thông qua một trò chơi tương tác (Game) giữa kẻ tấn công và hệ thống (challenger) và nó đặt nền móng cho các phương pháp chứng minh tính an toàn sau này: khởi đầu là một Game theo định nghĩa, sau đó bản thân Game được "tiến hóa" dần dần sao cho kẻ tấn công có lợi thế "tương đương" giữa hai Games kế tiếp ("tương đương" theo nghĩa computational distance giữa phân bố đầu ra của hai Games là nhỏ không đáng kể). Trong mỗi Game sau, khả năng tương tác của kẻ tấn công bị triệt tiêu dần và cho đến Game cuối cùng là khi kẻ tấn công bị vô hiệu hoá khả năng tương tác và trở thành một kẻ tấn công tĩnh cho một bài toán được giả thuyết là khó. Mô hình chứng minh bằng các Games kế tiếp được sử dụng phổ biến trong các chứng minh tính an toàn của các hệ mã.</p>
+</section>
+
+<!-- ============================================================ -->
+<hr class="art-sep-rule">
+
+<section class="art-section" id="sec-ngoai-le">
+<h2 class="sec-title">Ngoài lề</h2>
+
+<p>Công trình của Goldwasser và Micali là cảm hứng cho hàng nghìn nhà khoa học tiếp tục phát triển lý thuyết mật mã và hầu như người làm mật mã nào cũng có thể thích thú cảm thấy như những kết quả của mình liên quan ít nhiều đến nền móng được đặt ra bởi Goldwasser và Micali.</p>
+
+<p>Với riêng mình, một số kết quả cùng David Pointcheval (thầy hướng dẫn PhD) cũng ít nhiều có liên hệ với công trình của Goldwasser và Micali, giải thích chút cho vui:</p>
+
+<ol style="margin: 1rem 0 1rem 1.5rem; padding: 0;">
+  <li style="margin-bottom: 1.2rem;">
+    <p style="margin: 0 0 0.5em;">Một hệ mã muốn đạt CCA security cần phải là mã xác suất. Nhưng tất cả các cách xây dựng các hệ mã đạt CCA security lại cần phải đưa vào thêm <em>tính dư thừa</em> vào không gian bản mã: hầu hết các bản mã đều không tương ứng với một bản rõ nào. Đây là kỹ thuật để vô hiệu hoá việc truy cập máy giải mã: kẻ tấn công chỉ có thể hỏi những bản mã trong phần dư thừa, không tương ứng bản rõ nào, do vậy việc hỏi máy giải mã là vô nghĩa. Bọn mình nêu câu hỏi: liệu tính dư thừa có thực sự cần thiết? Trong mô hình giới hạn với Random Oracle (hiện hệ mã chuẩn được sử dụng nhiều nhất trong thực tế là RSA-OAEP cũng chỉ có chứng minh trong mô hình Random Oracle), bọn mình chứng minh tính xác suất là cần và đủ để đạt CCA security, và độ dư thừa là không cần thiết.</p>
+    <p style="margin: 0;">Chú ý là đối với mô hình chứng minh không có Random Oracle, câu hỏi liệu tính chất xác suất có là đủ để đạt CCA security vẫn còn là câu hỏi mở. Tất cả các hệ mã hiện có đều cần tính dư thừa. Đây vẫn là một câu hỏi mà thỉnh thoảng mình lại trăn trở với nó. Qua trao đổi với nhiều người, một số cho rằng tính dư thừa là cần thiết, một số cho rằng không nhưng các lập luận đều còn cảm tính. Một chứng minh khẳng định theo chiều hướng nào cũng đều thú vị.</p>
+  </li>
+  <li style="margin-bottom: 0.5rem;">
+    <p style="margin: 0;">Đối với hệ mã hóa khóa công khai, để đạt IND nhất thiết cần là hệ mã xác suất. Câu hỏi tương tự nhưng xét cho hệ mã đối xứng thì sao? Bọn mình đặt mối liên quan giữa khái niệm IND và khái niệm giả ngẫu nhiên (khái niệm thông dụng cho mã đối xứng) và chứng minh là hệ mã đối xứng đơn định, không dư thừa có thể đạt IND. Và điều thú vị là trong khi tính adaptivity (truy cập oracle sau khi nhận thách thức) trong mã hoá khoá công khai đưa đến sức mạnh rõ rệt cho kẻ tấn công thì với mã đối xứng, tính adaptivity lại hầu như không có tác dụng.</p>
+  </li>
+</ol>
+</section>
+
+<!-- ============================================================ -->
+<section class="art-section" id="sec-lan-man">
+<h2 class="sec-title">Lan man</h2>
+
+<p>Có những tác phẩm nổi trội mà được những người trong ngành và công chúng có cách nhìn khác nhau. Mình được kể rằng lúc đương thời, những bản nhạc của Robert Schumann được các nhạc sỹ đánh giá rất cao, trong khi công chúng lại ít để ý tới và mải say mê với các tác phẩm của Rossini. Tác phẩm "Mật mã xác suất" của Goldwasser và Micali được giới trong ngành đánh giá tuyệt đẹp, bản thân mình thấy hay hơn hệ mã RSA. Hệ mã RSA? ok, một công trình đỉnh, nhưng thực sự khoảng cách từ công trình của Diffie&ndash;Hellman đến RSA không phải là quá lớn. Với mình, khái niệm mật mã hoá khoá công khai mới thực sự bất ngờ và cách mạng. Từ đó đến hệ mã RSA có lẽ không sớm thì muộn cũng sẽ có. Nhưng công chúng thì ai ai cũng biết tới hệ mã RSA, mà chẳng mấy ai biết mã xác suất là gì. Ngay cả khi mình bắt đầu làm PhD về mật mã thì mới biết đến mã xác suất. Có thể do RSA được sử dụng hầu khắp? nhưng tất cả các hệ mã đang được sử dụng cũng đều là mã xác suất để có thể đạt độ an toàn chấp nhận được.</p>
+
+<p>Có những tác phẩm mà khi ra đời chưa được đón nhận xứng đáng ngay cả từ giới chuyên môn, nhưng vẻ đẹp bí ẩn tiềm tàng của nó lại ngày càng được phát hiện theo thời gian, chẳng hạn như bức tranh Mona Lisa của Leonardo da Vinci. Và công trình nền tảng của Goldwasser&ndash;Micali&ndash;Rackoff, nơi đưa vào khái niệm tuyệt vời về chứng minh tương tác và chứng minh không để lộ tri thức, cũng là một ví dụ như thế. Bài báo của họ liên tiếp bị từ chối tại FOCS&nbsp;'83, STOC&nbsp;'84, FOCS&nbsp;'84 trước khi được nhận. Chứng minh tương tác và chứng minh không để lộ tri thức là những khái niệm rất đẹp và có ý nghĩa thực tế. Những kết quả sau này (IP&nbsp;=&nbsp;PSPACE và MIP&nbsp;=&nbsp;NEXP) cho thấy, nếu anh là một người có sức mạnh và quyền lực tuyệt đối, có những điều anh không thể chứng minh được tính đúng đắn qua những tuyên bố đơn phương và anh chỉ có thể chứng minh sự đúng đắn của mình qua đối thoại. Và chứng minh không để lộ tri thức đảm bảo rằng, dù phải dùng đối thoại để thuyết phục đối phương về một sự đúng đắn, anh sẽ không cần để lộ bất cứ bí mật nào. Do vậy, sự đối thoại là rất cần thiết.</p>
+
+<p>Cuối cùng, cái sự lan man này của tớ chắc cũng còn mù mờ, hy vọng bạn nào hứng thú sẽ đọc và có thể trình bày rõ nét những kết quả như IP&nbsp;=&nbsp;PSPACE và MIP&nbsp;=&nbsp;NEXP như một sự cùng đối thoại trên blog.</p>
+</section>
+
+<div class="art-end">
+  Blog Khoa Học Máy Tính &mdash; <a href="https://www.dropbox.com/s/uvqgpcmnuivdipk/KHMT_Gi%25E1%25BA%25A3i%2520th%25C6%25B0%25E1%25BB%259Fng%2520Turing%25202012.pdf?dl=0" target="_blank">PDF</a>
+</div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="vedepbatdinh.html" class="art-nav-prev">← Vẻ đẹp bất định trong mật mã hiện đại</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="bonthegioi.html" class="art-nav-next">Bốn thế giới ảo và một thế giới thực →</a>
+</nav>
+</article>
+</div>
+</div>
+
+<script>
+(function buildToc() {
+  var headings = Array.from(document.querySelectorAll(
+    '.art-section > h2.sec-title'
+  ));
+  if (!headings.length) return;
+  var toc = document.getElementById('toc');
+  if (!toc) return;
+  var tocHead = document.createElement('p');
+  tocHead.className = 'toc-heading';
+  tocHead.textContent = 'Mục lục';
+  toc.appendChild(tocHead);
+  var ol = document.createElement('ol');
+  headings.forEach(function(h) {
+    var container = h.closest('[id]');
+    if (!container) return;
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = '#' + container.id;
+    a.textContent = h.textContent.replace(/\s+/g, ' ').trim();
+    li.appendChild(a);
+    ol.appendChild(li);
+  });
+  toc.appendChild(ol);
+})();
+</script>
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

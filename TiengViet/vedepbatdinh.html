@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Vẻ đẹp bất định trong mật mã hiện đại">
+<meta property="og:description" content="Khám phá vẻ đẹp của sự ngẫu nhiên và bất định trong mật mã hiện đại - từ mã xác suất của Goldwasser-Micali đến chứng minh tương tác và zero-knowledge proof.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/vedepbatdinh.html">
+<meta property="og:image" content="https://www.di.ens.fr/users/phan/webpictures/vedepbatdinh.png">
+<title>Vẻ đẹp bất định trong mật mã hiện đại - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    packages: {'[+]': ['ams']}
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.92;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+/* Title */
+.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2.5rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-cover { text-align: center; margin: 1.2rem 0 1.8rem; }
+.art-cover img { width: 50%; border-radius: 8px; border: 1px solid #ece5e0; display: inline-block; }
+@media (max-width: 600px) { .art-cover img { width: 85%; } }
+
+/* Poem block */
+.poem {
+  font-style: italic;
+  margin: 1.5rem 0 1.5rem 1.8rem;
+  color: #333;
+  border-left: 3px solid #e0d0d3;
+  padding: 0.4rem 1.1rem;
+}
+.poem p { margin: 0; line-height: 1.75; }
+
+/* Key concepts callout */
+.concept-box {
+  background: #faf7f5;
+  border-left: 4px solid #8f1d2c;
+  border-radius: 0 7px 7px 0;
+  padding: 0.85rem 1.25rem;
+  margin: 1.4rem 0;
+  font-style: italic;
+  color: #555;
+}
+.concept-box p { margin: 0.2em 0; }
+
+/* Protocol / algorithm box */
+.protocol-box {
+  background: #f8f6f3;
+  border: 1px solid #ddd5ce;
+  border-radius: 8px;
+  padding: 1.1rem 1.5rem;
+  margin: 1.6rem 0;
+  font-style: italic;
+  color: #333;
+  font-size: 0.98rem;
+}
+.protocol-box .protocol-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: #8f1d2c;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 0.8rem;
+}
+.protocol-box p { margin: 0.4em 0; }
+.protocol-box .role {
+  font-weight: 600;
+  font-style: normal;
+  color: #5a1520;
+  min-width: 5.5rem;
+  display: inline-block;
+}
+.protocol-step { margin: 0.35em 0; }
+
+/* Closing */
+.art-end {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Tablet */
+@media (max-width: 860px) {
+  .page-content { padding: 3rem 2rem; }
+}
+/* Mobile */
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.05rem; line-height: 1.82; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  .art-title { font-size: 1.45rem; }
+  .poem { margin-left: 0.8rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+<article>
+
+<h1 class="art-title">Vẻ đẹp bất định trong mật mã hiện đại</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">29/02/2012</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://www.dropbox.com/s/or44tr0hn3ob32a/2013_ToanTuoiTho%2528VeDepBatDInhTrongMatMa%2529.pdf?dl=0" target="_blank">Blog Khoa Học Máy Tính</a>
+&nbsp;·&nbsp; In lại trên <em>Toán Tuổi Thơ</em> (2013)</div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+<div class="art-cover"><img src="../webpictures/vedepbatdinh.png" alt="Vẻ đẹp bất định trong mật mã hiện đại" loading="lazy"></div>
+
+<div class="poem">
+<p>Đôi mắt băn khoăn của em buồn</p>
+<p>Đôi mắt em muốn nhìn vào tâm tưởng anh</p>
+<p>Như trăng kia muốn vào sâu biển cả.</p>
+<p>Anh đã để cuộc đời trần trụi dưới mắt em</p>
+<p>Anh không giấu em một điều gì</p>
+<p>Ấy chính vì thế</p>
+<p>mà em không biết gì tất cả về anh</p>
+</div>
+
+<p>Câu thơ Tagore đó tôi thích từ thủa… biết xao xuyến, và khi học tới chứng minh không để lộ tri thức (zero-knowledge proof) thì cảm thấy như bỗng gặp điểm giao hòa giữa mã và thơ…</p>
+
+<div class="concept-box">
+  <p>Thuyết phục ắt phải qua đối thoại - đó chính là cảm nguồn cho khái niệm <strong>chứng minh tương tác</strong> (interactive proofs).</p>
+  <p>Đối thoại thuyết phục mà không để lộ tri thức - đó chính là <strong>zero-knowledge proof</strong>.</p>
+</div>
+
+<p>Chứng minh tương tác đã vượt ra ngoài mô hình những chứng minh cổ điển. Nếu như chứng minh cổ điển là một dãy tuần tự các lập luận logic đưa đến định lý cần chứng minh, thì chứng minh tương tác là một quá trình thuyết phục thông qua hỏi đáp để người đối diện hoàn toàn bị thuyết phục là một định lý là đúng. Và thuyết phục mà không để lộ tri thức là làm sao vừa bị thuyết phục là định lý đó đúng, mà người bị thuyết phục lại vẫn không biết gì về cách chứng minh nó!</p>
+
+<div class="poem">
+<p>Anh không giấu em một điều gì</p>
+<p>Ấy chính vì thế</p>
+<p>mà em không biết gì tất cả về anh</p>
+</div>
+
+<p>Với tôi, Tagore mới chính là ông tổ của zero-knowledge proof&nbsp;^_^</p>
+
+<p>Làm sao tôi chứng minh cho anh là có thể phân biệt được hai loại rượu Bordeaux trong vườn nhà Vincent và David? Một chứng minh tường minh đưa ra cách cảm nhận hai loại rượu với những khác biệt tinh tế dài mấy chục trang chưa chắc đã thuyết phục được ai, nhưng chỉ cần anh thử tôi 100 lần với 100 cốc rượu từ vườn nhà Vincent hay David, và lần nào tôi cũng nói đúng là vừa nốc cốc rượu nào, thì hẳn là anh đã bị tôi hoàn toàn thuyết phục về khả năng phân biệt của mình.</p>
+
+<p>Các chứng minh tương tác đều chỉ na ná cách thử rượu như thế. Và điều thật ngạc nhiên, định lý về sự tồn tại zero-knowledge proof cho các bài toán NP-complete đại ý nói rằng: bất kể bài toán nào mà việc kiểm tra chứng minh là có thể thực hiện được, thì đều có cách thuyết phục là tôi giải được bài toán đó mà <em>không để lộ tí thông tin nào</em> về cái chứng minh! <span style="font-size:0.92rem; color:#888;">("đại ý" vì nó còn cần điều kiện tồn tại hàm một chiều, nhưng nếu không có hàm một chiều thì chẳng có mật mã, chẳng có gì là bí mật nên chẳng có chuyện gì để viết.)</span></p>
+
+<p>Và điều đặc biệt nữa là, dù bạn có là một cô gái tóc vàng ngây thơ luôn đặt các câu hỏi hồn nhiên đến mức ngẫu nhiên, thì bạn vẫn bị thuyết phục bởi tôi. Nói xấu các cô gái tóc vàng như vậy (vì các cô đâu có ngây thơ&nbsp;^_^), nhưng nó diễn tả một khẳng định quan trọng: các chứng minh không để lộ tri thức hoàn toàn có thể thực hiện dù người hỏi chỉ cần đặt những câu hỏi hoàn toàn ngẫu nhiên.</p>
+
+<p>Chính những câu hỏi vu vơ mới lại càng có ý nghĩa thực tế. Chính sự không đòi hỏi những câu hỏi thông minh sắc xảo, mà nó cho phép bất kỳ ai cũng có thể kiểm thử được chứng minh. Và từ đó nó đem lại một ứng dụng đẹp của zero-knowledge proof vào thực tế: <strong>chữ ký điện tử</strong>.</p>
+
+<p>Lan man nhiều, nay ta đi vào ví dụ cụ thể.</p>
+
+<p>Ta chỉ cần một nhóm cyclic \(G\) với một phần tử sinh \(g\) và với bậc \(q\) đủ lớn sao cho bài toán logarit rời rạc là khó. Bài toán logarit rời rạc đơn giản chỉ là: cho \(g\) và \(y = g^x\), yêu cầu tìm \(x\). Bài toán này được giả thiết là rất khó khi \(q\) lớn. Tất nhiên nếu ta hì hục thử từng \(x = 1\) cho đến \(q\) thì cũng tìm được \(x\), nhưng khi \(q\) lớn thì việc làm này có thể mất hàng trăm năm cô đơn.</p>
+
+<p>Tôi cho anh số \(y\) và tuyên bố là tôi biết bí mật \(x\). Cách đơn giản nhất là tôi đưa thẳng \(x\) cho anh để kiểm tra xem \(y\) có bằng \(g^x\) hay không. Cách này thuyết phục hoàn toàn là tôi biết bí mật, nhưng cái giá phải trả là lộ mất bí mật \(x\). Tôi không muốn anh biết \(x\) mà anh vẫn bị tôi thuyết phục là tôi biết \(x\).</p>
+
+<p>Nếu làm được như vậy cũng là đã đủ để có một ứng dụng đẹp cho việc định danh. Ngày xưa, muốn vào được cổng của một câu lạc bộ Mafia thì cần nói cho tên gác cổng đầu trâu mặt ngựa một mật khẩu. Điều gì sẽ xảy ra khi có chú cảnh sát nào nấp ở cổng hoặc mua chuộc tên gác cổng để lấy mật khẩu? Với cách chứng minh không lộ tri thức, tên gác cổng hoàn toàn bị thuyết phục khi một thành viên chứng tỏ anh ta biết mật khẩu, vậy mà hắn ta vẫn không hề biết mật khẩu đó và cuộc đối thoại cũng không lộ thông tin gì về mật khẩu.</p>
+
+<p>Việc chứng minh biết \(x\) mà không để lộ \(x\) rất đơn giản. Người chứng minh (prover, gọi là P) đưa ra \(y\) và tuyên bố là biết \(x\) sao cho \(y = g^x\). Người kiểm tra (verifier, gọi là V) cần bị thuyết phục là P biết \(x\) nhưng bản thân V sẽ vẫn không biết gì về \(x\) sau khi bị thuyết phục.</p>
+
+<div class="protocol-box">
+  <div class="protocol-title">Giao thức chứng minh không để lộ tri thức</div>
+  <p class="protocol-step"><span class="role">P:</span> sinh một số ngẫu nhiên \(r\) (trong khoảng \(1\) đến \(q\)) rồi đưa V số \(u = g^r\)</p>
+  <p class="protocol-step"><span class="role">V:</span> chọn một số ngẫu nhiên \(k\) (trong khoảng \(1\) đến \(q\)) và đưa cho P</p>
+  <p class="protocol-step"><span class="role">P:</span> đưa V số \(t = r - kx \pmod{q}\)</p>
+  <p class="protocol-step"><span class="role">V:</span> chỉ cần kiểm tra xem \(u\) có bằng \(y^k \cdot g^t\) hay không. Nếu bằng thì bị thuyết phục, còn không thì bảo là P bốc phét.</p>
+</div>
+
+<p>Nói tóm lại, nhiệm vụ của P là cần đưa ra một biểu diễn của \(u\) theo \(y\) và \(g\), trong đó số mũ của \(y\) trong biểu diễn đó là \(k\) được chọn bởi V.</p>
+
+<p>Dĩ nhiên, nếu biết \(x\) thì nhiệm vụ của P vô cùng đơn giản, vì khi đó chỉ cần tính \(t = r - kx\) là sẽ có \(u = y^k \cdot g^t\).</p>
+
+<p><strong>Tại sao P buộc phải biết \(x\) mới trả lời được cho mọi lựa chọn \(k\)?</strong> Điều này là dễ thấy, vì chỉ cần P đưa ra được hai giá trị \(t_1, t_2\) cho hai lựa chọn khác nhau \(k_1, k_2\) thì có nghĩa là P phải biết \(x\). Hay nói cách khác, khi đó \(k_1 x + t_1 = k_2 x + t_2\) và \(x = (t_2 - t_1)/(k_1 - k_2)\) tính được - đây là ý tưởng của <em>extractor</em> trong zero-knowledge proof of knowledge. Do đó, việc với lựa chọn \(k\) ngẫu nhiên của V mà P trả lời đưa ra được \(t\) đã hoàn toàn thuyết phục được V là P phải biết \(x\).</p>
+
+<p><strong>Tại sao sau đối thoại V không biết gì về \(x\)?</strong> Điểm thú vị là P chỉ cần đưa ra câu trả lời cho một lựa chọn \(k\) mà thôi; nếu lặp lại chứng minh thì P đã chọn \(r\) khác rồi. Và với sự trả lời cho một \(k\) thì V chả nhận được thông tin gì về \(x\) cả. Lý do là sau khi đối thoại với P, tất cả những gì V có là \(u, k, t\) thỏa mãn phương trình \(u = y^k \cdot g^t\). Tuy nhiên, không cần đối thoại với P thì V cũng có được ngần ấy thông tin bằng cách chọn \(k, t\) ngẫu nhiên rồi tính \(u = y^k \cdot g^t\) (phân bố của các giá trị theo hai cách là như nhau). Nói cách khác, đối thoại với P hay không chẳng đem lại lợi lộc gì cho V nên V không biết thêm thông tin gì về bí mật \(x\), dù như trên đã chứng tỏ, V bị thuyết phục hoàn toàn rằng P biết \(x\).</p>
+
+<p>Vậy là ta kết thúc được chứng minh không để lộ tri thức. Các bạn kiên nhẫn thêm một chút nữa thôi là ta có được sơ đồ chữ ký điện tử.</p>
+
+<p>Làm sao ta ký trên một văn bản \(m\) để không ai ngụy tạo được chữ ký của ta, nhưng ai cũng kiểm tra được chữ ký đó là của ta?</p>
+
+<p>Nghe đã hơi giống chứng minh không lộ tri thức, nhưng khác biệt cơ bản là chữ ký thì không qua tương tác, còn chứng minh trên kia nhất thiết phải qua tương tác. Nếu \(k\) lại do P chọn thì P có thể chọn \(k\) sau khi biết \(r\) để tạo chứng minh mà không cần biết \(x\), bằng cách chọn \(t\) ngẫu nhiên rồi lấy \(u = y^k \cdot g^t\). Điểm mấu chốt của chứng minh tương tác là P chỉ biết \(k\) sau khi đã chọn \(r\). Điều này đạt được dễ dàng qua tương tác, vì V chỉ đưa \(k\) cho P sau khi đã nhận được \(u\).</p>
+
+<p>Đối với ngữ cảnh không có tương tác, làm sao để có thể đảm bảo là \(u\) được chọn trước \(k\)? Ý tưởng tự nhiên là tính \(k\) như một hàm của \(u\). Và điều này có thể đạt được trong chữ ký bằng cách ép buộc \(k = H(m, u)\), với hàm \(H\) tạm coi là ngẫu nhiên - tức là với bất kể đầu vào nào thì đầu ra là một giá trị ngẫu nhiên không thể đoán. Việc giá trị \(H\) phụ thuộc vào \(m\) đảm bảo thêm luôn là chứng minh đó được tạo ra trên văn bản \(m\) chứ không phải văn bản nào khác. Lấy lại nguyên si chứng minh tương tác phía trên và thay đối thoại giữa P và V bằng công việc của người ký, ta có sơ đồ chữ ký điện tử:</p>
+
+<div class="protocol-box">
+  <div class="protocol-title">Sơ đồ chữ ký Schnorr</div>
+  <p style="margin: 0 0 0.7em; font-style: normal; font-size: 0.93rem; color: #666;">Khởi động: người ký chọn khóa bí mật \(x\) và công bố khóa công khai \(y = g^x\). Mục đích là ký lên văn bản \(m\).</p>
+  <p class="protocol-step"><span class="role">Người ký:</span> sinh số ngẫu nhiên \(r\) (trong khoảng \(1\) đến \(q\)) rồi tính \(u = g^r\)</p>
+  <p class="protocol-step"><span class="role">Người ký:</span> tính \(k = H(m, u)\)</p>
+  <p class="protocol-step"><span class="role">Người ký:</span> tính \(t = r - kx \pmod{q}\) - chữ ký trên \(m\) là \((u,\, t)\)</p>
+  <p class="protocol-step"><span class="role">Kiểm tra:</span> tính \(k = H(m, u)\) và kiểm tra xem \(u\) có bằng \(y^k \cdot g^t\) hay không. Nếu bằng thì chấp nhận chữ ký, nếu không thì bác bỏ.</p>
+</div>
+
+<p>Nếu hàm \(H\) đủ độ ngẫu nhiên thì ta không thể chọn \(k\) trước \(u\), vì việc cho giá trị của hàm \(H\) trước rồi tìm \(u\) thỏa mãn \(k = H(m,u)\) là khó như tìm chiếc nhẫn rơi giữa đại dương. Việc giá trị của \(H\) phụ thuộc vào \(m\) đảm bảo rằng đó là chữ ký trên văn bản \(m\) chứ không phải trên văn bản nào khác.</p>
+
+<p>Đây cũng là <strong>chữ ký Schnorr</strong> nổi tiếng và là cơ sở cho nhiều chuẩn chữ ký số được dùng trong thực tế (bao gồm cả DSA). Trong thực tế ta có thể dùng \(H\) bằng các hàm băm như SHA, MD5…, nhưng trong chứng minh, \(H\) buộc phải được mô hình hóa như một máy tư vấn ngẫu nhiên (random oracle) thì mới chứng minh được sơ đồ chữ ký như trên là an toàn.</p>
+
+<p>Chữ ký điện tử như ở Pháp đã được công nhận là hợp pháp từ năm 2000, vì người ta coi rằng làm giả chữ ký điện tử còn khó hơn bội phần làm giả chữ ký tay.</p>
+
+<p>Rong chơi từ cái mơ hồ (chứng minh không lộ tri thức) để rồi ta áp dụng làm được cái cụ thể (chữ ký điện tử) thật là lý thú. Những cái gì quá rõ ràng có lẽ chỉ có được giá trị hữu hạn, những gì bí hiểm lại có thể có những giá trị tiềm tàng không giới hạn, và đó là ảnh hưởng những vần thơ của Tagore với tôi…</p>
+
+<div class="poem">
+<p>Nếu đời anh chỉ là viên ngọc,</p>
+<p>Anh sẽ đập nó ra làm trăm mảnh</p>
+<p>Và xâu thành một chuỗi</p>
+<p>Quàng vào cổ em.</p>
+<p>Nếu đời anh chỉ là một đoá hoa</p>
+<p>Tròn trịa, dịu dàng và bé bỏng,</p>
+<p>Anh sẽ hái nó khỏi cành và cài lên mái tóc em.</p>
+<p>Nhưng em ơi, đời anh là một trái tim</p>
+<p>Nào ai biết chiều sâu và bến bờ của nó.</p>
+<p>Em là nữ hoàng của vương quốc đó</p>
+<p>Ấy thế mà em có biết gì về biên giới của nó đâu.</p>
+<br>
+<p>Nếu trái tim anh chỉ là một phút giây lạc thú</p>
+<p>Nó sẽ nở ra thành một nụ cười nhẹ nhõm</p>
+<p>Và em sẽ thấu hiểu rất nhanh.</p>
+<p>Nếu trái tim anh chỉ là khổ đau</p>
+<p>Nó sẽ tan ra thành lệ trong</p>
+<p>Và lặng im phản chiếu nỗi niềm u ẩn.</p>
+<p>Nhưng em ơi, trái tim anh lại là tình yêu</p>
+<p>Nỗi vui sướng, khổ đau của nó là vô biên</p>
+<p>Những đòi hỏi và sự giàu sang của nó là trường cửu.</p>
+<p>Trái tim anh cũng ở gần em như chính đời em vậy</p>
+<p>Nhưng chẳng bao giờ em biết trọn nó đâu.</p>
+</div>
+
+<div class="art-end">
+  Blog Khoa Học Máy Tính &mdash; <a href="https://www.dropbox.com/s/or44tr0hn3ob32a/2013_ToanTuoiTho%2528VeDepBatDInhTrongMatMa%2529.pdf?dl=0" target="_blank">PDF</a>
+</div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="doi-thoai-trong-chung-minh.html" class="art-nav-prev">← Đối thoại trong chứng minh (Interactive Proofs)</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="giai-thuong-turing-2012.html" class="art-nav-next">Mật mã xác suất - Giải thưởng Turing 2012 →</a>
+</nav>
+</article>
+</div>
+</div>
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

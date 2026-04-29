@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="VietCrypt 2006 – Hội nghị Mật mã quốc tế đầu tiên tại Việt Nam">
+<meta property="og:description" content="Giới thiệu hội nghị VietCrypt 2006 – hội nghị quốc tế về mật mã đầu tiên được tổ chức tại Việt Nam, với 80 bài gửi, 24 bài chấp nhận, hai bài phát biểu mời từ Jacques Stern và Tatsuaki Okamoto.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/vietcrypt2006.html">
+<title>VietCrypt 2006 – Hội nghị Mật mã quốc tế đầu tiên tại Việt Nam - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.art-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #777;
+  font-style: italic;
+  margin: 0 0 0.9rem;
+}
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 0.3rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+p { margin: 0 0 1.2em; }
+a { color: #8f1d2c; }
+a:hover { text-decoration: underline; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #f0dde0;
+}
+.info-box {
+  background: #faf7f5;
+  border: 1px solid #ece5e0;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.97rem;
+}
+.info-box p { margin: 0.3em 0; }
+.info-box strong { color: #444; }
+.paper-list {
+  margin: 0.8rem 0 1.2rem;
+  padding-left: 0;
+  list-style: none;
+}
+.paper-list li {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #f4f0ed;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.paper-list li:last-child { border-bottom: none; }
+.paper-title { font-weight: 600; color: #1e1e1e; }
+.paper-authors { color: #666; font-size: 0.92rem; margin-top: 0.1rem; }
+.paper-vn { background: #fdf5f6; border-left: 3px solid #c9a0a7; padding: 0.4rem 0.8rem; border-radius: 0 4px 4px 0; }
+.program-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
+.program-table th { background: #f9f4f5; color: #8f1d2c; font-weight: 600; padding: 0.6rem 0.8rem; text-align: left; border-bottom: 2px solid #f0dde0; }
+.program-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid #f0ece9; vertical-align: top; }
+.program-table tr:last-child td { border-bottom: none; }
+.program-table .time-col { white-space: nowrap; color: #888; font-size: 0.9rem; width: 120px; }
+.program-day { font-size: 1.05rem; font-weight: 700; color: #8f1d2c; margin: 1.8rem 0 0.5rem; }
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+  .program-table .time-col { width: 85px; font-size: 0.83rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">VietCrypt 2006 – Hội nghị Mật mã quốc tế đầu tiên tại Việt Nam</h1>
+<p class="art-subtitle">(Giới thiệu và chương trình hội nghị – ghi chép từ Diễn đàn Toán học)</p>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">08–09/2006</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://diendantoanhoc.org/topic/20371-gi%E1%BB%9Bi-thi%E1%BB%87u-h%E1%BB%99i-ngh%E1%BB%8B-vietcrypt-2006/" target="_blank">Diễn đàn Toán học</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<figure style="text-align:center;margin:2rem 0 1.5rem;">
+  <img src="../webpictures/Vietcrypt2006.jpeg" alt="VietCrypt 2006 – Hội nghị Mật mã quốc tế đầu tiên tại Việt Nam" loading="lazy" style="max-width:90%;border-radius:10px;border:1px solid #ece5e0;display:inline-block;">
+  <figcaption style="font-size:0.85rem;color:#999;margin-top:0.6rem;font-style:italic;">VietCrypt 2006 – Hội nghị Mật mã quốc tế đầu tiên tại Việt Nam, Khách sạn Melia, Hà Nội.</figcaption>
+</figure>
+
+<p>Sắp tới, một Hội nghị quốc tế về Mật mã sẽ được tổ chức tại Hà Nội. Hy vọng sẽ có nhiều bạn quan tâm đến tham dự (sinh viên có thể tham dự miễn phí tất cả các hoạt động). Nếu số lượng đại biểu ở Việt Nam tham dự đông, Hội nghị sẽ dành thêm 1 ngày trước khai mạc cho Tutorial/Survey. Do vậy, nếu các bạn có ý định tham dự hãy đăng ký sớm để ban tổ chức có thể quyết định có tổ chức Tutorial/Survey hay không.</p>
+
+<h2 class="sec-title">Thông tin hội nghị</h2>
+
+<div class="info-box">
+  <p><strong>Thời gian:</strong> 25 đến 28/09/2006</p>
+  <p><strong>Địa điểm:</strong> Khách sạn Melia – Hà Nội</p>
+  <p><strong>General Chair:</strong> Phan Đình Diệu (Trường Đại học Quốc gia Hà Nội)</p>
+  <p><strong>Program Chair:</strong> Nguyễn Phong Quang (École normale supérieure – Trường Sư Phạm Paris)</p>
+  <p><strong>Organizers:</strong> Nguyễn Quốc Khánh (FPT, Chair), Phan Dương Hiệu (ENS, France), Nguyễn Duy Lân (CSIRO ICT Centre, Australia)</p>
+  <p><strong>Đơn vị tổ chức:</strong> FPT với sự cộng tác khoa học của Viện Toán Học</p>
+  <p><strong>Proceedings:</strong> Lecture Notes in Computer Science, Springer</p>
+</div>
+
+<h2 class="sec-title">Phát biểu mời</h2>
+
+<p>Hai bài phát biểu mời của hội nghị sẽ do hai nhà khoa học đứng đầu hai nền khoa học Mật mã mạnh của thế giới thực hiện:</p>
+
+<p><strong>Jacques Stern</strong> (Pháp, trưởng khoa Tin học của Trường Sư Phạm Paris) – bài phát biểu về <em>Cryptography in Financial Transactions</em>. Đây là một trong những người tạo nền móng cho sự phát triển mạnh mẽ của ngành Mật mã tại Pháp.</p>
+
+<p><strong>Tatsuaki Okamoto</strong> (Giáo sư Đại học Kyoto và NTT, Nhật Bản) – bài phát biểu về <em>On Pairing-Based Cryptosystems</em>. Ông là một trong những người tạo nền móng cho nền mật mã Nhật Bản, và cũng đồng thời có bài báo được chấp nhận tại chính hội nghị này (xem thêm phần danh sách bài báo).</p>
+
+<p>Ngoài ra, Ban Cơ Yếu có thể sẽ trình bày về Mật mã tại Việt Nam từ trong chiến tranh đến hiện tại.</p>
+
+<h2 class="sec-title">Ban chương trình và quy mô</h2>
+
+<p>Hội nghị tập hợp được một ban chương trình với nhiều nhà khoa học uy tín và đã thu hút được <strong>80 bài báo gửi tới</strong>. Ban chương trình đã chọn ra <strong>24 bài</strong> để trình bày tại hội nghị. Đặc biệt, trong ban chương trình có sự tham gia của:</p>
+<ul style="margin:0.5rem 0 1.2rem;padding-left:1.5rem;line-height:2;">
+  <li><strong>Neal Koblitz</strong> – một trong 2 người (cùng Victor Miller) đưa các nghiên cứu về đường cong Elliptic vào Mật mã</li>
+  <li><strong>Bart Preneel</strong> – chủ tịch chương trình Mật mã châu Âu</li>
+  <li><strong>Pascal Paillier</strong> – đứng đầu nhóm bảo mật của Gemplus (công ty thẻ điện tử lớn nhất thế giới)</li>
+  <li><strong>Hà Huy Khoái</strong> – Viện trưởng Viện Toán học Việt Nam</li>
+  <li><strong>Xiaoyun Wang</strong> – người năm 2005 làm náo động giới mật mã với các công trình tấn công các hàm băm SHA</li>
+</ul>
+
+<h2 class="sec-title">Một số bài nổi bật</h2>
+
+<p><strong>Tatsuaki Okamoto</strong> không chỉ là khách mời của hội nghị, ông cùng 2 đồng nghiệp sẽ trình bày về <em>Universally Composable Identity-Based Encryption</em>. Hướng nghiên cứu về mật mã dựa trên danh tính (không cần sử dụng PKI – hạ tầng cơ sở khóa công khai) đang rất được quan tâm.</p>
+
+<p><strong>Serge Vaudenay</strong> (trưởng nhóm nghiên cứu mật mã tại Đại học bách khoa Lausanne – đại học mạnh nhất của Thụy Sỹ về mật mã; nổi tiếng nhờ đã phá thành công hệ mã Chor-Rivest đứng vững suốt hơn 10 năm) sẽ cùng đồng tác giả trình bày nghiên cứu về <em>Undeniable Signatures</em>, một hệ chữ ký điện tử có đặc tính khác với hệ chữ ký thông thường: không phải ai cũng kiểm thử được chữ ký mà cần đến sự hợp tác của bản thân người ký.</p>
+
+<p><strong>Phillip Rogaway</strong> (một trong hai đồng sáng lập của hệ mã nổi tiếng OAEP đang được sử dụng như chuẩn của nhiều hệ mã) sẽ trình bày về <em>Formalizing Human Ignorance</em>. Các hàm băm (như SHA) không sử dụng chìa khóa và do đó không thể giả thuyết rằng không tồn tại thuật toán hiệu quả tìm đụng độ (collision). Rogaway sẽ trình bày cách hình thức hóa "sự không biết" đó của con người.</p>
+
+<p><strong>Arjen K. Lenstra</strong> (chữ L đầu tiên trong viết tắt của thuật toán LLL nổi tiếng trong algebraic number theory) cùng 2 đồng nghiệp sẽ trình bày các nghiên cứu về hàm băm VSH (Very Smooth Hash) dựa trên độ khó của bài toán logarít rời rạc.</p>
+
+<p><strong>David Pointcheval</strong> (trưởng nhóm mật mã tại trường Sư phạm Paris) cùng học trò Cécile Delerablée sẽ trình bày một nghiên cứu về <em>Group Signature</em> – chữ ký nhóm, trong đó một thành viên có thể ký với danh nghĩa nhóm mà không ai biết chính xác đó là ai.</p>
+
+<p><strong>Jacques Patarin</strong> (trưởng nhóm mật mã tại đại học Versailles, nhóm mật mã mạnh thứ hai tại Pháp sau trường Sư phạm Paris) nổi tiếng về những nghiên cứu về các hệ mật mã dựa trên hàm nhiều biến, sẽ trình bày về <em>Probabilistic Multivariate Cryptography</em>.</p>
+
+<h2 class="sec-title">Các tác giả Việt Nam</h2>
+
+<p>Hội nghị lần này có <strong>3 bài được nhận</strong> có sự tham gia của các tác giả Việt Nam:</p>
+<ul style="margin:0.5rem 0 1.2rem;padding-left:1.5rem;line-height:2.1;">
+  <li><strong>Nguyễn Duy Lân</strong> – Trung tâm nghiên cứu CSIRO ICT Centre, Úc<br>
+    <em>Efficient Dynamic k-Times Anonymous Authentication</em></li>
+  <li><strong>Phan Thị Lan Anh</strong> – Trường Đại học Tokyo, Nhật Bản<br>
+    <em>Reducing the Spread of Damage of Key Exposures in Key-Insulated Encryption</em></li>
+  <li><strong>Phan Dương Hiệu</strong> – University College London, Anh<br>
+    <em>Traitor Tracing for Stateful Pirate Decoders with Constant Ciphertext Rate</em></li>
+</ul>
+
+<h2 class="sec-title">Đăng ký tham dự</h2>
+
+<p>Một trong các mục đích chính của VietCrypt là tạo ra cơ hội trao đổi, gặp gỡ giữa những người quan tâm tới mật mã trong nước và giới nghiên cứu mật mã thế giới. Hội nghị rất mong nhận được sự tham gia từ các bạn sinh viên quan tâm tới môn khoa học trẻ trung này.</p>
+
+<p>Lệ phí tham dự: $400 cho đại biểu nước ngoài, 200.000 đồng cho đại biểu trong nước (bao gồm tất cả các buổi ăn trưa tại khách sạn, các hoạt động ngoại khóa và 1 cuốn pre-proceedings). <strong>Sinh viên có thể tham dự miễn phí</strong> khi chứng tỏ sự liên quan với Mật mã qua Motivation letter và/hoặc CV.</p>
+
+<h2 class="sec-title">Danh sách 24 bài báo được chấp nhận</h2>
+
+<p style="font-size:0.9rem;color:#888;margin-bottom:0.8rem;">Gửi tới ngày 25/08/2006. Proceedings xuất bản trong Lecture Notes in Computer Science (Springer).</p>
+
+<ul class="paper-list">
+  <li class="paper-vn">
+    <div class="paper-title">Efficient Dynamic k-Times Anonymous Authentication</div>
+    <div class="paper-authors">Lan Nguyen (CSIRO ICT Centre, Australia)</div>
+  </li>
+  <li>
+    <div class="paper-title">A New Signature Scheme Without Random Oracles from Bilinear Pairings</div>
+    <div class="paper-authors">Fangguo Zhang, Xiaofeng Chen (Sun Yat-sen University, China), Willy Susilo and Yi Mu (University of Wollongong, Australia)</div>
+  </li>
+  <li>
+    <div class="paper-title">Probabilistic Multivariate Cryptography</div>
+    <div class="paper-authors">Aline Gouget (Gemalto, France) and Jacques Patarin (University of Versailles, France)</div>
+  </li>
+  <li>
+    <div class="paper-title">An Ideal and Robust Threshold RSA</div>
+    <div class="paper-authors">Hossein Ghodosi (James Cook University, Australia) and Josef Pieprzyk (Macquarie University, Australia)</div>
+  </li>
+  <li>
+    <div class="paper-title">Side Channel Analysis of Practical Pairing Implementations: Which Path is More Secure?</div>
+    <div class="paper-authors">Claire Whelan and Mike Scott (Dublin City University, Ireland)</div>
+  </li>
+  <li>
+    <div class="paper-title">Compressed Jacobian Coordinates for OEF</div>
+    <div class="paper-authors">Fumitaka Hoshino, Tetsutaro Kobayashi, Kazumaro Aoki (NTT, Japan)</div>
+  </li>
+  <li>
+    <div class="paper-title">Short 2-Move Undeniable Signatures</div>
+    <div class="paper-authors">Jean Monnerat and Serge Vaudenay (EPFL, Switzerland)</div>
+  </li>
+  <li>
+    <div class="paper-title">Improved Fast Correlation Attack on the Shrinking and Self-Shrinking Generators</div>
+    <div class="paper-authors">Kitae Jeong (Korea Univ.), Jaechul Sung (Univ. of Seoul), Seokhie Hong, Sangjin Lee, Deukjo Hong (Korea Univ.), Jaeheon Kim (NSRI, Korea)</div>
+  </li>
+  <li>
+    <div class="paper-title">A Weak Key Class of XTEA for a Related-Key Rectangle Attack</div>
+    <div class="paper-authors">Eunjin Lee, Deukjo Hong, Donghoon Chang, Seokhie Hong, Jongin Lim (Korea Univ., Korea)</div>
+  </li>
+  <li>
+    <div class="paper-title">Towards Provably Secure Group Key Agreement Building on Group Theory</div>
+    <div class="paper-authors">Jens-Matthias Bohli and Benjamin Glas (Universität Karlsruhe, Germany) and Rainer Steinwandt (Florida Atlantic University, USA)</div>
+  </li>
+  <li>
+    <div class="paper-title">Universally Composable Identity-Based Encryption</div>
+    <div class="paper-authors">Ryo Nishimaki (Kyoto University, Japan), Yoshifumi Manabe and Tatsuaki Okamoto (Kyoto University / NTT Laboratories, Japan)</div>
+  </li>
+  <li>
+    <div class="paper-title">On the Definition of Anonymity for Ring Signatures</div>
+    <div class="paper-authors">Miyako Ohkubo (Information-Technology Promotion Agency, Japan) and Masayuki Abe (NTT Information Sharing Platform Laboratories, Japan)</div>
+  </li>
+  <li>
+    <div class="paper-title">Factoring Square-free Composite Integer by Solving Multivariate Integer Polynomial Equations</div>
+    <div class="paper-authors">Bagus Santoso, Noboru Kunihiro, Naoki Kanayama, Kazuo Ohta (The University of Electro-Communications and Tsukuba University, Japan)</div>
+  </li>
+  <li>
+    <div class="paper-title">Scalar Multiplication on Koblitz Curves Using Double Bases</div>
+    <div class="paper-authors">Roberto Avanzi (Ruhr-University Bochum, Germany) and Francesco Sica (Mount Allison University, Canada)</div>
+  </li>
+  <li>
+    <div class="paper-title">How to Construct Sufficient Conditions for Hash Functions</div>
+    <div class="paper-authors">Yu Sasaki, Yusuke Naito (Univ. of Electro-Communications, Japan), Jun Yajima, Takeshi Shimoyama (Fujitsu Laboratories, Japan), Noboru Kunihiro, Kazuo Ohta (Univ. of Electro-Communications, Japan)</div>
+  </li>
+  <li>
+    <div class="paper-title">Deniable Group Key Agreement</div>
+    <div class="paper-authors">Jens-Matthias Bohli (Universität Karlsruhe, Germany) and Rainer Steinwandt (Florida Atlantic University, USA)</div>
+  </li>
+  <li>
+    <div class="paper-title">Escrowed Linkability of Ring Signatures and its Applications</div>
+    <div class="paper-authors">Sherman S. M. Chow (New York University, USA), Willy Susilo (University of Wollongong, Australia) and Tsz Hon Yuen (The Chinese University of Hong Kong)</div>
+  </li>
+  <li class="paper-vn">
+    <div class="paper-title">Traitor Tracing for Stateful Pirate Decoders with Constant Ciphertext Rate</div>
+    <div class="paper-authors">Duong Hieu Phan (University College London, UK)</div>
+  </li>
+  <li>
+    <div class="paper-title">Formalizing Human Ignorance (Collision-Intractable Hashing without the Keys)</div>
+    <div class="paper-authors">Phillip Rogaway (UC Davis, USA and Chiang Mai University, Thailand)</div>
+  </li>
+  <li>
+    <div class="paper-title">On the Internal Structure of ALPHA-MAC</div>
+    <div class="paper-authors">Jianyong Huang, Jennifer Seberry and Willy Susilo (University of Wollongong, Australia)</div>
+  </li>
+  <li>
+    <div class="paper-title">Searching for Compact Algorithms: CGEN</div>
+    <div class="paper-authors">M.J.B. Robshaw (France Telecom R&amp;D, France)</div>
+  </li>
+  <li>
+    <div class="paper-title">Discrete Logarithm Variants of VSH</div>
+    <div class="paper-authors">Arjen K. Lenstra (EPFL, Switzerland), Dan Page (Univ. Bristol, UK) and Martijn Stam (EPFL, Switzerland)</div>
+  </li>
+  <li>
+    <div class="paper-title">Dynamic Fully Anonymous Short Group Signatures</div>
+    <div class="paper-authors">Cécile Delerablée (France Telecom R&amp;D, France) and David Pointcheval (CNRS/ENS, France)</div>
+  </li>
+  <li class="paper-vn">
+    <div class="paper-title">Reducing the Spread of Damage of Key Exposures in Key-Insulated Encryption</div>
+    <div class="paper-authors">Yumiko Hanaoka (NTT DoCoMo, Japan), Thi Lan Anh Phan (Univ. Tokyo, Japan), Goichiro Hanaoka (AIST, Japan), Kanta Matsuura, Hideki Imai (Univ. Tokyo, Japan)</div>
+  </li>
+</ul>
+
+<p style="font-size:0.88rem;color:#999;font-style:italic;">Các bài có nền hồng là bài có tác giả Việt Nam.</p>
+
+<h2 class="sec-title">Chương trình hội nghị</h2>
+
+<p style="font-size:0.92rem;color:#666;">Theo thông tin từ Ban tổ chức, có gần 70 người đăng ký tham gia, trong đó khoảng 30 người trong nước (có gần 10 bạn sinh viên – nghiên cứu sinh).</p>
+
+<div class="program-day">Thứ Hai 25/09 (Tutorial)</div>
+<table class="program-table">
+  <tr><th class="time-col">Giờ</th><th>Nội dung</th></tr>
+  <tr><td class="time-col">14:00 – 18:00</td><td>Surveys and Tutorials</td></tr>
+</table>
+
+<div class="program-day">Thứ Ba 26/09</div>
+<table class="program-table">
+  <tr><th class="time-col">Giờ</th><th>Nội dung</th></tr>
+  <tr><td class="time-col">8:00 – 9:00</td><td>Đăng ký</td></tr>
+  <tr><td class="time-col">9:00 – 9:10</td><td>Khai mạc</td></tr>
+  <tr><td class="time-col">9:10 – 10:10</td><td><strong>Invited Talk:</strong> Tatsuaki Okamoto – <em>On Pairing-Based Cryptosystems</em></td></tr>
+  <tr><td class="time-col">10:30 – 12:30</td><td><strong>Session 1: Public Key Encryption</strong><br>
+    · Universally Composable Identity-Based Encryption (Nishimaki, Manabe, Okamoto)<br>
+    · Reducing the Spread of Damage of Key Exposures in Key-Insulated Encryption (Hanaoka, Phan, Hanaoka, Matsuura, Imai)<br>
+    · An Ideal and Robust Threshold RSA (Ghodosi, Pieprzyk)</td></tr>
+  <tr><td class="time-col">14:00 – 16:00</td><td><strong>Session 2: Signature Schemes</strong><br>
+    · Short 2-Move Undeniable Signatures (Monnerat, Vaudenay)<br>
+    · A New Signature Scheme Without Random Oracles from Bilinear Pairings (Zhang, Chen, Susilo, Mu)<br>
+    · On the Definition of Anonymity for Ring Signatures (Ohkubo, Abe)</td></tr>
+  <tr><td class="time-col">16:20 – 18:20</td><td><strong>Session 3: Group Signatures and Key Agreement</strong><br>
+    · Dynamic Fully Anonymous Short Group Signatures (Delerablée, Pointcheval)<br>
+    · Escrowed Linkability of Ring Signatures and its Applications (Chow, Susilo, Yuen)<br>
+    · Towards Provably Secure Group Key Agreement Building on Group Theory (Bohli, Glas, Steinwandt)</td></tr>
+</table>
+
+<div class="program-day">Thứ Tư 27/09</div>
+<table class="program-table">
+  <tr><th class="time-col">Giờ</th><th>Nội dung</th></tr>
+  <tr><td class="time-col">9:00 – 10:00</td><td><strong>Invited Talk:</strong> Jacques Stern – <em>Cryptography in Financial Transactions</em></td></tr>
+  <tr><td class="time-col">10:20 – 12:20</td><td><strong>Session 4: Traitor Tracing and Multivariate Cryptography</strong><br>
+    · Traitor Tracing for Stateful Pirate Decoders with Constant Ciphertext Rate (Phan)<br>
+    · Efficient Dynamic k-Times Anonymous Authentication (Nguyen)<br>
+    · Probabilistic Multivariate Cryptography (Gouget, Patarin)</td></tr>
+  <tr><td class="time-col">14:00 – 16:00</td><td><strong>Session 5: Hash Functions</strong><br>
+    · Discrete Logarithm Variants of VSH (Lenstra, Page, Stam)<br>
+    · How to Construct Sufficient Conditions for Hash Functions (Sasaki, Naito, Yajima, Shimoyama, Kunihiro, Ohta)<br>
+    · Formalizing Human Ignorance (Rogaway)</td></tr>
+  <tr><td class="time-col">16:20 – 18:20</td><td><strong>Session 6: Stream Ciphers and Block Ciphers</strong><br>
+    · Improved Fast Correlation Attack on the Shrinking and Self-Shrinking Generators (Jeong et al.)<br>
+    · A Weak Key Class of XTEA for a Related-Key Rectangle Attack (Lee et al.)<br>
+    · On the Internal Structure of ALPHA-MAC (Huang, Seberry, Susilo)</td></tr>
+  <tr><td class="time-col">19:30</td><td>Tiệc hội nghị (Conference Banquet)</td></tr>
+</table>
+
+<div class="program-day">Thứ Năm 28/09</div>
+<table class="program-table">
+  <tr><th class="time-col">Giờ</th><th>Nội dung</th></tr>
+  <tr><td class="time-col">9:00 – 10:00</td><td><strong>Invited Talk:</strong> Ban Cơ Yếu – <em>Mật mã tại Việt Nam từ trong chiến tranh đến hiện tại</em></td></tr>
+  <tr><td class="time-col">10:20 – 12:20</td><td><strong>Session 7: Elliptic Curves and Pairing</strong><br>
+    · Side Channel Analysis of Practical Pairing Implementations (Whelan, Scott)<br>
+    · Compressed Jacobian Coordinates for OEF (Hoshino, Kobayashi, Aoki)<br>
+    · Scalar Multiplication on Koblitz Curves Using Double Bases (Avanzi, Sica)</td></tr>
+  <tr><td class="time-col">14:00 – 16:00</td><td><strong>Session 8: Factoring and Compact Algorithms</strong><br>
+    · Factoring Square-free Composite Integer by Solving Multivariate Integer Polynomial Equations (Santoso et al.)<br>
+    · Searching for Compact Algorithms: CGEN (Robshaw)<br>
+    · Deniable Group Key Agreement (Bohli, Steinwandt)</td></tr>
+  <tr><td class="time-col">16:00 – 16:15</td><td>Bế mạc (Closing Remarks)</td></tr>
+</table>
+
+<div class="art-end">Phan Dương Hiệu · 08–09/2006 · <a href="https://diendantoanhoc.org/topic/20371-gi%E1%BB%9Bi-thi%E1%BB%87u-h%E1%BB%99i-ngh%E1%BB%8B-vietcrypt-2006/" target="_blank">Diễn đàn Toán học</a></div>
+
+<div style="display:flex;gap:16px;margin:2rem 0 0.5rem;flex-wrap:wrap;">
+  <figure style="flex:1;min-width:220px;margin:0;text-align:center;">
+    <img src="../webpictures/Stern_VTV.jpg" alt="Jacques Stern trả lời phỏng vấn VTV" style="width:100%;height:auto;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+    <figcaption style="margin-top:0.5rem;font-size:0.88rem;color:#666;font-style:italic;">Jacques Stern – người xây dựng Mật Mã của Pháp trả lời phỏng vấn VTV</figcaption>
+  </figure>
+  <figure style="flex:1;min-width:220px;margin:0;text-align:center;">
+    <img src="../webpictures/Okamoto_Home.jpg" alt="Tatsuaki Okamoto tới nhà GS. Phan Đình Diệu" style="width:100%;height:auto;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+    <figcaption style="margin-top:0.5rem;font-size:0.88rem;color:#666;font-style:italic;">Tatsuaki Okamoto – người đứng đầu nền Mật Mã của Nhật Bản tới nhà GS. Phan Đình Diệu</figcaption>
+  </figure>
+</div>
+
+<div style="text-align:center;font-size:0.85rem;margin:1.5rem 0 0;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="truylungdauvet.html" class="art-nav-prev">← Truy lùng dấu vết kẻ phản bội</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="motiyung2025.html" class="art-nav-next">Moti Yung – soái ca Google về Crypto/Privacy/Security sẽ tới Hà Nội hè này →</a>
+</nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

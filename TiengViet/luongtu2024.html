@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Lượng tử - Mật mã lượng tử: một chủ đề thú vị trong năm 2025">
+<meta property="og:description" content="Mật mã lượng tử và những điều kỳ diệu mà máy tính lượng tử có thể làm: từ no-cloning theorem đến quyền được lãng quên - bảo vệ privacy trong thế giới lượng tử.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/luongtu2024.html">
+<meta property="og:image" content="https://www.di.ens.fr/users/phan/webpictures/OW_Quantum.jpg">
+<title>Lượng tử - Mật mã lượng tử: một chủ đề thú vị trong năm 2025 - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 0.3rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; }
+.art-cover { text-align: center; margin: 1.2rem 0 2rem; }
+.art-cover img { width: 65%; border-radius: 8px; border: 1px solid #ece5e0; display: inline-block; }
+@media (max-width: 600px) { .art-cover img { width: 92%; } }
+p { margin: 0 0 1.2em; }
+a { color: #8f1d2c; }
+a:hover { text-decoration: underline; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #f0dde0;
+}
+.art-note {
+  margin-top: 2rem;
+  padding: 1rem 1.4rem;
+  background: #faf7f5;
+  border-left: 3px solid #d0c8c2;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.88rem;
+  color: #666;
+}
+.art-note p { margin: 0 0 0.5em; }
+.art-note p:last-child { margin-bottom: 0; }
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Lượng tử - Mật mã lượng tử: một chủ đề thú vị trong năm 2025</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">12/2024</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://www.facebook.com/rongchoi/posts/pfbid02sKRcHNJZ8DTeCwJHUWzSMK8cQm88rQMw7wMB7Zh324fCQ6TsJKZtGPCbpK6H7px9l" target="_blank">Facebook</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="art-cover"><img src="../webpictures/OW_Quantum.jpg" alt="Mật mã lượng tử - Tính toán lượng tử và bảo vệ Privacy" loading="lazy"></div>
+
+<p>Mật mã lượng tử có thể là một chủ đề thú vị trong năm 2025. Tính toán lượng tử không chỉ dùng để phá vỡ các sơ đồ bảo mật hiện tại mà còn có thể đem đến những điều... mộng mơ tưởng như không thể thực hiện được.</p>
+
+<p>Trong thế giới tính toán hiện tại, bảo mật chỉ có thể có khi NP khác P. Nói cách khác, phá vỡ một sơ đồ bảo mật bất kỳ là một bài toán trong lớp NP. Do đó nếu NP = P thì việc phá vỡ bất kỳ sơ đồ nào đều trở nên dễ dàng. (*)</p>
+
+<p>Thế nhưng, thật thú vị, trong thế giới lượng tử, ngay cả khi NP = P vẫn có thể tồn tại những hàm mật mã không bị phá vỡ. Định nghĩa bảo mật của các hàm mật mã trong thế giới quantum là một chủ đề khá thú vị và hiện tại đang có nhiều định nghĩa hàm một chiều không tương đương nhau, tạo ra các lớp phức tạp khác nhau rất thú vị.</p>
+
+<p>Cụ thể thì máy quantum có thể làm gì mộng mơ mà máy hiện tại không thể làm?</p>
+
+<h2 class="sec-title">Quyền được lãng quên</h2>
+
+<p>Quyền được lãng quên (Right to be Forgotten) là một quyền đã được châu Âu đưa vào. Nó nói rằng mỗi con người được quyền được lãng quên, bằng cách có thể yêu cầu các nơi lưu trữ dữ liệu cá nhân về họ phải xoá đi (ngân hàng, mạng xã hội v.v). Nhưng để thực thi nó thì rất khó. Tôi đã lưu dữ liệu của anh, tôi có thể xoá nó nhưng nếu tôi không trung thực thì tôi đã sao chép nó ra chỗ khác và anh không thể biết tôi đã xoá thực sự hay chưa.</p>
+
+<p>Tính không sao chép được trạng thái của lượng tử (no-cloning theorem) cho phép hướng tới những chứng minh là tôi đã thực sự xoá dữ liệu của anh. Từ đó việc bảo vệ Privacy có thể được thực thi hiệu quả hơn.</p>
+
+<p>Một bài toán trong tinh thần đó là chứng minh việc xoá khoá lượng tử: tôi có thể uỷ quyền cho anh dùng khoá giải mã trong một thời gian hạn chế nhưng tôi muốn anh xoá khoá đó đi khi tôi yêu cầu thì phải làm thế nào? Điều thú vị là với khoá giải mã lượng tử, ta có thể dùng nó để giải mã nhiều lần (khá phản trực quan bởi thường ta nghĩ khi dùng/đo lượng tử thì sẽ làm phá vỡ trạng thái lượng tử và do đó khó có thể dùng khoá lượng tử nhiều lần), đồng thời khi được yêu cầu có thể cung cấp một chứng minh chặt chẽ là tôi đã xoá nó. Điều đặc biệt là tuy khoá là lượng tử nhưng bản thân chứng minh chỉ chứa thông tin thông thường để mọi máy (như trên một chiếc phone dởm) đều có thể kiểm tra tính đúng đắn. Học trò mình vừa trình bày một bước tiến trong vấn đề này tại Asiacrypt - Ấn Độ, toàn bộ bài báo của nhóm có thể xem tại: <a href="https://www.di.ens.fr/~phan/2024_QuantumKeyLeasing.pdf" target="_blank">2024_QuantumKeyLeasing.pdf</a></p>
+
+<div class="art-note">
+  <p><strong>Hình trên</strong> lấy từ bài phát biểu của Dakshita Khurana cũng tại Asiacrypt - Ấn Độ, toàn bộ slides có thể xem tại: <a href="https://iacr.org/cryptodb/data/paper.php?pubkey=35001" target="_blank">iacr.org - Asiacrypt 2024</a></p>
+  <p>(*) Bạn nào quan tâm có thể đọc bài <a href="https://pi.edu.vn/detail-news/bon-the-gioi-ao-va-mot-the-560.html" target="_blank">"Bốn thế giới ảo và một thế giới thực"</a> của mình trên Pi, hoặc <a href="bonthegioi.html">bản HTML</a>.</p>
+</div>
+
+<div class="art-end">Phan Dương Hiệu · 12/2024 · <a href="https://www.facebook.com/rongchoi/posts/pfbid02sKRcHNJZ8DTeCwJHUWzSMK8cQm88rQMw7wMB7Zh324fCQ6TsJKZtGPCbpK6H7px9l" target="_blank">Facebook</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:1rem 0 0;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="turing2023.html" class="art-nav-prev">← Giải Turing 2023 - hành trình ngẫu nhiên</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="abel2021.html" class="art-nav-next">Giải Abel 2021 liên quan đến bảo vệ Privacy →</a>
+</nav>
+
+</div>
+</div>
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

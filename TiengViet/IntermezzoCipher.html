@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Intermezzo Cipher">
+<meta property="og:description" content="Hệ mã biết khi nào mình không còn an toàn nữa. Enigma, trận Midway, và một tương lai mã hoá tưởng tượng.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/IntermezzoCipher.html">
+<title>Intermezzo Cipher - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.92;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main { max-width: 900px; margin: 0 auto; }
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+
+.art-section { margin-top: 2rem; }
+
+p { margin: 0 0 1.1em; }
+p:last-child { margin-bottom: 0; }
+
+em, i { font-style: italic; }
+sup a { color: #8f1d2c; font-size: 0.75em; text-decoration: none; }
+sup a:hover { text-decoration: underline; }
+
+/* Footnotes */
+.footnotes {
+  margin-top: 3rem;
+  padding: 1rem 1.4rem;
+  background: #faf8f6;
+  border-left: 3px solid #ddd;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+}
+.footnotes .fn-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #aaa;
+  margin: 0 0 0.7rem;
+}
+.footnotes ol { margin: 0; padding-left: 1.3rem; }
+.footnotes li { margin-bottom: 0.35rem; color: #666; line-height: 1.55; }
+.footnotes a { color: #8f1d2c; }
+
+/* Navigation */
+.art-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.88rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0ebe7;
+  flex-wrap: wrap;
+}
+.art-nav a {
+  color: #8f1d2c;
+  text-decoration: none;
+  font-weight: 500;
+}
+.art-nav a:hover { text-decoration: underline; }
+.art-nav .nav-home { text-align: center; color: #aaa; font-size: 0.82rem; }
+.art-nav .nav-home a { color: #aaa; }
+.art-nav .nav-home a:hover { color: #8f1d2c; }
+.art-nav-bottom { border-top: 1px solid #f0ebe7; margin-top: 3rem; border-bottom: none; margin-bottom: 0; padding-top: 1.5rem; padding-bottom: 0; }
+
+@media(max-width:640px){
+  body { font-size: 1.05rem; padding: 1.5rem 0.75rem 5rem; }
+  .page-content { padding: 2rem 1.25rem; }
+  .art-title { font-size: 1.45rem; }
+  .art-nav { font-size: 0.82rem; }
+}
+@media(max-width:400px){
+  .page-content { padding: 1.5rem 1rem; }
+  body { font-size: 1rem; }
+}
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="page-main">
+<div class="page-content">
+
+  <div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+    <a href="FlirtingCipher.html">← Flirting Cipher</a>
+    <span class="nav-home"><a href="../Matma.html">↑ Mật mã học</a></span>
+    <a href="RuaBacKvaPi.html">Rùa, Bác K và Pi →</a>
+  </nav>
+
+  <h1 class="art-title">Intermezzo Cipher</h1>
+  <div class="art-meta">
+    <span class="art-author"><a href="https://www.di.ens.fr/users/phan/">Phan Dương Hiệu</a></span>
+    <span class="art-sep">·</span>
+    <span>2007</span>
+  </div>
+  <div class="art-source">Đăng trên Blog Khoa Học Máy Tính</div>
+
+  <div class="art-section">
+
+    <p>Nhân dịp khắp nơi biểu tình, mình quyết định cho học sinh nghỉ học ngày hôm nay. Thế là tối qua hai vợ chồng thảnh thơi xem lại phim cổ Intermezzo rất là lý thú :) Sáng ra không phải đi dạy nên ngứa ngày làm mục tản mã (kiểu tản văn, tản toán lung tung ấy mà). Không biết có nhiều bài không, nhưng bài đầu tiên là về Intermezzo Cipher, hệ mã sẽ xuất hiện trong 10 năm nữa :D</p>
+
+    <p><em>(Thông tin trong bài viết không đảm bảo có độ chính xác cao)</em></p>
+
+    <p>Hiện nay các nhà nghiên cứu mật mã luôn cố gắng xây dựng các hệ mã và làm sao để nó càng an toàn càng tốt. Rất hay nhưng rõ ràng càng xây được hệ mã an toàn thì ta càng chủ quan là đối thủ không tấn công được hệ mã của ta, và đó là một sự nguy hiểm khôn lường! Ta hãy nhìn lại lịch sử để xem điều đó nguy hiểm đến thế nào.</p>
+
+    <p>Enigma <sup><a href="#fn1">[1]</a></sup> là hệ mã nổi tiếng nhất trong lịch sử. Nó được quân đội Đức sử dụng trong thế chiến thứ 2 và luôn được tin tưởng là rất an toàn, kể cả sau khi chiến tranh kết thúc! Không ngờ tới tận hơn 25 năm sau khi thế chiến lần 2 kết thúc, thế giới mới bàng hoàng trước tin mã Enigma đã bị quân đồng minh phá ngay từ trong chiến tranh (trong đó Alan Turing, cụ tổ của mô hình máy tính hiện tại, đóng vai trò lớn trong việc phá mã). David Kahn <sup><a href="#fn2">[2]</a></sup>, nhà nghiên cứu sử nổi tiếng thế giới, trong bài phát biểu nghiên cứu của mình (tại Paris 8, mình ngồi nghe thích thú), đánh giá rằng việc quân đồng minh giữ được bí mật việc phá mã Enigma đã làm thời gian kết thúc chiến tranh rút gọn được cỡ 2 năm!</p>
+
+    <p>Thật khó tin khi quân Đức dùng một hệ mã đã bị phá suốt một thời kỳ mà không biết nó đã bị phá, thật không ngờ quân đồng minh đã phá được mã quân Đức mà không bị lộ. Thật kỳ lạ là suốt một phần tư thế kỷ sau chiến tranh, dân chúng không hề biết gì về điều đó!</p>
+
+    <p>Thí dụ thứ 2 là về trận chiến Midway <sup><a href="#fn3">[3]</a></sup>, ngộ nghĩnh hơn nhưng tầm ảnh hưởng tất nhiên bé hơn.</p>
+
+    <p>Năm 42, sau trận Pearl Harbor (năm 41) trên đảo Hawaii nơi quân Nhật bất ngờ tấn công làm quân Mỹ đang say sưa rượu ngon gái đẹp phải thảm bại, quân Nhật lại định tấn công chớp nhoáng các chú Mỹ một lần nữa. Quân Nhật rất tự tin vì nắm được khá nhiều thông tin bí mật của Mỹ, do đã phá được hoàn toàn hệ mã của hội Mỹ. Trong khi đó quân Mỹ cũng biết được phần nào kế hoạch là Nhật sẽ tấn công bất ngờ vì đã phá được gần hết hệ mã của hội Nhật. Phần các chú Mỹ chưa phá được là mã các địa danh. Như vậy, đáng lý ra quân Nhật phải có lợi hơn quân Mỹ dựa trên độ an toàn của hệ mã. Điểm khác biệt là trong khi tình báo Mỹ phát hiện ra rằng quân Nhật đã phá được hệ mã của mình thì các chú Nhật vẫn tự tin không biết rằng quân Mỹ đã phá được gần hết hệ mã của mình. Quân Mỹ ngu nên dùng một hệ mã bị phá hoàn toàn, quân Nhật hơi ngu khi dùng một hệ mã bị phá gần hết. Nhưng quân Mỹ biết là quân Nhật biết mình ngu, còn quân Nhật thì lại không biết là quân Mỹ biết mình hơi ngu. Vì thế mà rồi mới có câu <em>"tao ngu nhưng tao biết là mày biết tao ngu"</em> thì vẫn hơn là <em>"tao hơi ngu mà tao lại không biết là mày biết tao hơi ngu"</em>.</p>
+
+    <p>Quân Mỹ đã giải được một bản mã của quân Nhật, đại loại là "Tờ mờ sáng ngày kia, trong khi bọn nó còn say giấc, tất cả tấn công tổng lực vào CHUOI". Ở đây CHUOI là một từ mã địa danh mà quân Mỹ chưa giải được. Quân Mỹ biết sẽ bị quân Nhật tấn công nhưng bối rối không biết sẽ phải dồn quân về đâu để phòng thủ. Một trong 2 điểm nghi ngờ nhất chính là Midway. Làm sao để kiểm tra liệu có phải các chú Nhật sẽ tấn công vào Midway? Một tên kỹ sư Mỹ đã nghĩ ra cách sẽ báo một thông tin quan trọng liên quan đến Midway để quân Nhật quan tâm. Các chú Mỹ gửi cho nhau thông điệp mã hóa "Cần trợ giúp khẩn cấp, ở Midway không còn chút nước sạch nào hết". Y như rằng chỉ vài tiếng sau, quân Mỹ giải mã được một thông điệp của Nhật kiểu "Cần có một tàu mang nước sạch trong cuộc tấn công vào CHUOI". Quân Mỹ tuy không giải mã được địa danh nhưng hoàn toàn yên tâm CHUOI chính là Midway, nhờ đó chuẩn bị sẵn kế hoạch nghênh tiếp quân Nhật và đánh tan kế hoạch của Nhật.</p>
+
+    <p>Những thí dụ trên cho thấy một hệ mã tốt không chỉ là một hệ mã an toàn mà còn cần phải tự biết thời điểm nào mình không còn là an toàn nữa. Thật khó tưởng tượng một hệ mã lại tự biết được là khi nào thì mình mất tính an toàn, bởi đó thường là công việc của tình báo. Tuy vậy, Intermezzo cipher có khả năng đó. (Intermezzo dùng để nói về bước đệm chuyển giao từ một cái này sang một cái khác. Intermezzo cipher sẽ có khả năng hiểu được trạng thái chuyển giao từ an toàn sang không an toàn.)</p>
+
+    <p>Những kẻ tấn công mã hiện tại cần một khả năng tương tác với hệ mã để học cách phản ứng của hệ mã. Intermezzo cipher có khả năng phân biệt đâu là những bản mã tin cậy và đâu là những bản mã rởm để học cách phá nó. Intermezzo cipher sẽ gắn một con rô bốt có khả năng tự học và mô phỏng hành động của kẻ tấn công. Và ngay khi kẻ tấn công có khả năng phá mã, con rô bốt cũng sẽ phải có thể mô phỏng khả năng phá mã đó. Nói cách khác, trong hệ Intermezzo cipher có tự cài một Universal Evolutional Adversary, tức một kẻ tấn công có khả năng tiến hóa và có sức mạnh bao trùm các kẻ tấn công khác. Và do dó ngay khi có một kẻ phá được hệ mã, Universal Evolution Adversary cũng sẽ phá được và phát tín hiệu mật về trung tâm "đã bị phá". Chi tiết về cách xây dựng Universal Evolutional Adversary sẽ được nói chi tiết trong một dịp khác :)</p>
+
+    <p>"Intermezzo cipher được phát triển bởi Paris 8 (hé hé) và Thalès vào năm 2014, được cài đặt trên các satellites của hệ thống Galiléo năm 2016. Đến năm 2018, Intermezzo cipher tự phát hiện ra một attack của NSA <sup><a href="#fn4">[4]</a></sup> trong chiến dịch cạnh tranh «GPS – Galiléo». NASA dùng thông tin phá mã cho một mục đích quân sự mang tên Interlaken2018. Nhưng nhờ Universal Evolutional Adversary ẩn trong hệ mã Intermezzo cipher mà Galiléo đã điều chỉnh và làm méo hệ thống chỉ đường quân sự của GPS dẫn đến việc quân Mỹ thua bẽ bàng trong chiến dịch Interlaken2018." Đây là trích dẫn của đài VTV007 ngày 17/11 năm 2036, trong bản tin "Bí mật của trận chiến Interlaken năm 2018 đã được hé lộ". Cũng nên nhắc lại trận chiến Interlaken2018 không phải là một cuộc chiến tranh cổ điển với súng ống và tên lửa, đó là mở màn cho một loạt chiến tranh phi vật thể sẽ được mô tả kỹ hơn trong một dịp khác :)</p>
+
+    <p>Ngoài lề: Với những sự kiện trên, không ai ngạc nhiên với bản tin vẫn của VTV007 phát đi ngày 17/11 năm 2048 mang tựa đề "bí mật về việc Cam pu chia trở thành cường quốc thế giới được hé lộ". Theo đó, ngay vào năm 2006 (chính xác là ngày 17/11), phòng nghiên cứu thí nghiệm CamTimes (tương đương với VieTimes ở VN) của viện hạt nhân CPC đã chế tạo ra máy tính lượng tử đầu tiên. Tuy nhiên, học tập kinh nghiệm của lịch sử, việc chế tạo này không được công bố mà được giữ bí mật tuyệt đối. Chính do thế mà CPC đã có khả năng dùng máy lượng tử để phá mã dễ dàng toàn bộ các hệ mã, hiểu được từ chiến lược kinh tế, quân sự toàn cầu; sử dụng nó cho việc thao túng hệ thống chứng khoán thế giới cho đến việc nhẹ nhàng rút ruột mỗi thẻ tín dụng trên thế giới vài đô la lẻ cho ngân sách giáo dục đào tạo nhân cách con người.</p>
+
+    <p><em>(Như vậy hiện chúng ta đã sống dưới sự tồn tại của máy tính lượng tử được 1 năm rồi. Nhưng không nên hoang mang, cái máy tính này chẳng phải gì là con ngáo ộp, nó chỉ hữu hiệu để phá một số loại hệ mã như RSA mà thôi, đơn giản là chỉ cần thay RSA bằng một phiên bản khác hoặc ứ dùng nó nữa là được…)</em></p>
+
+    <div class="footnotes">
+      <p class="fn-label">Chú thích</p>
+      <ol>
+        <li id="fn1">Enigma: <a href="http://en.wikipedia.org/wiki/Enigma_machine" target="_blank">Wikipedia – Enigma machine</a></li>
+        <li id="fn2">David Kahn: <a href="http://en.wikipedia.org/wiki/David_Kahn" target="_blank">Wikipedia – David Kahn</a></li>
+        <li id="fn3">Battle of Midway: <a href="http://en.wikipedia.org/wiki/Battle_of_Midway" target="_blank">Wikipedia – Battle of Midway</a> · Phim Midway: <a href="http://en.wikipedia.org/wiki/Midway_%28film%29" target="_blank">Wikipedia</a></li>
+        <li id="fn4">NSA: <a href="http://fr.wikipedia.org/wiki/National_Security_Agency" target="_blank">Wikipedia – NSA</a></li>
+      </ol>
+    </div>
+
+  </div>
+
+  <nav class="art-nav art-nav-bottom">
+    <a href="FlirtingCipher.html">← Flirting Cipher</a>
+    <span class="nav-home"><a href="../Matma.html">↑ Mật mã học</a></span>
+    <a href="RuaBacKvaPi.html">Rùa, Bác K và Pi →</a>
+  </nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

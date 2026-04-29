@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Yvo Desmedt giảng bài tại VIASM (02/2020)">
+<meta property="og:description" content="Yvo Desmedt – một cây cổ thụ của làng Mật Mã, cha đẻ của Threshold Cryptography – sẽ giảng bài tại VIASM Hà Nội. Kỷ niệm về người thầy ngẫu hứng và đặc biệt.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/yvodesmedt2020.html">
+<meta property="og:image" content="https://www.di.ens.fr/users/phan/webpictures/YvoDesmedt.jpg">
+<title>Yvo Desmedt giảng bài tại VIASM (02/2020) - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 0.3rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+p { margin: 0 0 1.2em; }
+a { color: #8f1d2c; }
+a:hover { text-decoration: underline; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #f0dde0;
+}
+.art-photo { text-align: center; margin: 2rem 0 1.5rem; }
+.art-photo img { max-width: 90%; border-radius: 10px; border: 1px solid #ece5e0; display: inline-block; }
+.art-photo figcaption { font-size: 0.85rem; color: #999; margin-top: 0.6rem; font-style: italic; }
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Yvo Desmedt giảng bài tại VIASM (02/2020)</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">02/2020</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://www.facebook.com/rongchoi" target="_blank">Facebook</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.8rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<figure class="art-photo">
+  <img src="../webpictures/YvoDesmedt.jpg" alt="Yvo Desmedt" loading="lazy">
+  <figcaption>Yvo Desmedt.</figcaption>
+</figure>
+
+<p>Yvo Desmedt - một cây cổ thụ của làng Mật Mã sẽ giảng bài ở Hà Nội, các bạn rất nên đến tham gia.</p>
+
+<p>Năm 2003 mình lần đầu tiên sang Mỹ dự hội nghị CRYPTO. Khác với EUROCRYPT được tổ chức quanh các nước châu Âu, ASIACRYPT quanh các nước châu Á – châu Úc, thì CRYPTO luôn được tổ chức tại một nơi – Santa Barbara. Nhưng chính điều đó gây cho mình một sự xúc động, bữa tiệc ngoài trời vẫn luôn trên bãi cỏ này, và nơi đây 20 năm trước, vào những năm 80 bố mình cũng đến dự CRYPTO. Mình nhớ bố kể, trong phiên Rump session hồi đó, lần đầu tiên khái niệm zero-knowledge proof (chứng minh không để lộ tri thức) đã được đưa ra (ngày nay nó là khái niệm nền tảng được ứng dụng khắp mọi nơi, ngay cả blockchain cũng phải sử dụng nó để đảm bảo an toàn tính toán và dữ liệu). Mình khi đó nghĩ, có khi đang đứng cùng chỗ với bố 20 năm trước...</p>
+
+<p>Trong khi đang mơ màng với những tưởng tượng về hình ảnh xưa trong bữa tiệc ngoài vườn, mình bỗng rất ấn tượng với một ông dáng người cao cao, đội mũ phớt rộng vành, vô cùng năng động, nói oang oang với khắp mọi người. Chắc chắn 20 năm trước ông ta cũng đã là một con người đặc biệt ở đây.</p>
+
+<p>Ông ta là Yvo Desmedt – một cây cổ thụ của làng Mật Mã và một người có tính cách rất sôi nổi, ngẫu hứng.</p>
+
+<h2 class="sec-title">Threshold Cryptography và sự nghiệp khoa học</h2>
+
+<p>Cũng vào những năm đầu 80, ông là một người chủ chốt khai sinh ra <strong>Mật mã ngưỡng (Threshold Cryptography)</strong>, ở đó không phải 1 phía tập trung có toàn quyền giải mã mà phải có sự đồng thuận của ít nhất một nhóm đủ lớn. Mật mã ngưỡng hiện diện khắp nơi, trong các hệ thống phân tán. Chẳng hạn ta có thể làm mạng xã hội mà ở đó tài khoản cá nhân mạng xã hội chỉ có thể bị truy cập nếu như có sự đồng thuận của cả ba phía: nhà cung cấp dịch vụ, đại diện an ninh mạng và đại diện toà án, nếu thiếu 1 trong 3 là chịu. Điều đó giúp tránh sự lạm quyền.</p>
+
+<p>Ông làm nghiên cứu về rất nhiều nhánh khác nhau, rất đa dạng từ rất lý thuyết đến rất thực tế. Các lĩnh vực nghiên cứu bao rất rộng từ đưa vào các khái niệm mới, phá mã, tham gia nghiên cứu về xây dựng các hệ thống bầu cử, và cả hacking chúng, đến những lĩnh vực thực tế như e-passport, an toàn mạng, virus...</p>
+
+<h2 class="sec-title">Kỷ niệm với người thầy ngẫu hứng</h2>
+
+<p>Mình cũng có đôi kỷ niệm với tính ngẫu hứng của Yvo Desmedt. Hồi mình đang sắp làm xong PhD, bỗng ông thầy đưa điện thoại cho mình bảo: có Yvo Desmedt gọi điện muốn nói chuyện với cậu này. Cuộc nói chuyện diễn ra chóng vánh, đại ý là Yvo Desmedt rủ mình sang làm post-doc ở University College London (UCL). Mình cũng ngẫu hứng nhận lời ký luôn trong chớp mắt. Nhóm Crypto khi đó ở UCL toàn người có tính cách đặc biệt, có Helger Lipmaa và Nicolas Courtois, tuần nào cũng đi ăn tối với nhau và càng thấy sự đặc biệt của các nhân vật này. Mình làm việc cùng Yvo, Helger và cùng viết chung hai bài báo.</p>
+
+<p>Một hôm ông ta gọi mình vào phòng, đột nhiên hỏi mình có muốn sau post-doc làm lecturer tại UCL không, thì đúng lúc mình nói: tôi hôm nay cũng muốn nói chuyện với ông vì muốn xin dừng hợp đồng về lại Paris đây. Thói quen của ông ta là hay thích chủ động đánh phủ đầu với những điều bất ngờ, thì lần này mình lại làm ông bất ngờ. (Không biết ông có cuộc gặp tương tự với Helger không mà sau đó Helger về lại Estonia, và cũng không biết có cuộc gặp với chính ông không mà ông sau đó cũng quay về Mỹ.) Sau một lúc tròn mắt, tưởng bực mình thì ông ta rủ mình đi uống bia thâu đêm trong những khu phố nhộn nhịp của London, kể rất nhiều chuyện lý thú, những bí sử của ngành, và tâm sự cả cuộc sống cá nhân Âu-Mỹ của ông. Khả năng kể chuyện của ông ta là rất đặc biệt, và những bài nói chuyện cũng như vậy.</p>
+
+<h2 class="sec-title">IACR Fellow và bài giảng tại VIASM</h2>
+
+<p>Hội mật mã thế giới IACR từ năm 2004 mỗi năm trao IACR Fellow cho tầm 5 người có đóng góp lớn cho ngành, và năm 2010 ông được trao. Ông cũng là thành viên viện hàn lâm hoàng gia khoa học Bỉ, nơi ông sinh ra.</p>
+
+<p>Ông sẽ có bài giảng đại chúng tại VIASM lúc 15h ngày 21/2 tới đây, các bạn rất nên đến tham gia, chắc chắn không khí sẽ rất thú vị đấy. Link đăng ký: <a href="https://bom.to/PuuySM" target="_blank">https://bom.to/PuuySM</a></p>
+
+<div class="art-end">Phan Dương Hiệu · 02/2020 · <a href="https://www.facebook.com/rongchoi" target="_blank">Facebook</a></div>
+
+<div style="text-align:center;font-size:0.85rem;margin:1.5rem 0 0;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="nealkoblitz2015.html" class="art-nav-prev">← Neal Koblitz tại Viện Toán học – Bất cập trong mật mã và câu chuyện mật mã Việt Minh</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="adishamir2016.html" class="art-nav-next">Bài giảng đại chúng của Adi Shamir – Asiacrypt 2016 →</a>
+</nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

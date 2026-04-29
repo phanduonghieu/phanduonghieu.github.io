@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Trường hè Mật Mã IACR-VIASM 2022 (24/8–31/8)">
+<meta property="og:description" content="Trường hè Mật Mã IACR-VIASM 2022 tại VIASM Hà Nội: ba chuỗi bài giảng chuyên sâu về mật mã hậu lượng tử, mật mã đối xứng và các sơ đồ mật mã nâng cao, cùng một ngày Real-World Crypto với các diễn giả hàng đầu.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/truonghematma2022.html">
+<title>Trường hè Mật Mã IACR-VIASM 2022 - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.art-subtitle { text-align: center; font-size: 1rem; color: #777; font-style: italic; margin: 0 0 0.9rem; }
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 0.3rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+p { margin: 0 0 1.2em; }
+a { color: #8f1d2c; }
+a:hover { text-decoration: underline; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #f0dde0;
+}
+.event-box {
+  background: #faf7f5;
+  border: 1px solid #ece5e0;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.97rem;
+}
+.event-box p { margin: 0.3em 0; }
+.event-box strong { color: #444; }
+.speaker-list { list-style: none; padding: 0; margin: 1rem 0; }
+.speaker-list li {
+  padding: 0.8rem 1rem;
+  border-left: 3px solid #f0dde0;
+  margin-bottom: 0.8rem;
+  background: #faf7f5;
+  border-radius: 0 6px 6px 0;
+}
+.speaker-name { font-weight: 700; color: #1e1e1e; }
+.speaker-topic { color: #555; font-style: italic; }
+.speaker-note { font-size: 0.93rem; color: #777; display: block; margin-top: 0.15em; }
+.rwc-list { list-style: none; padding: 0; margin: 1rem 0; }
+.rwc-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f5f0ee;
+}
+.rwc-list li:last-child { border-bottom: none; }
+blockquote {
+  border-left: 4px solid #c9a0a7;
+  background: #faf7f5;
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+blockquote p { margin: 0; }
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Trường hè Mật Mã IACR-VIASM 2022</h1>
+<p class="art-subtitle">(VIASM, Hà Nội – 24/8–31/8/2022)</p>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">07/2022</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://www.facebook.com/rongchoi/posts/pfbid036kQeDW8p3MzPnSwzVYzL3oBuS6ETKMZqwro5n7iKg97vxp1ef53UaFwPcucB7SG7l" target="_blank">Facebook</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="event-box">
+  <p><strong>Thời gian:</strong> 24/8–31/8/2022</p>
+  <p><strong>Địa điểm:</strong> VIASM – Viện Nghiên cứu cao cấp về Toán, Hà Nội</p>
+  <p><strong>Bảo trợ:</strong> IACR – Hội Mật mã thế giới (International Association for Cryptologic Research)</p>
+  <p><strong>Đăng ký:</strong> <a href="https://viasm.edu.vn/hdkh/IACR-VIASM-School-2022" target="_blank">viasm.edu.vn/hdkh/IACR-VIASM-School-2022</a></p>
+</div>
+
+<figure style="margin:1.5rem 0;text-align:center;">
+  <img src="../webpictures/IACRSchool2022.jpg" alt="Poster IACR-VIASM Summer School on Cryptography 2022" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+</figure>
+
+<p>Trường hè được bảo trợ bởi hội mật mã thế giới (IACR) và sẽ có những bài giảng mang tính chất cung cấp nền tảng lý thuyết vững để bạn nào muốn học/làm về mật mã sẽ có một cách nhìn sâu rộng. Trường hè không cung cấp những kiến thức mang tính trào lưu như công nghệ blockchain. Khi có nền tảng vững chắc, các bạn có thể tăng xác suất thành công trong mọi lựa chọn.</p>
+
+<h2 class="sec-title">Ba chuỗi bài giảng chuyên sâu</h2>
+
+<ul class="speaker-list">
+  <li>
+    <span class="speaker-name">Damien Stehlé</span>
+    <span class="speaker-topic"> – Nền tảng lý thuyết Mật mã hậu Lượng Tử (9 giờ)</span>
+    <span class="speaker-note">Trưởng khoa Tin học ENS Lyon · Médaille de bronze CNRS (nhà nghiên cứu trẻ xuất sắc nhất nước Pháp trong Tin học) · Tác giả chính của <strong>CRYSTALS-Kyber</strong> (mã hoá) và <strong>CRYSTALS-Dilithium</strong> (chữ ký số) – hai trong số bốn sơ đồ vừa được NIST chọn làm chuẩn mật mã hậu lượng tử. 10, 20 năm sau, các bạn có thể sẽ quen với những sơ đồ này như AES, RSA.</span>
+  </li>
+  <li>
+    <span class="speaker-name">Jian Guo</span>
+    <span class="speaker-topic"> – Mật mã đối xứng (6 giờ)</span>
+    <span class="speaker-note">Trưởng nhóm phá mã, Đại học NTU · <a href="https://catf.crypto.sg/" target="_blank">catf.crypto.sg</a></span>
+  </li>
+  <li>
+    <span class="speaker-name">David Pointcheval, Ni Triệu, Phan Dương Hiệu</span>
+    <span class="speaker-topic"> – Các sơ đồ mật mã nâng cao (6 giờ)</span>
+    <span class="speaker-note">David Pointcheval: Trưởng khoa Tin học ENS Paris · Médaille d'argent CNRS 2021 (nhà nghiên cứu xuất sắc nhất nước Pháp trong Tin học). Ni Triệu: chuyên gia trẻ về MPC (Multi-party computation), Mỹ. Nội dung: nền tảng lý thuyết cho các sơ đồ phân tán, bảo vệ Privacy trong bối cảnh xử lý dữ liệu lớn.</span>
+  </li>
+</ul>
+
+<p>Việc mời những giảng viên đầu ngành tới trình bày không dễ – họ sẽ giảng kỹ càng để mang tới cách hiểu sâu sắc nhất. Do đó chúng tôi yêu cầu các học viên cam kết theo học đầy đủ, và dù hạn đăng ký còn đến đầu tháng 8 nhưng đã có trên 150 bạn đăng ký nên chỉ có thể lựa chọn những bạn phù hợp nhất.</p>
+
+<h2 class="sec-title">Ngày Real-World Crypto</h2>
+
+<p>Ngoài các bài giảng, sẽ có một ngày <strong>Real-World Crypto</strong> mang tới những nghiên cứu có tác động trực tiếp tới thế giới thực – có thể là bước chuẩn bị để tổ chức hội nghị Real-World Crypto của IACR trong một ngày không xa. Tham gia trình bày:</p>
+
+<ul class="rwc-list">
+  <li><strong>Phong Nguyễn</strong> – từng đạt <em>Cor Baayen Award</em> dành cho tài năng trẻ xuất sắc nhất châu Âu (<a href="https://www.ercim.eu/publication/Ercim_News/enw48/cb.html" target="_blank">ERCIM</a>)</li>
+  <li><strong>Thái Dương</strong> – hacker mũ cối Google, cầm trịch tổ chức ngày RWC</li>
+  <li><strong>Minh Quân</strong> – tác giả 0&amp;00 attack</li>
+  <li><strong>Nguyễn Anh Quỳnh</strong> và <strong>Thành Nguyễn</strong> – VNG, Verichains</li>
+  <li><strong>Trọng Nguyễn</strong> – Kyber</li>
+  <li><strong>Nguyễn Ngọc Khánh</strong> – IBM Zurich</li>
+</ul>
+
+<p>Thái Dương sẽ cầm trịch trong việc tổ chức ngày Real-World Crypto và sẽ có thông báo riêng để các bạn không tham gia toàn bộ trường hè cũng có thể tham gia ngày này.</p>
+
+<h2 class="sec-title">Giao lưu quốc tế</h2>
+
+<p>Trường hè còn là nơi giao lưu giữa học viên xuất sắc quốc tế với các bạn trẻ Việt Nam. Đặc biệt vui mừng khi có hơn <strong>10 nghiên cứu sinh</strong> đang làm tại những lab tốt nhất của Pháp – ENS (trên 5 bạn), IPP, Paris 7 – sẽ tới tham gia. ENS cũng là nơi sẽ đón bạn <strong>Ngô Quý Đăng</strong> (vừa đạt 42/42 kỳ thi Toán quốc tế) sang học (<a href="https://www.ens.psl.eu/sites/default/files/admis-bo2022.pdf" target="_blank">danh sách tân sinh viên ENS 2022</a>).</p>
+
+<blockquote><p>Hy vọng không khí trường hè sẽ thật sôi động với những trao đổi thú vị trong và ngoài giảng đường! Hẹn sớm gặp các bạn!</p></blockquote>
+
+<div class="art-end">Phan Dương Hiệu · 07/2022 · <a href="https://www.facebook.com/rongchoi/posts/pfbid036kQeDW8p3MzPnSwzVYzL3oBuS6ETKMZqwro5n7iKg97vxp1ef53UaFwPcucB7SG7l" target="_blank">Facebook</a></div>
+
+<div style="text-align:center;font-size:0.85rem;margin:1.5rem 0 0;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="matmachientranh.html" class="art-nav-prev">← Mật mã trong các cuộc chiến tranh chống Pháp và Mỹ ở Việt Nam</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <span class="art-nav-next"></span>
+</nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

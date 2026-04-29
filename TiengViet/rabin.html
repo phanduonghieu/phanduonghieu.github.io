@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Michael O. Rabin: một huyền thoại vừa ra đi">
+<meta property="og:description" content="Michael O. Rabin, huyền thoại khoa học máy tính, vừa ra đi. Bài viết nhìn lại những đóng góp lớn lao của ông cho mật mã, thuật toán xác suất và lý thuyết tính toán.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/rabin.html">
+<title>Michael O. Rabin: một huyền thoại vừa ra đi - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 2.5rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; }
+p { margin: 0 0 1.2em; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+.back-to-index { text-align: center; margin-top: 2rem; font-size: 0.9rem; }
+.back-to-index a { color: #8f1d2c; text-decoration: none; }
+.back-to-index a:hover { text-decoration: underline; }
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+  h2.sec-title { font-size: 1.08rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Michael O. Rabin: một huyền thoại vừa ra đi</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">04/2026</span>
+</div>
+<div class="art-source">
+  <a href="https://www.facebook.com/rongchoi/posts/pfbid02zZsMrjW7AXZQq9oSUqUUrK4P6gk8NU3Yzg6tgz2AWvw39dm19XPhcfWxqaetNAdYl" target="_blank">Bài gốc trên Facebook</a>
+</div>
+<div class="back-to-index" style="margin: 0.2rem 0 0.8rem;"><a href="../Matma.html">← Về trang Mật Mã</a></div>
+
+<p>Điều khá đặc biệt: Michael O. Rabin là anh em (học thuật) của Alan Turing, cả hai ông đều là học trò PhD của đại ca Alonzo Church! Và thú vị là Rabin đạt giải Turing.</p>
+
+<p>Rabin là người đặt nhiều viên gạch nền tảng cho lý thuyết tin học và Mật mã hiện đại. Các bạn chắc đều đã học thuật toán xác suất siêu nhanh kiểm thử tính nguyên tố Miller-Rabin. (Các thuật toán mật mã hiện đại dựa nhiều trên các số nguyên tố lớn, nhưng làm sao để tìm ra các số nguyên tố rất lớn này thì lại cần thuật toán kiểm thử tính nguyên tố của một số bất kỳ.)</p>
+
+<p>Năm 1980 là thời điểm Rabin tập trung chơi với "xúc sắc", đưa các thuật toán xác suất vào thực tế để giải các bài toán cốt lõi. Xác suất sau đó được ứng dụng khắp nơi, không chỉ dùng để giải quyết bài toán mà còn được dùng để xây dựng, và đến năm 1984 thì Goldwasser và Micali đưa ra hệ mật mã xác suất đầu tiên, đồng thời chứng tỏ muốn an toàn thì phải chơi xúc sắc, mọi hệ mật mã đạt chuẩn an toàn bắt buộc phải là hệ mật mã xác suất, "không chơi xúc sắc" là bị phá. (Về mật mã xác suất và giải thưởng Turing của Goldwasser và Micali, xem bài số 37 trên trang của mình.)</p>
+
+<p>Thế nhưng Rabin đã khủng khiếp trước khi mật mã hiện đại ra đời. Năm 1976, lúc Diffie và Hellman đưa ra khái niệm mật mã khoá công khai, đánh dấu thời điểm khai sinh cho Mật mã hiện đại, thì cùng năm đó, Michael O. Rabin cùng Dana S. Scott đã đạt giải Turing cho công trình nền tảng về lý thuyết Ô tô mát. Đặc biệt các ông đưa ra khái niệm ôtomat không đơn định (non-deterministic) mà về sau tính không đơn định được dùng là cơ sở cho việc định nghĩa lớp bài toán NP. Về mặt "có thể tính được", máy đơn định và không đơn định có sức mạnh ngang nhau. Tuy nhiên, chính Rabin không thoả mãn với tính "có thể tính được" của máy Turing. Nhiều thứ "tính được" nhưng có những cái tính nhanh và những cái tính chậm, do đó cần phải có độ đo cho "độ khó của việc tính được". Đấy chính là những tư tưởng nguồn gốc cho độ phức tạp tính toán và câu hỏi lớn P vs NP hiện nay (máy Turing đơn định và không đơn định tuy có sức "tính toán được" như nhau, nhưng nếu giới hạn chúng trong thời gian khả dĩ - đa thức theo đầu vào - thì chúng có tương đương nhau không? Tức đưa cái tương đương trong phạm vi rất lớn về câu hỏi có còn tương đương trong phạm vi "thực tế" hay không).</p>
+
+<p>Rabin cũng là người đưa cái tồn tại về xây dựng, có thể kể như tín đồ của phát triển khoa học kiến thiết. Chẳng hạn bài toán kiểm thử số nguyên tố về mặt toán học rất đơn giản: là các số không có ước nào nhỏ hơn nó khác 1. Nhưng kiểm tra điều kiện này cho các số lớn thì mất cả tỉ năm, ông đưa xác suất vào giải quyết. Một ví dụ về một bài toán xinh đẹp mà ông giải quyết bằng xúc sắc là liên quan tới định lý Fermat: mọi số nguyên dương N đều là tổng của 4 số chính phương. Định lý được chứng minh bởi Lagrange từ 1770, nhưng liệu có cách nào tìm ra cụ thể 4 số đó? Rabin và Shallit đưa xác suất vào giải quyết. Ý tưởng rất "elegant" và xuất phát từ chính bài toán kiểm thử số nguyên tố: ông chọn ngẫu nhiên x, y và tính p = N − x² − y². Số p trông khá ngẫu nhiên và vì thế thử nhiều lần sẽ có một p nguyên tố và chia 4 dư 1. Đến đây thì p có thể vào thăm thế giới các số Gauss (là thế giới các số có dạng a+bi). Trong thế giới của Gauss thì các số nguyên tố p thông thường sẽ là nguyên tố Gauss khi chia 4 dư 3, còn các số nguyên tố p chia 4 dư 1 lại không còn nguyên tố và được phân tích thành (a+bi)(a−bi). Tức là p = a² + b², và allez hop, N = x² + y² + a² + b². Các bạn có thể tự nghĩ thuật toán từ một số p chia 4 dư 1 làm sao tìm được a, b - bước này có thể làm đơn định không cần xúc sắc. Nhưng Rabin cũng là người đưa sự mộng mơ của toán học vào cuộc sống. Chẳng hạn, chính với bài toán biểu diễn N thành tổng 4 số chính phương, anh tìm được 4 số đó rồi, đẹp đấy, nhưng để làm gì? Rabin nói rằng nó có ứng dụng hay đó chứ không chỉ nói chơi, và ông đưa nó vào bài toán đấu giá rất thú vị.</p>
+
+<p>Rabin cũng là một người làm cho giới Toán học có cách nhìn nhận khác về Tin học. Rabin đã chứng tỏ rằng những tư tưởng sâu sắc, đột phá làm thay đổi nhãn quan thế giới có thể đến từ Tin học. Điều đó làm thay đổi nhận thức trong giới khoa học Phương Tây về tính sâu sắc trong tư tưởng của Tin học.</p>
+
+<h2 class="sec-title">Đôi sợi "liên quan"…</h2>
+
+<p>Những năm 80 là khi Rabin say mê các thuật toán xác suất và đưa xác suất vào mật mã, là năm ông xuất bản <a href="https://www.sciencedirect.com/science/article/pii/0022314X80900840" target="_blank">thuật toán xác suất kiểm thử tính nguyên tố</a>. Thật thú vị khi đúng năm 1980 đó, bố mình trong chuyến đi Mỹ đã đến gặp và có buổi làm việc, ăn trưa với Rabin ở Harvard. Ông có kể trong <a href="https://phandinhdieu.github.io/Phim_PhanDinhDieu/Nhat_Ky/1980_Nhat_ky_di_My.html" target="_blank">cuốn nhật ký</a>.</p>
+
+<p>Rabin là người hướng dẫn luận án của Persiano. Rabin cũng kể là đến visiting Google và đã cùng Mansour, Muthukrishna và Moti Yung đưa ra một cách chứng minh hiệu quả cho các chứng minh tổng quát không để lộ tri thức (<em>"while at Google for a half a year, I wrote a joint paper that they insisted I be the main author, with Mansour, Muthukrishna and Moti Yung, where we gave a much more efficient version of these general zero-knowledge proofs."</em>) Điều thú vị là Persiano và Yung là hai người cùng mình đưa ra khái niệm Anamorphic Encryption mà mình đã viết ở <a href="https://www.facebook.com/rongchoi/posts/10224915932742385" target="_blank">đây</a>.</p>
+
+<p>Một kỷ niệm nhỏ và vui với mình. Con của Rabin là Tal Rabin, bà là soái ca của IBM trong mảng mật mã. Năm 2003 khi mình lần đầu đi dự Crypto ở Santa Barbara, máy bay từ Paris đến LA bị trễ nên mình đến cổng để ra máy bay đi Santa Barbara bị muộn, cửa máy bay đã đóng và đó là chuyến bay cuối cùng trong ngày. May mắn là vừa lúc Tal Rabin cũng tới và cũng phải lên chuyến bay đó. Tal Rabin bảo mình: "chúng ta sẽ lên được máy bay." Và sau đó bà ta đã tranh luận với hãng bay, chứng minh điều gì đó (với mình là dạng zero-knowledge proof) và cuối cùng hãng buộc phải mở cửa máy bay cho bà ta với mình lên.</p>
+
+<div class="art-end">04/2026 - <a href="https://www.facebook.com/rongchoi/posts/pfbid02zZsMrjW7AXZQq9oSUqUUrK4P6gk8NU3Yzg6tgz2AWvw39dm19XPhcfWxqaetNAdYl" target="_blank">Facebook</a></div>
+<div class="back-to-index"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">← Về trang chủ</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="nghethuathoi.html" class="art-nav-prev">← Nghệ thuật hỏi một lần - Tính toán lượng tử</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="polynomial-commitment.html" class="art-nav-next">Chống thông tin giả bằng Mật mã (Polynomial Commitment) →</a>
+</nav>
+
+</div>
+</div>
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

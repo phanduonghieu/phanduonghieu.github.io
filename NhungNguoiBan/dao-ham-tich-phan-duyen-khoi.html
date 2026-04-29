@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tản mạn về đạo hàm, tích phân, và duyên khởi – Phan Thành Nam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    packages: {'[+]': ['ams']}
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main { max-width: 900px; margin: 0 auto; }
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+.article-block {
+  margin-bottom: 0;
+  padding-top: 1rem;
+}
+
+.art-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+
+.art-section { margin-top: 3rem; }
+h2.sec-title {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+.back-to-toc { text-align: right; font-size: 0.82rem; margin-top: 1.5rem; }
+.back-to-toc a { color: #ccc; text-decoration: none; }
+.back-to-toc a:hover { color: #8f1d2c; }
+
+p { margin: 0 0 1.2em; }
+
+blockquote.art-quote {
+  border-left: 4px solid #c9a0a7;
+  background: #faf7f5;
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+blockquote.art-quote p { margin: 0; }
+
+.poem {
+  font-style: italic;
+  margin: 1.5rem 0 1.5rem 1.8rem;
+  color: #333;
+  border-left: 3px solid #e0d0d3;
+  padding: 0.4rem 1.1rem;
+}
+.poem p { margin: 0; line-height: 1.75; }
+
+.math-display {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  -webkit-overflow-scrolling: touch;
+  text-align: center;
+}
+
+.art-sep-rule { border: none; border-top: 1px solid #e8e0dc; margin: 3rem 0 2.5rem; }
+
+@media (max-width: 600px) {
+  .page-content { padding: 2.5rem 1.25rem; }
+  .art-title { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-main">
+<div class="page-content">
+<div class="article-block" id="b1">
+
+<h1 class="art-title">Tản mạn về đạo hàm, tích phân, và duyên khởi</h1>
+<div class="art-meta">
+  <span class="art-author">Phan Thành Nam</span>
+  <span class="art-sep">·</span>
+  <span class="art-date">tháng 12/2025</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://tiasang.com.vn/vu-tru-trong-tung-khoanh-khac-tu-dao-ham-den-duyen-khoi-4999955.html" target="_blank">Tia Sáng</a> số 23, tháng 12/2025 · "Vũ trụ trong từng khoảnh khắc: Từ đạo hàm đến duyên khởi"</div>
+
+<p>Câu mở đầu của La Quán Trung trong <em>Tam Quốc Diễn Nghĩa</em> — "Phàm việc lớn trong thiên hạ, hễ tan lâu rồi lại hợp, hợp lâu rồi lại tan" — tưởng chỉ nói chuyện thế sự, nhưng thật ra đã chạm tới một nguyên lý phổ quát của tự nhiên: không có gì tồn tại mãi ở một cực, mà mọi thứ luôn chuyển động giữa hai bờ sinh diệt. Tự nhiên luôn bao dung cho vạn vật, kể cả những mặt đối lập, để chúng có chỗ bổ sung, chuyển hoá, và nương nhau cùng tồn tại trong dòng chảy miên viễn của thời gian.</p>
+
+<p>Việc tan rồi hợp không chỉ là chuyện của các triều đại. Trong Toán học, nó hiện ra dưới hình thức tinh tế hơn, nơi "nghệ thuật lấy giới hạn" được phát triển lên tới đỉnh cao: tan có thể thành vô cùng bé, hợp có thể thành vô cùng lớn. Nhưng tan và hợp cũng luôn hoà quyện vào nhau, như trong công thức Newton–Leibniz:</p>
+
+<div class="math-display">
+\[ \int_a^b f'(x)\,dx \;=\; f(b) - f(a) \]
+</div>
+
+<p>Cái "tan địa phương" (đạo hàm) bắt tay với cái "hợp toàn cục" (tích phân) để tạo thành định lý quan trọng nhất của giải tích. Nói nôm na, nếu ta tách một vật ra vô hạn mảnh nhỏ và xấp xỉ chúng bằng đạo hàm, rồi gom hết lại qua tích phân, ta sẽ thu lại hình dáng ban đầu của vật. Nếu ví đạo hàm như trí tuệ khi nó phân tách, soi tỏ từng ngóc ngách, thì có thể xem tích phân như từ bi khi nó gom góp, bao bọc cho những chỗ gồ ghề. Thế giới cũng vận hành nhờ hai nhịp ấy.</p>
+
+<p>Định lý Noether nói rằng ở đâu có đối xứng liên tục, ở đó có bảo toàn. Nhưng để phát triển, thế giới phải không ngừng tự phá vỡ những đối xứng cũ để tìm đến đối xứng cao hơn. Thành ra trong lòng mọi cân bằng luôn có một mầm lệch nhỏ, và chính mầm lệch này giữ cho chuyển động không tắt, cho vũ trụ còn "thở".</p>
+
+<p>Ngay thời điểm sơ khai (sau Big Bang), một chênh lệch cực nhỏ trong mật độ năng lượng đã khiến vật chất tụ lại, hình thành các ngôi sao, các hành tinh, và sự sống. Như Hawking viết trong cuốn <em>Lược sử thời gian</em>, nếu tốc độ giãn nở của vũ trụ chỉ nhỏ hơn một phần trong 100 triệu tỉ ở giây đầu tiên, vũ trụ đã sụp đổ trước khi đạt được kích thước như bây giờ. Từ thời điểm đó, vũ trụ sống vì luôn có tổng đạo hàm khác 0. Nói theo ngôn ngữ nhiệt động học, mọi thứ chuyển động như một toàn thể vì entropy luôn tăng, và chính đạo hàm của entropy đã định nghĩa "mũi tên thời gian" mà ta đang sống trong đó.</p>
+
+<p>Duyên khởi, theo cách nhìn Toán học, chính là "đạo hàm theo thời gian của toàn bộ thực tại", ở đó mỗi biến phụ thuộc vào tất cả như một mạng lưới đồng thời nương nhau mà hiển hiện. Nếu như xem đạo hàm là nhịp thở của thế giới, thì tích phân là ký ức của nó. Và như thế, đạo hàm và tích phân không chỉ là công cụ tính toán, mà là ngôn ngữ chung của vạn vật: đạo hàm cho ta hướng, tích phân cho ta quãng đường, và cả hai cùng nhau mô tả chuyển động. Như Galilei từng nói "Vũ trụ là cuốn sách vĩ đại được viết bằng ngôn ngữ của Toán học", có thể xem mỗi phương trình là một cửa ngõ vào trùng trùng duyên khởi. Mỗi khoảnh khắc hiểu, dù nhỏ, cũng đủ làm rung động toàn bộ mạng lưới mà ta gọi là thực tại.</p>
+
+<hr class="art-sep-rule">
+
+<p>Khi vật dừng lại trong một không gian, nghĩa là nó đang vận động ở một tầng cao hơn. Ở đó, năng lượng không mất mà chỉ đổi hình. Trong thuyết tương đối của Einstein, ngay cả không–thời gian cũng không nằm im mà bị uốn cong do năng lượng, còn vật chất đi theo đường cong ấy mà chuyển động. Phương trình trường nổi tiếng của ông nối hai mặt của vũ trụ: một bên là hình học của không–thời gian, một bên là năng lượng của vật chất. Chúng không tách rời mà phản chiếu lẫn nhau: hình dạng của vũ trụ quyết định chuyển động của vật chất trong đó, và chuyển động vật chất lại tái định hình không gian. Hỏi "vật chịu lực hút ở đâu" hóa ra cũng là hỏi "không gian cong ra sao". Giống như câu hỏi con gà và quả trứng, câu trả lời đúng không phải là cái gì có trước mà là bản thân câu hỏi đã sai.</p>
+
+<p>Nhưng thế giới không dừng lại ở những đường cong hữu hình. Ở tầng sâu hơn, chuyển động vật chất không chỉ làm cong không gian mà còn làm "rung" chính cái nền của thực tại. Cơ học lượng tử mở ra một chân trời mới, nơi một hạt vừa là hạt vừa là sóng, tuỳ theo cách ta nhìn, đúng như câu khẩu quyết mà Einstein từng nói với Heisenberg: "Chính lý thuyết quyết định cái gì có thể được quan sát". Từ đó, năm 1927 Heisenberg tìm ra nguyên lý bất định, xác lập giới hạn của mọi phép đo: hễ càng biết rõ vị trí thì càng mờ động lượng, và ngược lại. Trong thế giới lượng tử, các hạt vi mô sẽ không bao giờ vui vẻ kể hết cho ta chúng đang ở đâu và định đi đâu, hễ chúng ta viết được một câu trả lời lên giấy thì câu trả lời còn lại sẽ "rung" lên mà trốn mất.</p>
+
+<p>"Nghịch lý" trong phép đo giữa vị trí và động lượng khiến nhiều nhà vật lý khó chịu, như Einstein nói "Chúa không chơi xúc sắc". Nhưng trong khoa học, hễ gặp bức tường có vẻ không thể vượt qua, thì thay vì đầu hàng ta có thể thử "định nghĩa" lại cả bức tường. Tám năm sau nguyên lý bất định, Schrödinger tiến thêm một bước khi đưa ra thí nghiệm tưởng tượng nổi tiếng về con mèo "vừa sống vừa chết": ông xem con mèo như một chồng chập lượng tử, và chỉ khi quan sát thì sóng xác suất mới "sụp đổ" về một trong hai khả năng. Thí nghiệm này không phải để nói rằng thực tại phi lý, mà rằng nó vốn không thể được phân tách một cách rạch ròi. Trạng thái của mèo, của hạt, của người quan sát, tất cả cùng tồn tại trong một mạng lưới duyên khởi lượng tử, nơi cái được thấy và cái thấy cùng sinh ra.</p>
+
+<p>Điều thú vị là khi Schrödinger xây dựng phương trình cho hàm sóng vào năm 1926, bản thân ông cũng không hiểu hàm sóng là gì. Điều này được Born trả lời bằng một diễn giải thiên tài, rằng sóng này không phải là sóng vật chất, mà là <em>sóng xác suất</em>: hàm mật độ xác suất của vị trí được cho bởi</p>
+
+<div class="math-display">
+\[ \rho(x) \;=\; |\psi(x)|^2 \]
+</div>
+
+<p>và phổ Fourier bình phương cho ta mật độ xác suất của động lượng. Đây là bước ngoặt triết học trong cơ học lượng tử: nó chuyển "hiện thực vật lý" thành "hiện thực thống kê", nơi bản thân tồn tại được hiểu như một phân bố xác suất hơn là một điểm tuyệt đối trong không gian. Điều này giải quyết triệt để lưỡng tính sóng–hạt trong thế giới lượng tử, và bổ sung thêm một lớp hiểu sâu sắc trong "duyên số" giữa vị trí và động lượng bên cạnh nguyên lý Heisenberg.</p>
+
+<p>Như vậy, trong khi Schrödinger mô tả được sự tiến hoá tất định của hàm sóng — tức là "cái đang là" — thì Born chỉ ra nó nói tới điều gì, tức là "cái được thấy". Con mèo Schrödinger cho ta "khoảng trống" giữa hai cái nhìn ấy. Mỗi câu trả lời (Born) sinh ra một câu hỏi mới (con mèo), và chính sự chuyển dịch ấy giữ cho nhận thức luôn vận động. Giống như đạo hàm và tích phân, ở đây phương trình Schrödinger (vi phân) và diễn giải Born (tích phân xác suất) cần nhau để mô tả trọn vẹn hành trình của một hạt lượng tử.</p>
+
+<hr class="art-sep-rule">
+
+<p>Từ đó, có thể thấy rằng "thực tại lượng tử" không phải là thứ tồn tại sẵn, bất biến với nhận thức, mà được sinh ra cùng với hành vi quan sát của con người. Trong Phật học, điểm này tương ứng với "Thức", là cơ chế vận hành của biết. Trong 12 nhân duyên (như được giảng trong <em>Tương Ưng Bộ</em>), "Thức" đứng sau "Hành" và trước "Danh sắc", nghĩa là từ vô minh và hành động mà nảy sinh một dòng biết, và chính dòng biết này chia thế giới thành người biết và cái được biết. "Thức" không phải tâm của riêng ai, mà là hàm sụp đổ của thế giới để biến cái tiềm năng trở thành hiện hữu. Khi Thức khởi, thế giới hiển; khi Thức diệt, vạn pháp trở về im lặng, không phải vì không có gì, mà vì mọi khả thể đã trở lại trạng thái chồng chập ban đầu, nơi biết và được biết chưa hề tách nhau.</p>
+
+<p>Có thể nói "Thức" chính là đạo hàm của thực tại theo tri giác, là phép chiếu cục bộ từ không gian Hilbert các hàm trạng thái xuống không gian thực nghiệm của hiện tượng khi được quan sát. Cụ thể hơn, nếu xem sự tương tác giữa đạo hàm (hướng đi, biến đổi) và tích phân (tổng hợp, tích lũy) là biểu hiện của Duyên khởi ở cấp độ lượng tử, thì "Thức" của con người không phải là thứ đứng ngoài để quan sát, mà chính là phần phản chiếu của Duyên khởi ấy trong chính dòng tri giác. Nói như Kinh Hoa Nghiêm: "Tâm như người họa sĩ, vẽ muôn pháp hữu vi", mỗi nét rung của tâm là một dao động trong cấu trúc của vũ trụ, và trong mỗi dao động ấy vũ trụ lại tự nhận ra chính mình.</p>
+
+<p>Tuy cơ học lượng tử cực kỳ thành công, nó vẫn còn rất xa mới mô tả hết muôn mặt của thực tại. Trong trường phái Copenhagen, các nhà khoa học rất khiêm tốn khi cho rằng chúng ta không cần, và không nên, sa đà vào việc giải thích bản chất thực tại là gì, mà chỉ xem cơ học lượng tử như là một mô hình, một công cụ toán học để dự đoán kết quả quan sát. Họ không nói "ý thức tạo ra vật chất", mà khi ai đó hỏi electron thực ra đang ở đâu, họ sẽ đề nghị bỏ qua câu hỏi ấy mà ngồi im lặng làm toán. "Shut up and calculate" không phải là thái độ kẻ cả, mà là sự khiêm nhường trước tự nhiên: không có thế giới lượng tử riêng rẽ, chỉ có một mô tả lượng tử về thế giới. Đây là hình thức hiện đại của "tuệ giác im lặng": sự im lặng của Bohr trước "thực tại lượng tử" có cùng tinh thần với sự im lặng của Đức Phật trước "bản thể vũ trụ". Im lặng là cách nói chân thật nhất khi ngôn ngữ không đủ để chạm được thực tại, hoặc nếu phải nói thì chỉ là "do nhân duyên mà cái này có, do nhân duyên mà cái kia diệt".</p>
+
+<hr class="art-sep-rule">
+
+<p>Như vậy, thế giới không nằm trong điều ta biết, mà trong độ rung, độ nhoè, giữa biết và chưa biết. Không có "tách biệt" thực sự, cái này có thì cái kia có; cái này không thì cái kia không. Đây cũng là "Không" trong Phật học, không phải là hư vô, mà là không tự tính: không thứ gì tự đứng một mình. Duyên khởi đảm bảo cái được thấy và cái thấy cùng xuất hiện, cũng là tan và hợp, hợp và tan, nhưng xảy ra cùng nhau ngay trong từng khoảnh khắc hiện hữu chứ không phải đợi đến hết một đời người.</p>
+
+<p>Nhìn theo cách ấy, 12 nhân duyên không chỉ nói về sinh tử của con người, mà còn là phương trình tiến hoá tổng quát của mọi hệ có ý thức. Từ dao động lượng tử trong chân không đến ý niệm khởi sinh trong tâm, tất cả đều tuân theo cùng một chu kỳ: vô minh dẫn đến hành, hành sinh thức, thức tạo ra thế giới, rồi thế giới lại tan trở về vô minh. Thấy được chu kỳ ấy là thấy được dòng vi phân của thực tại, nơi đạo hàm của vũ trụ trùng với nhịp đập của tâm. Như tứ cú kệ trong Kinh Kim Cang, "như mộng, như huyễn, như sương, như chớp", mọi hiện tượng hữu vi (do nhân duyên tạo tác) đều không thật có tự tánh; nhưng chính nhờ đó mà thế giới có thể trôi qua trong từng sát-na của biết, để cả cái biết và người biết cùng được hiển hiện.</p>
+
+<hr class="art-sep-rule">
+
+<p>Trong nghiên cứu khoa học, duyên khởi cũng vận hành như thế. Định lý bất toàn của Gödel cho thấy: mọi hệ tiên đề đủ mạnh đều không đầy đủ. Nhưng điều đó không làm toán học yếu đi, mà ngược lại, bộc lộ sự phong phú vô tận của nó. Khi mọi hệ tiên đề đều có lỗ hổng, thì chính lỗ hổng ấy nuôi dưỡng chuyển động. Cái chưa chứng minh được hôm nay sẽ thành tiên đề của ngày mai, như đạo hàm bậc cao nối tiếp đạo hàm bậc thấp. Newton đúng trong miền vĩ mô của vật thể, còn cơ học lượng tử đúng trong miền vi mô. Chân lý không mất, chỉ đổi hình. Nắm bắt được cái đổi đó là duyên khởi. Trong hành trình ấy, trực giác là mặt đối ngẫu của lý trí: khi ta chấp nhận cái "nhoè đi" của tư duy, thì nhận thức có thể "vượt biên", thực hiện những bước nhảy lượng tử qua giới hạn của chính mình.</p>
+
+<p>Trong truyện <em>Tây Du Ký</em>, hành trình đi thỉnh kinh của thầy trò Đường Huyền Trang có thể xem như một ẩn dụ cho chính quá trình nhận thức ấy. Hễ bốn thầy trò đi tới đâu cũng được (hoặc bị) hỏi: "Đại sư từ đâu tới? Và định đi đâu?". Đây chính là truy vấn luận, tưởng là phép xã giao cổ xưa, nhưng hoá ra lại chạm tới cấu trúc của tồn tại: ở đâu là vị trí, đi đâu là động lượng, cả hai hợp lại thành đạo hàm và tích phân của hành trình. Bất kể người hỏi là hoàng đế, dân lành hay yêu quái, câu trả lời của Đường Huyền Trang luôn là: "Bần tăng đến từ Đông Thổ Đại Đường, đang trên đường đi Tây Trúc thỉnh kinh". Đây là một câu trả lời rất chân thành, có cả trí, định và tuệ: trí vì biết rõ mình "ở đâu" và "đi đâu", định vì luôn có niềm tin sắt đá trong cả hành trình vạn dặm, và tuệ là vì hiểu rõ duyên khởi nên nói thẳng mà không toan tính, để muôn việc tuỳ duyên. Muôn việc tuỳ duyên không phải là buông xuôi, mà chính là lúc con người tìm được tự do thực sự trong mỗi bước chân, như lời bài hát trong phim (1986):</p>
+
+<div class="poem">
+  <p>Dám hỏi đường ở nơi đâu?</p>
+  <p>Đường ở dưới chân ta</p>
+</div>
+
+<p>Cũng như vậy, trong thế giới của Kim Dung, ta lại thấy một hành trình khác: không hướng ra ngoài để thỉnh kinh, mà hướng vào chính mình để tìm thấy tự do giữa sinh tử. Trong <em>Ỷ Thiên Đồ Long Ký</em>, các giáo chúng Minh giáo khi bị vây đánh đến hơi tàn lực kiệt ở Quang Minh đỉnh, họ không hoảng loạn mà cùng nhau hát bài thánh ca của giáo phái:</p>
+
+<div class="poem">
+  <p>Chợt đến như dòng nước chảy</p>
+  <p>Rồi tàn như gió qua mau</p>
+  <p>Chẳng biết từ nơi nào đến</p>
+  <p>Cũng chẳng biết về nơi đâu</p>
+</div>
+
+<p>Đây là lúc họ thấy được duyên khởi: vô thuỷ nên vô chung, vô sinh nên vô diệt. Thấy được Duyên là thấy được Pháp, và thấy được Pháp là thấy được Phật. Giải thoát không ở ngoài những duyên, mà trong chính chúng: khi hiểu rằng mọi hiện tượng chỉ nương nhau mà hiện, thì không còn gì để nắm giữ, cũng không còn gì phải buông, tâm được tự do không vì vượt lên mà vì hòa tan vào nhịp sinh diệt của thế giới. Khi đó còn gì phải sợ.</p>
+
+<hr class="art-sep-rule">
+
+<p>Trong <em>Đạo đức kinh</em>, Lão Tử viết: "Đạo trời lấy chỗ thừa bù chỗ thiếu, còn đạo người thì lại hao tổn chỗ thiếu để nuôi chỗ thừa". Nếu hiểu duyên khởi, ta thôi sa vào thái cực: không cầu hoàn hảo mà quên phần thiếu, không quý cái có mà xem thường cái vô. Chính cái thiếu, cái vô, mới mở chỗ cho duyên khởi vận hành. Âm nhạc chỉ có ý nghĩa khi có khoảng lặng giữa hai nốt nhạc. Một cơ thể khỏe mạnh không chỉ cần ăn no mà cần cả những cơn đói, cũng như một trí tuệ chỉ sáng suốt khi còn biết nghi ngờ.</p>
+
+<p>Trong <em>Đạo đức kinh</em>, Đạo là cái chứa quy luật của vạn vật, dung hoà cả thiên–địa–nhân, sâu thăm thẳm đến mức Lão Tử phải dùng chính sự bất lực của ngôn ngữ để mô tả: "Đạo khả đạo, phi thường đạo." Tuy vậy, nếu không thể nói trọn vẹn Đạo trong một lần, ta vẫn có thể tiếp cận nó bằng vô số lần quan sát, xem mỗi lần như một phép chiếu cục bộ, như một lát cắt vi phân của chân lý toàn phần. Giống như trong giải tích, ta không cần biết toàn hàm ngay lập tức; chỉ cần biết đạo hàm tại điểm đang đứng là đã biết hướng để đi. Đi từng bước nhỏ, tích đủ những bước ấy, ta có con đường — một con đường có thể không bao giờ kết thúc, nhưng chính vì thế mà luôn còn nhịp, còn nhạc, còn duyên khởi.</p>
+
+<p>Câu chuyện Tam Quốc với 96 năm gươm giáo phân tranh khép lại bằng bài từ <em>Giang Nam</em> của Dương Thận:</p>
+
+<div class="poem">
+  <p>Trường Giang cuồn cuộn chảy về đông</p>
+  <p>Bạc đầu ngọn sóng cuốn anh hùng</p>
+  <p>Thị phi thành bại theo dòng nước</p>
+  <p>Sừng sững cơ đồ bỗng tay không</p>
+</div>
+
+<p>Với cách nhìn của duyên khởi, vô thường của một đời người cũng chỉ là một cái chớp mắt của tạo hóa. Trong đó vui và buồn, được và mất, thịnh và suy chỉ là những đợt sóng hợp rồi tan trên mặt nước. Nhưng trong dòng chảy ấy, ta vẫn có quyền chọn cách bơi. Tự do lớn nhất của con người, suy cho cùng, là khả năng đi trong mối tương duyên của mọi điều đối lập, để tự tạo nên ý nghĩa cho cuộc sống của mình.</p>
+
+<div class="art-end"><a href="https://tiasang.com.vn/vu-tru-trong-tung-khoanh-khac-tu-dao-ham-den-duyen-khoi-4999955.html" target="_blank">Tia Sáng</a> số 23 — tháng 12/2025</div>
+<div class="back-to-toc"><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Về đầu trang</a></div>
+
+</div>
+</div>
+</div>
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

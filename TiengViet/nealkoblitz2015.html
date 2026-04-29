@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Neal Koblitz tại Viện Toán học – Bất cập trong mật mã và câu chuyện mật mã Việt Minh">
+<meta property="og:description" content="Neal Koblitz – cụ tổ của mật mã đường cong elliptic – tới Hà Nội, trình bày tại Viện Toán học về những bất cập trong sử dụng mật mã và chia sẻ phát hiện thú vị về mật mã của Việt Minh.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/nealkoblitz2015.html">
+<title>Neal Koblitz tại Viện Toán học – Bất cập trong mật mã và câu chuyện mật mã Việt Minh - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.art-subtitle { text-align: center; font-size: 1rem; color: #777; font-style: italic; margin: 0 0 0.9rem; }
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 0.3rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; }
+p { margin: 0 0 1.2em; }
+a { color: #8f1d2c; }
+a:hover { text-decoration: underline; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #f0dde0;
+}
+blockquote {
+  border-left: 4px solid #c9a0a7;
+  background: #faf7f5;
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+blockquote p { margin: 0; }
+.highlight-box {
+  background: #faf7f5;
+  border: 1px solid #ece5e0;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.97rem;
+}
+.highlight-box p { margin: 0.3em 0; }
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Neal Koblitz tại Viện Toán học – Bất cập trong mật mã và câu chuyện mật mã Việt Minh</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">09/2015</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://www.facebook.com/rongchoi" target="_blank">Diễn đàn Toán học</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<p>Neal Koblitz là một người rất đặc biệt trong giới mật mã, với những ý kiến sâu sắc và đôi khi cực đoan. Ông là cụ tổ của mật mã đường cong elliptic (cùng Victor Miller). Ông là một người bạn thân của Việt Nam.</p>
+
+<p>Được sự đồng ý của Neal Koblitz, tôi xin giới thiệu slides trình bày của ông tại Viện Toán học vừa qua. Bài trình bày không mang tính kỹ thuật mà nói về những bất cập trong việc sử dụng mật mã.</p>
+
+<h2 class="sec-title">Những chỉ trích sâu sắc về chính sách mật mã</h2>
+
+<p>Trong bài trình bày, Koblitz thẳng thắn chỉ trích nhiều vấn đề nghiêm trọng:</p>
+
+<ul style="margin:0.5rem 0 1.5rem;padding-left:1.5rem;line-height:2.1;">
+  <li>Chỉ trích chính phủ Mỹ đã đưa vào những <strong>backdoor</strong> và ép các công ty – ngay cả RSA – sử dụng các hàm mật mã có backdoor để lấy cắp thông tin người dùng.</li>
+  <li>Chỉ trích sự yếu kém của chính phủ Mỹ trong việc bảo vệ thông tin của chính mình, để đến nỗi một cá nhân như <strong>Snowden</strong> có thể lấy được cả núi thông tin tuyệt mật.</li>
+  <li>Chỉ trích sự yếu kém của tình báo Mỹ trong vụ <strong>11/09</strong> và sau đó lại lợi dụng tình thế làm cớ để ra "Patriot Act" – dễ dàng quản lý và truy nhập thông tin cá nhân, tổ chức.</li>
+</ul>
+
+<p>Đây là những câu chuyện và cách nhìn đáng suy nghĩ từ một người đã sống trong lòng ngành mật mã nhiều thập kỷ.</p>
+
+<h2 class="sec-title">Phát hiện thú vị: Mật mã của Việt Minh</h2>
+
+<p>Trong chuyến đi Việt Nam, ông cũng kể với tôi một câu chuyện thú vị – một phát hiện nho nhỏ của ông. Nó diễn ra khi ông đến thăm bảo tàng Bộ Công An. Những nhân viên ở đây đã cho ông xem bản mã của Việt Minh, sử dụng bởi A13, khi lập chiến công ngày 27 tháng 9 năm 1950, trong việc đốt cháy chiến hạm <em>Amyot d'Inville</em> của Pháp, và từ đó ngăn chặn một cuộc tấn công vào vùng giải phóng Thanh-Nghệ-Tĩnh.</p>
+
+<p>Sau một hồi nghiên cứu, ông đã phát hiện rằng mã mà Việt Minh sử dụng là loại <strong>mã Vigenère đơn giản</strong>. Điều không tưởng là khoá giải mã (một chuỗi ngẫu nhiên) được ghi ngay ở phần đầu của bản mã! Điều không tưởng hơn là tình báo Pháp bất lực trong việc giải mã đơn giản như thế.</p>
+
+<blockquote><p>(Có lẽ đơn giản là phía Pháp không nhận được ngay cả bản mã chăng?)</p></blockquote>
+
+<p>Tôi tìm trên mạng thấy có nói đến chiến công này nhưng không nói gì tới việc dùng mã, thay vào đó là kết cục khủng khiếp với cô Nguyễn Thị Lợi.</p>
+
+<h2 class="sec-title">Mật mã Việt Nam thời chống Mỹ</h2>
+
+<p>Việc sử dụng mật mã ở Việt Nam đã được chú ý từ khá sớm. Trong bản bạch hoá của NSA, ngay từ đầu những năm 1960 phía Việt Minh đã sử dụng mật mã, và điều thú vị là khi Mỹ tấn công được hệ mã của Việt Minh thì Việt Minh đã lại thay đổi sang hệ khác! Điều này được ghi trong cuốn <a href="http://fas.org/irp/nsa/spartans/index.html" target="_blank"><em>Spartans in Darkness</em></a> (Chapter 3, page 105; page 22 của chapter 3).</p>
+
+<div class="highlight-box">
+  <p>Rõ ràng những câu chuyện về việc sử dụng mật mã ở Việt Nam từ thời chống Pháp, chống Mỹ là những câu chuyện thú vị. Nếu bạn có thông tin nào hay, mong chia sẻ thêm.</p>
+</div>
+
+<h2 class="sec-title">Hẹn gặp lại tại Asiacrypt 2016</h2>
+
+<p>Ông Koblitz năm sau sẽ sang Việt Nam dự <strong>Asiacrypt 2016</strong> và tuần trước hội nghị sẽ tham gia giảng bài tại Trường Thu Mật mã – nơi chuẩn bị kiến thức cho các bạn tham gia để việc tham gia hội nghị có hiệu quả. Khi đó ông sẽ nói sâu hơn về kỹ thuật, về đường cong elliptic và lý thuyết số trong mật mã.</p>
+
+<p>Đây sẽ là một dịp hiếm có để trao đổi trực tiếp với người đã đặt nền móng cho mật mã đường cong elliptic – nền tảng của phần lớn các hệ thống mật mã hiện đại ngày nay.</p>
+
+<div class="art-end">Phan Dương Hiệu · 09/2015 · <a href="https://www.facebook.com/rongchoi" target="_blank">Diễn đàn Toán học</a></div>
+
+<div style="text-align:center;font-size:0.85rem;margin:1.5rem 0 0;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="adishamir2016.html" class="art-nav-prev">← Bài giảng đại chúng của Adi Shamir – Asiacrypt 2016</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="melissarossi2025.html" class="art-nav-next">Phỏng vấn Mélissa Rossi – Chiến lược Mật mã Hậu lượng tử của Pháp và Châu Âu →</a>
+</nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

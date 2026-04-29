@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Đồng xu cổ - Những thế giới song hành">
+<meta property="og:description" content="Tản mạn về những đồng tiền xu cổ và các thế giới văn minh song hành từ thời Hùng Vương đến Alexander đại đế.">
+<meta property="og:image" content="https://www.di.ens.fr/users/phan/webpictures/dongxu.jpg">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/dongxu.html">
+<title>Đồng xu cổ - Những thế giới song hành - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.92;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main { max-width: 900px; margin: 0 auto; }
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+
+.art-lead {
+  font-style: italic;
+  color: #555;
+  border-left: 3px solid #e8d5d8;
+  padding-left: 1.2rem;
+  margin: 0 0 2rem;
+  line-height: 1.85;
+}
+
+.art-figure {
+  margin: 0 0 2rem;
+  text-align: center;
+}
+.art-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+}
+.art-figure figcaption {
+  font-size: 0.82rem;
+  color: #aaa;
+  margin-top: 0.5rem;
+}
+
+.art-section { margin-top: 0; }
+
+p { margin: 0 0 1.1em; }
+p:last-child { margin-bottom: 0; }
+
+em, i { font-style: italic; }
+
+/* Navigation */
+.art-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.88rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0ebe7;
+  flex-wrap: wrap;
+}
+.art-nav a {
+  color: #8f1d2c;
+  text-decoration: none;
+  font-weight: 500;
+}
+.art-nav a:hover { text-decoration: underline; }
+.art-nav .nav-home { text-align: center; color: #aaa; font-size: 0.82rem; }
+.art-nav .nav-home a { color: #aaa; }
+.art-nav .nav-home a:hover { color: #8f1d2c; }
+.art-nav-bottom { border-top: 1px solid #f0ebe7; margin-top: 3rem; border-bottom: none; margin-bottom: 0; padding-top: 1.5rem; padding-bottom: 0; }
+
+@media(max-width:640px){
+  body { font-size: 1.05rem; padding: 1.5rem 0.75rem 5rem; }
+  .page-content { padding: 2rem 1.25rem; }
+  .art-title { font-size: 1.45rem; }
+  .art-nav { font-size: 0.82rem; }
+}
+@media(max-width:400px){
+  .page-content { padding: 1.5rem 1rem; }
+  body { font-size: 1rem; }
+}
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="page-main">
+<div class="page-content">
+
+  <div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+    <a href="chuco.html">← Chữ cổ</a>
+    <span class="nav-home"><a href="../Matma.html">↑ Mật mã học</a></span>
+    <a href="tentrom.html">Ăn trộm vị nghệ thuật →</a>
+  </nav>
+
+  <h1 class="art-title">Đồng xu cổ - Những thế giới song hành</h1>
+  <div class="art-meta">
+    <span class="art-author"><a href="https://www.di.ens.fr/users/phan/">Phan Dương Hiệu</a></span>
+    <span class="art-sep">·</span>
+    <span>20/01/2019</span>
+  </div>
+  <div class="art-source">Đăng trên <a href="https://daibieunhandan.vn/dong-xu-co-nhung-the-gioi-song-hanh-10225907.html" target="_blank">Đại biểu Nhân dân</a></div>
+
+  <p class="art-lead">Vào thời vua Hùng Vương thứ 13, khoảng thế kỷ thứ VII trước Công nguyên, trong khi thế giới Trung Đông vẫn mải mê với những kiệt tác như vườn treo Babylon ở Baghdad thì một nền triết học rực rỡ đã khơi mào ở thế giới Hy Lạp cổ đại. Ở đó, các đồng tiền xu cũng bắt đầu được lưu hành. Nghe đâu khoảng cùng thời gian đó, những đồng tiền xu cũng xuất hiện ở Trung Hoa cổ đại, thời Xuân Thu. Nếu đúng thế thì thật lạ lùng khi hai thế giới tách biệt cùng nghĩ ra tiền xu cùng thời...</p>
+
+  <figure class="art-figure">
+    <img src="../webpictures/dongxu.jpg" alt="Đồng xu cổ Hy Lạp tại Bảo tàng khảo cổ học Chania, đảo Crete">
+    <figcaption>Đồng xu cổ tại Bảo tàng khảo cổ học Chania, đảo Crete (Hy Lạp)</figcaption>
+  </figure>
+
+  <div class="art-section">
+
+    <p>Nền văn minh đầu tiên ở châu Âu trị vì bởi các vua Minos ra đời sau nước Văn Lang với các vua Hùng của ta. Nhưng ta tuy thế vẫn còn muộn so với thế giới. Khi thần Dớt biến thành bò đi chinh phục nàng Europe, khi Lạc Long Quân diệt Ngư Tinh cưới Âu Cơ sinh trăm trứng, thì thế giới con người Ai Cập cổ đại đã rất phát triển: Những kim tự tháp đầu tiên đã được dựng lên mà ngày nay ta vẫn còn thấy đầy bí hiểm.</p>
+
+    <p>Thế nhưng, từ khi nàng Europe lấy được chồng hư - là thần Dớt, các nền văn minh ở châu Âu phát triển nhanh chóng.</p>
+
+    <p>Vào thời vua Hùng Vương thứ 13, khoảng thế kỷ thứ VII trước Công nguyên, trong khi thế giới Trung Đông vẫn mải mê ăn chơi với những kiệt tác như vườn treo Babylon ở Baghdad thì một nền triết học rực rỡ đã khơi mào ở thế giới Hy Lạp cổ đại. Ở đó, các đồng tiền xu cũng đã bắt đầu được lưu hành. Nghe đâu khoảng cùng thời gian đó, những đồng tiền xu cũng xuất hiện ở Trung Hoa cổ đại, thời Xuân Thu. Nếu đúng thế thì thật lạ lùng khi hai thế giới tách biệt cùng nghĩ ra tiền xu cùng thời.</p>
+
+    <p>Đến thời vua Hùng Vương thứ 17, tức là thời Alexander đại đế - vua xứ Macedonia, những đồng xu rất đẹp đã được sử dụng. Không biết các đồng xu đẹp có liên quan gì đến các cuộc viễn chinh của Alexander đại đế hay không. Nghe đâu (các bạn đừng tin) trước mỗi trận đánh, Alexander đại đế lại tung đồng xu hên xui: Nếu trúng hình Dớt thì quyết đánh, còn rơi vào hình Europe thì tạm lui. Nhưng đồng xu thời đó không bằng phẳng, ông hay tung vào hình Dớt. Do tài năng xuất chúng, lại đánh nhiều nên thắng nhiều, khi chinh phục xong Ai Cập ông được ví như con trai của thần Dớt. Xui thay, khi sang đến Ấn Độ, ông bị hổ vồ mất đồng xu, không còn quyết định sáng suốt nữa nên thất bại.</p>
+
+    <p>Thời nay, một tác dụng của đồng xu cổ là để ghi lại các câu chuyện, và để chứng tỏ người kể chuyện... không hoàn toàn bịa. Trên ba đồng xu cổ mà tôi đã được tận mắt chiêm ngắm tại Bảo tàng khảo cổ học ở Chania trên đảo Crete (Hy Lạp) là những câu chuyện đầy thú vị: Thần Dớt biến thành bò bắt nàng Europe (đồng xu 27); thần Dớt đưa nàng về hang ngồi nghỉ đợi nàng thức giấc (đồng xu 28), nàng Europe dưới gốc cây ở Gortyna (đồng xu 29)...</p>
+
+  </div>
+
+  <nav class="art-nav art-nav-bottom">
+    <a href="chuco.html">← Chữ cổ</a>
+    <span class="nav-home"><a href="../Matma.html">↑ Mật mã học</a></span>
+    <a href="tentrom.html">Ăn trộm vị nghệ thuật →</a>
+  </nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

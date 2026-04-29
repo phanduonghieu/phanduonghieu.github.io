@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Ứng dụng mật mã làm tăng hiệu quả việc ghép thận">
+<meta property="og:description" content="Ứng dụng bất ngờ của mật mã: tối ưu hóa việc ghép thận bằng cách bảo vệ thông tin y tế của người cho và nhận, kết hợp bảo mật với y học để cứu sống nhiều người hơn.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/ghep-than.html">
+<title>Ứng dụng mật mã làm tăng hiệu quả việc ghép thận - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 2.5rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; }
+p { margin: 0 0 1.2em; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+.example-box {
+  background: #faf7f5;
+  border-left: 4px solid #c9a0a7;
+  border-radius: 0 8px 8px 0;
+  padding: 1.1rem 1.4rem;
+  margin: 1.5rem 0;
+  font-size: 0.98rem;
+}
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+.back-to-index { text-align: center; margin-top: 2rem; font-size: 0.9rem; }
+.back-to-index a { color: #8f1d2c; text-decoration: none; }
+.back-to-index a:hover { text-decoration: underline; }
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.4rem; }
+  h2.sec-title { font-size: 1.05rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Ứng dụng Mật mã làm tăng hiệu quả việc Ghép Thận</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">11/2018</span>
+</div>
+<div class="art-source">
+  <a href="https://www.facebook.com/rongchoi/posts/10215865313562562" target="_blank">Bài gốc trên Facebook</a>
+</div>
+<div class="back-to-index" style="margin: 0.2rem 0 0.8rem;"><a href="../Matma.html">← Về trang Mật Mã</a></div>
+
+<p>Mấy hôm nay quay cuồng hoàn thành bản phản biện cho luận án tiến sỹ của bạn Quentin Santos. Bạn này làm PhD tại ENS và đồng thời làm cho Orange Labs (tức France Telecom). Kiểu kết hợp hàn lâm – công nghiệp này cho phép vừa nghiên cứu lý thuyết vừa phát triển luôn 1 hệ thống thực tế. Công bố có thể ít nhưng sự đánh giá dựa trên cả hệ thống được triển khai. Và hệ thống bạn tham gia phát triển rất hay: tăng hiệu quả trong việc tìm cặp ghép thận.</p>
+
+<h2 class="sec-title">Bài toán: tương thích cho ghép thận</h2>
+
+<p>Chúng ta biết là con người có thể sống với 1 quả thận. Do vậy mà khi một người thân bị hỏng thận, có thể có người nhà sẵn sàng hiến 1 quả thận để cứu sống. Tuy nhiên, không phải ai cũng có thể cho nhau thận.</p>
+
+<div class="example-box">
+Ví dụ: người nhóm máu A thì chỉ có thể nhận từ người có nhóm máu A hoặc O, người nhóm máu O chỉ nhận từ người nhóm máu O nhưng người nhóm máu AB thì có thể nhận từ mọi nhóm. Đó chỉ là 1 tiêu chuẩn tương thích, còn phải thoả mãn nhiều tiêu chuẩn khác như khung tuổi hay về Antigens: mỗi người được gắn với 6 loại kháng nguyên bạch cầu HLA-A, HLA-B, HLA-C, HLA-DR, HLA-DQ và HLA-DP, và hai người tương thích cần có ít nhất 3 loại kháng nguyên phù hợp nhau.
+</div>
+
+<p>Như vậy dù có người nhà sẵn sàng cho thận thì người bệnh cũng chưa hẳn được cứu vì sự không tương thích và nhiều khi phải đợi một người cho khác tương thích để có thể làm phép ghép thận, mà thời gian đợi của người bệnh là rất nguy hiểm và tốn kém.</p>
+
+<p>Nhiều bệnh viện đã nghĩ cách tìm các cặp (cho, nhận) khác nhau. Nếu A sẵn sàng cứu B nhưng không tương thích, và C sẵn sàng cứu D cũng không tương thích, nhưng may mắn A tương thích với D và C tương thích với B, thì cả hai có thể thoả thuận để cùng cứu sống hai bệnh nhân: A cho D và C cho B.</p>
+
+<p>Phép tìm sự tương thích đó có thể tổng quát lên cho 1 chu trình gồm nhiều cặp. Do đó, người ta đã nghĩ là liệu có thể công bố tất cả các cặp cho, nhận (cũng như những người tình nguyện cho) trong một cơ sở dữ liệu chung?</p>
+
+<h2 class="sec-title">Vấn đề: bảo mật thông tin y tế</h2>
+
+<p>Tuy nhiên, việc lưu trữ một cơ sở dữ liệu như thế là rất nguy hiểm, những người có thế lực có thể biết và tìm đến ngay những nơi cho để gây sức ép mua, nó sẽ gây ra sự không thể quản lý, mafia và cò mồi có thể tìm cách lũng đoạn.</p>
+
+<p>Tóm lại, nguyên nhân khó thực hiện là do thông tin y tế và bệnh tình cá nhân là những thông tin cực kỳ quan trọng, nếu để bị lộ sẽ dẫn đến những nguy cơ mua bán bất hợp pháp nghiêm trọng và những rủi ro khác. Những thông tin rất nhạy cảm này được đánh giá có độ cần bảo vệ rất cao.</p>
+
+<h2 class="sec-title">Giải pháp: mã hoá đặc biệt cho phép kiểm tra tương thích</h2>
+
+<p>Luận án của bạn Quentin phát triển một hệ thống mã hoá đặc biệt, sao cho thông tin của những người (cho, nhận) được đưa lên cơ sở dữ liệu ở dạng mã hoá. Mỗi thông tin đưa lên sẽ được một bác sỹ ký đảm bảo, chỉ bác sỹ nắm thông tin mã hoá tương ứng của đôi ba bệnh nhân của mình. Do thông tin trên cơ sở dữ liệu được mã hoá nên không ai giải được và do đó bảo vệ được thông tin cá nhân.</p>
+
+<p>Điểm đặc biệt là trên thông tin mã hoá này, một số phép kiểm tra tương thích vẫn làm được trong những điều kiện giới hạn. Chẳng hạn dựa trên Mã(A), Mã(B) có thể kiểm tra được độ tương thích giữa A và B và ngoài 1 bít (yes/no) thông tin đó ra, không một thông tin nào khác bị lộ. Phép tính tương thích này là đủ để cho phép tìm các chu trình cho nhận phù hợp. Lượng thông tin của bệnh nhân (entropy) tuy có thấp, nhưng đủ để chống lại những tấn công thực tế.</p>
+
+<p>Kết luận của bạn là có thể thực hiện một cơ sở dữ liệu toàn cầu, lưu trữ thông tin về các cặp (cho, nhận) dưới dạng mã hoá để ngay khi một người bệnh có người cho là có thể tìm được một vòng tương thích tối ưu để có thể tiến hành phép ghép thận được nhanh nhất.</p>
+
+<h2 class="sec-title">Về blockchain và kết luận táo bạo</h2>
+
+<p>Orange Labs đã đang tham gia phát triển hệ thống tìm cặp ghép toàn cầu <a href="https://www.kidner-project.com" target="_blank">kidner-project.com</a>. Phương án hiện tại dựa trên blockchain và bạn Quentin chỉ ra những hạn chế và đề nghị thay bằng hệ thống của bạn. Chưa bảo vệ xong nhưng hệ thống của bạn đã được đầu tư để triển khai.</p>
+
+<p>Đi xa hơn nữa, bạn Quentin có đưa ra một nhận định rất táo bạo về công nghệ Blockchain: ngoài ứng dụng tiền mã hoá (cryptocurrency), mọi ứng dụng khác hiện nay sử dụng blockchain đều có giải pháp mật mã khác mang tới sự an toàn và độ hiệu quả hơn. Đó là một công nghệ thú vị nhưng tránh phóng đại hoá tầm ảnh hưởng của nó.</p>
+
+<p>Đây chắc hẳn sẽ là một nhận định gây tranh cãi trong buổi bảo vệ. Bạn nào ở Paris thích tìm hiểu có thể đến tham gia buổi bảo vệ công khai ngày 20/12 tới đây tại Ecole Normale Supérieure. Phần trên chỉ là ½ luận án của bạn Quentin, ½ khác phát triển 1 hệ thống bầu cử điện tử công bằng dựa trên mật mã, với một loại bầu cử khá thú vị mới được đưa ra cách đây 10 năm.</p>
+
+<div class="art-end">11/2018 - <a href="https://www.facebook.com/rongchoi/posts/10215865313562562" target="_blank">Facebook</a></div>
+<div class="back-to-index"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">← Về trang chủ</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="polynomial-commitment.html" class="art-nav-prev">← Chống thông tin giả bằng Mật mã (Polynomial Commitment)</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="phantich-thuaso.html" class="art-nav-next">Phân tích ra thừa số trong trường hữu hạn →</a>
+</nav>
+
+</div>
+</div>
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

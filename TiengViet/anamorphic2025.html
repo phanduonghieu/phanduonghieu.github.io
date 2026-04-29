@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Mật mã chống độc tài và bài báo đầu tiên của Việt Nam tại EUROCRYPT">
+<meta property="og:description" content="Lần đầu tiên người nghiên cứu từ Việt Nam có bài được nhận tại EUROCRYPT – flagship của ngành Mật mã. Nhóm gồm Ban Cơ Yếu (Chính phủ) + Google (Công nghiệp) + Đại học Châu Âu (Hàn lâm) cùng phát triển tiếp Anamorphic Encryption.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/anamorphic2025.html">
+<meta property="og:image" content="https://www.di.ens.fr/users/phan/webpictures/Ana_Thanh.jpeg">
+<title>Mật mã chống độc tài và bài báo đầu tiên của Việt Nam tại EUROCRYPT - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.art-subtitle { text-align: center; font-size: 1rem; color: #777; font-style: italic; margin: 0 0 0.9rem; }
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 0.3rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+p { margin: 0 0 1.2em; }
+a { color: #8f1d2c; }
+a:hover { text-decoration: underline; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #f0dde0;
+}
+blockquote {
+  border-left: 4px solid #c9a0a7;
+  background: #faf7f5;
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+blockquote p { margin: 0; }
+.team-box {
+  background: #faf7f5;
+  border: 1px solid #ece5e0;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.97rem;
+}
+.team-box p { margin: 0.3em 0; }
+.team-box strong { color: #444; }
+.art-photo { text-align: center; margin: 2rem 0 1.5rem; }
+.art-photo img { max-width: 90%; border-radius: 10px; border: 1px solid #ece5e0; display: inline-block; }
+.art-photo figcaption { font-size: 0.85rem; color: #999; margin-top: 0.6rem; font-style: italic; }
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Mật mã chống độc tài và bài báo đầu tiên của Việt Nam tại EUROCRYPT</h1>
+<p class="art-subtitle">Ban Cơ Yếu (Chính phủ) · Google (Công nghiệp) · Đại học Châu Âu (Hàn lâm) – Ba châu lục, một kết quả</p>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">2025</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://www.facebook.com/rongchoi/posts/pfbid03837E48Nf3iqYL6HTX2YqEKEtTKweRQ1PgFRbS9no8Fg8QUSQvqrB1m4d9iQT4n2xl" target="_blank">Facebook</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.8rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<figure class="art-photo">
+  <img src="../webpictures/Ana_Thanh.jpeg" alt="Nhóm tác giả Anamorphic Encryption tại EUROCRYPT 2025">
+  <figcaption>Nhóm tác giả tại EUROCRYPT 2025.</figcaption>
+</figure>
+
+<h2 class="sec-title">Một nhóm nghiên cứu thú vị</h2>
+
+<div class="team-box">
+  <p><strong>Chính phủ:</strong> Đỗ Xuân Thành – Ban Cơ Yếu (Việt Nam)</p>
+  <p><strong>Công nghiệp:</strong> Moti Yung – Google R&amp;D (Mỹ)</p>
+  <p><strong>Hàn lâm:</strong> Giuseppe Persiano (Đại học Salerno, Italia) · Phan Dương Hiệu (Pháp)</p>
+  <p><strong>Hội nghị:</strong> EUROCRYPT – flagship của ngành Mật mã thế giới</p>
+</div>
+
+<p>Lần đầu tiên có sự kết hợp nghiên cứu này: các thành viên đến từ <strong>3 đơn vị (Chính phủ – Công nghiệp – Hàn lâm), từ 3 châu lục</strong>. Bạn Đỗ Xuân Thành, cựu nghiên cứu sinh của tôi và anh Lê Minh Hà nay làm trong Ban Cơ Yếu; Moti Yung — bố già đứng đầu mảng Crypto của Google; Giuseppe Persiano — bố già mật mã của Italia; và tôi.</p>
+
+<p>Cả nhóm phối hợp phát triển tiếp <strong>Anamorphic Encryption</strong> trong việc chống độc tài. Và bài báo vừa được nhận ở <strong>EUROCRYPT</strong> — hội nghị Flagship của cả ngành Mật mã. <strong>Đây là lần đầu tiên có người nghiên cứu từ Việt Nam có bài được nhận ở EUROCRYPT/CRYPTO.</strong></p>
+
+<h2 class="sec-title">Ý nghĩa đặc biệt</h2>
+
+<p>Tôi đặc biệt vui mừng vì kết quả này, nó nằm trong suy nghĩ xuyên suốt của tôi: <strong>cổ vũ Ban Cơ Yếu trong việc "mở"</strong> — không chỉ thực hiện nghiên cứu đóng như xưa nữa — giao lưu hợp tác và hướng tới xuất bản các nghiên cứu ở tầm cao nhất của thế giới. Chính qua sự hoà đồng này mà sẽ có những chính sách và những chuẩn bảo mật phù hợp với những hướng đi tiến bộ của thế giới. Đây có thể là một bước đi nhỏ nhưng nó có ý nghĩa lớn với tôi.</p>
+
+<p>Tôi cũng rất vui khi định hướng <em>"nghiên cứu khoa học không có vùng cấm về chính trị"</em> được lắng nghe. Chủ đề bài báo khá nhạy cảm và việc có bài báo từ Việt Nam trong chủ đề này là một sự rất tích cực.</p>
+
+<h2 class="sec-title">Nội dung bài báo</h2>
+
+<p>Độc tài (công nghệ, chính phủ) có thể ép lấy khoá người dùng, có thể bắt buộc công dân gửi đi những tuyên bố không đúng ý. <strong>Anamorphic Encryption</strong> giúp người dùng/công dân vừa phải tuân thủ sự ép buộc đó vừa đồng thời tạo một kênh riêng ẩn (ngay cả với độc tài), để chẳng hạn có thể nhắn rằng "tôi đang bị ép buộc".</p>
+
+<p>Tuy nhiên kênh riêng này có thể bị chặn hoặc người nhận không kết nối. Bài báo này đề xuất mở rộng: trên cùng một bản mã bị ép gửi có thể tạo đồng thời <strong>nhiều kênh ẩn cho k người nhận ẩn</strong>, chỉ cần 1 trong số k kênh không bị chặn là được. Và vì các kênh được đảm bảo ẩn danh (Anonymous channels) nên nhà độc tài chỉ có thể chặn hết tất cả các kênh — điều không thực tế — mới ngăn chặn được việc trao đổi thông tin.</p>
+
+<h2 class="sec-title">Nền tảng kỹ thuật</h2>
+
+<p>Về mặt kỹ thuật, cách xây dựng dựa trên <strong>Multi-channel Broadcast Encryption (MCFE)</strong> — do Trịnh Viết Cường, Phan Dương Hiệu và David Pointcheval đưa ra năm 2012 tại AsiaCCS (và AsiaCCS tháng 8 tới đây sẽ được tổ chức tại Hà Nội!) — và dựa trên giả thiết <strong>k-LWE</strong> do Phan Dương Hiệu cùng Damien Stehlé, San Ling và Ron Steinfeld đưa ra tại CRYPTO 2014.</p>
+
+<p>Từ lúc Anamorphic Encryption được đưa ra khi tôi hợp tác với Moti Yung và Giuseppe Persiano, luôn luôn có bài phát triển tiếp khái niệm này tại tất cả các flagship conferences của IACR, của nhiều nhóm khắp nơi! Bạn nào quan tâm đọc lại bài viết về Anamorphic Encryption khi nó mới ra đời: <a href="anamorphic2022.html">bài viết gốc 2022</a>.</p>
+
+<div class="art-end">Phan Dương Hiệu · 2025 · <a href="https://www.facebook.com/rongchoi/posts/pfbid03837E48Nf3iqYL6HTX2YqEKEtTKweRQ1PgFRbS9no8Fg8QUSQvqrB1m4d9iQT4n2xl" target="_blank">Facebook</a></div>
+
+<div style="text-align:center;font-size:0.85rem;margin:1.5rem 0 0;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="phongnguyen2018.html" class="art-nav-prev">← Mật mã – Học máy và Lattice Cryptography của Phong Nguyễn tại VIASM</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="huongnghiencuu2024.html" class="art-nav-next">Hướng nghiên cứu cá nhân – Anamorphic Crypto, Voting System, PQC và Privacy trước AI →</a>
+</nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

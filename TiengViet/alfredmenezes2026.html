@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Alfred Menezes tại VIASM – MOV attack và Pairing-based Cryptography">
+<meta property="og:description" content="Alfred Menezes – tác giả Handbook of Applied Cryptography và MOV attack – giảng chuỗi bài về mật mã tại VIASM tháng 3/2026. Từ tấn công MOV đến Pairing-based Cryptography và mật mã hậu lượng tử dựa trên lattice.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/alfredmenezes2026.html">
+<title>Alfred Menezes tại VIASM – MOV attack và Pairing-based Cryptography - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.art-subtitle { text-align: center; font-size: 1rem; color: #777; font-style: italic; margin: 0 0 0.9rem; }
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 0.3rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+p { margin: 0 0 1.2em; }
+a { color: #8f1d2c; }
+a:hover { text-decoration: underline; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #f0dde0;
+}
+blockquote {
+  border-left: 4px solid #c9a0a7;
+  background: #faf7f5;
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+blockquote p { margin: 0; }
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Alfred Menezes tại VIASM – MOV attack và Pairing-based Cryptography</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">03/2026</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://www.facebook.com/rongchoi/posts/10216058234545466" target="_blank">Facebook</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<p>Alfred Menezes là một cao thủ võ lâm mang tính mở đường của ngành Mật mã. Các bạn chắc đều biết cuốn sách <strong>Handbook of Applied Cryptography</strong> ông viết cùng van Oorschot và Vanstone.</p>
+
+<h2 class="sec-title">MOV attack – phá để xây dựng</h2>
+
+<p>Nhưng công trình độc đáo, mang tính mở đường nhất của ông có lẽ là <strong>MOV attack</strong> (lấy theo tên ông, Menezes, cùng Okamoto và Vanstone). Những năm 90, mật mã đường cong elliptic được xem là nền tảng an toàn vì bài toán logarit rời rạc trên nhóm các điểm của đường cong elliptic được coi là khó hơn rất nhiều so với trên nhóm con của trường hữu hạn. MOV attack <strong>nhúng đường cong elliptic vào trường hữu hạn</strong> thông qua ánh xạ song tuyến tính (Weil pairing), và do đó chuyển bài toán logarit rời rạc trên nhóm các điểm của đường cong elliptic sang bài toán logarit rời rạc trong trường hữu hạn khi bậc nhúng (embedding degree) thấp.</p>
+
+<p>Tấn công này không ngờ lại mang tính xây dựng rất lớn, khi sau đó cộng đồng phát hiện ra rằng ánh xạ song tuyến tính của các phép ghép cặp như <strong>Weil pairing</strong> hay <strong>Tate pairing</strong> cho phép "làm phép nhân trên số mũ mà không cần biết trực tiếp các phần tử", tức là có thể tính toán trên dữ liệu đã mã hóa. Từ đó mở đường cho cả một nhánh mật mã dựa trên pairing gọi là <strong>Pairing-based Cryptography</strong> và thực hiện được rất nhiều sơ đồ mật mã mới.</p>
+
+<blockquote><p>Đây cũng là một ví dụ cho thấy trong khoa học (và cuộc sống), phá (phản biện) chính là để xây dựng.</p></blockquote>
+
+<h2 class="sec-title">Chuỗi bài giảng tại VIASM</h2>
+
+<p>Các bạn hãy đăng ký chuỗi bài giảng của ông ở VIASM (trong hoạt động của <a href="https://acr-lab.github.io/" target="_blank">ACR Lab</a>) để hiểu được những điều tinh tế trong sự phát triển của mật mã, và liệu mật mã hậu lượng tử dựa trên lattice có thực sự sẽ đảm bảo mức an toàn cao nhất.</p>
+
+<p>ACR Lab cũng đã có trang web: <a href="https://acr-lab.github.io/" target="_blank">acr-lab.github.io</a></p>
+
+<div class="art-end">Phan Dương Hiệu · 03/2026 · <a href="https://www.facebook.com/rongchoi/posts/10216058234545466" target="_blank">Facebook</a></div>
+
+<div style="text-align:center;font-size:0.85rem;margin:1.5rem 0 0;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="melissarossi2025.html" class="art-nav-prev">← Phỏng vấn Mélissa Rossi – Chiến lược Mật mã Hậu lượng tử của Pháp và Châu Âu</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="phongnguyen2018.html" class="art-nav-next">Mật mã – Học máy và Lattice Cryptography của Phong Nguyễn tại VIASM →</a>
+</nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

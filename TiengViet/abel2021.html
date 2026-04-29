@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Giải Abel 2021 liên quan đến bảo vệ Privacy">
+<meta property="og:description" content="Giải Abel 2021 trao cho László Lovász và Avi Wigderson. Bài viết điểm qua đóng góp liên quan mật mã: Zero-Knowledge Proof, Probabilistically Checkable Proof và thuật toán LLL.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/abel2021.html">
+<meta property="og:image" content="https://www.di.ens.fr/users/phan/webpictures/Abel2021.jpg">
+<title>Giải Abel 2021 liên quan đến bảo vệ Privacy - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.art-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #777;
+  font-style: italic;
+  margin: 0 0 0.9rem;
+}
+
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 0.3rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+
+.art-cover { text-align: center; margin: 1.2rem 0 2rem; }
+.art-cover img { width: 60%; border-radius: 8px; border: 1px solid #ece5e0; display: inline-block; }
+@media (max-width: 600px) { .art-cover img { width: 90%; } }
+
+.art-figure { text-align: center; margin: 2rem 0 1.5rem; }
+.art-figure img { width: 70%; border-radius: 6px; border: 1px solid #ece5e0; display: inline-block; }
+.art-figure figcaption { font-size: 0.85rem; color: #999; margin-top: 0.5rem; font-style: italic; }
+@media (max-width: 600px) { .art-figure img { width: 95%; } }
+
+p { margin: 0 0 1.2em; }
+
+a { color: #8f1d2c; }
+a:hover { text-decoration: underline; }
+
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Tablet */
+@media (max-width: 860px) {
+  .page-content { padding: 3rem 2rem; }
+}
+/* Mobile */
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Giải Abel 2021 liên quan đến bảo vệ Privacy</h1>
+<p class="art-subtitle">(Ghi chép nhanh về giải Abel vừa mới được công bố)</p>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">3/2021</span>
+</div>
+<div class="art-source">Đăng trên Blog Khoa Học Máy Tính</div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="art-cover"><img src="../webpictures/Abel2021.jpg" alt="Giải Abel 2021 - Avi Wigderson và László Lovász" loading="lazy"></div>
+
+<p>Toán học và Tin học ngày càng gần gũi. Bác Avi Wigderson đang được đánh giá sẽ có thể giành giải Turing cho Tin học thì năm nay được giải Abel, cùng bác László Lovász.</p>
+
+<p>Bác Avi Wigderson được ghi nhận về những đóng góp cho lĩnh vực Tin học lý thuyết, tác động đặc biệt đến mật mã nên mình sẽ nói đôi chút về hai (trong số nhiều) lĩnh vực của bác mà mình rất mê là Zero-Knowledge Proof (ZKP) và Probabilistically Checkable Proof (PCP). Cả hai loại chứng minh này đều rất kỳ lạ. ZKP là chứng minh thông qua tương tác mà không để lộ tri thức nào: anh bị thuyết phục là tôi có chứng minh cho một mệnh đề mà sau khi bị thuyết phục thì anh không biết gì về chứng minh nữa, không tự chứng minh hay thuyết phục được ai khác. Còn PCP thì cũng rất lạ, tôi có một chứng minh rất dài nhưng anh kiểm tra tính đúng sai thì chỉ cần nhìn vào một số nhỏ các vị trí ngẫu nhiên trong cái chứng minh đó là đủ đánh giá chứng minh đó đúng hay sai.</p>
+
+<p>Tưởng chừng ZKP và PCP chỉ mang tính lý thuyết đẹp, ấy thế mà nó đang được ứng dụng rộng khắp. ZKP đã được ứng dụng rất nhiều như xây dựng chữ ký số, xây dựng các sơ đồ bầu cử, hay gần đây đã ứng dụng vào blockchain để bảo vệ Privacy cho người dùng. Chẳng hạn bình thường một giao dịch bitcoin sẽ có số bitcoin được giao dịch, như vậy lộ mất quá nhiều thông tin về số lượng bitcoin gắn với 1 địa chỉ tài khoản. Thế nhưng nếu dùng ZKP có thể che số lượng giao dịch (có thể che cả địa chỉ), và gắn với nó một chứng minh là số lượng giao dịch của tôi nằm trong phạm vi số tiền tôi có, mà không lộ bất kể thông tin gì khác. Còn PCP tưởng càng lý thuyết hơn mà nay lại cũng ứng dụng rất lớn vào blockchain khi việc yêu cầu kiểm thử cần rất nhanh. Trở ngại là PCP thường có độ dài proof lớn nên người chứng minh có thể phải thao tác (commit - cam kết để không thể thay đổi) cả cái chứng minh dài thì cũng gay go, may quá nếu PCP có cấu trúc thì tiện cho Prover sẽ phải thao tác ít thôi, Linear PCP được đưa ra trong ngữ cảnh đó và được sử dụng rất hiệu quả cho cả Prover và Verifier, và do vậy chạy khá ngon trong thực tế. PCP cũng còn ứng dụng trong việc ủy quyền tính toán trên Cloud: chẳng hạn ta có 1 bài toán rất phức tạp nên phải nhờ Cloud tính hộ, Cloud tính xong rồi trả cho ta kết quả, làm sao để biết là Cloud tính đúng mà không bịa kết quả, muốn vậy Cloud phải có cách chứng minh hiệu quả để ta có thể kiểm tra tính đúng đắn cực nhanh, ấy là lúc PCP lại được sử dụng rất phù hợp.</p>
+
+<p>Những nghiên cứu về các loại chứng minh mới này thực sự là miền giao thoa thú vị giữa Toán và Tin học, vừa có vẻ đẹp lý thuyết rất độc đáo, lại vừa có những ứng dụng thực tế đang được phát triển rất mạnh mẽ hiện nay. Có bác này viết về những vấn đề trên khá dễ đọc và cập nhật, bạn nào thích tìm hiểu có thể đọc: <a href="http://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf" target="_blank">ProofsArgsAndZK.pdf</a></p>
+
+<figure class="art-figure">
+  <img src="../webpictures/ZKP_NP.jpg" alt="Bài báo của Wigderson, Goldreich và Micali về ZKP cho mọi bài toán NP" loading="lazy">
+  <figcaption>Bài báo của Wigderson cùng Goldreich và Micali: mọi bài toán nếu kiểm thử được đúng sai trong thời gian đa thức đều có thể kiểm thử qua ZKP. Bác đồng tác giả Micali đã đạt giải Turing và hiện nay đang chủ trò làm đồng Algorand.</figcaption>
+</figure>
+
+<p>Bác László Lovász cũng rất nổi tiếng trong mật mã với thuật toán LLL cho ta cách tìm một hệ véc tơ cơ sở tương đối trực chuẩn và tương đối ngắn của một lattice. Việc tấn công nhiều hệ mã có thể được quy dẫn về bài toán này và do vậy có thể dùng thuật toán LLL để tấn công. Các bạn có thể đọc bài của bác Joux và bác Stern nếu muốn tìm hiểu kỹ hơn: <a href="https://www-almasty.lip6.fr/~joux/pages/papers/ToolBox.pdf" target="_blank">ToolBox.pdf</a></p>
+
+<p>Điều thú vị là hiện tại để chống lại các tấn công trên máy lượng tử thì các hệ mã dựa trên độ khó của các bài toán trên lattice lại là những hệ mã tốt nhất. Bạn nào muốn tìm hiểu hướng này có thể đọc <a href="https://eprint.iacr.org/2015/939.pdf" target="_blank">eprint.iacr.org/2015/939.pdf</a></p>
+
+<p>Mình không biết nhiều về các công trình khác của bác Lovász nên không dám nói hơn. Hình dưới đây là hình mình chụp khi dự hội nghị kỷ niệm 25 năm thuật toán LLL, lúc bác Lovász công bố bức thư thú vị gửi bác Lenstra, khởi nguồn cho việc hoàn thiện thuật toán sau này mang tên LLL.</p>
+
+<figure class="art-figure">
+  <img src="../webpictures/LLL_1981.jpg" alt="Hội nghị kỷ niệm 25 năm thuật toán LLL - Lovász công bố bức thư gửi Lenstra" loading="lazy">
+  <figcaption>Hội nghị kỷ niệm 25 năm thuật toán LLL: bác Lovász công bố bức thư thú vị gửi bác Lenstra, khởi nguồn cho việc hoàn thiện thuật toán LLL.</figcaption>
+</figure>
+
+<div class="art-end">Phan Dương Hiệu · 3/2021 · Blog Khoa Học Máy Tính</div>
+
+<div style="text-align:center;font-size:0.85rem;margin:1.5rem 0 0;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="luongtu2024.html" class="art-nav-prev">← Lượng tử - Mật mã lượng tử: một chủ đề thú vị trong năm 2025</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="anamorphic2022.html" class="art-nav-next">Anamorphic Encryption – Mật mã trao đổi thông tin dưới chế độ độc tài →</a>
+</nav>
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

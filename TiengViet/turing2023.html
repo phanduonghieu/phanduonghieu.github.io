@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Giải Turing 2023 - hành trình ngẫu nhiên">
+<meta property="og:description" content="Giải Turing 2023 trao cho Avi Wigderson cho những đóng góp về vai trò của ngẫu nhiên trong khoa học máy tính - từ thuật toán ngẫu nhiên đến mật mã và lý thuyết tính toán.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/turing2023.html">
+<title>Giải Turing 2023 - hành trình ngẫu nhiên - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 2.5rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; }
+p { margin: 0 0 1.2em; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+blockquote {
+  border-left: 4px solid #c9a0a7;
+  background: #faf7f5;
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+blockquote p { margin: 0; }
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+.back-to-index { text-align: center; margin-top: 2rem; font-size: 0.9rem; }
+.back-to-index a { color: #8f1d2c; text-decoration: none; }
+.back-to-index a:hover { text-decoration: underline; }
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.4rem; }
+  h2.sec-title { font-size: 1.05rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Giải Turing 2023 - hành trình ngẫu nhiên</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">04/2024</span>
+</div>
+<div class="art-source">
+  <a href="https://www.facebook.com/rongchoi/posts/pfbid0222Ls3GqTQUifDXpxtvzSsd5nPqARBZnqbvhH6Qtxmpj6X9FUnNctrSfo89bRofh1l" target="_blank">Bài gốc trên Facebook</a>
+</div>
+<div class="back-to-index" style="margin: 0.2rem 0 0.8rem;"><a href="../Matma.html">← Về trang Mật Mã</a></div>
+
+<p>Hành trình của bác Avi Wigderson thật là romantic: ba năm trước mình viết bác Avi Wigderson đang được đánh giá sẽ có thể giành giải Turing (Nobel của Tin học) thì <a href="https://www.facebook.com/rongchoi/posts/pfbid0KSx3kLxBGuem3Du5GYq4iEn1Sc95RbX14RPTvJAoQULPxYPV5713Gpsz9gwRTUYJl" target="_blank">đạt giải Abel của Toán học</a>, cùng bác László Lovász.</p>
+
+<p>Đến năm nay thì bác Avi Wigderson được <a href="https://awards.acm.org/about/2023-turing" target="_blank">giải Turing</a> bởi đã giúp chúng ta hiểu được vai trò của ngẫu nhiên trong tính toán (randomness in computation).</p>
+
+<p>Những đóng góp của bác đã được nói rõ trong trang của ACM và mình cũng đã nói nhiều 3 năm trước, nên chỉ chia sẻ đôi suy nghĩ được lựa chọn ngẫu nhiên trong những điều thú vị.</p>
+
+<h2 class="sec-title">Vai trò của ngẫu nhiên trong tính toán</h2>
+
+<p>Mình luôn cảm thấy sự ngẫu nhiên là một điều vô cùng đặc biệt, nó giúp giải các bài toán với tốc độ cực nhanh, tốc độ có thể tăng lên hàm mũ (exponential speed-up), đưa những cái tưởng như không thể thực hiện trong thế giới đơn định về có thể thực hiện rất nhanh trong thực tế.</p>
+
+<p>Ấy đó là thời kỳ rực rỡ những năm 80s, còn sau này thì randomness lại đóng thêm một vai trò cực kỳ bất ngờ và quan trọng: xây dựng, đặc biệt là xây dựng các sơ đồ mật mã. Chúng ta có thể hình dung một cách trực quan thế này: tấn công là đoán định, đoán xem nội dung nào tương ứng với một bản mã. À, thế thì càng tất định thì càng dễ đoán, muốn khó đoán thì càng phải tăng tính ngẫu nhiên.</p>
+
+<p>Và công trình năm 1984 của Goldwasser–Micali đã đưa ra điều kiện cần cho mật mã: muốn an toàn cần phải ngẫu nhiên, không có ngẫu nhiên thì không an toàn. Goldwasser–Micali cũng đoạt giải Turing năm 2012 và trong lời giới thiệu có đoạn:</p>
+
+<blockquote>
+<p>"Goldwasser and Micali produced one of the most influential papers in computer science, 'Probabilistic Encryption.'"</p>
+</blockquote>
+
+<p>Từ sau bài báo này, các cách xây dựng các sơ đồ mật mã khoá công khai đảm bảo chuẩn an toàn đều phải là mật mã xác suất. Về giải Turing 2012 mình đã viết tại <a href="https://www.dropbox.com/s/uvqgpcmnuivdipk/KHMT_Gi%E1%BA%A3i%20th%C6%B0%E1%BB%9Fng%20Turing%202012.pdf?e=1&dl=0" target="_blank">đây</a>.</p>
+
+<h2 class="sec-title">Nhật ký bố mình và những kết nối</h2>
+
+<p>Một cách "ngẫu nhiên", đọc lại nhật ký của bố mình, hoá ra ngay từ năm 1981 ông đã thấy vai trò của ngẫu nhiên trong xây dựng và đã trình bày tại đại học Berkeley về "Ô tô mát xác suất" trước những cây cổ thụ Harrison, Paz, Blum. Trong đó Blum là người tiên phong trong xây dựng các hàm giả ngẫu nhiên, người sau này được giải Turing năm 1995 và là thầy của cả Goldwasser và Micali, và nhiều siêu sao khác (như Adleman - giải Turing, Sipser, Rudich, Vazirani, Naor…).</p>
+
+<p>Mình có đề cập đến Goldwasser và Blum tại <a href="https://www.facebook.com/rongchoi/posts/pfbid0gR7YfFgRbdZUASWGuz3DX8MpLu5Hnv5CzrLdddTJ18jrsxUy1HDMnXtj1JrWLtXCl" target="_blank">đây</a>, nhân dịp năm ngoái mình cùng Goldwasser được mời là hai plenary speakers về crypto trong hội nghị an toàn thông tin tại Pháp.</p>
+
+<p>Mình cũng có viết về nhật ký của bố mình ở <a href="https://www.facebook.com/rongchoi/posts/pfbid0hPnxuCkMaqkfLfJtDKMS8wgHKRrck5t8aPh8soc7kqtSzXtt3yvpbKx2cjLNfJycl" target="_blank">đây</a>.</p>
+
+<h2 class="sec-title">Wigderson và ROMANTIC</h2>
+
+<p>Bác Avi Wigderson là một nghệ nhân đưa randomness vào xây dựng crypto, đặc biệt dùng nó để chứng minh mọi bài toán trong NP đều có chứng minh zero-knowledge, tạo mối quan hệ giữa tính ngẫu nhiên và tính khó giải "Hardness vs. Randomness", cách mạng hoá khái niệm tính toán v.v. Những đóng góp của bác các bạn có thể đọc trên <a href="https://awards.acm.org/about/2023-turing" target="_blank">trang ACM</a>.</p>
+
+<p>Cuối cùng, Romantic? Đó ngẫu nhiên cũng là project mình tham gia 12 năm trước, cũng là nhằm nghiên cứu tính ngẫu nhiên trong mật mã (<strong>ROMANTIC</strong> = Randomness in Mathematical Cryptography). Sau đó mình tham gia ALAMBIC và cuối cùng mới đây là sáng tạo ra Anamorphic, toàn là sử dụng randomness cho các việc có ích :)</p>
+
+<div class="art-end">04/2024 - <a href="https://www.facebook.com/rongchoi/posts/pfbid0222Ls3GqTQUifDXpxtvzSsd5nPqARBZnqbvhH6Qtxmpj6X9FUnNctrSfo89bRofh1l" target="_blank">Facebook</a></div>
+<div class="back-to-index"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">← Về trang chủ</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="phantich-thuaso.html" class="art-nav-prev">← Phân tích ra thừa số trong trường hữu hạn</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="luongtu2024.html" class="art-nav-next">Lượng tử - Mật mã lượng tử: một chủ đề thú vị trong năm 2025 →</a>
+</nav>
+
+</div>
+</div>
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

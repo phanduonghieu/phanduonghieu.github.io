@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Phỏng vấn Mélissa Rossi – Chiến lược Mật mã Hậu lượng tử của Pháp và Châu Âu">
+<meta property="og:description" content="Phỏng vấn Mélissa Rossi – cựu thành viên ANSSI – về chiến lược mật mã hậu lượng tử của Pháp và Châu Âu, sự khác biệt với Mỹ, và nguyên tắc lai ghép (hybridation) trong bảo mật.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/melissarossi2025.html">
+<title>Phỏng vấn Mélissa Rossi – Chiến lược Mật mã Hậu lượng tử của Pháp và Châu Âu - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.art-subtitle { text-align: center; font-size: 1rem; color: #777; font-style: italic; margin: 0 0 0.9rem; }
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 0.3rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; }
+p { margin: 0 0 1.2em; }
+a { color: #8f1d2c; }
+a:hover { text-decoration: underline; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #f0dde0;
+}
+blockquote {
+  border-left: 4px solid #c9a0a7;
+  background: #faf7f5;
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+blockquote p { margin: 0; }
+.video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin: 1.5rem 0 2rem;
+  border-radius: 8px;
+  background: #000;
+}
+.video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+.qa-block { margin: 1.8rem 0; }
+.qa-q { margin: 0 0 0.4em; }
+.qa-q strong { color: #8f1d2c; }
+.qa-a { margin: 0 0 0.4em; }
+.qa-a strong { color: #444; }
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Phỏng vấn Mélissa Rossi – Chiến lược Mật mã Hậu lượng tử của Pháp và Châu Âu</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">09/2025</span>
+</div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/2bpO6sVkwMA?si=rxxVLuBoy9B1oQFC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<p>Cách đây ít lâu tôi có dịp phỏng vấn Mélissa Rossi, người khi đó vừa rời ANSSI được 1 tuần – cơ quan định hình chính sách bảo mật của Pháp và phê chuẩn các giải pháp, một dạng như Ban Cơ Yếu nhưng rất rộng và mạnh – để phát triển nghiên cứu riêng ở CryptoExpert. Trong 5 năm ở ANSSI, Mélissa Rossi đóng vai trò lớn trong nghiên cứu mật mã hậu lượng tử và thường đóng vai trò như phát ngôn viên của ANSSI trong việc trình bày chính sách hậu lượng tử của Pháp và châu Âu. Do vậy cô là người đủ tư cách để nói về chính sách mật mã hậu lượng tử của Pháp và Châu Âu.</p>
+
+<h2 class="sec-title">Sự khác biệt giữa Châu Âu và Mỹ</h2>
+
+<p>Chính sách của châu Âu và Mỹ có khác biệt về mật mã hậu lượng tử. Mỹ chuyển dịch sang mật mã hậu lượng tử, các sơ đồ cổ điển sẽ biến mất không được sử dụng trong tầm 10 năm nữa. Châu Âu mà đại diện là Pháp khuyến cáo sử dụng phương án <strong>Hybridation "lai ghép"</strong> – đồng thời giữa một sơ đồ cổ điển và một sơ đồ hậu lượng tử của NIST.</p>
+
+<p>Lý do là các sơ đồ cổ điển tuy không an toàn trước máy tính lượng tử nhưng đã được nghiên cứu rất sâu sắc nhiều chục năm nên độ an toàn trước máy tính thông thường là không thể bàn cãi. Trong khi chưa thấy mặt mũi cụ thể (scalable) của máy lượng tử thì không có lý do gì bỏ đi các sơ đồ này. Ngược lại, các sơ đồ hậu lượng tử được lựa chọn bởi NIST chưa được nghiên cứu đủ lâu, đủ sâu để đủ độ tin tưởng – nó có thể khó bị phá hơn trên những máy lượng tử (chưa có) nhưng cũng rất có thể dễ bị phá hơn trên máy tính thông thường hiện tại.</p>
+
+<p>Một câu hỏi mà tôi và cộng đồng thắc mắc là khi hai chính sách khác nhau thì kết nối truyền thông giữa hai bên là thế nào. Câu trả lời của Mélissa Rossi, người trực tiếp đàm phán giữa Châu Âu và Mỹ, đã làm rõ điều đó:</p>
+
+<blockquote>
+<p>"Điều thú vị là trong mật mã, còn có một khía cạnh đàm phán quốc tế, đặc biệt nếu làm việc trong các cơ quan nhà nước. Vì vậy, chúng tôi phải đối mặt với những bất đồng quan điểm với các quốc gia khác, điều này vừa rất thú vị, rất kích thích, nhưng cũng có chút bực bội, vì ai cũng thường tin rằng quan điểm của mình đúng. […] Các công ty, nếu muốn bán sản phẩm ở cả châu Âu và Mỹ, nếu không muốn tự đóng cửa một thị trường, thì bắt buộc phải triển khai giải pháp lai ghép. Điều này không hề mâu thuẫn, và chúng tôi đã có giải pháp này."</p>
+</blockquote>
+
+<h2 class="sec-title">Cuộc phỏng vấn đầy đủ</h2>
+
+<p><em>Phỏng vấn giữa Phan Dương Hiệu (Télécom Paris, IPP) và Mélissa Rossi (cựu thành viên ANSSI).</em></p>
+
+<div class="qa-block">
+<p class="qa-q"><strong>Phan Dương Hiệu:</strong> Xin chào Mélissa, thật sự rất vui khi được đón tiếp bạn hôm nay, nhất là bạn từng là sinh viên của Télécom. Vậy làm thế nào để giải thích việc các doanh nghiệp như Thales hoặc các cơ quan nhà nước như ANSSI lại quan tâm nhiều đến mật mã hậu lượng tử, trong khi máy tính lượng tử, chúng ta vẫn chưa thấy?</p>
+<p class="qa-a"><strong>Mélissa Rossi:</strong> Máy tính lượng tử chưa tồn tại – nhưng chúng có thể đe dọa các hệ thống ngay từ bây giờ do các cuộc tấn công hồi tố. Bởi vì nếu dữ liệu của chúng ta được lưu trữ lại hoặc có thể truy cập được vì một lý do nào đó, nếu vài năm nữa – không biết, 10, 20, 30 năm sau – mà có một máy tính lượng tử xuất hiện, thì người ta có thể tìm ra ngược lại những gì đã được nói hôm nay. Có những trường hợp rất quan trọng, ví dụ với các cơ quan nhà nước, nơi muốn dữ liệu vẫn phải giữ bí mật hơn 30 năm, và trong trường hợp đó, vì không có gì đảm bảo rằng một chiếc máy tính lượng tử sẽ không bao giờ xuất hiện, nên bắt buộc chúng ta phải tự bảo vệ từ trước.</p>
+</div>
+
+<div class="qa-block">
+<p class="qa-q"><strong>Phan Dương Hiệu:</strong> Đó là nhiệm vụ của bạn ở ANSSI, bạn có thể nói với chúng tôi xem nó đã mang lại điều gì cho bạn không?</p>
+<p class="qa-a"><strong>Mélissa Rossi:</strong> Vâng, nhiệm vụ ở ANSSI là một trải nghiệm rất tuyệt vời, bởi vì đây là một môi trường hơi đặc biệt, với những nhà nghiên cứu rất xuất sắc trong lĩnh vực của họ, và tất cả gắn với các ứng dụng thú vị như bảo mật hệ thống của Nhà nước, và thực hiện phân tích an ninh trên những thứ mà bình thường không có nhiều cơ hội được thấy. Và sau đó, tôi cũng có những nhiệm vụ song song, đó là hoặc hỗ trợ bảo mật các hệ thống có mức độ an ninh rất cao từ trước, bằng cách xem xét trên giấy các thuật toán được dự định triển khai; hoặc đánh giá các sản phẩm đã tồn tại, và cố gắng xem liệu có thể xác nhận rằng chúng đạt tiêu chuẩn tiên tiến hay không. Vì vậy, tôi đã có rất nhiều nhiệm vụ khác nhau. Và ngoài ra còn có một nhiệm vụ về đào tạo và giảng dạy, điều đó thực sự khiến tôi rất thích.</p>
+</div>
+
+<div class="qa-block">
+<p class="qa-q"><strong>Phan Dương Hiệu:</strong> Về mật mã hậu lượng tử, bạn có thể chia sẻ một chút về quan điểm của ANSSI không?</p>
+<p class="qa-a"><strong>Mélissa Rossi:</strong> Khi tôi đến ANSSI, lĩnh vực này vẫn chưa thực sự phát triển nhiều, vì vậy đó là nhiệm vụ của tôi. Tôi đã làm rất nhiều buổi thuyết trình nội bộ và bên ngoài, để xuất bản các báo cáo khoa học về những vấn đề như máy tính lượng tử là gì, mối đe dọa ra sao và chúng tôi khuyến nghị gì. Đặc biệt là nguyên tắc "lai ghép", tức là kết hợp mật mã hiện nay – loại mật mã an toàn trước máy tính cổ điển nhưng không an toàn trước máy tính lượng tử – với mật mã hậu lượng tử. Đây là một dạng mật mã mới, nhưng nó có thể có những lỗ hổng, vì nó mới và trong mật mã, chúng tôi không thích các thuật toán quá mới, vì điều đó có nghĩa là chưa nhiều người nghiên cứu chúng. Vì vậy, ý tưởng là kết hợp cả hai. Đó là điều mà tôi đã cố gắng quảng bá, và cũng là lập trường của ANSSI: khuyến khích hướng đi "lai ghép".</p>
+</div>
+
+<div class="qa-block">
+<p class="qa-q"><strong>Phan Dương Hiệu:</strong> Pháp và Châu Âu khuyến khích "lai ghép", trong khi đó, các quốc gia khác như Mỹ hay Úc lại khuyến nghị giải pháp hoàn toàn hậu lượng tử. Làm sao bạn có thể giải thích sự khác biệt này? Và liệu nó có gây ra vấn đề cho truyền thông trong tương lai không, nếu mỗi quốc gia dùng một loại giao thức mật mã khác nhau?</p>
+<p class="qa-a"><strong>Mélissa Rossi:</strong> Điều thú vị là trong mật mã, còn có một khía cạnh đàm phán quốc tế, đặc biệt nếu làm việc trong các cơ quan nhà nước. Vì vậy, chúng tôi phải đối mặt với những bất đồng quan điểm với các quốc gia khác, điều này vừa rất thú vị, rất kích thích, nhưng cũng có chút bực bội, vì ai cũng thường tin rằng quan điểm của mình đúng. Do đó, chúng tôi đã làm việc với các đồng nghiệp – những nhà mật mã giữ vị trí giống tôi – ở các nước châu Âu, như Đức, Thụy Điển, Tây Ban Nha, v.v. Chúng tôi đã tập hợp lại với nhau, cố gắng thống nhất giữa chúng tôi trước. Khi đã đồng ý với nhau, chúng tôi cố gắng tạo ảnh hưởng và thương lượng với phía Mỹ. Quan điểm của Mỹ không phải là không tương thích. Dù ý tưởng của Mỹ là tin tưởng vào mật mã hậu lượng tử, mà không thêm lớp bảo mật bổ sung, nhưng cuối cùng, chúng tôi đã phần nào thương lượng thành công, vì họ đã nói rằng họ không ngại việc chúng tôi áp dụng bảo mật lai ghép, và họ cũng không thấy phiền khi mua các sản phẩm có tính năng đó. Vì vậy, các công ty, nếu muốn bán sản phẩm ở cả châu Âu và Mỹ, nếu không muốn tự đóng cửa một thị trường, thì bắt buộc phải triển khai giải pháp lai ghép. Điều này không hề mâu thuẫn, và chúng tôi đã có giải pháp này. Tôi không mất hy vọng rằng quan điểm của Mỹ sẽ trở nên thận trọng hơn về bảo mật.</p>
+</div>
+
+<div class="qa-block">
+<p class="qa-q"><strong>Phan Dương Hiệu:</strong> Có rủi ro rằng chúng ta sẽ phải theo các tiêu chuẩn được NIST – tổ chức Mỹ – chọn ra. Theo bạn, châu Âu và Pháp có nên xem xét xây dựng các tiêu chuẩn riêng không?</p>
+<p class="qa-a"><strong>Mélissa Rossi:</strong> Đó là một câu hỏi hay, và là một vấn đề khó: làm thế nào để xác định vị trí của chúng ta trên trường quốc tế trong việc tiêu chuẩn hóa mật mã? Cho đến nay, vẫn luôn là NIST – một cơ quan tiêu chuẩn hóa của Mỹ – khởi xướng các chiến dịch chọn thuật toán mật mã. Ở Pháp có một vài sáng kiến, nhưng chưa có một lựa chọn thay thế thực sự. Liệu đó có phải điều tệ không? Tôi không chắc. Ta cũng có thể hưởng lợi từ tầm ảnh hưởng quốc tế này. Hơn nữa, chiến dịch tiêu chuẩn hóa nhìn chung lành mạnh, bởi vì đây là các nhà mật mã từ khắp nơi trên thế giới nộp thuật toán dự thi. Các đội chiến thắng trong các chiến dịch trước – như AES và SHA-3 – là đội từ Bỉ. Việc mở rộng ra toàn cầu thúc đẩy cộng đồng quốc tế, và các chiến dịch phân tích mật mã trở nên rất thú vị. Có rất nhiều điều diễn ra, đây là một thế giới đang sôi động.
+<br><br>
+Tôi chỉ có thể khuyến khích sinh viên đến với lĩnh vực này, vì đúng là nó rất kỹ thuật, nhưng khi đã tham gia, nó cực kỳ kích thích, bởi luôn có nhiều kiểu tấn công mới và các biện pháp đối phó. Chúng tôi còn có những thử thách, các cuộc thi tấn công và phòng thủ, và điều đó rất thú vị.</p>
+</div>
+
+<div class="qa-block">
+<p class="qa-q"><strong>Phan Dương Hiệu:</strong> Cảm ơn Mélissa rất nhiều! Bạn luôn được chào đón tại Télécom để chia sẻ với sinh viên, và hy vọng sẽ sớm gặp lại bạn.</p>
+</div>
+
+<div class="art-end">Phan Dương Hiệu · 09/2025</div>
+
+<div style="text-align:center;font-size:0.85rem;margin:1.5rem 0 0;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="nealkoblitz2015.html" class="art-nav-prev">← Neal Koblitz tại Viện Toán học – Bất cập trong mật mã và câu chuyện mật mã Việt Minh</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="alfredmenezes2026.html" class="art-nav-next">Alfred Menezes tại VIASM – MOV attack và Pairing-based Cryptography →</a>
+</nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

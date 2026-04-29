@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Anamorphic Encryption – Mật mã cho phép trao đổi thông tin dưới chế độ độc tài">
+<meta property="og:description" content="Mô hình mật mã mới do Phan Dương Hiệu, Moti Yung và Giuseppe Persiano đưa ra: Anamorphic Encryption cho phép gửi thông điệp ngầm ngay cả khi bị nhà độc tài ép buộc sử dụng hệ mã tiêu chuẩn.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/anamorphic2022.html">
+<meta property="og:image" content="https://www.di.ens.fr/users/phan/webpictures/AnamorphicInventors.jpeg">
+<title>Anamorphic Encryption – Mật mã trao đổi thông tin dưới chế độ độc tài - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 0.5rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; }
+.art-links { text-align: center; font-size: 0.88rem; margin-bottom: 2rem; }
+.art-links a { color: #8f1d2c; text-decoration: none; border-bottom: 1px solid #f0dde0; margin: 0 0.5rem; }
+.art-links a:hover { border-color: #8f1d2c; }
+p { margin: 0 0 1.2em; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+blockquote {
+  border-left: 4px solid #c9a0a7;
+  background: #faf7f5;
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+blockquote p { margin: 0 0 0.6em; }
+blockquote p:last-child { margin: 0; }
+.art-photo {
+  text-align: center;
+  margin: 2rem 0 1.5rem;
+}
+.art-photo img {
+  max-width: 85%;
+  border-radius: 10px;
+  border: 1px solid #ece5e0;
+  display: inline-block;
+}
+.art-photo figcaption {
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 0.6rem;
+  font-style: italic;
+}
+.highlight-box {
+  background: #fdf5f6;
+  border: 1px solid #ebd5d8;
+  border-radius: 8px;
+  padding: 1.1rem 1.5rem;
+  margin: 1.8rem 0;
+}
+.highlight-box p { margin: 0; }
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+.back-to-index { text-align: center; margin-top: 2rem; font-size: 0.9rem; }
+.back-to-index a { color: #8f1d2c; text-decoration: none; }
+.back-to-index a:hover { text-decoration: underline; }
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.4rem; }
+  h2.sec-title { font-size: 1.05rem; }
+  .art-photo img { max-width: 100%; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Anamorphic Encryption<br><span style="font-size:0.68em;font-weight:500;color:#b84454;letter-spacing:0;">Mật mã cho phép trao đổi thông tin dưới chế độ độc tài</span></h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">05/2022</span>
+</div>
+<div class="art-source">
+  <a href="https://www.facebook.com/rongchoi/posts/pfbid02eiMRaXBmkguqhDW7FYNKqKYpE7DfV7TzB8dB3UBoCTN3fX5qYjrKXMPnFjrfH1xl" target="_blank">Bài gốc trên Facebook</a>
+</div>
+<div class="art-links">
+  <a href="https://eprint.iacr.org/2022/639.pdf" target="_blank">Bài báo đầy đủ (eprint) →</a>
+  <a href="../Matma.html">← Về trang Mật Mã</a>
+</div>
+
+<figure class="art-photo">
+  <img src="../webpictures/AnamorphicInventors.jpeg" alt="Phan Dương Hiệu, Moti Yung và Giuseppe Persiano – tác giả Anamorphic Encryption">
+  <figcaption>Ba tác giả của Anamorphic Encryption (trái sang phải): Giuseppe Persiano, Phan Dương Hiệu và Moti Yung.</figcaption>
+</figure>
+
+<p>Mô hình mật mã mới mình cùng <strong>Moti Yung</strong> (Google) và <strong>Giuseppe Persiano</strong> (Università di Salerno, Italia) đưa ra, vừa được accepted cho <strong>Eurocrypt 2022</strong> và sẽ được ra mắt, trình bày trong 3 tháng nữa.</p>
+
+<h2 class="sec-title">Khi nhà độc tài ép buộc</h2>
+
+<p>Mục tiêu cơ bản của Mã hoá là bảo mật thông tin của một message (thông điệp) đ�� chỉ duy nhất người gửi và người nhận đọc được. Nguyên tắc Kerckhoffs yêu cầu công khai tất cả, trừ việc giữ bí mật khoá giải mã và thông điệp cần mã. Điều này có vẻ hiển nhiên là mục tiêu tối đa có thể nhắm đến, không thể hơn được — vì nếu thông điệp đã không bí mật thì mã hoá làm gì, và nếu khoá giải mã bị lộ thì ai cũng giải được.</p>
+
+<p>Tuy nhiên, dưới một <strong>chế độ độc tài</strong>, những nguyên tắc tưởng như hiển nhiên đó có thể bị phá vỡ, và chúng tôi xem xét các tình huống đó. Rất có thể bạn bị ép gửi đi một message. Chẳng hạn, bạn bị nhà độc tài yêu cầu gửi cho hãng thông tấn quốc tế AP rằng bạn đúng là đã chống lại chế độ. Bạn buộc phải sử dụng, theo yêu cầu của nhà độc tài, một hệ mã tiêu chuẩn, phải trình bày rằng mình đã sử dụng khoá công khai của AP để mã hoá, phải trình bày cả các tham số như randomness đã sử dụng để mã hoá. Vậy bạn còn có thể làm gì trong trường hợp này?</p>
+
+<h2 class="sec-title">Giải pháp: thông điệp ngầm trong bản mã</h2>
+
+<p>Chúng tôi đề xuất một cách trao đổi thông tin dù bị độc tài ép buộc làm như vậy. Chúng ta hoàn toàn có thể tuân theo yêu cầu của nhà độc tài, tuy nhiên chúng ta vẫn có thể đồng thời <em>ẩn vào đó một thông điệp được mã hoá</em> cho chẳng hạn Tổ chức nhân quyền thế giới, và chỉ bằng sử dụng khoá công khai của họ, để nói rằng "những gì tôi đang nói không phải là sự thực, mà là bị ép buộc".</p>
+
+<p>Điều đó có nghĩa là trên một bản mã gửi đi cho AP theo yêu cầu của nhà độc tài chứa đồng thời một nội dung ngầm được gửi đến cho Tổ chức nhân quyền. Khi AP đăng tải thông điệp thì đồng thời Tổ chức nhân quyền cũng có thể chứng minh đó là thông tin bị ép buộc gửi đi.</p>
+
+<div class="highlight-box">
+<p>Chúng tôi lấy tên hệ mã như vậy là <strong>Anamorphic Encryption</strong>. Ví dụ trên kia chỉ là 1 trong nhiều ứng dụng. Quan trọng hơn, hệ mã dạng này đặt lại vấn đề về việc các nhà độc tài muốn can thiệp sâu vào việc có thể giải mã bằng cách ép buộc sử dụng các hệ mã yếu hoặc ép mọi người phải nộp khoá giải mã cho họ. Chúng tôi đặt cơ sở để hướng tới việc chứng tỏ rằng việc cố gắng ép buộc như vậy là vô ích.</p>
+</div>
+
+<blockquote>
+<p><em>"Our result in a nutshell: What is the point of being a dictator if you cannot dictate?"</em></p>
+</blockquote>
+
+<p>Các bạn muốn hiểu kỹ hơn có thể đọc bài báo, <a href="https://eprint.iacr.org/2022/639.pdf" target="_blank">9 trang đầu ai đọc cũng có thể hiểu</a> và có thể nắm được ý tưởng chính mà không cần phải làm trong ngành Crypto.</p>
+
+<h2 class="sec-title">Câu chuyện về công trình</h2>
+
+<p>Đây có lẽ là công trình tôi đặt nhiều suy nghĩ và cảm thấy thú vị nhất. Nó khởi đầu từ cách đây hơn 10 năm. Cách đây vài năm, trong một chuyến đi Mỹ, tôi trao đổi ý tưởng với <strong>Moti Yung</strong> — người đứng đầu Crypto của Google. Ông ta rất thích ý tưởng này và chia sẻ rằng bản thân cũng đang phát triển một ý tưởng liên quan cùng <strong>Giuseppe Persiano</strong> ở Italia. Các ý tưởng của chúng tôi sau đó do cùng hướng và bổ sung cho nhau nên đã đưa đến công trình chung này.</p>
+
+<h2 class="sec-title">Góc nhìn về nghiên cứu</h2>
+
+<p>Bên lề, nói thêm đôi chút về cách nhìn cá nhân. Đối với mình (chỉ dám nói trong ngành hẹp Crypto, nhưng cũng có thể có sự tương đồng với một số ngành khác) có 2 dạng nghiên cứu chính:</p>
+
+<p><strong>(i)</strong> Giải quyết các open problems — xây dựng một hệ hoặc phá một hệ đã có.<br>
+<strong>(ii)</strong> Đưa ra các khái niệm mới.</p>
+
+<p>Chúng ta hay quen với dạng (i) và cũng là dạng thường dễ được cộng đồng chấp nhận ngay — reviewer nào chẳng thích một bài báo giải quyết được một vấn đề mở. Dạng (ii) thường gây tranh cãi, khái niệm mới thì có người thích người không thích, rất khó lường. Ngay cả khái niệm <em>zero-knowledge proof</em> làm nền tảng thay đổi toàn bộ cách suy nghĩ, và nay được ứng dụng rộng khắp (trong cả blockchain), lúc mới đầu đưa ra bị rejected nhiều lần trước khi được đón nhận.</p>
+
+<p>Bài báo này của mình thuộc dạng (ii) nên cũng khá hồi hộp dù các phản biện vòng 1 đều rất tốt. Ông Moti Yung là người đã từng đưa ra <a href="https://en.wikipedia.org/wiki/Ransomware" target="_blank">khái niệm về Ransomware từ năm 1996</a> với Young — nhưng khái niệm đó chìm nghỉm mãi đến gần đây mới bùng nổ khi có nhiều tấn công thực tế (<a href="https://cacm.acm.org/magazines/2017/7/218875-cryptovirology/fulltext" target="_blank">câu chuyện khá hay này được hai ông giới thiệu trên CACM</a>). Tương lai của Anamorphic Encryption chưa thể biết có bao giờ được sử dụng hay không — có thể coi như khởi đầu một cuộc phiêu lưu không biết điểm kết.</p>
+
+<p>Và cuối cùng, chữ <em>Anamorphic</em> được lấy theo một <a href="https://thevirtualinstructor.com/blog/anamorphic-art-then-and-now" target="_blank">phong cách nghệ thuật có nhiều ẩn chứa liên quan</a>.</p>
+
+<div class="art-end">05/2022 · <a href="https://www.facebook.com/rongchoi/posts/pfbid02eiMRaXBmkguqhDW7FYNKqKYpE7DfV7TzB8dB3UBoCTN3fX5qYjrKXMPnFjrfH1xl" target="_blank">Facebook</a> · <a href="https://eprint.iacr.org/2022/639.pdf" target="_blank">Bài báo (eprint)</a></div>
+<div class="back-to-index"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">← Về trang chủ</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="abel2021.html" class="art-nav-prev">← Giải Abel 2021 liên quan đến bảo vệ Privacy</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="truylungdauvet.html" class="art-nav-next">Truy lùng dấu vết kẻ phản bội →</a>
+</nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

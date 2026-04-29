@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tản mạn về nguyên lý bất định, đối ngẫu và bổ sung – Phan Thành Nam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    packages: {'[+]': ['ams']}
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main { max-width: 900px; margin: 0 auto; }
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+.article-block { margin-bottom: 0; padding-top: 1rem; }
+
+.art-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+.art-end a { color: #aaa; text-decoration: none; }
+.art-end a:hover { color: #8f1d2c; text-decoration: underline; }
+
+.back-to-toc { text-align: right; font-size: 0.82rem; margin-top: 1.5rem; }
+.back-to-toc a { color: #ccc; text-decoration: none; }
+.back-to-toc a:hover { color: #8f1d2c; }
+
+p { margin: 0 0 1.2em; }
+
+.poem {
+  font-style: italic;
+  margin: 1.5rem 0 1.5rem 1.8rem;
+  color: #333;
+  border-left: 3px solid #e0d0d3;
+  padding: 0.4rem 1.1rem;
+}
+.poem p { margin: 0; line-height: 1.75; }
+.poem .poem-attr {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 0.5rem;
+}
+
+.math-display {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  -webkit-overflow-scrolling: touch;
+  text-align: center;
+}
+
+.art-sep-rule { border: none; border-top: 1px solid #e8e0dc; margin: 3rem 0 2.5rem; }
+
+@media (max-width: 600px) {
+  .page-content { padding: 2.5rem 1.25rem; }
+  .art-title { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-main">
+<div class="page-content">
+<div class="article-block" id="b1">
+
+<h1 class="art-title">Tản mạn về nguyên lý bất định, đối ngẫu và bổ sung</h1>
+<div class="art-meta">
+  <span class="art-author">Phan Thành Nam</span>
+  <span class="art-sep">·</span>
+  <span class="art-date">tháng 11/2025</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://tiasang.com.vn/bat-dinh-va-cai-dep-cua-bat-toan-4966038.html" target="_blank">Tia Sáng</a> số 21 · "Bất định và cái đẹp của bất toàn"</div>
+
+<p>Nguyên lý bất định không những là một trong những trụ cột của khoa học lượng tử, mà còn thay đổi căn bản cách chúng ta nhận thức thực tại. Năm 1927, Heisenberg công bố một công trình với kết quả làm thay đổi triệt để vật lý: không thể đồng thời xác định chính xác vị trí và động lượng của một hạt. Trước đó, niềm tin phổ biến là với đủ sự tinh vi của công cụ, ta có thể đo được mọi thứ một cách chính xác. Nguyên lý của Heisenberg đã phá vỡ hình dung ấy: càng biết rõ vị trí, càng mờ nhạt động lượng, và ngược lại.</p>
+
+<p>Chứng minh của Heisenberg rất ngắn gọn và đẹp đẽ, làm tôi liên tưởng tới thuyết duyên khởi trong Phật giáo. Trong toán học, hai ma trận, hay toán tử \(A\) và \(B\) là giao hoán nếu \(AB = BA\), tức là \(A\) "đi ngang qua" \(B\) mà không để lại gì cả, giống như lời nhà thơ Bùi Minh Quốc:</p>
+
+<div class="poem">
+  <p>Có khi nào trên đường đời tấp nập</p>
+  <p>Ta vô tình đi lướt qua nhau.</p>
+  <p class="poem-attr">— Bùi Minh Quốc</p>
+</div>
+
+<p>Trường hợp này nói theo Phật học là "vô duyên". Ngược lại, nếu giao hoán tử \([A,B] = AB - BA\) khác 0, tức là \(A\) và \(B\) không giao hoán, thì ta có thể nói là chúng "có duyên".</p>
+
+<p>Phát hiện của Heisenberg là hai toán tử \(x\) (vị trí) và \(p\) (động lượng) là "có duyên" với nhau theo nghĩa rất mạnh, vì giao hoán tử của chúng là hằng số \([x,p] = i\hbar\) (tương đương với đẳng thức \((xf)' - xf' = f\)). Sử dụng điều này cùng với bất đẳng thức Cauchy–Schwarz cho các toán tử (tương tự như \(a^2+b^2-2ab = (a-b)^2 \geq 0\) với các số thực), ông suy ra đánh giá nổi tiếng</p>
+
+<div class="math-display">
+\[ \Delta x \cdot \Delta p \;\geq\; \frac{\hbar}{2}. \]
+</div>
+
+<p>Ý tưởng toán học ẩn sau chứng minh của Heisenberg chính là việc cặp phạm trù \((x, p)\) có tính đối ngẫu theo phép biến đổi Fourier. Nguyên lý bất định đảm bảo rằng nếu một hàm \(f(x)\) càng tập trung ở miền vị trí, thì phổ Fourier của nó \(\hat{f}(p)\) càng loang rộng ở miền động lượng, và ngược lại. Như một nốt nhạc càng ngắn thì cao độ càng mờ nhạt, còn một nốt càng dài thì cao độ càng rõ. "Duyên số" của các cặp phạm trù đối ngẫu, chẳng hạn như vị trí và động lượng, hay thời gian và năng lượng, là một phần thiết yếu để chúng ta hiểu thế giới, cũng như giữ cho chính thế giới tồn tại như cách chúng ta thấy hôm nay. Nếu không có nguyên lý bất định của Heisenberg, electron sẽ rơi vào hạt nhân vì không có gì chống lại lực hút Coulomb, và khi cái vi mô không còn ổn định thì thế giới vĩ mô cũng sẽ sụp đổ.</p>
+
+<p>Trong cuốn <em>Lược sử thời gian</em>, Hawking đã dùng một nguyên lý bất định tương tự như Heisenberg để chỉ ra rằng cái gọi là "chân không" vốn không hề trống rỗng. Theo nguyên lý bất định, năng lượng và thời gian không thể đồng thời xác định chính xác, nên trong khoảng thời gian cực nhỏ, năng lượng không bằng 0 mà luôn dao động, từ đó tạo ra các cặp hạt và phản hạt xuất hiện rồi triệt tiêu liên tục. Khi hiện tượng này xảy ra gần biên của một lỗ đen, thì một hạt có thể rơi vào bên trong, còn hạt kia thoát ra ngoài và trở thành bức xạ Hawking, khiến lỗ đen mất dần năng lượng và cuối cùng bốc hơi. Như vậy, ngay cả những thứ có sức mạnh tưởng như tuyệt đối như lỗ đen cũng không thoát khỏi quy luật bất định.</p>
+
+<hr class="art-sep-rule">
+
+<p>Trong lịch sử khoa học, có những người "thấy xa hơn" không phải vì họ biết nhiều hơn, mà vì họ "dám bỏ bớt". Cái Heisenberg loại bỏ là những thứ "tưởng như hiển nhiên" như khái niệm quỹ đạo electron của Bohr, điều mà rất ít các nhà khoa học dám làm. Việc từ bỏ trực quan cổ điển để bước vào vùng "phi hiện thực", nơi thực tại chỉ còn là tương quan và xác suất, có thể xem là tương tự như khi Phật học chuyển từ hữu thể luận sang duyên khởi luận. Ở đây, vị trí và động lượng không phải là hai đối tượng độc lập: động lượng là đạo hàm của vị trí, vị trí là tích phân của động lượng. Chúng "có duyên" với nhau, nên chúng phải được xét chung trong một mối tương quan, không thể tách rời.</p>
+
+<p>Từ nguyên lý bất định, ta hiểu rằng khi tập trung tuyệt đối vào một khía cạnh, thì phải chấp nhận mờ nhạt ở khía cạnh khác. Đó không phải là khiếm khuyết, mà là cấu trúc của tạo hoá: có co thì có duỗi, có được thì có mất. Thành ra ở đời, nhiều chưa chắc đã hay, mà ít chưa chắc là dở. Trong toán học cũng vậy, nhiều khi ta phải làm "nhòe đi" cái cụ thể thì mới vươn lên được cái trừu tượng, cái "đánh vạn người"; và ngược lại, ta phải hiểu được động lực cụ thể bên trong của từng cái trừu tượng thì mới thực sự hiểu nó ở mức cốt lõi, mới có thể dùng nó tự nhiên như hơi thở.</p>
+
+<p>Trong giải tích bán cổ điển, một nỗ lực để xấp xỉ vật lý lượng tử bởi vật lý cổ điển, một hạt lượng tử trong không gian \(d\) chiều được "cổ điển hoá" bởi một miền có thể tích \((2\pi\hbar)^d\) trong không gian pha \(2d\) chiều của \(x\) (vị trí) và \(p\) (động lượng), là thể tích tối thiểu để dung hoà được nguyên lý bất định \(\Delta x \cdot \Delta p \geq \hbar/2\). Ta có thể hình dung là một hạt lượng tử bây giờ trở thành một "hộp đàn", trong đó hễ ta nhấn vào phím "x", thì ngay lập tức nốt "p" bị rung lên, và ngược lại. Nói một cách hình ảnh, nguyên lý bất định vẫn cho phép "ghép đôi" hai yếu tố đối ngẫu như vị trí và động lượng, nếu chúng đồng ý cùng "nhoè đi", hi sinh mỗi bên một ít để về chung một nhà. Cái "vết nhoè" này chính là sự bao dung của tạo hoá, tạo ra cơ chế "dán dính" các mặt đối lập. Nhìn rộng ra, việc còn những điểm mù, những chỗ tối trong hiểu biết không nhất thiết là do con người kém cõi, mà do vũ trụ khôn ngoan.</p>
+
+<hr class="art-sep-rule">
+
+<p>Như vậy, nguyên lý bất định không những chỉ ra giới hạn của cái ta có thể biết, mà còn gợi mở cách thế giới tự dung hòa những mặt tưởng chừng đối nghịch của nó. Nguyên lý bổ sung của Bohr cho rằng những mặt tưởng như đối lập, thường là các cặp đối ngẫu như sóng và hạt, như xác định và bất định, vốn không loại trừ nhau mà cùng nhau làm nên bức tranh đầy đủ của thực tại. Khi cái này hiện ra, thì cái kia ẩn đi, nhưng cả hai đều cần thiết để thế giới tồn tại như nó vốn là. Như vậy, trong khi nguyên lý đối ngẫu thuộc về bản thể luận, cho thấy thế giới tự thân mang cấu trúc hai mặt tương liên như vị trí và động lượng, thì bổ sung lại thuộc về nhận thức luận: nó nhắc rằng tâm trí con người không thể đồng thời nắm bắt cả hai, mà phải thay đổi góc nhìn để thấy trọn một thực tại duy nhất. Cái hay của Bohr là không phân biệt "hoặc cái này, hoặc cái kia", mà là "cả hai, trong những điều kiện khác nhau". Điều này cho phép từ cái đã biết, ta có thể suy ra sự tồn tại của cái chưa biết, mặc dù ta chưa hề nhìn thấy chúng. Biết sự tồn tại của cái mà ta chưa từng thấy là một phép lạ, và đi xa hơn ta có thể dùng cái này để hiểu cái kia, như nhìn một giọt nước mà hiểu được đại dương.</p>
+
+<p>Trong khi nguyên lý bổ sung của Bohr cho ta cách để thấy thế giới, thì trong thế giới lượng tử, phi định xứ nói thêm về cách thế giới thực sự vận hành: khi hai hạt ở trạng thái vướng víu (entangled), phép đo trên hạt này ngay lập tức ảnh hưởng đến kết quả đo của hạt kia, dù chúng cách nhau cả trăm năm ánh sáng. Chính vì thế, Einstein từng gọi đây là "hành động ma quái từ xa" (spooky action at a distance), như thể "duyên" giữa chúng vượt ngoài cả thời–không. Ngày nay, nguyên lý ấy trở thành nền tảng cho máy tính lượng tử. Về mặt lý thuyết, máy tính lượng tử có thể "tính rất nhanh" nhờ khai thác sức mạnh từ việc vướng víu và chồng chập của các trạng thái lượng tử, nhưng đồng thời cũng "rất dễ sai" bởi chỉ một nhiễu loạn nhỏ cũng làm sụp đổ các trạng thái mong manh ấy. Tốc độ và sai số một lần nữa xuất hiện như hai mặt của cùng một đồng xu. Việc cố gắng cải thiện sức mạnh tính toán đồng thời kiểm soát sai số là một bài toán lớn của khoa học hiện đại.</p>
+
+<p>Dù khác bản chất, nguyên lý bổ sung và phi định xứ đều phá vỡ tư duy cổ điển tách biệt giữa "vật này và vật kia", và gặp nhau ở chỗ cùng khẳng định tầm quan trọng của "quan hệ" trong thực tại: thế giới lượng tử là một mạng lưới chằng chịt những mối liên hệ, nơi mà tồn tại cũng chính là quan hệ. Trong cuộc rối ren ấy, phi định xứ là nguyên lý bổ sung trong bản thể, khi các vật thể không tách rời mà được định nghĩa thông qua mối liên hệ; còn nguyên lý bổ sung là phi định xứ trong nhận thức, khi ta có thể dung hòa những mặt tưởng chừng rất xa nhau trong cùng một chỉnh thể.</p>
+
+<hr class="art-sep-rule">
+
+<p>Tóm lại, có những giới hạn không phải để ngăn chúng ta, mà để chỉ ra cách thế giới giữ được cân bằng. Đôi khi, việc nhận ra giới hạn của một điều chính là bước khởi đầu của tự do và sáng tạo. Khi Heisenberg chỉ ra bất định, ông không hủy hoại vật lý mà xây nền móng cho một khoa học chính xác hơn bao giờ hết. Khi Gödel chỉ ra bất toàn, ông không đóng cửa toán học mà mở ra một hành trình vô hạn, khẳng định rằng toán học sẽ không bao giờ dừng lại ở một hệ tiên đề cho dù mạnh tới đâu. Chúng ta hoàn toàn có thể sống chung với giới hạn, với bất định, với bất toàn, và tìm ý nghĩa trong chính cái không hoàn hảo.</p>
+
+<p>Trong truyện <em>Tây Du Ký</em>, sau khi diện kiến Phật Tổ Như Lai ở Linh Sơn, bốn thầy trò Đường Huyền Trang được ban cho chân kinh để mang về Đông Độ. Trên đường trở lại, vì lỡ quên lời hứa với con rùa thần nên bị lật úp xuống sông, khiến toàn bộ kinh sách ướt sạch. Khi phơi kinh, chẳng may có trang bị rách, Huyền Trang cứ đứng tiếc mãi. Tôn Ngộ Không mới an ủi rằng: "Sư phụ chớ buồn, trời đất còn có chỗ thiếu sót, nữa là kinh sách". Chính vì có chỗ thiếu nên mới có chỗ cho người đời sau bổ sung, chế tác. Ở điểm này, ta nghe vọng lại tinh thần "vô chi dĩ vi dụng" của Lão Tử, cũng như nguyên lý bổ sung của Bohr: cái tưởng như mâu thuẫn hay chưa trọn vẹn, kỳ thực lại cùng nhau làm nên toàn thể. Và quay lại lúc ban đầu, A Nan và Ca Diếp, hai đại đệ tử của Phật, từng cố ý cho "vô tự kinh", tức là kinh không chữ. Đó mới là chân kinh, nhưng bốn thầy trò từ chối nhận, âu cũng là vì chưa đủ duyên để thấy được chỗ "vô trung sinh hữu", tức là cái hay của thiếu và cái dở của đầy vậy.</p>
+
+<p>Nguyễn Du, trong một chuyến đi sứ năm 1813 đời Gia Long, đã có khoảnh khắc đứng dưới di tích "thạch đài" của Thái tử Chiêu Minh (Tiêu Thống, nhà Lương), nơi tương truyền dùng để phân đính kinh sách. Ở đó ông làm bài thơ <em>Lương Chiêu Minh thái tử phân kinh thạch đài</em>, kết lại bằng bốn câu bất hủ:</p>
+
+<div class="poem">
+  <p>Ngã độc Kim Cang thiên biến linh</p>
+  <p>Kỳ trung áo chỉ đa bất minh</p>
+  <p>Cập đáo phân kinh thạch đài hạ</p>
+  <p>Chung tri vô tự thị chân kinh.</p>
+  <p class="poem-attr">— Nguyễn Du</p>
+</div>
+
+<div class="poem">
+  <p>Kim Cang đọc đến quen từng chữ</p>
+  <p>Nghĩa lý sâu xa vẫn bất minh</p>
+  <p>Dưới bóng thạch đài nơi phân tỏ</p>
+  <p>Mới hay vô tự ấy chân kinh.</p>
+</div>
+
+<p>Tư tưởng chìm nổi trong bốn câu là mạch Thiền "bất lập văn tự / vô tự chân kinh". Đó không chỉ là lời tự tỉnh của một người học đạo, mà là trực giác lớn của một người đã đi đến tận cùng của ngôn từ để nhận ra giới hạn của nó. Văn để tải đạo, như ngón tay chỉ mặt trăng, mà thật ra cả tay lẫn trăng đều chỉ là hình tướng. Ở điểm này, tư tưởng của Nguyễn Du gặp lại tinh thần của Heisenberg và Bohr: khi ta càng cố định một điều, thì điều kia càng trở nên bất định; chỉ khi ta buông khỏi hình tướng, thì chân nghĩa mới hiện ra.</p>
+
+<p>Nếu như cái biết là đối ngẫu của cái không biết, thì cái viết được chính là đối ngẫu của cái không viết được. Người có thể đọc cái không viết được, ắt trong lòng đã hiểu vô hạn cái viết được, mà vẫn đủ thấu suốt để thấy mà không giữ, biết mà không nắm bắt. "Vô tự kinh" chính là biểu tượng của chỗ không nắm bắt mà vẫn bao trùm tất cả. Chính khoảng trống ấy, khoảng "không" giữa hai cực đối lập, mới là nơi thế giới tự cân bằng. Ở đó, cái bị giới hạn không còn là mất mát mà là điều kiện để cái khác được sinh ra, như ngay cả trong "chân không" những cặp hạt và phản hạt vẫn liên tục xuất hiện rồi biến mất để thế giới không bao giờ thật sự rỗng không. Thành ra, "vô tự kinh" không chỉ là câu chuyện của Ngô Thừa Ân, của Nguyễn Du, mà còn là tinh thần của nguyên lý bất định và nguyên lý bổ sung: cái không thể biết trọn mới chính là nguồn của mọi hiểu biết.</p>
+
+<div class="art-end"><a href="https://tiasang.com.vn/bat-dinh-va-cai-dep-cua-bat-toan-4966038.html" target="_blank">Tia Sáng</a> số 21, tháng 11/2025 — "Bất định và cái đẹp của bất toàn"</div>
+<div class="back-to-toc"><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Về đầu trang</a></div>
+
+</div>
+</div>
+</div>
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

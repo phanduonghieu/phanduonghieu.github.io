@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Mật mã – Học máy và Lattice Cryptography của Phong Nguyễn tại VIASM">
+<meta property="og:description" content="Chuỗi bài giảng của Phong Nguyễn tại VIASM tháng 12/2018 về Lattice Cryptography và mối liên hệ giữa mật mã và học máy qua bài toán Learning with Errors.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/phongnguyen2018.html">
+<title>Mật mã – Học máy và Lattice Cryptography của Phong Nguyễn tại VIASM - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.art-subtitle { text-align: center; font-size: 1rem; color: #777; font-style: italic; margin: 0 0 0.9rem; }
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 0.3rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+p { margin: 0 0 1.2em; }
+a { color: #8f1d2c; }
+a:hover { text-decoration: underline; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #f0dde0;
+}
+blockquote {
+  border-left: 4px solid #c9a0a7;
+  background: #faf7f5;
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+blockquote p { margin: 0; }
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Mật mã – Học máy và chuỗi bài giảng về Lattice Cryptography của Phong Nguyễn tại VIASM</h1>
+<p class="art-subtitle">(VIASM, Hà Nội – 12/2018)</p>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">12/2018</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://www.facebook.com/rongchoi/posts/10216058234545466" target="_blank">Facebook</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<p>Phong Nguyễn (Nguyễn Phong Quang) là một trong những nhà mật mã người Việt xuất sắc nhất trên trường quốc tế, hiện là giáo sư tại École normale supérieure (Paris). Ông là chuyên gia hàng đầu thế giới về <strong>Lattice Cryptography</strong> – mật mã dựa trên lý thuyết mạng lưới điểm, nền tảng của mật mã hậu lượng tử.</p>
+
+<h2 class="sec-title">Mật mã và Học máy – hai ngành tưởng xa nhưng lại gần</h2>
+
+<p>Một trong những điều thú vị nhất trong mật mã hiện đại là sự kết nối sâu sắc với học máy. Bài toán trung tâm của Lattice Cryptography – <strong>Learning with Errors (LWE)</strong>, do Oded Regev đề xuất năm 2005 – về bản chất là một bài toán học máy: phân loại dữ liệu nhiễu tuyến tính. Tên gọi "Learning" không phải ngẫu nhiên; đây là bài toán học từ dữ liệu nhưng với nhiễu được thiết kế để làm cho việc học trở nên <em>không thể giải được trong thời gian đa thức</em>.</p>
+
+<p>Chính sự "khó học" này là nền tảng bảo mật. Kẻ tấn công không thể "học" được khóa bí mật từ các bản mã quan sát được – và đây là lý do lattice cryptography được kỳ vọng an toàn trước cả máy tính lượng tử.</p>
+
+<h2 class="sec-title">Chuỗi bài giảng tại VIASM</h2>
+
+<p>Chuỗi bài giảng của Phong Nguyễn tại VIASM tháng 12/2018 đi từ những nền tảng toán học của lý thuyết mạng lưới điểm – thuật toán rút gọn mạng lưới LLL, các thuật toán tìm vector ngắn nhất (SVP) – đến các ứng dụng mật mã hiện đại nhất. Đặc biệt, ông là một trong những tác giả chính của cuốn sách <strong>The LLL Algorithm</strong> (Springer, 2010), tập hợp những bước tiến quan trọng nhất của lý thuyết này.</p>
+
+<p>Những ai theo dõi sự phát triển của mật mã hậu lượng tử sẽ nhận ra rằng hầu hết các ứng dụng trong chuẩn NIST PQC (CRYSTALS-Kyber, CRYSTALS-Dilithium, FALCON) đều dựa trực tiếp trên các kết quả mà Phong Nguyễn và các cộng sự đã xây dựng.</p>
+
+<blockquote><p>Hiểu được lattice cryptography là hiểu được nền tảng của mật mã tương lai – trong thời đại mà máy tính lượng tử không còn chỉ là giả thuyết.</p></blockquote>
+
+<div class="art-end">Phan Dương Hiệu · 12/2018 · <a href="https://www.facebook.com/rongchoi/posts/10216058234545466" target="_blank">Facebook</a></div>
+
+<div style="text-align:center;font-size:0.85rem;margin:1.5rem 0 0;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="alfredmenezes2026.html" class="art-nav-prev">← Alfred Menezes tại VIASM – MOV attack và Pairing-based Cryptography</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="anamorphic2025.html" class="art-nav-next">Anamorphic Encryption – mật mã chống độc tài và bài báo đầu tiên của Việt Nam tại EUROCRYPT →</a>
+</nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

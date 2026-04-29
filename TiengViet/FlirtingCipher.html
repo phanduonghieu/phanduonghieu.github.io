@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Flirting Cipher – mã hoá bằng ánh mắt">
+<meta property="og:description" content="Câu chuyện về chiếc máy mã bằng ánh mắt – Flirting Cipher – và người đã tạo ra nó.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/FlirtingCipher.html">
+<title>Flirting Cipher – mã hoá bằng ánh mắt - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.92;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main { max-width: 900px; margin: 0 auto; }
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+
+.art-section { margin-top: 2rem; }
+
+p { margin: 0 0 1.1em; }
+p:last-child { margin-bottom: 0; }
+
+em, i { font-style: italic; }
+
+.scene-sep {
+  text-align: center;
+  color: #ccc;
+  letter-spacing: .4em;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+}
+
+/* Navigation */
+.art-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.88rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0ebe7;
+  flex-wrap: wrap;
+}
+.art-nav a {
+  color: #8f1d2c;
+  text-decoration: none;
+  font-weight: 500;
+}
+.art-nav a:hover { text-decoration: underline; }
+.art-nav .nav-home { text-align: center; color: #aaa; font-size: 0.82rem; }
+.art-nav .nav-home a { color: #aaa; }
+.art-nav .nav-home a:hover { color: #8f1d2c; }
+.art-nav-bottom { border-top: 1px solid #f0ebe7; margin-top: 3rem; border-bottom: none; margin-bottom: 0; padding-top: 1.5rem; padding-bottom: 0; }
+
+@media(max-width:640px){
+  body { font-size: 1.05rem; padding: 1.5rem 0.75rem 5rem; }
+  .page-content { padding: 2rem 1.25rem; }
+  .art-title { font-size: 1.45rem; }
+  .art-nav { font-size: 0.82rem; }
+}
+@media(max-width:400px){
+  .page-content { padding: 1.5rem 1rem; }
+  body { font-size: 1rem; }
+}
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="page-main">
+<div class="page-content">
+
+  <div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+    <span></span>
+    <span class="nav-home"><a href="../Matma.html">↑ Mật mã học</a></span>
+    <a href="IntermezzoCipher.html">Intermezzo Cipher →</a>
+  </nav>
+
+  <h1 class="art-title">Flirting Cipher – mã hoá bằng ánh mắt</h1>
+  <div class="art-meta">
+    <span class="art-author"><a href="https://www.di.ens.fr/users/phan/">Phan Dương Hiệu</a></span>
+    <span class="art-sep">·</span>
+    <span>2007</span>
+  </div>
+  <div class="art-source">Đăng trên Blog Khoa Học Máy Tính</div>
+
+  <div class="art-section">
+
+    <p>Một chiều thu, anh chàng nghiên cứu sinh mật mã H đi dạo cùng cô sinh viên khoa văn trường Sorbonne M trong vườn hoa Luxembourg. Ánh mắt mơ màng, H lơ đãng hỏi: Dấu vân tay đặc trưng cho mỗi con người. Tại sao không thể lấy ánh mắt để đặc trưng cho con người ta? Sao trên chứng minh thư có dấu vân tay mà không phải là một cái nhìn em nhỉ?</p>
+
+    <p>Ô hay, M tròn mắt: nhưng tại sao đã có dấu vân tay, lại phải lấy ánh mắt làm gì anh?</p>
+
+    <p>H tung cái nhìn đắc thắng nhưng chứa đôi chút bí hiểm: đơn giản là bởi, mắt ta có thể đọc, còn tay ta chỉ có thể sờ… Và do thế, nếu mã hóa bằng ánh mắt, ta có thể giải mã bằng chính ánh mắt của ta mà không cần thông qua bất kể chiếc máy giải mã nào. Ánh mắt ta là duy nhất, và vì thế chỉ có mình ta mới giải mã được. Đó sẽ là một mã an toàn tuyệt đối.</p>
+
+    <p>Văng vẳng tiếng H tiếp tục thao thao trong khu vườn: Không có gì là không có thể. Trước khi con người làm ra máy phát hiện nói dối, cái máy này chỉ như là một câu chuyện cổ tích…</p>
+
+    <p class="scene-sep">— — —</p>
+
+    <p>Cuộc đối thoại đó đã diễn ra cách đây 6 năm rồi. Chiếc máy đầu tiên bằng ánh mắt, H đã có ý tưởng còn trước đó nữa kia, từ ngày đầu gặp M bên bờ sông Seine, khi ánh mắt anh bất chợt gặp ánh mắt M. H biết, chỉ mình hắn mới hiểu ánh nhìn đó của nàng (dù hiểu sai đi nữa, mà có khi tưởng bở nên mới có những ngày đẹp đẽ phía sau). Lúc đó H hiểu sẽ sáng tạo ra chiếc máy mã bằng ánh mắt. Và khi dường như lơ đãng nói với M ý tưởng đó trong khu vườn Luxembourg, là thực ra chiếc máy đó H đã làm ra trong phòng thí nghiệm.</p>
+
+    <p class="scene-sep">— — —</p>
+
+    <p>10 năm sau buổi chiều Luxembourg, cũng bên bờ sông Seine, sau 10 năm thử thách, chiếc máy mã bằng ánh mắt đầu tiên mang tên Flirting Cipher của H đã được Paris triển lãm như một đột phá của kỹ thuật và nghệ thuật mã hoá. H đã không đăng ký bằng sáng chế chiếc máy này, bởi hắn muốn nó được tự do sử dụng, như chính ý nghĩa ra đời của nó, từ ánh mắt không giới hạn. Chiếc máy Flirting Cipher cũng chính là «chiếc nhẫn cầu hôn» mà H đã tặng M, người đang đứng xa xa phía dưới kia, kẻ đang tung cho H một ánh nhìn… không thể giải mã hết.</p>
+
+    <p>Trên sân khấu, H thao thao bất tuyệt:</p>
+
+    <p>Chúng ta sẽ không còn cần phải lo sợ chuyện bản quyền tác giả, chúng ta sẽ không còn phải lo sách sẽ bị copy. Bởi lẽ, mỗi cuốn sách sẽ bị mã hóa bởi chính ánh nhìn của người đọc.</p>
+
+    <p>Tôi vào một hiệu sách và tôi chọn một cuốn sách. Tôi ra quầy trả tiền như thông lệ. Đến đây, tôi liếc nhìn cô bán hàng (hệ mã của tôi áp dụng tốt với những cửa hàng có các cô bán hàng xinh xắn, nhưng nó cũng áp dụng được với những cửa hàng… trang bị bộ cảm ứng phân tích sóng đặc trưng của ánh nhìn), và chỉ khi đó, cuốn sách mới được xuất bản cho tôi.</p>
+
+    <p>Cái liếc nhìn của tôi chính là chìa khóa, chính là cái đặc trưng của riêng tôi. Chìa khóa đó sẽ được dùng để mã hóa cuốn sách và một khi nó được mã hóa bởi ánh mắt tôi, chỉ cần tôi nhìn vào hàng chữ trên cuốn sách, những hàng chữ mã đó kết hợp với ánh mắt tôi sẽ tự động hiện lên rõ ràng như thể là nó chưa từng được mã hóa.</p>
+
+    <p>Ánh nhìn của tôi khác của bạn, và do thế mà khi bạn đọc cuốn sách của tôi, những hàng chữ sẽ mãi loằng ngoằng trong đầu óc bạn mà thôi.</p>
+
+    <p>Tất nhiên chúng tôi có thể cùng đi mua một cuốn sách, khi đó chúng tôi sẽ nhìn nhau và ánh mắt hòa hợp đó sẽ được dùng làm khóa và chỉ có hai chúng tôi là đọc được.</p>
+
+    <p>Và tất nhiên chúng ta có thể viết thư mật cho nhau bằng chìa khóa của ánh mắt chung. Khi đó bố mẹ có giỏi cũng chỉ như hiểu chúng ta nói chuyện giun chuyện dế. Ôi, thể nào chính tôi cũng sẽ bị mấy đứa con nó chơi xỏ mình cho mà xem.</p>
+
+    <p>Tất nhiên, tất nhiên, tất nhiên…</p>
+
+    <p class="scene-sep">— — —</p>
+
+    <p>Xa xa phía dưới sân khấu, cô sinh viên khoa văn M ngày nọ, đang tiết lộ một bí mật nay mới được giải mã: thực ra hồi đó, H đã định sáng tạo ra một chiếc máy khác, nơi có thể gửi những suy nghĩ tức thì của H cho tôi, nhưng chính tôi đã ngăn cản ý định đó của H vì nó… bậy quá, và vì thế mà H chỉ dám làm ra chiếc máy Flirting Cipher để tặng tôi thôi.</p>
+
+  </div>
+
+  <nav class="art-nav art-nav-bottom">
+    <span></span>
+    <span class="nav-home"><a href="../Matma.html">↑ Mật mã học</a></span>
+    <a href="IntermezzoCipher.html">Intermezzo Cipher →</a>
+  </nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

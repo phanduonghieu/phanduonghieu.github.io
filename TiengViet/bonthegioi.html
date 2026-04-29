@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Bốn thế giới ảo và một thế giới thực">
+<meta property="og:description" content="Gần 20 năm trước, Russell Impagliazzo đưa ra định nghĩa thú vị về 5 thế giới khác nhau. Chúng ta sống ở một trong đó - nhưng không biết chắc mình đang ở đâu.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/bonthegioi.html">
+<meta property="og:image" content="https://www.di.ens.fr/users/phan/webpictures/bonthegioi.png">
+<title>Bốn thế giới ảo và một thế giới thực - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+.art-cover { text-align: center; margin: 1.2rem 0 1.8rem; }
+.art-cover img { width: 50%; border-radius: 8px; border: 1px solid #ece5e0; display: inline-block; }
+@media (max-width: 600px) { .art-cover img { width: 85%; } }
+
+/* Title */
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.art-subtitle {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #777;
+  font-style: italic;
+  margin: 0 0 0.9rem;
+}
+
+/* Meta */
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2.5rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-source-link {
+  text-align: center;
+  margin: -1.5rem 0 2.5rem;
+  font-size: 0.9rem;
+}
+.art-source-link a {
+  color: #8f1d2c;
+  text-decoration: none;
+  border-bottom: 1px solid #c9a0a7;
+}
+.art-source-link a:hover { border-bottom-color: #8f1d2c; }
+
+/* Body text */
+p { margin: 0 0 1.2em; }
+
+/* Section headers */
+h2.sec-title {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 3rem 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+
+/* World blocks */
+.worlds-list {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.world-block {
+  border-left: 4px solid #c9a0a7;
+  background: #faf7f5;
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.4rem;
+}
+.world-block .world-name {
+  font-weight: 700;
+  color: #8f1d2c;
+  font-size: 1.02rem;
+  margin-bottom: 0.35rem;
+}
+.world-block p { margin: 0; font-size: 0.98rem; line-height: 1.75; }
+
+/* Footer */
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+.back-to-index {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+.back-to-index a {
+  color: #8f1d2c;
+  text-decoration: none;
+}
+.back-to-index a:hover { text-decoration: underline; }
+
+/* Tablet */
+@media (max-width: 860px) {
+  .page-content { padding: 3rem 2rem; }
+}
+/* Mobile */
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+  h2.sec-title { font-size: 1.1rem; }
+  .world-block { padding: 0.85rem 1.1rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Bốn thế giới ảo và một thế giới thực</h1>
+<p class="art-subtitle">(Từ "P=NP" đến Mật mã hóa khóa công khai)</p>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+</div>
+<div class="art-source">
+  Đăng trên <a href="https://pi.edu.vn/detail-news/bon-the-gioi-ao-va-mot-the-560.html" target="_blank">Tạp chí Pi</a>
+  &nbsp;&amp;&nbsp;
+  <a href="https://docs.google.com/document/d/1nzSWH-M_n5k2OhepPytgbQDhBo6Ub-3r31ghzCXxcao/edit?usp=sharing" target="_blank">Blog KHMT</a>
+</div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+<div class="art-cover"><img src="../webpictures/bonthegioi.png" alt="Bốn thế giới ảo và một thế giới thực" loading="lazy"></div>
+
+<p>Gần 20 năm trước, Russell Impagliazzo đưa ra định nghĩa rất thú vị về 5 thế giới khác nhau (<a href="https://cseweb.ucsd.edu/~russell/average.ps" target="_blank">cseweb.ucsd.edu/~russell/average.ps</a>). Chúng ta sống ở một trong 5 thế giới đó, nhưng không biết chắc mình sống trong thế giới nào. Gần 20 năm trôi qua, vẫn chưa có thế giới nào chia tay chúng ta. Hiện vẫn đang có 4 thế giới ảo và một thế giới thực quanh ta, và ta không biết là mình đang ở đâu.</p>
+
+<p>Đến một ngày, nếu có anh hùng nào may mắn chứng minh chúng ta đang thực sự sống ở đâu, thì cũng là ngày tận thế của 4 thế giới ảo còn lại, điều đó thật buồn và những người còn lại thật kém may… Chẳng hạn một chứng minh P=NP sẽ là ngày tận thế của 4 thế giới. Tuy nhiên, ta sẽ thấy rằng, một chứng minh P khác NP thì chỉ làm 1 thế giới tận thế và vẫn còn lại 4 thế giới lung linh :) Vì vậy, nếu Bụt hiện xuống và cho chọn giữa "P=NP" hay "P khác NP" thì mình sẽ chọn P khác NP ^_^</p>
+
+<p>Impagliazzo minh họa 5 thế giới một cách rất xuất sắc để ai cũng hiểu được, thông qua câu chuyện tưởng tượng giữa thầy giáo Grouse và cậu học trò Gauss. Cậu trò Gauss thông minh nổi tiếng, trên lớp thầy giao bài nào cũng giải ngon ơ rồi rỗi rãi chọc phá các bạn làm thầy giáo rất là phiền lòng. Ông thầy Grouse quyết tâm tìm những bài toán siêu khó để nhằm mục đích làm cho Gauss bớt kiêu.</p>
+
+<p>Và do đó dẫn tới 5 thế giới theo định nghĩa của Impagliazzo:</p>
+
+<div class="worlds-list">
+  <div class="world-block">
+    <div class="world-name">Thế giới Algorithmica (thuật toán)</div>
+    <p>Là nơi P = NP. Khi đó bài toán nào có khả năng kiểm tra lời giải cũng có khả năng tìm ra lời giải. Tức là mọi bài toán thực tế (là bài toán mà ta có thể kiểm tra xem một lời giải là đúng hay sai) đều giải được dễ dàng. Đó là thế giới chán ngán nhất, cái gì cũng giải được. Thật tội cho ông thầy Grouse, dù cố công cũng không thể tìm ra bài toán nào làm Gauss bó tay cả.</p>
+  </div>
+
+  <div class="world-block">
+    <div class="world-name">Thế giới Heuristica</div>
+    <p>Là nơi tuy NP khác P nhưng mọi bài toán NP đều có lời giải trong trường hợp trung bình (đầu vào của bài toán - instance - được chọn ngẫu nhiên theo một phân bố xác suất nào đó). Tức là sẽ có những bài toán khó giải trong trường hợp xấu nhất, nhưng mà không có cách gì tìm ra cái trường hợp xấu nhất đó. Mọi cách chọn bài toán đều dẫn tới bài toán dễ giải. Đây là trường hợp càng làm cho ông Grouse cảm thấy cay đắng: ông biết là Gauss không phải thượng đế, có những bài Gauss không giải được, nhưng ông không có cách nào tìm ra chúng. Bài nào mà ông lựa chọn thì Gauss đều giải được.</p>
+  </div>
+
+  <div class="world-block">
+    <div class="world-name">Thế giới Pessiland</div>
+    <p>Là nơi tồn tại các bài toán NP khó ngay cả trường hợp trung bình, nhưng không tồn tại hàm một chiều (one-way function). Hàm một chiều là hàm tính xuôi thì dễ mà tính ngược thì khó. Nói một cách trực quan, hàm một chiều cho phép ta sinh ra một bài toán khó giải từ lời giải của nó, tức là ta có thể sinh ra một bài toán khó kèm theo lời giải. Thế nhưng, trong Pessiland, giả thiết là không tồn tại hàm một chiều. Điều đó có nghĩa ông thầy Grouse có thể tìm ra những bài toán khó mà Gauss không giải được (vì tồn tại bài toán NP khó trong trường hợp trung bình), nhưng bản thân ông Grouse cũng không thể giải được bài toán đó (vì không tồn tại hàm một chiều). Đưa ra cho cả lớp một bài toán mà bản thân mình cũng không giải được, liệu ông Grouse có dám không?</p>
+  </div>
+
+  <div class="world-block">
+    <div class="world-name">Thế giới Minicrypt</div>
+    <p>Là nơi tồn tại hàm một chiều one-way function nhưng không tồn tại mã hóa khóa công khai (public-key encryption). Cuối cùng cũng đã tới một thế giới mà ông Grouse có thể hài lòng: ông có thể ra những bài toán khó, Gauss không thể giải được và ông thì đĩnh đạc trình bày lời giải cho cả lớp! Tuy thế, ông chưa thật thỏa mãn, vì Gauss tuy không giải được, nhưng các bạn khác cũng chẳng ai giải được nên Gauss vẫn còn có thể tinh tướng.</p>
+  </div>
+
+  <div class="world-block">
+    <div class="world-name">Thế giới Cryptomania</div>
+    <p>Là nơi tồn tại mã hóa khóa công khai (public-key encryption). Với sự tồn tại mã hóa khóa công khai, ông thầy Grouse có thể dạy cho Gauss một bài học nhớ đời. Sự tồn tại mã hóa khóa công khai cũng có nghĩa là hai bên có thể trao đổi những thông điệp bí mật với nhau mà không cần phải chia sẻ, thống nhất bất cứ thông tin bí mật nào trước, và sự trao đổi là hoàn toàn công khai. Ở thế giới Cryptomania, ông thầy không những có thể ra những bài toán khó làm Gauss không thể giải được mà còn có thể đưa ra các gợi ý trên bảng để cho tất cả các học sinh đều giải được, trừ Gauss. Đây quả là một tình huống lý tưởng - Gauss trở thành cậu học sinh duy nhất trong lớp không giải được bài!</p>
+  </div>
+</div>
+
+<h2 class="sec-title">Nói riêng về mật mã</h2>
+
+<p>Minicrypt là thế giới tối thiểu để có thể nói tới từ mật mã, mật mã chỉ tồn tại nếu có one-way function (xem thêm bài "Mật mã dưới góc nhìn độ phức tạp tính toán").</p>
+
+<p>Chúng ta đang được giả thuyết là sống trong thế giới Cryptomania. Các giao dịch ngân hàng, việc sử dụng thẻ tín dụng… đều có sử dụng public-key encryption. Tuy nhiên, độ an toàn của các hệ mã này đều dựa trên một giả thuyết nào đó, như là bài toán phân tích thành thừa số nguyên tố là khó, bài toán logarithm rời rạc trên nhóm các điểm trên đường cong elliptic là khó, hay tổng quát lên là tồn tại các hoán vị xuôi dễ ngược khó và có cửa lật (trapdoor permutation)…</p>
+
+<p>Điều gì sẽ xảy ra khi một đêm, một siêu nhân từ đâu rơi xuống giải hết tuốt các bài toán tưởng là khó này, hủy diệt Cryptomania, đưa chúng ta trở lại thế giới Minicrypt?</p>
+
+<p>Minicrypt, đó là thế giới nguyên thủy của mật mã, khi mật mã chưa là một ngành khoa học, tức là khi chưa có mật mã hóa khóa công khai. Ấy thế mà trong Minicrypt lại vẫn có rất nhiều thứ thú vị: vẫn sẽ tồn tại zero-knowledge proof, vẫn sẽ tồn tại chữ ký điện tử. Điều đặc biệt hay là chữ ký điện tử ra đời trên xương sống của mã hóa khóa công khai. Khi hệ mã RSA được đưa ra, người ta cứ nghĩ là mã hóa và chữ ký điện tử là hai quá trình ngược nhau: mã hóa thì dùng khóa công khai để mã và khóa bí mật để giải mã; còn chữ ký thì dùng khóa bí mật để ký và dùng khóa công khai để kiểm thử chữ ký. Tưởng vậy mà không phải là vậy, chúng nó ở hai thế giới khác nhau. (Xem thêm bài "Vẻ đẹp bất định của mật mã hiện đại")</p>
+
+<p>Nếu tương lai chúng ta quay lại Minicrypt, đó không phải là thảm họa, mà sẽ là sự kỳ thú. Mật mã được đánh dấu bước chuyển mình từ nghệ thuật thành một ngành khoa học kể từ khi ra đời mật mã hóa khóa công khai. Để rồi khi nếu có chứng minh mã hóa công khai không tồn tại, mật mã lại trở về thời kỳ chỉ có mã hóa khóa bí mật. Lúc đó, có nghĩa chúng ta đi một vòng qua thế giới ảo Cryptomania, và chính nhờ cuộc thám hiểm ở xứ sở diệu kỳ đó sẽ đem về những thành quả thực vẫn sẽ tồn tại ngay trong Minicrypt: zero-knowledge proof và rộng hơn là các chứng minh tương tác (interactive proofs), chữ ký điện tử, khả năng thiết lập mọi trò chơi ảo như oẳn tù tì qua điện thoại…</p>
+
+<p>Chính thế mà đôi lúc chúng ta nên giả vờ sống ở một thế giới ảo, và ngoài sự sung sướng được sống trong thế giới kỳ bí đó, thì khi quay trở lại thế giới thực ta còn có khi mang về những sáng tạo thực mà nếu sống mãi trong thế giới thực ta sẽ không thể tạo ra chúng.</p>
+
+<div class="art-end">
+  Blog KHMT &amp; <a href="https://pi.edu.vn/detail-news/bon-the-gioi-ao-va-mot-the-560.html" target="_blank">Tạp chí Pi</a>
+</div>
+
+<div class="back-to-index">
+  <a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">← Về trang chủ</a>
+</div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="giai-thuong-turing-2012.html" class="art-nav-prev">← Mật mã xác suất - Giải thưởng Turing 2012</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="nghethuathoi.html" class="art-nav-next">Nghệ thuật hỏi một lần - Tính toán lượng tử →</a>
+</nav>
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

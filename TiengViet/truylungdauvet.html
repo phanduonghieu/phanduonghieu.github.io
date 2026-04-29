@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Truy lùng dấu vết kẻ phản bội">
+<meta property="og:description" content="Diễn đàn Toán học 2005: thảo luận về bài toán truy lùng kẻ phản bội (traitor tracing) - xác định nguồn rò rỉ thông tin trong hệ thống phân phối nội dung số.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/truylungdauvet.html">
+<title>Truy lùng dấu vết kẻ phản bội - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 0.3rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; }
+
+/* Posts */
+.post {
+  margin: 2.2rem 0 0;
+  padding: 1.4rem 1.6rem;
+  background: #fafaf9;
+  border-radius: 8px;
+  border-left: 3px solid #e5dbd6;
+}
+.post.main-post {
+  background: #fff8f8;
+  border-left: 3px solid #8f1d2c;
+}
+.post-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7em;
+  margin-bottom: 0.9rem;
+  flex-wrap: wrap;
+}
+.post-author {
+  font-weight: 700;
+  color: #8f1d2c;
+  font-size: 1rem;
+}
+.post-author.rongchoi { color: #8f1d2c; }
+.post-date {
+  font-size: 0.82rem;
+  color: #bbb;
+}
+.post p { margin: 0 0 0.9em; }
+.post p:last-child { margin-bottom: 0; }
+
+blockquote {
+  margin: 0.8em 0;
+  padding: 0.7em 1em;
+  background: #f2f0ec;
+  border-left: 3px solid #d0c8c2;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.93em;
+  color: #555;
+}
+blockquote p { margin: 0 0 0.5em; }
+blockquote p:last-child { margin-bottom: 0; }
+
+.post-edit {
+  font-size: 0.78rem;
+  color: #bbb;
+  font-style: italic;
+  margin-top: 0.7em;
+}
+
+/* Intro article */
+.intro-article {
+  margin: 1.8rem 0 0;
+  padding: 1.6rem 1.8rem;
+  background: #fff8f8;
+  border: 1px solid #f0dde0;
+  border-radius: 10px;
+}
+.intro-article h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin: 0 0 1.1rem;
+}
+.intro-article p { margin: 0 0 1em; }
+.intro-article p:last-child { margin-bottom: 0; }
+
+/* Appendix */
+.appendix {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid #f0dde0;
+}
+.appendix-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem;
+}
+.appendix h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 0 0 1rem;
+}
+.appendix p { margin: 0 0 0.7em; }
+.appendix ul { padding-left: 1.4rem; margin: 0 0 0.7em; }
+.appendix li { margin-bottom: 0.3em; }
+.summary-block {
+  background: #faf7f5;
+  border: 1px solid #e8e0db;
+  border-radius: 8px;
+  padding: 1.4rem 1.6rem;
+  margin-top: 0.5rem;
+}
+.summary-block p { margin: 0 0 0.6em; }
+.summary-block p:last-child { margin-bottom: 0; }
+.summary-block ul { padding-left: 1.4rem; margin: 0.2em 0 0.6em; }
+.summary-block li { margin-bottom: 0.3em; line-height: 1.6; }
+
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Tablet */
+@media (max-width: 860px) {
+  .page-content { padding: 3rem 2rem; }
+}
+/* Mobile */
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 0.98rem; line-height: 1.78; background: #fff; }
+  .page-content { padding: 2rem 1.2rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+  .post { padding: 1.1rem 1.1rem; }
+  .intro-article { padding: 1.2rem 1.2rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Truy lùng dấu vết kẻ phản bội</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a> (RongChoi)</span>
+  <span class="art-sep">·</span>
+  <span class="art-date">04/2005</span>
+</div>
+<div class="art-source">Thảo luận trên <a href="https://diendantoanhoc.net/" target="_blank">Diễn đàn Toán học</a>, 04-04-2005</div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.8rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<!-- ══ BÀI ĐỀ DẪN ══ -->
+<div class="intro-article">
+<h2>══ VẤN ĐỀ THẢO LUẬN TRONG TUẦN ══</h2>
+<p><strong>Truy lùng dấu vết kẻ phản bội</strong></p>
+<p>Phải chăng đây là một vấn đề của ngành cảnh sát điều tra? Quả là vậy, nhưng là chuyện "điều tra" của những "cảnh sát" trong thế giới huyền ảo của số liệu chứ không phải là thế giới thực của đời thường. Và vì thế, mỗi chúng ta hoàn toàn có thể trở thành những chiến sỹ điều tra thông minh để góp phần vào sự "công bằng thế giới".</p>
+<p>Thế nào được gọi là kẻ phản bội và thế nào được gọi là một cuộc truy lùng dấu vết? Những khái niệm đó sẽ được đề cập đến trong "vấn đề trong tuần" kỳ này. Các kiểu "tiểu xảo" tinh vi cũng như các chiến thuật cài bẫy điều tra tinh xảo sẽ được bàn luận. Vấn đề đi xa đến đâu sẽ hoàn toàn tùy thuộc vào sự nhiệt tình của chúng ta, những người tham gia, những người sẽ phải đặt mình không những vào vị trí của người điều tra sắc xảo mà còn phải đặt mình vào vị trí của kẻ "trốn tội" đầy mưu mô.</p>
+<p>Chưa nắm kỹ hết các vấn đề nên Rong Chơi sẽ cùng các bạn tìm hiểu vấn đề hơn là việc sẽ đưa các bạn tới một cái đích, một lời giải cụ thể. Hy vọng với vấn đề rộng mở này, sau cuộc chơi mỗi người có thêm một sự thỏa mãn riêng, một sự mắc mớ riêng cho mình.</p>
+<p>Trước hết, RC sẽ đề cập đến 2 vấn đề được quan tâm hiện nay:</p>
+<p><strong>1. Cung cấp thông tin tĩnh:</strong> Giả sử bạn là người sản xuất ra một đĩa CD rất giá trị và bạn muốn mỗi người dùng hợp lệ sẽ phải mua chứ không phải là ăn cắp bản CD đó. Làm thế nào bạn có thể ngăn ngừa việc sao chép bất hợp lệ? Vấn đề đặt ra là làm thế nào bạn có thể đặt được một thông tin vào mỗi bản CD để khi bất kỳ người mua nào phát tán nó bạn cũng có thể lần ra dấu vết? Nói cách khác, nếu bạn bắt được một bản CD "phi pháp", bạn sẽ truy ra được ai là kẻ đã mua và phát tán nó.</p>
+<p><strong>2. Cung cấp thông tin động:</strong> Bạn là người phát chương trình VTV Knowledge với những cuộc đàm luận đỉnh cao thế giới và bạn muốn ai xem chương trình của bạn cần phải trả tiền mua. Bạn sẽ cung cấp cho mỗi khách hàng một bộ giải mã. Khi bạn phát tín hiệu, mỗi người đăng ký sẽ dùng bộ giải mã để giải tín hiệu và xem chương trình. Vấn đề được gọi là "động" do bởi thông tin liên tục được cập nhật và để xem chương trình đòi hỏi sự tương tác liên tục giữa tín hiệu phát và bộ giải mã của người dùng. Vấn đề đặt ra là những kẻ phạm tội chuyên nghiệp đăng ký mua bộ giải mã rồi có thể mở hộp giải mã, lấy khóa giải mã và phát tán chúng hay sản xuất ra bộ giải mã mới và bán ngoài chợ trời. Nhiệm vụ đặt ra là làm thế nào để khi ta bắt một bộ giải mã giả (ra ngoài chợ mua), ta có thể truy lùng lại dấu vết xem kẻ phản bội nào đã sản xuất ra bộ giải mã giả đó?</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 2 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">04-04-2005 · 22:32</span>
+</div>
+<p>Trước tiên, chúng ta hãy đề cập đến vấn đề thứ nhất.</p>
+<p><strong>Đặt vấn đề:</strong> Năm 2024, các thành viên của diễn đàn toán học đã miệt mài chọn lựa và tổng hợp 10000 bài viết hay nhất của diễn đàn toán học. Đó là sự tổng hợp các bài viết xuất sắc kỷ niệm 20 năm ngày diễn đàn toán học ra đời. Những thành viên của diễn đàn muốn góp phần đẩy mạnh sự phát triển các tài năng toán học bằng cách lập quĩ "tuổi trẻ sáng tạo" của diễn đàn. Mỗi người mua đĩa tổng hợp này sẽ đóng góp 100 đồng (khi đó bằng 1000 USD) cho quĩ "tuổi trẻ sáng tạo".</p>
+<p>Tuy nhiên, lại có nhiều kẻ can tâm làm điều xấu: mua đĩa của diễn đàn rồi sản xuất các đĩa giả và bán ra ngoài!</p>
+<p><strong>Mục đích:</strong> Nhiệm vụ của đội "bảo vệ công lý" của diễn đàn là làm sao từ một đĩa lậu có thể truy lùng lại kẻ nào đã phát tán các đĩa giả!</p>
+<p>Bạn đã bao giờ tìm hiểu đến vấn đề thực tế này chưa? Dù chưa hay có, chúng ta hãy thử đề xuất các phương án để thực thi nhiệm vụ truy lùng này!</p>
+<p>Trước hết chúng ta hãy xem xét vấn đề đơn giản: Đĩa CD giả do chỉ 1 kẻ phản bội sản xuất. (Vấn đề tiếp theo: Đĩa CD giả do nhiều kẻ phản bội cấu kết với nhau sản xuất)</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 3 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">nemo</span>
+  <span class="post-date">05-04-2005 · 08:45</span>
+</div>
+<p>Chúng ta sẽ chẳng làm gì được nếu kẻ phản bội đó không nhét cái đĩa lấy cắp đấy vào máy tính và vô tình khởi động một chương trình "an ninh" mà chúng ta đã cài đặt sẵn trong mỗi đĩa CD. Chương trình này sẽ tự động khóa lại các dữ liệu không cho ghi chép khi nó được xác nhận là sản phẩm đã được mua hợp pháp (có thể vẫn bằng những kỹ thuật phổ biến hiện nay như cung cấp cho người mua một mật mã, khi nhập đúng mật mã chương trình sẽ được đăng ký và không còn khả năng ghi chép). Một kẻ muốn phát tán bất hợp pháp họ sẽ phải ghi chép ra nhiều đĩa khác, nếu họ khởi động chương trình ghi, chép, một chương trình ẩn sẽ tự động kích hoạt, chương trình này giống như một con Trojan sẽ cài vào máy và nếu máy đang kết nối mạng thì nó sẽ mở một cổng kết nối và "đánh tín hiệu về máy chủ" của chúng ta. Đồng thời chương trình này sẽ tự ghi lên đĩa sao chép và lưu giữ lại những thông tin cần thiết trên máy của kẻ sao chép (chẳng hạn các thông tin đăng ký trên máy biết đâu lưu trữ tên tuổi, số đt, địa chỉ, ... và đếm số lần đã sao chép). Nếu sau khi dung lượng trên đĩa không còn thì nó sẽ tự động khóa lại, chống ghi chép.</p>
+<p>Anh RongChoi mở đề tài này thú vị ra phết, hy vọng mọi người cứ nêu thật nhiều ý tưởng cho các vấn đề.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 4 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">05-04-2005 · 13:58</span>
+</div>
+<blockquote><p>Chúng ta sẽ chẳng làm gì được nếu kẻ phản bội đó không nhét cái đĩa lấy cắp đấy vào máy tính và vô tình khởi động một chương trình "an ninh"... — <em>nemo</em></p></blockquote>
+<p>Chú nemo có 2 điểm chưa thể trở thành cảnh sát điều tra :D</p>
+<p>- Một là đánh giá thấp khả năng điều tra của mình, không có gì là ta không làm được cả.<br>
+- Hai là đánh giá thấp khả năng của kẻ phản bội, không có gì là hắn không thể làm cả.</p>
+<p>Tuy vậy chú có tương lai sẽ trở thành một chiến sỹ chuyên nghiệp vì đã nêu ra rất nhiều phương án thú vị có thể bắt được những tội phạm... ngây thơ :)</p>
+<p>Chúng ta hãy xem xét rằng kẻ phản bội rất chuyên nghiệp. Đối với chúng, cái đĩa CD của ta chỉ như một chuỗi dữ liệu 0,1 và do đó để sao chép thì chúng có thể tự tạo ra những chương trình riêng để sao chép từng bít 0,1 mà không cần dùng bất kể chương trình gì của chúng ta.</p>
+<p>Ngoài ra các vấn đề password cũng không ăn thua, kẻ gian có thể đưa password hợp lệ vào, mở file, lấy dữ liệu rồi sao chép toàn bộ dữ liệu sang đĩa khác. Tất cả các thao tác này hắn ta đều thực hiện mà không cần chạy bất cứ chương trình nào của chúng ta.</p>
+<p>Chúng ta hãy giả thiết ở mức cao nhất rằng kẻ phản bội có thể sao chép dữ liệu thoải mái. Vấn đề là khi bắt được một bản sao chép giả, làm thế nào ta có thể lần lại dấu vết của chúng.</p>
+<p>nemo nói là không thể là đánh giá sai cả tiền bối của chúng ta. Một trăm năm trước, khi mà thế giới còn chưa có các máy móc hiện đại như ngày nay, các bậc tiền bối đã nghĩ ra cách bán những bảng tính logarithm với những kỹ thuật thông minh hòng có thể truy ra kẻ sản xuất phi pháp. Mọi người đã từng nghe cha ông chúng ta kể lại chưa nhỉ?</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 5 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">nemo</span>
+  <span class="post-date">05-04-2005 · 15:57</span>
+</div>
+<p>Vỏ quýt dày phải cần móng tay nhọn, móng tay em cùn thế này thì chỉ bóc vỏ khoai thôi :)</p>
+<p>Em chưa nghe kể về chuyện các bậc tiền bối tìm ra thủ phạm bằng cách nào, em chỉ nghĩ là nếu ai đó cứ cầm cái CD đó ngắm nghía mà không làm gì cả thì chắc muốn bắt hắn chỉ còn cách rình mò, theo dõi, truy hỏi, khoanh vùng... Không biết có cách nào có thể phân biệt được đâu là sao chép giả, đâu là sao chép hợp lệ và làm cách nào để các đĩa sao chép "ghi nhớ" lại được những thông tin từ lần chép đầu tiên và sau đó nó sẽ lưu thông tin này trên các đĩa sao chép khác để khi tóm được một đĩa giả, bằng cách nào đấy có thể đọc lại được những gì đã diễn ra từ lần chép đầu!?</p>
+<p>Em nói ba hoa thế, anh RongChoi đừng bắt em làm lính bóc khoai nhé :)</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 6 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">06-04-2005 · 14:10</span>
+</div>
+<p><strong>Kỹ thuật "Đánh dấu vân tay" (Fingerprinting technique)</strong></p>
+<p>Bây giờ RC trình bày kỹ thuật của các bậc tiền bối truyền lại từ vài trăm năm trước:</p>
+<p>Cách ta hàng vài thế kỷ người ta đã lập ra những bảng tính logarithm rất đồ sộ để tính log(x) với x chạy từ 1 đến hàng vài chục nghìn. Một bảng tính công phu như vậy ắt hẳn không muốn bị sao chép bất hợp pháp. Muốn vậy, người ta đã đánh dấu vào mỗi bảng tính một đặc trưng riêng nhằm hai mục đích:</p>
+<p>1. Mỗi bảng tính có đặc trưng khác biệt riêng mà không làm ảnh hưởng đáng kể đến nội dung của nó. Nếu ta bán một bảng tính cho Nemo thì đặc trưng đó sẽ gắn với Nemo và do vậy nếu Nemo copy và đem bán cho leoteo thì bản giả của leoteo vẫn sẽ mang đặc trưng của Nemo và do vậy, chỉ cần bắt 1 bản giả do Nemo phát tán, ta có thể lần lại dấu vết kẻ phát tán là... Nemo!</p>
+<p>2. Đặc trưng riêng này cần phải làm theo cách nào để không thể bị phát hiện. Tức là ta phải đánh dấu một đặc trưng duy nhất lên bảng tính để Nemo không thể phát hiện được ta đã đánh dấu vào đâu. (Ngược lại, nếu Nemo có thể phát hiện thì Nemo có thể sửa đặc trưng đó khác đi để xóa dấu vết). Việc đánh dấu thỏa mãn yêu cầu này gọi là đánh dấu ẩn (watermarking).</p>
+<p>Quá trình làm thỏa mãn 2 điều kiện trên được gọi là quá trình đánh dấu vân tay lên sản phẩm (Fingerprinting). Các cụ tiền bối đã làm thế nào?</p>
+<p>Các cụ đã khéo léo đánh dấu vào bảng tính bằng cách thay đổi chút xíu giá trị kết quả bảng tính: thay đổi chữ số thứ 10 sau dấu phẩy chẳng hạn không làm thay đổi nhiều đến độ chính xác.</p>
+<p>Cụ thể: Nếu các cụ định bán 1000 bản thì các cụ sẽ chọn ra 3 giá trị trên bảng tính: chẳng hạn với x₁ = 17, x₂ = 567, x₃ = 8999. Khi Nemo đến mua 1 bảng tính của các cụ thì các cụ sẽ bán cho Nemo bảng tính với số hiệu 931 (c₁ = 9, c₂ = 3, c₃ = 1) chẳng hạn. Một cách ngầm định, giá trị bảng tính log(x) sẽ được giữ nguyên trừ ba giá trị của log(x₁), log(x₂), log(x₃):</p>
+<p>- Chữ số thứ 10 sau dấu phẩy của log(x₁) sẽ bị gán giá trị c₁ = 9.<br>
+- Chữ số thứ 10 sau dấu phẩy của log(x₂) sẽ bị gán giá trị c₂ = 3.<br>
+- Chữ số thứ 10 sau dấu phẩy của log(x₃) sẽ bị gán giá trị c₃ = 1.</p>
+<p>Rõ ràng Nemo có thể dùng bảng tính mình mua không vấn đề gì. Nhưng một khi Nemo copy và bán cho Leoteo thì chỉ cần kiểm tra giá trị ở ba vị trí x₁, x₂, x₃ là ra số hiệu 931 gắn với người đã phát tán - Nemo.</p>
+<p>Cách đánh dấu vân tay trên đạt độ an toàn (Secure Fingerprinting) vì khi mua về Nemo không có cách nào biết được người bán đã đánh dấu vào đâu, tức là không thể biết được vị trí x₁, x₂, x₃.</p>
+<p>Tuy nhiên bạn có thấy là phương pháp trên sẽ không còn an toàn nếu như Nemo mua 1 bản, anh Badman mua 1 bản rồi kết hợp với nhau để tạo ra 1 bản copy giả bán cho leoteo?</p>
+<p><strong>Câu hỏi:</strong><br>
+1. Bạn hãy tìm ra chỗ hổng, tức là chỉ ra rằng việc kết cấu có thể xóa dấu vết.<br>
+2. Bạn hãy đề xuất cách khắc phục:<br>
+&nbsp;&nbsp;&nbsp;a. Trước hết bạn hãy đề xuất 1 cách đơn giản để sự kết cấu giữa nhiều kẻ phản bội không thể tạo ra dấu vết "giả" quy tội cho một người vô tội.<br>
+&nbsp;&nbsp;&nbsp;b. Bạn hãy đề xuất một cách giải vấn đề: từ một bản copy giả, chúng ta sẽ lần ra dấu vết của 1 trong các kẻ phản bội.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 7 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">nemo</span>
+  <span class="post-date">06-04-2005 · 17:21</span>
+</div>
+<p>Hay thật, cách thức mà các tiền bối làm có vẻ đơn giản nhưng thật hiệu quả, thế nhưng nếu chẳng hạn em định làm ăn lớn, chẳng tội gì em không đầu tư công sức để thay đổi toàn bộ chữ số thứ 10 sau dấu phẩy của bảng thế thì dù nhìn vào là các cụ biết được là bảng giả, bị sao chép nhưng vẫn đành ngậm bồ hòn thôi!</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 8 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">06-04-2005 · 18:24</span>
+</div>
+<p>Nemo đã bắt đầu có dáng dấp của kẻ phạm tội chuyên nghiệp rồi đấy :D</p>
+<p>Ý kiến của Nemo đánh đúng vào điều quan trọng: Đó là phải đánh dấu thế nào để người mua không biết ta đánh dấu vào đâu! Thực ra ngày trước các cụ phải giấu kín thông tin là "tôi đánh dấu vào chữ số thứ 10 sau dấu thập phân của một số giá trị". Điều đó có lẽ là bí mật của một vài cụ bô lão thôi chứ không nói cho ai biết cả.</p>
+<p>Ngày nay thì ta có thể làm thực tế hơn, không dấu giếm gì như các bậc tiền bối :D. Ta có thể có nhiều kiểu đánh dấu khác nhau. Ví dụ: sự khác biệt rất nhỏ trong vị trí các từ trên dòng - chữ "for" của dòng thứ 2 lệch sang trái 1 chút so với dòng bên trên. Hai dòng này có thể coi là hoàn toàn giống nhau nhưng chữ "for" đã bị đánh dấu, và nếu ta chỉ nhận được 1 phiên bản thì ta không thể nào phát hiện được là nó đã bị đánh dấu!</p>
+<p>Tất nhiên việc chống làm giả chỉ áp dụng để chống photocopy tài liệu bất hợp pháp, chống sao chép đĩa bằng thủ thuật sao từng bít,... Nếu kẻ gian ngồi đọc rồi đánh lại toàn bộ văn bản theo cách của nó thì ta có lẽ đành bó tay.</p>
+<p>Ta từ đây đặt giả thiết rất thực tế rằng: <strong>Dữ liệu của ta là một chuỗi nhị phân 0,1. Trên đó ta có thể đánh dấu 1 số vị trí mà từ 1 bản thì không ai có thể phát hiện được. Kẻ phản bội có thể thay đổi tùy ý trạng thái các bít (từ 0 sang 1 và ngược lại) trên văn bản theo ý của chúng trước khi tán phát.</strong></p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 9 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">leoteo</span>
+  <span class="post-date">06-04-2005 · 19:47</span>
+</div>
+<p>Choáng, tự nhiên giờ vào đọc tiếp cái này mới giật mình. Đêm qua em mơ thấy một ý cho bài toán này :D.</p>
+<p>Sáng tỉnh dậy không hề nhớ nhưng giờ thấy mới nhớ ra là hôm qua mình có mơ. Hì hì, em rất hay như thế này: cứ thỉnh thoảng tự nhiên mơ thấy một vấn đề nào đó, rất hay, chỉ có mỗi một điều là sáng ra thường không nhớ là mình đã mơ, và nếu có nhớ là đã mơ về vấn đề đấy thì vấn đề điên đầu là phải ngồi nặn óc nghĩ xem mình mơ thế nào :D.</p>
+<p>Cụ thể hôm qua em mơ thấy mình vào thư viện, tự nhiên giở một cái journal gì đấy, thấy luôn một tay đưa ra mấy câu hỏi về truy lùng tội phạm. Trong lúc mơ đấy em vẫn nhận thức đấy là mấy câu của chú Nemo (bác RC không hề nhảy vào giấc mơ của em :D), và cái tay đấy trả lời câu hỏi đấy luôn, câu trả lời của bác ý làm em rất tâm đắc. Lúc đấy em nghĩ, hóa ra câu hỏi của chú Nemo đã có bác nào trả lời rồi, hôm tới sẽ trích dẫn bài báo này và trả lời cho chú Nemo xem.</p>
+<p>Hê hê, giờ vấn đề của em sẽ là cố nhớ xem đã thấy gì trong giấc mơ. Tạm viết vài dòng thế đọc cho vui. Hy vọng mấy hôm tới sẽ mơ tiếp :)</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 10 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">queofr</span>
+  <span class="post-date">06-04-2005 · 21:58</span>
+</div>
+<blockquote><p>Ta từ đây đặt giả thiết rất thực tế rằng: Dữ liệu của ta là một chuỗi nhị phân 0,1. Trên đó ta có thể đánh dấu 1 số vị trí mà từ 1 bản thì không ai có thể phát hiện được. Kẻ phản bội có thể thay đổi tùy ý trạng thái các bít trên văn bản theo ý của chúng trước khi tán phát.</p></blockquote>
+<p>Kỹ thuật đánh dấu trực tiếp trên văn bản bằng cách modify tại 1 vài nơi nào đó của văn bản thường rất dễ bị phá vỡ. Vì kẻ làm giả chỉ cần so sánh 2 phiên bản để có thể phát hiện ra chỗ đánh giấu. Cho nên yêu cầu đầu tiên của sự đánh giấu là phải có tính đồng đều và ngẫu nhiên trên toàn văn bản. Để sự khác biệt giữa 2 văn bản được trải rộng trên toàn nội dung. Tuy nhiên kẻ gian vẫn có khả năng làm giảm hiệu quả của biện pháp trên.</p>
+<p>Đơn giản kẻ phản bội chỉ cần sử dụng "Blind Attack" có nghĩa là thay đổi thông tin một cách ngẫu nhiên ở tất cả mọi nơi trên văn bản miễn là văn bản vẫn còn giữ được giá trị.</p>
+<p>Do vậy Watermarking cần phải robust, có nghĩa là vẫn còn giữ được những tính chất nào đó ngay cả khi bị "Blind Attack".</p>
+<p>Việc tồn tại hay không 1 thuật toán Watermarking Robust trên mọi đối tượng văn bản vẫn là vấn đề bỏ ngỏ. Mỗi loại hình văn bản có những tính chất riêng của nó tùy thuộc vào nội dung ví dụ như hình ảnh, âm thanh, text, software... mỗi thuật toán Watermarking phải bảo tồn những tính chất đấy. Do đó không thể đơn thuần coi tất cả văn bản như 1 chuỗi 0,1, vì thuật toán có thể áp dụng cho loại hình văn bản này nhưng lại không thể áp dụng cho loại hình văn bản khác được.</p>
+<p>Ví dụ áp dụng những phân tích trên cho việc dùng Watermarking bảo vệ software chẳng hạn: không thể modify tùy ý, ngẫu nhiên các bit của chương trình; những đoạn mã thêm vào phải không ảnh hưởng đến việc chạy của chương trình, và phải ở khắp nơi trong chương trình; những đoạn mã đó phải hợp lệ với cấu trúc lệnh của máy tính và không được quá "ngô nghê"; từ những đoạn mã đó phải decrypt ra được những thông tin có chủ ý của nhà sản xuất. Do vậy mà vấn đề bảo vệ bản quyền software vẫn còn nan giải.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 11 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">06-04-2005 · 22:23</span>
+</div>
+<blockquote><p>Kỹ thuật đánh dấu trực tiếp trên văn bản bằng cách modify tại 1 vài nơi nào đó của văn bản thường rất dễ bị phá vỡ. Vì kẻ làm giả chỉ cần so sánh 2 phiên bản để có thể phát hiện ra chỗ đánh giấu. — <em>queofr</em></p></blockquote>
+<p>Đây chính là lời giải câu hỏi số 1 ở trên: việc kết cấu có thể xóa dấu vết! Như vậy chúng ta có thể quan tâm đến câu hỏi thứ 2!</p>
+<blockquote><p>Đơn giản kẻ phản bội chỉ cần sử dụng "Blind Attack" có nghĩa là thay đổi thông tin một cách ngẫu nhiên ở tất cả mọi nơi trên văn bản miễn là văn bản vẫn còn giữ được giá trị. — <em>queofr</em></p></blockquote>
+<p>Chỗ này mình chưa đồng tình: Thay đổi thông tin một cách ngẫu nhiên cũng chỉ là hòng thay đổi trúng chỗ "bị đánh dấu". Một ví dụ là nếu như mình đánh 10 dấu chẳng hạn thì như vậy cần phải thay đổi tổng số 1/10 phần của văn bản để chúng 1 dấu, như vậy kể như văn bản bị thay đổi quá nhiều. Hơn nữa dù có tìm được 1 dấu đi chăng nữa thì khả năng bị phát hiện vẫn rất lớn.</p>
+<p>Đúng là với mỗi loại hình ta có một phương án khác nhau, file dữ liệu khác, file chạy khác,... Các hạn chế bạn đưa ra rất chuẩn xác và cần xem xét trong các trường hợp cụ thể. Tuy vậy giả thiết trên mình đưa ra như trên coi như tính đến trường hợp xấu nhất vì không hạn chế khả năng của kẻ gian.</p>
+<p>Do vậy, chúng ta tiếp cận câu hỏi thứ 2: Sự cấu kết có thể làm những kẻ phản bội phát hiện ra nhiều dấu (tức các vị trí trên văn bản ta chọn để đánh dấu). Hãy tìm phương pháp để khắc phục việc này. RC ghi lại câu hỏi đã đặt ở trên để tiện việc theo dõi chủ đề:</p>
+<p><strong>Câu hỏi 2:</strong> Bạn hãy đề xuất cách khắc phục sự cấu kết:<br>
+&nbsp;&nbsp;&nbsp;a. Trước hết bạn hãy đề xuất 1 cách đơn giản để sự kết cấu giữa nhiều kẻ phản bội không thể tạo ra dấu vết "giả" quy tội cho một người vô tội.<br>
+&nbsp;&nbsp;&nbsp;b. Bạn hãy đề xuất một cách giải vấn đề: từ một bản copy giả, chúng ta sẽ lần ra dấu vết của 1 trong các kẻ phản bội.</p>
+<p><strong>Hình thức hóa vấn đề:</strong> Nếu ta đánh <em>n</em> dấu thì số các từ mã sẽ là 2<sup>n</sup>. Ta sẽ chọn lựa một số trong các từ mã này để sử dụng. Tập các từ mã ta dùng được gọi là code <em>W</em>. Ta gọi <em>F(W)</em> là tập các từ mã sinh ra được từ tập các từ mã <em>W</em>.</p>
+<p><em>F(W)</em> gồm tất cả từ mã thỏa mãn điều kiện: tại vị trí <em>i</em> (i = 1,...,<em>n</em>), nếu mọi từ trong <em>W</em> đều có giá trị là bít <em>b</em>, thì nó cũng nhận giá trị bít <em>b</em>; ngược lại, nếu có 2 từ trong <em>W</em> có giá trị là 0,1 thì nó có thể nhận giá trị 0,1 hoặc ?.</p>
+<p>Ví dụ: <em>W</em> = {010, 100} thì <em>F(W)</em> = {000, 010, 100, 110, ?00, ?10, 0?0, 1?0, ??0}.</p>
+<p><strong>Điều kiện bảo vệ người vô tội:</strong> Với mọi tập con <em>W</em> của code <em>C</em>: <em>F(W)</em> ∩ <em>C</em> chỉ là những phần tử trong <em>W</em>, do đó không một ai vô tội bị bọn chúng qui kết.</p>
+<p><strong>Câu hỏi 3:</strong> Hãy thiết kế code <em>C</em> để thỏa mãn điều kiện trên. Chú ý rằng ta không yêu cầu độ hiệu quả mà chỉ yêu cầu sự đúng đắn mà thôi.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 12 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">BadMan</span>
+  <span class="post-date">08-04-2005 · 00:01</span>
+</div>
+<p>Không biết mọi người đi đến đâu rồi và vấn đề "đánh dấu vân tay" đã được giải quyết thế nào nhưng tớ thì mới đọc đến đây nên reply luôn. Có thể là "không theo kịp thời đại" nhưng cũng mở rộng vấn đề bằng 1 kinh nghiệm bản thân như sau: <strong>Vấn đề bảo quản tủ sách cá nhân.</strong></p>
+<p>Tớ có 1 tủ sách cá nhân nhỏ nhỏ, nó là kết quả tích tụ từ ngày vào đại học đến nay, cả sách mua và sách photo. Trong số sách photo thì có 1 cuốn khá quý nhưng không tìm mua được nên phải photo lại từ sách của 1 thầy giáo. Thường sách photo thì chỉ được 5-7 năm là chữ tự nhiên tan ra, mờ dần. Do đó tớ phải cắn răng để photo giá đắt bằng lại mực xạ (các phòng công chứng thường photo loại mực này). Nhìn qua thì không có sự khác biệt về màu chữ nhưng mực bám rất chắc.</p>
+<p>Sau này có 1 lớp sinh viên muốn để photo và khi họ trả lại, tớ bảo "cuốn này không phải sách của thầy". "Tụi nó" nhìn nhau cười rồi bảo - Tụi em thử xem thầy nhận ra không. Hôm sau, một lớp khác cũng lại mượn sách thầy (sách bản in) rồi trả với 1 cuốn hoàn toàn như thế, nhưng cuốn này cũng không phải sách thầy. (Tụi nó muốn tìm xem bí mật là gì đấy mà). Thực chất vấn đề này khá đơn giản, chỉ cần đánh dấu vào 1 số trang, cố gắng càng tinh tế càng tốt. (Tụi nó bảo - lớp em phân công mỗi đứa dò 5 trang mà vẫn không tìm ra dấu vết.)</p>
+<p>Nhưng nếu "người mượn" đến trả mà không có mình ở nhà thì làm sao nhỉ? Đó là thời gian tớ ra học ở Hà Nội, tủ sách vẫn mở để phục vụ sinh viên và cậu bạn đồng nghiệp quản lý giúp. Trong một email gửi cậu bạn, bí mật được truyền đạt: "Những cuốn sách/giáo trình có số trang &lt; 50 thì kiểm tra vết ở trang [Trang cuối - 5], những cuốn có số trang &lt; 100 thì vết có ở trang [Trang đầu + 5] và [Trang 50 + 5], ...". Còn vết được đánh dấu thế nào thì không nói :)</p>
+<p>Hì, đấy chỉ là giải pháp tình thế. Hy vọng sau topic này sẽ học được cách "bảo quản" hiệu quả hơn :)</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 13 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">BadMan</span>
+  <span class="post-date">08-04-2005 · 14:38</span>
+</div>
+<blockquote><p>Câu hỏi 2: Bạn hãy đề xuất cách khắc phục sự cấu kết... — <em>RongChoi</em></p></blockquote>
+<p>Vấn đề của RC đặt ra thú vị ở chỗ người tranh luận có thể tham gia với vai trò là "chính diện" - bảo vệ công lý hoặc "phản diện" - kẻ phản bội. Như vậy RC luôn luôn trong vai chính diện, số còn lại thì tùy cơ ứng biến - thấy vai diễn nào dễ thì nhảy vào :) Tớ vừa đọc đến đoạn này nên quote một phát với vai trò "kẻ phản bội".</p>
+<p><strong>"Lách luật"</strong></p>
+<p>Giả sử kết cấu của CD là một dãy tín hiệu nhị phân {0,1}, bỏ qua nội dung mà các tín hiệu này thể hiện để có thể đánh dấu trên nó. Nghĩa là có thể đánh dấu ở một số vị trí trên dãy nhị phân làm cho nó khác với bản gốc mà vẫn không ảnh hưởng (hoặc ảnh hưởng không đáng kể) đến nội dung. Lúc này nếu kẻ phản bội buộc phải có từ 2 CD trở lên để nhận ra các vị trí đánh dấu (bằng cách so sánh dãy tín hiệu nhị phân).</p>
+<p>- Nếu mỗi CD chỉ được đánh dấu tại 1 vị trí: chỉ cần 2 CD là phát hiện CD gốc (chưa đánh dấu). Kẻ phản bội có thể khôi phục CD đánh dấu trở về CD gốc, sau đó thay đổi nội dung bít thứ j để sao chép và phát tán từ CD mới này, tạo dấu vết "giả" để vu khống cho nạn nhân.</p>
+<p>- Nếu mỗi CD được đánh dấu tại nhiều hơn 1 vị trí: kẻ phản bội không biết chính xác số bit được đánh dấu vì khi so sánh 2 CD và phát hiện CD₁ được đánh dấu ở bít i và k, CD₂ được đánh dấu ở bít j và l thì không thể kết luận "các CD phát hành được đánh dấu bằng 2 bít" vì có thể ở bít thứ m, cả 2 CD₁&amp;₂ có trạng thái {0,1} giống nhau nhưng lại khác với CD₃, CD₄... nên m cũng là bít dấu.</p>
+<p>- Trong trường hợp kẻ phản bội (tay trong của nhà sản xuất chẳng hạn) có được đầy đủ các CD trước khi phát hành thì sẽ phát hiện ra cách đánh dấu và dễ dàng vu khống cho tất cả khách hàng. Nguyên tắc chung là luôn giữ lại một (số) CD không phát hành để nếu kẻ phản bội có đầy đủ số CD tung ra thị trường thì cũng khó mà tìm ra quy luật đánh dấu.</p>
+<p>Mới giả sử trường hợp đơn giản nhất, thô thiển nhất mà cũng đã thấy khó nhỉ. RC và mọi người xem phân tích của tớ có khả thi (cho kẻ phản bội) không nhé.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 14 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">BadMan</span>
+  <span class="post-date">08-04-2005 · 15:07</span>
+</div>
+<p>Nhận xét thêm từ các thảo luận:</p>
+<p>- Phân tích của Queofr nghiêng về kỹ thuật máy tính nên khá dễ hiểu. Đồng ý với Queofr là không thể modify một cách tùy ý và ngẫu nhiên trên "văn bản". Nếu có thể, nhờ bác giải thích thuật ngữ "Blind Attack" và nói ý tưởng thuật toán Watermarking Robust để những ai không đi sâu trong lĩnh vực này vẫn hiểu được.</p>
+<p>- Ý tưởng thêm "tín hiệu nhiễu" của Nemo là ý kiến hay. Nghĩa là dùng tín hiệu thêm vào để đánh dấu mà không đánh dấu vào "văn bản gốc". Thực ra rất nhiều kỹ thuật đã dùng ý tưởng này.</p>
+<p>- Vấn đề của Mathsb cũng là 1 cách bảo vệ nhưng đã bàn sang 1 hướng khác. Hoặc là Mathsb nói rõ hơn về ý tưởng của mình hoặc là can thiệp trực tiếp vào nội dung của CD mà cụ thể là RC đang mô tả nó là dãy {0,1}.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 15 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">08-04-2005 · 15:14</span>
+</div>
+<p>@Badman: Tất nhiên nhà sản xuất không thể đánh 1 bít dấu được rồi, vì nếu như vậy thì chỉ phát hành được tối đa là 2 CD mà thôi. Do vậy, RC xin phép bỏ qua trường hợp này.</p>
+<p>Trường hợp tổng quát ta có thể coi số dấu nhà sản xuất sử dụng là tất cả các vị trí ở đó tồn tại 2 phiên bản có giá trị khác nhau. Tất nhiên nhà sản xuất phải có cách chọn Code phù hợp để sự cấu kết của nhiều kẻ gian không thể tìm được tất cả các dấu.</p>
+<p>Nếu nhà sản xuất cấu kết với kẻ gian và đưa hết các đĩa cho kẻ gian trước khi phát hành thì... bó tay. Nhưng trong trường hợp đó nhà sản xuất không cần áp dụng kỹ thuật điều tra cũng có thể biết... chính mình là kẻ gian :)</p>
+<p>Như vậy ta có thể giả thiết là nếu 1 bản CD giả được xây dựng từ 3 bản CD do nhà sản xuất cung cấp thì cả 3 người sở hữu 3 bản CD này đều có tội, không thể viện lý do này nọ để chốn tội hết cả. Vấn đề đặt ra là liệu từ 3 bản CD này, những kẻ phản bội có thể tạo ra 1 bản CD tương ứng với từ mã của một người vô tội hay không?</p>
+
+<p><strong>Đáp án (tuy không hiệu quả) của việc chống đổ tội:</strong></p>
+<p>Giả sử nhà sản xuất muốn bán n đĩa CD, họ sẽ dùng Code C₀(n) có độ dài mỗi từ là n bít. Code C₀(n) sẽ bao gồm n từ mã, mỗi từ mã gồm n-1 bít 0 và duy nhất 1 bít 1.</p>
+<p>Ví dụ cho n = 4: C = {0001, 0010, 0100, 1000}.</p>
+<p>Ta thấy ngay rằng code C₀(n) là an toàn trước sự cấu kết của n-1 kẻ phản bội theo nghĩa: n-1 kẻ không thể quy tội cho người thứ n còn lại.</p>
+<p>Ta thấy ngay 2 nhược điểm:<br>
+1. Độ dài code lớn. Ta mong muốn sẽ có một Code với độ dài là một hàm theo log(n) chứ không phải theo n.<br>
+2. Sự cấu kết của 2 kẻ sẽ xóa toàn bộ dấu vết.</p>
+<p>Như vậy, trước hết ta sẽ đề cập đến vấn đề đầu tiên:</p>
+<p><strong>Câu hỏi 4:</strong> Giảm độ dài Code C₀(n) để sự cấu kết không quy tội cho người vô can. Điều kiện giảm nhẹ:<br>
+&nbsp;&nbsp;&nbsp;a) Ta có thể xét trường hợp số kẻ cấu kết không vượt quá một mức c nào đó.<br>
+&nbsp;&nbsp;&nbsp;b) Việc chống đổ tội mang nghĩa xác suất tức là có thể: sự cấu kết của c kẻ phản bội không thể đổ tội cho người vô can với xác suất sai epsilon.</p>
+</div>
+
+<!-- ══ TRANG 2 ══ -->
+
+<!-- ══ BÀI ĐĂNG 16 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">08-04-2005 · 15:47</span>
+</div>
+<blockquote><p>Kẻ phản bội không nhất thiết phải tìm cách để vu khống cho 1 người vô tội. Mục đích của kẻ phản bội là tạo ra được các CD giả và che lấp dấu vết... Nếu trả lời được câu hỏi của RC thì chỉ mới giải quyết được phần "không gây hại cho người cô tội" chứ chưa nói gì về việc tìm tội phạm. — <em>BadMan</em></p></blockquote>
+<p>Anh Badman đọc lại câu hỏi 2 đi chứ, mình đang giải quyết vấn đề a): "chống đổ tội". Câu hỏi 3 đề cập đến vấn đề này dưới dạng hình thức. Vấn đề "truy lùng dấu vết" tạm thời chưa đề cập tới. Mình đi từng bước nhỏ thôi, hôm qua anh chả trách mọi người chạy nhanh quá còn gì :) Nhưng nếu anh có giải pháp truy lùng ngay thì rất tuyệt!</p>
+<p>Ngoài ra thì mình luôn luôn xét văn bản như chuỗi nhị phân.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 17 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">madness</span>
+  <span class="post-date">08-04-2005 · 15:49</span>
+</div>
+<p>Cách hình thức hóa vấn đề mà anh RongChoi nêu ra hay quá, "điều kiện bảo vệ người vô tội" có thể hiểu như sau: nếu một tập các tội phạm x, y, z... kết hợp lại để tìm ra những chỗ bị đánh dấu, thì khi chúng tạo ra một dĩa giả, không có ai ngoài chúng có cùng dấu với dấu mà chúng tạo ra trong dĩa giả.</p>
+<p>Tuy nhiên, mad xin có một số câu hỏi như sau:</p>
+<p>1. Trong việc truy tìm thủ phạm: Nếu A = {x,y} là 2 thủ phạm, kết hợp tạo ra một dấu trong F(A), B = {x,z} là 2 thủ phạm, kết hợp tạo ra một dấu trong F(B), F(A) và F(B) chưa chắc là không giao nhau, và nếu giao nhau thì chưa chắc điểm giao là x. Như thế thì khi một dĩa giả có dấu t ≠ x, ta thực hiện hàm ngược F⁻¹(t) thì được 2 trường hợp là {x,y} và {x,z}, như thế sẽ dẫn tới việc bắt sót chăng? Tức là chỉ bắt được x, mà y hoặc z có thể lọt lưới? Có thể (hay có cần) đặt thêm điều kiện về điều này không?</p>
+<p>2. Độ hiệu quả của code C có thể hiểu theo các nghĩa sau:<br>
+&nbsp;&nbsp;&nbsp;a. Thời gian (time complexity): để thực hiện hàm ngược để truy lùng thủ phạm, hay là để tính ra code C?<br>
+&nbsp;&nbsp;&nbsp;b. Độ lớn của code C (số phần tử trong C). Ví dụ như khi đánh 10 dấu, có 1024 từ mã, mà code C₁ ta chọn ra có 10 từ mã, code C₂ có 100 từ mã, thì code C₂ được cho là hiệu quả hơn C₁ chăng?</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 18 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">BadMan</span>
+  <span class="post-date">08-04-2005 · 15:57</span>
+</div>
+<p>Hì, giờ mới đọc đến đoạn Code C của RC và thống nhất làm từng bước. Nhưng đi học chút đã, chiều về vào lại :)</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 19 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">08-04-2005 · 16:11</span>
+</div>
+<p>Cả hai câu hỏi của Madness đều rất thú vị.</p>
+<blockquote><p>1. Trong việc truy tìm thủ phạm: F(A) và F(B) chưa chắc là không giao nhau, và nếu giao nhau thì chưa chắc điểm giao là x. — <em>madness</em></p></blockquote>
+<p>Điều kiện của việc chống đổ tội là F(W) ∩ C chỉ gồm các phần tử trong W. Vậy phần giao nhau trong code chính là W, và do đó chắc chắn phần giao nhau là x.</p>
+<blockquote><p>Như thế thì khi một dĩa giả có dấu t ≠ x, ta thực hiện hàm ngược F⁻¹(t) thì được 2 trường hợp là {x,y} và {x,z}, như thế sẽ dẫn tới việc bắt sót chăng? Tức là chỉ bắt được x, mà y hoặc z có thể lọt lưới? — <em>madness</em></p></blockquote>
+<p>Việc truy lùng chỉ xét đến bắt 1 tên thôi chứ không hy vọng bắt được tất cả các tên. Trong thực tế bắt được 1 tên có thể dùng các biện pháp "nghiệp vụ" để bắt các tên khác. Việc bắt tất cả các tên đã cấu kết nói chung là không thể. Giả sử có 10 tên cấu kết với nhau nhưng sau khi xem xét, phân tích thông tin nếu bọn chúng chỉ chọn ra 8 bản thực sự có giá trị để tạo ra 1 bản copy mới thì không thể có cách nào bắt được 2 tên tuy có tội nhưng rõ ràng không có dấu vết.</p>
+<blockquote><p>b. Độ lớn của code C (số phần tử trong C). Code C₁ ta chọn ra có 10 từ mã, code C₂ có 100 từ mã, thì code C₂ được cho là hiệu quả hơn C₁ chăng? — <em>madness</em></p></blockquote>
+<p>Tất nhiên như vậy thì Code C₂ hiệu quả hơn rồi! Hiệu quả chính là 1 trong các vấn đề cốt lõi. Và quả thực khi đánh giá hiệu quả thì 2 vấn đề quan trọng nhất đúng như madness đề cập: độ dài biểu diễn Code C và thời gian cần thiết để "truy lùng".</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 20 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">madness</span>
+  <span class="post-date">17-04-2005 · 21:59</span>
+</div>
+<p>Topic hay mà không thấy anh RongChoi tiếp tục nhỉ?</p>
+<p>Điều kiện chống đổ tội này, mad nghĩ kỹ lại thì thấy nó có một lỗ hổng, không biết có đúng không. Ví dụ như có 2 tập thủ phạm (không nhất thiết giao nhau) A và B mà F(A) và F(B) có một điểm chung nằm ngoài C, thế thì khi dĩa giả chứa điểm chung ngoài C đó, làm sao có thể biết tập thủ phạm 1 hay tập thủ phạm 2 phạm tội?</p>
+<p>Nếu muốn bác bỏ điều này thì phải CM rằng nếu A, B không giao nhau thì F(A) và F(B) cũng không giao nhau. Nhưng điều này cũng chưa chắc đúng.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 21 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">19-04-2005 · 18:27</span>
+</div>
+<blockquote><p>Điều kiện chống đổ tội này, mad nghĩ kỹ lại thì thấy nó có một lỗ hổng... Ví dụ như có 2 tập thủ phạm (không nhất thiết giao nhau) A và B mà F(A) và F(B) có một điểm chung nằm ngoài C, thế thì khi dĩa giả chứa điểm chung ngoài C đó, làm sao có thể biết tập thủ phạm 1 hay tập thủ phạm 2 phạm tội? — <em>madness</em></p></blockquote>
+<p>Hi madness, điều kiện chống đổ tội đúng đấy chứ? F(A) ∩ F(B) chứa từ mã X ngoài code C chẳng hạn thì có sao đâu? Vì khi đó X không tương ứng với bản hợp lệ nào cả (mỗi bản hợp lệ tương ứng một từ mã trong code C).</p>
+<blockquote><p>Nếu muốn bác bỏ điều này thì phải CM rằng nếu A, B không giao nhau thì F(A) và F(B) cũng không giao nhau. — <em>madness</em></p></blockquote>
+<p>Hay đấy, đây là điều kiện cần cho việc lập mã C để có thể truy lùng lại dấu vết kẻ phạm tội. Mọi người nghĩ tiếp thử xem.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 22 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">madness</span>
+  <span class="post-date">19-04-2005 · 21:15</span>
+</div>
+<blockquote><p>F(A) ∩ F(B) chứa từ mã X ngoài code C chẳng hạn thì có sao đâu? Vì khi đó X không tương ứng với bản hợp lệ nào cả. — <em>RongChoi</em></p></blockquote>
+<p>Ý của mad là trong trường hợp này sẽ không xác định được thủ phạm. Anh RongChoi cho là điều kiện chống đổ tội đúng mà mad cho là nó sai bởi vì 2 người hiểu điều kiện chống đổ tội theo 2 hướng khác nhau. Mad hiểu trong trường hợp này thì tập thủ phạm A (thủ phạm thật sự) có thể đổ thừa là: "Ứ ừ, em không làm chuyện này, các cô các bác xem lại, tụi B hợp tác có thể tạo dĩa giả như thế này!"</p>
+<p>Cái này có thể tìm phản ví dụ hay chứng minh, nhưng mad đang nằm trên thớt, đợi người ta băm thịt xong rồi mới xem tiếp được :)</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 23 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">19-04-2005 · 21:25</span>
+</div>
+<blockquote><p>Ý của mad là trong trường hợp này sẽ không xác định được thủ phạm... tập thủ phạm A có thể đổ thừa: "Ứ ừ, em không làm chuyện này, tụi B hợp tác có thể tạo dĩa giả như thế này!" — <em>madness</em></p></blockquote>
+<p>Vấn đề madness nói cũng là một vấn đề rất thú vị đấy. Đó là "chống chối tội". Tôi đã chỉ ra là anh có tội thì cấm mà có cãi. Nhưng đó thuộc về lĩnh vực "truy lùng" rồi. Chống đổ tội chỉ hiểu theo ý nghĩa thông thường "cả hội xúm vào đổ tội cho 1 người lương thiện", tức là "từ mã mà cả hội hợp lại tạo ra trùng với từ mã của 1 người không dính dáng gì tới hội đấy cả".</p>
+<p>Cái phần "truy lùng" có cả 2 mặt đúng như madness dự đoán đấy: phản ví dụ và chứng minh. Sẽ không có cách truy lùng chính xác 100% nhưng có thể có thuật toán xác suất để truy lùng với xác suất (100-epsilon)% với epsilon nhỏ bao nhiêu cũng được. Đấy cũng là lý do anh đưa ra (một cách không chặt chẽ) khái niệm thuật toán xác suất.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 24 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">nguyen_hung</span>
+  <span class="post-date">14-05-2005 · 18:56</span>
+</div>
+<p>Nếu chúng ta ghi dữ liệu lên một loại CD riêng, đặt hàng từ một hãng sản xuất nào đó thì khi tội phạm copy sẽ không có CD riêng đó để copy. Nếu có trong tay bản CD lậu chúng ta có thể bằng phương pháp khoa học hình sự tìm ra nhà chế tạo đĩa CD lậu đó, cách thức kẻ gian ghi đĩa lậu.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 25 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">werty98</span>
+  <span class="post-date">26-05-2005 · 20:58</span>
+</div>
+<p>Mình mới vô diễn đàn hôm nay, thấy nội dung hấp dẫn quá, nhất là thread này lại gãi đúng chỗ ngứa của mình. Mấy tháng nay mình nhức đầu với cái watermarking quá đi.</p>
+<p>Xin nêu rõ cho một số bạn mới làm quen với lĩnh vực này. Vấn đề quản lý sở hữu dữ liệu số Digital Right Management (DRM), trong đó có bài toán fingerprinting, theo xu hướng nghiên cứu hiện nay là kết hợp giữa hai kỹ thuật cơ bản: mã hóa (cryptography) và đánh dấu (watermarking).</p>
+<p>Cryptography mà với đại diện là các giải thuật mã hóa dùng chìa khóa công khai đã đạt được kết quả cuối cùng sau mấy chục năm nghiên cứu, hiện nay đã được sử dụng rộng rãi. Đặc điểm cơ bản của cryptography là sử dụng cho peer-to-peer communications, người gửi và người nhận sử dụng khoá công khai hoặc bí mật để truyền dữ liệu an toàn.</p>
+<p>Điểm yếu của cryptography là một khi dữ liệu đã được mở khóa rồi thì nó không còn được bảo vệ nữa. Để khắc phục khiếm khuyết này, người ta nghĩ ra watermarking. Watermarking được thiết kế để sử dụng cho multi-user communications. Watermark có thể hiểu như là một cái tem "trong suốt" được dán lên trên dữ liệu. Sự "trong suốt" này nhằm mục đích làm cho dữ liệu đánh dấu vẫn có giá trị sử dụng cho người đang "cầm" nó.</p>
+<p>Thế giới nghiên cứu watermarking suốt mười năm nay vẫn chưa đạt được một thành tựu nào đáng kể. Khó khăn lớn nhất là chống lại attacks. Trong quá trình nghiên cứu watermarking, mình cảm nhận được hai mâu thuẫn:</p>
+<p>1. Việc đánh dấu watermark lên dữ liệu và việc attack để phá watermark đều không được làm mất đi giá trị sử dụng của dữ liệu. Tuy nhiên giá trị sử dụng của dữ liệu lại là một khái niệm hết sức mơ hồ, được đo đạc và so sánh hơi tùy tiện.</p>
+<p>2. Mình đang làm watermarking on compressed data nên thấy thêm một câu chuyện "quả trứng và con gà": trong khi watermarking cố gắng sử dụng các thông tin dư thừa của dữ liệu để gắn watermark vào nhằm không thay đổi giá trị sử dụng của dữ liệu thì việc nén dữ liệu lại cố gắng làm mất đi các thông tin dư thừa. Như vậy, nếu có một giải thuật nén tối ưu thì watermarking coi như đi đứt.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 26 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">werty98</span>
+  <span class="post-date">26-05-2005 · 21:10</span>
+</div>
+<p>Trở lại bài toán cái đĩa CD do RongChoi đề ra. Theo như mình đã trình bày ở trên, cái mơ hồ trong bài toán này chính là chưa chỉ rõ ra cái "vô cùng giá trị" của cái CD nó nằm ở chỗ nào? Bài toán trở nên phức tạp ra rất nhiều khi đặt vấn đề người ta copy một ít dữ liệu trong cái đĩa CD đó thôi. Một nửa cái bánh tráng vẫn là bánh tráng, nhưng một nửa con bò lại là thịt bò :-p.</p>
+<p>Bởi vậy, mình vẫn nghĩ là giải pháp "tin tưởng lẫn nhau" như hiện nay người ta vẫn áp dụng với cryptography xem ra còn khả thi hơn là dùng watermarking cho fingerprinting. Cái này phụ thuộc vào ý thức tôn trọng pháp luật. Ta không vi phạm pháp luật bởi vì ta hiểu biết pháp luật, hay là bởi vì ta sợ rằng nếu ta vi phạm thì người chấp pháp phát hiện ra được ngay? Just joking :)</p>
+<p>Anyway, mình rất mong được trao đổi thêm với bạn nào thực sự đang tìm hiểu về watermarking. Công việc vẫn là công việc mà lị :)</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 27 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">27-05-2005 · 20:57</span>
+</div>
+<p>Giữa thực tế và lý thuyết luôn là một khoảng cách rất xa và các phương pháp lý thuyết rất khó có thể giải quyết hoàn hảo tất cả các khía cạnh của thực tế. Các nghiên cứu lý thuyết gồm rất nhiều mặt và mỗi nghiên cứu thường tiếp cận sâu về một mặt nào đó mà làm nhẹ đi các khía cạnh khác.</p>
+<p>Ví dụ rằng, trong việc xây dựng phương pháp đánh dấu vân tay fingerprinting như collusion secure code, người ta chú trọng đến việc nếu nhiều kẻ cấu kết với nhau để tạo code giả thì làm thế nào có thể truy lùng lại những kẻ đã cấu kết. Khi đó, người ta làm giảm đi khía cạnh của watermarking và giả thiết rằng watermarking đã được giải quyết.</p>
+<p>Chủ đề của mình nhấn vào khía cạnh "truy lùng" và do vậy làm nhẹ khía cạnh watermarking. Rất tiếc là do hạn chế về mặt thời gian mà ngay cả khía cạnh chính mình vẫn chưa hoàn thành. Hy vọng werty98 có thể dẫn dắt mọi người đến những khía cạnh, những hiểu biết mới của vấn đề! Chào mừng werty98 trên đường chạy tiếp sức!</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 28 ══ -->
+<div class="post">
+<div class="post-header">
+  <span class="post-author">thanhluan001</span>
+  <span class="post-date">30-05-2005 · 14:36</span>
+</div>
+<p>Hi, mình là thành viên mới. Chưa đọc kỹ lắm tất cả các bài của các bạn nhưng cũng nhảy đại vào đây chơi :)</p>
+<blockquote><p>Cryptography, theo như các bạn nói thì chỉ có giá trị khi tất cả những người trong công ty sản xuất ra CD đều tin tưởng lẫn nhau vì nếu một kẻ phản bội tiết lộ bí mật khóa K thì dữ liệu coi như không còn được bảo vệ nữa.</p></blockquote>
+<p>Nhưng em có ý này, nếu không có ai trong công ty đó thực sự có thể tin tưởng thì ta dùng một khóa K', mỗi người trong công ty sẽ có một phần của khóa K và K' là chìa khóa để kết hợp và giải mã khóa K. Trong trường hợp này, ta chỉ cần một người thật sự có thể tin tưởng để giao cho khóa K' nhưng người này lại không được giữ thông tin về khóa K. Cuối cùng, vì không ai có được thông tin hoàn chỉnh về khóa K nên trừ khi cả công ty đều đồng ý cho ra một sản phẩm, không ai có thể làm giả được.</p>
+<blockquote><p>Nếu chúng ta dùng thông tin dư thừa để đánh dấu dữ liệu thì với một thuật toán nén tối ưu, tất cả những thông tin trên sẽ rơi rụng hết. — <em>werty98</em></p></blockquote>
+<p>Em rất đồng ý với ý kiến ở trên. Nhưng nếu chúng ta dùng valid thông tin để đánh dấu - ví dụ như trong một bức tranh màu, mỗi màu là sự kết hợp của 3 màu: xanh, đỏ, vàng - ta chỉ cần chỉnh thông số của 3 màu đó trong 1 domain nhất định thì sẽ không thay đổi màu kết quả nhiều lắm. Trong trường hợp này, không có công cụ nén nào lại có thể loại màu đó ra được vì nếu thiếu sẽ rất ảnh hưởng đến chất lượng tranh. Quan trọng là mình phải tìm được giá trị X có thể thay đổi được và là một phần của dữ liệu.</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 29 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">18-06-2005 · 04:44</span>
+</div>
+<blockquote><p>Điểm yếu của cryptography là một khi dữ liệu đã được mở khóa rồi thì nó không còn được bảo vệ nữa. Để khắc phục khiếm khuyết này, người ta nghĩ ra watermarking. — <em>werty98</em></p></blockquote>
+<p>Mình không làm về watermarking nhưng mình không đồng ý lắm với quan điểm này của bạn. Cryptographie và watermarking tiếp cận đến 2 vấn đề cơ bản là khác nhau nên mình không nghĩ watermarking sinh ra là để khắc phục khiếm khuyết nào đó của cryptographie. Một trong những khác nhau lớn nhất là về yêu cầu của sự an toàn thông tin:</p>
+<p>- Cryptographie (encryption) nhắm đến bài toán một người muốn truyền một thông điệp "tuyệt mật" tới 1 hoặc 1 số người khác. Thông tin thường yêu cầu tuyệt mật và do vậy Cryptographie hướng tới bài toán không để lộ một chút thông tin nào. Kẻ địch chỉ cần giải mã được 1 phần nhỏ thông tin - cụ thể nếu nó giải mã được chữ "Đánh" trong thông điệp "Đánh vào lúc nửa đêm" thì kế hoạch có lẽ sụp đổ vì mất tính bất ngờ!</p>
+<p>- Watermarking tiếp cận bài toán 1 nhà cung cấp muốn quảng bá một nội dung mà đảm bảo được vấn đề bản quyền. Yêu cầu chung là ngăn chặn những kẻ gian tái sản xuất được "hầu như toàn bộ" thông tin.</p>
+<p>Đối với ý kiến về "quả trứng và con gà" của bạn, mình cũng không thông. Mình xem đó không phải là mâu thuẫn mà chỉ như một bài toán tối ưu 2 chiều bình thường: một chiều về phương diện nén và một chiều về phương diện watermarking. Trội về phương diện này thì lại yếu về phương diện kia và vấn đề có thể đưa về việc tìm một biện pháp khả thi cho cả hai (tradeoff). Rất mong bạn tiếp tục giới thiệu kỹ hơn về watermarking!</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 30 ══ -->
+<div class="post main-post">
+<div class="post-header">
+  <span class="post-author rongchoi">RongChoi</span>
+  <span class="post-date">18-06-2005 · 04:51</span>
+</div>
+<p>Vấn đề "trong tuần" đã lâu hàng "mấy tháng" nên chắc mọi người cũng không cần tập trung vào vấn đề khởi đầu nữa. Mọi người có thể chuyển sang pha thảo luận về mọi mắc mớ riêng tùy ý.</p>
+<p>Đối với vấn đề đầu tiên về "truy lùng dấu vết", tuy chưa đi đến lời giải cụ thể nhưng hy vọng bản thân vấn đề đã đáp ứng được phần nào tinh thần ở bài viết khởi đầu: "(...) sau cuộc chơi mỗi người có thêm một sự thỏa mãn riêng, một sự mắc mớ riêng cho mình."</p>
+<p>RC</p>
+</div>
+
+<!-- ══ BÀI ĐĂNG 31 (6 năm sau) ══ -->
+<div class="post" style="border-left-color:#c8b8b0;">
+<div class="post-header">
+  <span class="post-author">vnguru</span>
+  <span class="post-date">20-08-2011 · 10:33</span>
+</div>
+<blockquote><p>Nếu chúng ta ghi dữ liệu lên một loại CD riêng, đặt hàng từ một hãng sản xuất nào đó thì khi tội phạm copy sẽ không có CD riêng đó để copy... — <em>nguyen_hung</em></p></blockquote>
+<p>Như thế thì sẽ tạo ra nạn độc quyền. Sẽ phát sinh ra nhiều vấn đề phức tạp hơn. Người chịu thiệt chính là người tiêu dùng. Chúng ta cần có sự cạnh tranh mới phát triển được, đúng không nè. Mà thật ra bọn tội phạm có đầy cách để sản xuất CD giả.</p>
+</div>
+
+<!-- ══ PHỤ LỤC ══ -->
+<div class="appendix">
+  <p class="appendix-title">Phụ lục</p>
+  <h2>Chúng ta đang thảo luận ở đâu?</h2>
+  <p><em>(Ghi chú đầu thread của RongChoi, cập nhật 08-04-2005)</em></p>
+  <div class="summary-block">
+    <p><strong>Vấn đề đang bàn:</strong> Kỹ thuật đánh dấu vân tay chống lại sự cấu kết của nhiều kẻ phản bội.<br>
+    <strong>Bài toán con:</strong> Chống kẻ gian đổ tội cho người vô can.<br>
+    <strong>Kiến thức cơ sở cho việc thảo luận:</strong> không cần gì cả :D</p>
+    <p><strong>Những phần cần đọc để theo việc thảo luận:</strong></p>
+    <ul>
+      <li>Kỹ thuật đánh dấu vân tay (xem bài đăng của RongChoi ngày 06-04-2005)</li>
+      <li>Tóm tắt các thảo luận và sự hình thức hóa vấn đề (xem bài đăng của RongChoi ngày 06-04-2005 lúc 22:23)</li>
+    </ul>
+    <p>Chỉ cần đọc hai bài trên, các bạn có thể tiếp tục theo cuộc thảo luận.</p>
+    <p><strong>Tóm tắt các ý kiến thảo luận (từ mới đến cũ):</strong></p>
+    <ul>
+      <li><strong>08/04</strong> - madness đề cập đến các vấn đề rất cơ bản về hiệu quả của việc lập mã.</li>
+      <li><strong>08/04</strong> - Badman đề nghị các phương án "lách luật".</li>
+      <li><strong>07/04</strong> - Badman kể chuyện đánh dấu sách khi cho học trò mượn đi photo.</li>
+      <li><strong>07/04</strong> - Mathsbeginner nêu một vài phương án với sự kết hợp sử dụng mã hóa bí mật và công khai.</li>
+      <li><strong>06/04</strong> - Nemo đề xuất đưa thêm các bít nhiễu vào văn bản.</li>
+      <li><strong>06/04</strong> - queofr đưa ra các nhược điểm có thể của kỹ thuật đánh dấu vân tay. queofr cũng đề cập tới vấn đề trong thực tế là ta cần có phương pháp riêng cho mỗi loại dữ liệu (text, hình ảnh, file chạy,...).</li>
+      <li><strong>06/04</strong> - leoteo mơ thấy lời giải nhưng quên béng mất (tiếc quá, chúng ta cùng hy vọng leoteo sẽ tiếp tục mơ và trước khi ngủ nhớ cầm cái bút :))</li>
+      <li><strong>06/04</strong> - RongChoi giải thích thắc mắc của Nemo về việc làm sao ta có thể giữ bí mật của các vị trí được đánh dấu.</li>
+      <li><strong>06/04</strong> - RongChoi trình bày kỹ thuật "Đánh dấu vân tay" (Fingerprinting technique).</li>
+      <li><strong>05/04</strong> - Nemo cho rằng vấn đề là không thể giải quyết được.</li>
+      <li><strong>04/04</strong> - RongChoi trình bày vấn đề thảo luận trong tuần "Truy lùng dấu vết kẻ phản bội".</li>
+    </ul>
+  </div>
+</div>
+
+<div class="art-end">Diễn đàn Toán học · 04-04-2005 đến 20-08-2011 · <a href="https://diendantoanhoc.net/" target="_blank">diendantoanhoc.net</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:1rem 0 0;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="anamorphic2022.html" class="art-nav-prev">← Anamorphic Encryption – Mật mã trao đổi thông tin dưới chế độ độc tài</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="vietcrypt2006.html" class="art-nav-next">VietCrypt 2006 – Hội nghị Mật mã quốc tế đầu tiên tại Việt Nam →</a>
+</nav>
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

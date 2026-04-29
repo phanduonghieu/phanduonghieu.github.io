@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="ASIACRYPT 2016 và Trường Thu Mật Mã tại Hà Nội">
+<meta property="og:description" content="Thông báo về hội nghị ASIACRYPT 2016 – một trong 3 hội nghị mật mã lớn nhất thế giới – sẽ được tổ chức tại Hà Nội, cùng Trường Thu Mật Mã với các giảng viên Neal Koblitz, DJB, David Pointcheval, Tanja Lange và Phong Nguyễn.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/asiacrypt2016.html">
+<title>ASIACRYPT 2016 và Trường Thu Mật Mã tại Hà Nội - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+.page-main { max-width: 900px; margin: 0 auto; }
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.art-subtitle { text-align: center; font-size: 1rem; color: #777; font-style: italic; margin: 0 0 0.9rem; }
+.art-meta { text-align: center; font-size: 0.97rem; color: #777; margin-bottom: 0.3rem; }
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source { text-align: center; font-size: 0.87rem; color: #aaa; margin-bottom: 0.3rem; }
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; }
+p { margin: 0 0 1.2em; }
+a { color: #8f1d2c; }
+a:hover { text-decoration: underline; }
+h2.sec-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #f0dde0;
+}
+.info-box {
+  background: #faf7f5;
+  border: 1px solid #ece5e0;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.97rem;
+}
+.info-box p { margin: 0.3em 0; }
+.info-box strong { color: #444; }
+.speaker-list {
+  margin: 0.8rem 0 1.2rem;
+  padding-left: 0;
+  list-style: none;
+}
+.speaker-list li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #f4f0ed;
+  line-height: 1.65;
+}
+.speaker-list li:last-child { border-bottom: none; }
+.speaker-name { font-weight: 600; color: #1e1e1e; }
+.speaker-topic { color: #8f1d2c; font-style: italic; }
+.speaker-note { color: #666; font-size: 0.95rem; }
+.highlight-box {
+  background: #faf7f5;
+  border: 1px solid #ece5e0;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.97rem;
+}
+.highlight-box p { margin: 0.3em 0; }
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+@media (max-width: 860px) { .page-content { padding: 3rem 2rem; } }
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">ASIACRYPT 2016 và Trường Thu Mật Mã tại Hà Nội</h1>
+<p class="art-subtitle">(Thông báo và giới thiệu hội nghị)</p>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">11/2015 – 09/2016</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://www.facebook.com/rongchoi" target="_blank">Diễn đàn Toán học</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<figure style="text-align:center;margin:2rem 0 1.5rem;">
+  <img src="../webpictures/Asiacrypt2016.jpg" alt="ASIACRYPT 2016 tại Hà Nội" loading="lazy" style="max-width:90%;border-radius:10px;border:1px solid #ece5e0;">
+  <figcaption style="font-size:0.85rem;color:#999;margin-top:0.6rem;font-style:italic;">ASIACRYPT 2016 tại Hà Nội.</figcaption>
+</figure>
+
+<p>ASIACRYPT là một trong 3 hội nghị lớn nhất về mật mã trong năm. Thật hồi hộp khi ASIACRYPT sẽ được tổ chức ở Việt Nam, do VIASM và IACR (hội mật mã thế giới) phối hợp tổ chức. Sẽ có khoảng 200 nhà khoa học quốc tế tới tham dự và khoảng 60 công trình khoa học hàng đầu của khoa học mật mã sẽ được trình bày.</p>
+
+<div class="info-box">
+  <p><strong>Hội nghị:</strong> <a href="https://www.iacr.org/conferences/asiacrypt2016/www.asiacrypt2016.org/index.html" target="_blank">ASIACRYPT 2016</a></p>
+  <p><strong>Thời gian:</strong> 4–8/12/2016</p>
+  <p><strong>Địa điểm:</strong> Hà Nội, Việt Nam</p>
+  <p><strong>General Chairs:</strong> Ngô Bảo Châu (VIASM, Vietnam and University of Chicago, USA) &amp; Phan Dương Hiệu (XLIM, University of Limoges, France)</p>
+  <p><strong>Program Chairs:</strong> Jung Hee Cheon (Seoul National University, Korea) &amp; Tsuyoshi Takagi (Kyushu University, Japan)</p>
+  <p><strong>Tổ chức:</strong> VIASM và IACR (International Association for Cryptologic Research)</p>
+  <p><strong>Trường Thu Mật Mã:</strong> <a href="http://viasm.edu.vn/hdkh/cryptoschool2016" target="_blank">VIASM Crypto School 2016</a> – ngay trước hội nghị</p>
+</div>
+
+<p>Mong muốn xa xôi là ASIACRYPT sẽ là một cơ hội để phát triển thêm một chút ngành khoa học mật mã ở Việt Nam. Sau những trao đổi với IACR, họ đồng ý sẽ hỗ trợ một phần cho người trong nước tham gia hội nghị. Chúng tôi hy vọng có thể trợ giúp để những người thực sự quan tâm sẽ không phải gặp trở ngại về tài chính trong việc tham gia.</p>
+
+<h2 class="sec-title">Trường Thu Mật Mã 2016</h2>
+
+<p>Để việc tham gia hội nghị được hiệu quả nhất, ngay trước khi diễn ra hội nghị, một <strong>Trường Thu Mật Mã</strong> sẽ được tổ chức để trang bị kiến thức cần thiết cho những người tham gia. Trường thu do VIASM và VNU (ĐHQG Hà Nội) tổ chức, được SEAMS đồng ý hỗ trợ một phần tài chính, và nhiều khả năng cũng sẽ được IACR hỗ trợ thêm.</p>
+
+<p>Tại trường thu sẽ có những bài giảng về các chủ đề nền tảng và hiện đại của khoa học mật mã. Những cao thủ trong ngành đã nhận lời đến giảng bài:</p>
+
+<ul class="speaker-list">
+  <li>
+    <span class="speaker-name">Neal Koblitz</span> (Mỹ) –
+    <span class="speaker-topic">Elliptic Curve Cryptography (ECC)</span><br>
+    <span class="speaker-note">Một trong hai người sáng lập (độc lập với Victor Miller) nhánh mật mã dựa trên đường cong Elliptic. Ông sẽ giảng về ECC, lý thuyết và ứng dụng.</span>
+  </li>
+  <li>
+    <span class="speaker-name">Dan J. Bernstein</span> (aka <em>djb</em>, Mỹ) –
+    <span class="speaker-topic">High-speed Cryptography</span><br>
+    <span class="speaker-note">Một trong những người có nhiều công trình được ứng dụng trong thực tế nhất. djb làm lý thuyết và ứng dụng đều rất ghê. (Xem thêm: <a href="https://vnhacker.blogspot.fr/2015/09/djb.html" target="_blank">blog của chuyên gia security Google Thái</a>.)</span>
+  </li>
+  <li>
+    <span class="speaker-name">David Pointcheval</span> (Pháp) –
+    <span class="speaker-topic">Provable Security</span><br>
+    <span class="speaker-note">Một trong những người phát triển mạnh nhất hướng xây dựng mật mã với độ an toàn được chứng minh; trưởng nhóm mật mã lớn nhất châu Âu tại ENS.</span>
+  </li>
+  <li>
+    <span class="speaker-name">Tanja Lange</span> (Hà Lan) –
+    <span class="speaker-topic">Computational Number Theory</span>
+  </li>
+  <li>
+    <span class="speaker-name">Phong Nguyễn</span> (Nhật, Pháp) –
+    <span class="speaker-topic">Lattice-based Cryptography</span>
+  </li>
+</ul>
+
+<p>Ngoài các bài giảng chuyên ngành, các kiến thức cơ bản về Toán và Tin cần thiết cho mật mã cũng sẽ được cung cấp, với sự phụ trách của anh <strong>Lê Minh Hà</strong> (VNU) và chị <strong>Phan Thị Hà Dương</strong> (Viện Toán).</p>
+
+<h2 class="sec-title">Hỗ trợ tài chính</h2>
+
+<p>Các bạn có mong muốn tham gia Trường Thu và ASIACRYPT có thể lập kế hoạch từ bây giờ. Chúng tôi hy vọng sẽ có đủ nguồn tài chính để không những các bạn không phải đóng phí Trường Thu, mà nếu các bạn ở xa chúng tôi cũng sẽ cố gắng có hỗ trợ về đi lại và chỗ ở.</p>
+
+<p>Tất cả các PhD students có bài trình bày sẽ được miễn phí hội nghị thông qua quỹ hỗ trợ sinh viên của IACR. Chúng tôi cũng sẽ cố gắng miễn phí hội nghị cho các bạn trong nước và từ các cơ sở ít điều kiện trên thế giới. Các bạn có ý định tham gia nhưng có khó khăn về tài chính có thể liên hệ theo hướng dẫn trên trang web hội nghị.</p>
+
+<div class="highlight-box">
+  <p>Các hoạt động khoa học mang tính liên ngành giữa Toán với Tin, giữa lý thuyết và thực hành rất cần sự tham gia hỗ trợ của các đơn vị R&amp;D. Nếu các bạn muốn tài trợ cho các hoạt động này, xin vui lòng liên hệ với một trong chúng tôi (qua Phan Dương Hiệu, anh Châu Ngô, anh Khánh, anh Lân, hay các bạn Dũng và Hà). Hiện đã có <strong>Microsoft, Google, Cisco</strong> tham gia tài trợ.</p>
+</div>
+
+<h2 class="sec-title">Chương trình ASIACRYPT 2016</h2>
+
+<p>Asiacrypt 2016 là 1 trong 3 hội nghị lớn nhất trong năm của IACR và năm nay được tổ chức tại Hà Nội do VIASM đảm nhiệm. Chương trình năm nay được hội đồng đánh giá là hấp dẫn: từ <strong>240 bài gửi</strong> đã chọn ra <strong>67 bài báo</strong> để trình bày, sau quá trình lựa chọn gần 4 tháng với 2 vòng phản biện (sau vòng 1 các tác giả được phản hồi nhận xét của hội đồng).</p>
+
+<p>Các trung tâm lớn đều có bài: Mỹ (Stanford, MIT, UCLA, Microsoft Research, Pennsylvania, San Diego, Santa Barbara, Brown University), Pháp (ENS, Ecole Polytechnique, ENS Lyon, INRIA, Limoges, Rennes, CEA, Orange, DGA, ANSSI), Anh (Cambridge, Oxford, Royal Holloway, University College London, Bristol), Thuỵ Sỹ (EPFL, ETH Zurich), Bỉ (UCL), Nhật (NTT, AIST), Úc (Queensland, Wollongong, Qualcomm), Singapore (NTU), Trung Quốc... Số bài từ châu Âu có vẻ áp đảo.</p>
+
+<p>Điều đáng mừng là có <strong>hai tác giả Việt Nam</strong> có bài tại hội nghị: <strong>Nguyễn Tạ Toàn Khoa</strong> (NTU, Singapore) và <strong>Hoàng Việt Tùng</strong> (UC Santa Barbara, Mỹ).</p>
+
+<p>Thông qua sự thoả thuận giữa IACR và Springer, tất cả các bài báo – dù được in bởi Springer – sẽ được đưa lên miễn phí trên trang <a href="https://eprint.iacr.org" target="_blank">ePrint của IACR</a> muộn nhất là trước khi hội nghị khai mạc 1 tuần. Danh sách bài trình bày đã được công bố tại <a href="https://www.iacr.org/conferences/asiacrypt2016/www.asiacrypt2016.org/index.html" target="_blank">trang hội nghị</a>.</p>
+
+<div class="art-end">Phan Dương Hiệu · 11/2015 – 09/2016 · <a href="https://www.facebook.com/rongchoi" target="_blank">Diễn đàn Toán học</a></div>
+
+<figure style="margin:2rem 0 0.5rem;text-align:center;">
+  <img src="../webpictures/Asiacrypt_Shamir_Kobitz_FHE.jpeg" alt="Asiacrypt – nơi khai sinh thuật toán TFHE" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+  <figcaption style="margin-top:0.5rem;font-size:0.88rem;color:#666;font-style:italic;">Asiacrypt 2016 tại Hà Nội là nơi khai sinh thuật toán TFHE đang là nền tảng cho các giải thuật bảo vệ Privacy trên Cloud</figcaption>
+</figure>
+
+<div style="text-align:center;font-size:0.85rem;margin:1.5rem 0 0;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <a href="motiyung2025.html" class="art-nav-prev">← Moti Yung – soái ca của Google về Crypto/Privacy/Security sẽ tới Hà Nội hè này</a>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="adishamir2016.html" class="art-nav-next">Bài giảng đại chúng của Adi Shamir – Asiacrypt 2016 →</a>
+</nav>
+
+</div><!-- .page-content -->
+</div><!-- .page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

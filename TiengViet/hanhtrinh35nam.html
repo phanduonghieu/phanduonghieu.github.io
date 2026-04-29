@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Phan Dương Hiệu">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Mật mã khóa công khai: Hành trình 35 năm">
+<meta property="og:description" content="Mã hóa khóa công khai ra đời cách đây 35 năm với công trình của Diffie-Hellman. Bài viết điểm lại hành trình phát triển của mật mã hiện đại và những phát kiến phản trực quan.">
+<meta property="og:url" content="https://www.di.ens.fr/users/phan/TiengViet/hanhtrinh35nam.html">
+<meta property="og:image" content="https://www.di.ens.fr/users/phan/webpictures/TiaSang_matma.png">
+<title>Mật mã khóa công khai: Hành trình 35 năm - Phan Dương Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.88;
+  color: #1e1e1e;
+  background: #f2f0ec;
+  padding: 3rem 1.25rem 7rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-content {
+  background: #fff;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+/* Title */
+h1.art-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+/* Meta */
+.art-meta {
+  text-align: center;
+  font-size: 0.97rem;
+  color: #777;
+  margin-bottom: 0.3rem;
+}
+.art-author { font-weight: 600; color: #444; }
+.art-author a { color: #444; text-decoration: none; }
+.art-author a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-sep { margin: 0 0.5em; color: #ccc; }
+.art-source {
+  text-align: center;
+  font-size: 0.87rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+.art-source a { color: #aaa; text-decoration: none; }
+.art-source a:hover { color: #8f1d2c; text-decoration: underline; }
+.art-cover { text-align: center; margin: 1.2rem 0 1.8rem; }
+.art-cover img { width: 50%; border-radius: 8px; border: 1px solid #ece5e0; display: inline-block; }
+@media (max-width: 600px) { .art-cover img { width: 85%; } }
+
+/* TOC */
+#toc {
+  background: #faf7f5;
+  border: 1px solid #e5dbd6;
+  border-left: 4px solid #8f1d2c;
+  border-radius: 7px;
+  padding: 1.4rem 1.75rem 1.25rem;
+  margin: 2rem 0 3rem;
+}
+#toc .toc-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.85rem;
+}
+#toc ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+#toc li { margin-bottom: 0.3rem; line-height: 1.45; }
+#toc li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.96rem;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+#toc li a:hover { color: #8f1d2c; }
+#toc li.toc-sub { padding-left: 1.3rem; margin-bottom: 0.2rem; }
+#toc li.toc-sub a { font-size: 0.88rem; font-weight: 400; color: #666; }
+#toc li.toc-sub a:hover { color: #8f1d2c; }
+
+/* Sections */
+.art-section { margin-top: 3rem; }
+h2.sec-title {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #8f1d2c;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0dde0;
+}
+h3.subsec-title {
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin: 2.2rem 0 0.7rem;
+}
+
+/* Footer */
+.art-end {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Tablet */
+@media (max-width: 860px) {
+  .page-content { padding: 3rem 2rem; }
+}
+/* Mobile */
+@media (max-width: 600px) {
+  body { padding: 0 0 4rem; font-size: 1.02rem; line-height: 1.80; background: #fff; }
+  .page-content { padding: 2rem 1.3rem; border-radius: 0; box-shadow: none; }
+  h1.art-title { font-size: 1.45rem; }
+  h2.sec-title { font-size: 1.1rem; }
+  h3.subsec-title { font-size: 1rem; }
+  #toc { padding: 1.1rem 1.2rem; }
+}
+.art-nav { display:flex; justify-content:space-between; align-items:flex-start; margin-top:2rem; padding-top:1rem; border-top:1px solid #eee; gap:0.5rem; }
+.art-nav a { font-size:0.88rem; color:#8f1d2c; text-decoration:none; border-bottom:1px solid #f0dde0; line-height:1.5; }
+.art-nav a:hover { text-decoration:underline; }
+.art-nav-prev { flex:2; }
+.art-nav-home { flex:1; text-align:center; white-space:nowrap; }
+.art-nav-next { flex:2; text-align:right; }
+
+
+/* === Nút In === */
+.print-bar {
+  text-align: center;
+  margin: 1.8rem 0 0.6rem;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  background: #fff;
+  color: #8f1d2c;
+  border: 1.5px solid #c0697a;
+  border-radius: 7px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.87rem;
+  font-family: -apple-system, 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: #8f1d2c; color: #fff; border-color: #8f1d2c; }
+@media print { .print-bar { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="page-main">
+<div class="page-content">
+
+<h1 class="art-title">Mật mã khóa công khai: Hành trình 35 năm</h1>
+<div class="art-meta">
+  <span class="art-author"><a href="https://www.di.ens.fr/users/phan/TiengViet.htm#khoa-hoc">Phan Dương Hiệu</a></span>
+  <span class="art-sep">·</span>
+  <span class="art-date">26/04/2011</span>
+</div>
+<div class="art-source">Đăng trên <a href="https://tiasang.com.vn/mat-ma-khoa-cong-khai-hanh-trinh-35-nam-4981392.html" target="_blank">Tia Sáng</a></div>
+<div style="text-align:center;font-size:0.85rem;margin:0.2rem 0 0.5rem;"><a href="../Matma.html" style="color:#8f1d2c;text-decoration:none;border-bottom:1px solid #f0dde0;">← Về trang Mật Mã</a></div>
+<div class="art-cover"><img src="../webpictures/TiaSang_matma.png" alt="Mật mã khóa công khai: Hành trình 35 năm" loading="lazy"></div>
+
+<nav id="toc">
+  <p class="toc-heading">Mục lục</p>
+  <ol>
+    <li><a href="#sec-1">Thay đổi trong cách tiếp cận tính an toàn</a></li>
+    <li><a href="#sec-2">Mật mã với lý thuyết độ phức tạp tính toán</a></li>
+    <li><a href="#sec-3">Sự phát triển của lý thuyết số tính toán</a></li>
+    <li><a href="#sec-4">Lý thuyết các thuật toán xác suất</a></li>
+    <li><a href="#sec-5">Chứng minh tương tác không để lộ tri thức</a></li>
+    <li><a href="#sec-6">Một số hướng đi tương lai của mật mã</a></li>
+    <li class="toc-sub"><a href="#sec-6a">Bảo mật trong điện toán đám mây</a></li>
+    <li class="toc-sub"><a href="#sec-6b">Mở rộng mô hình mã hóa</a></li>
+    <li class="toc-sub"><a href="#sec-6c">An toàn trước các tấn công vật lý</a></li>
+    <li class="toc-sub"><a href="#sec-6d">An toàn trước sự tấn công của máy tính lượng tử</a></li>
+  </ol>
+</nav>
+
+<p>Mã hóa khóa công khai ra đời cách đây 35 năm, đánh dấu bởi công trình khoa học của Diffie-Hellman. Đó thực sự là một bước ngoặt đưa mật mã từ một nghệ thuật thành một ngành khoa học.</p>
+
+<p>Trong quá trình 35 năm phát triển, những phát kiến trong mật mã hầu hết rất phản trực quan, và do đó càng bất ngờ thú vị, đã có ảnh hưởng lớn đến nhiều ngành khoa học khác: áp dụng những kết quả trừu tượng trong lý thuyết số vào thực tế; thúc đẩy sự phát triển của các thuật toán xác suất; đưa ra những khái niệm quan trọng trong lý thuyết tính toán mà điển hình là khái niệm chứng minh tương tác; tạo cầu nối giữa lý thuyết số và khoa học máy tính thông qua lý thuyết số tính toán.</p>
+
+<!-- ── Section 1 ── -->
+<section class="art-section" id="sec-1">
+<h2 class="sec-title">Thay đổi trong cách tiếp cận tính an toàn</h2>
+
+<p>Từ ngàn xưa con người ta đã có nhu cầu trao đổi bí mật: từ những mệnh lệnh trong các cuộc chiến tranh cho đến những hẹn hò thường nhật. Ta tìm thấy vết tích của mật mã từ thời Ai Cập cổ đại, hệ mã mà Caesar dùng trong thời La Mã, cho tới bức thư tình nổi tiếng mà George Sand gửi cho Alfred de Musset. Ở thời kỳ sơ khai, mật mã có thể coi như nghệ thuật che giấu thông tin mà độ an toàn đạt được là nhờ có sự thống nhất một quy ước bí mật chung. Như vậy, thuật toán lập mã và giải mã là bí mật. Nhưng khi tầm ứng dụng càng rộng thì yêu cầu bí mật cơ chế mã lại càng không hợp lý vì nhiều người sử dụng nên sẽ rất dễ bị lộ.</p>
+
+<p>Cuối thế kỷ 19, Kerckhoffs đề nghị một nguyên tắc xem xét độ an toàn chỉ dựa trên khóa bí mật còn thuật toán lập mã/giải mã không cần phải giữ kín. Tuy vậy, sự cần thiết chia sẻ khóa bí mật là rào cản lớn cho việc trao đổi thông tin trên diện rộng: ví dụ để thiết lập kênh bí mật đôi một giữa một nghìn người thì cần tới cả nửa triệu khóa bí mật.</p>
+
+<p>Mật mã khóa công khai đã vượt qua rào cản đó và đưa đến một bước ngoặt trong sự phát triển ngành mật mã. Ý tưởng chính của nó khá giản đơn: lập mã và giải mã là hai quá trình có bản chất khác nhau, nếu như giải mã nhất thiết phải dùng khóa bí mật (nếu không ai cũng giải được) thì lập mã lại không nhất thiết như vậy, và thậm chí sẽ càng tốt hơn khi ai cũng có thể lập mã. Do vậy, nếu ta có thể tạo ra một khóa bí mật cho giải mã và một khóa công khai tương ứng cho lập mã thì quá trình lập mã không còn cần bất kỳ bí mật nào.</p>
+
+<p>Tuy có vẻ tự nhiên nhưng việc mã hóa sử dụng khóa công khai làm thay đổi hoàn toàn yêu cầu về sự an toàn: khóa bí mật không cần chia sẻ nữa, mỗi người giữ khóa bí mật của riêng mình. Sự đảm bảo an toàn không còn cần dựa trên sự tin tưởng lẫn nhau giữa người gửi và người nhận.</p>
+</section>
+
+<!-- ── Section 2 ── -->
+<section class="art-section" id="sec-2">
+<h2 class="sec-title">Mật mã với lý thuyết độ phức tạp tính toán</h2>
+
+<p>Bên cạnh những ưu điểm mang tính bước ngoặt, mã hóa khóa công khai ẩn chứa một điều đáng lo ngại về tính an toàn: khi công bố khóa công khai tương ứng với khóa bí mật sẽ có thể dẫn tới việc khóa bí mật không còn hoàn toàn bí mật! Điều lo ngại đó hoàn toàn có cơ sở bởi một kẻ tấn công có thể thử hết các trường hợp có thể để tìm ra khóa bí mật tương ứng với khóa công khai. Do đó, về nguyên tắc, kẻ tấn công có thể phá được sơ đồ mã hóa, tìm ra khóa bí mật mà không cần quan sát bất kỳ bản mã nào!</p>
+
+<p>Chính vì thế mà độ an toàn của mật mã khóa công khai sẽ không thể chỉ dựa trên sự giữ bí mật khóa nữa. Muốn đảm bảo sự an toàn, ta phải chứng tỏ làm sao, dù về nguyên tắc, kẻ tấn công có thể tìm ra khóa bí mật, nhưng thời gian để đạt được mục đích đó phải là rất lớn, cỡ hàng triệu năm trên một máy tính nhanh nhất chẳng hạn. Hay nói cách khác, độ phức tạp mà kẻ tấn công có thể tìm lại khóa bí mật là lớn phi thực tế.</p>
+
+<p>Một cách rất tự nhiên, nghiên cứu độ an toàn của mật mã khóa công khai đã nằm gọn trong lý thuyết độ phức tạp tính toán (Computational Complexity). Trong lý thuyết độ phức tạp, ta không chỉ quan tâm xem một bài toán có thể giải được hay không, mà điều quan trọng nhất là nghiên cứu xem để giải bài toán đó thì độ khó khăn lớn đến đâu. Độ phức tạp được phân cấp theo các lớp, trong đó hai lớp quan trọng nhất là lớp P và lớp NP.</p>
+
+<p>Lớp P bao gồm những bài toán giải được trong thời gian đa thức (số bước đi đến lời giải có thể bị chặn bởi một đa thức trên độ dài của đề bài), và nó được coi là lớp các bài toán có thể giải được trong thực tế. Chẳng hạn các bài toán sắp xếp một dãy số theo thứ tự tăng dần, giải hệ phương trình tuyến tính, tìm đường đi ngắn nhất giữa hai thành phố đều là những bài toán giải được trong thời gian đa thức, và vì vậy thuộc lớp P.</p>
+
+<p>Lớp NP là lớp các bài toán có thể kiểm tra được lời giải đúng hay sai trong thời gian đa thức, nó có vai trò quan trọng vì rõ ràng chỉ khi lời giải có thể kiểm tra được trong thời gian thực tế thì bài toán mới được quan tâm. Ví dụ bài toán tô bản đồ bằng ba màu để không có hai miền giáp ranh nào được tô cùng màu là thuộc lớp NP vì nếu có ai đề xuất một lời giải thì ta có thể kiểm tra xem lời giải đó đúng hay sai một cách dễ dàng. Tuy nhiên, để đưa ra lời giải cho bài toán này thì rất khó, thậm chí nó được đánh giá là một trong các bài toán khó nhất trong lớp NP.</p>
+
+<p>Câu hỏi trọng tâm của lý thuyết độ phức tạp là liệu P có bằng NP? Một chứng minh khẳng định sẽ đem lại một sự bất ngờ cho nhận thức của chúng ta: việc tìm ra lời giải cũng chỉ khó như việc kiểm tra lời giải. Điều khó tin đó làm người ta thường giả thuyết rằng P khác NP. Sự quan trọng của câu hỏi "P = NP?" là lý do để nó được Viện Clay xếp vào một trong bảy bài toán thiên niên kỷ.</p>
+
+<p>Xem xét lý thuyết mật mã dưới góc nhìn của lý thuyết độ phức tạp, ta có thể định nghĩa hệ mã bị phá nếu như có thuật toán phá mã để tìm lại khóa bí mật từ khóa công khai hay, đơn giản hơn, tìm lại bản rõ từ bản mã trong thời gian đa thức. Vậy độ phức tạp của thuật toán phá mã liệu có thể đánh giá trong trường hợp chung? Câu trả lời là mọi sơ đồ mã hóa khóa công khai đều có thuật toán phá mã thuộc lớp NP bởi bài toán kiểm tra xem một khóa bí mật có tương ứng với một khóa công khai hay không là dễ.</p>
+
+<p>Bài toán "P chọi NP" trở nên có tầm quan trọng sống còn tới lý thuyết mật mã: nếu hai lớp này tương đương thì toàn bộ lý thuyết nghiên cứu mật mã dưới góc nhìn độ phức tạp sẽ hoàn toàn sụp đổ vì việc phá mã, vốn thuộc NP, khi đó sẽ có thể thực hiện được trong thời gian đa thức. Và cũng do vậy, nghiên cứu độ phức tạp trong mật mã cần phải dựa trên giả thuyết "P khác NP".</p>
+</section>
+
+<!-- ── Section 3 ── -->
+<section class="art-section" id="sec-3">
+<h2 class="sec-title">Sự phát triển của lý thuyết số tính toán</h2>
+
+<p>Khi tính an toàn chia tay với nghệ thuật che giấu bí mật để chuyển sang dựa trên lý thuyết độ phức tạp thì cũng là lúc mật mã bất ngờ tìm đến và làm những nghiên cứu trừu tượng trong lý thuyết số bỗng có những áp dụng đầy ý nghĩa trong thực tế. Nó cũng đưa lý thuyết số tính toán (computational number theory) trở thành một nhánh nghiên cứu quan trọng, nằm giữa vùng giao thoa của toán học và tin học.</p>
+
+<p>Tựu chung yêu cầu để xây dựng mật mã khóa công khai là: hàm lập mã thì dễ (với khóa công khai), nhưng hàm giải mã thì khó khi không có khóa bí mật. Đó là các hàm cửa lật một chiều (trapdoor oneway functions): tính xuôi thì dễ, tính ngược phải khó, nhưng với cửa lật là khóa bí mật thì tính ngược, tức giải mã, cũng phải dễ. Yêu cầu trông có vẻ đơn giản đó nhưng thực tế là sau rất nhiều năm tìm kiếm vẫn chỉ có rất ít hàm có thể thỏa mãn.</p>
+
+<p>Những hàm cửa lật thông dụng trong mật mã đã đến từ những bài toán rất cổ điển của lý thuyết số! Đó là bài toán phân tích số (cho một số N = pq là tích của hai số nguyên tố, phân tích nó ra thừa số nguyên tố p, q) và bài toán logarit rời rạc trong trường hữu hạn (cho một phần tử sinh g của một nhóm con của một trường hữu hạn, và một phần tử nhóm u = g<sup>a</sup>, bài toán là phải tìm lại a). Cả hai bài toán này, tuy về mặt toán học là giải được, nhưng cho đến nay không thể giải được trong thời gian đa thức.</p>
+
+<p>Bài toán phân tích số là nền tảng cho độ an toàn của hệ mã nổi tiếng RSA, và bài toán logarit rời rạc là cơ sở cho hệ mã Elgamal. Chính vì tính phổ dụng của hai hệ mã này mà một cách tất nhiên, bài toán phân tích số và bài toán logarit rời rạc trở thành đối tượng nghiên cứu rất được quan tâm. Việc nghiên cứu tính phức tạp của việc tìm ra lời giải cho các bài toán lý thuyết số đã đưa tới sự phát triển sâu rộng của lý thuyết số tính toán.</p>
+
+<p>Sau nhiều công trình nghiên cứu quan trọng thì các bài toán phân tích số và bài toán logarit rời rạc tuy chưa giải được trong thời gian đa thức nhưng cũng không cần đến thời gian hàm mũ để giải nó, mà đã có các thuật toán dưới mũ (sub-exponential) như thuật toán dùng tính chỉ số (index calculus) và thuật toán dùng đường cong elliptic của Lenstra, được giới thiệu năm 1985. Dù cho những công trình này không làm các hệ mã sụp đổ, nhưng làm cho cách xây dựng các hệ mã phải giảm hiệu quả vì phải dùng các khóa dài hơn để đảm bảo an toàn.</p>
+
+<p>Công trình của Lenstra cũng đánh dấu lần đầu tiên lý thuyết các đường cong elliptic được sử dụng vào mật mã, ở đây có vai trò như phá mã. Điều thú vị là ngay sau đó thì lý thuyết các đường cong elliptic đã được sử dụng cho việc lập mã. Koblitz và Miller cùng độc lập đề nghị thay thế việc sử dụng nhóm trong trường hữu hạn bằng nhóm các điểm trên đường cong elliptic vì ở đó, các thuật toán dưới mũ đã biết để giải quyết bài toán logarit rời rạc có vẻ như không thể áp dụng được.</p>
+
+<p>Các kết quả lý thuyết sâu sắc trong lý thuyết số tiếp tục được áp dụng vào mật mã. Tấn công MOV (đưa ra bởi Menezes, Okamoto, và Vanstone) sử dụng phép ghép cặp (pairings) trên các đường cong elliptic để chỉ ra không phải loại đường cong elliptic nào cũng có thể được sử dụng, đặc biệt là các đường cong siêu lạ (supersingular) rất được ưa dùng ở giai đoạn đầu. Không chỉ phục vụ cho việc phá mã, việc sử dụng phép ghép cặp sau đó đã trở nên cực kỳ hữu hiệu trong việc xây dựng mã.</p>
+
+<p>Sự kiện nổi bật là việc dùng phép ghép cặp để giải quyết vấn đề mở về xây dựng mã hóa dựa trên danh tính (Identity based Encryption), được đề nghị bởi Sakai-Ohgishi-Kasahara và Boneh-Franklin những năm 2000. Ngay sau đó, phép ghép cặp đã được sử dụng hầu khắp trong mọi lĩnh vực của mật mã (mã hóa, chữ ký điện tử, sơ đồ định danh…) để nâng cao tính an toàn và hiệu quả và đôi khi giải quyết những bài toán mở đã bế tắc trong thời gian dài. Cách đây vài năm người ta đã tổ chức hẳn một hội nghị dành cho các nghiên cứu liên quan đến các thuật toán xây dựng và phân tích các phép ghép cặp trên các đường cong elliptic hay hyperelliptic và các phương pháp mã và tấn công mã dựa trên phép ghép cặp.</p>
+
+<p>Nhìn lại các phát triển của lý thuyết số tính toán, có thể nhận thấy các phương pháp mới thường được đề nghị đầu tiên cho phá mã, nhưng rồi sau đó lại được sử dụng rất hiệu quả cho việc lập mã. Điều đó cũng phần nào chứng tỏ vai trò tương hỗ giữa cộng đồng những người phá mã và lập mã: trong rất nhiều trường hợp, chính những người say mê tìm cách phá tính an toàn của các hệ thống mật mã, sẽ là những người đem tới những phát kiến mới mẻ để xây dựng những hệ mã an toàn hơn.</p>
+</section>
+
+<!-- ── Section 4 ── -->
+<section class="art-section" id="sec-4">
+<h2 class="sec-title">Lý thuyết các thuật toán xác suất</h2>
+
+<p>Để có thể cài đặt được hệ mã RSA, một phần tất yếu là sự cần thiết phải tìm được những số nguyên tố lớn để có thể đảm bảo yêu cầu an toàn tối thiểu (khóa công khai chứa tích của hai số nguyên tố, và nếu một trong hai số nguyên tố nhỏ thì bài toán phân tích số sẽ dễ). Từ đó mà yêu cầu tìm các số nguyên tố lớn trở nên rất cần thiết.</p>
+
+<p>Cho tới nay, các phương pháp tìm số nguyên tố lớn đều theo nguyên tắc hai bước: bước 1 là chọn một số tự nhiên đủ lớn và bước 2 kiểm tra xem số được chọn có là số nguyên tố hay không. Do các số nguyên tố có cấu trúc rất bí hiểm và ta chưa hiểu được quy luật tường minh của chúng nên bước 1 chưa có cách nào khác là chọn một số ngẫu nhiên. Trong bước thứ 2, những thuật toán kiểm tra tính nguyên tố, mà điển hình là những thuật toán được sử dụng rộng rãi của Rabin và Solovay–Strassen, đã khởi đầu cho việc dùng xác suất để thiết kế các thuật toán.</p>
+
+<p>Sau nhiều phát triển quan trọng của lý thuyết thuật toán xác suất, người ta quay lại hoài nghi "liệu độ ngẫu nhiên có thực sự mang tới sự hiệu quả?". Bên cạnh câu hỏi mở tổng quát này, nhiều nhà nghiên cứu tập trung trở lại với bài toán tìm số nguyên tố nhằm đưa ra một lời giải tất định cho nó. Công trình lý thuyết đột phá của Agrawal–Kayal–Saxena đưa ra năm 2000, đã chỉ ra một thuật toán tất định để kiểm thử tính nguyên tố trong thời gian đa thức, giải quyết trọn vẹn bước thứ 2 một cách tất định.</p>
+
+<p>Sự hấp dẫn của một lời giải hoàn chỉnh cho bài toán tất định tìm số nguyên tố chính là nguồn cảm hứng chung rất lớn của các nhà toán-tin học và nó được chọn là bài toán khởi đầu cho một kế hoạch đầy tham vọng nhằm thay đổi tư duy trong hợp tác nghiên cứu khoa học: hợp tác mở thông qua đóng góp, trao đổi mở trên mạng. Với sự nhiệt tình của Timothy Gowers, Terence Tao (cả hai đều đoạt giải thưởng Fields), đã có rất nhiều nhà khoa học tham gia vào dự án mở Polymath để cùng trao đổi nhằm tìm kiếm lời giải cho bài toán này. Tuy chưa thể đưa ra lời giải toàn phần, họ đã có một số kết quả dẫn tới một bài báo khoa học dưới tên tác giả Polymath. Rất có thể đây sẽ là một hình thức cộng tác khoa học xuyên biên giới có sức mạnh tổng hợp lớn trong tương lai.</p>
+</section>
+
+<!-- ── Section 5 ── -->
+<section class="art-section" id="sec-5">
+<h2 class="sec-title">Chứng minh tương tác không để lộ tri thức</h2>
+
+<p>Trong mật mã, mọi trao đổi thông tin đều giả thiết có sự hiện diện của kẻ xấu. Mục đích của ta là vừa có thể thuyết phục người đối thoại về tính đúng đắn của một mệnh đề nào đó, lại vừa không cần tin tưởng anh ta, và không muốn sau khi trao đổi anh ta cũng có khả năng chứng minh mệnh đề đó với người khác. Chẳng hạn, một thành viên của một câu lạc bộ bí mật muốn chứng minh danh tính của mình cho người gác cổng, nhưng lại không muốn nói mật khẩu của mình vì sợ chính người gác cổng sẽ bán nó cho kẻ khác. Trong ngữ cảnh đó, một trong những khái niệm thú vị nhất của khoa học máy tính đã được đề nghị: chứng minh tương tác (interactive proofs). Khái niệm này được đưa ra bởi Goldwasser, Micali và Rackoff vào đầu những năm 80 và nhờ đó họ đã được trao giải Gödel đầu tiên trong lịch sử.</p>
+
+<p>Dưới góc độ toán học, ta thường quan niệm chứng minh là một dãy các lập luận logic có thể trình bày tường minh trên giấy. Liệu chăng yếu tố đối thoại, tương tác giữa người chứng minh và người kiểm tra có mang đến điều mới mẻ? Để trả lời câu hỏi đó, trước hết khái niệm về một chứng minh sẽ phải thay đổi. Goldreich thường trích lời thầy giáo Simon của mình khi giảng về các chứng minh tương tác:</p>
+
+<blockquote style="font-style:italic; margin: 1.5rem 0 1.5rem 2rem; color: #444; border-left: 3px solid #e0d0d3; padding: 0.5rem 1.1rem;">"Chứng minh là bất kể cách gì có thể thuyết phục được tôi" (<em>A proof is whatever convinces me</em>).</blockquote>
+
+<p>Theo nghĩa đó, một chứng minh tương tác là một cuộc đối thoại, cho tới khi người hỏi bị thuyết phục hoàn toàn bởi người chứng minh. Một câu chuyện vui kể rằng, một cậu bé cho rằng mình có câu thần chú để mở vách ngăn giữa hai nhánh của một hang động. Tất nhiên cậu ta không muốn lộ câu thần chú của mình, nhưng lại muốn chứng minh khả năng đó. Trò chơi đuổi bắt có thể là một chứng minh tương tác hiệu quả: cậu bé chạy vào một trong hai ngã, người đuổi chọn một hướng nhằm dồn chú vào vách ngăn nhưng cuối cùng không lần nào bắt được cậu ta. Nếu đuổi một lần ta có thể cho là cậu bé đã ăn may chọn ngã khác, nhưng lặp đi lặp lại trò chơi tới 100 lần mà không lần nào đuổi được thì có lẽ ta bị thuyết phục đúng là cậu bé có câu thần chú thật. Các chứng minh tương tác hầu hết dựa trên một tinh thần như thế.</p>
+
+<p>Có những bài toán mà người ta chưa biết cách nào chứng minh trong thời gian đa thức, nhưng lại chứng minh được thông qua tương tác, chẳng hạn bài toán chứng minh hai đồ thị không đồng cấu với nhau. Hơn thế nữa, trong nhiều bài toán, người chứng minh có thể không cần để lộ ra bất kể tri thức nào anh ta có về cái chứng minh đó (zero-knowledge proofs). Kết quả tuyệt đẹp của Goldreich, Micali và Wigderson chỉ ra rằng tất cả những gì ta có thể chứng minh trong thực tế (tức mọi bài toán trong NP), đều có thể chứng minh mà không để lộ tri thức! Bài toán chứng minh danh tính để vào cổng câu lạc bộ bí mật phía trên là một trong số đó.</p>
+
+<p>Các chứng minh không để lộ tri thức đặc biệt quan trọng trong mật mã, là thành phần cơ bản trong việc xây dựng các sơ đồ mã hóa, chữ ký điện tử. Chứng minh không để lộ tri thức cũng là thành phần không thể thiếu trong một sơ đồ bầu cử điện tử, cho phép mỗi cử tri kiểm tra được lá phiếu của mình đã được tính đến mà việc kiểm phiếu lại không cần phải công bố nội dung từng lá phiếu, đảm bảo quyền lựa chọn bí mật của cử tri.</p>
+
+<p>Ở một khía cạnh khác, chứng minh tương tác cũng là phần hồn của nhánh khoa học "chứng minh tính bảo mật" (provable security), nơi ta cố gắng chứng minh tính an toàn của hệ thống trong một thế giới tương tác rất phức tạp (với sự hiện diện của kẻ tấn công luôn muốn lừa hệ thống thông qua quan sát, nghe trộm, đóng giả người tốt để truy nhập hệ thống) dựa trên những giả thuyết tĩnh, giản đơn của toán học.</p>
+</section>
+
+<!-- ── Section 6 ── -->
+<section class="art-section" id="sec-6">
+<h2 class="sec-title">Một số hướng đi tương lai của mật mã</h2>
+
+<section id="sec-6a">
+<h3 class="subsec-title">Bảo mật trong điện toán đám mây (cloud computing)</h3>
+
+<p>Điện toán đám mây cho phép ta lưu trữ những khối lượng thông tin khổng lồ trên mạng và thực hiện các thao tác trên nó một cách dễ dàng. Nó có thể giúp ta giải quyết những bài toán lớn mà trước đây khó có thể giải quyết trên một mạng lưới các máy tính mang tính chất cục bộ. Tuy nhiên, điều đó mang tới một thách thức vô cùng lớn về tính bảo mật. Có hai điều có vẻ như mâu thuẫn nhau: để dữ liệu lớn trên các hệ thống xa lạ rõ ràng rất dễ bị đánh cắp thông tin, nhưng nếu ta mã hóa toàn bộ dữ liệu thì sẽ khó có thể tận dụng sức mạnh của tính toán đám mây để thao tác dữ liệu.</p>
+
+<p>Nhưng gần đây, vấn đề tưởng khó có thể giải quyết này đã có chút tia hy vọng, với công trình của Gentry về mật mã đẳng cấu theo cả phép nhân và phép cộng (fully homomorphic encryption). Hệ mã này cho phép, từ hai bản mã của hai bản rõ m và m', ta có thể tính được bản mã nhân của mm' và bản mã cộng của m+m'. Vấn đề với bề ngoài đơn giản nhưng chứa đựng không ít nghịch lý trong nó: nó vừa phải đảm bảo an toàn cho dữ liệu (không thể biết thông tin về bản rõ m, m'), mà lại vẫn thao tác được trên dữ liệu đó. Và cũng với bề ngoài giản đơn như vậy, nó lại mang đến một ý nghĩa rất bao quát: do mọi tính toán đều có thể qui về các phép toán cơ bản là cộng và nhân, một hệ mã như vậy cho ta làm mọi tính toán trên dữ liệu được mã hóa!</p>
+
+<p>Điều đó có nghĩa ta có thể để tất cả dữ liệu bảo mật trên những máy mạng không an toàn mà vẫn có thể tận dụng sức tính toán lớn của điện toán đám mây để thực hiện mọi thao tác tính toán trên đó. Tuy nhiên, hiện tại, hệ mã Gentry và một số hệ mã cải tiến còn có hiệu quả vô cùng thấp, hầu như chỉ mang tính lý thuyết. Một hệ mã hiệu quả sẽ là lời giải tuyệt vời cho bài toán an toàn thông tin trong điện toán đám mây.</p>
+</section>
+
+<section id="sec-6b">
+<h3 class="subsec-title">Mở rộng mô hình mã hóa: cho đối tượng nhóm và cho việc giải mã bộ phận</h3>
+
+<p>Mã hóa thường cho ta thiết lập kênh trao đổi thông tin giữa một người với một người. Tuy nhiên, những ứng dụng thực tế đòi hỏi khả năng ta mã một lần sao cho nhiều người cùng có thể giải mã. Một ví dụ điển hình là việc phát chương trình truyền hình mã hóa sao cho hàng triệu thuê bao đều giải được mã. Nhưng một ứng dụng như vậy sẽ đặt ra hai vấn đề: mã một lần cho nhiều người (broadcast encryption) và ngăn chặn một người hay một nhóm người thuê bao cấu kết nhau để làm một bộ giải mã giả (tracing traitor).</p>
+
+<p>Hiện tại các thuật toán được sử dụng trong truyền hình thuê bao hầu hết đang còn ở thời nguyên thủy: độ an toàn buộc phải dựa trên tính bí mật của thuật toán. Nhưng cũng bởi vậy nên khi một nhóm phá mã có thể phá được nguyên lý bằng kỹ nghệ đảo ngược (reverse engineering) thì thị trường chợ đen có thể bán tràn lan các bộ giải mã giả mà không có cách gì truy lại được ai là thủ phạm.</p>
+
+<p>Những năm gần đây người ta đang đề nghị thêm một loại mã bao quát hết các khái niệm mã hóa công khai, mã hóa dựa trên danh tính, hay mã hóa một lần cho nhiều người. Đó là loại mã hàm (functional encryption) ở đó nó cho phép người lập mã định nghĩa một cơ chế giải mã để đối với người nhận, tùy vào thuộc tính mình có mà có thể truy cập sâu vào bản rõ tới đâu. Cho tới nay, đối với những cơ chế mã với các cấu trúc tương đối phức tạp, các phương án lập mã còn rất hạn chế về hiệu quả. Những kết quả trong tương lai chắc chắn sẽ mang tới những ứng dụng rất hiệu quả, đặc biệt là cho việc truy cập các cơ sở dữ liệu mã hóa lớn.</p>
+</section>
+
+<section id="sec-6c">
+<h3 class="subsec-title">An toàn trước các tấn công vật lý</h3>
+
+<p>Mật mã thường phân tích tính an toàn dựa trên giả thuyết là khóa bí mật được bảo vệ tốt. Tuy nhiên, những tấn công vật lý đôi khi lại có thể tìm ra những thông tin về khóa (chẳng hạn bằng cách đo độ năng lượng tiêu thụ của máy giải mã trên các bản mã khác nhau). Do vậy, một trong các mục đích của mật mã là tìm cách hình thức hóa các khái niệm tấn công vật lý để bao được hầu hết các loại tấn công thực tế. Sau đó thiết kế sơ đồ mã hóa mà tính an toàn có thể đảm bảo chỉ duy nhất dựa trên các giả thiết toán học. Hướng nghiên cứu an toàn trong mô hình khóa bị lộ (key leakage resilient cryptography) đang khá được quan tâm trong cộng đồng mật mã.</p>
+</section>
+
+<section id="sec-6d">
+<h3 class="subsec-title">An toàn trước sự tấn công của máy tính lượng tử</h3>
+
+<p>Cuối cùng, chúng ta không thể bỏ qua sự hiện diện tiềm tàng của máy tính lượng tử dù rằng cho tới nay trong thực tế các máy tính lượng tử mới chỉ phân tích được số 21 ra thừa số nguyên tố. Nhưng về mặt lý thuyết, nó có tiềm năng to lớn không thể không kể tới. Công trình của Shor năm 94 đã chỉ ra rằng bài toán phân tích số có thể giải được trong thời gian đa thức bởi máy tính lượng tử. Bài toán logarit rời rạc trong trường hữu hạn hay trên đường cong elliptic cũng có thể giải được trong thời gian đa thức bởi máy tính lượng tử.</p>
+
+<p>Điều đó có nghĩa các hệ mã thông dụng hiện nay sẽ bị phá vỡ một khi máy tính lượng tử được thiết kế chạy được trên dữ liệu lớn. Để phòng ngừa trước điều đó (dù khả năng sớm xảy ra được đánh giá là rất nhỏ), nhiều nghiên cứu nhằm xây dựng các hệ mã có thể an toàn trước máy tính lượng tử được đề nghị. Hai hướng chính đang được quan tâm là các hệ mã dựa trên mã sửa sai (error correcting codes) và dựa trên lý thuyết lưới Euclid (lattice based cryptography), nơi sự hiện diện của máy tính lượng tử có vẻ như không đem lại hiệu quả đặc biệt.</p>
+</section>
+</section>
+
+<div class="art-end">
+  Tia Sáng &mdash; <a href="https://tiasang.com.vn/mat-ma-khoa-cong-khai-hanh-trinh-35-nam-4981392.html" target="_blank">tiasang.com.vn</a>
+</div>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()" title="In trang này">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    In
+  </button>
+</div>
+<nav class="art-nav">
+  <span class="art-nav-prev"></span>
+  <a href="../Matma.html" class="art-nav-home">↑ Mật Mã</a>
+  <a href="matma-dophuctap.html" class="art-nav-next">Mật mã dưới góc nhìn độ phức tạp tính toán →</a>
+</nav>
+</div><!-- /page-content -->
+</div><!-- /page-main -->
+
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

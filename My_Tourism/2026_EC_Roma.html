@@ -826,6 +826,260 @@
             line-height: 1.55;
         }
 
+        /* === Greek → Roman Philosophy chapter === */
+        .hy-la-banner {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 45%, #5c1a00 100%);
+            border-radius: 10px;
+            padding: 1.8rem 2rem;
+            color: #e8eaf6;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+        }
+        .hy-la-banner .hl-horace {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #c5cae9;
+            border-left: 4px solid #c89b3c;
+            padding-left: 1rem;
+            margin: 0.8rem 0 0.4rem;
+            line-height: 1.75;
+        }
+        .hy-la-banner .hl-source {
+            font-size: 0.82rem;
+            color: #9fa8da;
+            font-family: Arial, sans-serif;
+        }
+        .hy-la-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+        @media (max-width: 640px) { .hy-la-cols { grid-template-columns: 1fr; } }
+        .hy-la-col {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+        }
+        .hy-la-col-header {
+            padding: 0.75rem 1.1rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+            font-weight: bold;
+            letter-spacing: 0.04em;
+            color: #fff;
+        }
+        .hy-la-col-header.greek  { background: #1a237e; }
+        .hy-la-col-header.roman  { background: #6d1e00; }
+        .hy-la-col-body {
+            background: #fff;
+            padding: 1rem 1.1rem;
+        }
+        .hy-la-col-body ul {
+            padding-left: 1.1em;
+            margin: 0;
+        }
+        .hy-la-col-body li {
+            font-size: 0.92rem;
+            color: #2c2c2c;
+            margin: 0.3rem 0;
+            line-height: 1.55;
+        }
+        .hy-la-col-body li strong { color: #1a237e; }
+        .hy-la-col.roman .hy-la-col-body li strong { color: #6d1e00; }
+
+        .hy-la-transmission {
+            background: #fff8ee;
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 5px solid #c89b3c;
+        }
+        .hy-la-transmission h4 {
+            color: #5c1a00;
+            margin-bottom: 0.9rem;
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+        }
+        .hl-tm-row {
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            gap: 0.4rem 1rem;
+            margin-bottom: 0.55rem;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            align-items: start;
+        }
+        .hl-tm-year {
+            font-weight: bold;
+            color: #8b3a00;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+        }
+        .hl-tm-text { color: #3a2a1a; }
+        .hl-tm-text em { color: #5c1a00; }
+
+        .hy-la-school-wrap {
+            margin: 1.5rem 0;
+        }
+        .hy-la-school-wrap h4 {
+            color: #1a237e;
+            font-size: 1rem;
+            margin-bottom: 0.9rem;
+            font-family: Arial, sans-serif;
+            border-bottom: 2px solid #c5cae9;
+            padding-bottom: 0.4rem;
+        }
+        .school-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+        .school-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 7px rgba(0,0,0,0.09);
+            display: flex;
+            flex-direction: column;
+        }
+        .school-card-header {
+            padding: 0.6rem 1rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.88rem;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .school-card-header .sc-school { font-size: 1rem; }
+        .school-card-header .sc-origin { font-size: 0.75rem; opacity: 0.85; }
+        .sc-stoic    { background: #37474f; }
+        .sc-epicur   { background: #2e7d32; }
+        .sc-skeptic  { background: #6a1b9a; }
+        .sc-neopl    { background: #1565c0; }
+        .sc-rhetoric { background: #bf360c; }
+        .school-card-body {
+            background: #fff;
+            padding: 0.9rem 1rem;
+            flex: 1;
+            font-size: 0.88rem;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        .school-card-body .sc-origin-fig { color: #555; font-size: 0.82rem; margin-bottom: 0.4rem; }
+        .school-card-body .sc-origin-fig strong { color: #283593; }
+        .school-card-body .sc-roman-fig { color: #555; font-size: 0.82rem; margin-bottom: 0.5rem; }
+        .school-card-body .sc-roman-fig strong { color: #6d1e00; }
+        .school-card-body p { margin: 0 0 0.35rem; }
+        .school-card-body .sc-quote {
+            font-style: italic;
+            border-left: 3px solid #ccc;
+            padding-left: 0.7rem;
+            margin-top: 0.5rem;
+            font-size: 0.82rem;
+            color: #555;
+            line-height: 1.55;
+        }
+
+        .hy-la-cicero {
+            background: linear-gradient(to right, #fff8ee, #f0f4ff);
+            border: 1px solid #c89b3c;
+            border-radius: 10px;
+            padding: 1.5rem 1.8rem;
+            margin: 1.5rem 0;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1.2rem;
+            align-items: start;
+        }
+        @media (max-width: 600px) { .hy-la-cicero { grid-template-columns: 1fr; } }
+        .cicero-badge {
+            text-align: center;
+            background: #1a237e;
+            border-radius: 8px;
+            padding: 1.2rem 0.8rem;
+            color: #c5cae9;
+        }
+        .cicero-badge .cb-name { font-size: 1.15rem; font-weight: bold; color: #fff; font-family: Arial, sans-serif; }
+        .cicero-badge .cb-dates { font-size: 0.82rem; margin: 0.2rem 0 0.6rem; }
+        .cicero-badge .cb-title { font-size: 0.78rem; font-style: italic; line-height: 1.5; }
+        .cicero-body h4 { color: #1a237e; margin-bottom: 0.6rem; font-family: Arial, sans-serif; }
+        .cicero-body p { font-size: 0.91rem; color: #2c2c2c; margin-bottom: 0.5rem; line-height: 1.65; }
+        .cicero-body .cicero-quote {
+            background: #e8eaf6;
+            border-left: 4px solid #3949ab;
+            padding: 0.7rem 1rem;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #1a237e;
+            border-radius: 0 6px 6px 0;
+            margin: 0.6rem 0;
+            line-height: 1.7;
+        }
+        .cicero-body .cicero-works {
+            display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.6rem;
+        }
+        .cicero-work-tag {
+            background: #e8eaf6; color: #283593;
+            font-size: 0.78rem; padding: 0.2rem 0.55rem;
+            border-radius: 4px; font-family: Arial, sans-serif;
+            border: 1px solid #c5cae9;
+        }
+
+        .hy-la-compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            font-size: 0.88rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .hy-la-compare-table th {
+            padding: 0.7rem 1rem;
+            text-align: left;
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+        }
+        .hy-la-compare-table th:first-child { background: #37474f; color: #eceff1; width: 18%; }
+        .hy-la-compare-table th:nth-child(2) { background: #1a237e; color: #e8eaf6; width: 41%; }
+        .hy-la-compare-table th:nth-child(3) { background: #6d1e00; color: #fff3e0; width: 41%; }
+        .hy-la-compare-table td {
+            padding: 0.65rem 1rem;
+            border-bottom: 1px solid #ede8df;
+            vertical-align: top;
+            line-height: 1.55;
+        }
+        .hy-la-compare-table tr:last-child td { border-bottom: none; }
+        .hy-la-compare-table tr:nth-child(even) td { background: #fafaf8; }
+        .hy-la-compare-table td:first-child { font-weight: bold; color: #37474f; font-family: Arial, sans-serif; background: #f5f5f5 !important; }
+        .hy-la-compare-table td:nth-child(2) { color: #1a237e; }
+        .hy-la-compare-table td:nth-child(3) { color: #5c1a00; }
+
+        .hy-la-influence {
+            background: #1a0a00;
+            border-radius: 10px;
+            padding: 1.5rem 1.8rem;
+            margin-top: 1.5rem;
+            color: #d4b896;
+        }
+        .hy-la-influence h4 { color: #c89b3c; margin-bottom: 1rem; font-family: Arial, sans-serif; }
+        .hl-inf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.8rem;
+        }
+        .hl-inf-card {
+            background: #2c1a0a;
+            border-radius: 6px;
+            padding: 0.75rem 0.9rem;
+            border-top: 3px solid #c89b3c;
+        }
+        .hl-inf-card .hic-era { font-size: 0.72rem; color: #9a7a5a; font-family: Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+        .hl-inf-card .hic-name { font-size: 0.92rem; color: #f5e6c8; font-weight: bold; margin-bottom: 0.2rem; }
+        .hl-inf-card .hic-desc { font-size: 0.8rem; color: #c4a882; line-height: 1.5; }
+
         /* === Philosophical / Science itinerary === */
         .philo-itinerary-header {
             margin: 2.5rem 0 1.3rem;
@@ -950,6 +1204,7 @@
     <a href="#song-hanh">Song hành LS</a>
     <a href="#to-lua">Con đường Tơ lụa</a>
     <a href="#phuc-hung">Roma &amp; Phục hưng</a>
+    <a href="#hy-la">Hy Lạp → La Mã</a>
     <a href="#nhan-vat">Nhân vật lịch sử</a>
     <a href="#sach">Đọc thêm</a>
 </nav>
@@ -2203,6 +2458,342 @@
         <div class="silk-reflect">
             <p><strong>Roma và Phục hưng: một quan hệ không đơn giản.</strong> Florence phát minh ra ngôn ngữ Phục hưng. Venice tô màu cho nó. Bologna và Padua cho nó nền tảng triết học. Milan cho nó ứng dụng kỹ thuật. Nhưng <strong>Roma thiêng liêng hóa nó</strong> — biến nghệ thuật thành thần học, biến vẻ đẹp trần thế thành bằng chứng về sự hiện diện của Thiên Chúa.</p>
             <p style="margin-top:0.8rem;">Và chính vì vậy, khi bạn đứng dưới trần Sistine Chapel và ngước nhìn ngón tay của Thiên Chúa chưa chạm vào ngón tay của Adam — bạn đang nhìn vào điểm giao nhau của hai nghìn năm tư tưởng: triết học Hy Lạp, quyền lực La Mã, thần học Kitô giáo, và tài năng một con người nằm ngửa trên giàn giáo trong bốn năm. <em>Không thành phố nào khác ở Ý — hay trên trái đất — có thể tạo ra khoảnh khắc đó.</em></p>
+        </div>
+    </div>
+
+    <!-- TRIẾT HỌC HY LẠP → LA MÃ -->
+    <div class="theme-section" id="hy-la">
+        <div class="theme-header">
+            <div class="theme-icon">🏛️</div>
+            <div>
+                <h2>XI. Từ Athens đến Roma — Cuộc Chuyển Giao Triết Học Vĩ Đại</h2>
+                <div class="theme-tagline">Graecia capta ferum victorem cepit — Hy Lạp bị chinh phục đã chinh phục kẻ thắng trận hung tàn</div>
+            </div>
+        </div>
+
+        <!-- BANNER MỞ ĐẦU -->
+        <div class="hy-la-banner">
+            <p style="font-size:0.97rem;line-height:1.75;margin-bottom:0.8rem;">Năm 146 TCN, các quân đoàn La Mã san bằng thành Corinth và đặt dấu chấm hết cho nền độc lập của Hy Lạp. Nhưng trong số những gì được mang về Roma — pho tượng, đồng tiền, nô lệ — có một thứ không thể giam cầm: tư tưởng. Các triết gia Hy Lạp đến Roma với tư cách là gia sư, thư ký, người bạn học vấn của giới quý tộc. Và chính qua họ, nền triết học lớn nhất thế giới cổ đại đã tìm được ngôi nhà mới — không phải bản sao, mà là sự biến đổi sâu sắc.</p>
+            <div class="hl-horace">
+                <em>Graecia capta ferum victorem cepit et artes intulit agresti Latio.</em><br>
+                "Hy Lạp bị chinh phục đã chinh phục kẻ thắng trận hung tàn, và mang nghệ thuật đến với miền Latium hoang dã."
+            </div>
+            <div class="hl-source">— Horatius, <em>Epistulae</em> II.1, khoảng 20 TCN</div>
+        </div>
+
+        <!-- 1. SO SÁNH NỀN TẢNG -->
+        <h3 style="color:#5c1a00;margin:1.5rem 0 0.8rem;font-size:1.1rem;">1. Hai nền văn minh, hai cách nhìn thế giới</h3>
+        <div class="hy-la-cols">
+            <div class="hy-la-col">
+                <div class="hy-la-col-header greek">🏛 Triết học Hy Lạp — Eros tou Sophias</div>
+                <div class="hy-la-col-body">
+                    <ul>
+                        <li><strong>Câu hỏi trung tâm:</strong> Thế giới là gì? Thực tại tối hậu ở đâu?</li>
+                        <li><strong>Phong cách:</strong> Trừu tượng, hệ thống, siêu hình, suy lý thuần túy</li>
+                        <li><strong>Bối cảnh:</strong> Thành bang tự do, agora công cộng, agon tranh luận</li>
+                        <li><strong>Nhân vật đỉnh cao:</strong> Socrates (đặt câu hỏi), Plato (thế giới ý niệm), Aristotle (phân loại mọi thứ)</li>
+                        <li><strong>Mục đích:</strong> Nhận thức sự thật — <em>theoria</em> (chiêm nghiệm) là mục tiêu tự thân</li>
+                        <li><strong>Di sản:</strong> Logic học, siêu hình học, bản thể luận, nhận thức luận</li>
+                        <li><strong>Ngôn ngữ tư duy:</strong> Tiếng Hy Lạp — phong phú sắc thái triết học (logos, eidos, arete, eudaimonia)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hy-la-col roman">
+                <div class="hy-la-col-header roman">⚔ Triết học La Mã — Sapientia Vitae</div>
+                <div class="hy-la-col-body">
+                    <ul>
+                        <li><strong>Câu hỏi trung tâm:</strong> Ta nên sống thế nào? Làm thế nào để sống tốt giữa sóng gió?</li>
+                        <li><strong>Phong cách:</strong> Thực tiễn, đạo đức, tu từ, hướng đến hành động</li>
+                        <li><strong>Bối cảnh:</strong> Đế chế, nội chiến, quyền lực sinh tử, vận mệnh mong manh</li>
+                        <li><strong>Nhân vật đỉnh cao:</strong> Cicero (dịch & tổng hợp), Seneca (đạo đức thực hành), Marcus Aurelius (triết học trị quốc)</li>
+                        <li><strong>Mục đích:</strong> <em>Vita beata</em> — cuộc đời đáng sống; triết học là thuốc chữa bệnh tâm hồn</li>
+                        <li><strong>Di sản:</strong> Đạo đức học thực hành, luật pháp, hùng biện, quản trị nhà nước</li>
+                        <li><strong>Ngôn ngữ tư duy:</strong> Tiếng Latin — Cicero tự sáng tạo hàng trăm thuật ngữ triết học</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. CON ĐƯỜNG TRUYỀN DẪN -->
+        <h3 style="color:#5c1a00;margin:1.5rem 0 0.8rem;font-size:1.1rem;">2. Hành trình tư tưởng từ Athens đến Roma</h3>
+        <div class="hy-la-transmission">
+            <h4>📜 Dòng thời gian truyền dẫn triết học</h4>
+            <div class="hl-tm-row">
+                <div class="hl-tm-year">388 TCN</div>
+                <div class="hl-tm-text">Plato thăm Syracuse — triết học lần đầu gặp quyền lực chính trị. Thất bại, nhưng mở ra câu hỏi về nhà vua-triết gia.</div>
+            </div>
+            <div class="hl-tm-row">
+                <div class="hl-tm-year">155 TCN</div>
+                <div class="hl-tm-text"><em>Phái đoàn triết học Athens</em> đến Roma: Carneades (Hội Hàn lâm), Diogenes (Khắc kỷ), Critolaus (Tiêu dao). Họ diễn thuyết công khai — thanh niên quý tộc La Mã điên cuồng tán thưởng, Cato già tức giận đòi đuổi về.</div>
+            </div>
+            <div class="hl-tm-row">
+                <div class="hl-tm-year">146 TCN</div>
+                <div class="hl-tm-text">Roma hủy diệt Corinth. Hàng nghìn người Hy Lạp có học thức trở thành nô lệ — nhiều người làm gia sư cho nhà quý tộc, tạo thành <em>kênh truyền dẫn tư tưởng</em> trực tiếp vào tim La Mã.</div>
+            </div>
+            <div class="hl-tm-row">
+                <div class="hl-tm-year">~129 TCN</div>
+                <div class="hl-tm-text">Panaetius xứ Rhodes — triết gia Khắc kỷ — gia nhập vòng Scipio Aemilianus tại Roma. Lần đầu tiên tư tưởng Khắc kỷ được <em>thích nghi cho giá trị La Mã</em>: duty (officium), virtue trong vai trò công dân.</div>
+            </div>
+            <div class="hl-tm-row">
+                <div class="hl-tm-year">79–77 TCN</div>
+                <div class="hl-tm-text">Cicero học triết tại Athens (Viện Hàn lâm của Antiochus), Rhodes (Hùng biện của Apollonius). Trở về như một cầu nối sống — ông biến tiếng Hy Lạp thành tiếng Latin.</div>
+            </div>
+            <div class="hl-tm-row">
+                <div class="hl-tm-year">55–44 TCN</div>
+                <div class="hl-tm-text">Cicero viết ồ ạt trong những năm thoái lui chính trị: <em>De Natura Deorum, Tusculanae, De Finibus, De Officiis</em>… Kho từ điển triết học Latin ra đời. <em>Qualitas, essentia, moralis</em> — ông đặt tên cho các khái niệm.</div>
+            </div>
+            <div class="hl-tm-row">
+                <div class="hl-tm-year">~65 CN</div>
+                <div class="hl-tm-text">Seneca — bộ trưởng của Nero — viết <em>Epistulae Morales</em> và các tiểu luận Khắc kỷ. Triết học trở thành vũ khí sống còn khi sống dưới bạo chúa. Bị ép tự tử nhưng những lá thư của ông vẫn sống.</div>
+            </div>
+            <div class="hl-tm-row">
+                <div class="hl-tm-year">~170 CN</div>
+                <div class="hl-tm-text">Marcus Aurelius — Hoàng đế La Mã — viết <em>Suy Tưởng</em> bằng tiếng Hy Lạp, cho bản thân, không để xuất bản. Đỉnh cao của triết học Khắc kỷ La Mã: tư duy Hy Lạp, tâm hồn La Mã, trách nhiệm toàn cầu.</div>
+            </div>
+            <div class="hl-tm-row">
+                <div class="hl-tm-year">~245–270 CN</div>
+                <div class="hl-tm-text">Plotinus đến Roma, mở trường dạy Tân Platon. Học trò Porphyry viết lại các bài giảng thành <em>Enneads</em>. Roma trở thành trung tâm cuối cùng của triết học cổ đại — trước khi ngọn đèn tắt.</div>
+            </div>
+        </div>
+
+        <!-- 3. CÁC TRƯỜNG PHÁI -->
+        <h3 style="color:#1a237e;margin:1.5rem 0 0.8rem;font-size:1.1rem;">3. Năm trường phái — từ Athens sang Roma, tư tưởng biến đổi thế nào</h3>
+        <div class="hy-la-school-wrap">
+            <div class="school-grid">
+
+                <!-- STOICISM -->
+                <div class="school-card">
+                    <div class="school-card-header sc-stoic">
+                        <span class="sc-school">⊞ Khắc Kỷ (Stoicism)</span>
+                        <span class="sc-origin">Trường phái lớn nhất tại Roma</span>
+                    </div>
+                    <div class="school-card-body">
+                        <div class="sc-origin-fig"><strong>Hy Lạp:</strong> Zeno xứ Citium (~300 TCN) — Stoa Poikile, Athens</div>
+                        <div class="sc-roman-fig"><strong>La Mã:</strong> Seneca · Epictetus · Marcus Aurelius</div>
+                        <p>Hy Lạp: vũ trụ bị cai trị bởi Logos (lý trí), đức hạnh là điều thiện duy nhất, thờ ơ với đau khổ.</p>
+                        <p>La Mã: <em>biến đổi thành đạo đức thực hành</em> — cách sống dưới bạo quyền, cách giữ phẩm giá khi mất quyền lực, bổn phận với cộng đồng (<em>officium</em>). Khắc kỷ La Mã ít vũ trụ luận hơn, nhiều đạo đức hơn.</p>
+                        <div class="sc-quote">"Không nơi nào người ta có thể tìm thấy sự yên bình hơn là trong chính tâm hồn mình." — Marcus Aurelius</div>
+                    </div>
+                </div>
+
+                <!-- EPICUREANISM -->
+                <div class="school-card">
+                    <div class="school-card-header sc-epicur">
+                        <span class="sc-school">🌿 Epicurus (Khoái Lạc)</span>
+                        <span class="sc-origin">Trường phái bí ẩn</span>
+                    </div>
+                    <div class="school-card-body">
+                        <div class="sc-origin-fig"><strong>Hy Lạp:</strong> Epicurus (~306 TCN) — Khu Vườn (Kepos), Athens</div>
+                        <div class="sc-roman-fig"><strong>La Mã:</strong> Lucretius · Horace · Atticus (bạn Cicero)</div>
+                        <p>Hy Lạp: <em>ataraxia</em> (bình yên tâm trí) và <em>aponia</em> (không đau khổ) là khoái lạc tối thượng. Sợ thần thánh và cái chết là nguồn gốc khổ đau.</p>
+                        <p>La Mã: Lucretius viết <em>De Rerum Natura</em> — bài thơ vật lý học nguyên tử vĩ đại, phủ nhận sự bất tử linh hồn, giải phóng con người khỏi sợ hãi. Ít được giới tinh hoa chấp nhận hơn Khắc kỷ nhưng ảnh hưởng ngầm rất lớn.</p>
+                        <div class="sc-quote">"Cái chết không là gì cả với ta; khi ta tồn tại, cái chết chưa đến; khi cái chết đến, ta không còn tồn tại." — Epicurus</div>
+                    </div>
+                </div>
+
+                <!-- SKEPTICISM -->
+                <div class="school-card">
+                    <div class="school-card-header sc-skeptic">
+                        <span class="sc-school">❓ Hội Hàn lâm Hoài nghi</span>
+                        <span class="sc-origin">Qua tay Cicero</span>
+                    </div>
+                    <div class="school-card-body">
+                        <div class="sc-origin-fig"><strong>Hy Lạp:</strong> Pyrrho · Arcesilaus · Carneades — Viện Hàn lâm Mới</div>
+                        <div class="sc-roman-fig"><strong>La Mã:</strong> Cicero (<em>Academica</em>, <em>De Natura Deorum</em>)</div>
+                        <p>Hy Lạp: không có gì có thể biết chắc chắn — <em>epoché</em> (đình chỉ phán xét) là thái độ đúng.</p>
+                        <p>La Mã: Cicero dùng hoài nghi như <em>phương pháp tu từ</em> — trình bày các lập luận từ nhiều phía, không kết luận dứt khoát. Đây là tiền thân của chủ nghĩa hoài nghi hiện đại và phương pháp tranh tụng tại tòa án.</p>
+                        <div class="sc-quote">"Ta không khẳng định gì, ta thăm dò; ta không tuyên bố gì, ta tra vấn." — Cicero</div>
+                    </div>
+                </div>
+
+                <!-- NEO-PLATONISM -->
+                <div class="school-card">
+                    <div class="school-card-header sc-neopl">
+                        <span class="sc-school">✦ Tân Platon (Neo-Platonism)</span>
+                        <span class="sc-origin">Hậu kỳ tại Roma</span>
+                    </div>
+                    <div class="school-card-body">
+                        <div class="sc-origin-fig"><strong>Hy Lạp:</strong> Plato — thế giới Ý niệm, linh hồn bất tử, Thiện tối thượng</div>
+                        <div class="sc-roman-fig"><strong>La Mã:</strong> Plotinus (205–270 CN) — dạy triết tại Roma 25 năm</div>
+                        <p>Plotinus tái giải thích Plato: tất cả thực tại phát xuất từ <em>Nhất thể (The One)</em> — siêu việt mọi tư duy và tồn tại. Linh hồn con người có thể hợp nhất với Nhất thể qua <em>chiêm nghiệm thần bí</em>.</p>
+                        <p>Ảnh hưởng quyết định lên tư tưởng Kitô giáo — Augustine xứ Hippo đọc Plotinus trước khi cải đạo, và triết học Roma trở thành nền tảng thần học Trung Cổ.</p>
+                        <div class="sc-quote">"Hãy khép mắt lại và thay đổi cái nhìn — thức dậy năng lực khác, mà mọi người đều có nhưng ít ai dùng." — Plotinus</div>
+                    </div>
+                </div>
+
+                <!-- RHETORIC -->
+                <div class="school-card">
+                    <div class="school-card-header sc-rhetoric">
+                        <span class="sc-school">🗣 Hùng biện (Rhetorica)</span>
+                        <span class="sc-origin">Hy Lạp → La Mã thuần thục nhất</span>
+                    </div>
+                    <div class="school-card-body">
+                        <div class="sc-origin-fig"><strong>Hy Lạp:</strong> Gorgias · Isocrates · Aristotle (<em>Rhetorica</em>)</div>
+                        <div class="sc-roman-fig"><strong>La Mã:</strong> Cicero · Quintilian (<em>Institutio Oratoria</em>)</div>
+                        <p>Hy Lạp: Hùng biện là nghệ thuật thuyết phục — nhưng Plato khinh thường nó (so sánh với triết học thực sự), còn Aristotle cố hệ thống hóa nó.</p>
+                        <p>La Mã: Hùng biện là <em>trung tâm của nền giáo dục và quyền lực</em>. Cicero trong <em>De Oratore</em> tuyên bố: nhà hùng biện thực sự phải là nhà triết học. Quintilian viết bộ giáo trình 12 cuốn tồn tại 1.500 năm. Tại Roma, nói trước Viện Nguyên lão có thể cứu sống hoặc giết chết một người.</p>
+                        <div class="sc-quote">"Nhà hùng biện lý tưởng là người vừa nói tốt vừa là người tốt." — Quintilian</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 4. CICERO - TRUNG TÂM -->
+        <h3 style="color:#5c1a00;margin:1.8rem 0 0.8rem;font-size:1.1rem;">4. Cicero — Cầu nối sống giữa hai thế giới</h3>
+        <div class="hy-la-cicero">
+            <div class="cicero-badge">
+                <div class="cb-name">Marcus Tullius Cicero</div>
+                <div class="cb-dates">106 – 43 TCN</div>
+                <div class="cb-title">Nhà hùng biện · Triết gia · Luật sư · Consul · Người dịch tư tưởng Hy Lạp ra tiếng Latin</div>
+            </div>
+            <div class="cicero-body">
+                <h4>Người đặt tên cho triết học phương Tây</h4>
+                <p>Không có Cicero, phần lớn triết học Hy Lạp có thể đã biến mất khỏi lịch sử phương Tây. Trong khoảng 44–43 TCN — sau ám sát Caesar, khi ông thoái lui khỏi chính trị chờ chết — ông viết liên tục như thể cuộc đời còn lại chỉ để làm điều đó. Ông tạo ra tiếng Latin triết học từ con số không.</p>
+                <div class="cicero-quote">
+                    "Ta tuyên bố mình là học trò của Hy Lạp… nhưng những gì ta viết không phải là bản dịch — đó là tác phẩm của ta, với phán xét của ta, với trật tự và tư duy của ta."<br>
+                    <span style="font-size:0.82rem;color:#5c1a00;">— Cicero, <em>De Finibus</em></span>
+                </div>
+                <p><strong>Đóng góp ngôn ngữ:</strong> Cicero đặt ra: <em>qualitas</em> (dịch từ poiotes), <em>essentia</em> (ousia), <em>moralis</em> (ethikos), <em>humanitas</em> (paideia), <em>definitio, differentia, vacuum, appetitus</em>… — những từ này vẫn sống trong mọi ngôn ngữ châu Âu ngày nay.</p>
+                <p><strong>Vai trò bản lề:</strong> Ông học Khắc kỷ, Epicurus, Viện Hàn lâm — rồi không chọn trường phái nào, mà dùng tất cả như công cụ tư duy. Thái độ chiết trung (<em>eclecticism</em>) này trở thành bản sắc của triết học La Mã.</p>
+                <div class="cicero-works">
+                    <span class="cicero-work-tag">De Officiis</span>
+                    <span class="cicero-work-tag">De Re Publica</span>
+                    <span class="cicero-work-tag">Tusculanae Disputationes</span>
+                    <span class="cicero-work-tag">De Natura Deorum</span>
+                    <span class="cicero-work-tag">De Finibus</span>
+                    <span class="cicero-work-tag">Academica</span>
+                    <span class="cicero-work-tag">De Amicitia</span>
+                    <span class="cicero-work-tag">De Senectute</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. BẢNG SO SÁNH -->
+        <h3 style="color:#37474f;margin:1.8rem 0 0.8rem;font-size:1.1rem;">5. So sánh chi tiết — Tư tưởng và văn minh</h3>
+        <table class="hy-la-compare-table">
+            <thead>
+                <tr>
+                    <th>Lĩnh vực</th>
+                    <th>🏛 Hy Lạp</th>
+                    <th>⚔ La Mã</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Câu hỏi triết học</td>
+                    <td>"Thực tại là gì?" — Bản thể luận, siêu hình học là trung tâm</td>
+                    <td>"Ta phải sống thế nào?" — Đạo đức thực hành và quản trị là trung tâm</td>
+                </tr>
+                <tr>
+                    <td>Quan niệm đức hạnh</td>
+                    <td><em>Arete</em> — xuất sắc, hoàn hảo bẩm sinh; đức hạnh tự thân có giá trị</td>
+                    <td><em>Virtus</em> — dũng cảm, nghĩa vụ, phục vụ nhà nước; đức hạnh gắn với vai trò xã hội</td>
+                </tr>
+                <tr>
+                    <td>Quan niệm hạnh phúc</td>
+                    <td><em>Eudaimonia</em> — phát triển toàn vẹn con người, đặc biệt lý trí (Aristotle)</td>
+                    <td><em>Vita beata</em> — cuộc đời bình thản, không bị quật ngã bởi vận may hay vận rủi</td>
+                </tr>
+                <tr>
+                    <td>Tri thức và quyền lực</td>
+                    <td>Plato: nhà vua phải là triết gia — tri thức có nghĩa vụ cai trị</td>
+                    <td>Cicero / Seneca: triết gia phục vụ nhà nước nhưng phải giữ độc lập tinh thần</td>
+                </tr>
+                <tr>
+                    <td>Vai trò của cộng đồng</td>
+                    <td>Polis là không gian con người thực hiện bản chất (Aristotle: người là "động vật chính trị")</td>
+                    <td>Res publica là thực thể thiêng liêng; <em>pietas</em> — tình yêu đất nước — là đức hạnh tối cao</td>
+                </tr>
+                <tr>
+                    <td>Thái độ với cái chết</td>
+                    <td>Plato: cái chết là giải phóng linh hồn. Epicurus: cái chết là hư vô, vì vậy không đáng sợ</td>
+                    <td>Khắc kỷ La Mã: luyện tập <em>melete thanatou</em> (suy nghĩ về cái chết hàng ngày) như bài tập tâm lý</td>
+                </tr>
+                <tr>
+                    <td>Thần học triết học</td>
+                    <td>Plato: Demiurge (thợ trời). Aristotle: Động cơ bất động. Đa thần nhưng siêu hình</td>
+                    <td>Khắc kỷ: Thượng đế = Logos = Tự nhiên. Plotinus: Nhất thể siêu việt. Nền tảng cho thần học Kitô giáo</td>
+                </tr>
+                <tr>
+                    <td>Giáo dục và khai sáng</td>
+                    <td><em>Paideia</em> — đào tạo toàn diện: âm nhạc, thể dục, triết học, toán học</td>
+                    <td><em>Humanitas</em> (Cicero) — giáo dục khai phóng: ngữ pháp, hùng biện, triết học; cơ sở của Liberal Arts</td>
+                </tr>
+                <tr>
+                    <td>Phụ nữ trong triết học</td>
+                    <td>Plato (<em>Cộng hòa</em>): phụ nữ có thể là người bảo vệ; Diotima dạy Socrates về Tình yêu</td>
+                    <td>Ít tiến bộ hơn — nhưng có các nữ triết gia Épicuriste và Pythagore, và phụ nữ quý tộc học triết</td>
+                </tr>
+                <tr>
+                    <td>Ảnh hưởng lâu dài nhất</td>
+                    <td>Logic Aristotle → Kinh viện học Medieval; Plato → Augustine, Plotinus, Tân Platon; Toán-triết học Pythagoras</td>
+                    <td>Luật pháp La Mã → pháp luật hiện đại; Khắc kỷ La Mã → Liệu pháp nhận thức (CBT); Cicero → chủ nghĩa nhân văn Phục hưng</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 6. ẢNH HƯỞNG HIỆN ĐẠI -->
+        <h3 style="color:#5c1a00;margin:1.8rem 0 0.8rem;font-size:1.1rem;">6. Di sản sống — Từ thế kỷ I TCN đến thế kỷ XXI</h3>
+        <div class="hy-la-influence">
+            <h4>Những tư tưởng Hy-La nào còn sống trong thế giới hôm nay</h4>
+            <div class="hl-inf-grid">
+
+                <div class="hl-inf-card">
+                    <div class="hic-era">Thế kỷ XIII</div>
+                    <div class="hic-name">Thomas Aquinas</div>
+                    <div class="hic-desc">Hợp nhất Aristotle với thần học Kitô giáo tại Roma và Paris — tạo ra Kinh viện học, xương sống trí thức của Trung Cổ phương Tây.</div>
+                </div>
+
+                <div class="hl-inf-card">
+                    <div class="hic-era">Thế kỷ XIV–XV</div>
+                    <div class="hic-name">Petrarch & Chủ nghĩa Nhân văn</div>
+                    <div class="hic-desc">Phát hiện lại thư từ Cicero → khai sinh phong trào Humanitas Phục hưng. "Cicero là cha của tôi", Petrarch viết thư cho người chết 1.400 năm.</div>
+                </div>
+
+                <div class="hl-inf-card">
+                    <div class="hic-era">Thế kỷ XVII</div>
+                    <div class="hic-name">Descartes & Spinoza</div>
+                    <div class="hic-desc">Phương pháp hoài nghi của Descartes kế thừa Hoài nghi học La Mã-Hy Lạp. Spinoza đọc Marcus Aurelius và tái dựng Pantheism Khắc kỷ.</div>
+                </div>
+
+                <div class="hl-inf-card">
+                    <div class="hic-era">Thế kỷ XVIII</div>
+                    <div class="hic-name">Các Cha Đẻ Hoa Kỳ</div>
+                    <div class="hic-desc">Jefferson, Madison, Hamilton đọc Cicero và Polybius để thiết kế chính thể liên bang. Cicero's <em>De Re Publica</em> là bản thảo ẩn của Hiến pháp Mỹ.</div>
+                </div>
+
+                <div class="hl-inf-card">
+                    <div class="hic-era">Thế kỷ XIX</div>
+                    <div class="hic-name">Nietzsche</div>
+                    <div class="hic-desc">Phê phán triết học Khắc kỷ La Mã là "nô lệ đạo đức hóa", nhưng đề cao bi kịch Hy Lạp (<em>Apollo vs Dionysus</em>) — sự đối lập Hy-La là trung tâm tư tưởng ông.</div>
+                </div>
+
+                <div class="hl-inf-card">
+                    <div class="hic-era">Thế kỷ XX–XXI</div>
+                    <div class="hic-name">Liệu pháp CBT</div>
+                    <div class="hic-desc">Aaron Beck và Albert Ellis xây dựng Cognitive Behavioral Therapy trực tiếp từ Epictetus: "Không phải sự việc làm ta đau khổ, mà là phán xét của ta về sự việc."</div>
+                </div>
+
+                <div class="hl-inf-card">
+                    <div class="hic-era">Thế kỷ XXI</div>
+                    <div class="hic-name">Neo-Stoicism số</div>
+                    <div class="hic-desc">Marcus Aurelius và Seneca là triết gia được đọc nhiều nhất trên mạng — <em>Meditations</em> có hàng triệu lượt đọc ebook/year. Ryan Holiday, Tim Ferriss phổ biến Khắc kỷ cho thế hệ Silicon Valley.</div>
+                </div>
+
+                <div class="hl-inf-card">
+                    <div class="hic-era">Luật quốc tế</div>
+                    <div class="hic-name">Ius Gentium</div>
+                    <div class="hic-desc">Luật pháp La Mã và khái niệm <em>ius naturale</em> (luật tự nhiên, từ Cicero và Khắc kỷ) là nền tảng của luật quốc tế hiện đại, Tuyên ngôn Nhân quyền LHQ 1948.</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- KẾT CHƯƠNG -->
+        <div class="closing-reflection" style="margin-top:1.8rem;">
+            <blockquote>"Roma không tạo ra triết học — Roma làm cho triết học trở nên cần thiết cho cuộc sống. Người Hy Lạp hỏi: 'Thực tại là gì?' Người La Mã hỏi: 'Làm thế nào để sống với điều đó?' Và chính sự kết hợp của hai câu hỏi đó — qua 2.000 năm — đã tạo ra nền văn minh phương Tây."</blockquote>
+            <cite>— Tổng hợp từ Pierre Hadot, <em>Philosophy as a Way of Life</em> (1995)</cite>
         </div>
     </div>
 

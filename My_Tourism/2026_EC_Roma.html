@@ -1,0 +1,2888 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roma – Khám phá chiều sâu triết học</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: #f5f0e8;
+            color: #2c2c2c;
+            line-height: 1.75;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a0a00 0%, #5c1a00 60%, #8b3a00 100%);
+            color: #f5e6c8;
+            padding: 3rem 2rem 2.5rem;
+            text-align: center;
+            border-bottom: 4px solid #c89b3c;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            letter-spacing: 0.08em;
+            color: #f5e6c8;
+            margin-bottom: 0.4rem;
+        }
+
+        header .subtitle {
+            font-size: 1.1rem;
+            color: #c89b3c;
+            font-style: italic;
+            letter-spacing: 0.04em;
+        }
+
+        header .epigraph {
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
+            color: #d4b896;
+            font-style: italic;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            border-top: 1px solid #7a4a1a;
+            padding-top: 1rem;
+        }
+
+        nav {
+            background-color: #2c1a0a;
+            padding: 0.7rem 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #c89b3c;
+        }
+
+        nav a {
+            color: #c89b3c;
+            text-decoration: none;
+            margin: 0 0.8rem;
+            font-size: 0.88rem;
+            font-family: Arial, sans-serif;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        nav a:hover { color: #f5e6c8; }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .intro-box {
+            background: #fff8ee;
+            border-left: 5px solid #c89b3c;
+            border-radius: 6px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+
+        .intro-box p { font-size: 1.02rem; color: #3a2a1a; }
+
+        .theme-section {
+            margin-bottom: 3rem;
+        }
+
+        .theme-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 2px solid #c89b3c;
+        }
+
+        .theme-icon {
+            font-size: 2rem;
+            min-width: 2.5rem;
+            text-align: center;
+        }
+
+        .theme-header h2 {
+            font-size: 1.45rem;
+            color: #5c1a00;
+            line-height: 1.3;
+        }
+
+        .theme-header .theme-tagline {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #7a5a3a;
+            font-family: Arial, sans-serif;
+        }
+
+        .place-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+            border-left: 4px solid #c89b3c;
+            transition: transform 0.15s;
+        }
+
+        .place-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 3px 12px rgba(92,26,0,0.13);
+        }
+
+        .place-card h3 {
+            font-size: 1.15rem;
+            color: #1a0a00;
+            margin-bottom: 0.3rem;
+        }
+
+        .place-card .place-meta {
+            font-size: 0.83rem;
+            color: #8b5e3c;
+            font-family: Arial, sans-serif;
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .place-card p {
+            font-size: 0.97rem;
+            color: #3a2a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .philosophy-quote {
+            background: #f9f0e0;
+            border-left: 3px solid #8b5e3c;
+            padding: 0.6rem 1rem;
+            margin-top: 0.7rem;
+            font-style: italic;
+            font-size: 0.92rem;
+            color: #5c3a1a;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .philosophy-question {
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            color: #5c1a00;
+            font-family: Arial, sans-serif;
+        }
+
+        .philosophy-question strong { color: #8b3a00; }
+
+        .tip-box {
+            background: #eef5ea;
+            border: 1px solid #7aaa5a;
+            border-radius: 6px;
+            padding: 0.9rem 1.2rem;
+            margin-top: 0.8rem;
+            font-size: 0.88rem;
+            color: #2a4a1a;
+            font-family: Arial, sans-serif;
+        }
+
+        .tip-box strong { color: #3a6a1a; }
+
+        .reading-section {
+            background: #1a0a00;
+            color: #f5e6c8;
+            border-radius: 10px;
+            padding: 2rem 2.2rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .reading-section h2 {
+            color: #c89b3c;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid #5c3a1a;
+            padding-bottom: 0.5rem;
+        }
+
+        .reading-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reading-section li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #3a1a0a;
+            font-size: 0.97rem;
+        }
+
+        .reading-section li:last-child { border-bottom: none; }
+
+        .reading-section .book-title { color: #c89b3c; font-style: italic; }
+        .reading-section .book-author { color: #d4b896; }
+        .reading-section .book-note { color: #9a7a5a; font-size: 0.88rem; }
+
+        .closing-reflection {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: #fff8ee;
+            border-radius: 10px;
+            border: 1px solid #c89b3c;
+            margin-bottom: 3rem;
+        }
+
+        .closing-reflection blockquote {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #5c1a00;
+            max-width: 640px;
+            margin: 0 auto 0.8rem;
+            line-height: 1.8;
+        }
+
+        .closing-reflection cite {
+            font-size: 0.9rem;
+            color: #8b5e3c;
+            font-family: Arial, sans-serif;
+        }
+
+        footer {
+            background: #1a0a00;
+            color: #7a5a3a;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            font-family: Arial, sans-serif;
+            border-top: 3px solid #c89b3c;
+        }
+
+        /* ── ITINERARY ── */
+        .itinerary-section {
+            margin-bottom: 3rem;
+        }
+
+        .logistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .logistic-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+            border-top: 4px solid #c89b3c;
+        }
+
+        .logistic-card .lc-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #8b5e3c;
+            font-family: Arial, sans-serif;
+            margin-bottom: 0.4rem;
+        }
+
+        .logistic-card .lc-value {
+            font-size: 1rem;
+            color: #1a0a00;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .logistic-card .lc-note {
+            font-size: 0.82rem;
+            color: #7a5a3a;
+            font-family: Arial, sans-serif;
+            margin-top: 0.3rem;
+        }
+
+        .urgent-box {
+            background: #fff3cd;
+            border: 2px solid #d4860a;
+            border-radius: 8px;
+            padding: 1rem 1.4rem;
+            margin-bottom: 2rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.92rem;
+            color: #5c3a00;
+        }
+
+        .urgent-box strong { color: #8b4a00; }
+
+        .day-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .day-label {
+            background: linear-gradient(90deg, #5c1a00, #8b3a00);
+            color: #f5e6c8;
+            padding: 0.6rem 1.4rem;
+            border-radius: 6px 6px 0 0;
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .day-label .day-date { font-size: 0.82rem; color: #c89b3c; }
+
+        .timeline {
+            background: #fff;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            overflow: hidden;
+        }
+
+        .tl-row {
+            display: flex;
+            border-bottom: 1px solid #f0e8d8;
+            transition: background 0.15s;
+        }
+
+        .tl-row:last-child { border-bottom: none; }
+        .tl-row:hover { background: #fdf8f0; }
+
+        .tl-row.tl-transit { background: #f5f5f5; }
+        .tl-row.tl-transit:hover { background: #efefef; }
+        .tl-row.tl-highlight { border-left: 4px solid #c89b3c; }
+        .tl-row.tl-conference { background: #f0f5ea; border-left: 4px solid #5a8a3a; }
+
+        .tl-time {
+            min-width: 80px;
+            padding: 0.9rem 0.8rem 0.9rem 1.2rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #8b3a00;
+            border-right: 2px solid #f0e8d8;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 1rem;
+        }
+
+        .tl-body {
+            padding: 0.85rem 1.3rem;
+            flex: 1;
+        }
+
+        .tl-title {
+            font-size: 1rem;
+            color: #1a0a00;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .tl-desc {
+            font-size: 0.88rem;
+            color: #5a3a2a;
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        .tl-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-family: Arial, sans-serif;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            margin-right: 0.3rem;
+            margin-top: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .tag-philo { background: #f0e0c0; color: #7a4a00; }
+        .tag-art   { background: #e8e0f0; color: #4a2a7a; }
+        .tag-food  { background: #e0f0e0; color: #2a6a2a; }
+        .tag-walk  { background: #e0eef5; color: #1a4a6a; }
+        .tag-conf  { background: #e0f0e8; color: #1a5a3a; }
+        .tag-warn  { background: #fff0c0; color: #7a5a00; }
+
+        /* ── COMPARE / SONG HÀNH SECTION ── */
+        .compare-intro {
+            background: linear-gradient(135deg, #1a0a00, #2a0f00);
+            color: #d4b896;
+            border-radius: 10px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            font-size: 0.97rem;
+            line-height: 1.7;
+            border: 1px solid #5c1a00;
+        }
+        .compare-intro strong { color: #c89b3c; }
+
+        .era-table {
+            width: 100%;
+            min-width: 660px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 0.87rem;
+            margin-bottom: 2.5rem;
+        }
+        .era-table thead th {
+            padding: 0.65rem 0.9rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-align: left;
+        }
+        .era-table thead .th-period { background: #3a1a0a; color: #c89b3c; width: 14%; }
+        .era-table thead .th-rome   { background: #5c1a00; color: #f5e6c8; width: 28%; }
+        .era-table thead .th-world  { background: #1a2a5c; color: #c8d8f5; width: 29%; }
+        .era-table thead .th-viet   { background: #1a4a2a; color: #c8f5d8; width: 29%; }
+        .era-table tbody tr:nth-child(even) td { background: #faf5ee; }
+        .era-table tbody tr:nth-child(odd) td  { background: #fff; }
+        .era-table tbody tr:hover td { background: #fff8ee; }
+        .era-table td {
+            padding: 0.85rem 0.9rem;
+            vertical-align: top;
+            border-bottom: 1px solid #ece5d8;
+            line-height: 1.5;
+            color: #3a2a1a;
+        }
+        .era-table td:first-child {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            color: #5c1a00;
+            font-size: 0.82rem;
+            border-left: 4px solid #c89b3c;
+            line-height: 1.4;
+        }
+        .era-table td.td-rome  { border-left: 3px solid #8b3a00; }
+        .era-table td.td-world { border-left: 3px solid #1a3a8b; }
+        .era-table td.td-viet  { border-left: 3px solid #1a7a4a; font-weight: 500; }
+        .era-em { display: block; font-weight: bold; margin-bottom: 3px; }
+        .era-sub { display: block; font-size: 0.79rem; color: #6a5a4a; font-family: Arial, sans-serif; line-height: 1.45; }
+        .era-hi { color: #1a5a2a; }
+
+        /* VN Figure Cards */
+        .vn-subsection-title {
+            font-size: 1.15rem;
+            color: #1a4a2a;
+            font-family: Georgia, serif;
+            font-weight: bold;
+            margin: 2.5rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3a8a5a;
+        }
+        .vn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .vn-card {
+            background: #f2faf6;
+            border: 1px solid #a0d4b4;
+            border-radius: 10px;
+            padding: 1.3rem 1.5rem;
+            border-top: 4px solid #2a7a4a;
+            transition: transform 0.15s;
+        }
+        .vn-card:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(42,122,74,0.13); }
+        .vn-card h3 { font-size: 1.1rem; color: #1a3a2a; margin-bottom: 0.2rem; }
+        .vn-dates {
+            font-size: 0.8rem; color: #4a8a6a;
+            font-family: Arial, sans-serif; margin-bottom: 0.6rem;
+        }
+        .vn-parallel {
+            background: #fff8ee; border-left: 3px solid #c89b3c;
+            padding: 0.35rem 0.7rem; font-size: 0.82rem; color: #5c3a00;
+            font-family: Arial, sans-serif; border-radius: 0 4px 4px 0; margin-bottom: 0.8rem;
+        }
+        .vn-card p { font-size: 0.9rem; color: #2a3a2a; margin-bottom: 0.5rem; line-height: 1.6; }
+        .vn-quote {
+            font-style: italic; color: #1a5a3a; font-size: 0.88rem;
+            border-left: 2px solid #3a8a5a; padding-left: 0.8rem;
+            margin: 0.7rem 0; line-height: 1.65;
+        }
+
+        /* === Roma & Renaissance section === */
+        .city-compare-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.1rem;
+            margin: 1.3rem 0 2rem;
+        }
+        .city-card {
+            border-radius: 8px;
+            border: 1px solid #d4b896;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+        }
+        .city-card-header {
+            padding: 0.7rem 1rem;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .city-card-body {
+            padding: 0.8rem 1rem;
+            font-size: 0.87rem;
+            line-height: 1.6;
+            background: #fff;
+            color: #2c2c2c;
+        }
+        .city-card-body strong { color: #5c1a00; }
+        .city-card-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-family: Arial, sans-serif;
+            background: rgba(255,255,255,0.25);
+            border-radius: 3px;
+            padding: 0.1rem 0.4rem;
+            margin-top: 0.3rem;
+            font-weight: normal;
+        }
+        .city-roma   .city-card-header { background: #5c1a00; color: #f5e6c8; }
+        .city-firenze .city-card-header { background: #1a3a5c; color: #c8d8f5; }
+        .city-venezia .city-card-header { background: #1a4a4a; color: #c8f5f0; }
+        .city-bologna .city-card-header { background: #3a2a00; color: #f5e6a0; }
+        .city-milano  .city-card-header { background: #2c2c5c; color: #d0d0f5; }
+        .city-napoli  .city-card-header { background: #3a1a4a; color: #e8c8f5; }
+        .dark-period-box {
+            background: #1a1a1a;
+            color: #d4b896;
+            border-radius: 8px;
+            padding: 1.3rem 1.7rem;
+            margin: 1.3rem 0;
+            line-height: 1.75;
+            font-size: 0.92rem;
+        }
+        .dark-period-box h4 { color: #c89b3c; font-family: Arial, sans-serif; margin-bottom: 0.6rem; }
+        .dark-period-box strong { color: #f5e6c8; }
+        .renaiss-timeline {
+            border-left: 3px solid #c89b3c;
+            margin: 1.2rem 0 1.5rem 0.4rem;
+            padding-left: 1.4rem;
+        }
+        .renaiss-item {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .renaiss-item::before {
+            content: '';
+            position: absolute;
+            left: -1.75rem;
+            top: 0.45rem;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: #c89b3c;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px #c89b3c;
+        }
+        .renaiss-year {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 0.82rem;
+            color: #c89b3c;
+        }
+        .renaiss-text {
+            font-size: 0.9rem;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        .renaiss-text em { color: #5c1a00; }
+        .verdict-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.86rem;
+            margin: 1.2rem 0;
+        }
+        .verdict-table th {
+            background: #2c1a0a;
+            color: #c89b3c;
+            font-family: Arial, sans-serif;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+        .verdict-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #e8dcc8;
+            vertical-align: top;
+            line-height: 1.55;
+        }
+        .verdict-table tr:nth-child(even) td { background: #faf5ee; }
+        .verdict-table tr:hover td { background: #fff8ee; }
+        .verdict-table td:first-child { font-weight: bold; color: #5c1a00; width: 16%; }
+        .verdict-table td:nth-child(2) { color: #3a1a1a; width: 28%; }
+        .verdict-table td:nth-child(3) { color: #1a2a5c; width: 28%; }
+        .verdict-table td:nth-child(4) { color: #2c2c2c; width: 28%; }
+
+        /* === Silk Road section === */
+        .silk-route {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0;
+            margin: 1.5rem 0 2rem;
+            background: linear-gradient(90deg, #fff8ee 0%, #f5f0e8 100%);
+            border: 1px solid #d4b896;
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+        }
+        .silk-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 70px;
+        }
+        .silk-node-city {
+            font-size: 0.78rem;
+            font-weight: bold;
+            color: #5c1a00;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .silk-node-label {
+            font-size: 0.7rem;
+            color: #8b5a2a;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .silk-node-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: #c89b3c;
+            border: 2px solid #5c1a00;
+            margin: 0.3rem 0;
+        }
+        .silk-arrow {
+            font-size: 1.4rem;
+            color: #c89b3c;
+            flex-shrink: 0;
+            padding: 0 0.2rem;
+            align-self: center;
+        }
+        .silk-goods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.2rem 0;
+        }
+        .silk-goods-card {
+            background: #fff;
+            border: 1px solid #d4b896;
+            border-radius: 6px;
+            padding: 0.9rem 1rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .silk-goods-card .sg-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.35rem;
+        }
+        .silk-goods-card .sg-title {
+            font-weight: bold;
+            color: #5c1a00;
+            font-family: Arial, sans-serif;
+            font-size: 0.88rem;
+            margin-bottom: 0.25rem;
+        }
+        .silk-goods-card p {
+            font-size: 0.85rem;
+            color: #3a2a1a;
+            line-height: 1.55;
+            margin: 0;
+        }
+        .silk-milestone {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 0;
+            margin-bottom: 0;
+        }
+        .silk-milestone-year {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 0.82rem;
+            color: #c89b3c;
+            padding: 0.7rem 0.6rem;
+            border-right: 2px solid #c89b3c;
+            text-align: right;
+            line-height: 1.4;
+        }
+        .silk-milestone-text {
+            padding: 0.7rem 0 0.7rem 1rem;
+            font-size: 0.88rem;
+            color: #2c2c2c;
+            line-height: 1.6;
+            border-bottom: 1px dashed #e0d0b0;
+        }
+        .silk-milestone:last-child .silk-milestone-text { border-bottom: none; }
+        .silk-vn-box {
+            background: linear-gradient(135deg, #f0fff4 0%, #e8f5ef 100%);
+            border: 1px solid #3a8a5a;
+            border-left: 5px solid #1a7a4a;
+            border-radius: 0 6px 6px 0;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .silk-vn-box h4 {
+            color: #1a4a2a;
+            font-family: Arial, sans-serif;
+            margin-bottom: 0.6rem;
+        }
+        .silk-vn-box p { font-size: 0.9rem; line-height: 1.65; margin-bottom: 0.5rem; }
+        .silk-reflect {
+            background: #2c1a0a;
+            color: #f5e6c8;
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+        .silk-reflect strong { color: #c89b3c; }
+
+        /* === Nhân vật lịch sử section === */
+        .nv-era-block { margin-bottom: 2.8rem; }
+        .nv-era-header {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 0.75rem 1.2rem; border-radius: 8px;
+            margin-bottom: 1.1rem; color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .nv-era-header h3 { font-size: 1rem; margin: 0; color: #fff; font-family: Arial, sans-serif; }
+        .nv-era-header .era-span {
+            font-size: 0.78rem; opacity: 0.82;
+            font-style: italic; margin-top: 0.15rem;
+        }
+        .era-republic  { background: linear-gradient(90deg,#7f0000,#b71c1c); }
+        .era-empire    { background: linear-gradient(90deg,#5c1a00,#8b3a00); }
+        .era-medieval  { background: linear-gradient(90deg,#1a237e,#283593); }
+        .era-renais    { background: linear-gradient(90deg,#1b5e20,#2e7d32); }
+        .era-baroque   { background: linear-gradient(90deg,#4a148c,#6a1b9a); }
+        .era-neo       { background: linear-gradient(90deg,#bf360c,#e64a19); }
+        .nv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 1rem;
+        }
+        .nv-card {
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #d4b896;
+            border-top: 4px solid #c89b3c;
+            padding: 1rem 1.1rem;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.07);
+            display: flex; flex-direction: column;
+        }
+        .nv-card.era-c-republic { border-top-color: #b71c1c; }
+        .nv-card.era-c-empire   { border-top-color: #8b3a00; }
+        .nv-card.era-c-medieval { border-top-color: #283593; }
+        .nv-card.era-c-renais   { border-top-color: #2e7d32; }
+        .nv-card.era-c-baroque  { border-top-color: #6a1b9a; }
+        .nv-card.era-c-neo      { border-top-color: #e64a19; }
+        .nv-name {
+            font-weight: bold; font-family: Arial, sans-serif;
+            font-size: 1rem; margin-bottom: 0.12rem;
+        }
+        .era-c-republic .nv-name { color: #b71c1c; }
+        .era-c-empire   .nv-name { color: #8b3a00; }
+        .era-c-medieval .nv-name { color: #283593; }
+        .era-c-renais   .nv-name { color: #2e7d32; }
+        .era-c-baroque  .nv-name { color: #6a1b9a; }
+        .era-c-neo      .nv-name { color: #e64a19; }
+        .nv-dates {
+            font-family: Arial, sans-serif; font-size: 0.76rem;
+            color: #7f8c8d; margin-bottom: 0.55rem;
+        }
+        .nv-bio {
+            font-size: 0.86rem; line-height: 1.6;
+            color: #2c2c2c; margin-bottom: 0.7rem; flex: 1;
+        }
+        .nv-remains-label {
+            font-family: Arial, sans-serif; font-size: 0.71rem;
+            font-weight: bold; text-transform: uppercase;
+            letter-spacing: 0.06em; color: #8b5a2a;
+            margin-bottom: 0.3rem;
+        }
+        .nv-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-bottom: 0.6rem; }
+        .nv-tag {
+            display: inline-block;
+            background: #fff8ee; border: 1px solid #e0c080;
+            border-radius: 3px; font-family: Arial, sans-serif;
+            font-size: 0.71rem; padding: 0.15rem 0.45rem;
+            color: #5c3a00; line-height: 1.4;
+        }
+        .nv-tag.intact { background: #e8f5e9; border-color: #81c784; color: #1b5e20; }
+        .nv-fact {
+            font-style: italic; font-size: 0.8rem;
+            color: #5a4532; border-top: 1px solid #f0e0c0;
+            padding-top: 0.5rem; margin-top: auto;
+            line-height: 1.55;
+        }
+
+        /* === Philosophical / Science itinerary === */
+        .philo-itinerary-header {
+            margin: 2.5rem 0 1.3rem;
+            padding: 1.3rem 1.7rem;
+            background: linear-gradient(135deg, #1a237e 0%, #283593 60%, #1565c0 100%);
+            border-radius: 10px;
+            color: #c5cae9;
+            box-shadow: 0 3px 10px rgba(26,35,126,0.2);
+        }
+        .philo-itinerary-header h3 {
+            color: #fff; font-family: Arial, sans-serif;
+            font-size: 1.1rem; margin-bottom: 0.4rem;
+        }
+        .philo-itinerary-header p {
+            font-size: 0.88rem; line-height: 1.65; margin: 0; color: #c5cae9;
+        }
+        .philo-itinerary-header em { color: #90caf9; }
+        .day-label-philo { background: #283593 !important; }
+        .day-label-sci   { background: #004d40 !important; }
+        .day-label-philo .day-date { color: #90caf9 !important; }
+        .day-label-sci   .day-date { color: #80cbc4 !important; }
+        .tl-row.tl-philo-hi { border-left: 4px solid #3949ab; }
+        .tl-row.tl-trial-hi { border-left: 4px solid #00695c; }
+        .tl-row.tl-key      { border-left: 4px solid #b71c1c; background: #fff8f8; }
+        .tl-row.tl-key:hover { background: #ffeeee; }
+        .tag-power { background: #e8eaf6; color: #283593; }
+        .tag-trial { background: #e0f2f1; color: #004d40; }
+        .tag-key   { background: #ffebee; color: #b71c1c; font-weight: bold; }
+        .philo-quote {
+            font-style: italic;
+            color: #3a2a6a;
+            border-left: 3px solid #7986cb;
+            padding-left: 0.8rem;
+            margin: 0.5rem 0 0;
+            font-size: 0.86rem;
+            line-height: 1.6;
+        }
+        .trial-quote {
+            font-style: italic;
+            color: #1a4a3a;
+            border-left: 3px solid #4db6ac;
+            padding-left: 0.8rem;
+            margin: 0.5rem 0 0;
+            font-size: 0.86rem;
+            line-height: 1.6;
+        }
+
+        /* === Map section === */
+        .map-outer {
+            margin-bottom: 1.8rem;
+        }
+        .map-intro {
+            font-family: Arial, sans-serif;
+            font-size: 0.83rem;
+            color: #7a5a2a;
+            margin-bottom: 0.5rem;
+        }
+        #roma-map {
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 3px 14px rgba(0,0,0,0.18);
+            border: 2px solid #c89b3c;
+        }
+        .map-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem 1.2rem;
+            margin-top: 0.7rem;
+            padding: 0.6rem 0.8rem;
+            background: #fff8ee;
+            border-radius: 6px;
+            border: 1px solid #e8d0a0;
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            color: #3a2a1a;
+        }
+        .ml-item { display: flex; align-items: center; gap: 0.35rem; }
+        .ml-dot {
+            display: inline-block;
+            width: 13px; height: 13px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(0,0,0,0.2);
+            flex-shrink: 0;
+        }
+        .ml-star {
+            display: inline-block;
+            width: 13px; height: 13px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            nav a { margin: 0 0.4rem; font-size: 0.78rem; }
+            .place-card { padding: 1rem 1.2rem; }
+            .tl-time { min-width: 60px; font-size: 0.8rem; }
+            .logistics-grid { grid-template-columns: 1fr 1fr; }
+            #roma-map { height: 360px; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+</head>
+<body>
+
+<header>
+    <h1>ROMA AETERNA</h1>
+    <div class="subtitle">Hành trình vào chiều sâu tư tưởng, triết học &amp; con người</div>
+    <div class="epigraph">
+        "Roma không phải là một thành phố. Đó là một cuộc tranh luận vĩnh cửu giữa những ý tưởng lớn nhất mà nhân loại từng tạo ra."
+    </div>
+</header>
+
+<nav>
+    <a href="#lich-trinh">&#9201; Lịch trình</a>
+    <a href="#ban-do">🗺️ Bản đồ</a>
+    <a href="#quyen-luc">Quyền lực</a>
+    <a href="#tu-do">Tự do tư tưởng</a>
+    <a href="#cai-chet">Thời gian &amp; Cái chết</a>
+    <a href="#nhan-thuc">Nhận thức</a>
+    <a href="#nghe-thuat">Nghệ thuật &amp; Cái đẹp</a>
+    <a href="#con-nguoi">Con người</a>
+    <a href="#song-hanh">Song hành LS</a>
+    <a href="#to-lua">Con đường Tơ lụa</a>
+    <a href="#phuc-hung">Roma &amp; Phục hưng</a>
+    <a href="#nhan-vat">Nhân vật lịch sử</a>
+    <a href="#sach">Đọc thêm</a>
+</nav>
+
+<div class="container">
+
+    <div class="intro-box">
+        <p>Roma là nơi duy nhất trên thế giới nơi bạn có thể đứng trên nền đất 2.800 năm lịch sử và cảm nhận từng lớp tư tưởng chồng lên nhau như địa tầng. Đế chế La Mã, Giáo hội Công giáo, phong trào Nhân văn chủ nghĩa, Cách mạng khoa học — tất cả đã xung đột, hợp nhất và biến đổi lẫn nhau tại chính nơi này. Đây không phải danh sách các điểm tham quan — mà là những <em>câu hỏi</em> bạn có thể đặt ra khi đứng trước từng nơi.</p>
+    </div>
+
+    <!-- LỊCH TRÌNH -->
+    <div class="itinerary-section" id="lich-trinh">
+        <div class="theme-header">
+            <div class="theme-icon">&#9201;</div>
+            <div>
+                <h2>Lịch trình: 9–10/05/2026</h2>
+                <div class="theme-tagline">Chiều tối Thứ Bảy + Chủ Nhật · Hội nghị tại Parco della Musica lúc 17:00 CN</div>
+            </div>
+        </div>
+
+        <!-- LOGISTICS CARDS -->
+        <div class="logistics-grid">
+            <div class="logistic-card">
+                <div class="lc-label">Hạ cánh</div>
+                <div class="lc-value">FCO – Fiumicino<br>09/05 · 14:25</div>
+                <div class="lc-note">Terminal 3 (quốc tế). Làm thủ tục + hành lý: ~50 phút</div>
+            </div>
+            <div class="logistic-card">
+                <div class="lc-label">Khách sạn</div>
+                <div class="lc-value">Borghese Executive Suite<br>Via Tevere 15, Roma</div>
+                <div class="lc-note">Khu Nomentano – gần Villa Borghese &amp; Parco della Musica</div>
+            </div>
+            <div class="logistic-card">
+                <div class="lc-label">Di chuyển từ sân bay</div>
+                <div class="lc-value">Taxi ~55–65€ · 50–65 phút</div>
+                <div class="lc-note">Hoặc: Leonardo Express (14€, 32 phút) đến Termini + taxi ~15€ đến khách sạn</div>
+            </div>
+            <div class="logistic-card">
+                <div class="lc-label">Hội nghị</div>
+                <div class="lc-value">Parco della Musica<br>Ennio Morricone</div>
+                <div class="lc-note">Viale Pietro de Coubertin 30 · Taxi ~15 phút từ khách sạn</div>
+            </div>
+        </div>
+
+        <div class="urgent-box">
+            &#9888; <strong>Đặt vé ngay bây giờ:</strong> Galleria Borghese <strong>bắt buộc</strong> đặt trước tại <em>borghese.it</em> — 2h/slot, chỉ 360 khách/lượt, thường cháy vé 2–3 tuần trước. Đặt slot <strong>09:00 Chủ Nhật 10/05</strong>. Không có vé tại chỗ.
+        </div>
+
+        <!-- BẢN ĐỒ TƯƠNG TÁC -->
+        <div class="map-outer" id="ban-do">
+            <p class="map-intro">📍 <strong>Bản đồ tương tác</strong> — click vào từng điểm để xem thông tin chi tiết. Kéo và zoom tự do.</p>
+            <div id="roma-map"></div>
+            <div class="map-legend">
+                <span class="ml-item"><span class="ml-dot" style="background:#e67e22;"></span> Thứ Bảy 09/05</span>
+                <span class="ml-item"><span class="ml-dot" style="background:#c0392b;"></span> Chủ Nhật 10/05</span>
+                <span class="ml-item"><span class="ml-dot" style="background:#27ae60;"></span> Khách sạn</span>
+                <span class="ml-item"><span class="ml-dot" style="background:#2980b9;"></span> Hội nghị</span>
+                <span class="ml-item"><span class="ml-dot" style="background:#8e44ad;"></span> Gợi ý thêm</span>
+                <span class="ml-item"><span class="ml-dot" style="background:#7f8c8d;"></span> Sân bay</span>
+                <span class="ml-item"><span class="ml-dot" style="background:#4527a0;"></span> Triết học &amp; Quyền lực (Ngày I)</span>
+                <span class="ml-item"><span class="ml-dot" style="background:#00695c;"></span> Khoa học &amp; Xét xử (Ngày II)</span>
+            </div>
+        </div>
+
+        <!-- SATURDAY -->
+        <div class="day-block">
+            <div class="day-label">
+                <span>&#9679; THỨ BẢY — Chiều tối khám phá</span>
+                <span class="day-date">09/05/2026</span>
+            </div>
+            <div class="timeline">
+                <div class="tl-row tl-transit">
+                    <div class="tl-time">14:25</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Hạ cánh FCO</div>
+                        <div class="tl-desc">Passport control, nhận hành lý, bắt taxi hoặc Leonardo Express. Dự kiến rời sân bay ~15:15–15:30.</div>
+                    </div>
+                </div>
+                <div class="tl-row tl-transit">
+                    <div class="tl-time">16:30</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Nhận phòng · Borghese Executive Suite</div>
+                        <div class="tl-desc">Nghỉ ngơi ngắn, thay quần áo. Roma cần đi bộ nhiều — giày thoải mái là ưu tiên.</div>
+                    </div>
+                </div>
+                <div class="tl-row tl-highlight">
+                    <div class="tl-time">17:30</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Campo de' Fiori — Giordano Bruno</div>
+                        <div class="tl-desc">Đứng trước tượng đài người bị thiêu sống vì tư tưởng năm 1600. Quảng trường đang chuyển từ chợ chiều sang aperitivo tối — đây là Roma sống thực. Nhìn mặt tượng hướng về phía Vatican.</div>
+                        <span class="tl-tag tag-philo">Triết học</span>
+                        <span class="tl-tag tag-walk">~45 phút</span>
+                    </div>
+                </div>
+                <div class="tl-row tl-highlight">
+                    <div class="tl-time">18:30</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Khu Do Thái (Ghetto Ebraico) + Portico d'Ottavia</div>
+                        <div class="tl-desc">10 phút đi bộ từ Campo de' Fiori. Đi bộ qua những con hẻm nơi cộng đồng sống liên tục từ 161 TCN. Portico d'Ottavia — tàn tích La Mã cổ bên cạnh một khu phố vẫn đang thở. Hai nghìn năm không có khoảng cách.</div>
+                        <span class="tl-tag tag-philo">Lịch sử · Bản sắc</span>
+                        <span class="tl-tag tag-walk">~45 phút</span>
+                    </div>
+                </div>
+                <div class="tl-row tl-highlight">
+                    <div class="tl-time">19:30</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Trastevere — Bữa tối &amp; Basilica Santa Maria</div>
+                        <div class="tl-desc">15 phút đi bộ hoặc 5 phút taxi. Ăn tối tại một trattoria nhỏ trong hẻm (<em>Da Enzo al 29</em> hoặc <em>Tonnarello</em> — không cần đặt chỗ sớm, cứ đi). Sau đó vào Basilica Santa Maria in Trastevere — mosaic Byzantine thế kỷ 4 trong ánh nến buổi tối, giản dị và sâu sắc hơn nhiều công trình hoành tráng hơn.</div>
+                        <span class="tl-tag tag-food">Ăn tối</span>
+                        <span class="tl-tag tag-philo">Nghệ thuật · Con người</span>
+                        <span class="tl-tag tag-walk">~2 giờ</span>
+                    </div>
+                </div>
+                <div class="tl-row">
+                    <div class="tl-time">21:30</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Tùy chọn: Piazza Navona ban đêm</div>
+                        <div class="tl-desc">20 phút đi bộ từ Trastevere. Đài phun nước Bốn Dòng sông của Bernini dưới ánh đèn — rất khác ban ngày. Sau đó bắt taxi về khách sạn (~25 phút, ~15€).</div>
+                        <span class="tl-tag tag-art">Nghệ thuật</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUNDAY -->
+        <div class="day-block">
+            <div class="day-label">
+                <span>&#9679; CHỦ NHẬT — Từ sáng đến hội nghị</span>
+                <span class="day-date">10/05/2026</span>
+            </div>
+            <div class="timeline">
+                <div class="tl-row">
+                    <div class="tl-time">08:00</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Sáng sớm · Cà phê espresso tại bar gần khách sạn</div>
+                        <div class="tl-desc">Uống đứng tại quầy như người Rome. Không có văn hóa "takeaway" ở đây — đây là triết học đời thường.</div>
+                    </div>
+                </div>
+                <div class="tl-row tl-highlight">
+                    <div class="tl-time">09:00</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Galleria Borghese — Bernini &amp; Caravaggio</div>
+                        <div class="tl-desc"><strong>Slot đã đặt trước (09:00–11:00).</strong> Đây là 2 giờ triết học bằng đá cẩm thạch và sơn dầu. Bernini's <em>Apollo e Dafne</em>: khoảnh khắc biến đổi bị đóng băng — ngón tay chạm vào da thịt đang hóa thành vỏ cây. <em>Il Ratto di Proserpina</em>: ngón tay Pluto ấn vào thịt — đá mà như da người. Caravaggio's <em>David con la testa di Golia</em>: Golia mang khuôn mặt Caravaggio — người nghệ sĩ tự vẽ chính mình là con quái vật bị chặt đầu.</div>
+                        <span class="tl-tag tag-art">Nghệ thuật · Triết học thời gian</span>
+                        <span class="tl-tag tag-warn">Đặt vé trước</span>
+                    </div>
+                </div>
+                <div class="tl-row">
+                    <div class="tl-time">11:00</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Villa Borghese — Đi bộ chiêm nghiệm</div>
+                        <div class="tl-desc">Rời bảo tàng, đi bộ 20–30 phút trong công viên. Marcus Aurelius viết <em>Meditations</em> trong những khoảnh khắc như thế này — giữa trách nhiệm, tìm không gian cho tâm trí. Nhìn ra thành phố từ Terrazza del Pincio nếu rẽ ra phía tây.</div>
+                        <span class="tl-tag tag-walk">Đi bộ</span>
+                        <span class="tl-tag tag-philo">Khắc kỷ</span>
+                    </div>
+                </div>
+                <div class="tl-row tl-highlight">
+                    <div class="tl-time">11:45</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Taxi đến Sant'Ignazio di Loyola</div>
+                        <div class="tl-desc">~20 phút taxi từ Borghese. Trần nhà trompe-l'oeil của Andrea Pozzo (1685) — bầu trời giả hoàn hảo đến mức bạn nghi ngờ chính mắt mình. Đứng trên vòng tròn đánh dấu trên sàn: ảo giác hoàn hảo. Bước ra khỏi điểm đó: thực tại biến dạng. <em>Không có lối nhìn nào là trung lập.</em></div>
+                        <span class="tl-tag tag-philo">Nhận thức · Ảo giác</span>
+                        <span class="tl-tag tag-walk">~30 phút</span>
+                    </div>
+                </div>
+                <div class="tl-row tl-highlight">
+                    <div class="tl-time">12:30</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Palazzo Spada — Hành lang Borromini</div>
+                        <div class="tl-desc">5 phút đi bộ từ Sant'Ignazio. Hành lang 8 mét trông như 37 mét, tượng 60cm trông như người thật — cuộc thực nghiệm toán học-triết học về cách tâm trí tạo ra chiều sâu. Thường rất vắng: hiếm khi bạn có thể đứng một mình trước một tác phẩm triết học ở Roma.</div>
+                        <span class="tl-tag tag-philo">Nhận thức · Không gian</span>
+                        <span class="tl-tag tag-walk">~30 phút</span>
+                    </div>
+                </div>
+                <div class="tl-row">
+                    <div class="tl-time">13:15</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Trưa · Campo de' Fiori hoặc Pantheon</div>
+                        <div class="tl-desc">Ăn trưa tại một quán quanh Campo de' Fiori (ban ngày khác buổi tối hôm qua — chợ, đời thường, cùng một tượng Bruno nhìn xuống). Hoặc đi bộ thêm 10 phút đến Pantheon: cà phê tại Caffè Sant'Eustachio — cà phê tốt nhất Roma theo nhiều người.</div>
+                        <span class="tl-tag tag-food">Ăn trưa</span>
+                    </div>
+                </div>
+                <div class="tl-row">
+                    <div class="tl-time">15:00</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Quay lại khách sạn · Chuẩn bị hội nghị</div>
+                        <div class="tl-desc">Taxi từ khu Pantheon về khách sạn (~20 phút, ~15€). Thay trang phục, nghỉ ngơi ngắn.</div>
+                        <span class="tl-tag tag-walk">Transit</span>
+                    </div>
+                </div>
+                <div class="tl-row tl-conference">
+                    <div class="tl-time">16:30</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Taxi đến Parco della Musica Ennio Morricone</div>
+                        <div class="tl-desc">Viale Pietro de Coubertin 30. Từ khách sạn: ~15 phút taxi. Tòa nhà do Renzo Piano thiết kế — một tác phẩm kiến trúc về âm thanh và không gian, xứng đáng ngắm nhìn trước khi vào.</div>
+                        <span class="tl-tag tag-walk">~15 phút taxi</span>
+                    </div>
+                </div>
+                <div class="tl-row tl-conference">
+                    <div class="tl-time">17:00</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Hội nghị bắt đầu</div>
+                        <div class="tl-desc">Sau 27,5 giờ Roma — từ Giordano Bruno đến Bernini đến Borromini đến Caravaggio — bạn bước vào hội nghị với một cái đầu đã được những câu hỏi lớn làm ấm.</div>
+                        <span class="tl-tag tag-conf">Hội nghị</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRANSPORT NOTES -->
+        <div class="tip-box" style="margin-top: 0.5rem;">
+            <strong>Di chuyển trong Roma:</strong> Taxi/Uber (ứng dụng <em>itTaxi</em> hoặc <em>FREE NOW</em>) là tiện nhất — phần lớn các điểm trên cách nhau 10–20 phút. Centro Storico (Campo de' Fiori, Pantheon, Trastevere) đi bộ được hoàn toàn. Borghese ↔ Parco della Musica: 15 phút taxi.
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════
+             LỊCH TRÌNH THỨ HAI: KHOA HỌC · TRIẾT HỌC · NGHỆ THUẬT
+             ═══════════════════════════════════════════════════════ -->
+        <div class="philo-itinerary-header">
+            <h3>✦ Lịch trình thứ hai · Khoa học · Triết học · Nghệ thuật</h3>
+            <p>Theo dấu chân của những người nghĩ — và bị trừng phạt vì đã nghĩ. Hai ngày đặt câu hỏi: <em>Ai được phép biết sự thật? Tại sao triết học và khoa học đều phải đối mặt với quyền lực?</em> Có thể thực hiện độc lập với lịch trình đầu, hoặc kết hợp linh hoạt.</p>
+        </div>
+
+        <!-- NGÀY I: TRIẾT HỌC & QUYỀN LỰC -->
+        <div class="day-block">
+            <div class="day-label day-label-philo">
+                <span>◉ NGÀY I — Những Hoàng đế Tư tưởng: Marcus Aurelius · Cicero · Seneca</span>
+                <span class="day-date">Cả ngày · ~7–8 tiếng đi bộ và suy nghĩ</span>
+            </div>
+            <div class="timeline">
+
+                <div class="tl-row tl-philo-hi">
+                    <div class="tl-time">09:00</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Musei Capitolini — Tượng đồng nguyên bản Marcus Aurelius</div>
+                        <div class="tl-desc">Tượng đồng hoàng đế La Mã duy nhất còn sót lại nguyên vẹn — sống sót vì người Trung Cổ nhầm là Constantine (Kitô hữu), nếu biết là "kẻ ngoại đạo" đã bị nấu chảy từ lâu. Đây là người vừa cầm quyền 70 triệu dân, vừa viết nhật ký triết học trong lều chiến dịch ở biên giới Danube lúc đêm khuya — không bao giờ có ý định xuất bản.</div>
+                        <div class="philo-quote">"Thứ duy nhất quan trọng: hành động đúng và lời nói thật. Mọi thứ còn lại chỉ là ồn ào." — Meditations, IV.3</div>
+                        <span class="tl-tag tag-power">Marcus Aurelius · Khắc kỷ</span>
+                        <span class="tl-tag tag-walk">~75 phút</span>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-philo-hi">
+                    <div class="tl-time">10:30</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Piazza Colonna — Cột Marcus Aurelius</div>
+                        <div class="tl-desc">5 phút đi bộ từ Capitolini. Cột cao 30m khắc spiral hình ảnh các cuộc chiến tranh Germanic và Sarmatian (172–180 CN) — bạo lực của hoàng đế. Nghịch lý: người đàn ông viết "Đừng lãng phí thời gian nghĩ về kẻ khác làm gì" lại ra lệnh khắc vào đá những chiến thắng quân sự của mình để thiên hạ nhìn ngàn năm. Quyền lực và triết học luôn mâu thuẫn nhau — dù trong cùng một con người.</div>
+                        <span class="tl-tag tag-power">Quyền lực · Nghịch lý</span>
+                        <span class="tl-tag tag-walk">~20 phút</span>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-key">
+                    <div class="tl-time">11:00</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Forum Romanum — Rostra của Cicero: Nơi tự do ngôn luận bị chặt đầu</div>
+                        <div class="tl-desc">Đây là bục diễn thuyết nơi Cicero đọc các bài <em>Philippics</em> chống Mark Antony năm 44–43 TCN — những bài diễn văn được coi là đỉnh cao hùng biện Latin. Năm 43 TCN, ông bị giết. Đầu và hai bàn tay bị chặt và trưng bày chính tại Rostra này. Theo Plutarch, vợ của Antony đã dùng trâm cài tóc của mình đâm nhiều lần vào lưỡi Cicero đã chết — bởi vì chiếc lưỡi đó đã gây ra quá nhiều rắc rối khi còn sống. Đây là điểm đầu tiên trong lịch sử Roma mà tự do ngôn luận bị chấm dứt bằng cách chặt đầu người nói.</div>
+                        <div class="philo-quote">"Salus populi suprema lex." (Sự an toàn của nhân dân là luật tối cao.) — Cicero, De Legibus. Antony nghĩ khác.</div>
+                        <span class="tl-tag tag-key">Cicero · 43 TCN</span>
+                        <span class="tl-tag tag-power">Tự do ngôn luận</span>
+                        <span class="tl-tag tag-walk">~60 phút</span>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-philo-hi">
+                    <div class="tl-time">12:15</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Palatine Hill — Góc nhìn của Quyền lực (vé kết hợp Forum)</div>
+                        <div class="tl-desc">Leo lên Palatine — nơi các hoàng đế sống, nhìn xuống Forum và thành phố. Tại đây Domitian xây gương khắp tường buồng tắm để không bị ám sát từ phía sau (vẫn bị giết năm 96 CN). Tại đây Seneca sống với vai trò cố vấn của Nero — xem học trò của mình thành bạo chúa từng ngày, và tự hỏi bao lâu mình còn là triết gia khi phục vụ quái vật. Câu trả lời đến năm 65 CN: Nero ra lệnh, Seneca tự cắt mạch tay. Ông uống thuốc độc thêm. Rồi ngâm mình trong bồn nước nóng. Chết rất chậm — điều cuối ông làm là đọc cho thư ký ghi lại.</div>
+                        <div class="philo-quote">"Recede in te ipse." (Hãy lui về với chính mình.) — Seneca, Epistulae, I. Được viết khi đang phục vụ kẻ sẽ ra lệnh giết ông.</div>
+                        <span class="tl-tag tag-power">Seneca · Nero · Quyền lực tha hóa</span>
+                        <span class="tl-tag tag-walk">~60 phút</span>
+                    </div>
+                </div>
+
+                <div class="tl-row">
+                    <div class="tl-time">13:30</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Trưa · Khu Forum / Celio</div>
+                        <div class="tl-desc">Ăn trưa gần Forum hoặc tại khu Celio trên đường đến Domus Aurea.</div>
+                        <span class="tl-tag tag-food">Ăn trưa</span>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-key">
+                    <div class="tl-time">15:00</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Domus Aurea — Cung điện Vàng của Nero ⚠️ Đặt trước</div>
+                        <div class="tl-desc">Năm 64 CN, một phần lớn Roma cháy. Người ta đồn rằng Nero ra lệnh — hoặc chỉ đứng nhìn và đọc thơ. Trên tro tàn của các khu dân cư, ông xây cung điện vàng rộng 100 hecta với trần nhà tự động rải hoa và mưa nước hoa. Seneca đã bị buộc tự tử một năm trước (65 CN) — ông không sống để chứng kiến hậu quả của người học trò. Sau khi Nero chết năm 68 CN, người kế vị lấp cung điện bằng đất và xây Colosseum và Terme di Traiano lên trên. Domus Aurea tồn tại như một bí ẩn dưới lòng đất cho đến khi được khám phá lại thời Phục hưng — Raphael và Michelangelo được thả xuống qua các lỗ hổng trên trần để vẽ lại các họa tiết. Đó là cách "grotesque" (từ "grotto" = hang) đi vào từ điển nghệ thuật.</div>
+                        <span class="tl-tag tag-key">Nero · Quyền lực tuyệt đối</span>
+                        <span class="tl-tag tag-warn">Đặt vé trước: coopculture.it</span>
+                        <span class="tl-tag tag-walk">~75 phút</span>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-philo-hi">
+                    <div class="tl-time">16:30</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Terme di Caracalla (tùy chọn) — Triết học công cộng</div>
+                        <div class="tl-desc">Bể tắm công cộng lớn thứ hai La Mã (216 CN, 1.600 người/ngày). Không phải chỉ tắm — có thư viện, phòng tập, phòng trò chuyện. Đây là "agora" phiên bản La Mã: nơi dân thường đến tranh luận triết học. Shelley viết <em>Prometheus Unbound</em> ngồi giữa tàn tích này (1819). Michelangelo đo từng centimet của các vòm cuốn để thiết kế Đền Thánh Phêrô.</div>
+                        <span class="tl-tag tag-power">Không gian công cộng · Triết học đời thường</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- NGÀY II: KHOA HỌC VS. THẨM QUYỀN -->
+        <div class="day-block">
+            <div class="day-label day-label-sci">
+                <span>◉ NGÀY II — Khoa học &amp; Xét xử: Galileo · Bruno · và những người bị thiêu vì đúng</span>
+                <span class="day-date">Cả ngày · ~6–7 tiếng</span>
+            </div>
+            <div class="timeline">
+
+                <div class="tl-row tl-key">
+                    <div class="tl-time">09:00</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Santa Maria sopra Minerva — Nơi Galileo quỳ gối</div>
+                        <div class="tl-desc">Ngày 22 tháng 6 năm 1633. Galileo Galilei, 69 tuổi, bị bệnh, quỳ xuống trên sàn đá của nhà thờ này và đọc lời abjuration trước các Hồng y Inquisition: <em>"Tôi từ bỏ, nguyền rủa và ghê tởm quan điểm sai lầm và dị giáo rằng Trái Đất chuyển động và Mặt Trời đứng yên."</em> Câu chuyện ông thì thầm "Eppur si muove" (Dù vậy nó vẫn chuyển động) có thể là huyền thoại — nhưng đó là câu lịch sử cần phải có. Nhà thờ Gothic duy nhất ở trung tâm Roma, cũng là nơi Fra Angelico và Catherine of Siena được chôn cất. Trước cửa: tượng Voi của Bernini mang obelisk Ai Cập — biểu tượng của trí tuệ mang sức mạnh.</div>
+                        <div class="trial-quote">"La filosofia è scritta in questo grandissimo libro che continuamente ci sta aperto innanzi agli occhi." — Galileo. (Triết học được viết trong quyển sách vĩ đại luôn mở trước mắt chúng ta — tức là vũ trụ.)</div>
+                        <span class="tl-tag tag-key">Galileo · Abjuration 1633</span>
+                        <span class="tl-tag tag-trial">Khoa học vs. Giáo hội</span>
+                        <span class="tl-tag tag-walk">~45 phút</span>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-trial-hi">
+                    <div class="tl-time">10:00</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Palazzo del Sant'Uffizio — Trụ sở Inquisition (bên ngoài)</div>
+                        <div class="tl-desc">5 phút taxi từ S. Maria Minerva, ngay bên trái Quảng trường Thánh Phêrô (Piazza del Sant'Uffizio). Đây là nơi Galileo bị giam giữ và thẩm vấn trong 18 ngày tháng 4–6/1633 — không như tù nhân mà như "khách mời được giám sát," ở trong căn hộ thoải mái với người hầu riêng. Tòa nhà ngày nay là Bộ Giáo lý Đức tin (Congregation for the Doctrine of the Faith) — cùng tổ chức, tên mới, không mở cửa công cộng. Đứng trước cổng: đây là nơi tổ chức vẫn tồn tại, và văn phòng người từng lãnh đạo nó trước khi trở thành Giáo hoàng Benedict XVI. Không cần vào bên trong để cảm nhận sức nặng của lịch sử.</div>
+                        <span class="tl-tag tag-trial">Inquisition · Vẫn hoạt động</span>
+                        <span class="tl-tag tag-walk">~20 phút</span>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-key">
+                    <div class="tl-time">10:30</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Campo de' Fiori — Nơi Giordano Bruno bị thiêu sống</div>
+                        <div class="tl-desc">Ngày 17 tháng 2 năm 1600. Bruno bị thiêu sống tại đây sau 8 năm xét xử. Ông không nhận tội. Tội danh không chỉ là khoa học — mà là thần học: ông tin vũ trụ là vô hạn và có vô số thế giới có thể có sự sống, linh hồn phổ quát thấm vào vật chất, và Kitô giáo không phải tôn giáo duy nhất đúng. Khi bản án tử hình được đọc, Bruno nói với các thẩm phán: <em>"Có lẽ các ngài tuyên án với nhiều sợ hãi hơn tôi khi nghe nó."</em> Galileo nhận tội và sống thêm 9 năm. Bruno từ chối và chết. Câu hỏi triết học thực sự: ai trong hai người dũng cảm hơn — và ai đúng hơn?</div>
+                        <div class="trial-quote">"Nếu không phải chân lý thì ít nhất là niềm tin của tôi — và tôi không thể từ chối nó." — lời được gán cho Bruno trước khi bị thiêu.</div>
+                        <span class="tl-tag tag-key">Bruno · Thiêu sống 17/2/1600</span>
+                        <span class="tl-tag tag-trial">Vũ trụ vô hạn · Dị giáo</span>
+                        <span class="tl-tag tag-walk">~40 phút</span>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-trial-hi">
+                    <div class="tl-time">11:20</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Sant'Ignazio di Loyola — Khoa học và Đức tin trong cùng một tổ chức</div>
+                        <div class="tl-desc">5 phút đi bộ. Nhà thờ của Dòng Tên — tổ chức giáo dục mạnh nhất châu Âu thế kỷ 17. Nghịch lý trung tâm: Christoph Clavius, nhà toán học Jesuit vĩ đại nhất đương thời, đã <em>xác nhận</em> các quan sát thiên văn của Galileo bằng kính thiên văn năm 1611 — hai năm trước khi Inquisition lần đầu triệu tập Galileo. Dòng Tên là những học giả giỏi nhất Giáo hội, nhưng cũng là những người thẩm vấn nghiêm khắc nhất. Trần trompe-l'oeil: ảo giác về bầu trời hoàn hảo — cũng là ẩn dụ về cách thẩm quyền xây dựng "thực tại."</div>
+                        <span class="tl-tag tag-trial">Jesuits · Khoa học trong Giáo hội</span>
+                        <span class="tl-tag tag-walk">~30 phút</span>
+                    </div>
+                </div>
+
+                <div class="tl-row">
+                    <div class="tl-time">12:00</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Trưa · Caffè Sant'Eustachio (gần Pantheon)</div>
+                        <div class="tl-desc">Cà phê tốt nhất Roma. Pantheon cách đây 3 phút đi bộ — vào tự do, không mất tiền (trước 2023), nay 5€. Dome hoàn hảo: bán kính = chiều cao = 43.3m. Người La Mã làm điều này năm 125 CN không có máy tính, không có kỹ sư kết cấu hiện đại. Đây là khoa học kỹ thuật như triết học: biết nó đúng trước khi biết tại sao.</div>
+                        <span class="tl-tag tag-food">Ăn trưa · Cà phê</span>
+                        <span class="tl-tag tag-trial">Pantheon · Kỹ thuật La Mã</span>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-trial-hi">
+                    <div class="tl-time">14:00</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Villa Medici — Nơi Galileo bị "giam giữ" sang trọng</div>
+                        <div class="tl-desc">Taxi 15 phút lên Pincian Hill. Trong thời gian bị xét xử tháng 4–6/1633, Galileo không ở trong tù — ông là khách của Đại sứ Tuscany tại biệt thự này, với đầu bếp riêng và người hầu. Sự khác biệt với Bruno: Galileo là người của Tuscany dưới sự bảo hộ của Grand Duke; Bruno là người không có ai bảo vệ. Đây là bài học về quyền lực và trí thức: ai bảo vệ bạn quan trọng không kém những gì bạn nói. Hiện là trụ sở Académie de France à Rome — có thể tham quan vườn và triển lãm theo lịch.</div>
+                        <span class="tl-tag tag-trial">Galileo 1633 · Biệt thự giam giữ</span>
+                        <span class="tl-tag tag-walk">~45 phút</span>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-trial-hi">
+                    <div class="tl-time">15:15</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Sant'Ivo alla Sapienza — Kiến trúc như Bài toán Hình học Thiêng liêng</div>
+                        <div class="tl-desc">15 phút taxi. Borromini xây cho La Sapienza University (thành lập 1303 — Roma cũng có đại học, không chỉ Bologna). Dome xoắn ốc với mặt bằng hình tam giác đan xen — Plato's <em>Timaeus</em> bằng gạch vữa. Ngọn tháp hình xoắn ốc đến đỉnh: kiến trúc như tư duy thần học toán học. Borromini và Galileo là hai tư tưởng song hành — một người dùng toán học để hiểu bầu trời, một người dùng toán học để xây không gian thiêng liêng. Năm 1667, Borromini tự đâm kiếm vào bụng mình — nhưng không chết ngay. Ông nằm trên giường, ra lệnh mang đèn và bản vẽ đến, đọc lại công trình của mình, rồi mới chịu ra đi.</div>
+                        <div class="trial-quote">"Chi è causa del suo mal, pianga se stesso." (Ai là nguyên nhân của nỗi đau của mình, hãy than thở với chính mình.) — Borromini, câu cuối trước khi chết.</div>
+                        <span class="tl-tag tag-trial">Borromini · Sapienza · Toán học thiêng liêng</span>
+                        <span class="tl-tag tag-walk">~40 phút</span>
+                    </div>
+                </div>
+
+                <div class="tl-row tl-trial-hi">
+                    <div class="tl-time">16:30</div>
+                    <div class="tl-body">
+                        <div class="tl-title">Villa Farnesina · Accademia dei Lincei (tùy chọn) — Khoa học tự do</div>
+                        <div class="tl-desc">Taxi 10 phút sang Trastevere. Năm 1603, Galileo được kết nạp vào Accademia dei Lincei (Hàn lâm viện những người Mắt Linh Miêu) — một trong những tổ chức khoa học đầu tiên thế giới, 16 năm trước khi ông bị Inquisition triệu tập. Tên "Lincei" = Lynx (linh miêu) vì nhìn thấu trong bóng tối. Chính tại đây Galileo công bố <em>Sidereus Nuncius</em> (Thông điệp từ các Vì sao, 1610) — lần đầu tiên thế giới biết đến các mặt trăng của Jupiter. Villa Farnesina bên cạnh có các fresco của Raphael đẹp đến mức Bramante phải nhìn qua lỗ hổng trên tường để xem khi đang được vẽ.</div>
+                        <span class="tl-tag tag-trial">Accademia Lincei · Khoa học tự do 1603</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tip-box" style="margin-top:0.5rem; border-left-color: #283593;">
+            <strong>Ghi chú lịch trình Triết học &amp; Khoa học:</strong> Domus Aurea bắt buộc đặt trước tại <em>coopculture.it</em>. Villa Medici kiểm tra lịch mở cửa triển lãm. Sant'Ivo alla Sapienza chỉ mở sáng Chủ Nhật và một số buổi chiều — kiểm tra trước. Tất cả các điểm còn lại không cần đặt trước và miễn phí hoặc chi phí thấp.
+        </div>
+    </div>
+
+    <!-- THEME 1: QUYỀN LỰC -->
+    <div class="theme-section" id="quyen-luc">
+        <div class="theme-header">
+            <div class="theme-icon">⚔️</div>
+            <div>
+                <h2>I. Triết học về Quyền lực &amp; Thể chế</h2>
+                <div class="theme-tagline">Quyền lực hợp pháp hóa bản thân như thế nào? Cái gì tồn tại lâu hơn — bạo lực hay tư tưởng?</div>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Musei Capitolini — Tượng Marcus Aurelius &amp; Cô lang sói</h3>
+            <div class="place-meta">Piazza del Campidoglio · Mở cửa hàng ngày trừ Thứ Hai</div>
+            <p>Đây không phải bảo tàng — đây là nơi Roma tự kể chuyện về chính mình. Tượng đồng nguyên bản của Marcus Aurelius (161–180 CN) là di vật thực sự duy nhất còn lại của một hoàng đế La Mã vĩ đại nhất. Ông là nhà triết học Khắc kỷ viết <em>Meditations</em> — không phải để xuất bản mà như nhật ký cá nhân tự nhắc nhở bản thân. Một người nắm giữ quyền lực tuyệt đối nhưng liên tục viết: <em>"Ta không được phép để bản thân bị tha hóa."</em></p>
+            <div class="philosophy-quote">
+                "Mất mát không phải là gì khác ngoài sự thay đổi, và thay đổi là niềm vui của Tự nhiên." — Marcus Aurelius, <em>Meditations</em>
+            </div>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Tại sao người quyền lực nhất thế giới lúc đó lại cần viết những lời nhắc nhở như vậy cho chính mình? Quyền lực có tha hóa con người không — hay con người đã bị tha hóa trước khi có quyền lực?
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Palatine Hill — Nơi huyền thoại gặp lịch sử</h3>
+            <div class="place-meta">Via Sacra · Kết hợp vé Colosseum</div>
+            <p>Đây là ngọn đồi mà Roma bắt đầu — theo huyền thoại, Romulus giết Remus tại đây để lập thành phố. Các hoàng đế Augustus, Tiberius, Domitian xây hoàng cung trên đây. "Palace" (cung điện) trong tiếng Anh bắt nguồn từ "Palatium" — tên ngọn đồi này. Khi đứng trên đây nhìn xuống Diễn đàn La Mã, bạn đang nhìn vào mô hình gốc của mọi trung tâm quyền lực phương Tây.</p>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Ranh giới giữa huyền thoại sáng lập và lịch sử thực sự là gì? Mọi thể chế đều cần một huyền thoại khởi nguồn — điều đó nói lên gì về bản chất của quyền lực chính trị?
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Ara Pacis — Bàn thờ Hòa bình của Augustus</h3>
+            <div class="place-meta">Lungotevere in Augusta · Gần Piazza Augusto Imperatore</div>
+            <p>Hoàn thành năm 9 TCN để kỷ niệm Pax Romana — "nền hòa bình La Mã" mà Augustus thiết lập sau 20 năm nội chiến. Nhưng Pax Romana thực ra là hòa bình bằng cách khuất phục toàn bộ thế giới biết đến. Đây là một trong những biểu tượng đẹp nhất của cái gọi là "propaganda nghệ thuật" — tuyên truyền được đặt trong vẻ đẹp thuần túy.</p>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Khi nào hòa bình là thực và khi nào là sự vắng mặt của kháng cự? Nghệ thuật có thể là công cụ của quyền lực mà vẫn là nghệ thuật thực sự không?
+            </div>
+        </div>
+    </div>
+
+    <!-- THEME 2: TỰ DO TƯ TƯỞNG -->
+    <div class="theme-section" id="tu-do">
+        <div class="theme-header">
+            <div class="theme-icon">🔥</div>
+            <div>
+                <h2>II. Tự do Tư tưởng &amp; Giá của Sự thật</h2>
+                <div class="theme-tagline">Khi tư tưởng đe dọa thể chế — Roma là nơi ghi lại cái giá phải trả.</div>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Campo de' Fiori — Nơi Giordano Bruno bị thiêu sống</h3>
+            <div class="place-meta">Piazza Campo de' Fiori · Buổi sáng họp chợ, buổi tối sôi động</div>
+            <p>Tượng đài đen trong quảng trường này là Giordano Bruno (1548–1600) — nhà triết học, nhà toán học, nhà vũ trụ học bị tòa án dị giáo thiêu sống tại đây ngày 17/2/1600. Ông không chỉ bị kết án vì ủng hộ Copernicus — mà vì dám nghĩ vũ trụ là vô tận, có vô số thế giới, và Chúa không phải là một thực thể riêng biệt mà đồng nhất với toàn bộ thiên nhiên (thuyết phiền thần). Bruno từ chối rút lại tư tưởng, nói: <em>"Có lẽ các ông tuyên bố bản án này sẽ run rẩy hơn chính tôi khi nhận nó."</em></p>
+            <div class="philosophy-quote">
+                "Vũ trụ là vô tận. Có vô số mặt trời và vô số trái đất quay quanh chúng." — Giordano Bruno
+            </div>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Điều gì khiến một ý tưởng nguy hiểm đến mức phải tiêu diệt người mang nó? Ranh giới giữa dị giáo và thiên tài thường chỉ là vấn đề thời gian.
+            </div>
+            <div class="tip-box">
+                <strong>Lưu ý:</strong> Bruno bị kết án tại nhà thờ Santa Maria sopra Minerva — cùng nơi Galileo sau đó buộc phải tuyên bố từ bỏ thuyết nhật tâm năm 1633. Cách nhau 100m, hai khoảnh khắc định hình lịch sử tư tưởng châu Âu.
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Santa Maria sopra Minerva — Trên nền đền thờ Nữ thần Trí tuệ</h3>
+            <div class="place-meta">Piazza della Minerva · Gần Pantheon</div>
+            <p>Nhà thờ Gothic duy nhất ở Roma, xây trên nền đền thờ Minerva — nữ thần trí tuệ La Mã. Bên trong có Michelangelo's <em>Cristo Portacroce</em> (tượng Chúa Kitô mang Thánh giá, 1521) — một Đấng Cứu thế có cơ thể của Hercules, gây tranh cãi kịch liệt. Đây cũng là nơi Galileo bị xét xử và buộc phải thốt ra câu nói nổi tiếng: "Eppur si muove" (<em>Và dù vậy, nó vẫn chuyển động</em>).</p>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Thể chế tôn giáo có thể đồng thời là kẻ bảo tồn tri thức và kẻ trấn áp tri thức không? Khi nào việc bảo vệ trật tự xã hội mâu thuẫn với việc tìm kiếm sự thật?
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Castel Sant'Angelo — Lăng mộ, Pháo đài, Nhà tù</h3>
+            <div class="place-meta">Lungotevere Castello</div>
+            <p>Được xây bởi Hoàng đế Hadrian năm 135 CN làm lăng mộ gia đình. Sau này là thành lũy của Giáo hoàng, nơi nhiều nhà tư tưởng bị giam giữ — trong đó có Benvenuto Cellini, nhà điêu khắc viết hồi ký phi thường về nghệ thuật và quyền lực. Hành lang bí mật <em>Passetto di Borgo</em> nối pháo đài với Vatican — biểu tượng hoàn hảo cho mối quan hệ phức tạp giữa thế quyền và thần quyền.</p>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Một công trình có thể là lăng mộ, thánh địa, pháo đài và nhà tù — điều đó nói gì về cách quyền lực sử dụng không gian để kiểm soát ý nghĩa?
+            </div>
+        </div>
+    </div>
+
+    <!-- THEME 3: CÁI CHẾT VÀ THỜI GIAN -->
+    <div class="theme-section" id="cai-chet">
+        <div class="theme-header">
+            <div class="theme-icon">⏳</div>
+            <div>
+                <h2>III. Thời gian, Cái chết &amp; Ký ức</h2>
+                <div class="theme-tagline">Roma là nơi duy nhất thời gian chồng lên nhau theo chiều thẳng đứng.</div>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Basilica di San Clemente — Ba lớp văn minh dưới chân</h3>
+            <div class="place-meta">Via Labicana · Gần Colosseum · Phải mua vé riêng để xuống tầng hầm</div>
+            <p>Đây là nơi triết học về thời gian trở nên vật chất và cụ thể nhất Roma. Tầng trên: nhà thờ thế kỷ 12. Xuống bậc thang: nhà thờ Kitô hữu thế kỷ 4. Xuống tiếp: ngôi nhà La Mã thế kỷ 1 và đền thờ thần Mithras — tôn giáo bí ẩn đã cạnh tranh với Kitô giáo trong nhiều thế kỷ. Bên dưới cùng, bạn nghe tiếng nước chảy của con suối La Mã cổ đại. Đây là <em>stratigraphy of civilizations</em> — địa tầng văn minh bằng đá.</p>
+            <div class="philosophy-quote">
+                "Lịch sử không phải là một chuỗi các sự kiện diễn ra theo thứ tự — đó là những lớp đè lên nhau, mỗi lớp đều nghĩ rằng mình là đỉnh."
+            </div>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Nếu mỗi nền văn minh xây dựng trên tro tàn của nền trước — chúng ta đang sống trong "tầng" nào, và tầng này sẽ bị chôn vùi bởi điều gì?
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Via Appia Antica — Con đường của người chết</h3>
+            <div class="place-meta">Đi từ Porta San Sebastiano · Tốt nhất đi bộ hoặc xe đạp Chủ nhật (đường đóng xe)</div>
+            <p>Người La Mã cấm chôn cất trong tường thành — nên con đường ra vào Roma cổ đại được lót bằng mộ phần suốt hàng chục km. Đây là con đường quyền lực nhất La Mã, đồng thời là nghĩa địa lớn nhất. Spartacus và 6.000 nô lệ khởi nghĩa bị đóng đinh thập giá dọc theo Via Appia sau khi bị đánh bại năm 71 TCN. Đi bộ đây là đi bộ qua 2.300 năm <em>memento mori</em>.</p>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Khi nhà nước biến cái chết thành cảnh báo chính trị (đóng đinh Spartacus), cái chết cá nhân còn có ý nghĩa gì không? Người La Mã nhắc nhở nhau về cái chết để sống tốt hơn hay để kiểm soát nỗi sợ hãi?
+            </div>
+            <div class="tip-box">
+                <strong>Kết hợp:</strong> Ghé Catacombs của San Callixtus hoặc San Sebastiano dọc Via Appia — nơi Kitô hữu chôn cất trong bí mật suốt 3 thế kỷ đầu, biến không gian dưới lòng đất thành thần học về sự sống lại.
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Cimitero Acattolico — Nghĩa địa Phi Công giáo</h3>
+            <div class="place-meta">Via Caio Cestio, Testaccio · Gần Kim tự tháp Cestius</div>
+            <p>Keats chết tại Roma năm 25 tuổi và được chôn tại đây, bia mộ ghi: <em>"Here lies one whose name was writ in water."</em> Shelley, người bạn và thi sĩ lớn hơn, chết đuối ngoài biển Ý và phần tro cốt cũng được chôn tại đây. Hai nhà thơ Lãng mạn chọn Roma làm nơi cuối cùng — họ đến đây tìm gì? Kế bên là Kim tự tháp Cestius (12 TCN) — một người La Mã giàu có đã lệnh xây kim tự tháp Ai Cập cho mình vì mốt sùng bái Ai Cập thời đó. Thậm chí cái chết cũng là thời trang.</p>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Keats và Shelley đều đến Roma bị bệnh, biết rằng có thể chết — điều gì kéo các nghệ sĩ đến nơi quá khứ nặng nề như vậy khi họ đang chết dần? Đó là sự tìm kiếm ý nghĩa, hay chỉ là thẩm mỹ?
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Museo Nazionale Romano — Palazzo Massimo alle Terme</h3>
+            <div class="place-meta">Piazza dei Cinquecento · Gần Termini</div>
+            <p>Ít người biết đây là bảo tàng triết học nhất Roma. Tầng trên: những bức bích họa nguyên vẹn từ biệt thự của vợ Augustus — vườn cây, chim hót, bầu trời mở. Họ sơn hình ảnh thiên nhiên trong phòng kín để cảm giác thoáng đãng tự do — đó là triết học về không gian và tự do trong bối cảnh đế chế. Còn có tượng <em>The Boxer at Rest</em> (thế kỷ 3 TCN) — một võ sĩ sau trận đấu, mặt đầy vết thương, ánh mắt trống rỗng. Không ai biết ông đã thắng hay thua.</p>
+            <div class="philosophy-quote">
+                "The Boxer at Rest là bức tượng duy nhất từ Hy Lạp cổ đại không kỷ niệm chiến thắng — mà kỷ niệm sự sống sót."
+            </div>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Tại sao người La Mã trong cung điện tráng lệ lại sơn giả hình thiên nhiên lên tường? Khi nào sự giả tạo của nghệ thuật trở thành nhu cầu tâm lý thực sự?
+            </div>
+        </div>
+    </div>
+
+    <!-- THEME 4: NHẬN THỨC VÀ ẢO GIÁC -->
+    <div class="theme-section" id="nhan-thuc">
+        <div class="theme-header">
+            <div class="theme-icon">👁️</div>
+            <div>
+                <h2>IV. Nhận thức, Ảo giác &amp; Bản chất của Thực tại</h2>
+                <div class="theme-tagline">Roma là nơi nghệ thuật đặt câu hỏi: Mắt ta thấy gì — sự thật hay điều ta muốn thấy?</div>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Chiesa di Sant'Ignazio — Bầu trời giả trong nhà thờ</h3>
+            <div class="place-meta">Piazza di Sant'Ignazio · Gần Pantheon</div>
+            <p>Năm 1685, linh mục kiêm nhà toán học Andrea Pozzo vẽ trần nhà thờ bằng kỹ thuật <em>trompe-l'oeil</em> (đánh lừa mắt) hoàn hảo đến mức bạn sẽ không thể tin đó là tranh phẳng. Một vòm bầu trời khổng lồ mở ra, các thánh bay lên cao, không gian dường như kéo dài vô tận — nhưng tất cả chỉ là sơn trên mặt phẳng. Có một vòng tròn nhỏ trên sàn nhà thờ đánh dấu điểm đứng "tối ưu" để trải nghiệm ảo giác hoàn hảo nhất. Đứng ra khỏi điểm đó — ảo giác tan biến, bạn thấy những hình dạng biến dạng.</p>
+            <div class="philosophy-quote">
+                "Có một vị trí duy nhất để thấy sự hoàn hảo. Rời khỏi đó, bạn thấy sự thật." — về Sant'Ignazio
+            </div>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Khi nghệ thuật tôn giáo cố tình tạo ảo giác để khơi dậy đức tin — đó là sự lừa dối hay là một dạng sự thật cao hơn? Perspective (phối cảnh) trong nghệ thuật và trong triết học có cùng giới hạn không?
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Galleria Prospettica — Palazzo Spada</h3>
+            <div class="place-meta">Via Capo di Ferro, gần Campo de' Fiori · Ít người biết, rất yên tĩnh</div>
+            <p>Borromini thiết kế năm 1652 một hành lang dài có vẻ 37 mét nhưng thực ra chỉ 8 mét. Trần hạ dần, cột thu nhỏ dần, sàn dốc lên — tạo ra ảo giác chiều sâu hoàn hảo. Tượng ở cuối có vẻ cao bằng người thật nhưng chỉ 60cm. Đây là cuộc thực nghiệm toán học-triết học về cách tâm trí xây dựng thực tại từ tín hiệu thị giác.</p>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Nếu não bộ liên tục "bịa ra" thực tại từ các tín hiệu cảm giác — nhận thức có bao giờ chạm đến thế giới thực không? Borromini đang làm nghệ thuật hay đang làm triết học nhận thức?
+            </div>
+            <div class="tip-box">
+                <strong>Mẹo:</strong> Đây là một trong những nơi ít người ghé nhất nhưng sâu sắc nhất Roma. Thường không đông, bạn có thể đứng một mình trước hành lang để suy nghĩ.
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Stanze di Raffaello — Trường phái Athens (Vatican)</h3>
+            <div class="place-meta">Bảo tàng Vatican · Phòng Raphael</div>
+            <p><em>La Scuola di Atene</em> (1509–1511) là bức tranh phòng làm việc của Giáo hoàng Julius II — nhưng thực ra là bách khoa toàn thư về triết học cổ đại. Plato chỉ lên trời (Thế giới Ý niệm), Aristotle chỉ xuống đất (Thế giới thực nghiệm). Socrates đang biện luận, Pythagoras cúi xuống viết, Diogenes nằm dài trên bậc thang. Heraclitus — người tin mọi thứ đều biến đổi — ngồi cô đơn một mình, mặt mày cau có. Raphael vẽ khuôn mặt ông theo chân dung Michelangelo đang làm trần Sistine cùng thời, như lời tri ân.</p>
+            <div class="philosophy-quote">
+                "Plato và Aristotle không chỉ là hai triết gia — đó là hai cách nhân loại nhìn thế giới: từ trên xuống hay từ dưới lên."
+            </div>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Tại sao Giáo hoàng Công giáo muốn treo bức tranh ca ngợi các triết gia ngoại đạo trong phòng làm việc riêng? Humanisme Kitô giáo thế kỷ 16 đang cố hòa giải điều gì?
+            </div>
+        </div>
+    </div>
+
+    <!-- THEME 5: NGHỆ THUẬT VÀ CÁI ĐẸP -->
+    <div class="theme-section" id="nghe-thuat">
+        <div class="theme-header">
+            <div class="theme-icon">🗿</div>
+            <div>
+                <h2>V. Nghệ thuật như Ngôn ngữ Triết học</h2>
+                <div class="theme-tagline">Khi nghệ thuật không chỉ đẹp mà còn tranh luận, phản kháng, và cách mạng hóa tư tưởng.</div>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>San Pietro in Vincoli — Moses của Michelangelo</h3>
+            <div class="place-meta">Piazza di San Pietro in Vincoli · Gần Colosseum</div>
+            <p>Michelangelo gọi đây là tác phẩm vĩ đại nhất của mình — và đó là lý do ông ưa thích nó hơn trần nhà Sistine. Moses ngồi với hai tấm bia Mười Điều Răn, cơ bắp cuồn cuộn, ánh mắt rực lửa, hai chiếc sừng nhỏ trên đầu (do dịch thuật sai chữ Hebrew "keria" — tia sáng — thành sừng). Đây là hình tượng luật pháp thần thánh gặp cơn giận của con người — thứ luật pháp đủ sức phán xét cả kẻ ban hành nó.</p>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Michelangelo tạo ra Moses như một nhà lập pháp hay như một người bị luật pháp thống trị? Có khoảnh khắc nào trong lịch sử mà đá đá cứng lại trở thành biểu tượng sống động hơn văn bản?
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Caravaggio tại các nhà thờ — Thần học của ánh sáng và bóng tối</h3>
+            <div class="place-meta">San Luigi dei Francesi · Sant'Agostino · Santa Maria del Popolo</div>
+            <p>Caravaggio (1571–1610) là người mang triết học nhập thân (<em>incarnational theology</em>) vào hội họa bằng cách vẽ những người thực tế — người chân đất, bàn tay thô ráp, vết thương đẫm máu — làm thánh nhân. Trong <em>Madonna di Loreto</em> (Sant'Agostino), hai người hành hương quỳ trước Đức Mẹ với bàn chân bẩn, gót nứt nẻ — cận cảnh đến mức gây scandal. Ông hỏi: nếu Thiên Chúa thực sự nhập thể làm người, tại sao nghệ thuật lại vẽ người không có thân xác thực?</p>
+            <div class="philosophy-quote">
+                "Caravaggio không vẽ ánh sáng từ mặt trời. Ông vẽ ánh sáng như một lực lượng đạo đức — nó không chiếu đều, nó chọn lựa." — Bernard Berenson
+            </div>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Khi Caravaggio vẽ thánh nhân như người lao động nghèo — đó là sự dân chủ hóa tôn giáo hay sự phạm thượng? Cái đẹp có thể bao gồm cả xấu xí không?
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Galleria Borghese — Bernini và thời khắc bất khả nắm bắt</h3>
+            <div class="place-meta">Piazzale Scipione Borghese · Đặt vé trước bắt buộc</div>
+            <p>Bernini điêu khắc những khoảnh khắc chuyển tiếp không thể đứng yên: Apollo vừa chạm tay vào Daphne, nàng đang biến thành cây nguyệt quế — ngón tay đã thành lá, bàn chân đang thành rễ. Trong <em>The Rape of Persephone</em>, ngón tay Pluto ấn vào da thịt Persephone — đá mà như thịt người. Bernini tạo ra thời gian đông cứng trong đá, buộc người xem phải đối mặt với những gì ngôn ngữ không thể nói.</p>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Điều gì khiến ta cảm thấy rằng đá có thể mềm, rằng khoảnh khắc bị đông cứng mà vẫn sống động? Bernini đang làm gì với thời gian mà không nhà triết học nào làm được?
+            </div>
+        </div>
+    </div>
+
+    <!-- THEME 6: CON NGƯỜI VÀ CỘNG ĐỒNG -->
+    <div class="theme-section" id="con-nguoi">
+        <div class="theme-header">
+            <div class="theme-icon">🏘️</div>
+            <div>
+                <h2>VI. Con người, Cộng đồng &amp; Bản sắc</h2>
+                <div class="theme-tagline">Roma không chỉ là đế chế và giáo hội — mà còn là những cộng đồng đã tồn tại xuyên suốt mọi biến động.</div>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Khu Do Thái (Ghetto Ebraico) — 2.100 năm liên tục</h3>
+            <div class="place-meta">Gần Teatro di Marcello · Portico d'Ottavia</div>
+            <p>Cộng đồng Do Thái Roma là cộng đồng Do Thái lâu đời nhất còn tồn tại bên ngoài Israel — từ năm 161 TCN khi sứ thần Judah Maccabee đến ký hiệp ước với Nghị viện La Mã. Họ sống sót qua Đế chế La Mã, qua các Giáo hoàng, qua Trung Cổ, qua Phát xít. Trong Thế chiến II, 1.259 người Do Thái Roma bị bắt ngay tại đây và bị đưa đến Auschwitz — chỉ 16 người trở về. Nhưng cộng đồng vẫn còn đó. Có tiệm bánh ngọt vẫn bán <em>carciofi alla giudia</em> (artichoke chiên kiểu Do Thái) từ thế kỷ 16.</p>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Bản sắc tồn tại qua bao nhiêu thế kỷ áp bức — đó là sức mạnh của văn hóa, tôn giáo, hay là điều gì khác không thể định nghĩa? Liệu có sự khác biệt giữa "tồn tại" và "sống"?
+            </div>
+            <div class="tip-box">
+                <strong>Gợi ý:</strong> Bảo tàng Do Thái tại đây nhỏ nhưng sâu sắc. Ghé Portico d'Ottavia — di tích La Mã cổ bên cạnh — nơi thời gian 2.000 năm cùng tồn tại với cuộc sống hàng ngày.
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Aventine Hill — Lỗ khóa và Vườn Cam</h3>
+            <div class="place-meta">Giardino degli Aranci + Buco della Serratura, Cavalieri di Malta</div>
+            <p>Hai điểm chiêm nghiệm yên tĩnh nhất Roma. <em>Giardino degli Aranci</em> (Vườn Cam): nhìn toàn cảnh Roma vào buổi chiều khi ánh vàng đổ xuống mái nhà. Nơi này từng là nơi các nhà thờ Cải cách trốn khỏi Roma năm 1848. Cách vài bước: <em>Buco della Serratura</em> (lỗ khóa) tại cổng Hiệp sĩ Malta — nhìn qua lỗ khóa, bạn thấy đường cây thẳng hàng và đằng xa là Mái vòm St. Peter's, được canh chỉnh hoàn hảo. Ba quốc gia trong một khung nhìn (Ý, Vatican, và khuôn viên Hiệp sĩ Malta).</p>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Lỗ khóa đặt ra câu hỏi Platon: khi nhìn bằng góc nhìn hạn chế nhưng chính xác, ta thấy bức tranh toàn cảnh hay chỉ một hình chiếu? Đây là ẩn dụ cho nhận thức hay cho quyền lực?
+            </div>
+        </div>
+
+        <div class="place-card">
+            <h3>Trastevere — Nơi Roma sống thực sự</h3>
+            <div class="place-meta">Bờ tây sông Tiber · Tốt nhất buổi chiều và tối</div>
+            <p>Nếu phần còn lại của Roma là sân khấu lịch sử, Trastevere là hậu trường. Những con hẻm cuốc đá, quần áo phơi trên cửa sổ, người già ngồi nói chuyện ở góc đường — đây là nơi sự liên tục của cuộc sống thường nhật biểu lộ rõ hơn bất kỳ di tích nào. Basilica di Santa Maria in Trastevere (thế kỷ 4) có những bức mosaic Byzantine rực rỡ trong ánh nến buổi tối — đơn giản và sâu sắc hơn nhiều công trình hoành tráng hơn.</p>
+            <div class="philosophy-question">
+                <strong>Câu hỏi để chiêm nghiệm:</strong> Trong khi các đế chế và giáo hoàng xây dựng những công trình để lưu danh thiên cổ — người thường chỉ sống, ăn, yêu và chết. Đâu là lịch sử thực sự: những gì được xây hay những gì được sống?
+            </div>
+        </div>
+    </div>
+
+    <!-- SONG HÀNH LỊCH SỬ -->
+    <div class="theme-section" id="song-hanh">
+        <div class="theme-header">
+            <div class="theme-icon">🌏</div>
+            <div>
+                <h2>VII. Roma trong Dòng chảy Lịch sử Thế giới</h2>
+                <div class="theme-tagline">Khi Roma trỗi dậy, đứng vững rồi sụp đổ — thế giới và Việt Nam đang ở đâu, làm gì?</div>
+            </div>
+        </div>
+
+        <div class="compare-intro">
+            <p>Lịch sử Roma thường được kể như một câu chuyện riêng biệt. Nhưng mỗi khoảnh khắc lớn tại đây đều có đối chiếu ở đầu kia trái đất: trong khi Cicero diễn thuyết tại Forum Romanum, Hán Vũ Đế đang mở đường Tơ lụa nối Roma với phương Đông; khi Marcus Aurelius viết <em>Meditations</em>, Sĩ Nhiếp đang mang Khổng giáo vào đất Giao Chỉ và Việt Nam đang là một tỉnh của Hán triều; khi Michelangelo đang tạc Pietà trong nhà thờ, Nguyễn Trãi đã qua đời sau khi viết Bình Ngô Đại Cáo. Lịch sử không phải một dòng suối đơn độc — mà là đại dương, nơi nhiều con sóng cùng dâng một lúc.</p>
+        </div>
+
+        <div class="table-wrap">
+        <table class="era-table">
+            <thead>
+                <tr>
+                    <th class="th-period">Giai đoạn</th>
+                    <th class="th-rome">Roma</th>
+                    <th class="th-world">Thế giới</th>
+                    <th class="th-viet">Việt Nam</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>800–500 TCN<br><em style="font-size:0.76rem;font-weight:normal;color:#8b7a6a;">Axial Age — Triết học bùng nổ toàn cầu</em></td>
+                    <td class="td-rome">
+                        <span class="era-em">Roma mới chỉ là một làng nhỏ</span>
+                        <span class="era-sub">753 TCN theo truyền thuyết — thực ra chỉ là tụ điểm chăn nuôi bên bờ Tiber. 7 vị vua đầu tiên, chưa có gì vĩ đại. Etruscans thống trị văn hóa.</span>
+                    </td>
+                    <td class="td-world">
+                        <span class="era-em">Thiên tài xuất hiện đồng thời khắp nơi</span>
+                        <span class="era-sub">Confucius (551–479 TCN) · Phật Thích Ca (~563–483 TCN) · Solon, Thales, Anaximander tại Hy Lạp · Lão Tử, Trang Tử tại Trung Quốc · Zoroaster tại Ba Tư · Upanishads tại Ấn Độ</span>
+                    </td>
+                    <td class="td-viet">
+                        <span class="era-em">Văn hóa Đông Sơn và thời Hùng Vương</span>
+                        <span class="era-sub">Trống đồng Đông Sơn (~700 TCN) — đỉnh cao nghệ thuật đồ đồng châu Á, lan tỏa khắp Đông Nam Á. Nhà nước Văn Lang truyền thuyết. Khi Roma chưa thành hình, người Việt đã có nền văn minh lúa nước và trống đồng riêng.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>500–200 TCN<br><em style="font-size:0.76rem;font-weight:normal;color:#8b7a6a;">Cộng hòa La Mã &amp; Thiên tài Hy Lạp</em></td>
+                    <td class="td-rome">
+                        <span class="era-em">Xây dựng nền cộng hòa và luật pháp</span>
+                        <span class="era-sub">Luật XII Bảng (~450 TCN) — nền tảng pháp luật phương Tây. Chiến tranh với Samnites, rồi Pyrrhus. Senatus và cơ chế kiểm soát quyền lực đang được thử nghiệm bằng máu.</span>
+                    </td>
+                    <td class="td-world">
+                        <span class="era-em">Đỉnh cao triết học và chinh phục</span>
+                        <span class="era-sub">Socrates (470–399 TCN) · Plato (428–348 TCN) · Aristotle (384–322 TCN) · Alexander Đại Đế (356–323 TCN) mang văn hóa Hy Lạp đến tận Ấn Độ · Qin Shi Huang thống nhất Trung Quốc (221 TCN) · Ashoka Ấn Độ (304–232 TCN)</span>
+                    </td>
+                    <td class="td-viet">
+                        <span class="era-em era-hi">An Dương Vương lập Âu Lạc (~258 TCN)</span>
+                        <span class="era-sub">Thục Phán dựng nước Âu Lạc, xây thành Cổ Loa — hệ thống phòng thủ đồng tâm lớn nhất Đông Nam Á cổ đại. Huyền thoại nỏ thần Kim Quy và Cao Lỗ. Khi Aristotle qua đời (322 TCN), An Dương Vương đang xây thành.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>200 TCN – 43 CN<br><em style="font-size:0.76rem;font-weight:normal;color:#8b7a6a;">Đế chế La Mã ra đời</em></td>
+                    <td class="td-rome">
+                        <span class="era-em">Caesar, Augustus, Pax Romana</span>
+                        <span class="era-sub">Scipio Africanus đánh bại Hannibal (202 TCN) · Julius Caesar (100–44 TCN) · Augustus — hoàng đế đầu tiên (27 TCN–14 CN) · Jesus Christ bị đóng đinh tại vùng đất La Mã (~30 CN) · Pax Romana: 200 năm ổn định tương đối</span>
+                    </td>
+                    <td class="td-world">
+                        <span class="era-em">Hán triều &amp; Con đường Tơ lụa mở ra</span>
+                        <span class="era-sub">Hán Vũ Đế (156–87 TCN) mở đường Tơ lụa nối Roma với Trung Quốc qua Ba Tư · Cleopatra (69–30 TCN) · Phật giáo lan ra Trung Á và Đông Á · Đế chế Parthia là cầu nối thương mại Đông–Tây</span>
+                    </td>
+                    <td class="td-viet">
+                        <span class="era-em era-hi">🔥 Hai Bà Trưng khởi nghĩa (40–43 CN)</span>
+                        <span class="era-sub">Sau khi Hán chiếm Nam Việt (111 TCN), Trưng Trắc &amp; Trưng Nhị lãnh đạo cuộc khởi nghĩa đầu tiên, giải phóng 65 thành trì, trị vì độc lập 3 năm. Cùng thời với hoàng đế Claudius tại Roma.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>43–284 CN<br><em style="font-size:0.76rem;font-weight:normal;color:#8b7a6a;">Ngũ Đế Tốt lành &amp; Khủng hoảng</em></td>
+                    <td class="td-rome">
+                        <span class="era-em">Marcus Aurelius &amp; tan vỡ thế kỷ 3</span>
+                        <span class="era-sub">Nerva–Antoninus–Marcus Aurelius (96–180 CN): đỉnh cao đế chế · <em>Meditations</em> được viết · Commodus sụp đổ · Khủng hoảng Thế kỷ 3 (235–284): 50 năm, hơn 20 hoàng đế, hầu hết bị ám sát</span>
+                    </td>
+                    <td class="td-world">
+                        <span class="era-em">Kitô giáo lan rộng, Tam Quốc Trung Hoa</span>
+                        <span class="era-sub">Tân Ước được viết và truyền bá · Sassanid Persia nổi lên (224 CN) · Tam Quốc Trung Quốc (220–280) — Tào Tháo, Lưu Bị, Tôn Quyền · Silk Road cực thịnh · Đế chế Gupta Ấn Độ khởi đầu</span>
+                    </td>
+                    <td class="td-viet">
+                        <span class="era-em era-hi">Sĩ Nhiếp (137–226) &amp; Bà Triệu (248)</span>
+                        <span class="era-sub">Sĩ Nhiếp — thái thú Giao Chỉ 40 năm, mang học vấn Khổng giáo vào Việt Nam, cùng thời Marcus Aurelius. Bà Triệu (226–248) khởi nghĩa 6 tháng chống Đông Ngô, cùng thời Khủng hoảng Thế kỷ 3 tại Roma.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>284–600 CN<br><em style="font-size:0.76rem;font-weight:normal;color:#8b7a6a;">Constantine &amp; Tây La Mã sụp đổ</em></td>
+                    <td class="td-rome">
+                        <span class="era-em">Kitô giáo trở thành quốc giáo, đế chế tan vỡ</span>
+                        <span class="era-sub">Constantine (306–337) hợp pháp hóa Kitô giáo · Công đồng Nicaea (325) · Augustine thành Hippo (354–430) · Tây La Mã sụp đổ 476 CN · Byzantine (Đông La Mã) tồn tại thêm 1.000 năm</span>
+                    </td>
+                    <td class="td-world">
+                        <span class="era-em">Attila, số 0 Ấn Độ, Maya</span>
+                        <span class="era-sub">Attila the Hun (~406–453) tàn phá châu Âu · Gupta Ấn Độ: phát minh số 0, số Pi chính xác, đại số · Văn minh Maya cực thịnh tại châu Mỹ · Justinian I phục dựng Đông La Mã (527–565)</span>
+                    </td>
+                    <td class="td-viet">
+                        <span class="era-em era-hi">Lý Bí lập Vạn Xuân (544 CN)</span>
+                        <span class="era-sub">Lý Bí (503–548) khởi nghĩa và lập nước Vạn Xuân — nhà nước độc lập đầu tiên sau Hai Bà Trưng, đặt kinh đô tại Long Biên. Cùng thời Justinian đang phục dựng đế chế tại Constantinople.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>600–1000 CN<br><em style="font-size:0.76rem;font-weight:normal;color:#8b7a6a;">Giáo hoàng &amp; Charlemagne</em></td>
+                    <td class="td-rome">
+                        <span class="era-em">Roma là trung tâm quyền lực Giáo hội</span>
+                        <span class="era-sub">Gregory I (590–604) xây dựng nền tảng quyền lực Giáo hội · Charlemagne đăng quang tại Roma (800 CN) · Đại Ly giáo Đông–Tây đang hình thành · Viking cướp phá khắp châu Âu</span>
+                    </td>
+                    <td class="td-world">
+                        <span class="era-em">Muhammad, Đường Thái Tông, Viking</span>
+                        <span class="era-sub">Muhammad (570–632) · Hồi giáo lan khắp Trung Đông và Bắc Phi trong 100 năm · Đường Thái Tông (598–649) — đỉnh cao Đường triều, tiếp nhận cả đặc sứ La Mã và Việt Nam · Đế chế Khmer (Angkor) hình thành</span>
+                    </td>
+                    <td class="td-viet">
+                        <span class="era-em era-hi">🏆 Ngô Quyền — Kết thúc 1.000 năm Bắc thuộc (938)</span>
+                        <span class="era-sub">Phùng Hưng (761–802) khởi nghĩa. Ngô Quyền (898–944): Chiến thắng Bạch Đằng (938) — cọc sắt, thủy triều, hạm đội Nam Hán bị nhấn chìm. Kết thúc hơn 1.000 năm đô hộ.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1000–1400 CN<br><em style="font-size:0.76rem;font-weight:normal;color:#8b7a6a;">Thập Tự Chinh &amp; Dante</em></td>
+                    <td class="td-rome">
+                        <span class="era-em">Giáo hoàng vs. Hoàng đế — Dante viết Địa ngục</span>
+                        <span class="era-sub">Gregory VII vs. Henry IV (1076) · Thập Tự Chinh I (1096) · Innocent III — Giáo hoàng quyền lực nhất (1198–1216) · Dante Alighieri (1265–1321) viết <em>Divine Comedy</em> · Cái Chết Đen (1347) giết 1/3 châu Âu</span>
+                    </td>
+                    <td class="td-world">
+                        <span class="era-em">Thành Cát Tư Hãn tàn phá thế giới</span>
+                        <span class="era-sub">Thành Cát Tư Hãn (1162–1227) — đế quốc lớn nhất lịch sử, diệt Ba Lan, Nga, Persia · Marco Polo (1254–1324) · Ibn Battuta (1304–1368) · Đế chế Mali (Mansa Musa) · Aztec lập Tenochtitlan (1325)</span>
+                    </td>
+                    <td class="td-viet">
+                        <span class="era-em era-hi">🏆 Lý Thường Kiệt &amp; Trần Hưng Đạo — đánh bại cả Tống lẫn Mông Cổ</span>
+                        <span class="era-sub">Lý Thường Kiệt (~1019–1105) đánh Tống, viết "Nam quốc sơn hà". Trần Hưng Đạo (1228–1300) đánh bại quân Mông Cổ 3 lần (1258, 1285, 1288) — kỳ tích mà cả châu Âu không làm được. Cùng thời với Dante.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1400–1600 CN<br><em style="font-size:0.76rem;font-weight:normal;color:#8b7a6a;">Renaissance &amp; Khám phá địa lý</em></td>
+                    <td class="td-rome">
+                        <span class="era-em">Michelangelo, Raphael, Bruno — đỉnh cao &amp; bi kịch</span>
+                        <span class="era-sub">Brunelleschi, Donatello · Leonardo da Vinci (1452–1519) · Michelangelo (1475–1564) · Raphael (1483–1520) · Giordano Bruno bị thiêu sống tại Campo de' Fiori 1600</span>
+                    </td>
+                    <td class="td-world">
+                        <span class="era-em">Thế giới nối liền: Columbus, Magellan, Luther</span>
+                        <span class="era-sub">Đế chế Ottoman chiếm Constantinople (1453) · Columbus đến châu Mỹ (1492) · Vasco da Gama đến Ấn Độ (1498) · Martin Luther Cải cách Kháng nghị (1517) · Magellan vòng quanh thế giới (1519–1522)</span>
+                    </td>
+                    <td class="td-viet">
+                        <span class="era-em era-hi">🏆 Nguyễn Trãi &amp; Nguyễn Bỉnh Khiêm</span>
+                        <span class="era-sub">Nguyễn Trãi (1380–1442): Bình Ngô Đại Cáo (1428) — tuyên ngôn độc lập vĩ đại nhất Việt Nam, viết cùng thời Brunelleschi và Donatello. Nguyễn Bỉnh Khiêm (1491–1585) — triết gia, thầy của thời đại, cùng thời Michelangelo và Luther.</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <!-- VN FIGURES -->
+        <div class="vn-subsection-title">🇻🇳 Nhân vật Việt Nam nổi trội — đồng đại với Roma</div>
+
+        <div class="vn-grid">
+            <div class="vn-card">
+                <h3>Hai Bà Trưng</h3>
+                <div class="vn-dates">? – 43 CN &nbsp;·&nbsp; Khởi nghĩa 40–43 CN</div>
+                <div class="vn-parallel">⚔️ Cùng thời: Claudius &amp; Nero tại Roma · Silk Road vừa mở · Kitô giáo vừa ra đời</div>
+                <p>Trưng Trắc và Trưng Nhị lãnh đạo cuộc khởi nghĩa vũ trang đầu tiên chống Hán. Trong vài tháng, họ giải phóng 65 thành trì từ Hải Nam đến miền Bắc Việt Nam ngày nay. Trưng Trắc trở thành nữ vương, cai trị độc lập 3 năm trước khi Mã Viện mang đại quân tái chiếm.</p>
+                <p>Trong khi Roma đang tôn thờ hoàng đế nam giới là thiên tử, hai người phụ nữ ở đầu kia thế giới đặt câu hỏi thực tế nhất: <em>quyền lực thuộc về ai?</em></p>
+                <div class="vn-quote">"Một xin rửa sạch nước thù, hai xin đem lại nghiệp xưa họ Hùng, ba kẻo oan ức lòng chồng, bốn xin vẹn vẹn sở công lệnh này."</div>
+            </div>
+
+            <div class="vn-card">
+                <h3>Sĩ Nhiếp (Shi Xie)</h3>
+                <div class="vn-dates">137–226 CN &nbsp;·&nbsp; Thái thú Giao Chỉ 40 năm</div>
+                <div class="vn-parallel">📚 Cùng thời: Marcus Aurelius viết <em>Meditations</em> tại Roma</div>
+                <p>Người Hán gốc Trung Quốc, nhưng người Việt tôn xưng là <em>"Nam Giao Học Tổ"</em> — Tổ học vấn phương Nam. Ông trị nhậm Giao Chỉ trong 40 năm với phong cách học giả: thúc đẩy Khổng giáo, mở trường học, bảo vệ dân, thu hút nhiều nhà học lớn của Hán triều đến trú ẩn.</p>
+                <p>Ông và Marcus Aurelius — một ở đầu phía Tây đế quốc La Mã, một ở đầu phía Đông đế quốc Hán — đều là những người tin rằng kẻ cầm quyền phải là người có học và phải dùng sức mạnh để bảo vệ, không phải để áp bức.</p>
+            </div>
+
+            <div class="vn-card">
+                <h3>Triệu Thị Trinh (Bà Triệu)</h3>
+                <div class="vn-dates">~226–248 CN &nbsp;·&nbsp; Khởi nghĩa năm 248, 23 tuổi</div>
+                <div class="vn-parallel">⚡ Cùng thời: Khủng hoảng Thế kỷ 3 tại Roma · Tam Quốc Trung Hoa</div>
+                <p>Ở tuổi 23, Bà Triệu lãnh đạo cuộc khởi nghĩa chống Đông Ngô. Khi anh trai khuyên chịu đựng, bà đáp bằng câu nói trở thành bất tử trong lịch sử Việt Nam:</p>
+                <div class="vn-quote">"Tôi muốn cưỡi cơn gió mạnh, đạp ngọn sóng dữ, chém cá kình ở biển Đông, đánh đuổi quân Ngô giành lại giang sơn, cởi ách nô lệ, chứ không chịu khom lưng làm tì thiếp người ta."</div>
+                <p>Bà chiến đấu 6 tháng trước khi bị đánh bại. Người Trung Quốc sợ bà đến mức phải dùng những thủ đoạn hèn hạ để phá vỡ tinh thần quân sĩ của bà — điều mà lịch sử ghi lại như bằng chứng về sức ảnh hưởng của bà.</p>
+            </div>
+
+            <div class="vn-card">
+                <h3>Ngô Quyền</h3>
+                <div class="vn-dates">898–944 CN &nbsp;·&nbsp; Chiến thắng Bạch Đằng 938</div>
+                <div class="vn-parallel">⛵ Cùng thời: Đế chế Carolingian tan rã · Đường triều sụp đổ (907)</div>
+                <p>Trận Bạch Đằng năm 938 là một trong những chiến thắng quân sự thiên tài nhất lịch sử Đông Nam Á. Ngô Quyền ra lệnh đóng cọc sắt nhọn xuống đáy sông, chờ thủy triều lên cho hạm đội Nam Hán tiến vào sâu, rồi đợi thủy triều rút — cọc nhô lên đâm thủng thuyền chiến địch. Hoàng tử Hoằng Tháo tử trận.</p>
+                <p>Chiến thắng này kết thúc hơn <strong>1.000 năm Bắc thuộc</strong>. Trong khi châu Âu đang trong hỗn loạn sau cái chết của Charlemagne, Ngô Quyền khép lại giai đoạn đen tối nhất và dài nhất trong lịch sử dân tộc Việt Nam.</p>
+            </div>
+
+            <div class="vn-card">
+                <h3>Lý Thường Kiệt</h3>
+                <div class="vn-dates">~1019–1105 CN &nbsp;·&nbsp; Tướng quân, nhà thơ, nhà ngoại giao</div>
+                <div class="vn-parallel">✝️ Cùng thời: Thập Tự Chinh I (1096) · Gregory VII vs. Henry IV tại Roma</div>
+                <p>Ông đánh bại quân Tống bằng chiến thuật "tiên phát chế nhân" — đem quân sang đánh đất Tống trước khi họ xâm lược (1075–1076). Ông bình định Chiêm Thành (1069). Và ông là tác giả "Nam quốc sơn hà" — bốn câu thơ là tuyên ngôn chủ quyền đầu tiên trong lịch sử Việt Nam:</p>
+                <div class="vn-quote">"Nam quốc sơn hà Nam đế cư / Tiệt nhiên định phận tại thiên thư / Như hà nghịch lỗ lai xâm phạm / Nhữ đẳng hành khan thủ bại hư."</div>
+                <p>Trong khi Giáo hoàng Gregory VII và Hoàng đế Henry IV đang tranh nhau quyền lực tại Roma, Lý Thường Kiệt đang khẳng định một điều khác: <em>quyền tồn tại của dân tộc không cần ai phê chuẩn.</em></p>
+            </div>
+
+            <div class="vn-card">
+                <h3>Trần Hưng Đạo</h3>
+                <div class="vn-dates">~1228–1300 CN &nbsp;·&nbsp; Đánh bại quân Mông Cổ 3 lần</div>
+                <div class="vn-parallel">🏺 Cùng thời: Dante Alighieri (1265–1321) đang viết <em>Divine Comedy</em> tại Ý</div>
+                <p>Ông là người duy nhất trong lịch sử đánh bại quân Mông Cổ không phải một, không phải hai, mà <strong>ba lần</strong> (1258, 1285, 1288). Đế quốc Mông Cổ đã tràn qua Ba Lan, Hungary, Nga, Ba Tư — nhưng dừng lại trước Đại Việt.</p>
+                <p>Chiến lược của ông kết hợp chiến tranh du kích, rút lui chiến lược và tận dụng địa hình — những gì sau này được nghiên cứu như tư tưởng quân sự Đông Nam Á. Khi vua hỏi có nên đầu hàng không, ông đáp: <em>"Bệ hạ muốn hàng, xin hãy chém đầu thần trước."</em></p>
+                <div class="vn-quote">"Binh pháp ta lấy yếu đánh mạnh, lấy ít địch nhiều. Phải nhu thắng cương, lấy nhân tâm làm gốc."</div>
+            </div>
+
+            <div class="vn-card">
+                <h3>Nguyễn Trãi</h3>
+                <div class="vn-dates">~1380–1442 CN &nbsp;·&nbsp; Nhà văn, triết gia, kiến trúc sư độc lập</div>
+                <div class="vn-parallel">🎨 Cùng thời: Brunelleschi (1377–1446), Donatello (1386–1466) tại Florence — thời kỳ Renaissance sơ khai</div>
+                <p>Người Việt đặt ngang với Dante và Petrarca về mức độ ảnh hưởng đến ngôn ngữ và tư tưởng dân tộc. Quân sư của Lê Lợi trong cuộc kháng chiến 10 năm chống Minh (1418–1428). Ông viết <em>Bình Ngô Đại Cáo</em> (1428) — văn kiện lịch sử và văn học vĩ đại nhất Việt Nam:</p>
+                <div class="vn-quote">"Việc nhân nghĩa cốt ở yên dân / Quân điếu phạt trước lo trừ bạo / Như nước Đại Việt ta từ trước / Vốn xưng nền văn hiến đã lâu..."</div>
+                <p>Bi kịch: năm 1442, ông bị xử tử tru di tam tộc sau vụ án oan Lệ Chi Viên — một trong những bi kịch oan sai lớn nhất lịch sử Việt Nam. Trong khi Donatello đang tạc tượng <em>David</em> bằng đồng tại Florence, Nguyễn Trãi đang viết những dòng về nhân nghĩa và bị giết vì chúng.</p>
+            </div>
+        </div>
+
+        <div class="compare-intro" style="margin-top:1rem;">
+            <p><strong>Điều đáng suy ngẫm khi đứng tại Roma:</strong> Trong suốt chiều dài tồn tại của Đế chế La Mã (~500 năm), Việt Nam đã trải qua hơn 1.000 năm Bắc thuộc, có ít nhất 7 cuộc khởi nghĩa vũ trang lớn và nhiều lần lập được nhà nước rồi mất đi. Roma dạy ta rằng đế chế nào cũng sụp đổ. Lịch sử Việt Nam dạy ta rằng <em>một dân tộc không sụp đổ chừng nào còn nhớ mình là ai — và còn có người sẵn lòng chết để nói điều đó.</em></p>
+        </div>
+    </div>
+
+    <!-- CON ĐƯỜNG TƠ LỤA -->
+    <div class="theme-section" id="to-lua">
+        <div class="theme-header">
+            <div class="theme-icon">🧵</div>
+            <div>
+                <h2>VIII. Con đường Tơ lụa — Khi Roma Gặp Phương Đông</h2>
+                <div class="theme-subtitle">Hành trình 7.000 km nối Chang'an với Roma và những gì thay đổi mãi mãi</div>
+            </div>
+        </div>
+
+        <div class="compare-intro">
+            <p>Trong khi các hoàng đế La Mã đang xây dựng Đấu trường Colosseum và đặt câu hỏi về quyền lực, ở phía đông cách đó 7.000 km, triều Hán đang phái sứ thần trên những con đường băng qua sa mạc, núi tuyết và thảo nguyên để kết nối với những vương quốc chưa từng biết tên. Hành trình đó tạo ra Con đường Tơ lụa — không chỉ là tuyến thương mại, mà là <strong>lần đầu tiên hai đầu của thế giới cổ đại chạm tay nhau.</strong></p>
+        </div>
+
+        <!-- TUYẾN ĐƯỜNG TRỰC QUAN -->
+        <h3 style="color:#990000; margin-bottom:0.8rem;">Tuyến đường hình thành</h3>
+        <div class="silk-route">
+            <div class="silk-node">
+                <div class="silk-node-city">長安<br>Chang'an</div>
+                <div class="silk-node-dot"></div>
+                <div class="silk-node-label">Kinh đô Hán<br>(Xi'an ngày nay)</div>
+            </div>
+            <div class="silk-arrow">→</div>
+            <div class="silk-node">
+                <div class="silk-node-city">敦煌<br>Dunhuang</div>
+                <div class="silk-node-dot"></div>
+                <div class="silk-node-label">Cửa ngõ Tây vực<br>Ngàn hang Phật giáo</div>
+            </div>
+            <div class="silk-arrow">→</div>
+            <div class="silk-node">
+                <div class="silk-node-city">撒馬爾罕<br>Samarkand</div>
+                <div class="silk-node-dot"></div>
+                <div class="silk-node-label">Trung tâm<br>Trung Á</div>
+            </div>
+            <div class="silk-arrow">→</div>
+            <div class="silk-node">
+                <div class="silk-node-city">Ctesiphon<br>Ba Tư</div>
+                <div class="silk-node-dot"></div>
+                <div class="silk-node-label">Đế chế Parthia<br>Trung gian địa chiến lược</div>
+            </div>
+            <div class="silk-arrow">→</div>
+            <div class="silk-node">
+                <div class="silk-node-city">Antioch<br>Antiochia</div>
+                <div class="silk-node-dot"></div>
+                <div class="silk-node-label">Cảng lớn Syria<br>Cửa vào Địa Trung Hải</div>
+            </div>
+            <div class="silk-arrow">→</div>
+            <div class="silk-node">
+                <div class="silk-node-city">🏛<br>ROMA</div>
+                <div class="silk-node-dot" style="background:#c89b3c; border-color:#5c1a00; width:16px;height:16px;"></div>
+                <div class="silk-node-label">Điểm cuối phía Tây<br>Trung tâm thế giới La Mã</div>
+            </div>
+        </div>
+
+        <!-- CÁC MỐC LỊCH SỬ -->
+        <h3 style="color:#990000; margin-bottom:0.8rem;">Những mốc hình thành</h3>
+        <div style="background:#fff; border:1px solid #d4b896; border-radius:8px; overflow:hidden; margin-bottom:1.5rem;">
+            <div class="silk-milestone">
+                <div class="silk-milestone-year">139–126 TCN</div>
+                <div class="silk-milestone-text"><strong>Trương Khiên (張騫) khởi hành</strong> — Hán Vũ Đế phái ông đến Trung Á tìm đồng minh chống Hung Nô. Ông bị bắt 10 năm, trốn thoát, đi tiếp và quay về với bản đồ của thế giới chưa ai biết: người Đại Nguyệt Thị, Đại Uyển, Đại Hạ — những vương quốc xa lạ với ngựa huyết hãn và nho tươi. Sứ mệnh quân sự thất bại nhưng mở ra con đường thương mại lịch sử.</div>
+            </div>
+            <div class="silk-milestone">
+                <div class="silk-milestone-year">~100 TCN</div>
+                <div class="silk-milestone-text"><strong>Lụa đến Roma lần đầu tiên.</strong> Người La Mã gọi là <em>Serica</em> — "hàng từ xứ tơ lụa." Julius Caesar gây choáng ngợp hội trường khi trải màn lụa che nắng trong một lễ hội. Thượng nghị sĩ La Mã phàn nàn: phụ nữ mặc lụa là "mặc như không mặc." Roma chưa biết lụa từ đâu đến.</div>
+            </div>
+            <div class="silk-milestone">
+                <div class="silk-milestone-year">53 TCN</div>
+                <div class="silk-milestone-text"><strong>Trận Carrhae — màn lụa trên chiến trường.</strong> Quân La Mã của Crassus thua Parthia thảm hại (33.000 chết/bị bắt). Tại trận, người Parthia tung màn lụa rực rỡ làm quân La Mã hoảng loạn vì chưa từng thấy vải gì lóng lánh như vậy. Đây có thể là lần đầu người La Mã "chạm" trực tiếp vào sản phẩm Trung Hoa — dù không biết điều đó.</div>
+            </div>
+            <div class="silk-milestone">
+                <div class="silk-milestone-year">97 CN</div>
+                <div class="silk-milestone-text"><strong>Cam Anh (甘英) đến gần Roma nhất.</strong> Triều Hán phái ông đến tận Ba Tư để thiết lập quan hệ với "Đại Tần" (La Mã). Ông tới bờ biển Ba Tư (vịnh Ba Tư hoặc Biển Đen) nhưng bị thương nhân Parthia cảnh báo biển rất xa, nguy hiểm — họ không muốn mất vai trò trung gian. Ông quay về. Cuộc gặp trực tiếp Hán-La Mã bị ngăn lại bởi lợi ích thương mại.</div>
+            </div>
+            <div class="silk-milestone">
+                <div class="silk-milestone-year">166 CN</div>
+                <div class="silk-milestone-text"><strong>Sứ thần "Đại Tần" đến triều Hán.</strong> Sử ký Hậu Hán thư ghi nhận sứ đoàn của "An Tun" (Marcus Aurelius Antoninus — hoàng đế triết gia!) mang ngà voi, sừng tê giác, đồi mồi đến tặng Hán Hoàn Đế. Hai đế chế lớn nhất thế giới lần đầu tiên trao đổi chính thức — dù chỉ qua trung gian.</div>
+            </div>
+            <div class="silk-milestone">
+                <div class="silk-milestone-year">~400–600 CN</div>
+                <div class="silk-milestone-text"><strong>Con đường tơ lụa đường biển trỗi dậy.</strong> Sau khi Roma suy yếu và đường bộ bất ổn, thương mại chuyển sang Ấn Độ Dương: Arab → Ấn Độ → Đông Nam Á → Trung Quốc. Giao Chỉ (Việt Nam) trở thành cảng trung chuyển chiến lược. Óc Eo (An Giang ngày nay) trở thành thương cảng sầm uất.</div>
+            </div>
+            <div class="silk-milestone">
+                <div class="silk-milestone-year">1453 CN</div>
+                <div class="silk-milestone-text"><strong>Con đường đóng lại — và thế giới hiện đại bắt đầu.</strong> Ottoman chiếm Constantinople, chặn tuyến đường bộ. Châu Âu buộc phải tìm đường biển mới. Bồ Đào Nha vòng qua châu Phi, Tây Ban Nha phái Columbus — và thế giới bắt đầu "toàn cầu hóa" lần đầu tiên. Chính vì Con đường Tơ lụa bị chặn mà Colombo tìm ra châu Mỹ.</div>
+            </div>
+        </div>
+
+        <!-- HÀNG HÓA VÀ VĂN HÓA -->
+        <h3 style="color:#990000; margin-bottom:0.8rem;">Không chỉ là lụa — những gì thực sự được trao đổi</h3>
+        <div class="silk-goods-grid">
+            <div class="silk-goods-card">
+                <div class="sg-icon">🧵</div>
+                <div class="sg-title">Lụa đi về Tây</div>
+                <p>Tơ lụa Trung Hoa là hàng xa xỉ số 1 của Roma. Pliny già ước tính Roma chi 100 triệu sestertii/năm cho lụa phương Đông — một "vấn nạn thâm hụt thương mại" mà các thượng nghị sĩ phàn nàn không khác gì ngày nay.</p>
+            </div>
+            <div class="silk-goods-card">
+                <div class="sg-icon">🍷</div>
+                <div class="sg-title">Thủy tinh &amp; Rượu nho đi về Đông</div>
+                <p>Thủy tinh thổi La Mã là kỳ quan kỹ thuật với Trung Hoa — trong vắt như nước, bền hơn gốm. Rượu nho, dầu ô-liu, đồ đồng La Mã được phát hiện trong các di chỉ khảo cổ từ Ba Tư đến Ấn Độ.</p>
+            </div>
+            <div class="silk-goods-card">
+                <div class="sg-icon">🌶️</div>
+                <div class="sg-title">Gia vị &amp; Hương liệu</div>
+                <p>Hồ tiêu, quế, đinh hương từ Ấn Độ và Đông Nam Á. Năm 410, khi Alaric vây Roma, ông đòi 3.000 cân hồ tiêu như một phần tiền chuộc — gia vị đắt ngang vàng. Việt Nam là nguồn quế (Cinnamomum) hàng đầu.</p>
+            </div>
+            <div class="silk-goods-card">
+                <div class="sg-icon">🕌</div>
+                <div class="sg-title">Phật giáo lan về Tây &amp; Đông</div>
+                <p>Theo chân thương nhân, Phật giáo lan từ Ấn Độ qua Trung Á, vào Trung Hoa (chính thức 67 CN), vào Việt Nam (~189 CN qua Luy Lâu). Các tu sĩ Nestorian mang Kitô giáo đến Trung Hoa. Tôn giáo đi cùng hàng hóa.</p>
+            </div>
+            <div class="silk-goods-card">
+                <div class="sg-icon">🌱</div>
+                <div class="sg-title">Cây trồng &amp; Giống vật</div>
+                <p>Nho, lựu, cải thảo, bông vải đi từ Tây sang Đông. Cam, chanh, đào, mía đi từ Đông sang Tây. Ngựa Ferghana ("ngựa huyết hãn") mà Hán Vũ Đế gần như khởi chiến để có được — cao hơn, mạnh hơn ngựa Trung Hoa.</p>
+            </div>
+            <div class="silk-goods-card">
+                <div class="sg-icon">🔢</div>
+                <div class="sg-title">Tri thức &amp; Kỹ thuật</div>
+                <p>Kỹ thuật làm giấy từ Trung Hoa lan sang phương Tây (qua trận Talas 751 CN). Số học Ấn Độ-Ả Rập (số "0") cuối cùng thay thế số La Mã. Thiên văn học Hy Lạp được bảo tồn và phát triển qua các học giả Ả Rập.</p>
+            </div>
+        </div>
+
+        <!-- VIỆT NAM VÀ CON ĐƯỜNG TƠ LỤA -->
+        <h3 style="color:#1a4a2a; margin-bottom:0.8rem;">Việt Nam — Nút giao của Con đường Tơ lụa đường biển</h3>
+        <div class="silk-vn-box">
+            <h4>🌊 Con đường Tơ lụa đường biển qua Giao Chỉ</h4>
+            <p>Trong khi người ta thường hình dung Con đường Tơ lụa là những đoàn lạc đà qua sa mạc Gobi, có một tuyến song song ít được biết đến hơn: <strong>tuyến đường biển</strong> chạy từ các cảng Trung Hoa xuống bờ biển Việt Nam, qua Eo biển Malacca, sang Ấn Độ, vào Vịnh Ba Tư và Biển Đỏ đến Ai Cập và Roma.</p>
+            <p><strong>Luy Lâu (Thuận Thành, Bắc Ninh ngày nay)</strong> — trung tâm thương mại và văn hóa của Giao Chỉ thế kỷ I–III CN — là một trong những điểm dừng quan trọng nhất. Đây không chỉ là nơi thu mua hàng (quế, trầm hương, ngọc trai, ngà voi) mà là <em>nơi Phật giáo đặt chân vào Đông Nam Á lần đầu tiên</em> — sớm hơn Trung Hoa nhiều thập kỷ theo một số học giả.</p>
+            <p><strong>Óc Eo (An Giang)</strong> — thương cảng của vương quốc Phù Nam thế kỷ I–VI CN — khai quật cho thấy đồng tiền La Mã thời Antoninus Pius (138–161 CN) và Marcus Aurelius. Nghĩa là: trong khi Marcus Aurelius đang viết <em>Meditations</em> tại Roma, đồng tiền có chân dung ông đã lưu hành ở vùng đất nay là An Giang, Việt Nam.</p>
+            <p><strong>Hàng Việt Nam trên bàn ăn Roma:</strong> Quế Việt (Cinnamomum loureiroi) — loại quế ngon nhất thế giới cổ đại — có mặt trong công thức nấu ăn và thuốc của người La Mã. Họ gọi vùng đất đó là <em>Cinnamomum regio</em> (xứ quế) mà không biết nó nằm ở đâu. Nằm ở Việt Nam.</p>
+        </div>
+
+        <!-- SƠ ĐỒ CON ĐƯỜNG BIỂN -->
+        <div class="compare-intro" style="margin-bottom:1.2rem;">
+            <p><strong>Tuyến đường biển:</strong> Quảng Châu / Giao Chỉ &nbsp;→&nbsp; Eo Malacca &nbsp;→&nbsp; Sri Lanka &nbsp;→&nbsp; Malabar (Ấn Độ) &nbsp;→&nbsp; Vịnh Ba Tư / Biển Đỏ &nbsp;→&nbsp; Alexandria &nbsp;→&nbsp; Roma</p>
+        </div>
+
+        <!-- PHẢN CHIẾU TRIẾT HỌC -->
+        <div class="silk-reflect">
+            <p><strong>Câu hỏi khi đứng giữa Roma:</strong> Con đường Tơ lụa không được "thiết kế" bởi ai. Nó hình thành từ hàng trăm quyết định riêng lẻ của thương nhân, sứ thần, tu sĩ và lính đồn trú — mỗi người chỉ biết một đoạn của hành trình. Không ai trong số họ hình dung ra bức tranh toàn cảnh: rằng vải lụa từ tay người nông dân Tô Châu sẽ khoác lên vai quý tộc Roma; rằng đồng tiền của hoàng đế triết gia sẽ nằm dưới lòng đất An Giang suốt 1.800 năm.</p>
+            <p style="margin-top:0.8rem;">Khi bạn đứng tại <strong>Forum Romanum</strong> — trung tâm quyền lực của thế giới cổ đại — hãy nhớ rằng ngay lúc đó, ở đầu kia trái đất, có những con người cũng đang sống, đang nghĩ, đang dệt lụa và chưa bao giờ nghe đến tên "Roma." Và bằng cách nào đó, qua 7.000 km sa mạc và đại dương, họ đã chạm nhau — không phải qua chiến tranh, mà qua <em>sự tò mò và lòng tham của con người muốn có những thứ họ chưa từng thấy.</em></p>
+        </div>
+    </div>
+
+    <!-- ROMA & PHỤC HƯNG -->
+    <div class="theme-section" id="phuc-hung">
+        <div class="theme-header">
+            <div class="theme-icon">🏛️</div>
+            <div>
+                <h2>IX. Roma Sau Khi Đế chế Sụp Đổ — Từ Đống Tro Tàn đến Phục hưng</h2>
+                <div class="theme-subtitle">476 CN đến 1600 CN: Roma mất ngai vàng chính trị nhưng không bao giờ mất quyền lực biểu tượng</div>
+            </div>
+        </div>
+
+        <div class="compare-intro">
+            <p>Ngày 4 tháng 9 năm 476 — Odoacer, thủ lĩnh Germanic, phế truất Romulus Augustulus, hoàng đế La Mã cuối cùng. Không có trận đánh lớn, không có lửa cháy, không có tiếng trống tang. Sự kiện mà các sử gia sau này gọi là "sự sụp đổ của đế chế" diễn ra như một cuộc cách chức hành chính bình thường. Và câu hỏi lớn nhất không phải là <em>tại sao Roma sụp đổ</em> — mà là: <strong>tại sao Roma vẫn còn đó?</strong></p>
+        </div>
+
+        <!-- PHẦN 1: THỜI KỲ TỐI TĂM -->
+        <h3 style="color:#990000; margin-bottom:0.8rem;">1 · Thế kỷ V–X: Roma trong Bóng Tối — Nhưng Không Chết</h3>
+        <div class="dark-period-box">
+            <h4>Dân số Roma: từ 1 triệu người xuống còn 20.000</h4>
+            <p>Đây là con số khiến ta phải dừng lại. Thế kỷ I CN Roma có khoảng 1 triệu dân — thành phố lớn nhất thế giới phương Tây. Đến thế kỷ VII, dân số rơi xuống còn 20.000–30.000 người. Đền đài trở thành chuồng bò. Đấu trường Colosseum bị dùng làm pháo đài, rồi mỏ đá — người dân bóc đá cẩm thạch về xây nhà. <strong>Cả một đô thị 1 triệu dân co lại như một thị trấn nhỏ trong vòng hai thế kỷ.</strong></p>
+            <p style="margin-top:0.7rem;">Nhưng Roma không chết vì một lý do: <strong>Giáo hội Công giáo không rời đi.</strong> Năm 380, Theodosius I tuyên bố Kitô giáo là quốc giáo. Năm 410, Alaric cướp phá Roma — và Augustine viết <em>City of God</em> để trả lời câu hỏi: nếu Thiên Chúa bảo vệ Roma, sao Ngài để điều này xảy ra? Câu trả lời của Augustine định hình tư tưởng châu Âu suốt 1.000 năm: Roma thật sự (Roma thiêng liêng) không phải là thành phố đá — mà là Giáo hội.</p>
+        </div>
+
+        <div class="renaiss-timeline">
+            <div class="renaiss-item">
+                <div class="renaiss-year">476 CN — Odoacer phế truất Romulus Augustulus</div>
+                <div class="renaiss-text">Đế chế Tây La Mã chính thức kết thúc. Nhưng <em>Đế chế Đông (Byzantine)</em> tại Constantinople vẫn tồn tại đến 1453 — và tiếp tục tự gọi là "La Mã."</div>
+            </div>
+            <div class="renaiss-item">
+                <div class="renaiss-year">590 CN — Giáo hoàng Gregory I ("Đại đế") lên ngôi</div>
+                <div class="renaiss-text">Ông tổ chức lại Giáo hội như một đế chế hành chính — thu thuế, điều hành dân sự, cứu trợ nạn đói. Roma không còn là thủ đô chính trị, nhưng trở thành <em>thủ đô tâm linh của châu Âu.</em> Nhạc Gregorian mang tên ông.</div>
+            </div>
+            <div class="renaiss-item">
+                <div class="renaiss-year">800 CN — Charlemagne đăng quang tại Roma</div>
+                <div class="renaiss-text">Giáo hoàng Leo III đội vương miện cho Charlemagne tại Đền Thánh Phêrô. Không phải tại Paris, không phải Aachen — mà tại <em>Roma.</em> Bởi vì danh hiệu "Hoàng đế" chỉ có giá trị khi được ban phát từ nơi đó. Bóng của Roma vẫn đủ lớn để hợp pháp hóa mọi đế chế mới.</div>
+            </div>
+            <div class="renaiss-item">
+                <div class="renaiss-year">1084 CN — Roma bị Norman cướp phá lần thứ hai</div>
+                <div class="renaiss-text">Robert Guiscard — đồng minh của Giáo hoàng — cướp phá Roma tàn bạo hơn cả Alaric năm 410. Người dân Roma chạy thoát. Nhiều khu phố bị đốt sạch. Nhưng thành phố vẫn tái sinh, bởi vì nó là Roma.</div>
+            </div>
+            <div class="renaiss-item">
+                <div class="renaiss-year">1309–1377 — "Cuộc lưu đày Avignon"</div>
+                <div class="renaiss-text">Bảy vị Giáo hoàng liên tiếp dời đô sang Avignon, Pháp. Roma thực sự trở thành thành phố không đáng kể — dân số 17.000 người, đường phố hoang vắng, bò gặm cỏ trong Forum Romanum. Đây là điểm thấp nhất. Nhưng khi Giáo hoàng Gregory XI trở về năm 1377, quá trình tái sinh bắt đầu.</div>
+            </div>
+        </div>
+
+        <!-- PHẦN 2: PHỤC HƯNG — ROMA SO VỚI CÁC THÀNH PHỐ KHÁC -->
+        <h3 style="color:#990000; margin-bottom:0.8rem;">2 · Thế kỷ XV–XVI: Phục hưng — Và Tại sao Roma Không Phải Là Trung Tâm Đầu Tiên</h3>
+        <div class="compare-intro">
+            <p>Đây là điều nhiều người ngạc nhiên: <strong>Roma không phải là nơi khởi đầu Phục hưng Ý.</strong> Khi Brunelleschi xây mái vòm Florence, khi Donatello tạc tượng <em>David</em>, khi Botticelli vẽ <em>Birth of Venus</em> — lúc đó Roma vẫn còn là thành phố nghèo, đổ nát, và đang tranh cãi ai có quyền kiểm soát Giáo hội. Phục hưng bắt đầu ở phía bắc — và sau đó đến tay Roma như một dự án chính trị của Tòa Thánh.</p>
+        </div>
+
+        <div class="city-compare-grid">
+            <div class="city-card city-firenze">
+                <div class="city-card-header">
+                    🌸 Florence (Firenze)
+                    <span class="city-card-tag">Cái nôi Phục hưng</span>
+                </div>
+                <div class="city-card-body">
+                    <strong>Thế kỷ XIII–XV: Phục hưng bắt đầu ở đây.</strong><br>
+                    Nhờ gia đình Medici — ngân hàng giàu nhất châu Âu — trở thành nhà bảo trợ nghệ thuật vĩ đại nhất lịch sử. Lorenzo de' Medici ("Il Magnifico") nuôi dưỡng Botticelli, Leonardo da Vinci, Michelangelo dưới một mái nhà.<br><br>
+                    <strong>Điểm khác biệt:</strong> Đây là Phục hưng <em>thế tục và thương mại</em> — nghệ thuật phục vụ danh tiếng gia đình, tôn vinh con người trần thế. Brunelleschi, Donatello, Ghiberti, Botticelli, Leonardo — hầu hết đều làm việc tại Florence trước khi được "mời" về Roma.
+                </div>
+            </div>
+
+            <div class="city-card city-venezia">
+                <div class="city-card-header">
+                    ⚓ Venezia (Venice)
+                    <span class="city-card-tag">Phục hưng màu sắc &amp; ánh sáng</span>
+                </div>
+                <div class="city-card-body">
+                    <strong>Thế kỷ XV–XVI: Trường phái hội họa riêng biệt.</strong><br>
+                    Venice giàu nhờ thương mại Đông-Tây nên tiếp xúc với màu sắc Byzantine, vải vóc phương Đông, ánh sáng phản chiếu từ mặt nước. Kết quả: trường phái Venice <em>đặt màu sắc lên trên hình vẽ</em> — ngược hoàn toàn với Florence.<br><br>
+                    <strong>Bộ ba kinh điển:</strong> Titian (Tiziano), Giorgione, Tintoretto — ảnh hưởng đến Velázquez, Rubens, và toàn bộ hội họa châu Âu sau đó. Nếu Florence là Phục hưng của tư tưởng, Venice là Phục hưng của cảm giác.
+                </div>
+            </div>
+
+            <div class="city-card city-bologna">
+                <div class="city-card-header">
+                    📚 Bologna
+                    <span class="city-card-tag">Đại học đầu tiên thế giới</span>
+                </div>
+                <div class="city-card-body">
+                    <strong>1088: Đại học Bologna thành lập</strong> — trường đại học đầu tiên trên thế giới (theo nghĩa hiện đại). Trung tâm luật, y học, triết học. Dante, Petrarca, Copernicus từng học hoặc giảng dạy tại đây.<br><br>
+                    <strong>Vai trò trong Phục hưng:</strong> Không phải trung tâm nghệ thuật mà là trung tâm <em>tư tưởng và tranh luận.</em> Phục hưng cần hai thứ: nghệ sĩ (Florence, Venice) và học giả biện luận (Bologna, Padua). Bologna là nơi Phục hưng <em>trí tuệ</em> nuôi dưỡng Phục hưng <em>thẩm mỹ.</em>
+                </div>
+            </div>
+
+            <div class="city-card city-milano">
+                <div class="city-card-header">
+                    ⚔️ Milano
+                    <span class="city-card-tag">Phục hưng quyền lực &amp; kỹ thuật</span>
+                </div>
+                <div class="city-card-body">
+                    <strong>Công tước Sforza và Leonardo da Vinci.</strong><br>
+                    Ludovico Sforza mời Leonardo đến Milan năm 1482 — không phải để vẽ tranh tôn giáo, mà để thiết kế <em>vũ khí, máy móc, kênh đào, và tổ chức lễ hội.</em> Leonardo ở Milan 17 năm, vẽ <em>The Last Supper</em> tại đây.<br><br>
+                    <strong>Điểm khác biệt:</strong> Milan là Phục hưng của <em>kỹ thuật và quyền lực nhà nước.</em> Không phải ngân hàng tư nhân như Medici — mà là triều đình và quân sự. Ảnh hưởng này sau này lan sang Pháp khi Charles VIII xâm lược Ý.
+                </div>
+            </div>
+
+            <div class="city-card city-napoli">
+                <div class="city-card-header">
+                    🌋 Napoli (Naples)
+                    <span class="city-card-tag">Phục hưng Nhân văn chủ nghĩa phía Nam</span>
+                </div>
+                <div class="city-card-body">
+                    <strong>Triều Alfonso I của Aragon (1442–1458)</strong> biến Naples thành trung tâm Nhân văn chủ nghĩa thứ hai sau Florence. Lorenzo Valla — học giả tại Naples — chứng minh bằng ngôn ngữ học rằng "Donation of Constantine" (văn kiện Giáo hội dùng để đòi quyền chính trị) là <em>văn kiện giả mạo</em> thế kỷ VIII.<br><br>
+                    <strong>Ý nghĩa:</strong> Đây là khoảnh khắc Nhân văn chủ nghĩa tuyên chiến với quyền lực Tòa Thánh bằng <em>phương pháp phê bình văn bản</em> — tiền thân trực tiếp của cuộc Cải cách Tin lành.
+                </div>
+            </div>
+
+            <div class="city-card city-roma">
+                <div class="city-card-header">
+                    🏛️ Roma
+                    <span class="city-card-tag">Phục hưng đến sau — nhưng hoành tráng nhất</span>
+                </div>
+                <div class="city-card-body">
+                    <strong>Thế kỷ XV–XVI: Roma "nhập khẩu" Phục hưng.</strong><br>
+                    Giáo hoàng Nicholas V (1447–1455) khởi xướng dự án tái thiết Roma như một đế chế mới — xây dựng Vatican, mời học giả, dịch văn bản cổ đại. Nhưng đỉnh cao là <strong>Julius II (1503–1513)</strong>: thuê Michelangelo vẽ trần Sistine Chapel, thuê Raphael vẽ các gian Stanza, và ra lệnh phá đền Thánh Phêrô cũ để xây công trình vĩ đại nhất thế giới Kitô giáo.<br><br>
+                    <strong>Điểm khác biệt:</strong> Roma không tạo ra Phục hưng — Roma <em>độc chiếm</em> và <em>thiêng liêng hóa</em> nó. Đây là Phục hưng của <em>quyền lực tâm linh và bất tử.</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHẦN 3: BẢNG SO SÁNH -->
+        <h3 style="color:#990000; margin-bottom:0.8rem;">3 · So sánh tổng thể: Ai làm gì tốt nhất?</h3>
+        <div class="table-wrap">
+        <table class="verdict-table">
+            <thead>
+                <tr>
+                    <th>Thành phố</th>
+                    <th style="color:#f5e6c8;">Thế mạnh</th>
+                    <th style="color:#c8d8f5;">Đại diện tiêu biểu</th>
+                    <th style="color:#f5e6a0;">Di sản còn lại</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Florence</td>
+                    <td>Điêu khắc, kiến trúc, tài chính nghệ thuật, triết học Plato</td>
+                    <td>Brunelleschi · Donatello · Botticelli · Leonardo · Michelangelo (thời trẻ)</td>
+                    <td>Uffizi Gallery, Mái vòm Duomo, Gates of Paradise (Baptistery)</td>
+                </tr>
+                <tr>
+                    <td>Venice</td>
+                    <td>Hội họa màu sắc, kiến trúc Gothic-Byzantine, in ấn, thương mại</td>
+                    <td>Titian · Tintoretto · Giorgione · Bellini</td>
+                    <td>Accademia Gallery, Palazzo Ducale, Nhà thờ San Marco</td>
+                </tr>
+                <tr>
+                    <td>Bologna</td>
+                    <td>Luật học, y học, triết học kinh viện, giáo dục đại học</td>
+                    <td>Copernicus (học y tại đây) · Guido Reni · Annibale Carracci</td>
+                    <td>Đại học Bologna (vẫn hoạt động), các arcade mái hiên dài nhất châu Âu</td>
+                </tr>
+                <tr>
+                    <td>Milano</td>
+                    <td>Kỹ thuật, thiết kế quân sự, quyền lực nhà nước, thời trang</td>
+                    <td>Leonardo da Vinci (17 năm) · Bramante · Caravaggio (sinh gần Milan)</td>
+                    <td>The Last Supper (Santa Maria delle Grazie), Castello Sforzesco</td>
+                </tr>
+                <tr>
+                    <td>Napoli</td>
+                    <td>Nhân văn chủ nghĩa phê phán, văn học, phương pháp phê bình văn bản</td>
+                    <td>Lorenzo Valla · Jacopo Sannazaro · Giambattista Vico (sau này)</td>
+                    <td>Castel Nuovo, Bảo tàng Khảo cổ Quốc gia (kho báu Pompeii)</td>
+                </tr>
+                <tr>
+                    <td style="color:#c89b3c; background:#2c1a0a !important;">Roma</td>
+                    <td>Tổng hợp, thiêng liêng hóa, quy mô vĩ đại, Phục hưng Cao (High Renaissance)</td>
+                    <td>Michelangelo (đỉnh cao) · Raphael · Bramante · Caravaggio</td>
+                    <td>Sistine Chapel, Đền Thánh Phêrô, Stanze di Raffaello, Farnese Palace</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <!-- PHẦN 4: SỰ KIỆN ĐỈNH CAO VÀ SỤP ĐỔ -->
+        <h3 style="color:#990000; margin-bottom:0.8rem;">4 · Đỉnh cao và Thảm họa: Sack of Rome 1527</h3>
+        <div class="dark-period-box">
+            <h4>Ngày 6 tháng 5 năm 1527 — Quân của Charles V cướp phá Roma trong 8 tháng</h4>
+            <p>Đây là thảm họa lớn nhất Roma kể từ 410 CN. Quân lính Đức và Tây Ban Nha (nhiều người là tín đồ Lutheran — coi Giáo hoàng là kẻ thù tôn giáo) giết chóc, hãm hiếp, phá hủy không kiêng nể. <strong>Hàng trăm nghệ sĩ, học giả, thợ thủ công chạy trốn khỏi Roma.</strong> Nhiều người chạy về Florence, Venice, hay vượt Alps sang Pháp — mang theo tri thức và kỹ thuật Phục hưng lan ra toàn châu Âu.</p>
+            <p style="margin-top:0.7rem;">Nghịch lý lịch sử: <em>Sack of Rome 1527 có thể là sự kiện quan trọng nhất trong việc truyền bá Phục hưng ra ngoài nước Ý.</em> Trong khi đó, tại Florence, Michelangelo đang thiết kế công sự để bảo vệ thành phố khỏi chính quân đội của Charles V — và sau đó phải trốn chạy vì Florence cũng thất thủ năm 1530.</p>
+        </div>
+
+        <!-- PHẦN 5: ROMA VÀ PHỤC HƯNG CAO -->
+        <h3 style="color:#990000; margin-bottom:0.8rem;">5 · Tại sao Roma vẫn là đỉnh cao Phục hưng — dù đến muộn</h3>
+        <div class="renaiss-timeline">
+            <div class="renaiss-item">
+                <div class="renaiss-year">1503 — Julius II trở thành Giáo hoàng</div>
+                <div class="renaiss-text">Ông tự gọi là <em>"Giáo hoàng chiến binh"</em> và cũng là nhà bảo trợ nghệ thuật táo bạo nhất lịch sử. Hai quyết định thay đổi thế giới: phá dỡ Đền Thánh Phêrô cũ (1506) để xây công trình mới, và giao cho Michelangelo vẽ trần Sistine Chapel (1508). Michelangelo phàn nàn ông là nhà điêu khắc, không phải họa sĩ. Julius II không quan tâm.</div>
+            </div>
+            <div class="renaiss-item">
+                <div class="renaiss-year">1508–1512 — Sistine Chapel</div>
+                <div class="renaiss-text">Michelangelo nằm ngửa trên giàn giáo, một mình, vẽ 343 nhân vật trên 500m² trong 4 năm. <em>Creation of Adam</em> — hai ngón tay chưa chạm nhau — trở thành hình ảnh được nhận ra nhiều nhất trong lịch sử nghệ thuật nhân loại. Không có Florence, không có Venice — đây chỉ có thể xảy ra tại Roma.</div>
+            </div>
+            <div class="renaiss-item">
+                <div class="renaiss-year">1509–1511 — Raphael và Stanza della Segnatura</div>
+                <div class="renaiss-text"><em>School of Athens</em> — Plato và Aristotle bước về phía người xem giữa các triết gia Hy Lạp cổ đại. Raphael vẽ trong cùng tòa nhà nơi Michelangelo đang làm việc, hai thiên tài cùng thời không bao giờ nói chuyện. Plato mang khuôn mặt của Leonardo da Vinci. Michelangelo ngồi một mình, xa cách, mang khuôn mặt của Heraclitus.</div>
+            </div>
+            <div class="renaiss-item">
+                <div class="renaiss-year">1506–1626 — Xây dựng Đền Thánh Phêrô</div>
+                <div class="renaiss-text">120 năm, 12 kiến trúc sư, 5 Giáo hoàng. Bramante thiết kế nền, Michelangelo thiết kế mái vòm (ông mất trước khi hoàn thành), Carlo Maderno kéo dài hành lang, Bernini xây Quảng trường và cánh tay ôm. Không công trình nào trên thế giới mang nhiều bàn tay thiên tài đến vậy trong một dự án duy nhất.</div>
+            </div>
+            <div class="renaiss-item">
+                <div class="renaiss-year">~1600 — Caravaggio đến Roma</div>
+                <div class="renaiss-text">Ông chấm dứt Phục hưng và khai sinh Baroque bằng một quyết định: <em>vẽ ánh sáng từ bóng tối, không phải từ ánh sáng lý tưởng.</em> Nhân vật của ông là người lao động tay lấm bùn, không phải thần thánh. Tông đồ Phêrô bị đóng đinh ngược đầu không phải anh hùng — mà là một ông già sợ hãi. Roma là nơi duy nhất ông có thể thực hiện điều này và sống sót (tạm thời).</div>
+            </div>
+        </div>
+
+        <!-- NHẬN ĐỊNH CUỐI -->
+        <div class="silk-reflect">
+            <p><strong>Roma và Phục hưng: một quan hệ không đơn giản.</strong> Florence phát minh ra ngôn ngữ Phục hưng. Venice tô màu cho nó. Bologna và Padua cho nó nền tảng triết học. Milan cho nó ứng dụng kỹ thuật. Nhưng <strong>Roma thiêng liêng hóa nó</strong> — biến nghệ thuật thành thần học, biến vẻ đẹp trần thế thành bằng chứng về sự hiện diện của Thiên Chúa.</p>
+            <p style="margin-top:0.8rem;">Và chính vì vậy, khi bạn đứng dưới trần Sistine Chapel và ngước nhìn ngón tay của Thiên Chúa chưa chạm vào ngón tay của Adam — bạn đang nhìn vào điểm giao nhau của hai nghìn năm tư tưởng: triết học Hy Lạp, quyền lực La Mã, thần học Kitô giáo, và tài năng một con người nằm ngửa trên giàn giáo trong bốn năm. <em>Không thành phố nào khác ở Ý — hay trên trái đất — có thể tạo ra khoảnh khắc đó.</em></p>
+        </div>
+    </div>
+
+    <!-- NHÂN VẬT LỊCH SỬ -->
+    <div class="theme-section" id="nhan-vat">
+        <div class="theme-header">
+            <div class="theme-icon">👤</div>
+            <div>
+                <h2>X. Những Nhân vật Vĩ đại Từng Sống tại Roma</h2>
+                <div class="theme-subtitle">Từ Romulus đến Shelley — 2.600 năm di tích và ảnh hưởng còn đến ngày nay · <span style="color:#27ae60;font-weight:bold">Xanh = còn nguyên vẹn</span></div>
+            </div>
+        </div>
+
+        <!-- ── CỘNG HÒA ── -->
+        <div class="nv-era-block">
+            <div class="nv-era-header era-republic">
+                <div>
+                    <h3>⚔ Cộng hòa La Mã</h3>
+                    <div class="era-span">753 – 27 TCN</div>
+                </div>
+            </div>
+            <div class="nv-grid">
+
+                <div class="nv-card era-c-republic">
+                    <div class="nv-name">Romulus</div>
+                    <div class="nv-dates">~753 TCN · Người sáng lập huyền thoại</div>
+                    <div class="nv-bio">Theo truyền thuyết, vạch một đường trên Palatine Hill và tuyên bố ai bước qua sẽ bị giết — rồi giết chính anh trai Remus khi ông ta nhảy qua. Thành phố xây dựng trên nguyên tắc đầu tiên: biên giới thiêng liêng, vi phạm = chết.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Palatine Hill (khu khảo cổ)</span>
+                        <span class="nv-tag intact">Capitoline Wolf (Musei Capitolini)</span>
+                        <span class="nv-tag">Hut of Romulus — dấu vết nền đất TK 8 TCN</span>
+                        <span class="nv-tag">Ngày thành lập 21/4 — vẫn tổ chức mỗi năm</span>
+                    </div>
+                    <div class="nv-fact">Roma ăn sinh nhật lần thứ 2.779 vào 21/4/2026 — trong khi bạn đang ở đây.</div>
+                </div>
+
+                <div class="nv-card era-c-republic">
+                    <div class="nv-name">Julius Caesar</div>
+                    <div class="nv-dates">100 – 44 TCN · Dictator perpetuo</div>
+                    <div class="nv-bio">Reformer, tướng lĩnh, nhà văn. Cải cách lịch, xây Forum Iulium, mở rộng quyền công dân. Bị ám sát 23 nhát ngày 15/3/44 TCN (Ides of March). Khi ngã xuống, ông kéo toga che mặt — để chết có phẩm giá.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Largo di Torre Argentina — địa điểm ám sát (khu khảo cổ mở)</span>
+                        <span class="nv-tag">Forum Iulium — tàn tích, Via dei Fori Imperiali</span>
+                        <span class="nv-tag">Lịch Julian → nền tảng lịch Gregorian hiện đại</span>
+                        <span class="nv-tag">Tên "Caesar" → Kaiser · Czar · Qaysar</span>
+                    </div>
+                    <div class="nv-fact">Nơi ám sát Caesar nay là khu trú ẩn mèo hoang Roma. Lịch sử và mèo cùng một chỗ — không nơi nào khác có thể làm điều này ngoài Roma.</div>
+                </div>
+
+                <div class="nv-card era-c-republic">
+                    <div class="nv-name">Cicero</div>
+                    <div class="nv-dates">106 – 43 TCN · Luật sư · Triết gia · Consul</div>
+                    <div class="nv-bio">Đỉnh cao hùng biện Latin, nền tảng tư tưởng pháp lý phương Tây. Đọc <em>Philippics</em> chống Mark Antony từ Rostra. Năm 43 TCN bị giết — đầu và hai bàn tay trưng bày tại chính bục ông hay diễn thuyết.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Rostra — Forum Romanum (bục diễn thuyết còn đó)</span>
+                        <span class="nv-tag">De Re Publica · De Officiis — giảng dạy trường luật đến ngày nay</span>
+                        <span class="nv-tag">Khái niệm "res publica" — nền tảng từ vựng dân chủ phương Tây</span>
+                    </div>
+                    <div class="nv-fact">"Dum spiro, spero" (Còn thở còn hy vọng) là câu Cicero nói trong những tháng cuối đời khi trốn chạy. Ông bị tìm thấy khi đang đọc sách trong cáng.</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── ĐẾ CHẾ HOÀNG KIM ── -->
+        <div class="nv-era-block">
+            <div class="nv-era-header era-empire">
+                <div>
+                    <h3>🏛 Đế chế Hoàng kim</h3>
+                    <div class="era-span">27 TCN – 476 CN</div>
+                </div>
+            </div>
+            <div class="nv-grid">
+
+                <div class="nv-card era-c-empire">
+                    <div class="nv-name">Augustus (Octavian)</div>
+                    <div class="nv-dates">63 TCN – 14 CN · Hoàng đế đầu tiên</div>
+                    <div class="nv-bio">"Tôi nhận Roma bằng gạch và để lại bằng đá cẩm thạch." Đặt nền cho 200 năm Pax Romana. Biến nền Cộng hòa thành Đế chế mà không ai kịp nhận ra — chức danh của ông là "Princeps" (người đứng đầu), không phải "Rex" (vua).</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Ara Pacis — trong bảo tàng Richard Meier, gần như nguyên vẹn</span>
+                        <span class="nv-tag">Mausoleum of Augustus — Piazza Augusto Imperatore (đang phục chế)</span>
+                        <span class="nv-tag">Forum of Augustus — tàn tích</span>
+                        <span class="nv-tag">Tháng 8 mang tên ông (Augustus). Tháng 7 mang tên Caesar.</span>
+                    </div>
+                    <div class="nv-fact">Trước khi chết, Augustus hỏi những người xung quanh: "Tôi đã diễn tốt chưa?" — câu hỏi của diễn viên sau màn trình diễn. Suốt đời ông coi việc cầm quyền là một vai diễn cần hoàn hảo.</div>
+                </div>
+
+                <div class="nv-card era-c-empire">
+                    <div class="nv-name">Seneca</div>
+                    <div class="nv-dates">4 TCN – 65 CN · Triết gia · Cố vấn Nero</div>
+                    <div class="nv-bio">Người giàu nhất Roma ngoài hoàng đế, viết về sự vô nghĩa của cải. Cố vấn cho Nero từ thơ ấu — chứng kiến học trò mình trở thành quái vật. Năm 65 CN bị buộc tự tử: cắt mạch, uống thuốc độc, ngâm bồn nước nóng — và đọc thư cho thư ký ghi đến hơi thở cuối.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag">Không có công trình vật chất tại Roma</span>
+                        <span class="nv-tag intact">Epistulae Morales — 124 thư triết học, vẫn in mới mỗi năm</span>
+                        <span class="nv-tag">Các vở kịch Thyestes, Medea — dựng trên sân khấu thế giới đến nay</span>
+                        <span class="nv-tag">Palatine Hill — nơi ông sống và làm việc</span>
+                    </div>
+                    <div class="nv-fact">"Nusquam est qui ubique est." (Người ở khắp nơi là người không ở đâu.) — Seneca. Câu này bây giờ được trích dẫn trong mọi bài viết về digital nomads và burnout.</div>
+                </div>
+
+                <div class="nv-card era-c-empire">
+                    <div class="nv-name">Nero</div>
+                    <div class="nv-dates">37 – 68 CN · Hoàng đế · Nghệ sĩ · Kẻ giết mẹ</div>
+                    <div class="nv-bio">Giết mẹ (Agrippina), ép thầy (Seneca) tự tử, hát trong khi Roma cháy (theo đồn). Nhưng cũng: xây cung điện vĩ đại nhất lịch sử, yêu nghệ thuật thực sự, được dân nghèo thương khi chết. Sự thật về Nero phức tạp hơn cả kẻ thủ ác lẫn nạn nhân.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Domus Aurea — có thể tham quan (đặt trước coopculture.it)</span>
+                        <span class="nv-tag">Colosseum xây trên hồ nhân tạo của cung điện Nero</span>
+                        <span class="nv-tag">Obelisk tại Piazza San Pietro — Caligula mang về, Nero dùng trong sân đua ngựa</span>
+                    </div>
+                    <div class="nv-fact">Sau khi Nero chết, kế vị Vespasian lấp đầy Domus Aurea và xây Colosseum + Terme di Traiano lên trên — một hành động chính trị tặng lại không gian của hoàng đế cho dân thường. "Xóa" Nero bằng cách cho người dân vào nơi ông ở.</div>
+                </div>
+
+                <div class="nv-card era-c-empire">
+                    <div class="nv-name">Trajan (Traianus)</div>
+                    <div class="nv-dates">53 – 117 CN · "Optimus Princeps"</div>
+                    <div class="nv-bio">Thượng viện gọi ông là "Optimus Princeps" — Hoàng đế Tốt nhất. Mở rộng đế chế đến cực đại (Dacia = Romania ngày nay). Xây chợ nhiều tầng đầu tiên thế giới. Mọi hoàng đế kế tiếp đều được chúc mừng bằng câu: "Hãy tốt hơn Augustus, may mắn hơn Trajan."</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Colonna Traiana — nguyên vẹn, Piazza Venezia (2.500 hình khắc trên 200m xoắn ốc)</span>
+                        <span class="nv-tag intact">Mercati Traianei — chợ nhiều tầng 113 CN, nay là bảo tàng hoạt động</span>
+                        <span class="nv-tag">Forum of Trajan — tàn tích</span>
+                        <span class="nv-tag">Cảm hứng cho Colonna Napoleon ở Paris, Nelson's Column ở London</span>
+                    </div>
+                    <div class="nv-fact">Colonna Traiana là "phim tài liệu" bằng đá đầu tiên của nhân loại — 155 cảnh liên tiếp tường thuật cuộc chiến Dacian theo trình tự thời gian. Nó ảnh hưởng đến mọi thứ từ truyện tranh đến storyboard điện ảnh.</div>
+                </div>
+
+                <div class="nv-card era-c-empire">
+                    <div class="nv-name">Hadrian (Hadrianus)</div>
+                    <div class="nv-dates">76 – 138 CN · Kiến trúc sư-Hoàng đế</div>
+                    <div class="nv-bio">Đi khắp đế chế (Hadrian's Wall ở Scotland, đền Pantheon ở Athens), tái xây Pantheon ở Roma, xây lăng mộ của chính mình. Yêu người thanh niên Antinous — khi Antinous chết đuối trên sông Nile, Hadrian thần thánh hóa ông và đặt tên thành phố theo tên người yêu.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Pantheon 125 CN — nguyên vẹn nhất trong mọi công trình La Mã (dome 43.3m, không cốt thép)</span>
+                        <span class="nv-tag intact">Castel Sant'Angelo — Lăng mộ Hadrian, sau thành pháo đài giáo hoàng</span>
+                        <span class="nv-tag intact">Villa Adriana, Tivoli — UNESCO, 30km từ Roma</span>
+                    </div>
+                    <div class="nv-fact">Pantheon có dome lớn hơn mọi công trình tôn giáo suốt 1.300 năm — cho đến khi Brunelleschi xây Florence Cathedral (1436). Oculus trên đỉnh không có kính: khi trời mưa, sàn đá có rãnh thoát nước đủ để xử lý.</div>
+                </div>
+
+                <div class="nv-card era-c-empire">
+                    <div class="nv-name">Marcus Aurelius</div>
+                    <div class="nv-dates">121 – 180 CN · Hoàng đế Triết học</div>
+                    <div class="nv-bio">Cai trị 70 triệu dân, đánh 17 năm chiến tranh biên giới — và viết nhật ký triết học bằng tiếng Hy Lạp trong lều chiến dịch, không bao giờ có ý định xuất bản. <em>Meditations</em> tồn tại vì ngẫu nhiên: một bản thảo sót lại trong thư viện tu viện thế kỷ 14.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Tượng đồng nguyên bản — Musei Capitolini (duy nhất sống sót vì bị nhầm là Constantine)</span>
+                        <span class="nv-tag intact">Colonna di Marco Aurelio — Piazza Colonna, nguyên vẹn</span>
+                        <span class="nv-tag intact">Meditations — best-seller triết học 1.800 năm sau</span>
+                    </div>
+                    <div class="nv-fact">Mọi tượng đồng La Mã khác đều bị nấu chảy làm chuông nhà thờ. Tượng Marcus Aurelius sống sót vì người Trung Cổ nhầm là Constantine — Kitô hữu đầu tiên. Một sai lầm đã cứu kiệt tác triết học bằng đồng duy nhất còn lại.</div>
+                </div>
+
+                <div class="nv-card era-c-empire">
+                    <div class="nv-name">Constantine I</div>
+                    <div class="nv-dates">272 – 337 CN · Hoàng đế Kitô hóa đế chế</div>
+                    <div class="nv-bio">Edict of Milan 313 CN: tự do tôn giáo toàn đế chế. Xây Constantinople. Triệu tập Công đồng Nicaea 325 CN để thống nhất giáo lý Kitô giáo. Một quyết định chính trị định hình tôn giáo của 2,4 tỉ người đến ngày nay.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Arco di Costantino — nguyên vẹn, cạnh Colosseum (315 CN)</span>
+                        <span class="nv-tag intact">Basilica di San Giovanni in Laterano — nhà thờ đầu tiên Roma, vẫn hoạt động</span>
+                        <span class="nv-tag">Basilica di Massenzio — tàn tích đồ sộ nhất Forum</span>
+                    </div>
+                    <div class="nv-fact">Các phù điêu trên Arco di Costantino phần lớn được… tháo từ công trình của Hadrian, Trajan và Marcus Aurelius. Đây là vụ "tái chế nghệ thuật" lớn nhất lịch sử La Mã — và cũng là bằng chứng cho thấy 312 CN Roma đã hết thợ điêu khắc giỏi.</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── TRUNG CỔ & GIÁO HỘI ── -->
+        <div class="nv-era-block">
+            <div class="nv-era-header era-medieval">
+                <div>
+                    <h3>✝ Trung Cổ &amp; Giáo hội</h3>
+                    <div class="era-span">476 – 1400 CN</div>
+                </div>
+            </div>
+            <div class="nv-grid">
+
+                <div class="nv-card era-c-medieval">
+                    <div class="nv-name">Gregory I (Đại đế)</div>
+                    <div class="nv-dates">540 – 604 CN · Giáo hoàng · Nhà cải cách Giáo hội</div>
+                    <div class="nv-bio">Khi Roma không còn hoàng đế, ông tổ chức Giáo hội như đế chế: thu thuế, điều hành dân sự, cứu trợ nạn đói, phái Augustine đến Anh để Kitô hóa xứ Anglo-Saxon. Từ chức Giáo hoàng vì nghĩ mình không đủ tư cách — rồi vẫn phải nhận vì không ai khác làm được.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Gregorian Chant — âm nhạc phụng vụ vẫn hát trong nhà thờ toàn thế giới</span>
+                        <span class="nv-tag intact">Castel Sant'Angelo — đỉnh tháp có tượng thiên thần cắm kiếm (ông nhìn thấy thiên thần tại đây báo hiệu dịch hạch kết thúc)</span>
+                        <span class="nv-tag">Nhà thờ San Gregorio Magno, Celio Hill</span>
+                    </div>
+                    <div class="nv-fact">Khi nhìn thấy các nô lệ trẻ Anh trên chợ Roma, Gregory hỏi họ từ đâu. "Angles." Ông nói: "Non Angli, sed Angeli" — Không phải người Angles, mà là thiên thần. Rồi ông phái người đến Anh để cải đạo cả dân tộc đó. Một câu đùa chữ thay đổi lịch sử đảo quốc.</div>
+                </div>
+
+                <div class="nv-card era-c-medieval">
+                    <div class="nv-name">Thomas Aquinas</div>
+                    <div class="nv-dates">1225 – 1274 · Triết gia-Thần học</div>
+                    <div class="nv-bio">Tổng hợp Aristotle với Kitô giáo — tạo ra Scholasticism, nền tảng trí thức châu Âu Trung Cổ. Dạy tại Đại học Sapienza Roma và Naples. Bạn đồng học gọi ông là "con bò câm xứ Sicily" vì to béo và im lặng — thầy giáo nói: "Con bò câm này sẽ làm thế giới phải lắng nghe khi nó gầm."</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Santa Maria sopra Minerva — xác ông trong nhà thờ, nơi ông được phong thánh 1323</span>
+                        <span class="nv-tag intact">Triết học Thomism — nền tảng thần học Công giáo đến ngày nay</span>
+                        <span class="nv-tag intact">Sapienza University (1303) — vẫn hoạt động, 112.000 sinh viên</span>
+                    </div>
+                    <div class="nv-fact">Aquinas phong thánh tại S. Maria sopra Minerva năm 1323. Galileo quỳ gối abjuration tại chính nhà thờ này năm 1633 — 310 năm sau. Cùng một sàn đá, hai câu chuyện đối nghịch về đức tin và lý trí.</div>
+                </div>
+
+                <div class="nv-card era-c-medieval">
+                    <div class="nv-name">Petrarch (Francesco Petrarca)</div>
+                    <div class="nv-dates">1304 – 1374 · "Cha đẻ của Nhân văn chủ nghĩa"</div>
+                    <div class="nv-bio">Phát hiện lại các bức thư của Cicero trong thư viện tu viện — nhận ra người La Mã cổ đại là con người thực sự, không phải chỉ là hình mẫu tôn giáo. Từ đó đặt nền tảng cho Phục hưng. Được tặng vương miện nguyệt quế trên Capitoline Hill năm 1341.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Piazza del Campidoglio — nơi ông được đội vương miện nguyệt quế</span>
+                        <span class="nv-tag">Canzoniere — tập thơ tình cho "Laura" (người có thể không có thật), định hình thơ trữ tình châu Âu</span>
+                        <span class="nv-tag">Khái niệm "thời Trung Cổ" — chính ông đặt ra để phân biệt với Cổ đại</span>
+                    </div>
+                    <div class="nv-fact">Petrarch leo lên đỉnh Mont Ventoux (1.912m) năm 1336 — không vì lý do thực tế nào, chỉ để xem cảnh đẹp. Đây được coi là hành động "du lịch" đầu tiên trong lịch sử phương Tây: đi không vì mục đích, chỉ vì tò mò.</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── PHỤC HƯNG ── -->
+        <div class="nv-era-block">
+            <div class="nv-era-header era-renais">
+                <div>
+                    <h3>🌿 Phục hưng tại Roma</h3>
+                    <div class="era-span">1400 – 1600</div>
+                </div>
+            </div>
+            <div class="nv-grid">
+
+                <div class="nv-card era-c-renais">
+                    <div class="nv-name">Bramante</div>
+                    <div class="nv-dates">1444 – 1514 · Kiến trúc sư của Julius II</div>
+                    <div class="nv-bio">Đến Roma năm 55 tuổi — và trong 20 năm cuối đời tạo ra High Renaissance Architecture. Julius II giao thiết kế St. Peter's mới. Đối thủ và người gièm pha của Michelangelo — chính ông đề xuất với Julius II giao trần Sistine cho Michelangelo, tin rằng Michelangelo (nhà điêu khắc) sẽ thất bại thảm hại.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Tempietto di San Pietro in Montorio — viên ngọc Renaissance nhỏ, Gianicolo Hill</span>
+                        <span class="nv-tag">Cortile del Belvedere, Vatican — định hình thiết kế vườn châu Âu</span>
+                        <span class="nv-tag">Nền móng và plan gốc St. Peter's Basilica</span>
+                    </div>
+                    <div class="nv-fact">Bramante chết năm 1514, St. Peter's vẫn chưa xây xong một cột. Michelangelo tiếp quản 30 năm sau, phá đi phần lớn công trình đã làm và thiết kế lại từ đầu — rồi cũng chết trước khi hoàn thành. Đền Thánh Phêrô mất 120 năm và 12 kiến trúc sư.</div>
+                </div>
+
+                <div class="nv-card era-c-renais">
+                    <div class="nv-name">Michelangelo Buonarroti</div>
+                    <div class="nv-dates">1475 – 1564 · Điêu khắc · Hội họa · Kiến trúc</div>
+                    <div class="nv-bio">Sống phần lớn cuộc đời tại Roma từ 1505. Ông là người duy nhất trong lịch sử nghệ thuật để lại dấu ấn không thể xóa nhòa ở ba lĩnh vực hoàn toàn khác nhau — và làm tất cả trong khi liên tục phàn nàn rằng mình không muốn làm. Sống đến 88 tuổi, làm việc đến 3 ngày trước khi chết.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Trần Sistine Chapel — 500m², 343 nhân vật, 1508–1512</span>
+                        <span class="nv-tag intact">Last Judgment — tường Sistine, 1534–1541</span>
+                        <span class="nv-tag intact">Mái vòm St. Peter's — ông thiết kế, người khác hoàn thành</span>
+                        <span class="nv-tag intact">Tượng Moses — San Pietro in Vincoli</span>
+                        <span class="nv-tag intact">Piazza del Campidoglio — thiết kế mặt bằng</span>
+                        <span class="nv-tag">Santa Maria degli Angeli — chuyển đổi Terme di Diocleziano</span>
+                    </div>
+                    <div class="nv-fact">Michelangelo nói về tượng điêu khắc: "Tôi chỉ lấy đi những gì không cần thiết." Khi người ta hỏi làm sao ông tạo ra Moses, ông trả lời: "Tôi nhìn thấy thiên thần trong đá và tôi đục cho đến khi nó thoát ra."</div>
+                </div>
+
+                <div class="nv-card era-c-renais">
+                    <div class="nv-name">Raphael Sanzio</div>
+                    <div class="nv-dates">1483 – 1520 · Họa sĩ của Giáo hoàng</div>
+                    <div class="nv-bio">Đến Roma năm 25 tuổi theo lời mời Julius II. Trong 12 năm tạo ra những gì được coi là đỉnh cao của hội họa Renaissance. Chết năm 37 tuổi — đúng ngày sinh nhật, đúng Thứ Sáu Tuần Thánh (Good Friday) 1520. Roma để tang như mất hoàng đế.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Stanze di Raffaello, Vatican Museums — 4 phòng, School of Athens là đỉnh cao</span>
+                        <span class="nv-tag intact">Lăng mộ trong Pantheon — theo yêu cầu của ông, chôn trong đền cổ nhất Roma</span>
+                        <span class="nv-tag intact">Villa Farnesina — fresco Galatea, Trastevere</span>
+                    </div>
+                    <div class="nv-fact">School of Athens: Plato mang khuôn mặt Leonardo da Vinci. Heraclitus ngồi một mình với khuôn mặt Michelangelo. Đây là ba thiên tài lớn nhất thế hệ vẽ lẫn nhau trong cùng một kiệt tác — và không ai trong số họ có thể biết hậu thế sẽ nhận ra điều đó.</div>
+                </div>
+
+                <div class="nv-card era-c-renais">
+                    <div class="nv-name">Giordano Bruno</div>
+                    <div class="nv-dates">1548 – 1600 · Triết học · Vũ trụ học</div>
+                    <div class="nv-bio">Đề xuất vũ trụ vô hạn, nhiều thế giới, linh hồn phổ quát thấm vào vật chất. Bị xét xử 8 năm. Từ chối nhận tội đến cùng. Khi bản án tử hình được đọc, ông nói với các thẩm phán: "Có lẽ các ngài tuyên án với nhiều sợ hãi hơn tôi khi nghe nó." Bị thiêu sống ngày 17/2/1600.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Tượng đài Bruno tại Campo de' Fiori — 1889, mặt hướng về Vatican</span>
+                        <span class="nv-tag">Hố va chạm trên Mặt Trăng mang tên Bruno (Bruno crater)</span>
+                        <span class="nv-tag">Năm 2000: Vatican "hối tiếc sâu sắc" — nhưng không chính thức phục hồi danh dự (Galileo được phục hồi 1992, Bruno thì không)</span>
+                    </div>
+                    <div class="nv-fact">Bruno và Galileo: hai người cùng thời, cùng đối mặt Inquisition vì khoa học. Galileo nhận tội và sống thêm 9 năm. Bruno từ chối và bị thiêu. Câu hỏi triết học không có câu trả lời dễ: ai trong hai người dũng cảm hơn — và ai đúng về mặt đạo đức?</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── BAROQUE ── -->
+        <div class="nv-era-block">
+            <div class="nv-era-header era-baroque">
+                <div>
+                    <h3>🌀 Baroque &amp; Ánh Sáng - Bóng Tối</h3>
+                    <div class="era-span">1600 – 1700</div>
+                </div>
+            </div>
+            <div class="nv-grid">
+
+                <div class="nv-card era-c-baroque">
+                    <div class="nv-name">Caravaggio</div>
+                    <div class="nv-dates">1571 – 1610 · Họa sĩ · Phạm nhân · Thiên tài</div>
+                    <div class="nv-bio">Sống tại Roma 1592–1606. Tạo ra Chiaroscuro cực đoan: ánh sáng như tia chớp từ bóng tối tuyệt đối. Vẽ thánh nhân với gót chân bẩn, thánh Matthew với khuôn mặt nông dân. Giết người 1606, trốn khỏi Roma, lang thang Naples-Malta-Sicily. Chết năm 39 tuổi trên đường trở lại Roma xin tha tội.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">San Luigi dei Francesi — Contarelli Chapel, 3 kiệt tác về Matthew (miễn phí)</span>
+                        <span class="nv-tag intact">Santa Maria del Popolo — Cerasi Chapel: Conversion of Saul + Crucifixion of Peter</span>
+                        <span class="nv-tag intact">Galleria Borghese — David với đầu Golia (khuôn mặt Golia = tự họa)</span>
+                        <span class="nv-tag intact">Sant'Agostino — Madonna dei Pellegrini</span>
+                    </div>
+                    <div class="nv-fact">Caravaggio vẽ Golia với khuôn mặt của chính mình — người nghệ sĩ tự vẽ bản thân là con quái vật vừa bị chặt đầu. Đây được coi là tự họa tâm lý học sâu sắc nhất lịch sử nghệ thuật: lời thú nhận bằng sơn dầu.</div>
+                </div>
+
+                <div class="nv-card era-c-baroque">
+                    <div class="nv-name">Gian Lorenzo Bernini</div>
+                    <div class="nv-dates">1598 – 1680 · Điêu khắc · Kiến trúc · Đạo diễn sân khấu</div>
+                    <div class="nv-bio">Người định hình khuôn mặt Baroque của Roma — và của Giáo hội Công giáo toàn thế giới. Được 8 Giáo hoàng bảo trợ liên tiếp. Nói: "Tôi làm cho đá trở nên dẻo như sáp." Không một góc nào của trung tâm Roma thoát khỏi bàn tay ông.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Quảng trường St. Peter's — hai hàng cột như vòng tay Giáo hội ôm thế giới</span>
+                        <span class="nv-tag intact">Baldachin trong St. Peter's — 29m đồng, lấy từ mái Pantheon</span>
+                        <span class="nv-tag intact">Apollo e Dafne · Ratto di Proserpina — Galleria Borghese</span>
+                        <span class="nv-tag intact">Fontana dei Quattro Fiumi — Piazza Navona</span>
+                        <span class="nv-tag intact">Ponte Sant'Angelo — 8 tượng thiên thần</span>
+                    </div>
+                    <div class="nv-fact">Bernini và Borromini làm việc cùng thành phố, cùng thời đại — và ghét nhau suốt đời. Bernini sống đến 81 tuổi, ngưỡng mộ toàn châu Âu. Borromini tự đâm kiếm vào bụng lúc 68 tuổi. Lịch sử nghệ thuật ưu ái kẻ sống sót hơn.</div>
+                </div>
+
+                <div class="nv-card era-c-baroque">
+                    <div class="nv-name">Francesco Borromini</div>
+                    <div class="nv-dates">1599 – 1667 · Kiến trúc sư · Thiên tài bị gạt ra ngoài lề</div>
+                    <div class="nv-bio">Đối thủ của Bernini — nhưng về mặt hình học và sáng tạo kiến trúc thuần túy, nhiều học giả cho là vượt trội hơn. Xuất thân thợ đá nghèo từ Lugano, không có nền tảng귀tộc như Bernini. Bị Bernini đánh bại trong từng hợp đồng lớn. Tự đâm kiếm năm 1667 — nằm đọc lại bản vẽ rồi mới chịu chết.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Sant'Ivo alla Sapienza — mái xoắn ốc hình ốc sên</span>
+                        <span class="nv-tag intact">San Carlo alle Quattro Fontane — nhà thờ nhỏ nhất Roma, kiệt tác hình học nhất</span>
+                        <span class="nv-tag intact">Sant'Agnese in Agone — Piazza Navona, đối diện đài phun nước Bernini</span>
+                    </div>
+                    <div class="nv-fact">San Carlino (1634) có diện tích mặt bằng bằng đúng một trong bốn trụ cột của Baldachin Bernini trong St. Peter's. Borromini xây một nhà thờ nhỏ hơn một cái cột của đối thủ — và làm nó vượt trội về nghệ thuật. Đó là cách ông trả lời.</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── NEOCLASSICAL & ROMANTIC ── -->
+        <div class="nv-era-block">
+            <div class="nv-era-header era-neo">
+                <div>
+                    <h3>✍ Neoclassical · Lãng mạn · Khám phá lại Roma</h3>
+                    <div class="era-span">1700 – 1900</div>
+                </div>
+            </div>
+            <div class="nv-grid">
+
+                <div class="nv-card era-c-neo">
+                    <div class="nv-name">Piranesi</div>
+                    <div class="nv-dates">1720 – 1778 · Khắc đồng · Kiến trúc sư tưởng tượng</div>
+                    <div class="nv-bio">Làm cho Roma nổi tiếng toàn châu Âu bằng 135 bức khắc <em>Vedute di Roma</em> — nhưng vẽ các tàn tích lớn hơn thực tế nhiều lần, nhỏ người xuống để người xem cảm nhận được sức mạnh tuyệt đối. Ông "nói dối" để nói sự thật về sức nặng của lịch sử.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Santa Maria del Priorato, Aventine Hill — nhà thờ duy nhất ông thiết kế (ít người biết)</span>
+                        <span class="nv-tag">Vedute di Roma — định hình cách châu Âu nhìn Roma 200 năm</span>
+                        <span class="nv-tag">Carceri d'Invenzione (Nhà tù Tưởng tượng) — ảnh hưởng đến Kafka, Escher, kiến trúc sci-fi</span>
+                    </div>
+                    <div class="nv-fact">Carceri d'Invenzione (1745–1761) — loạt tranh nhà tù vô hạn với cầu thang dẫn đến không đâu, không gian không thể thoát ra — được vẽ 200 năm trước Kafka, 150 năm trước Escher. Piranesi mô tả nỗi sợ hiện đại bằng ngôn ngữ Baroque.</div>
+                </div>
+
+                <div class="nv-card era-c-neo">
+                    <div class="nv-name">Goethe</div>
+                    <div class="nv-dates">1749 – 1832 · Nhà thơ · Triết học Đức</div>
+                    <div class="nv-bio">Đến Roma 1786 với tên giả "Johann Philipp Möller" để trốn thoát danh tiếng. Sống tại Via del Corso 18 hai năm. Gọi đó là "bước ngoặt cuộc đời." <em>Italienische Reise</em> định hình cách người Đức nhìn Ý suốt 200 năm — và tạo ra khái niệm "Grand Tour" như hành trình giáo dục.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Casa di Goethe — Via del Corso 18, nay là bảo tàng nhỏ (có thể thăm)</span>
+                        <span class="nv-tag intact">Italienische Reise — vẫn là sách du lịch văn học hay nhất viết về Roma</span>
+                    </div>
+                    <div class="nv-fact">"Ở Roma tôi mới thực sự tìm thấy chính mình lần đầu tiên." — Goethe, 37 tuổi. Cùng tuổi Raphael chết. Cùng tuổi Caravaggio chạy trốn khỏi Roma. Roma có điều gì đó xảy ra với người ta ở tuổi 37.</div>
+                </div>
+
+                <div class="nv-card era-c-neo">
+                    <div class="nv-name">John Keats</div>
+                    <div class="nv-dates">1795 – 1821 · Nhà thơ Anh · Chết tại Roma</div>
+                    <div class="nv-bio">Đến Roma tháng 9/1820 để chữa lao phổi theo lời bác sĩ — "khí hậu Roma sẽ cứu ông." Không cứu được. Chết tại Piazza di Spagna ngày 23/2/1821, ở tuổi 25. Yêu cầu bia mộ không khắc tên — chỉ: "Here lies one whose name was writ in water."</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Keats-Shelley House — Piazza di Spagna 26 (phòng ông chết, vẫn giữ nguyên)</span>
+                        <span class="nv-tag intact">Protestant Cemetery — mộ ông và Shelley cạnh nhau, cạnh Kim tự tháp Cestia</span>
+                    </div>
+                    <div class="nv-fact">Keats và Shelley — hai nhà thơ Anh vĩ đại nhất thế hệ họ — đều chết khi chưa đến 30 tuổi và đều nằm trong cùng một nghĩa địa nhỏ ở Roma, cạnh một kim tự tháp La Mã thế kỷ I TCN. Nghĩa địa này được Henry James gọi là "nơi đẹp nhất thế giới."</div>
+                </div>
+
+                <div class="nv-card era-c-neo">
+                    <div class="nv-name">Percy Bysshe Shelley</div>
+                    <div class="nv-dates">1792 – 1822 · Nhà thơ Anh</div>
+                    <div class="nv-bio">Viết <em>Prometheus Unbound</em> (1819) ngồi giữa tàn tích Terme di Caracalla — "nơi tốt nhất để viết về người bị xiềng xích và giải phóng." Chết đuối ở vịnh La Spezia năm 1822. Theo luật Ý thời đó, người ngoại đạo phải được hỏa táng — thi hài được đốt trên bãi biển, tim được tách ra và đưa về Roma.</div>
+                    <div class="nv-remains-label">Di tích còn lại</div>
+                    <div class="nv-tags">
+                        <span class="nv-tag intact">Protestant Cemetery, Roma — tim ông chôn riêng theo yêu cầu</span>
+                        <span class="nv-tag intact">Terme di Caracalla — nơi ông viết Prometheus Unbound</span>
+                        <span class="nv-tag">Mary Shelley (vợ, tác giả Frankenstein) giữ tim ông trong hộp đến khi bà chết</span>
+                    </div>
+                    <div class="nv-fact">Trong túi áo khi tìm thấy xác Shelley: một tập thơ của Keats — người bạn vừa chết 16 tháng trước. Shelley là người viết elegy nổi tiếng nhất cho Keats (<em>Adonais</em>). Rồi chết theo. Và nằm cạnh nhau trong cùng nghĩa địa.</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SÁCH ĐỌC -->
+    <div class="reading-section" id="sach">
+        <h2>Đọc trước và trong chuyến đi</h2>
+        <ul>
+            <li>
+                <span class="book-title">Meditations</span> — <span class="book-author">Marcus Aurelius</span><br>
+                <span class="book-note">Viết bằng tiếng Hy Lạp bởi hoàng đế La Mã — nhật ký triết học để đọc trên Capitoline Hill bên tượng nguyên bản.</span>
+            </li>
+            <li>
+                <span class="book-title">Letters from a Stoic</span> — <span class="book-author">Seneca</span><br>
+                <span class="book-note">Seneca sống và chết ở Roma thời Nero — những bức thư triết học cực kỳ sắc bén về thời gian, cái chết và tự do nội tâm.</span>
+            </li>
+            <li>
+                <span class="book-title">De rerum natura</span> — <span class="book-author">Lucretius</span><br>
+                <span class="book-note">Thơ triết học về thuyết nguyên tử, tự nhiên và cái chết — viết tại Roma, đặt câu hỏi về mọi thứ mà sau này Giordano Bruno sẽ bị thiêu vì đặt lại.</span>
+            </li>
+            <li>
+                <span class="book-title">The Civilization of the Renaissance in Italy</span> — <span class="book-author">Jacob Burckhardt</span><br>
+                <span class="book-note">Kinh điển về cách Roma và Ý tái sinh Nhân văn chủ nghĩa — tại sao đây là nơi con người "phát minh" ra cá nhân.</span>
+            </li>
+            <li>
+                <span class="book-title">Rome: A Cultural, Visual, and Personal History</span> — <span class="book-author">Robert Hughes</span><br>
+                <span class="book-note">Lịch sử nghệ thuật và văn hóa Roma được kể như một câu chuyện triết học liên tục — đọc song song với chuyến đi.</span>
+            </li>
+            <li>
+                <span class="book-title">Giordano Bruno: Philosopher / Heretic</span> — <span class="book-author">Ingrid Rowland</span><br>
+                <span class="book-note">Tiểu sử chi tiết nhất về Bruno — cần đọc trước khi đứng trước tượng đài tại Campo de' Fiori.</span>
+            </li>
+            <li>
+                <span class="book-title">Lives of the Artists</span> — <span class="book-author">Giorgio Vasari</span><br>
+                <span class="book-note">Người Roma thế kỷ 16 viết về Michelangelo, Raphael, Leonardo — nguồn gốc của cách chúng ta hiểu nghệ thuật như biểu đạt cá nhân.</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- CLOSING REFLECTION -->
+    <div class="closing-reflection">
+        <blockquote>
+            "Roma dạy ta rằng mọi đế chế đều tin rằng mình là đỉnh của lịch sử, mọi tư tưởng đều tin rằng mình là sự thật cuối cùng, mọi nền văn minh đều tin rằng mình sẽ tồn tại mãi mãi. Và rồi có một lớp đất mới phủ lên. Đứng tại Roma là đứng trong lòng bài học khiêm tốn vĩ đại nhất mà nhân loại từng xây."
+        </blockquote>
+        <cite>— Ghi chú hành trình, Roma 2026</cite>
+    </div>
+
+</div>
+
+<footer>
+    Hành trình Roma · Hội nghị 2026 · Khám phá triết học &amp; tư tưởng
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+window.addEventListener('load', function () {
+    var mapEl = document.getElementById('roma-map');
+    if (!mapEl || typeof L === 'undefined') return;
+
+(function () {
+    var map = L.map('roma-map', { zoomControl: true });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 19
+    }).addTo(map);
+
+    var SAT  = '#e67e22';
+    var SUN  = '#c0392b';
+    var HTL  = '#27ae60';
+    var CONF = '#2980b9';
+    var REC  = '#8e44ad';
+    var GRAY = '#7f8c8d';
+
+    function mkIcon(bg, label, size, radius) {
+        size   = size   || 30;
+        radius = radius || '50%';
+        var fs = label.length > 2 ? 9 : (size > 26 ? 12 : 10);
+        return L.divIcon({
+            className: '',
+            html: '<div style="background:' + bg + ';color:#fff;width:' + size + 'px;height:' + size + 'px;'
+                + 'border-radius:' + radius + ';border:2.5px solid rgba(255,255,255,0.92);'
+                + 'box-shadow:0 2px 8px rgba(0,0,0,0.42);display:flex;align-items:center;'
+                + 'justify-content:center;font-family:Arial,sans-serif;font-weight:bold;font-size:' + fs + 'px;line-height:1;">'
+                + label + '</div>',
+            iconSize:    [size, size],
+            iconAnchor:  [size / 2, size / 2],
+            popupAnchor: [0, -size / 2 - 6]
+        });
+    }
+
+    function pop(title, body) {
+        return '<div style="font-family:Arial,sans-serif;min-width:190px;max-width:250px">'
+            + '<strong style="font-size:0.9rem;color:#2c1a0a">' + title + '</strong>'
+            + (body ? '<hr style="margin:5px 0;border:none;border-top:1px solid #eee">'
+              + '<div style="font-size:0.8rem;line-height:1.55;color:#444">' + body + '</div>' : '')
+            + '</div>';
+    }
+
+    var cityPts = [];
+
+    function add(lat, lng, icon, title, body) {
+        L.marker([lat, lng], { icon: icon })
+         .bindPopup(pop(title, body), { maxWidth: 270 })
+         .addTo(map);
+        cityPts.push([lat, lng]);
+    }
+
+    /* ── Khách sạn ── */
+    add(41.9100, 12.5020,
+        mkIcon(HTL, '🏨', 34, '8px'),
+        'Borghese Executive Suite',
+        'Via Tevere 15 · Khu Nomentano<br>Gần Villa Borghese &amp; Parco della Musica');
+
+    /* ── Sân bay ── */
+    add(41.8003, 12.2388,
+        mkIcon(GRAY, '✈', 28),
+        'Sân bay Fiumicino FCO',
+        'Hạ cánh 09/05 · 14:25<br>'
+        + 'Taxi ~55–65€ · ~60 phút<br>'
+        + '<em>hoặc</em> Leonardo Express 14€ → Termini rồi taxi ~15€');
+
+    /* ═══════════ THỨ BẢY 09/05 ═══════════ */
+    add(41.8955, 12.4722,
+        mkIcon(SAT, 'S1'),
+        'Campo de\' Fiori',
+        '<strong>17:30 · Thứ Bảy</strong><br>'
+        + 'Tượng Giordano Bruno — thiêu sống vì tư tưởng (1600).<br>'
+        + 'Mặt tượng hướng về phía Vatican.');
+
+    add(41.8918, 12.4778,
+        mkIcon(SAT, 'S2'),
+        'Ghetto Ebraico · Portico d\'Ottavia',
+        '<strong>18:30 · Thứ Bảy</strong><br>'
+        + 'Cộng đồng Do Thái liên tục từ 161 TCN.<br>'
+        + 'Tàn tích La Mã cổ bên cạnh khu phố đang sống.');
+
+    add(41.8893, 12.4695,
+        mkIcon(SAT, 'S3'),
+        'Trastevere · S. Maria in Trastevere',
+        '<strong>19:30 · Thứ Bảy</strong><br>'
+        + 'Ăn tối: Da Enzo al 29 hoặc Tonnarello.<br>'
+        + 'Basilica: mosaic Byzantine thế kỷ 4 trong ánh nến.');
+
+    add(41.8992, 12.4731,
+        mkIcon(SAT, 'S4'),
+        'Piazza Navona (tùy chọn)',
+        '<strong>21:30 · Thứ Bảy · Tùy chọn</strong><br>'
+        + 'Đài phun nước Bốn Dòng sông của Bernini<br>dưới ánh đèn đêm.');
+
+    /* ═══════════ CHỦ NHẬT 10/05 ═══════════ */
+    add(41.9143, 12.4924,
+        mkIcon(SUN, 'C1'),
+        'Galleria Borghese',
+        '<strong>09:00–11:00 · Chủ Nhật</strong><br>'
+        + '⚠️ Đặt vé trước tại borghese.it<br>'
+        + 'Bernini: Apollo e Dafne, Ratto di Proserpina.<br>'
+        + 'Caravaggio: David với đầu Golia (tự họa).');
+
+    add(41.9111, 12.4831,
+        mkIcon(SUN, 'C2'),
+        'Villa Borghese · Terrazza Pincio',
+        '<strong>11:00 · Chủ Nhật</strong><br>'
+        + 'Đi bộ chiêm nghiệm trong công viên.<br>'
+        + 'Terrazza Pincio: panorama toàn thành phố.');
+
+    add(41.8991, 12.4802,
+        mkIcon(SUN, 'C3'),
+        'Sant\'Ignazio di Loyola',
+        '<strong>11:45 · Chủ Nhật</strong><br>'
+        + 'Trần trompe-l\'oeil của Pozzo (1685).<br>'
+        + 'Đứng trên vòng tròn trên sàn: ảo giác hoàn hảo.<br>'
+        + '<em>Không có lối nhìn nào là trung lập.</em>');
+
+    add(41.8950, 12.4717,
+        mkIcon(SUN, 'C4'),
+        'Palazzo Spada · Hành lang Borromini',
+        '<strong>12:30 · Chủ Nhật</strong><br>'
+        + 'Hành lang 8m trông như 37m.<br>'
+        + 'Triết học không gian bằng toán học và ảo giác.<br>'
+        + 'Thường rất vắng — hiếm có ở Roma.');
+
+    add(41.8986, 12.4769,
+        mkIcon(SUN, 'C5'),
+        'Pantheon · Khu vực ăn trưa',
+        '<strong>13:15 · Chủ Nhật</strong><br>'
+        + 'Trưa tại Campo de\'Fiori hoặc gần Pantheon.<br>'
+        + 'Caffè Sant\'Eustachio — cà phê tốt nhất Roma.');
+
+    add(41.9288, 12.4762,
+        mkIcon(CONF, '🎵', 34, '8px'),
+        'Parco della Musica Ennio Morricone',
+        '<strong>16:30 · Hội nghị</strong><br>'
+        + 'Viale Pietro de Coubertin 30<br>'
+        + 'Kiến trúc Renzo Piano. ~15 phút taxi từ khách sạn.<br>'
+        + 'Hội nghị bắt đầu lúc 17:00.');
+
+    /* ═══════════ GỢI Ý THÊM (từ các theme sections) ═══════════ */
+    function rec(lat, lng, name, desc) {
+        add(lat, lng, mkIcon(REC, '●', 22), name, '<em>Gợi ý thêm</em><br>' + desc);
+    }
+
+    rec(41.8936, 12.4826, 'Musei Capitolini · Capitoline Hill',
+        'Tượng nguyên bản Marcus Aurelius. Michelangelo thiết kế quảng trường.<br>Nhìn xuống Forum Romanum.');
+    rec(41.8902, 12.4922, 'Colosseum · Đấu trường',
+        '80.000 chỗ. Đặt vé trước. Kết hợp vé với Forum Romanum.');
+    rec(41.8925, 12.4853, 'Forum Romanum',
+        'Trung tâm đế chế. Caesar bị ám sát gần đây. Cicero diễn thuyết tại đây.');
+    rec(41.9060, 12.4680, 'Ara Pacis · Bàn thờ Hòa bình',
+        'Bàn thờ Hòa bình của Augustus (13 TCN). Triết học Pax Romana bằng đá cẩm thạch.');
+    rec(41.9031, 12.4663, 'Castel Sant\'Angelo',
+        'Lăng mộ Hadrian → pháo đài → nhà tù → bảo tàng.<br>Cầu Sant\'Angelo với tượng thiên thần Bernini.');
+    rec(41.9022, 12.4534, 'Vatican · Sistine Chapel · Đền Thánh Phêrô',
+        'Đặt vé Vatican Museums trước.<br>Michelangelo nằm ngửa 4 năm vẽ 343 nhân vật. Leo sớm.');
+    rec(41.8978, 12.4776, 'Santa Maria sopra Minerva',
+        'Nhà thờ Gothic duy nhất ở trung tâm Roma.<br>Galileo bị xét xử tại đây. Voi Bernini trước cửa.');
+    rec(41.8938, 12.4913, 'San Pietro in Vincoli · Tượng Moses',
+        'Moses của Michelangelo (1515) — sừng trên đầu do dịch nhầm Hebrew.<br>Ít khách hơn Vatican nhiều.');
+    rec(41.8963, 12.4760, 'Largo Argentina · Nơi Caesar bị ám sát',
+        '15/3/44 TCN: Caesar ngã xuống tại đây.<br>Nay là khu trú ẩn mèo hoang Roma. Lịch sử và mèo cùng một chỗ.');
+    rec(41.8455, 12.5133, 'Via Appia Antica',
+        '2.300 năm lịch sử. Spartacus và 6.000 nô lệ bị đóng đinh (71 TCN).<br>Catacombs San Callixtus dọc đường.');
+
+    /* ═══════════ NGÀY I: TRIẾT HỌC & QUYỀN LỰC ═══════════ */
+    var PHILO = '#4527a0';
+
+    function phi(lat, lng, label, name, desc) {
+        add(lat, lng, mkIcon(PHILO, label, 28), name, '<strong style="color:#4527a0">Ngày I · Triết học &amp; Quyền lực</strong><br>' + desc);
+    }
+
+    /* Musei Capitolini already on map as REC — no duplicate */
+    phi(41.9003, 12.4803, 'P2', 'Piazza Colonna · Cột Marcus Aurelius',
+        'Cột 30m khắc spiral các cuộc chiến Germanic.<br>Nghịch lý: hoàng đế viết "đừng nghĩ đến kẻ khác" lại dựng cột cho hậu thế ngắm thiên niên kỷ.');
+    /* Forum Romanum already on map as REC — no duplicate */
+    phi(41.8876, 12.4883, 'P4', 'Palatine Hill — Góc nhìn của Quyền lực',
+        'Nơi các hoàng đế sống và nhìn xuống thành phố.<br>Nơi Seneca làm cố vấn cho Nero — và cuối cùng bị buộc tự tử (65 CN).');
+    phi(41.8897, 12.4947, 'P5', 'Domus Aurea — Cung điện Vàng của Nero',
+        '⚠️ Đặt trước: coopculture.it<br>Trên tro tàn Roma cháy 64 CN. Seneca chết trước một năm.<br>Raphael &amp; Michelangelo trèo xuống qua lỗ hổng để vẽ lại các họa tiết — đó là nguồn gốc của "grotesque" trong nghệ thuật.');
+    phi(41.8795, 12.4921, 'P6', 'Terme di Caracalla (tùy chọn)',
+        'Bể tắm công cộng 1.600 người/ngày (216 CN).<br>Shelley viết Prometheus Unbound tại đây (1819).<br>Michelangelo lấy cảm hứng thiết kế mái vòm Đền Thánh Phêrô từ đây.');
+
+    /* ═══════════ NGÀY II: KHOA HỌC & XÉT XỬ ═══════════ */
+    var SCI = '#00695c';
+
+    function sci(lat, lng, label, name, desc) {
+        add(lat, lng, mkIcon(SCI, label, 28), name, '<strong style="color:#00695c">Ngày II · Khoa học &amp; Xét xử</strong><br>' + desc);
+    }
+
+    /* Santa Maria sopra Minerva already on map as REC — no duplicate */
+    sci(41.9016, 12.4560, 'T2', 'Palazzo del Sant\'Uffizio — Trụ sở Inquisition',
+        'Nơi Galileo bị giam giữ &amp; thẩm vấn 18 ngày (1633).<br>Nay là Congregation for the Doctrine of the Faith — cùng tổ chức, tên mới. Không mở cửa công cộng.<br>Benedict XVI từng lãnh đạo tổ chức này trước khi thành Giáo hoàng.');
+    /* Campo de' Fiori (Bruno) already on map as S1 — no duplicate */
+    /* Sant'Ignazio already on map as C3 — no duplicate */
+    /* Pantheon already on map as C5 — no duplicate */
+    sci(41.9088, 12.4818, 'T5', 'Villa Medici — Biệt thự "giam giữ" của Galileo',
+        'Galileo ở đây trong thời gian bị xét xử tháng 4–6/1633 — không phải tù, là khách của Đại sứ Tuscany với đầu bếp riêng.<br>Hiện là Académie de France à Rome. Có thể tham quan vườn.');
+    sci(41.8989, 12.4737, 'T6', 'Sant\'Ivo alla Sapienza — Toán học Thiêng liêng',
+        'Borromini (1642–1660) xây cho Sapienza University (1303).<br>Dome xoắn ốc từ mặt bằng tam giác — Plato\'s Timaeus bằng gạch vữa.<br>Borromini tự đâm kiếm 1667, nằm đọc lại bản vẽ rồi mới chịu chết.');
+    sci(41.8920, 12.4664, 'T7', 'Villa Farnesina · Accademia dei Lincei',
+        'Galileo được kết nạp Lincei năm 1603 — tổ chức khoa học đầu tiên thế giới.<br>Tại đây ông công bố Sidereus Nuncius (1610): các mặt trăng Jupiter.<br>Fresco của Raphael bên trong Villa Farnesina: Bramante phải nhìn qua lỗ tường để xem khi đang được vẽ.');
+
+    /* ── Fit bounds to Roma city (bỏ sân bay) ── */
+    var cityOnly = cityPts.filter(function (c) { return c[0] > 41.82; });
+    if (cityOnly.length) {
+        map.fitBounds(cityOnly, { padding: [36, 36] });
+    } else {
+        map.setView([41.902, 12.480], 13);
+    }
+})();
+}); // end window.addEventListener('load', ...)
+</script>
+</body>
+</html>

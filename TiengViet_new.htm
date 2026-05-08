@@ -1,0 +1,2238 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Trang Tiếng Việt của Phan Dương Hiệu – Giáo sư Mật mã tại Telecom Paris. Bài viết về privacy, xã hội, khoa học và chính sách."/>
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/>
+<title>Phan Dương Hiệu – Trang Tiếng Việt</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f3f4; 
+            color: #333;
+        }
+        header {
+            background-color: #fff;
+            color: #990000;
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center;
+            background-color: #5c5c5c; 
+            padding: 0.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0.5rem;
+        }
+        section {
+            max-width: min(1180px, calc(100vw - 48px));
+            margin: 1.2rem auto;
+            padding: 1.35rem 1.6rem;
+            background-color: #fff;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+        }
+        footer {
+            background-color: #fff;
+            color: #990000;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ddd;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            padding: 0.5rem 2rem;
+            background-color: #5c5c5c;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #4b4b4b;
+        }
+        li {
+            margin: 0.25em 0;
+            margin-bottom: 1em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
+        }
+        h3 {
+            color: #990000;
+        }
+              p {
+            line-height: 1.4;
+        }
+        /* Media queries for mobile responsiveness */
+        @media (max-width: 700px) {
+            section {
+                max-width: calc(100vw - 20px);
+                padding: 1rem;
+                margin: 0.8rem auto;
+                border-radius: 10px;
+            }
+            nav a {
+                margin: 0.3rem;
+            }
+        }
+    
+        /* Fixed top area (header + navigation) */
+        #topbar{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2000;
+            background-color: #fff; /* prevents overlap transparency */
+        }
+        /* Keep nav look while inside fixed container */
+        #topbar nav{
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Table of contents + anchored sections */
+        .toc-section {
+            max-width: min(1180px, calc(100vw - 48px));
+            margin: 1.2rem auto;
+            padding: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+        #toc {
+            background: linear-gradient(180deg, #fff 0%, #fcfcfc 100%);
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            padding: 20px 24px 22px;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+        }
+        #toc h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #990000;
+            font-size: 2rem;
+            line-height: 1.2;
+            letter-spacing: 0.01em;
+        }
+        #toc ol {
+            margin: 0;
+            padding-left: 1.5rem;
+            columns: 2;
+            column-gap: 2.5rem;
+        }
+        #toc li {
+            margin: 0 0 0.8rem 0;
+            break-inside: avoid;
+            padding-right: 0.5rem;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #7d0000;
+            font-size: 1.18rem;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+            color: #b00000;
+        }
+        @media (max-width: 700px) {
+            .toc-section {
+                max-width: calc(100vw - 20px);
+                margin: 0.8rem auto;
+            }
+            #toc {
+                padding: 16px 16px 18px;
+                border-radius: 12px;
+            }
+            #toc h2 {
+                font-size: 1.55rem;
+                margin-bottom: 0.8rem;
+            }
+            #toc ol {
+                columns: 1;
+                padding-left: 1.25rem;
+            }
+            #toc a {
+                font-size: 1.05rem;
+            }
+        }
+        section[id], h3[id] {
+            scroll-margin-top: 150px;
+        }
+
+    </style>
+<style>
+/* === Refined academic layout === */
+:root{
+  --page-max: 1220px;
+  --text-max: 1100px;
+  --card-bg: #ffffff;
+  --card-border: #e6e6e6;
+  --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
+  --accent-dark: #6f1414;
+  --paper: #fafafa;
+}
+body{
+  background: #f5f6f7;
+}
+section{
+  max-width: min(var(--page-max), calc(100vw - 40px));
+  margin: 1.25rem auto 1.6rem;
+  padding: 1.25rem 1.4rem 1.35rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+}
+section .content{
+  max-width: var(--text-max);
+  margin: 0 auto;
+}
+.toc-section{
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+#toc{
+  background: linear-gradient(180deg, #fff 0%, #fcfcfc 100%);
+  border: 1px solid #e2e4e7;
+  border-radius: 20px;
+  padding: 22px 26px 24px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+#toc h2{
+  font-size: clamp(1.6rem, 1.4rem + 0.6vw, 2rem);
+  margin: 0 0 14px 0;
+  color: #222;
+}
+#toc p.toc-intro{
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+#toc ol{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 10px 26px;
+  padding-left: 1.4rem;
+  margin: 0;
+}
+#toc li{
+  margin: 0.2rem 0;
+  padding-right: 0.5rem;
+}
+#toc a{
+  display: inline-block;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: clamp(1.12rem, 1.02rem + 0.25vw, 1.24rem);
+  line-height: 1.5;
+}
+#toc a:hover{
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+section h2{
+  font-size: clamp(1.7rem, 1.4rem + 0.7vw, 2.1rem);
+  line-height: 1.25;
+  margin: 0 0 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+section h3{
+  font-size: 1.18rem;
+  margin-top: 1.3rem;
+  color: #333;
+}
+.article-list{
+  padding-left: 1.35rem;
+}
+.article-list > li{
+  margin-bottom: 1.15rem;
+  line-height: 1.6;
+}
+.article-list ul{
+  margin-top: 0.45rem;
+}
+.article-list ul li{
+  margin-bottom: 0.35rem;
+}
+a{
+  text-underline-offset: 2px;
+}
+.back-to-toc{
+  margin-top: 1.1rem;
+  padding-top: 0.9rem;
+  border-top: 1px dashed #ddd;
+  text-align: right;
+}
+.back-to-toc a{
+  display: inline-block;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+.back-to-toc a:hover{
+  text-decoration: underline;
+}
+@media (max-width: 820px){
+  section{
+    max-width: calc(100vw - 22px);
+    padding: 1rem 0.95rem 1.05rem;
+    border-radius: 14px;
+  }
+  #toc{
+    padding: 18px 18px 20px;
+    border-radius: 16px;
+  }
+  #toc ol{
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  section h2{
+    font-size: 1.45rem;
+  }
+}
+</style>
+<style id="modern-magazine-theme">
+:root{
+  --bg: #eef3f8;
+  --bg-soft: #f8fbff;
+  --card: rgba(255,255,255,0.88);
+  --card-strong: #ffffff;
+  --text: #1f2937;
+  --muted: #5f6b7a;
+  --accent: #8f1d2c;
+  --accent-2: #c97746;
+  --line: rgba(31,41,55,0.10);
+  --shadow-lg: 0 20px 50px rgba(36, 49, 66, 0.10);
+  --shadow-md: 0 10px 28px rgba(36,49,66,0.08);
+}
+html{
+  scroll-padding-top: 150px;
+}
+body{
+  font-family: "Inter", Arial, sans-serif !important;
+  color: var(--text) !important;
+  background:
+    radial-gradient(circle at top left, rgba(201,119,70,0.16), transparent 32%),
+    radial-gradient(circle at top right, rgba(143,29,44,0.10), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #eef3f8 55%, #edf2f7 100%) !important;
+}
+#topbar{
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.84) !important;
+  box-shadow: 0 8px 24px rgba(26,33,44,0.08);
+}
+header{
+  background: transparent !important;
+  border-bottom: none !important;
+  padding: 1.2rem 0 0.8rem !important;
+}
+header h1{
+  font-size: clamp(2rem, 3vw, 3rem);
+  letter-spacing: -0.04em;
+  margin-bottom: 0.2rem;
+}
+header h3{
+  font-size: 1.2rem;
+  color: var(--accent) !important;
+}
+header p{
+  color: var(--muted);
+  font-size: 1rem;
+}
+nav{
+  background: transparent !important;
+  border-top: 1px solid rgba(143,29,44,0.06);
+  border-bottom: 1px solid rgba(143,29,44,0.06) !important;
+  padding: 0.65rem 1rem !important;
+  gap: 0.3rem 0.6rem;
+}
+nav a{
+  color: var(--text) !important;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+nav a:hover{
+  background: rgba(143,29,44,0.08);
+  color: var(--accent) !important;
+  text-decoration: none;
+}
+section{
+  max-width: min(1240px, calc(100vw - 44px)) !important;
+  margin: 1.35rem auto !important;
+  padding: 1.65rem 1.8rem !important;
+  border-radius: 22px !important;
+  background: var(--card) !important;
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow: var(--shadow-lg) !important;
+  position: relative;
+  overflow: hidden;
+}
+section::before{
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  opacity: 0.95;
+}
+.toc-section{
+  margin-top: 1.6rem !important;
+  background: #faedbf !important;
+  color: var(--text) !important;
+  box-shadow: 0 20px 50px rgba(120, 103, 46, 0.16) !important;
+}
+.toc-section::before{
+  height: 0 !important;
+}
+#toc{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+#toc h2{
+  color: #374151 !important;
+  font-size: clamp(1.75rem, 2.4vw, 2.4rem) !important;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.45rem !important;
+}
+#toc .toc-intro{
+  color: #4b5563 !important;
+  font-size: 1.04rem;
+  margin-bottom: 1rem !important;
+}
+#toc ol{
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  gap: 0.85rem 1rem !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 1rem 0 0 0 !important;
+}
+#toc li{
+  margin: 0 !important;
+}
+#toc a{
+  display: block;
+  color: #374151 !important;
+  text-decoration: none !important;
+  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.36);
+  border: 1px solid rgba(55,65,81,0.12);
+  font-size: 1.08rem !important;
+  font-weight: 700;
+  line-height: 1.45;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+#toc a:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.52);
+}
+section h2{
+  font-size: clamp(1.5rem, 2vw, 2rem) !important;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem !important;
+  position: relative;
+  padding-bottom: 0.4rem;
+}
+section h2::after{
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin-top: 0.55rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+.content > h3,
+section > h3{
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(143,29,44,0.08);
+  color: var(--accent) !important;
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.article-list,
+ol.article-list{
+  display: grid;
+  gap: 0.9rem;
+  padding-left: 1.25rem;
+}
+.article-list > li,
+ol.article-list > li{
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(31,41,55,0.08);
+  border-radius: 16px;
+  padding: 1rem 1rem 0.95rem 1rem;
+  box-shadow: var(--shadow-md);
+}
+.article-list > li::marker,
+ol.article-list > li::marker{
+  font-weight: 700;
+  color: var(--accent);
+}
+.article-list ul,
+ol.article-list ul{
+  margin-top: 0.65rem;
+}
+li{
+  margin-bottom: 0.7rem !important;
+}
+a{
+  color: #8a1f2f;
+}
+a:hover{
+  color: #5d1420;
+}
+.back-to-toc{
+  margin-top: 1.2rem !important;
+  padding-top: 1rem !important;
+  border-top: 1px dashed rgba(31,41,55,0.18) !important;
+  text-align: right;
+}
+.back-to-toc a{
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.85rem;
+  background: rgba(143,29,44,0.08);
+  border-radius: 999px;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+}
+.back-to-toc a:hover{
+  background: rgba(143,29,44,0.14);
+}
+footer{
+  background: transparent !important;
+  color: var(--muted) !important;
+  border-top: none !important;
+}
+@media (max-width: 900px){
+  #toc ol{
+    grid-template-columns: 1fr !important;
+  }
+  section{
+    max-width: calc(100vw - 18px) !important;
+    padding: 1.15rem 1rem 1.2rem !important;
+    border-radius: 18px !important;
+  }
+  .article-list > li,
+  ol.article-list > li{
+    border-radius: 14px;
+    padding: 0.95rem 0.85rem 0.9rem;
+  }
+}
+</style>
+<style id="shrink-header-on-scroll">
+  #topbar{
+    transition: background-color 0.25s ease, box-shadow 0.25s ease, backdrop-filter 0.25s ease;
+  }
+  header, header h1, header h3, header p, #topbar nav{
+    transition: all 0.25s ease;
+  }
+
+  body.scrolled #topbar{
+    background: rgba(255,255,255,0.96) !important;
+    box-shadow: 0 10px 26px rgba(26,33,44,0.10);
+  }
+  body.scrolled header{
+    padding: 0.45rem 0 0.3rem !important;
+  }
+  body.scrolled header h1{
+    font-size: clamp(1.55rem, 2.2vw, 2.2rem) !important;
+    margin: 0 0 0.05rem 0 !important;
+    line-height: 1.05 !important;
+  }
+  body.scrolled header h3{
+    font-size: 0.98rem !important;
+    margin: 0 !important;
+    line-height: 1.1 !important;
+  }
+  body.scrolled header p{
+    max-height: 0 !important;
+    opacity: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+  body.scrolled #topbar nav{
+    max-height: 0 !important;
+    overflow: hidden !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-top-width: 0 !important;
+    border-bottom-width: 0 !important;
+    opacity: 0 !important;
+  }
+
+  @media (max-width: 700px){
+    body.scrolled header{
+      padding: 0.4rem 0 0.25rem !important;
+    }
+    body.scrolled header h1{
+      font-size: 1.45rem !important;
+    }
+    body.scrolled header h3{
+      font-size: 0.9rem !important;
+    }
+  }
+</style>
+<style id="compact-quicknav-style">
+  #compact-quicknav{
+    display: none;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0.45rem 1rem 0.55rem;
+    gap: 0.7rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  #compact-quicknav a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.72rem 1.45rem;
+    border-radius: 999px;
+    text-decoration: none !important;
+    font-weight: 800;
+    font-size: clamp(1rem, 1.1vw, 1.2rem);
+    color: #f8fafc !important;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.22);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+    white-space: nowrap;
+    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  }
+  #compact-quicknav a:hover{
+    transform: translateY(-1px);
+    background: rgba(255,255,255,0.22);
+    border-color: rgba(255,255,255,0.34);
+  }
+
+  body.scrolled #topbar{
+    background: linear-gradient(180deg, #2272b8 0%, #1c68ad 100%) !important;
+    box-shadow: 0 10px 30px rgba(20, 70, 130, 0.22) !important;
+    backdrop-filter: none !important;
+  }
+  body.scrolled header,
+  body.scrolled #topbar nav{
+    display: none !important;
+  }
+  body.scrolled #compact-quicknav{
+    display: flex !important;
+  }
+
+  @media (max-width: 900px){
+    #compact-quicknav{
+      gap: 0.5rem;
+      padding: 0.4rem 0.7rem 0.5rem;
+    }
+    #compact-quicknav a{
+      padding: 0.58rem 1rem;
+      font-size: 0.98rem;
+    }
+  }
+  @media (max-width: 640px){
+    #compact-quicknav{
+      justify-content: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: thin;
+      padding-bottom: 0.45rem;
+    }
+    #compact-quicknav a{
+      flex: 0 0 auto;
+    }
+  }
+</style>
+<style id="header-photo-background">
+  /* Ảnh nền cho phần header ở đầu trang */
+  #topbar{
+    background: rgba(255,255,255,0.90) !important;
+  }
+
+  header{
+    position: relative;
+    overflow: hidden;
+    background-image:
+      linear-gradient(rgba(12, 28, 44, 0.28), rgba(12, 28, 44, 0.28)),
+      url('AnhNen.jpeg') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    padding: 2.4rem 0 2rem !important;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: none !important;
+  }
+
+  header h1,
+  header h3,
+  header p{
+    position: relative;
+    z-index: 1;
+  }
+
+  header h1{
+    color: #ffffff !important;
+    text-shadow: 0 2px 18px rgba(0,0,0,0.28);
+  }
+  header h3{
+    color: #fff3f3 !important;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.26);
+  }
+  header p{
+    color: rgba(255,255,255,0.94) !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.22);
+  }
+
+  nav{
+    background: rgba(255,255,255,0.78) !important;
+    backdrop-filter: blur(8px);
+  }
+
+  @media (max-width: 700px){
+    header{
+      min-height: 180px;
+      padding: 1.8rem 0 1.5rem !important;
+    }
+  }
+</style>
+<style id="mobile-header-toc-fixes">
+  @media (max-width: 700px){
+    /* Header đầu trang gọn hơn trên mobile */
+    header{
+      min-height: 118px !important;
+      padding: 0.9rem 0 0.8rem !important;
+      background-position: center center !important;
+    }
+    header h1{
+      font-size: clamp(1.7rem, 8vw, 2.15rem) !important;
+      line-height: 1.05 !important;
+      margin: 0 0 0.15rem 0 !important;
+      padding: 0 0.8rem !important;
+    }
+    header h3{
+      font-size: 0.92rem !important;
+      margin: 0 0 0.2rem 0 !important;
+    }
+    header p{
+      font-size: 0.82rem !important;
+      margin: 0 !important;
+      padding: 0 0.8rem !important;
+    }
+
+    .toc-section{
+      margin-top: 0.8rem !important;
+    }
+    #toc{
+      padding: 0 !important;
+    }
+    #toc h2{
+      font-size: 1.45rem !important;
+      margin-bottom: 0.4rem !important;
+    }
+    #toc .toc-intro{
+      font-size: 0.92rem !important;
+      margin-bottom: 0.8rem !important;
+    }
+    #toc ol{
+      grid-template-columns: 1fr !important;
+      gap: 0.65rem !important;
+    }
+    #toc a{
+      padding: 0.78rem 0.85rem !important;
+      font-size: 0.98rem !important;
+      line-height: 1.3 !important;
+      white-space: normal !important;
+      overflow-wrap: anywhere !important;
+      word-break: break-word !important;
+    }
+
+    /* Khi cuộn trên mobile: chỉ giữ thanh chuyên mục */
+    body.scrolled #compact-quicknav{
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      justify-content: stretch !important;
+      overflow: visible !important;
+      flex-wrap: unset !important;
+      padding: 0.38rem 0.45rem 0.4rem !important;
+      gap: 0.38rem !important;
+      max-width: 100% !important;
+    }
+    body.scrolled #compact-quicknav a{
+      min-width: 0 !important;
+      width: 100% !important;
+      padding: 0.44rem 0.42rem !important;
+      font-size: 0.78rem !important;
+      line-height: 1.15 !important;
+      border-radius: 18px !important;
+      white-space: normal !important;
+      text-align: center !important;
+    }
+  }
+
+  @media (max-width: 420px){
+    header h1{
+      font-size: 1.55rem !important;
+    }
+    header p{
+      font-size: 0.76rem !important;
+    }
+    #toc a{
+      font-size: 0.94rem !important;
+      padding: 0.72rem 0.8rem !important;
+    }
+  }
+</style>
+<style id="header-subtitle">
+header .header-subtitle {
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: normal;
+  color: #fff3f3 !important;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.26);
+}
+body.scrolled header .header-subtitle {
+  font-size: 0.98rem !important;
+  margin: 0 !important;
+  line-height: 1.1 !important;
+}
+@media (max-width: 700px) {
+  header .header-subtitle {
+    font-size: 0.92rem !important;
+    margin: 0 0 0.2rem 0 !important;
+  }
+  body.scrolled header .header-subtitle {
+    font-size: 0.9rem !important;
+  }
+}
+</style>
+<style id="inline-article-images">
+.article-with-image{
+  list-style-position: outside;
+}
+.article-with-image > .article-with-image-wrap{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 108px;
+  gap: 0.9rem 1rem;
+  align-items: start;
+}
+.article-with-image .article-text{
+  min-width: 0;
+}
+/* Thumbnail nhỏ — hover để xem to */
+.article-with-image .article-side-image{
+  margin: 0;
+  position: relative;
+  width: 108px;
+  flex-shrink: 0;
+  cursor: zoom-in;
+}
+.article-with-image .article-side-image img{
+  display: block;
+  width: 108px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.14);
+  border: 1px solid rgba(31,41,55,0.10);
+  transition: box-shadow 0.2s ease, transform 0.18s ease;
+}
+.article-with-image .article-side-image:hover img{
+  box-shadow: 0 6px 20px rgba(0,0,0,0.22);
+  transform: scale(1.04);
+}
+/* Icon phóng to — hiện khi hover */
+.article-with-image .article-side-image::after{
+  content: "⤢";
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 11px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(0,0,0,0.42);
+  border-radius: 4px;
+  padding: 2px 4px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+.article-with-image .article-side-image:hover::after{
+  opacity: 1;
+}
+/* Mobile: hiện ảnh đầy đủ, bỏ zoom */
+@media (max-width: 900px){
+  .article-with-image > .article-with-image-wrap{
+    grid-template-columns: 1fr;
+  }
+  .article-with-image .article-side-image{
+    width: 100%;
+    max-width: 480px;
+    cursor: default;
+  }
+  .article-with-image .article-side-image img{
+    width: 100%;
+    height: auto;
+    object-fit: unset;
+  }
+  .article-with-image .article-side-image::after{
+    display: none;
+  }
+}
+</style>
+<style id="source-indicators">
+/* Chiều rộng dòng đọc thoải mái (~75 ký tự) cho đoạn văn */
+section p, section > p {
+  max-width: 75ch;
+}
+
+/* Tiêu đề bài: to và đậm hơn để phân cấp rõ */
+.article-list > li {
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+/* Sub-links: nhỏ hơn, không đậm (trừ các rule riêng bên dưới) */
+.article-list ul {
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* === Phân biệt nguồn: báo in vs Facebook === */
+
+/* --- Badge tên báo trước link phụ --- */
+.article-list ul li a[href*="tiasang.com.vn"]::before,
+.article-list ul li a[href*="thanhnien.vn"]::before,
+.article-list ul li a[href*="vnexpress.net"]::before,
+.article-list ul li a[href*="laodong.vn"]::before,
+.article-list ul li a[href*="dantri.com.vn"]::before,
+.article-list ul li a[href*="daibieunhandan.vn"]::before,
+.article-list ul li a[href*="vietnamnet.vn"]::before,
+.article-list ul li a[href*="kienthuc.net.vn"]::before,
+.article-list ul li a[href*="vusta.vn"]::before,
+.article-list ul li a[href*="diendan.org"]::before,
+.article-list ul li a[href*="vjs.ac.vn"]::before,
+.article-list ul li a[href*="vanviet.info"]::before,
+.article-list ul li a[href*="pi.edu.vn"]::before,
+.article-list ul li a[href*="medium.com"]::before {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+  background: var(--accent, #8f1d2c);
+  color: #fff;
+  margin-right: 0.45em;
+  vertical-align: 0.12em;
+}
+.article-list ul li a[href*="tiasang.com.vn"]::before   { content: "Tia Sáng"; }
+.article-list ul li a[href*="thanhnien.vn"]::before     { content: "Thanh Niên"; }
+.article-list ul li a[href*="vnexpress.net"]::before    { content: "VNExpress"; }
+.article-list ul li a[href*="laodong.vn"]::before       { content: "Lao Động"; }
+.article-list ul li a[href*="dantri.com.vn"]::before    { content: "Dân Trí"; }
+.article-list ul li a[href*="daibieunhandan.vn"]::before{ content: "ĐBND"; }
+.article-list ul li a[href*="vietnamnet.vn"]::before    { content: "VietnamNet"; }
+.article-list ul li a[href*="kienthuc.net.vn"]::before  { content: "TT & CS"; }
+.article-list ul li a[href*="vusta.vn"]::before         { content: "VUSTA"; }
+.article-list ul li a[href*="diendan.org"]::before      { content: "Diễn Đàn"; }
+.article-list ul li a[href*="vjs.ac.vn"]::before        { content: "Tạp chí"; }
+.article-list ul li a[href*="vanviet.info"]::before     { content: "Văn Việt"; }
+.article-list ul li a[href*="pi.edu.vn"]::before        { content: "Tạp chí Pi"; }
+.article-list ul li a[href*="medium.com"]::before       { content: "Medium"; }
+
+/* Link báo: màu nổi, chữ đậm */
+.article-list ul li a[href*="tiasang.com.vn"],
+.article-list ul li a[href*="thanhnien.vn"],
+.article-list ul li a[href*="vnexpress.net"],
+.article-list ul li a[href*="laodong.vn"],
+.article-list ul li a[href*="dantri.com.vn"],
+.article-list ul li a[href*="daibieunhandan.vn"],
+.article-list ul li a[href*="vietnamnet.vn"],
+.article-list ul li a[href*="kienthuc.net.vn"],
+.article-list ul li a[href*="vusta.vn"],
+.article-list ul li a[href*="diendan.org"],
+.article-list ul li a[href*="vjs.ac.vn"],
+.article-list ul li a[href*="vanviet.info"],
+.article-list ul li a[href*="pi.edu.vn"],
+.article-list ul li a[href*="medium.com"] {
+  color: var(--accent, #8f1d2c);
+  font-weight: 600;
+}
+
+/* Badge PDF/Doc cho link tài liệu */
+.article-list ul li a[href*="drive.google.com"]::before,
+.article-list ul li a[href*="dropbox.com"]::before {
+  content: "PDF";
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+  background: #dde3ec;
+  color: #445;
+  margin-right: 0.45em;
+  vertical-align: 0.12em;
+}
+.article-list ul li a[href*="docs.google.com"]::before {
+  content: "Doc";
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+  background: #dde3ec;
+  color: #445;
+  margin-right: 0.45em;
+  vertical-align: 0.12em;
+}
+
+/* Link Facebook phụ: màu xanh dương */
+.article-list ul li a[href*="facebook.com"] {
+  color: #4267b2 !important;
+  font-weight: 400 !important;
+}
+/* Không hiện badge PDF emoji trên link phụ (đã có badge text) */
+.article-list ul li a[data-pdf]::after { content: none; }
+
+/* Badge "Facebook" trên item độc lập chỉ có link FB */
+.article-list > li.source-fb > a {
+  color: #4267b2 !important;
+}
+.article-list > li.source-fb::before {
+  content: "Facebook";
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+  background: #dde8f8;
+  color: #4267b2;
+  margin-right: 0.55em;
+  vertical-align: 0.12em;
+  letter-spacing: 0.02em;
+}
+
+/* Pull-quotes under articles */
+.art-quotes {
+  margin: 10px 0 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.art-quote {
+  border-left: 3px solid var(--accent, #8f1d2c);
+  padding: 8px 13px 8px 15px;
+  background: linear-gradient(135deg, rgba(143,29,44,.05), rgba(201,119,70,.03));
+  border-radius: 0 10px 10px 0;
+  font-size: .9em;
+  line-height: 1.65;
+  color: #2d3748;
+  font-style: italic;
+  font-weight: 400;
+}
+.art-quote em { font-style: normal; font-weight: 700; color: var(--accent, #8f1d2c); }
+</style>
+</head>
+<body>
+<div id="topbar">
+<header>
+<h1>Phan Dương Hiệu</h1>
+<p class="header-subtitle">Trang Tiếng Việt</p>
+</header>
+<div aria-label="Điều hướng nhanh" id="compact-quicknav">
+<a href="#privacy">PRIVACY</a>
+<a href="#xa-hoi-tuong-lai">Xã hội</a>
+<a href="#khoa-hoc">Khoa học</a>
+<a href="#chinh-sach-khoa-hoc">Chính sách KH</a>
+<a href="#phan-dinh-dieu">Phan Đình Diệu</a>
+<a href="#giai-tri">Tản mạn</a>
+</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="research.html">Research</a>
+<a href="teaching.html">Teaching</a>
+<a href="contact.html">Contact</a>
+<a href="https://www.di.ens.fr/users/phan/TiengViet.htm">Tiếng Việt</a>
+</nav>
+</div>
+<main>
+<section class="toc-section">
+<nav id="toc">
+<h2>Các Chuyên Mục </h2>
+<ol>
+<li><a href="#privacy">PRIVACY: Bảo vệ quyền riêng tư, tự do và an ninh quốc gia</a></li>
+<li><a href="#xa-hoi-tuong-lai">Một góc nhìn về xã hội </a></li>
+<li><a href="#khoa-hoc">Khoa học</a></li>
+<li><a href="#chinh-sach-khoa-hoc">Chính sách khoa học</a></li>
+<li><a href="#phan-dinh-dieu">Phan Đình Diệu - Giọt nước không tan</a></li>
+<li><a href="#giai-tri">Tản mạn</a></li>
+</ol>
+</nav>
+</section>
+<section id="privacy">
+<h2>PRIVACY: Bảo vệ quyền riêng tư, tự do và an ninh quốc gia</h2>
+<ol class="article-list">
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Sự nguy hiểm của chiến lược thu thập dữ liệu gen trên diện rộng (Tia Sáng, 02/2024)
+        <ul>
+<li><a href="https://tiasang.com.vn/dien-dan/su-nguy-hiem-cua-chien-luoc-thu-thap-du-lieu-gen-tren-dien-rong/">Bản trên Tia Sáng</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid02nP8R5FMLoZEm7iCyr378TqWnf1ftJhxNbujvFSnnpEK4Y3XDCnxTV2We2dQKt4gMl">Bản trên facebook</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Nắm được dữ liệu gen của một cộng đồng, một đất nước là <em>hiểu rất rõ và khống chế, gây ảnh hưởng được lên cộng đồng/nước đó.</em>"</div>
+<div class="art-quote">"Dữ liệu gen đã lộ là <em>lộ suốt đời,</em> thậm chí ảnh hưởng người thân và cả những thế hệ sau này còn chưa sinh ra."</div>
+</div>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Sự nguy hiểm của chiến lược thu thập dữ liệu gen trên diện rộng" src="webpictures/TiaSang_ADN.png"/></figure></div></li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Tính điểm công dân: "Robot hóa" con người? (Lao Động, 6/2019)
+        <ul>
+<li><a href="https://www.facebook.com/rongchoi/posts/10217251098246313">Bản trên facebook</a></li>
+<li><a href="https://drive.google.com/open?id=1HkKopcx_h1n-KTXM5H9FaWlri9IzWbGu">Bản chụp báo in</a></li>
+<li><a href="https://www.diendan.org/viet-nam/tinh-diem-cong-dan-robot-hoa-con-nguoi">Bản online trên Diễn Đàn</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Hệ thống chấm điểm công dân biến con người thành một con số — <em>không còn là một nhân cách, mà là một hồ sơ có thể thưởng phạt bất cứ lúc nào.</em>"</div>
+<div class="art-quote">"Khi điểm số quyết định việc làm, giáo dục, tín dụng, đi lại — thì <em>mất điểm là mất tự do,</em> dù chưa vi phạm bất kỳ điều luật nào."</div>
+</div>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Tính điểm công dân Robot hóa con người" src="webpictures/laodong_tinhdiem.png"/></figure></div></li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Bảo vệ tư duy bên trong, để không bị điều khiển từ ngoài (VNExpress, 03/2026)
+        <ul>
+<li><a href="https://vnexpress.net/gs-phan-duong-hieu-bao-ve-tu-duy-ben-trong-de-khong-bi-dieu-khien-tu-ngoai-5047588.html">Bản online trên VNExpress</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid02FVkKfEwCg1vmVt67KE94gxN1rvF1H49nCchkb3Kqxu4uZ18bfPB591FjxQjGMf2l">Bản trên facebook</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Giờ là lúc chúng ta cần <em>bảo vệ tư duy bên trong,</em> nếu không muốn mất đi sự tồn tại."</div>
+<div class="art-quote">"Dữ liệu là tài nguyên quý. Những quốc gia trung bình nếu lạm dụng, khai thác triệt để dữ liệu công dân thì kho dữ liệu đó có thể <em>trở thành mục tiêu tấn công của các đế chế số lớn.</em>"</div>
+</div>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Bảo vệ tư duy bên trong" src="webpictures/VNE_Tuduy.png"/></figure></div></li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text"> Bảo mật dữ liệu quốc gia: Không có chuẩn tuyệt đối an toàn (Từ đó đề nghị từ bỏ những chiến lược quốc gia tiềm ẩn rủi ro cao, đặc biệt là chấm điểm công dân) . (Tia Sáng, 04/2026)
+        <ul>
+<li><a href="https://tiasang.com.vn/bao-mat-du-lieu-quoc-gia-khong-co-chuan-tuyet-doi-an-toan-5057321.html">Bản trên Tia Sáng</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid023rykXvPrTCweeLZsbAKaY7wcykkLD6sHrsPnZTTwdV5uReS5fZKthQaTdLfGDMP4l">Bản trên facebook</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Trong thực tế <em>không có chuẩn nào là thực sự đảm bảo an toàn tuyệt đối.</em>"</div>
+<div class="art-quote">"Quốc gia nào nắm được nhiều dữ liệu chi tiết của quốc gia khác thì <em>họ có thể chiếm quyền điều khiển, thao túng theo ý mình.</em>"</div>
+</div>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Bảo mật dữ liệu quốc gia" src="webpictures/TiaSang_baomat_quocgia.png"/></figure></div></li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text"> Xác thực bằng dữ liệu sinh trắc học: Cần cẩn trọng trước những bước đi “không thể đảo ngược”! (Tia Sáng, 07/2024)
+        <ul>
+<li><a href="https://tiasang.com.vn/du-lieu-sinh-trac-hoc-can-can-trong-truoc-nhung-buoc-di-khong-the-dao-nguoc-4967200.html">Bản trên Tia Sáng</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid036iBPJ1wZZ1yuwoWRcmNt2vEqsYrBeLt1gDjyD7eFUtCWjy2o9gV5wgoB6DghfPnBl">Bản trên facebook</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Mỗi khi kẻ tấn công vượt qua một mức bảo vệ, chúng ta lại buộc phải sử dụng <em>một vũ khí mới để ngăn chặn.</em>"</div>
+<div class="art-quote">"Một hệ thống vận hành tốt là một hệ thống <em>bảo vệ tối đa dữ liệu cá nhân cho người dân,</em> đồng thời chỉ cần thu thập tối thiểu dữ liệu."</div>
+</div>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Xác thực bằng dữ liệu sinh trắc học" src="webpictures/TiaSang_sinhtrac_nganhang.png"/></figure></div></li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Quyền riêng tư trên mạng (Tia Sáng, 12/2018)
+        <ul>
+<li><a href="https://tiasang.com.vn/quyen-rieng-tu-tren-mang-4974058.html">Bản trên Tia Sáng</a></li>
+<li><a href="https://drive.google.com/open?id=1Bu9gHOAomWFzISyN4OUOnzbRIesf0Izc">Bản báo in</a></li>
+<li><a href="https://www.diendan.org/viet-nam/quyen-rieng-tu-tren-mang">Bản online trên Diễn Đàn</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Lòng tin là một yếu tố vô cùng quan trọng, <em>là cơ sở thiết yếu cho sự phát triển.</em>"</div>
+<div class="art-quote">"Quyền riêng tư là <em>một trong các quyền con người cơ bản</em> và ta cần nhất thiết bảo vệ nó."</div>
+</div>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Quyền riêng tư trên mạng" src="webpictures/TiaSang_quyenriengtu.png"/></figure></div></li>
+<li>Bảo vệ quyền riêng tư để có tự do (Tri Thức &amp; Cuộc Sống, 08/2022)
+        <ul>
+<li><a href="https://kienthuc.net.vn/kho-tri-thuc/gs-phan-duong-hieu-bao-ve-quyen-rieng-tu-de-co-tu-do-1733167.html">Bản trên Tri Thức &amp; Cuộc Sống</a></li>
+<li><a href="https://vusta.vn/gs-phan-duong-hieu-bao-ve-quyen-rieng-tu-de-co-tu-do-p91264.html">Bản trên VUSTA</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid02aHSUdai9ANmMghpBrrJwnNEd7kQkmHfDnRqdV6YiEMQE1B2YfopTddVuvJEqUhbdl">Bản trên Facebook</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Việc bảo vệ quyền riêng tư sẽ cho phép từng cá nhân <em>quản lý được việc quyết định có chia sẻ hay không</em> những thông tin cá nhân."</div>
+<div class="art-quote">"Bảo vệ quyền riêng tư của mỗi cá nhân cũng là để <em>đảm bảo sự tự do theo nghĩa rộng.</em>"</div>
+</div>
+</li>
+</ol>
+<h3 id="y-kien-privacy">Một số ý kiến khác trên trang Facebook:</h3>
+<ol class="article-list">
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid02ruPYVw3gciobQC9TVmeFSwf1GYcGEzSX1Ky8dmpYftWqghY1sB8223dVkx9bcHkzl"> Đất nước để mất Privacy thì sẽ nguy hiểm thế nào?</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid02FFtZgUZ3resKoMRWseTeenKAdk8eYu4oY6cS4YFHdvLxnmzFAGEPpXgTtS1rRwJPl"> Minh bạch công, bảo mật riêng. (02/2026)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0rYvdsjqvVFa3bPPT2o1P7UYesruiPGRCJpRamkdWNpavP2x3qDaoLNgBVYSkUtchl"> Điều khiển học hành vi và tinh thần.(01/2026)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid02zU9q6jc4rLTVtUyZzdZ1HXFuxRSGxKN6DQykmVhh1hGbETkQaGYZXgsY7pEqbhfAl"> Privacy là chìa khoá trong cạnh tranh. (01/2026)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0hcqFrHP6JUjH3RPJmw23hew21YrixmNGwQ9xgQmtPJBsDT1W2iD3DYoKjSvDyT9hl"> Không bảo vệ quyền riêng tư, mất tự chủ an ninh quốc gia. (11/2025)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid02RX8vUcgPXwmAAsqm1FwonBRNXXJF2EakVEKDwsFRvW9k3n7JJqn5umexC5ypKwfTl">  Bảo vệ dữ liệu sinh trắc học! (04/2025)</a>
+</li>
+
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid02W8gSbiexGPhLERjV6uC1sT2Eo7NBU6EMLmN9zGYMekfAyErRCnDY2McuHHgkyDJml">  Con đường phải tránh (12/2025)</a>
+</li>
+
+</ol>
+<div class="back-to-toc"><a href="#toc">↑ Về mục lục</a></div>
+</section>
+<section id="xa-hoi-tuong-lai">
+<h2>Một góc nhìn về xã hội (quyền con người, AI, báo chí,...)</h2>
+<ol class="article-list">
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Báo chí trước vòng xoáy 'robot hóa' (Tia Sáng, 12/2025)
+        <ul>
+<li><a href="https://tiasang.com.vn/bao-chi-truoc-vong-xoay-robot-hoa-4998796.html">Bản trên Tia Sáng</a></li>
+<li><a href=”https://www.facebook.com/rongchoi/posts/pfbid02vfDkFW8tv96CARUV6CLjLEVEAaEcFc4aJhr8HnrWLPCF8ZqvbtQFuLLYzedsgvFGl”>Bản trên facebook: Báo chí bị “robot hoá”, cả hệ thống có nguy cơ mất tự chủ</a></li>
+</ul>
+<div class=”art-quotes”>
+<div class=”art-quote”>”Robot hóa đã loại bỏ những con người khác biệt, <em>cả hệ thống sẽ dần bị đóng khung.</em>”</div>
+<div class=”art-quote”>”Ổn định trong sự đa dạng <em>luôn vững bền hơn</em> ổn định trong kìm kẹp.”</div>
+</div>
+</div><figure class=”article-side-image”><img loading=”lazy” alt=”Ảnh bài Báo chí trước vòng xoáy robot hóa” src=”webpictures/TiaSang_baochi.png”/></figure></div></li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Giảm thông tin sai lệch bằng tăng sự minh bạch (Lao Động, 11/2019)
+        <ul>
+<li><a href="https://laodong.vn/lao-dong-cuoi-tuan/giam-thong-tin-sai-lech-bang-tang-su-minh-bach-766097.ldo">Bản online trên Lao Động</a></li>
+<li><a href="https://drive.google.com/open?id=1xZxr1o-GUrBfxdu3kh2HpVX1WkVKxJO6">Bản pdf</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid06vLZ7Wd7PxcGQzq9YsAizibDePmw7w925h9XkhBQ2xoNZFLwQQqpVbXfDYKLFmwUl">Bản trên Facebook</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Thông tin sai lệch lan truyền trong bóng tối của sự thiếu minh bạch — <em>công khai hóa nguồn gốc thông tin là cách hữu hiệu nhất để chống lại nó.</em>"</div>
+<div class="art-quote">"Người đọc cần được trao công cụ để tự kiểm chứng, chứ không chỉ được bảo rằng <em>đây là thông tin đúng, kia là thông tin sai.</em>"</div>
+</div>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Giảm thông tin sai lệch bằng tăng sự minh bạch" src="webpictures/LaoDong_minhbach.png"/></figure></div></li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Chuyển đổi số và 98 triệu hồ sơ y tế: Bài toán khó. (Lao Động, 01/2021)
+        <ul>
+<li><a href="https://laodong.vn/xa-hoi/chuyen-doi-so-va-98-trieu-ho-so-y-te-bai-toan-kho-872921.ldo">Bản trên Lao Động</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid02Ag4EpWHbXwhMBg6fySNgcADUBGHYh1TuPW8Fmjac7NaGR2ozn9iG6ye54qQyGnH5l">Bản trên Facebook</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Dữ liệu y tế là loại dữ liệu nhạy cảm nhất — <em>nó không chỉ tiết lộ quá khứ, mà còn có thể dự báo tương lai của một con người.</em>"</div>
+<div class="art-quote">"Bài toán không chỉ là số hóa 98 triệu hồ sơ — mà là <em>ai được phép truy cập, trong điều kiện nào, và với mức độ bảo mật ra sao.</em>"</div>
+</div>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Chuyển đổi số và 98 triệu hồ sơ y tế" src="webpictures/LaoDong_chuyendoiso.png"/></figure></div></li>
+
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">AI: Đừng để chiều gió cuốn đi! (Dân Trí, 02/2025)
+        <ul>
+<li><a href="https://dantri.com.vn/tam-diem/ai-dung-de-chieu-gio-cuon-di-20250212072133536.htm">Bản trên Dân Trí</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid023KzCjyNdmk7B68fFD4oY1VWzobiCtgek1BSkxhxiuL6TQLEwgRovPdnZbx4KB9PCl">Bản trên Facebook</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Nếu chúng ta bị cuốn vào cuộc chơi được xếp đặt trước, tất cả những gì nhận được sẽ là <em>bị cuốn theo chiều gió.</em>"</div>
+<div class="art-quote">"Phải giữ quyền riêng tư, quyền không bị ai làm phiền, <em>quyền không cho AI dữ liệu cá nhân.</em>"</div>
+</div>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài AI Đừng để chiều gió cuốn đi" src="webpictures/DanTri_Giocuon.png"/></figure></div></li>
+
+
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Khi AGI không còn cần 'xin phép' con người (Thanh Niên, 11/2023)
+        <ul>
+<li><a href="https://thanhnien.vn/khi-agi-khong-con-can-xin-phep-con-nguoi-185231125100632582.htm">Bản trên Thanh Niên</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid08e9zzkT7vrY82qt1TeetoLvKB8GbCvKvXcU9vBzP9vfqHUhq6n2t6WRGdVTQr8kPl">Bản trên Facebook</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Khi đến lúc phải xây dựng đường cao tốc giữa hai thành phố, <em>chúng ta không xin phép động vật.</em>"</div>
+<div class="art-quote">"AI phát triển khái niệm 'đạo đức' của riêng nó, <em>không cho rằng cần thiết duy trì sự đa dạng của các loài.</em>"</div>
+</div>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài AGI" src="webpictures/Thanhnien_AGI.jpg"/></figure></div></li>
+
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Đạo Đức trong AI (ĐBND, 10/2019)
+        <ul>
+<li><a href="https://daibieunhandan.vn/van-hoa/dao-duc-trong-Al-i166924/">Bản trên ĐBND</a></li>
+<li><a href="https://drive.google.com/open?id=1Tx_zAk-49cWGGLQQGPv2fvyMRxZaTXln&amp;sa=D&amp;ust=1573766471338000">Bản báo in</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Khi AI đưa ra quyết định ảnh hưởng đến cuộc sống con người, <em>câu hỏi không chỉ là AI có đúng không, mà là liệu AI có thể giải thích tại sao không.</em>"</div>
+<div class="art-quote">"Không có nền tảng đạo đức, AI chỉ là công cụ khuếch đại những bất công đã có — <em>thay vì giải quyết chúng.</em>"</div>
+</div>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Đạo Đức trong AI" src="webpictures/DBND_DaoducAI.png"/></figure></div></li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Bầu cử điện tử - Tăng tính dân chủ bằng phương pháp mật mã (Tia sáng, 05/2013)
+        <ul>
+<li><a href="https://tiasang.com.vn/khoa-hoc-cong-nghe/bau-cu-dien-tu-tang-tinh-dan-chu-bang-phuong-phap-mat-ma-6333/">Bản trên Tia sáng</a></li>
+</ul>
+<div class="art-quotes">
+<div class="art-quote">"Cả hai tính chất kiểm tra được và tự do trong lựa chọn của một hệ thống bầu cử đều rất cơ bản nhưng <em>luôn bị coi là đối ngược nhau.</em>"</div>
+<div class="art-quote">"Các phương pháp mật mã chứng tỏ rằng ta có thể xây dựng <em>các hệ bầu cử đạt được cả hai yêu cầu trên.</em>"</div>
+</div>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Bầu cử điện tử" src="webpictures/TiaSang_baucu.png"/></figure></div></li>
+</ol>
+<h3 id="y-kien-xa-hoi">Một số ý kiến khác trên trang Facebook:</h3>
+<ol class="article-list">
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid02gay8461KcV3wz9rcrZWY39YXVx17wAvgoWcyGNq1xTmjw8YSWfbmH33wa5Z5FjAal"> 5 thế giới của AI.(04/2023)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid02CJdeL1tRW8fQhDa3ptnLTDZEpfQmVfMsoYWFD4mjHGyAYbPjwRz6EE1nBdT1ZykKl"> Để những lời cảnh báo sâu sắc rơi vào quên lãng,
+chúng ta rồi sẽ bị lãng quên rất nhanh.(11/2023)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0cnUV5MjcWD37D9XEED7QrEekc8taKrPY5BrD1em6PmiYfjNQyngUVByBd4BQbUCrl"> Không thể thờ ơ. (01/2024)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid026qQp5khRYubxpW2rgHW16Mw57JcbTKPDyRk7NcQzK7xczptX3VvSxbE7kjqtaJz8l"> Nguy cơ chúng ta về thời "Phong Kiến" với "đêm trường Trung cổ"? (14/1/2023)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0Rojn8eJJ5QqkZPXFXCnE2L23xhHW84GpcCUPanHLY5FqrKs7DNXBqfwCPKm8CZwBl"> Apple tích hợp Mật mã trong Học máy để bảo vệ Privacy!  (11/2024)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid02vXJPpJryD6oid65iwnvrynyr9a41rMPXanHf3MjNE8bVTfeEMRrjaBbBqvW4nZWMl"> Giải Nobel Vật Lý 2024: một bước tiến nền tảng cho Secure AI, chứ không phải là cho AI. (10/2024)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0MjiGQJdejn9MqHxVMHWpXvK7aKfdWzsgok7DxrdgNdmQULJxZHR2rzCZ5mGqaW8Pl">  Đừng để Máy cuốn đi. (06/2025)</a>
+</li>
+<li class="c8">
+<span class="c3">
+<a class="c0" href="https://www.facebook.com/notes/phan-d%25C6%25B0%25C6%25A1ng-hi%25E1%25BB%2587u/l%25C3%25B2ng-tin-v%25E1%25BB%2581-lu%25E1%25BA%25ADt-an-ninh-m%25E1%25BA%25A1ng/10156218992686136/&amp;sa=D&amp;ust=1573766471356000">Lòng tin</a>
+</span>
+<span class="c11 c6"> (Về Luật An Ninh Mạng) (06/2018)</span>
+</li>
+<li class="c8">
+<span class="c3 c7">
+<a class="c0" href="https://www.facebook.com/rongchoi/posts/10214650056821903&amp;sa=D&amp;ust=1573766471356000">Cần thời gian đối thoại trước khi ra Luật An Ninh Mạng</a>
+</span>
+<span class="c11 c6"> (06/2018) </span>
+</li>
+<li class="c8">
+<span class="c3 c7">
+<a class="c0" href="https://www.facebook.com/rongchoi/posts/10217786398228478&amp;sa=D&amp;ust=1573766471356000">Mạng xã hội Việt Nam.</a>
+</span>
+<span class="c4"> (08/2019)</span>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0NcjeE68yagww5WRY5UkoN24CYdhCPJWkKidcg4bP1JxzNQ9ZPKBBUqPtorozq2h2l"> Thể hiện cảm xúc thật (về Chu Ngọc Quang Vinh). (09/2024)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0263aQhBpKZuRMfYtHd346xJDdD2PHtaxRRZPNV9yB2f5HAD5GJgX4f7nLupLBSFWel"> "Thế giới quanh ta" -  vĩnh biệt bác Cao Huy Thuần. (07/2024)</a>
+</li>
+</ol>
+<div class="back-to-toc"><a href="#toc">↑ Về mục lục</a></div>
+</section>
+<section id="khoa-hoc">
+<h2>Khoa học</h2>
+<ol class="article-list">
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text"><a href="Matma.html">Mật Mã</a> – Trang tổng hợp một số bài viết từ 2005</div><figure class="article-side-image"><img loading="lazy" alt="Mật Mã – trang tổng hợp bài viết" src="webpictures/matma.png"/></figure></div></li>
+<li>Anamorphic Cryptography
+          <ul>
+<li><a href="TiengViet/anamorphic2022.html">Bản HTML</a> · <a href="https://eprint.iacr.org/2022/639.pdf">Bài báo (eprint)</a> · <a href="https://www.facebook.com/rongchoi/posts/pfbid02eiMRaXBmkguqhDW7FYNKqKYpE7DfV7TzB8dB3UBoCTN3fX5qYjrKXMPnFjrfH1xl">Facebook</a></li>
+<li>2025 – Anamorphic Broadcast – Bài báo đầu tiên của Việt Nam tại EUROCRYPT: <a href="TiengViet/anamorphic2025.html">Bản HTML</a> · <a href="https://www.facebook.com/rongchoi/posts/pfbid03837E48Nf3iqYL6HTX2YqEKEtTKweRQ1PgFRbS9no8Fg8QUSQvqrB1m4d9iQT4n2xl">Facebook</a></li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid02hMxqCpbZwS9PG4jeWWSvmsmvLQ28Zk7JTK86TRcZmqYN7Kdv8adZ46NBd7cMQoRjl"> Vì một thế giới không có độc tài.  (01/2024)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid029VkyNgFDGbMDaex4s3TUVXbXgmbzZhttEiyBxojv71XFUhBCYjJcMf6yoxBHrYwxl">Living With A Dictator: Anamorphic Cryptography </a> (Bài trên Medium về mô hình mật mã Anamorphic của chúng tôi, 04/2025)
+</li>
+</ul>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Nghệ thuật hỏi một lần: Tính toán lượng tử và cái nhìn toàn cục
+        <ul>
+<li><a href="TiengViet/nghethuathoi.html">Bản HTML</a></li>
+<li><a href="https://tiasang.com.vn/nghe-thuat-hoi-mot-lan-tinh-toan-luong-tu-va-cai-nhin-toan-cuc-5067199.html">Bản trên Tia Sáng</a></li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Nghệ thuật hỏi một lần: Tính toán lượng tử và cái nhìn toàn cục" src="webpictures/Luongtu_nghethuat.png"/></figure></div></li>
+<li>Mật mã trong chiến tranh chống Pháp và Mỹ tại Việt Nam (Phan Dương Hiệu - Neal Koblitz)
+        <ul>
+<li><a href="https://drive.google.com/file/d/1FYYdw7QDF6Tg7EBN2DjmFhLGP0PrHZCs/view?usp=sharing">Bản in trên</a> <a href="https://drive.google.com/file/d/16NFsKxsHO8Dt97c1mul6o1TWoJokKseP/view?usp=sharing">Pi, tập 3, số 7 (Phần 1)</a> và <a href="https://drive.google.com/open?id=1mjEcorpRUbmbt8EqGGkznI-kky8h_ZyW">Pi, Tập 3, số 8 (Phần 2)</a></li>
+<li><a href="https://eprint.iacr.org/2016/1136.pdf">Bản gốc tiếng Anh đăng trên Cryptologia</a></li>
+<li>Bài liên quan (phỏng vấn Neal Koblitz): <a href="http://tiasang.com.vn/-khoa-hoc-cong-nghe/Trong-cuoc-chien-mat-ma-Nguoi-giau-chua-chac-da-la-ke-manh-10311">Trong cuộc chiến mật mã: Người giàu chưa chắc đã là kẻ mạnh</a> (Tia sáng, 12/2016)</li>
+</ul>
+</li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Mật mã khóa công khai: Hành trình 35 năm (Tia sáng, 01/2011)
+        <ul>
+<li><a href="TiengViet/hanhtrinh35nam.html">Bản HTML</a></li>
+<li><a href="https://tiasang.com.vn/mat-ma-khoa-cong-khai-hanh-trinh-35-nam-4981392.html">Bản trên Tia sáng</a></li>
+<li><a href="https://www.dropbox.com/s/m3xzarlmfrvl5by/Tiasang_Matma.pdf?dl=0&amp;sa=D&amp;ust=1573766471340000">Bản chụp báo in</a></li>
+<li><a href="http://www.vusta.vn/vi/news/Thong-tin-Su-kien-Thanh-tuu-KH-CN/Mat-ma-khoa-cong-khai-Hanh-trinh-35-nam-38161.html&amp;sa=D&amp;ust=1573766471340000">Bản VUSTA</a></li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Mật mã khóa công khai Hành trình 35 năm" src="webpictures/TiaSang_matma.png"/></figure></div></li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Vẻ đẹp bất định trong mật mã hiện đại (Toán Tuổi Thơ, 2013)
+        <ul>
+<li><a href="TiengViet/vedepbatdinh.html">Bản HTML</a></li>
+<li><a href="https://www.dropbox.com/s/or44tr0hn3ob32a/2013_ToanTuoiTho%2528VeDepBatDInhTrongMatMa%2529.pdf?dl=0&amp;sa=D&amp;ust=1573766471342000">Bản trên Toán Tuổi Thơ</a></li>
+<li><a href="https://www.dropbox.com/s/2af3cft7we3xu29/KHMT_V%25E1%25BA%25BB%2520%25C4%2591%25E1%25BA%25B9p%2520b%25E1%25BA%25A5t%2520%25C4%2591%25E1%25BB%258Bnh%2520trong%2520m%25E1%25BA%25ADt%2520m%25C3%25A3%2520hi%25E1%25BB%2587n%2520%25C4%2591%25E1%25BA%25A1i.pdf?dl=0&amp;sa=D&amp;ust=1573766471342000">Bản trên Blog KHMT</a></li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Vẻ đẹp bất định trong mật mã hiện đại" src="webpictures/vedepbatdinh.png"/></figure></div></li>
+<li>Giải thường Turing 2012 (Blog KHMT)
+        <ul>
+<li><a href="TiengViet/giai-thuong-turing-2012.html">Bản HTML</a></li>
+<li><a href="https://www.dropbox.com/s/uvqgpcmnuivdipk/KHMT_Gi%25E1%25BA%25A3i%2520th%25C6%25B0%25E1%25BB%259Fng%2520Turing%25202012.pdf?dl=0&amp;sa=D&amp;ust=1573766471343000">Bản pdf</a></li>
+</ul>
+</li>
+<li>Flirting Cipher – mã hoá bằng ánh mắt (Blog KHMT, 2007)
+  <ul>
+    <li><a href="TiengViet/FlirtingCipher.html">Bản HTML</a></li>
+  </ul>
+</li>
+<li>Intermezzo Cipher (Blog KHMT, 2007)
+  <ul>
+    <li><a href="TiengViet/IntermezzoCipher.html">Bản HTML</a></li>
+  </ul>
+</li>
+<li>Rùa, Bác K và Pi (Tạp chí Pi, số 1, 2017)
+  <ul>
+    <li><a href="TiengViet/RuaBacKvaPi.html">Bản HTML</a></li>
+  </ul>
+</li>
+<li>Mật mã dưới góc nhìn độ phức tạp tính toán (Blog KHMT, 09/2009)
+        <ul>
+<li><a href="TiengViet/matma-dophuctap.html">Bản HTML</a></li>
+<li><a href="https://www.dropbox.com/s/o3gbqgwdy0kwb09/KHMT_M%25E1%25BA%25ADt%2520m%25C3%25A3%2520d%25C6%25B0%25E1%25BB%259Di%2520g%25C3%25B3c%2520nh%25C3%25ACn%2520%25C4%2591%25E1%25BB%2599%2520ph%25E1%25BB%25A9c%2520t%25E1%25BA%25A1p%2520t%25C3%25ADnh%2520to%25C3%25A1n.pdf?dl=0&amp;sa=D&amp;ust=1573766471344000">Bản pdf</a></li>
+</ul>
+</li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Bốn thế giới ảo và một thế giới thực (Blog KHMT và Tạp chí Pi)
+        <ul>
+<li><a href="TiengViet/bonthegioi.html">Bản HTML</a></li>
+<li><a href="https://pi.edu.vn/detail-news/bon-the-gioi-ao-va-mot-the-560.html">Bản trên tạp chí Pi</a></li>
+<li><a href="https://docs.google.com/document/d/1nzSWH-M_n5k2OhepPytgbQDhBo6Ub-3r31ghzCXxcao/edit?usp=sharing&amp;sa=D&amp;ust=1573766471345000">Bản trên Blog KHMT</a></li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Bốn thế giới ảo và một thế giới thực" src="webpictures/bonthegioi.png"/></figure></div></li>
+<li>Phân tích ra thừa số trong trường hữu hạn (Blog KHMT, 27/04/2011)
+        <ul>
+<li><a href="TiengViet/phantich-thuaso.html">Bản HTML</a></li>
+</ul>
+</li>
+<li>Truy lùng dấu vết kẻ phản bội (Diễn đàn toán học, 2005)
+        <ul>
+<li><a href="TiengViet/truylungdauvet.html">Bản HTML</a></li>
+<li><a href="https://diendantoanhoc.net/topic/2892-truy-l%25C3%25B9ng-d%25E1%25BA%25A5u-v%25E1%25BA%25BFt-k%25E1%25BA%25BB-ph%25E1%25BA%25A3n-b%25E1%25BB%2599i/&amp;sa=D&amp;ust=1573766471347000">Bản trên Diễn đàn toán học</a></li>
+</ul>
+</li>
+<li>Michael O. Rabin: một huyền thoại vừa ra đi. (04/2026)
+  <ul>
+    <li><a href="TiengViet/rabin.html">Bản HTML</a></li>
+    <li><a href="https://www.facebook.com/rongchoi/posts/pfbid02zZsMrjW7AXZQq9oSUqUUrK4P6gk8NU3Yzg6tgz2AWvw39dm19XPhcfWxqaetNAdYl">Bản trên Facebook</a></li>
+  </ul>
+</li>
+<li>Chống thông tin giả bằng Mật mã (Polynomial Commitment, 01/05/2024)
+  <ul>
+    <li><a href="TiengViet/polynomial-commitment.html">Bản HTML</a></li>
+    <li><a href="https://www.facebook.com/rongchoi/posts/pfbid0UEviexxvCn7SCTDeMEK9WWg79t2ZiWrTuDYfpxuwLRrJ8uhCmbAeiP7m8gZazwndl">Bản trên Facebook</a></li>
+  </ul>
+</li>
+<li>Giải Turing 2023 — hành trình ngẫu nhiên. (04/2024)
+  <ul>
+    <li><a href="TiengViet/turing2023.html">Bản HTML</a></li>
+    <li><a href="https://www.facebook.com/rongchoi/posts/pfbid0222Ls3GqTQUifDXpxtvzSsd5nPqARBZnqbvhH6Qtxmpj6X9FUnNctrSfo89bRofh1l">Bản trên Facebook</a></li>
+  </ul>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0qkRK3ym7TGh8gF7SstnfYwGTinwT7LK3gSB7FWfPuzk6hRQCMzMVvZprMnEXkTxml">Giải thưởng Bell Labs Prize (7/12/2020)</a>
+</li>
+
+<li>Lượng tử - Mật mã lượng tử: một chủ đề thú vị trong năm 2025. (12/2024)
+<ul>
+  <li><a href="TiengViet/luongtu2024.html">Bản HTML</a></li>
+  <li><a href="https://www.facebook.com/rongchoi/posts/pfbid02sKRcHNJZ8DTeCwJHUWzSMK8cQm88rQMw7wMB7Zh324fCQ6TsJKZtGPCbpK6H7px9l">Bản trên Facebook</a></li>
+</ul>
+</li>
+
+
+<li>Giải Abel 2021 liên quan đến bảo vệ Privacy (17/03/2021)
+<ul>
+  <li><a href="TiengViet/abel2021.html">Bản HTML</a></li>
+  <li><a href="https://www.facebook.com/rongchoi/posts/pfbid0KkNhPdvsuLqA49C6oZZMn7GkcGWFFKyaYxkiqqQXdMJcX9yXNxYKuXEBsqwqjgtDl">Bản trên Facebook</a></li>
+</ul>
+</li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Những miền đất và những cây cầu (Tia sáng, 09/2010)
+        <ul>
+<li><a href="http://tiasang.com.vn/-khoa-hoc-cong-nghe/nhung-mien-dat-va-nhung-cay-cau-3438&amp;sa=D&amp;ust=1573766471341000">Bản trên Tia sáng</a></li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Những miền đất và những cây cầu" src="webpictures/TiaSang_miendat.jpg"/></figure></div></li>
+<li>Ứng dụng mật mã làm tăng hiệu quả việc ghép thận (11/2018)
+  <ul>
+    <li><a href="TiengViet/ghep-than.html">Bản HTML</a></li>
+    <li><a href="https://www.facebook.com/rongchoi/posts/10215865313562562">Bản trên Facebook</a></li>
+  </ul>
+</li>
+<li>Gowers va Tao, polymath (2010)
+<ul><li><a href="https://www.facebook.com/rongchoi/posts/148517298518697&amp;sa=D&amp;ust=1573766471386000">Bản trên Facebook</a></li></ul>
+</li>
+<li>Hướng nghiên cứu cá nhân – Anamorphic Crypto, Voting System, Mật mã hậu lượng tử và Privacy trước AI. (10/2024)
+<ul>
+  <li><a href="TiengViet/huongnghiencuu2024.html">Bản HTML</a></li>
+  <li><a href="https://www.facebook.com/rongchoi/posts/pfbid031ZRdCx5wTK9JWGhUJNtTk8fvVtS88ZYCuEk97LuHGKhnRp2BazFZKBj28UxTak7ol">Bản trên Facebook</a></li>
+</ul>
+</li>
+</ol>
+<h3 id="thong-tin-khoa-hoc">Thông tin khoa học:</h3>
+<ol class="article-list">
+<li>Alfred Menezes giảng bài ở VIASM – MOV attack và Pairing-based Cryptography. (03/2026)
+<ul>
+  <li><a href="TiengViet/alfredmenezes2026.html">Bản HTML</a></li>
+  <li><a href="https://www.facebook.com/rongchoi/posts/10216058234545466">Bản trên Facebook</a></li>
+</ul>
+</li>
+<li>Phỏng vấn Mélissa Rossi – Chiến lược Mật mã Hậu lượng tử của Pháp và Châu Âu (09/2025)
+<ul><li><a href="TiengViet/melissarossi2025.html">Bản HTML (có video)</a></li></ul>
+</li>
+<li>Trường hè Mật Mã IACR-VIASM 2022 (24/8–31/8/2022).
+<ul>
+  <li><a href="TiengViet/truonghematma2022.html">Bản HTML</a></li>
+  <li><a href="https://www.facebook.com/rongchoi/posts/pfbid036kQeDW8p3MzPnSwzVYzL3oBuS6ETKMZqwro5n7iKg97vxp1ef53UaFwPcucB7SG7l">Bản trên Facebook</a></li>
+</ul>
+</li>
+<li>Mật mã – Học máy và chuỗi bài giảng về Lattice Cryptography của Phong Nguyễn tại VIASM. (12/2018)
+<ul>
+  <li><a href="TiengViet/phongnguyen2018.html">Bản HTML</a></li>
+  <li><a href="https://www.facebook.com/rongchoi/posts/10216058234545466">Bản trên Facebook</a></li>
+</ul>
+</li>
+<li>Không khí khoa học tại Hà Nội năm 1969 : "Nhật ký Khoa học" của Phan Đình Diệu. (10/2025)
+<ul><li><a href="https://www.facebook.com/rongchoi/posts/pfbid0pKcxdnEmJJuntihpZtqwHqkexCu6j67PEXokpuPUwwCdDjTHigBG71225nxknYqRl">Bản trên Facebook</a></li></ul>
+</li>
+<li>Nước Pháp thử nghiệm chiến lược tài trợ nghiên cứu Top-down. (02/2024)
+<ul><li><a href="https://www.facebook.com/rongchoi/posts/pfbid032s3yUckHE2r7p9xKkfbufk1eT1hLasT6RVjEqqepk6sAskfh4jcMgZCXtzmSC1PHl">Bản trên Facebook</a></li></ul>
+</li>
+<li>Moti Yung – soái ca của Google về Crypto/Privacy/Security sẽ tới Hà Nội hè này. (04/2025)
+<ul>
+  <li><a href="TiengViet/motiyung2025.html">Bản HTML</a></li>
+  <li><a href="https://www.facebook.com/rongchoi/posts/pfbid037GZDx5gVcsZWdNdgTYRqZrERHfqdh6aGAPMRH4uARMunQtXFiMDkpWCsQY8An69bl">Bản trên Facebook</a></li>
+</ul>
+</li>
+<li>Về bài viết của anh Lê Minh Hà trên báo Tia Sáng "Toán học Việt Nam: Cần thay đổi cho toàn hệ thống" (03/2023)
+<ul><li><a href="https://www.facebook.com/rongchoi/posts/pfbid02LGhayWAsSBiaxDimtBRkgdqnJYsEqkPuU8ejLvjXrWF2biw8KefumGQNbP4bMCzZl">Bản trên Facebook</a></li></ul>
+</li>
+<li>Đào tạo tiến sĩ thông qua hợp tác quốc tế về nghiên cứu và đào tạo. (11/2017)
+<ul><li><a href="https://www.facebook.com/rongchoi/posts/pfbid0zdkP97gPJkAF1S7djsfNnY1SWsS4noqNVGJWWkZ5rDKmaZ5oB8MZEgMtCHKxfQmgl">Bản trên Facebook</a></li></ul>
+</li>
+<li>Bài giảng đại chúng của Adi Shamir (11/2016)
+<ul>
+  <li><a href="TiengViet/adishamir2016.html">Bản HTML</a></li>
+  <li><a href="https://www.facebook.com/viasmeduvn/posts/1341914905832465?__xts__%255B0%255D=68.ARDm-MiLVEcDqwGp6g-h3j3C1xCV0kaTEGR3HQoN2-3tMfJVUn8WEh9FzaNyfQbGNv5VdJd1UFW8WJE_IjO7UYw71M8gXNzvmw5V5e1LiQvuOc_JDqXSTRDuqGP52RSqSA15kjcVoffeeCEN29fuLOcfUT8xirgnVrhBTDvd6SNmKqNqKJ2txfR_WA_Y6F7HaDzcwDi95IJ97fHw-LcwLjWUpjK0HjgoEzBde_phzdVRsszw7e939-84nqYXSVddnNKcnp5v3ueFtxfrTZzeRt6H9JSf7u_p-EvtbYHBp6W04hQl9WETDyUjGujXynSnANzjCtVf56T3NrNiu4vEg7rzLQw%26__tn__=-R&amp;sa=D&amp;ust=1573766471360000">Bản trên Facebook (VIASM)</a></li>
+  <li><a href="https://www.facebook.com/rongchoi/posts/10209749606753714&amp;sa=D&amp;ust=1573766471361000">Bản trên Facebook</a></li>
+</ul>
+</li>
+<li>ASIACRYPT 2016 và Trường Thu Mật Mã tại Hà Nội (11/2015 – 09/2016)
+<ul><li><a href="TiengViet/asiacrypt2016.html">Bản HTML</a></li></ul>
+</li>
+<li>Nhớ lại những kỷ niệm đẹp của Vietcrypt 2006 (2013)
+<ul><li><a href="https://www.facebook.com/rongchoi/posts/10201812882980580&amp;sa=D&amp;ust=1573766471363000">Bản trên Facebook</a></li></ul>
+</li>
+<li>Chuỗi bài giảng của Medhi Tibouchi ở VIASM về chữ ký điện tử (04/2018)
+<ul><li><a href="https://www.facebook.com/rongchoi/posts/10214267919428707&amp;sa=D&amp;ust=1573766471364000">Bản trên Facebook</a></li></ul>
+</li>
+<li>Từ Gauss đến RSA (1/2017)
+<ul><li><a href="https://www.facebook.com/rongchoi/posts/10210210635479144&amp;sa=D&amp;ust=1573766471365000">Bản trên Facebook</a></li></ul>
+</li>
+<li>Neal Koblitz tại Viện Toán học – Bất cập trong mật mã và câu chuyện mật mã Việt Minh (09/2015)
+<ul><li><a href="TiengViet/nealkoblitz2015.html">Bản HTML</a></li></ul>
+</li>
+<li>Yvo Desmedt giảng bài tại VIASM – Threshold Cryptography và kỷ niệm với một cây cổ thụ của làng Mật Mã (02/2020)
+<ul><li><a href="TiengViet/yvodesmedt2020.html">Bản HTML</a></li></ul>
+</li>
+<li>
+<a href="https://www.facebook.com/photo.php?fbid=10208270543338053%26set=a.1151913154820%26type=3&amp;sa=D&amp;ust=1573766471366000">ANSSI là cơ quan đầu não phụ trách các vấn đề về an toàn thông tin cho các hệ thống tin học của Pháp</a>
+        (5/2016)
+    </li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10207243865671753&amp;sa=D&amp;ust=1573766471367000">Chương trình cao học Master2 CRYPTIS trên Blog báo Le Monde</a>
+        (1/2016)
+    </li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10210157286905463&amp;sa=D&amp;ust=1573766471368000">Những năm 1949-1953, phòng Mã hoá của Pháp trung bình mỗi ngày chuyển bao nhiêu bức điện báo được mã hoá?</a>
+        (12/2016)
+    </li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10210061527031526&amp;sa=D&amp;ust=1573766471369000">Bản báo cáo của tình báo Pháp về sự trợ giúp của Trung Quốc cho Việt Minh, cả về vũ khí lẫn chuyên gia.</a>
+        (12/2016)
+    </li>
+</ol>
+<div class="back-to-toc"><a href="#toc">↑ Về mục lục</a></div>
+</section>
+<section id="chinh-sach-khoa-hoc">
+<h2>Chính sách khoa học</h2>
+<ol class="article-list">
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Tài chính và tự chủ liệu có thay đổi được diện mạo các Đại học? (Vietnamnet, 10/2018)
+        <ul>
+<li><a href="https://vietnamnet.vn/co-the-toi-gian-nhung-mon-hoc-can-tro-tu-duy-phan-bien-481453.html">Bản trên Vietnamnet</a></li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Tài chính và tự chủ liệu có thay đổi được diện mạo các Đại học" src="webpictures/VNN_tuchu.png"/></figure></div></li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Thúc đẩy R&amp;D: Liên kết hàn lâm - công nghiệp thông qua đào tạo tiến sỹ. (Báo Thanh Niên, 09/2023)
+        <ul>
+<li><a href="https://thanhnien.vn/rd-ban-dap-tu-dao-tao-tien-si-lien-ket-han-lam-cong-nghiep-185230927084731245.htm">Bản trên Thanh Niên</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid028hAg7JJgtVnD5C1SzrqwyRr93y34w9th2aZvjJh2DVd6abQAZrrdXM5J99juQhpal">Bản trên Facebook</a></li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Thúc đẩy R&amp;D" src="webpictures/Thanhnien_RD.jpg"/></figure></div></li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Đặc điểm môi trường nghiên cứu của đại học và công ty (Tia sáng, 06/2010)
+        <ul>
+<li><a href="https://tiasang.com.vn/dac-diem-moi-truong-nghien-cuu-cua-dai-hoc-va-cong-ty-4982123.html">Bản trên Tia sáng</a></li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Đặc điểm môi trường nghiên cứu của đại học và công ty" src="webpictures/TiaSang_dacdiem.png"/></figure></div></li>
+<li>Một số ý kiến cho việc phát triển Trường USTH (Ngô Bảo Châu – Phan Dương Hiệu)
+        <ul>
+<li><a href="http://inaolop.com/m%25E1%25BB%2599t-s%25E1%25BB%2591-y-ki%25E1%25BA%25BFn-cho-vi%25E1%25BB%2587c-phat-tri%25E1%25BB%2583n-tr%25C6%25B0%25E1%25BB%259Dng-usth/&amp;sa=D&amp;ust=1573766471346000">Bản trên inaolop</a></li>
+<li><a href="https://www.dropbox.com/s/ucki6e6i1m5u8bn/USTH_MotSoYKien.doc?dl=0&amp;sa=D&amp;ust=1573766471346000">Bản doc</a></li>
+<li><a href="https://www.dropbox.com/s/crl4jbpuxr2zowv/USTH_QuelquesPropositions.doc?dl=0&amp;sa=D&amp;ust=1573766471346000">Bản tiếng Pháp</a></li>
+</ul>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0saAkziTC3oLvR8fpcjFySy5ac9E5pTdn9BoWzAeD47PU76KykXkoSpGnhGmjdUWFl"> Mật mã hậu lượng tử - sự (không) tương thích giữa chính sách của Châu Âu và Mỹ. (04/2025)</a>
+</li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">
+<a href="https://www.facebook.com/reel/1481971279518471"> Phỏng vấn Phát ngôn viên của Pháp về Chiến lược Mật mã Hậu lượng tử của Pháp và Châu Âu. (09/2025)</a>
+</div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Phỏng vấn chiến lược mật mã hậu lượng tử" src="webpictures/Telecom_Melissa.png"/></figure></div></li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0BybBS3mfCmdTkuDoh3829v66SfdAKe37GyvCXJYVJbN2QECf2W5jQNzQ7viXAyPnl"> Quantum Computer - Máy tính Lượng tử: cần một góc nhìn bản chất để quyết định chính sách và đầu tư. (01/2025)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid02gHTH3jZEt6WQe1BnaUnazUKD8LRCWBQgvKk7Wm4cy7TT1zez2RZQGymLu67yAdzYl"> Truyền thông Hậu Lượng Tử. (11/2024)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid02BqDmF9SzUtjfxtboAfmjFFp8bhLSFQV8WkMpTxb5MrAaJXWenct64TfsMu6Kq8dBl">Trao đổi khoá lượng tử. 
+(Position Paper on  Quantum Key Distribution, 01/2024)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid02DKVmfFgwtia84tppYkTXeFz6v2ABdTvdjzNw4FTecCUCsyhAF34kdgP4GtZXpsQjl"> Nhận xét về giải thưởng Vinfuture. (01/2022) </a>
+</li>
+<li class="c8">
+<span class="c3 c7">
+<a class="c0" href="https://www.facebook.com/photo?fbid=10203533095424816&amp;set=a.1151913154820">Học mở trực tuyến MOOC (một cách nhìn sau một trải nghiệm bản thân)</a>
+</span>
+<span class="c6 c7 c14"> (8/2014) </span>
+</li>
+<li class="c8">
+<span class="c3 c7">
+<a class="c0" href="https://www.facebook.com/rongchoi/posts/10213026363790592&amp;sa=D&amp;ust=1573766471358000">Đào tạo tiến sĩ thông qua hợp tác quốc tế về nghiên cứu và đào tạo.</a>
+</span>
+<span class="c2"> (11/2017) </span>
+</li>
+<li class="c8">
+<span class="c3 c7">
+<a class="c0" href="https://www.facebook.com/rongchoi/posts/10206542120088552&amp;sa=D&amp;ust=1573766471359000">Tuyển GS/PGS: tự do thả cửa hay tự do nửa chừng?</a>
+</span>
+<span class="c2"> (9/2015) </span>
+</li>
+<li class="c8">
+<span class="c3 c7">
+<a class="c0" href="https://www.facebook.com/rongchoi/posts/pfbid0fVF1CRGZKRhd5AdeKRhucgoorsSyHFLFs6LdYui1NU5X7qyTLcQEwyRWcCqBBPWl">Việc tài trợ các đề tài cần được cải tiến.</a>
+</span>
+<span class="c2"> (10/2020) </span>
+</li>
+<li class="c8">
+<span class="c3 c7">
+<a class="c0" href="https://www.facebook.com/rongchoi/posts/pfbid0fVF1CRGZKRhd5AdeKRhucgoorsSyHFLFs6LdYui1NU5X7qyTLcQEwyRWcCqBBPWl">Tạp chí rởm: Hội đồng muốn loại bỏ? Chỉ cần cầm "quân đen".</a>
+</span>
+<span class="c2"> (10/2023) </span>
+</li>
+<li class="c8">
+<span class="c3 c7">
+<a class="c0" href="https://www.facebook.com/rongchoi/posts/pfbid021UM544tzbLg3fbBYqXwoWBkv3o9c3hhvWqcaJTNa7vi5bASgjJzBkLWZfFWquRE1l">Tiến bộ công nghệ cao và việc đổi mới hoàn toàn những ngành khoa học truyền thống như khảo cổ học.</a>
+</span>
+<span class="c2"> (10/2023) </span>
+</li>
+<li>
+<a href="https://www.facebook.com/photo.php?fbid=10201454215014105%26set=a.1151913154820%26type=3&amp;sa=D&amp;ust=1573766471367000">Không khí nước Pháp năm 1954</a>
+        (tư liệu)
+    </li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10201497755702595&amp;sa=D&amp;ust=1573766471368000">Bấm nút quay lại ngày 5 tháng 12 năm 1952</a>
+        VO NGUYEN-GIAP "Le volcan sous la neige"
+    </li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10212690059183187&amp;sa=D&amp;ust=1573766471369000">Báo cho trẻ con Le petit Quotidien</a>
+        (10/2017)
+    </li>
+</ol>
+<div class="back-to-toc"><a href="#toc">↑ Về mục lục</a></div>
+</section>
+<section id="phan-dinh-dieu">
+<div class="content">
+<h2>Phan Đình Diệu - Giọt nước không tan </h2>
+<ol class="article-list" start="1">
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Trang web <a href=”https://phandinhdieu.github.io/”>”Nghĩ suy cùng đất nước” - Tuyển tập các bài viết của Phan Đình Diệu.</a></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh Phan Đình Diệu" src="webpictures/phandinhdieu.png"/></figure></div></li>
+<li>Phan Đình Diệu - <i> Như tôi biết ... </i>(Tập hợp các bài viết về Phan Đình Diệu)
+    <ul>
+<li><a href="https://drive.google.com/file/d/1BBJnpIV97tmVnru8m9nYrX5iwZLkjdZY/view?fbclid=IwZXh0bgNhZW0CMTAAAR1kYFRuuRDzzJNBkHYheqvMALG9UDPFqIm9tuiNvIgeG55h05k_C4-6rWY_aem_Adn-P3BWtVAGb3v13hMKj-LK630zQPb7P3gApG5Sdf2rEfdWsqQjnd-3UDAIenv0dOZD4n8sTt0TZsJBWLtlxou1"> Bản pdf </a></li>
+</ul>
+</li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">“Giọt nước đó sẽ không tan đi” (ĐBND, 5/2018)
+    <ul>
+<li><a href="https://daibieunhandan.vn/van-hoa/Giot-nuoc-do-se-khong-tan-di-i168281/">Bản trên ĐBND</a></li>
+<li><a href="https://www.dropbox.com/s/6gyvsxm8h3jiuou/2018_Gionuoc%2528BanIn%2529.pdf?dl=0">Bản chụp báo in</a>, <a href="https://www.facebook.com/rongchoi/posts/pfbid02xjSmbxrkP9DBYQCorEvPhVFHwd33X7e9SzaRCNhY4YAz3h3FX5iuNG2rCx5psJKDl"> Bản trên facebook</a>
+</li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Giọt nước đó sẽ không tan đi" src="webpictures/giotnuoc.png"/></figure></div></li>
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Số báo đặc biệt của Tạp chí Tin Học và Điều Khiển của Việt Nam kỷ niệm lần sinh thứ 85 của Phan Đình Diệu. (06/2021)
+    <ul>
+<li><a href="https://vjs.ac.vn/index.php/jcc/article/view/16603/384792?fbclid=IwZXh0bgNhZW0CMTAAAR1Pv-4NHi0UWDotbVhePBDQNCkuT86pOKj4_vpjhpPtziAa0fMsve_hx0I_aem_AdkzoQ1B92SjBg3yvUSLIxa-OSHH9HBK9Ifa02SWmy3I-kBlhCo315vg7gXUPlnuIf0Zpo0dybRrPp7WP5p3EjUo">Preface</a>, <a href="https://vjs.ac.vn/index.php/jcc/issue/view/1226">Part A</a>, <a href="https://vjs.ac.vn/index.php/jcc/issue/view/1246">Part B</a>.
+    </li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid02rELrDPQ4ZSgA4Lzrs3Y4YH9J6495BRuGbgYvA2osPURdk2znrowHSGtFkAzGEXnol">Bài trên facebook</a></li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài Preface về Phan Đình Diệu" src="webpictures/preface.png"/></figure></div></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/10214485729993835">Lời cảm ơn và lời với bố</a></li>
+</ol>
+<h3 id="doc-lai-ve-phan-dinh-dieu">Đọc lại một số bài viết của Phan Đình Diệu:</h3>
+<ol class="article-list">
+<li>« Kiến nghị về một chương trình cấp bách nhằm khắc phục khủng hoảng và tạo điều kiện lành mạnh cho sự phát triển đất nước » - Phan Đình Diệu – Tháng 2/1991.
+        <ul>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid02D8giCRcMpekHpVQT5WuKJpBt1b8YwywFaxpEaRLf4a9F32eYHwYhVS8doiPeDHr2l">Bản trên Facebook</a></li>
+</ul>
+</li>
+<li>Về Yêu Cầu Tiếp Tục Đổi Mới Trong Giai Đoạn Hiện Nay (1997) - Bài phát biểu gây chấn động trên diễn đàn Mặt Trận Tổ quốc năm 1997. (05/2019)
+        <ul>
+<li><a href="https://www.facebook.com/rongchoi/posts/10217102915461836&amp;sa=D&amp;ust=1573766471353000">Bản trên Facebook</a></li>
+</ul>
+</li>
+<li>“Góp Ý Kiến Về Đổi Mới" của Phan Đình Diệu trên số cuối cùng của báo Tổ Quốc (số 10 năm 1988). (12/2016)
+        <ul>
+<li><a href="https://www.facebook.com/rongchoi/posts/10210008207338567&amp;sa=D&amp;ust=1573766471353000">Bản trên Facebook</a></li>
+</ul>
+</li>
+<li>Toàn văn bài viết “Khoa học hệ thống và một số ý kiến về vấn đề về cải tiến quản lý kinh tế hiện nay” (Phan Đình Diệu, năm 1981, 47 trang, viết theo đề nghị của thủ tướng Phạm Văn Đồng).
+        <ul>
+<li><a href="https://www.facebook.com/rongchoi/posts/10204339834992801&amp;sa=D&amp;ust=1573766471354000">Bản trên Facebook</a></li>
+</ul>
+</li>
+<li>Báo Đại Đoàn Kết đăng một số suy nghĩ của Phan Đình Diệu về hoà hợp dân tộc
+        <ul>
+<li><a href="https://www.facebook.com/rongchoi/posts/10216959657480476&amp;sa=D&amp;ust=1573766471354000">Bản trên Facebook</a></li>
+</ul>
+</li>
+<li>Về “Chương Trình Quốc Gia về CNTT – Kế hoạch tổng thể đến năm 2000” 
+        <ul>
+<li><a href="https://www.facebook.com/rongchoi/posts/10213775077867976&amp;sa=D&amp;ust=1573766471354000">Bản trên Facebook</a></li>
+<li><a href="https://www.facebook.com/notes/di%25E1%25BB%2585n-%25C4%2591%25C3%25A0n-forum/tin-h%25E1%25BB%258Dc-%25E1%25BB%259F-vi%25E1%25BB%2587t-nam-con-h%25E1%25BB%2595-ch%25C3%25A2u-%25C3%25A1-bu%25E1%25BB%2595i-gian-tru%25C3%25A2n/1744745875563894/&amp;sa=D&amp;ust=1573766471355000">Bài trên báo Diễn Đàn</a></li>
+</ul>
+</li>
+<li>1978 - Phan Đình Diệu: Tham luận trên Quốc hội về trách nhiệm người Quản lý khi làm ra quá nhiều phế phẩm.
+        <ul>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid0rnT1cnMMttrFiqJkVrFMm4vDmu2SNdvWsSAbHX4xW4wMvAUbgsyUiptybKnKZV2Yl">Bản trên Facebook</a></li>
+</ul>
+</li>
+</ol>
+<div class="back-to-toc"><a href="#toc">↑ Về mục lục</a></div>
+</div></section>
+<section id="giai-tri-section">
+<h2 id="giai-tri">Tản mạn</h2>
+<ol class="article-list">
+
+
+
+
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Đi về đâu hỡi Machinila (Tia Sáng, 04/2026)
+        <ul>
+<li><a href="https://tiasang.com.vn/di-ve-dau-hoi-machinila-5057453.html">Bản trên Tia Sáng</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid02yQFymLtVsoAFasaXeoAFYz89T8LLqrGCQFBbkZH9gExWStFaJSD34ctjVp9a3DQbl">Bản trên facebook</a></li>
+<li><a href="https://www.di.ens.fr/~phan/Machinila.html">Bản dịch sang tiếng Anh, được thảo luận trong chương trình MBA của Thái Lan</a></li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài SMachinila" src="webpictures/TiaSang_machinila.jpg"/></figure></div></li>
+
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Chuyện kể năm 2063: Giải mật 'Mã HuM'
+(Hay “Loài người đã được giải cứu như thế nào?”) (Tia Sáng, 04/2026)
+        <ul>
+<li><a href="https://tiasang.com.vn/chuyen-ke-nam-2063-giai-mat-ma-hum-5061138.html">Bản trên Tia Sáng</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid02vEMQbw2qDY67jE3giKaUqPjSobdA3Cj8WQ8tWUyZSPNNfgKwrxe1Pt5FDABmyZvCl">Bản trên facebook năm 2024</a></li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài SMachinila" src="webpictures/Tiasang_MaHuM.jpg"/></figure></div></li>
+
+<li class="article-with-image"><div class="article-with-image-wrap"><div class="article-text">Visibility is a trap. (Văn Việt, 01/2026)
+        <ul>
+<li><a href="https://vanviet.info/van-de-hom-nay/visibility-is-a-trap-tan-man-sau-khi-doc-doi-cuon-sach/">Bản trên Văn Việt</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/pfbid0TKvkvoJa8tR6uaQ1YysPE1ka5ZvttbTcjqsRPWoc8fh5Gn1qqjaR2jGMC2WPv66Pl">Bản trên facebook</a></li>
+</ul></div><figure class="article-side-image"><img loading="lazy" alt="Ảnh bài SMachinila" src="webpictures/Vanviet_visibility.png"/></figure></div></li>
+
+
+<li>Rùa, Bác K và PI (Tạp chí Pi số đầu tiên, 1/2017)
+        <ul>
+<li><a href="https://www.facebook.com/hahuy.khoai/posts/1614829055198930&amp;sa=D&amp;ust=1573766471345000">Bản trên facebook</a></li>
+
+<li>
+<a href="https://docs.google.com/document/d/1HNdQiUpusdWSMqEZdgfJTfnPlTIjLSDuAsprGmTSex4/edit?usp=sharing&amp;sa=D&amp;ust=1573766471376000">Nhân ngày 01/04: Mật mã đang ở đâu?</a>
+</li>
+
+</ul>
+</li>
+<li>Tản mạn trên báo ĐBND:
+        <ul>
+<li>Đồng xu cổ - Những thế giới song hành (ĐBND, 20/1/2019)
+                <ul>
+<li><a href="TiengViet/dongxu.html">Bản HTML</a></li>
+<li><a href="https://daibieunhandan.vn/dong-xu-co-nhung-the-gioi-song-hanh-10225907.html">Bản trên ĐBND</a></li>
+<li><a href="https://www.dropbox.com/s/xdtm1jmwebgznqp/DongXuCo.jpg?dl=0&amp;sa=D&amp;ust=1573766471348000">Bản báo in</a></li>
+</ul>
+</li>
+<li>Chữ cổ (ĐBND, 25/11/2018)
+                <ul>
+<li><a href="TiengViet/chuco.html">Bản HTML</a></li>
+<li><a href="https://daibieunhandan.vn/chu-co-10223988.html">Bản trên ĐBND</a></li>
+<li><a href="https://www.dropbox.com/s/wd0a37y6coajclb/2018_TanMan_ChuCo.jpg?dl=0&amp;sa=D&amp;ust=1573766471349000">Bản báo in</a></li>
+</ul>
+</li>
+<li>Champollion, Rosetta Stone và sự giải mã chữ cổ Ai Cập. (04/2016)
+                <ul>
+<li><a href="https://www.facebook.com/photo?fbid=10208004228800356&amp;set=a.10207982233410485">Bản trên Facebook</a></li>
+<li><a href="https://www.facebook.com/rongchoi/posts/10211048655109111?__xts__%255B0%255D=68.ARBohGpf3EJVvBAlCfg-icmFplyZKv80evTM0WxLCpsrXXWApYvP9y0iATHl1x8FHC2oBSFF6l_0oGZ6aQpFGTVG748b9mfPcGqTjlxlUudLHeuns68AasBgWopSskGiwdujaOtEEQL8Yu5UlQYaf0tEPqh4XMt3LerJ10vwsPodF0x8EvMbpzCgoUHDdocyNPOWXQCwsKq-u85ateOnSEvYCHUFuT_oeC-BRV9X_wQ0hHtsTNbohPt4ymA3dX36hTrjEohHAMjLeNxGqynQJQdmig%26__tn__=-R&amp;sa=D&amp;ust=1573766471350000">Sóc ở British Museum</a> cạnh Rosetta Stone</li>
+</ul>
+</li>
+<li>Tên trộm thành Paris (ĐBND, 11/2018)
+                <ul>
+<li><a href="TiengViet/tentrom.html">Bản HTML</a></li>
+<li><a href="http://www.daibieunhandan.vn/default.aspx?tabid=80%26NewsId=412784&amp;sa=D&amp;ust=1573766471350000">Bản trên ĐBND</a></li>
+<li><a href="https://www.dropbox.com/s/0q5w7gsmpj0q0bu/2018_TenTromParis.jpg?dl=0&amp;sa=D&amp;ust=1573766471350000">Bản báo in</a></li>
+</ul>
+</li>
+<li>Pháp, Brazil và giấc mơ tuổi thơ (ĐBND, 07/2018)
+                <ul>
+<li><a href="https://daibieunhandan.vn/phap-brazil-va-giac-mo-tuoi-tho-10218908.html">Bản trên ĐBND</a></li>
+<li><a href="https://www.dropbox.com/s/vwk8y4v1b7q2754/2018_DBND_Phap_Brazil.jpg?dl=0&amp;sa=D&amp;ust=1573766471351000">Bản báo in</a>, nhân đêm Pháp và Brazil đá tứ kết Worldcup</li>
+</ul>
+</li></ul>
+</li>
+
+
+        </ol>
+<h3 id="truyen-gia-tuong">Truyện giả tưởng (một số ngẫu nhiên rơi vào ngày 1/4):</h3>
+<ol class="article-list">
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid01NVf7n95p4Cs7jxZyW1wYZtCjqT5szZLKoeJwsdLAqS5y1HsDadpfaCMdb9gjNWvl">  Độc tài &amp; Triết gia  (01/04/2026) </a></li>
+
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0F8iJLnR8nRUHYEBWJESUcr4hZaPzSmy7V6U5naBinCWBX7PrAKBYyX4f4FWMBznAl">  The Phantom… (hội thoại cùng Trump, Musk và Sam)  (01/04/2025) </a></li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid09EBfjKBwpQUMjcmEFpnCkZfWfuQ41SYRBU5GvHxcgs3KM4qmNunNoV4fEuTkAjRHl"> Tình báo và cách dập dịch CoVid. (1/4/2020) </a>
+</li>
+<li>
+<a href="https://www.facebook.com/photo.php?fbid=10206551121753588%26set=a.1151913154820%26type=3&amp;sa=D&amp;ust=1573766471370000">Toa số 7, hàng ghế 41</a>
+            (9/2015)
+        </li>
+<li>
+<a href="https://www.facebook.com/notes/phan-d%25C6%25B0%25C6%25A1ng-hi%25E1%25BB%2587u/flirtingcipher-m%25C3%25A3-h%25C3%25B3a-b%25E1%25BA%25B1ng-%25C3%25A1nh-m%25E1%25BA%25AFt/10151644980826136/&amp;sa=D&amp;ust=1573766471371000">Flirting Cipher - Mã hoá bằng ánh mắt (2007)</a>
+</li>
+<li>
+<a href="https://docs.google.com/document/d/1aZ8nhouSP9TcXDALMZ25N_c9VYVFg8npdC3BcsQHJUQ/edit?usp=sharing&amp;sa=D&amp;ust=1573766471372000">Intermezzo Cipher</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/260266954099620&amp;sa=D&amp;ust=1573766471374000">"Tắm tinh thần": một thí nghiệm với những "chú chuột bạch" là các nhà khoa học.</a>
+            (2012)
+        </li>
+
+        </ol>
+<h3 id="football">Bóng đá:</h3>
+<ol class="article-list">
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0PHqJhsyPn73SxVr21REXDGkgtW5vxYMz1LQr21axjUYXS3SbC74KE6MpaPUa6Xxal"> Đỉnh (về trận chung kết AFF Cup: Việt Nam - Thái Lan)  (01/2025) </a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10208590370373529&amp;sa=D&amp;ust=1573766471370000">Pháp vào chung kết Euro, nhớ về tình yêu thủa nhỏ.</a>
+        (7/2016)
+    </li>
+
+        <li>
+<a href="https://docs.google.com/document/d/1FivppyB4MjOKHAr7mauGm8RomF5-vsDlSWzjvXrzz88/edit?usp=sharing&amp;sa=D&amp;ust=1573766471374000">Nghịch lý bóng đá: ghi bàn làm lợi cho đối thủ cạnh tranh trực tiếp?</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0icCQqukidFA5viFFf4NY8VaJN4ChNWZL94zh8GQ7u4UTDCHwWPpPE8QTYhXp7Gyjl">Cú đá của Boban (Modric là xuất sắc nhất, nhưng chỉ có Boban là anh hùng), 04/2024</a>
+
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10216293299581945&amp;sa=D&amp;ust=1573766471375000">Công nghệ VAR và sự lý thú của việc quay ngược thời gian.</a>
+</li>
+</ol>
+<h3 id="du-lich">Chuyện về các vùng đất:</h3>
+<ol class="article-list">
+<li>
+<a href="https://docs.google.com/document/d/1yiO89dkT4TYz2K_xqcRMKv2kx3Fm-42oBtVHrokX5s0/edit?usp=sharing&amp;sa=D&amp;ust=1573766471375000">Mỹ thừa nhận tưởng tượng ra "sự kiện vịnh Bắc Bộ 8/64"</a>
+</li>
+<li>
+<a href="TiengViet/giaimaeu.html">Tản mạn về khởi nguyên của châu Âu (theo lịch vua Hùng)</a>
+· <a href="https://docs.google.com/document/d/1b_RFJbJB3r1szQE2zsfDwPJieYGZMHabpDmcUzvb8hk/edit?usp=sharing&amp;sa=D&amp;ust=1573766471373000">Google Doc</a>
+</li>
+  <li>
+<a href="https://www.facebook.com/notes/phan-d%25C6%25B0%25C6%25A1ng-hi%25E1%25BB%2587u/k%25E1%25BB%25B7-ni%25E1%25BB%2587m-d%25C4%2583m-ng%25C3%25A0y-l%25C3%25A0m-vi%25E1%25BB%2587c-%25E1%25BB%259F-tokyo/10151482558751136/&amp;sa=D&amp;ust=1573766471372000">Tokyo - Sau 5 ngày hay…</a>
+</li>
+
+  <li>
+<a href="https://www.facebook.com/rongchoi/posts/10204027962876193&amp;sa=D&amp;ust=1573766471373000">Léonard de Vinci &amp; Château du Clos Lucé</a>
+</li>
+
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10205417589295985&amp;sa=D&amp;ust=1573766471376000">Famagusta, đảo Síp</a>
+            (4/2015)
+        </li>
+<li>
+<a href="https://www.facebook.com/photo.php?fbid=10206734411615720%26set=a.1151913154820%26type=3&amp;sa=D&amp;ust=1573766471377000">Milan (trong tàu điện ngầm)</a>
+            (10/2015)
+        </li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10205410144629873&amp;sa=D&amp;ust=1573766471377000">Đảo thần vệ nữ! (Cyprus - Island of Aphrodite)</a>
+            (04/2015)
+        </li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10205398064567879&amp;sa=D&amp;ust=1573766471378000">Có thật là núi đồi Cyprus luôn ẩn chứa những điều kỳ lạ?</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10205392393546107&amp;sa=D&amp;ust=1573766471378000">Đặt chân đến vùng đất mà nhà nước cai trị chỉ được công nhận bởi duy nhất 1 nước trên thế giới!</a>
+</li>
+<li>
+<a href="https://www.facebook.com/photo?fbid=10203057729300960&set=a.1151913154820">Đồng tiền xu, 05/2014</a>
+            (5/2014)
+        </li>
+<li>
+<a href="https://www.facebook.com/photo?fbid=10203050424198337&set=a.1151913154820">Hòn suýt đảo và Hồ tưởng không đáy!</a>
+</li>
+<li>
+<a href="https://www.facebook.com/photo/?fbid=10203033445893890&set=a.1151913154820">Lần theo dấu vết của thần Dớt và nàng Europe</a>
+</li>
+<li>
+<a href="https://www.facebook.com/photo/?fbid=10203033445893890&set=a.1151913154820">Chia tay hòn đảo thiên đường Santorini để tới đảo Crète: nơi chuyển giao giữa thế giới thánh thần và nền văn minh đầu tiên của châu Âu.</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10207655620845375&amp;sa=D&amp;ust=1573766471381000">“Hiệu sách không cần kho"</a>
+            (3/2016, ảnh bị chụp lên báo)
+        </li>
+<li>
+<a href="https://www.facebook.com/rongchoi/videos/10207551109712662/&amp;sa=D&amp;ust=1573766471381000">Lên sân khấu kịch</a>
+            (3/2016)
+        </li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/pfbid0fNaHBj7ugmz9uyQu4y8xYwYQieRSi9iHa3NVULVdR7kodgFCo9qreeavzmkDkyBJl">My Friend</a>
+            - về anh bạn Xuân Dương (12/2015)
+        </li>
+<li>
+<a href="https://www.facebook.com/photo?fbid=10202926219533298&amp;set=a.1151913154820">Và, con ơi, Bố muốn tặng con một chú ngựa rơm</a>
+</li>
+<li>
+<a href="https://www.facebook.com/photo.php?fbid=10201681617739031%26set=a.10200428891061647%26type=3&amp;sa=D&amp;ust=1573766471385000">Chia tay Palermo, thung lũng bao bởi ba mặt núi, một mặt biển.</a>
+</li>
+<li>
+<a href="https://www.facebook.com/photo.php?fbid=10200390965473531%26set=a.1151913154820%26type=3&amp;sa=D&amp;ust=1573766471386000">45 ngày cho một “giấc mơ nhỏ"</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10210157286905463&amp;sa=D&amp;ust=1573766471368000">Những năm 1949-1953, phòng Mã hoá của Pháp trung bình mỗi ngày chuyển bao nhiêu bức điện báo được mã hoá?</a>
+        (12/2016)
+    </li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10210061527031526&amp;sa=D&amp;ust=1573766471369000">Bản báo cáo của tình báo Pháp về sự trợ giúp của Trung Quốc cho Việt Minh, cả về vũ khí lẫn chuyên gia.</a>
+        (12/2016)
+    </li>
+
+</ol>
+<h3 id="musique">Âm nhạc</h3>
+<ol class="article-list">
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10201517888405900&amp;sa=D&amp;ust=1573766471383000">Romantique. (tập bản Prelude số 4 của Chopin)</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10200371462825977&amp;sa=D&amp;ust=1573766471383000">Bach - Menuet in G major</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10202753198727886&amp;sa=D&amp;ust=1573766471384000">Sonate của Haydn</a>
+</li>
+<li>
+<a href="https://www.facebook.com/rongchoi/posts/10201443757632677&amp;sa=D&amp;ust=1573766471384000">Schuman: Tai và Tay</a>
+            (Về Chord)
+        </li>
+</ol>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const olElements = document.querySelectorAll('.article-list');
+            let startValue = 1;
+
+            olElements.forEach(function(ol) {
+                ol.setAttribute('start', startValue);
+                startValue += ol.children.length;
+            });
+        });
+    </script>
+<div class="back-to-toc"><a href="#toc">↑ Về mục lục</a></div>
+</section>
+</main>
+<script>
+(function() {
+  function adjustTopPadding(){
+    var topbar = document.getElementById('topbar');
+    if(!topbar) return;
+    var h = topbar.offsetHeight || 0;
+    document.body.style.paddingTop = (h + 16) + 'px';
+  }
+  window.addEventListener('load', adjustTopPadding);
+  window.addEventListener('resize', adjustTopPadding);
+  window.addEventListener('scroll', adjustTopPadding, {passive:true});
+  window.adjustTopPadding = adjustTopPadding;
+})();
+</script>
+<script>
+(function() {
+  var threshold = 60;
+  function updateCompactHeader(){
+    if(window.scrollY > threshold){
+      document.body.classList.add('scrolled');
+    } else {
+      document.body.classList.remove('scrolled');
+    }
+    if(window.adjustTopPadding){
+      window.adjustTopPadding();
+    }
+  }
+  window.addEventListener('scroll', updateCompactHeader, {passive:true});
+  window.addEventListener('load', updateCompactHeader);
+})();
+</script>
+<script id="img-zoom">
+(function () {
+  var PW = 400; /* chiều rộng popover (px) */
+  var GAP = 12;
+
+  /* ── Tạo popover ── */
+  var pop = document.createElement('div');
+  pop.id = 'img-pop';
+  pop.innerHTML = '<img id="img-pop-img" alt=""/>';
+  document.body.appendChild(pop);
+  var popImg = document.getElementById('img-pop-img');
+
+  var css = document.createElement('style');
+  css.textContent =
+    '#img-pop{' +
+      'position:fixed;z-index:9998;' +
+      'width:' + PW + 'px;' +
+      'border-radius:16px;overflow:hidden;' +
+      'box-shadow:0 28px 70px rgba(0,0,0,0.22),0 4px 18px rgba(0,0,0,0.12);' +
+      'border:1px solid rgba(255,255,255,0.55);' +
+      'pointer-events:none;' +
+      'opacity:0;transform:scale(0.93) translateY(8px);' +
+      'transition:opacity 0.2s ease,transform 0.2s ease;' +
+      'will-change:transform,opacity' +
+    '}' +
+    '#img-pop.on{opacity:1;transform:scale(1) translateY(0);pointer-events:auto}' +
+    '#img-pop img{display:block;width:100%;height:auto}';
+  document.head.appendChild(css);
+
+  /* ── Định vị thông minh ── */
+  function reposition(rect) {
+    var w = Math.min(PW, window.innerWidth - GAP * 2);
+    pop.style.width = w + 'px';
+
+    /* Ưu tiên bên trái thumbnail (vì thumbnail nằm phải) */
+    var left = rect.left - w - GAP;
+    if (left < GAP) left = rect.right + GAP;          /* thử bên phải */
+    if (left + w > window.innerWidth - GAP)            /* fallback: căn giữa */
+      left = (window.innerWidth - w) / 2;
+
+    var top = rect.top;
+    var estH = w * 0.78;
+    if (top + estH > window.innerHeight - GAP)
+      top = Math.max(GAP, window.innerHeight - estH - GAP);
+
+    pop.style.left = Math.round(left) + 'px';
+    pop.style.top  = Math.round(top)  + 'px';
+  }
+
+  /* ── Sự kiện hover ── */
+  var timer = null;
+  var curFig = null;
+
+  function show(fig) {
+    clearTimeout(timer);
+    curFig = fig;
+    var img = fig.querySelector('img');
+    if (!img) return;
+    popImg.src = img.src;
+    popImg.alt = img.alt;
+    reposition(fig.getBoundingClientRect());
+    pop.classList.add('on');
+  }
+  function hide() {
+    timer = setTimeout(function () {
+      pop.classList.remove('on');
+      curFig = null;
+    }, 120);
+  }
+
+  document.querySelectorAll('.article-side-image').forEach(function (fig) {
+    fig.addEventListener('mouseenter', function () { show(fig); });
+    fig.addEventListener('mouseleave', hide);
+  });
+  pop.addEventListener('mouseenter', function () { clearTimeout(timer); });
+  pop.addEventListener('mouseleave', hide);
+
+  /* Cập nhật vị trí khi cuộn */
+  window.addEventListener('scroll', function () {
+    if (curFig && pop.classList.contains('on'))
+      reposition(curFig.getBoundingClientRect());
+  }, { passive: true });
+})();
+</script>
+<script id="source-markers">
+/* Đánh dấu các <li> chỉ có link Facebook (không có bài báo in) */
+(function () {
+  var pressHosts = [
+    'tiasang.com.vn','thanhnien.vn','vnexpress.net','laodong.vn',
+    'dantri.com.vn','daibieunhandan.vn','vietnamnet.vn',
+    'kienthuc.net.vn','vusta.vn','diendan.org','vjs.ac.vn',
+    'vanviet.info','medium.com','eprint.iacr.org'
+  ];
+  document.querySelectorAll('.article-list > li').forEach(function (li) {
+    var links = Array.from(li.querySelectorAll('a[href]'));
+    if (!links.length) return;
+    var hasSub    = !!li.querySelector('ul');
+    var hasImage  = li.classList.contains('article-with-image');
+    var hasPress  = links.some(function (a) {
+      return pressHosts.some(function (h) { return a.href.indexOf(h) !== -1; });
+    });
+    var allFb = links.every(function (a) { return a.href.indexOf('facebook.com') !== -1; });
+    /* Item chỉ có link FB, không có ảnh/sub-list/báo → đánh dấu */
+    if (allFb && !hasPress && !hasSub && !hasImage) {
+      li.classList.add('source-fb');
+    }
+  });
+})();
+</script>
+<script id="doc-viewer">
+(function () {
+  /* ── 1. Phát hiện link có thể nhúng iframe ── */
+  function embedUrl(href) {
+    var m;
+    // Google Drive /file/d/ID/view  →  /file/d/ID/preview
+    m = href.match(/drive\.google\.com\/file\/d\/([^\/\?&]+)/);
+    if (m) return 'https://drive.google.com/file/d/' + m[1] + '/preview';
+    // Google Drive /open?id=ID
+    m = href.match(/drive\.google\.com\/open\?id=([^&]+)/);
+    if (m) return 'https://drive.google.com/file/d/' + m[1] + '/preview';
+    // Google Docs /document/d/ID/edit  →  /document/d/ID/preview
+    m = href.match(/docs\.google\.com\/document\/d\/([^\/\?&]+)/);
+    if (m) return 'https://docs.google.com/document/d/' + m[1] + '/preview';
+    // PDF trực tiếp (Dropbox chặn iframe + buộc download → để mở tab mới)
+    if (/\.pdf(\?|#|$)/i.test(href) && href.indexOf('dropbox.com') === -1)
+      return href;
+    return null;
+  }
+
+  /* ── 2. CSS modal ── */
+  var css = document.createElement('style');
+  css.textContent = '\
+#doc-modal{display:none;position:fixed;inset:0;z-index:9999}\
+#doc-modal.open{display:block}\
+#doc-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(3px)}\
+#doc-box{\
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);\
+  width:min(94vw,1120px);height:min(92vh,880px);\
+  background:#fff;border-radius:18px;overflow:hidden;\
+  display:flex;flex-direction:column;\
+  box-shadow:0 28px 80px rgba(0,0,0,.28)\
+}\
+#doc-bar{\
+  display:flex;align-items:center;justify-content:space-between;\
+  padding:.65rem 1rem;background:#f8f9fa;\
+  border-bottom:1px solid #e8e8e8;gap:1rem\
+}\
+#doc-title{\
+  font:600 .9rem/1.3 Inter,Arial,sans-serif;color:#222;\
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis\
+}\
+#doc-actions{display:flex;align-items:center;gap:.5rem;flex-shrink:0}\
+#doc-newtab{\
+  font:700 .82rem/1 Inter,Arial,sans-serif;\
+  color:var(--accent,#8f1d2c);text-decoration:none;\
+  padding:.35rem .75rem;border-radius:999px;\
+  background:rgba(143,29,44,.09);white-space:nowrap\
+}\
+#doc-newtab:hover{background:rgba(143,29,44,.16)}\
+#doc-close{\
+  width:28px;height:28px;border-radius:50%;border:none;cursor:pointer;\
+  background:rgba(0,0,0,.1);font-size:.95rem;color:#555;line-height:1\
+}\
+#doc-close:hover{background:rgba(0,0,0,.2)}\
+#doc-frame{flex:1;border:none;width:100%}\
+a[data-pdf]::after{content:" 📄";font-size:.75em;opacity:.55}\
+@media(max-width:600px){\
+  #doc-box{width:100vw;height:100dvh;border-radius:0;top:0;left:0;transform:none}\
+}';
+  document.head.appendChild(css);
+
+  /* ── 3. HTML modal ── */
+  var wrap = document.createElement('div');
+  wrap.id = 'doc-modal';
+  wrap.innerHTML =
+    '<div id="doc-overlay"></div>' +
+    '<div id="doc-box">' +
+      '<div id="doc-bar">' +
+        '<span id="doc-title"></span>' +
+        '<div id="doc-actions">' +
+          '<a id="doc-newtab" target="_blank" rel="noopener noreferrer">↗ Mở tab mới</a>' +
+          '<button id="doc-close" aria-label="Đóng">✕</button>' +
+        '</div>' +
+      '</div>' +
+      '<iframe id="doc-frame" allowfullscreen loading="lazy"></iframe>' +
+    '</div>';
+  document.body.appendChild(wrap);
+
+  var modal   = document.getElementById('doc-modal');
+  var frame   = document.getElementById('doc-frame');
+  var newtab  = document.getElementById('doc-newtab');
+  var titleEl = document.getElementById('doc-title');
+  var closeBtn = document.getElementById('doc-close');
+  var overlay  = document.getElementById('doc-overlay');
+
+  function openModal(src, orig, label) {
+    frame.src = src;
+    newtab.href = orig;
+    titleEl.textContent = label || 'Đọc tài liệu';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    frame.src = '';
+    document.body.style.overflow = '';
+  }
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  /* ── 4. Gán sự kiện cho tất cả link ── */
+  var origin = location.origin;
+  document.querySelectorAll('a[href]').forEach(function (a) {
+    var href = a.href;
+    if (!href || /^(mailto:|#|javascript:)/.test(href)) return;
+    var src = embedUrl(href);
+    if (src) {
+      /* Link có thể xem inline → mở modal */
+      a.dataset.pdf = '1';
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal(src, href, a.textContent.trim());
+      });
+    } else if (href.indexOf(origin) !== 0) {
+      /* Link ngoài thông thường → mở tab mới */
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+})();
+</script>
+<script data-goatcounter="https://phanduonghieu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

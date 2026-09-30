@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20 Năm Hợp Tác Quốc Tế - Nghiên Cứu Mật Mã Việt Nam (2006-2026)</title>
+
+<!-- ============================================================= -->
+<!--  CÁCH CẬP NHẬT TRANG NÀY                                       -->
+<!--  Toàn bộ nội dung nằm trong biến EVENTS phía dưới (thẻ script).-->
+<!--  • Thêm một sự kiện  : thêm một object { ... } vào mảng EVENTS -->
+<!--  • Thêm một mục nội dung : thêm vào mảng "sections"            -->
+<!--  • Thêm ảnh          : thêm đường dẫn vào mảng "images"        -->
+<!--  • Đánh dấu cần bổ sung: đặt "todo" = true trên sự kiện        -->
+<!--  Lưu file rồi mở lại trong trình duyệt là thấy thay đổi.       -->
+<!-- ============================================================= -->
+
+<style>
+  :root{
+    --bg:#0f1420; --panel:#171e2e; --panel2:#1e2739; --line:#2b3650;
+    --text:#e8edf7; --muted:#93a0bd; --accent:#5b9dff; --accent2:#7c5cff;
+    --gold:#e0b64a; --todo:#ff8f6b; --ok:#4fd6a0;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:linear-gradient(180deg,#0c1019,#0f1420 40%); color:var(--text); line-height:1.6;
+  }
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header.hero{
+    padding:56px 24px 40px; text-align:center;
+    background:radial-gradient(1200px 400px at 50% -80px, rgba(91,157,255,.18), transparent);
+    border-bottom:1px solid var(--line);
+  }
+  header.hero h1{margin:0 0 10px; font-size:2rem; letter-spacing:.3px}
+  header.hero p{margin:6px auto; max-width:760px; color:var(--muted)}
+  .stat-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:22px}
+  .stat{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:12px 18px; min-width:120px}
+  .stat b{display:block; font-size:1.5rem; color:var(--gold)}
+  .stat span{font-size:.82rem; color:var(--muted)}
+
+  .wrap{max-width:1000px; margin:0 auto; padding:0 20px}
+
+  /* Timeline nav */
+  nav.timeline{
+    position:sticky; top:0; z-index:20; backdrop-filter:blur(10px);
+    background:rgba(15,20,32,.82); border-bottom:1px solid var(--line);
+    padding:12px 20px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+  }
+  nav.timeline a{
+    white-space:nowrap; padding:7px 14px; border-radius:999px; font-size:.85rem;
+    border:1px solid var(--line); background:var(--panel); color:var(--text);
+  }
+  nav.timeline a:hover{border-color:var(--accent); text-decoration:none}
+  nav.timeline a .yr{color:var(--accent); font-weight:700; margin-right:6px}
+
+  section.event{
+    margin:34px 0; background:var(--panel); border:1px solid var(--line);
+    border-radius:18px; overflow:hidden; scroll-margin-top:70px;
+  }
+  .event-head{
+    padding:22px 26px; display:flex; align-items:flex-start; gap:18px;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(90deg, rgba(124,92,255,.10), transparent);
+  }
+  .badge-year{
+    font-size:1.4rem; font-weight:800; color:#0c1019;
+    background:var(--gold); border-radius:12px; padding:8px 14px; min-width:76px; text-align:center;
+  }
+  .event-head h2{margin:0 0 4px; font-size:1.35rem}
+  .event-head .sub{color:var(--muted); font-size:.95rem}
+  .chip{
+    display:inline-block; font-size:.72rem; padding:3px 10px; border-radius:999px;
+    border:1px solid var(--line); color:var(--muted); margin-top:8px; margin-right:6px;
+  }
+  .chip.ok{color:var(--ok); border-color:rgba(79,214,160,.4)}
+  .chip.todo{color:var(--todo); border-color:rgba(255,143,107,.4)}
+
+  .event-body{padding:8px 26px 26px}
+  .meta-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin:18px 0;
+  }
+  .meta-grid .m{background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:10px 12px}
+  .meta-grid .m .k{font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.5px}
+  .meta-grid .m .v{font-size:.95rem}
+
+  .sec{margin:18px 0}
+  .sec h3{margin:0 0 8px; font-size:1.02rem; color:var(--accent)}
+  .sec ul{margin:6px 0; padding-left:20px}
+  .sec li{margin:3px 0}
+  .note{
+    border-left:3px solid var(--todo); background:rgba(255,143,107,.08);
+    padding:10px 14px; border-radius:0 8px 8px 0; color:#ffd9c9; font-size:.9rem; margin:12px 0;
+  }
+  .note b{color:var(--todo)}
+
+  .video-wrap{position:relative; padding-bottom:56.25%; height:0; border-radius:12px; overflow:hidden; border:1px solid var(--line); margin-top:12px}
+  .video-wrap iframe{position:absolute; inset:0; width:100%; height:100%}
+  .vcap{font-size:.82rem; color:var(--muted); margin:6px 2px 2px; text-align:center}
+
+  /* Gallery */
+  .gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; margin-top:14px}
+  .gallery figure{margin:0; border-radius:12px; overflow:hidden; border:1px solid var(--line); background:var(--panel2); cursor:zoom-in}
+  .gallery img{width:100%; height:120px; object-fit:cover; display:block; transition:transform .3s}
+  .gallery figure:hover img{transform:scale(1.06)}
+  .gallery figcaption{font-size:.72rem; color:var(--muted); padding:6px 8px; text-align:center}
+  .gallery .video{display:flex; align-items:center; justify-content:center; height:120px; color:var(--accent); font-size:2rem}
+
+  /* Lightbox */
+  #lb{position:fixed; inset:0; background:rgba(5,8,14,.92); display:none; align-items:center; justify-content:center; z-index:100; padding:24px}
+  #lb.on{display:flex}
+  #lb img{max-width:92vw; max-height:86vh; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  #lb .cap{position:absolute; bottom:22px; color:var(--muted); font-size:.9rem}
+  #lb .x{position:absolute; top:18px; right:24px; font-size:2rem; color:#fff; cursor:pointer; opacity:.8}
+
+  .lead{max-width:820px; margin:26px auto 0; padding:0 20px}
+  .lead .card{
+    background:var(--panel); border:1px solid var(--line); border-left:4px solid var(--gold);
+    border-radius:14px; padding:22px 26px;
+  }
+  .lead p{margin:0 0 14px; font-size:1.03rem}
+  .lead p:last-child{margin-bottom:0}
+  .lead .drop{color:var(--gold); font-weight:600}
+  .lead b{color:var(--text)}
+
+  .media{margin:40px auto 10px}
+  .media h2{font-size:1.35rem; margin:0 0 4px}
+  .media .msub{color:var(--muted); font-size:.95rem; margin:0 0 20px}
+  .media-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
+  .media-item{background:var(--panel); border:1px solid var(--line); border-radius:14px; overflow:hidden}
+  .media-item .cap{padding:12px 16px; font-size:.92rem}
+  .media-item video{width:100%; display:block; background:#000; aspect-ratio:16/9}
+  @media(max-width:700px){ .media-grid{grid-template-columns:1fr} }
+
+  footer{padding:40px 20px 60px; text-align:center; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); margin-top:30px}
+
+  /* ---------- Tablet ---------- */
+  @media(max-width:760px){
+    .wrap{padding:0 14px}
+    .event-body{padding:6px 16px 18px}
+    .event-head{padding:18px 16px}
+    .lead{padding:0 14px}
+    .lead .card{padding:18px 18px}
+    .meta-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:8px}
+  }
+
+  /* ---------- Mobile ---------- */
+  @media(max-width:600px){
+    header.hero{padding:34px 16px 26px}
+    header.hero h1{font-size:1.5rem}
+    header.hero h1[style]{font-size:1rem !important}
+    header.hero p{font-size:.92rem}
+    .stat-row{gap:8px; margin-top:16px}
+    .stat{flex:1 1 40%; min-width:0; padding:10px 12px}
+    .stat b{font-size:1.25rem}
+
+    /* Nav: các nút tự xuống dòng, canh giữa */
+    nav.timeline{gap:8px; padding:10px 12px}
+    nav.timeline a{font-size:.8rem; padding:6px 11px}
+
+    .lead{margin-top:18px}
+    .lead p{font-size:.96rem}
+
+    section.event{margin:20px 0; border-radius:14px}
+    .event-head{flex-direction:row; align-items:center; gap:12px}
+    .badge-year{font-size:1.05rem; padding:6px 10px; min-width:58px}
+    .event-head h2{font-size:1.1rem}
+    .event-head .sub{font-size:.85rem}
+
+    .sec h3{font-size:.98rem}
+    .sec ul{padding-left:18px}
+
+    /* Ảnh: 2 cột gọn gàng trên điện thoại */
+    .gallery{grid-template-columns:repeat(2,1fr); gap:8px}
+    .gallery img{height:110px}
+
+    .meta-grid{grid-template-columns:1fr 1fr}
+  }
+
+  /* ---------- Điện thoại nhỏ ---------- */
+  @media(max-width:380px){
+    .meta-grid{grid-template-columns:1fr}
+    .stat{flex-basis:100%}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>20 Năm Mở Rộng Hợp Tác Quốc Tế</h1>
+  <h1 style="font-size:1.15rem; color:var(--muted); margin-top:-4px; font-weight:500">
+    Nghiên cứu Mật mã ở Việt Nam · 2006 - 2026
+  </h1>
+  <p>Từ hội nghị mật mã quốc tế <b>đầu tiên</b> tại Việt Nam, đến hội nghị <b>hàng đầu thế giới</b>,
+     và chuỗi <b>trường hè do IACR bảo trợ</b> - một hành trình hội nhập hai thập niên.</p>
+</header>
+
+<div class="lead">
+  <div class="card">
+    <p><span class="drop">Sau nhiều năm phát triển trong nội bộ,</span> ngành Mật mã Việt Nam đã có một
+       bước ngoặt chính sách mang tính <b>“mở” đột phá</b>: muốn nâng cao chất lượng thì nhất thiết phải
+       hợp tác quốc tế - hoà vào dòng chảy tiến bộ của thế giới để nắm được cả kỹ thuật <b>tấn công</b>
+       lẫn nghệ thuật <b>xây dựng</b> của mật mã.</p>
+    <p>Năm <b>2006</b>, hội nghị Mật mã quốc tế đầu tiên được tổ chức tại Việt Nam mang tên <b>VietCrypt</b>.
+       Mười năm sau, <b>ASIACRYPT</b> - hội nghị flagship chính thức của Hiệp hội Nghiên cứu Mật mã thế giới
+       (IACR) - lần đầu tiên đến Việt Nam. Và trong mười năm qua, đã có <b>ba Trường hè của IACR</b> được tổ
+       chức tại đây.</p>
+    <p>Năm <b>2026</b> đánh dấu một cột mốc mới: sự ra đời của <b><a href="https://acr-lab.github.io/" target="_blank">ACR Lab</a></b>
+       - phòng nghiên cứu chung giữa VIASM và Ban Cơ yếu Chính phủ - quy tụ những người nghiên cứu Việt Nam
+       từ khắp nơi trên thế giới.</p>
+  </div>
+</div>
+
+<nav class="timeline" id="nav"></nav>
+
+<main class="wrap" id="events"></main>
+
+<section class="wrap media">
+  <h2>Videos tư liệu</h2>
+  <p class="msub">Một số video tư liệu về các hoạt động Mật mã.</p>
+  <div class="media-grid">
+    <div class="media-item">
+      <div class="video-wrap"><iframe src="https://www.youtube.com/embed/szROkFXKxW0" title="Thành lập ACR Lab"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="cap">Thành lập <b>ACR Lab</b> - phòng nghiên cứu chung VIASM &amp; Ban Cơ yếu Chính phủ.</div>
+    </div>
+    <div class="media-item">
+      <div class="video-wrap"><iframe src="https://www.youtube.com/embed/YxEF7if6NKc" title="Phỏng vấn Mélissa Rossi"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="cap">Phỏng vấn <b>Mélissa Rossi</b> (phát ngôn viên “Ban Cơ yếu Pháp” - ANSSI) về chính sách Mật mã Hậu lượng tử.</div>
+    </div>
+    <div class="media-item">
+      <video controls preload="metadata" src="BanCoYeu2022/2022_BanCoYeu_Chinhsach.mp4"></video>
+      <div class="cap"><b>Phan Dương Hiệu</b> trình bày tại Hội nghị do Ban Cơ yếu Chính phủ tổ chức (2022).</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Trang tổng kết chuỗi sự kiện Mật mã Việt Nam · Cập nhật bằng cách sửa mảng <code>EVENTS</code> trong file <code>index.html</code>.</p>
+  <p>Ảnh &amp; tư liệu nằm trong các thư mục con của <code>20Years_VietCrypt/</code>.</p>
+</footer>
+
+<div id="lb"><span class="x" onclick="closeLb()">×</span><img id="lbimg" alt=""><div class="cap" id="lbcap"></div></div>
+
+<script>
+/* ============================================================= *
+ *  DỮ LIỆU - chỉ cần sửa mảng này để cập nhật trang.            *
+ *  Mỗi sự kiện:                                                  *
+ *    id, year, title, subtitle, status ('done'|'todo'),         *
+ *    meta: [ [nhãn, giá trị], ... ],                             *
+ *    sections: [ { h:'Tiêu đề', html:'...nội dung HTML...' } ],  *
+ *    notes: [ 'ghi chú cần bổ sung', ... ],                      *
+ *    images: [ { src:'đường/dẫn.jpg', cap:'chú thích' }, ... ]   *
+ * ============================================================= */
+const EVENTS = [
+  {
+    id: "vietcrypt2006",
+    year: "2006",
+    title: "VietCrypt 2006",
+    subtitle: "Hội nghị Quốc tế đầu tiên về Mật mã tại Việt Nam",
+    status: "done",
+    meta: [
+      ["Thời gian", "25-28/09/2006"],
+      ["Địa điểm", "Khách sạn Melia, Hà Nội"],
+      ["Kỷ yếu", "Springer LNCS 4341"],
+      ["Website", '<a href="http://www.vietcrypt.org/" target="_blank">vietcrypt.org</a>'],
+    ],
+    sections: [
+      { h: "Ban tổ chức", html: `<ul>
+          <li><b>General Chair:</b> GS. Phan Đình Diệu (ĐHQG Hà Nội)</li>
+          <li><b>Program Chair:</b> Phong Nguyễn - ENS Paris</li>
+          <li><b>Local Organizers:</b> Nguyễn Quốc Khánh, Phan Dương Hiệu, Nguyễn Duy Lân</li>
+          <li><b>Đơn vị tổ chức:</b> FPT, cộng tác khoa học với Viện Toán học</li>
+        </ul>` },
+      { h: "Ý nghĩa", html: `Hội nghị quốc tế đầu tiên về Mật mã tại Việt Nam, đặt viên gạch đầu tiên
+          kết nối cộng đồng nghiên cứu trong nước với giới mật mã thế giới. Do GS. Phan Đình Diệu -
+          người tiên phong của ngành Tin học và Mật mã Việt Nam - làm Chủ tịch.` },
+      { h: "Phát biểu mời", html: `<ul>
+          <li><b>Jacques Stern</b> (Pháp) - Trưởng khoa Tin học, ENS Paris; đặt nền móng Mật mã tại Pháp.</li>
+          <li><b>Tatsuaki Okamoto</b> (Nhật Bản) - GS &amp; NTT; đặt nền móng Mật mã tại Nhật Bản.</li>
+          <li>Ban Cơ yếu (dự kiến): Mật mã Việt Nam từ thời chiến đến hiện tại.</li>
+        </ul>` },
+      { h: "Ban chương trình", html: `<b>80 bài nộp → 24 bài nhận</b> (in trong LNCS Springer). PC quy tụ:
+          Neal Koblitz (đường cong Elliptic vào Mật mã), Bart Preneel (Chủ tịch Mật mã châu Âu),
+          Pascal Paillier (Gemplus), Hà Huy Khoái (Viện trưởng Viện Toán học), Xiaoyun Wang (tấn công SHA).` },
+      { h: "Dấu ấn Việt Nam - 3 bài có tác giả Việt", html: `<ul>
+          <li><b>Phan Dương Hiệu</b> (UCL, Anh) - <i>Traitor Tracing for Stateful Pirate Decoders with Constant Ciphertext Rate</i></li>
+          <li><b>Nguyễn Duy Lân</b> (CSIRO, Úc) - <i>Efficient Dynamic k-Times Anonymous Authentication</i></li>
+          <li><b>Phan Thị Lan Anh</b> (Univ. Tokyo, Nhật) - <i>Reducing the Spread of Damage of Key Exposures in Key-Insulated Encryption</i></li>
+        </ul>` },
+      { h: "Một số diễn giả tiêu biểu", html: `<ul>
+          <li>Serge Vaudenay (EPFL) - <i>Short 2-Move Undeniable Signatures</i></li>
+          <li>Phillip Rogaway (UC Davis) - <i>Formalizing Human Ignorance</i></li>
+          <li>Arjen K. Lenstra (EPFL, chữ “L” trong LLL) - <i>Discrete Logarithm Variants of VSH</i></li>
+          <li>David Pointcheval &amp; Cécile Delerablée (CNRS/ENS) - <i>Dynamic Fully Anonymous Short Group Signatures</i></li>
+          <li>Jacques Patarin (Univ. Versailles) - <i>Probabilistic Multivariate Cryptography</i></li>
+        </ul>` },
+    ],
+    notes: [],
+    images: [
+      { src: "VietCrypt2006/PhanDInhDieu(Chair).jpg", cap: "GS. Phan Đình Diệu (Chủ tịch)" },
+      { src: "VietCrypt2006/JacquesStern_PhanDinhDieu.jpg", cap: "Jacques Stern &amp; Phan Đình Diệu" },
+      { src: "VietCrypt2006/JacquesStern.jpg", cap: "Jacques Stern" },
+      { src: "VietCrypt2006/VTV_PhanDinhDieu.jpeg", cap: "Phan Đình Diệu trên VTV" },
+    ],
+  },
+
+  {
+    id: "asiacrypt2016",
+    year: "2016",
+    title: "IACR ASIACRYPT 2016",
+    subtitle: "Hội nghị hàng đầu thế giới về Mật mã lần đầu tổ chức tại Việt Nam",
+    status: "done",
+    meta: [
+      ["Thời gian", "04-08/12/2016"],
+      ["Địa điểm", "InterContinental, Hà Nội"],
+      ["Lần thứ", "ASIACRYPT thứ 22"],
+      ["Tổ chức tại chỗ", "VIASM (đồng tổ chức: XLIM)"],
+      ["Kỷ yếu", "Springer LNCS 10031 &amp; 10032"],
+      ["Trực tuyến", '<a href="https://youtu.be/wNJvAQ0jmb0?t=283" target="_blank">IACR YouTube</a>'],
+    ],
+    videos: [
+      { url: "https://www.youtube.com/embed/wNJvAQ0jmb0?start=283",
+        cap: "Khai mạc &amp; giới thiệu ASIACRYPT 2016 (từ 4:43)" },
+      { url: "https://www.youtube.com/embed/MU996UXJSqw?start=1693",
+        cap: "Bài giảng đại chúng của Adi Shamir (từ 28:13)" },
+    ],
+    sections: [
+      { h: "Ý nghĩa", html: `ASIACRYPT là một trong ba hội nghị hàng đầu (flagship) của Hiệp hội Nghiên cứu
+          Mật mã Quốc tế <b>IACR</b> (cùng CRYPTO và EUROCRYPT). Đây là lần <b>đầu tiên</b> ASIACRYPT được tổ chức
+          tại Việt Nam - chỉ 10 năm sau VietCrypt 2006 - khẳng định vị thế của Việt Nam trên bản đồ nghiên cứu
+          Mật mã thế giới. VIASM là đơn vị tổ chức tại chỗ và đã thực hiện rất thành công.` },
+      { h: "Ban tổ chức", html: `<ul>
+          <li><b>General Chairs:</b> Phan Dương Hiệu &amp; Ngô Bảo Châu</li>
+          <li><b>Program Co-Chairs:</b> Jung Hee Cheon (Seoul National University) &amp; Tsuyoshi Takagi (Kyushu University)</li>
+        </ul>` },
+      { h: "Phát biểu mời (Invited Talks)", html: `<ul>
+          <li><b>Nadia Heninger</b> - <i>The Reality of Cryptographic Deployments on the Internet</i></li>
+          <li><b>Hoeteck Wee</b> - <i>Advances in Functional Encryption</i></li>
+          <li><b>Neal Koblitz</b> - <i>Cryptography in Vietnam in the French and American Wars</i> (bài lịch sử)</li>
+        </ul>` },
+      { h: "Bài giảng đại chúng của Adi Shamir", html: `<b>Adi Shamir</b> - một trong ba “ông tổ” của
+          mật mã khóa công khai, chữ <b>“S”</b> trong <b>RSA</b> (cùng Ron Rivest và Leonard Adleman), đồng phát minh
+          chia sẻ bí mật (Shamir Secret Sharing) và nhận Giải Turing 2002. Tại ASIACRYPT 2016, ông có bài giảng đại
+          chúng về mật mã hiện đại (04/12) - một vinh dự lớn cho cộng đồng khoa học Việt Nam khi được nghe trực tiếp
+          một trong những nhà mật mã có ảnh hưởng nhất thế giới. <i>(Video bên dưới, từ 28:13.)</i>` },
+      { h: "Điểm nhấn khác", html: `<ul>
+          <li><b>Best Paper:</b> Ilaria Chillotti, Nicolas Gama, Mariya Georgieva, Malika Izabachène -
+              <i>Faster Fully Homomorphic Encryption: Bootstrapping in less than 0.1 Seconds</i>.</li>
+          <li>Rump session do Steven Galbraith chủ trì; chương trình văn hóa có múa rối nước &amp; tiệc truyền thống Việt Nam.</li>
+        </ul>` },
+      { h: "Nhà tài trợ", html: `IACR, Microsoft, Cisco, Intel, Google, BIDV, Viettel, FPT, ECPAY,… ` },
+      { h: "Tham khảo", html: `
+          <a href="https://www.iacr.org/conferences/asiacrypt2016/www.asiacrypt2016.org/index.html" target="_blank">Trang chính thức ASIACRYPT 2016</a> ·
+          <a href="https://youtu.be/wNJvAQ0jmb0?t=283" target="_blank">Video (YouTube)</a> ·
+          <a href="https://ellipticnews.wordpress.com/2016/12/09/asiacrypt-2016/" target="_blank">Tường thuật trên ECC blog (ellipticnews)</a>` },
+    ],
+    notes: [
+      "Có thể bổ sung: số bài nộp/nhận chính thức (hai tập kỷ yếu LNCS 10031 & 10032).",
+    ],
+    images: [
+      { src: "AsiaCrypt2016/AC'16-ConfPhoto.jpeg", cap: "Ảnh tập thể hội nghị" },
+      { src: "AsiaCrypt2016/20161205_085938 (1).jpeg", cap: "05/12/2016" },
+      { src: "AsiaCrypt2016/IMG_0657.jpeg", cap: "" },
+      { src: "AsiaCrypt2016/IMG_2369.jpeg", cap: "" },
+      { src: "AsiaCrypt2016/IMG_2378.jpeg", cap: "" },
+      { src: "AsiaCrypt2016/IMG_2381.jpeg", cap: "" },
+      { src: "AsiaCrypt2016/IMG_2395.jpeg", cap: "" },
+      { src: "AsiaCrypt2016/IMG_2410.jpeg", cap: "" },
+      { src: "AsiaCrypt2016/IMG_2419.jpeg", cap: "" },
+      { src: "AsiaCrypt2016/IMG_3082.jpeg", cap: "" },
+      { src: "AsiaCrypt2016/IMG_3085.jpeg", cap: "" },
+      { src: "AsiaCrypt2016/IMG_3086.jpeg", cap: "" },
+      { src: "AsiaCrypt2016/IMG_3103.jpeg", cap: "" },
+      { src: "AsiaCrypt2016/IMG_3109.jpeg", cap: "" },
+    ],
+  },
+
+  {
+    id: "school2016",
+    year: "2016",
+    title: "IACR-SEAMS School on Cryptography 2016",
+    subtitle: "“Cryptography: Foundations and New Directions” - trường hè quốc tế về Mật mã đầu tiên do IACR bảo trợ tại Việt Nam",
+    status: "done",
+    meta: [
+      ["Thời gian", "27/11 - 04/12/2016"],
+      ["Địa điểm", "VIASM (P. B4-705), 161 Huỳnh Thúc Kháng, Hà Nội"],
+      ["Đồng bảo trợ", "IACR · SEAMS · CIMPA"],
+      ["Quy mô", "71 người · 17 quốc gia"],
+      ["Trang", '<a href="https://viasm.edu.vn/en/hdkh/cryptoschool2016" target="_blank">viasm.edu.vn</a>'],
+    ],
+    sections: [
+      { h: "Ý nghĩa", html: `Tổ chức ngay <b>trước thềm ASIACRYPT 2016</b>, đây là trường hè quốc tế về Mật mã đầu tiên
+          do IACR bảo trợ tại Việt Nam, nhằm thu hút sinh viên và nhà nghiên cứu trẻ đến với Mật mã. Trường thu hút
+          <b>71 người tham dự từ 17 quốc gia</b>, miễn phí đăng ký và có học bổng cho học viên từ Việt Nam và các nước
+          lân cận.` },
+      { h: "Ban tổ chức", html: `Phan Dương Hiệu (Univ. de Limoges), Lê Minh Hà (ĐH KHTN Hà Nội),
+          Dương Hoàng Dũng (Kyushu University), Ha Tran (Aalto University), Nguyễn Hữu Dư (VIASM).` },
+      { h: "Giảng viên & khóa học", html: `<ul>
+          <li><b>Nền tảng toán học:</b> Phan Thị Hà Dương, Phong Q. Nguyễn, Neal Koblitz</li>
+          <li><b>Provable Security:</b> David Pointcheval (ENS Paris)</li>
+          <li><b>Cryptanalysis:</b> Tanja Lange (TU Eindhoven)</li>
+          <li><b>High-Speed Cryptography:</b> Daniel J. Bernstein (TU Eindhoven / Univ. of Illinois Chicago)</li>
+        </ul>` },
+      { h: "Đối tượng", html: `Sinh viên năm cuối, học viên cao học/nghiên cứu sinh và nhà nghiên cứu trẻ.` },
+    ],
+    notes: [],
+    images: [
+      { src: "IACR_SChools/IACR School 2016/CryptoSchool.jpg", cap: "Trường hè Mật mã 2016" },
+      { src: "IACR_SChools/IACR School 2016/Lecturers.jpg", cap: "Các giảng viên" },
+      { src: "IACR_SChools/IACR School 2016/Koblitz_Hieu.jpg", cap: "Neal Koblitz &amp; Phan Dương Hiệu" },
+      { src: "IACR_SChools/IACR School 2016/Shamir.jpg", cap: "Adi Shamir" },
+      { src: "IACR_SChools/IACR School 2016/Shamir_Hieu.jpg", cap: "Adi Shamir &amp; Phan Dương Hiệu" },
+      { src: "IACR_SChools/IACR School 2016/IMG_0479.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2016/IMG_0485.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2016/IMG_0490.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2016/IMG_0491.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2016/IMG_0493.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2016/IMG_0513.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2016/IMG_0538.jpeg", cap: "" },
+    ],
+  },
+
+  {
+    id: "school2022",
+    year: "2022",
+    title: "IACR-VIASM Summer School on Cryptography",
+    subtitle: "Trường hè Mật mã do IACR bảo trợ tại VIASM",
+    status: "done",
+    meta: [
+      ["Thời gian", "24-30/08/2022"],
+      ["Địa điểm", "VIASM, Hà Nội"],
+      ["Tổ chức", "VIASM · bảo trợ IACR"],
+      ["Quy mô", "70+ học viên · 14 quốc gia"],
+      ["Khai mạc", "GS. Ngô Bảo Châu (24/8)"],
+    ],
+    sections: [
+      { h: "Mục tiêu & bối cảnh", html: `Tiếp nối VietCrypt 2006, ASIACRYPT 2016 và IACR-SEAMS School 2016, trường hè
+          giới thiệu những kết quả mới nhất của khoa học Mật mã. Khoa học mật mã và an toàn thông tin là <b>một trong
+          năm hướng ứng dụng trọng điểm</b> của Chương trình trọng điểm quốc gia phát triển Toán học 2021-2030.
+          Lễ khai mạc (24/8) do GS. <b>Ngô Bảo Châu</b> - Giám đốc khoa học VIASM - chủ trì.` },
+      { h: "Các bài giảng & giảng viên", html: `<ul>
+          <li><b>Nền tảng lý thuyết Mật mã hậu lượng tử</b> - GS. <b>Damien Stehlé</b> (Trưởng khoa Tin học ENS Lyon,
+              Médaille de bronze CNRS): đồng tác giả <b>CRYSTALS-Kyber</b> (mã hoá) &amp; <b>CRYSTALS-Dilithium</b>
+              (chữ ký số) - hai sơ đồ vừa được <b>NIST</b> chọn làm chuẩn, dự báo sẽ phổ biến như AES, RSA trong 10-20 năm tới.</li>
+          <li><b>Các sơ đồ mật mã nâng cao</b> (phân tán, bảo vệ quyền riêng tư) - GS. <b>David Pointcheval</b>
+              (Trưởng khoa Tin học ENS, Médaille d'argent CNRS 2021), GS. <b>Phan Dương Hiệu</b>
+              (Institut Polytechnique de Paris; Trưởng nhóm An ninh mạng - Mật mã, Télécom Paris) và PGS. <b>Ni Triệu</b>
+              (Mỹ, “sao trẻ” về Multi-Party Computation).</li>
+          <li><b>Mật mã đối xứng</b> (trao đổi thông tin an toàn tốc độ cao) - GS. <b>Jian Guo</b>
+              (Trưởng nhóm phá mã, NTU Singapore).</li>
+        </ul>` },
+      { h: "Ngày Real-World Crypto (29/8)", html: `Giới thiệu ứng dụng thực tế của nghiên cứu Mật mã, mở rộng cho tới
+          <b>300 người</b> - bước chuẩn bị để Việt Nam có thể đăng cai hội nghị <b>Real-World Crypto của IACR</b> trong
+          tương lai gần. Diễn giả gồm: <b>Phong Nguyễn</b> (ENS Paris, Cor Baayen Award; tổng quan 6 năm lựa chọn sơ đồ
+          Hậu Lượng Tử của NIST - hàng đầu thế giới về lý thuyết dàn suốt 25 năm), <b>Thái Dương</b> (“hacker mũ cối”, Google),
+          <b>Nguyễn Thời Minh Quân</b> (tác giả tấn công 0&amp;00), <b>Trọng Nguyễn</b> (nhóm Kyber) và
+          <b>Nguyễn Ngọc Khánh</b> (IBM Zurich).` },
+      { h: "Học viên", html: `Hơn <b>70 học viên xuất sắc từ 14 quốc gia</b> (Singapore, Nhật Bản, Thái Lan, Ấn Độ, Mỹ,
+          Đức, Pháp, Philippines, Thổ Nhĩ Kỳ, Đan Mạch, Australia, Việt Nam…), trong đó hơn 10 nghiên cứu sinh đang làm
+          tại các phòng thí nghiệm hàng đầu của Pháp (ENS, IPP, Paris 7…).` },
+      { h: "Triết lý của trường hè", html: `<i>“Trường hè không nhắm đến việc cung cấp những kiến thức mang tính trào lưu
+          như công nghệ blockchain mà sẽ gồm các bài giảng mang tính chất nền tảng lý thuyết vững… khi có nền tảng vững chắc
+          thì các bạn có thể tăng xác suất thành công trong mọi lựa chọn.”</i> - GS. Phan Dương Hiệu, Trưởng ban tổ chức.` },
+      { h: "Ban chương trình & tổ chức", html: `Phan Dương Hiệu (Télécom Paris), Khoa Nguyễn (Univ. Wollongong),
+          Ni Trieu (ASU), Dung Duong (Univ. Wollongong), Ha Tran (Concordia Univ. of Edmonton),
+          Lê Minh Hà (VIASM), Ngô Bảo Châu (VIASM).` },
+      { h: "Tham khảo", html: `
+          <a href="https://vietnamnet.vn/truong-he-mat-ma-tai-viasm-don-nhieu-chuyen-gia-dau-nganh-2052352.html" target="_blank">VietNamNet - Trường hè Mật mã tại VIASM đón nhiều chuyên gia đầu ngành</a> ·
+          <a href="https://vietnamnet.vn/tac-gia-so-do-sieu-mat-ma-chong-duoc-may-tinh-luong-tu-den-viet-nam-2053023.html" target="_blank">VietNamNet - Tác giả sơ đồ siêu mật mã chống được máy tính lượng tử đến Việt Nam</a>` },
+    ],
+    notes: [
+      "Video tư liệu: BanCoYeu2022/2022_BanCoYeu_Chinhsach.mp4",
+    ],
+    images: [
+      { src: "IACR_SChools/IACR School 2022/CryptoSchoolPoster-22.jpeg", cap: "Poster trường hè 2022" },
+      { src: "IACR_SChools/IACR School 2022/IMG_0790.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2022/IMG_0798.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2022/IMG_0819.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2022/IMG_0827.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2022/IMG_0838.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2022/IMG_0876.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2022/IMG_1314.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2022/IMG_1324.jpeg", cap: "" },
+    ],
+  },
+
+  {
+    id: "school2026",
+    year: "2026",
+    title: "IACR-VIASM Summer School on Cryptography 2026",
+    subtitle: "Mật mã lượng tử, Mật mã hậu lượng tử & Mật mã tiên tiến",
+    status: "done",
+    meta: [
+      ["Thời gian", "22-28/08/2026"],
+      ["Địa điểm", "VIASM (HT Laurent Schwartz), Hà Nội"],
+      ["Đồng tổ chức", "VIASM &amp; Viện Khoa học - Công nghệ Mật mã"],
+      ["Bảo trợ & hỗ trợ", "IACR · ACR Lab (VIASM-Ban Cơ yếu Chính phủ) · Calif (Hoa Kỳ)"],
+      ["Quy mô", "150 người · 8 quốc gia"],
+    ],
+    sections: [
+      { h: "Chủ đề & ý nghĩa", html: `Trường hè tập trung vào <b>Mật mã lượng tử, Mật mã hậu lượng tử và Mật mã tiên tiến</b> -
+          những hướng nóng nhất khi công nghệ lượng tử phát triển nhanh. Sự kiện thúc đẩy nghiên cứu mật mã tại Việt Nam và khu vực,
+          tăng cường kết nối giữa cộng đồng toán học, khoa học máy tính và mạng lưới nghiên cứu mật mã quốc tế.` },
+      { h: "Quy mô", html: `<b>150 học viên &amp; nhà nghiên cứu</b> (120 Việt Nam, 30 quốc tế) từ <b>8 quốc gia</b>:
+          Ấn Độ, Indonesia, Pháp, Malaysia, Trung Quốc, Uzbekistan, Philippines và Canada. Đối tượng chính là sinh viên năm cuối,
+          học viên cao học, nghiên cứu sinh và nhà nghiên cứu trẻ; toàn bộ giảng dạy bằng tiếng Anh.` },
+      { h: "Lễ khai mạc (22/8)", html: `Tại Hội trường Laurent Schwartz, VIASM, với phát biểu của:
+          PGS. <b>Lê Minh Hà</b> (Giám đốc điều hành VIASM, đại diện BTC); Thiếu tướng <b>Hồ Văn Hương</b>
+          (Phó Trưởng ban Ban Cơ yếu Chính phủ, đơn vị đồng tổ chức); GS. <b>Phan Dương Hiệu</b>
+          (Télécom Paris, IPP - Trưởng Ban Chương trình); và PGS. <b>Nguyễn Ngọc Kỷ</b>
+          (LIP6, CNRS/Sorbonne Université - đồng Trưởng ban Tổ chức &amp; Chương trình).` },
+      { h: "Giảng viên & khóa học", html: `Sáu chuyên gia từ Canada, Pháp và Hàn Quốc:
+        <ul>
+          <li><b>Cryptography in the Quantum World</b> - <b>Alex Bredariol Grilo</b> (LIP6, CNRS/Sorbonne) &amp;
+              <b>Claude Crépeau</b> (McGill &amp; ÉTS, Canada - đồng tác giả công trình khai sinh <i>viễn tải lượng tử</i>
+              và <i>quantum oblivious transfer</i> dựa trên BB84): nhập môn tính toán lượng tử, quantum money, QKD,
+              kiểm định tính toán lượng tử, pseudorandom states, MPC/ZK/non-local games.</li>
+          <li><b>Khía cạnh toán học của Mật mã hậu lượng tử</b> (codes &amp; lattices) - <b>Thomas Debris-Alazard</b>
+              (Inria / École Polytechnique): giải mã ngẫu nhiên, lược đồ Alekhnovich, quy dẫn worst-case→average-case, quy dẫn lượng tử kiểu Regev.</li>
+          <li><b>Fully Homomorphic Encryption (FHE)</b> - <b>Ilaria Chillotti</b> (DESILO, Seoul): từ Gentry (2009), (R)LWE,
+              đến hai triết lý bootstrapping CGGI/TFHE và CKKS, ứng dụng suy luận trên mạng nơ-ron với dữ liệu mã hóa.</li>
+          <li><b>Two-view principle &amp; Anamorphic Cryptography</b> - <b>Phan Dương Hiệu</b> (Télécom Paris, IPP):
+              mật mã biến hình (do Phan Dương Hiệu cùng Giuseppe Persiano và Moti Yung đề xuất năm 2022) - kênh liên lạc bí mật
+              ẩn ngay trong cấu trúc an toàn của hệ mật, chống lại cả kẻ độc tài buộc giao khóa.</li>
+          <li><b>Functional Encryption (FE)</b> - <b>Nguyễn Ngọc Kỷ</b> (LIP6, CNRS/Sorbonne):
+              từ IPFE (Abdalla-Bourse-De Caro-Pointcheval) đến Multi-Client FE và bản phi tập trung (DMCFE).</li>
+        </ul>` },
+      { h: "Vòng tròn 10 năm - Ilaria Chillotti trở lại", html: `Sự trở lại Việt Nam của GS. <b>Ilaria Chillotti</b>
+          mang ý nghĩa đặc biệt: đúng <b>mười năm trước, tại ASIACRYPT 2016 ở Hà Nội</b>, công trình <b>TFHE</b> của cô cùng
+          các đồng tác giả đã nhận <b>Giải bài báo xuất sắc nhất</b> (bootstrapping < 0,1 giây) - nay cô quay lại giảng chính về FHE.` },
+      { h: "Ban tổ chức", html: `PGS. Lê Minh Hà (VIASM); GS. Phan Dương Hiệu (Télécom Paris, IPP);
+          PGS. Nguyễn Ngọc Kỷ (LIP6, CNRS/Sorbonne); TS. Đỗ Xuân Thành (Viện Khoa học - Công nghệ Mật mã); GS. Khoa Nguyen (Univ. Wollongong, Úc).` },
+      { h: "Báo cáo của học viên", html: `Trường hè dành nửa ngày cho <b>07 báo cáo ngắn</b>, tạo cơ hội để học viên giới thiệu
+          nghiên cứu, nhận phản hồi trực tiếp từ giảng viên và thảo luận các vấn đề mở hướng tới hợp tác.` },
+      { h: "Nối tiếp một hành trình", html: `Trường hè 2026 nối tiếp chuỗi hoạt động mật mã quốc tế tại Việt Nam:
+          VietCrypt 2006 → IACR ASIACRYPT 2016 → IACR-SEAMS 2016 → IACR-VIASM 2022 → ACM ASIACCS 2025 (với diễn đàn vệ tinh
+          Young Cryptographers Forum) → IACR-VIASM 2026, khẳng định vai trò của Việt Nam như một điểm kết nối học thuật của khu vực.` },
+      { h: "Tham khảo", html: `
+          <a href="https://viasm.edu.vn/hoat-dong-khoa-hoc/tin-tuc/chi-tiet/truong-he-iacr-viasm-ve-mat-ma-nam-2026" target="_blank">VIASM - Trường hè IACR-VIASM về Mật mã năm 2026</a> ·
+          <a href="https://nhandan.vn/thuc-day-nghien-cuu-hoc-thuat-mat-ma-giua-viet-nam-voi-quoc-te-post983581.html" target="_blank">Báo Nhân Dân - Thúc đẩy nghiên cứu học thuật mật mã giữa Việt Nam với quốc tế</a>` },
+    ],
+    notes: [],
+    images: [
+      { src: "IACR_SChools/IACR School 2026/17272f96-34fe-4a8b-93f0-26e951bfb938.JPG", cap: "" },
+      { src: "IACR_SChools/IACR School 2026/IMG_7288.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2026/IMG_7309.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2026/IMG_7411.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2026/IMG_7424.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2026/IMG_7428.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2026/IMG_7477.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2026/IMG_7488.jpeg", cap: "" },
+      { src: "IACR_SChools/IACR School 2026/IMG_7506.jpeg", cap: "" },
+    ],
+  },
+];
+
+/* ============================================================= *
+ *  RENDER - không cần sửa phần dưới.                            *
+ * ============================================================= */
+const enc = p => p.split('/').map(encodeURIComponent).join('/');
+
+// Nav (nhãn ngắn gọn; năm hiển thị riêng nên vẫn phân biệt được)
+const NAV_LABEL = {
+  vietcrypt2006: "VietCrypt",
+  asiacrypt2016: "ASIACRYPT",
+  school2016: "IACR-SEAMS School",
+  school2022: "IACR-VIASM School",
+  school2026: "IACR-VIASM School",
+};
+document.getElementById('nav').innerHTML = EVENTS.map(e =>
+  `<a href="#${e.id}"><span class="yr">${e.year}</span>${NAV_LABEL[e.id] || e.title}</a>`
+).join('');
+
+// Events
+document.getElementById('events').innerHTML = EVENTS.map(e => {
+  const statusChip = e.status === 'done'
+    ? `<span class="chip ok">✓ Đã hoàn tất</span>`
+    : `<span class="chip todo">⧗ Đang cập nhật</span>`;
+
+  const meta = e.meta && e.meta.length ? `<div class="meta-grid">${
+    e.meta.map(([k,v]) => `<div class="m"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('')
+  }</div>` : '';
+
+  const sections = (e.sections||[]).map(s =>
+    `<div class="sec"><h3>${s.h}</h3><div>${s.html}</div></div>`).join('');
+
+  const notes = (e.notes||[]).length
+    ? `<div class="note"><b>Cần bổ sung:</b><ul style="margin:6px 0 0">${
+        e.notes.map(n => `<li>${n}</li>`).join('')}</ul></div>`
+    : '';
+
+  const vids = e.videos ? e.videos : (e.video ? [{url:e.video, cap:''}] : []);
+  const video = vids.length ? `<div class="sec"><h3>Video</h3>${
+    vids.map(v => `<div class="video-wrap"><iframe src="${v.url}" title="video" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe></div>${v.cap ? `<div class="vcap">${v.cap}</div>` : ''}`).join('')
+  }</div>` : '';
+
+  const gallery = (e.images||[]).length ? `<div class="gallery">${
+    e.images.map(im =>
+      `<figure onclick="openLb('${enc(im.src)}','${(im.cap||'').replace(/'/g,"\\'")}')">
+         <img loading="lazy" src="${enc(im.src)}" alt="${im.cap||''}"
+              onerror="this.parentNode.style.display='none'">
+         ${im.cap ? `<figcaption>${im.cap}</figcaption>` : ''}
+       </figure>`).join('')
+  }</div>` : '';
+
+  return `<section class="event" id="${e.id}">
+    <div class="event-head">
+      <div class="badge-year">${e.year}</div>
+      <div>
+        <h2>${e.title}</h2>
+        <div class="sub">${e.subtitle}</div>
+        ${statusChip}
+      </div>
+    </div>
+    <div class="event-body">
+      ${meta}${sections}${video}${notes}${gallery}
+    </div>
+  </section>`;
+}).join('');
+
+// Lightbox
+function openLb(src, cap){
+  document.getElementById('lbimg').src = src;
+  document.getElementById('lbcap').innerHTML = cap || '';
+  document.getElementById('lb').classList.add('on');
+}
+function closeLb(){ document.getElementById('lb').classList.remove('on'); }
+document.getElementById('lb').addEventListener('click', e => { if(e.target.id==='lb') closeLb(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLb(); });
+</script>
+</body>
+</html>

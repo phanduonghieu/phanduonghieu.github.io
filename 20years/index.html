@@ -579,21 +579,12 @@ document.getElementById('nav').innerHTML = EVENTS.map(e =>
 
 // Events
 document.getElementById('events').innerHTML = EVENTS.map(e => {
-  const statusChip = e.status === 'done'
-    ? `<span class="chip ok">✓ Đã hoàn tất</span>`
-    : `<span class="chip todo">⧗ Đang cập nhật</span>`;
-
   const meta = e.meta && e.meta.length ? `<div class="meta-grid">${
     e.meta.map(([k,v]) => `<div class="m"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('')
   }</div>` : '';
 
   const sections = (e.sections||[]).map(s =>
     `<div class="sec"><h3>${s.h}</h3><div>${s.html}</div></div>`).join('');
-
-  const notes = (e.notes||[]).length
-    ? `<div class="note"><b>Cần bổ sung:</b><ul style="margin:6px 0 0">${
-        e.notes.map(n => `<li>${n}</li>`).join('')}</ul></div>`
-    : '';
 
   const vids = e.videos ? e.videos : (e.video ? [{url:e.video, cap:''}] : []);
   const video = vids.length ? `<div class="sec"><h3>Video</h3>${
@@ -617,11 +608,10 @@ document.getElementById('events').innerHTML = EVENTS.map(e => {
       <div>
         <h2>${e.title}</h2>
         <div class="sub">${e.subtitle}</div>
-        ${statusChip}
       </div>
     </div>
     <div class="event-body">
-      ${meta}${sections}${video}${notes}${gallery}
+      ${meta}${sections}${video}${gallery}
     </div>
   </section>`;
 }).join('');

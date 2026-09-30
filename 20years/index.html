@@ -491,6 +491,57 @@ const EVENTS = [
   },
 
   {
+    id: "asiaccs2025",
+    year: "2025",
+    title: "ACM ASIACCS 2025",
+    subtitle: "Hội nghị bảo mật máy tính & truyền thông hàng đầu châu Á của ACM (ASIACCS lần thứ 20) - Hà Nội đăng cai",
+    meta: [
+      ["Thời gian", "25-29/08/2025"],
+      ["Địa điểm", "Hà Nội, Việt Nam"],
+      ["Lần thứ", "ASIACCS thứ 20"],
+      ["Tổ chức", "ĐH Bách khoa Hà Nội (HUST)"],
+      ["Kỷ yếu", "ACM Digital Library"],
+    ],
+    sections: [
+      { h: "Ý nghĩa", html: `<b>ACM ASIACCS</b> (ACM Asia Conference on Computer and Communications Security) là hội nghị
+          bảo mật thông tin hàng đầu của châu Á, do <b>ACM SIGSAC</b> tổ chức - phiên bản châu Á của hội nghị danh giá
+          <b>ACM CCS</b>. Đây là kỳ <b>thứ 20</b>, lần này do <b>Hà Nội đăng cai</b>, ĐH Bách khoa Hà Nội (HUST) tổ chức.
+          Việc một hội nghị bảo mật lớn của ACM về Việt Nam - với GS. Phan Dương Hiệu là đồng Trưởng ban - tiếp tục mở
+          rộng hợp tác quốc tế của Việt Nam sang cả cộng đồng an toàn thông tin (bên cạnh mật mã lý thuyết).` },
+      { h: "Ban tổ chức", html: `<ul>
+          <li><b>General Chairs:</b> Huỳnh Quyết Thắng (ĐH Bách khoa Hà Nội) &amp; Phan Dương Hiệu (Institut Polytechnique de Paris)</li>
+          <li><b>Program Chairs:</b> Michail Maniatakos (NYU Abu Dhabi) &amp; Yinqian Zhang (SUSTech, Trung Quốc)</li>
+          <li><b>Local Organizing Chairs:</b> Huỳnh Thị Thanh Bình &amp; Trần Quang Đức (ĐH Bách khoa Hà Nội)</li>
+          <li><b>Workshop Chair:</b> Khoa Nguyen (Univ. Wollongong)</li>
+        </ul>` },
+      { h: "Phát biểu mời (Keynotes)", html: `<ul>
+          <li><b>Moti Yung</b> (Google / Columbia) - <i>Malicious Cryptography: Repurposing Cryptographic Mechanisms for
+              Unintended Tasks</i> (đề cập cả Anamorphic Encryption - hướng nghiên cứu ông cùng phát triển với GS. Phan Dương Hiệu).</li>
+          <li><b>Wenyuan Xu</b> (Zhejiang University) - <i>The Double-Edged Sword of Facial and Voice Recognition: Analyzing Risks and Solutions</i>.</li>
+          <li><b>Yier Jin</b> (Huawei) - <i>virtCCA and CoDA: An Industrial Practice in Advancing AI Confidential Computing on ARM Platforms</i>.</li>
+        </ul>` },
+      { h: "Young Cryptographers Forum", html: `Trong khuôn khổ hội nghị có diễn đàn vệ tinh <b>Young Cryptographers Forum</b>
+          dành cho các nhà mật mã trẻ - một điểm kết nối thế hệ nghiên cứu mới của Việt Nam với quốc tế.` },
+      { h: "Tham khảo", html: `
+          <a href="https://asiaccs2025.hust.edu.vn/organization/" target="_blank">Trang chính thức ACM ASIACCS 2025</a> ·
+          <a href="https://laodong.vn/the-gioi-so/ha-noi-dang-cai-hoi-nghi-bao-mat-quoc-te-acm-asiaccs-2025-1564954.ldo" target="_blank">Báo Lao Động - Hà Nội đăng cai ACM AsiaCCS 2025</a>` },
+    ],
+    images: [
+      { src: "ACM AsiaCCS2025/ACMCCS.jpg", cap: "ACM ASIACCS 2025 - Hà Nội" },
+      { src: "ACM AsiaCCS2025/ACMCCS_Outside.jpg", cap: "" },
+      { src: "ACM AsiaCCS2025/A47I3138.jpeg", cap: "" },
+      { src: "ACM AsiaCCS2025/A47I3278.jpeg", cap: "" },
+      { src: "ACM AsiaCCS2025/A47I3315.jpeg", cap: "" },
+      { src: "ACM AsiaCCS2025/A47I3357.jpeg", cap: "" },
+      { src: "ACM AsiaCCS2025/A47I5520.jpeg", cap: "" },
+      { src: "ACM AsiaCCS2025/A47I5591.jpeg", cap: "" },
+      { src: "ACM AsiaCCS2025/A47I6784.jpeg", cap: "" },
+      { src: "ACM AsiaCCS2025/IMG_1947.jpeg", cap: "" },
+      { src: "ACM AsiaCCS2025/IMG_1959.jpeg", cap: "" },
+    ],
+  },
+
+  {
     id: "school2026",
     year: "2026",
     title: "IACR-VIASM Summer School on Cryptography 2026",
@@ -571,6 +622,7 @@ const NAV_LABEL = {
   asiacrypt2016: "ASIACRYPT",
   school2016: "IACR-SEAMS School",
   school2022: "IACR-VIASM School",
+  asiaccs2025: "ACM AsiaCCS",
   school2026: "IACR-VIASM School",
 };
 document.getElementById('nav').innerHTML = EVENTS.map(e =>
